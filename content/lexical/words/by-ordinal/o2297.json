@@ -6,14 +6,46 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:2ba050de1d83dd042e98",
+        "pattern": "move heaven and earth",
+        "meaning_cn": "竭尽全力",
+        "definition_en": "to make every possible effort to achieve something",
+        "usage_note": "整体表达；We moved heaven and earth to find her。",
+        "boundary": "整体表达；We moved heaven and earth to find her。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:868f66bfd3379db28664",
+        "pattern": "in seventh heaven",
+        "meaning_cn": "欣喜若狂",
+        "definition_en": "extremely happy",
+        "usage_note": "固定用法；不是第七层真实天空。",
+        "boundary": "固定用法；不是第七层真实天空。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "ccadb66fb860c3da0c88964d71dbc80e99e74d64c2f32d8118f04cce16be9d1b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "天堂；天空",
-      "core_meaning_en": "the place where God is believed to live, or the sky",
-      "mental_model_cn": "天堂；天空",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "天堂；天国；天空；苍穹（常用复数 the heavens）；令人极其愉快的地方或情形（非正式）",
+          "label_en": "the abode of God and the angels; the sky, especially in the plural the heavens; a place or situation of great happiness",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:heaven:9d483ae7fc35597e",
+            "sense:heaven:9205b450374b5981",
+            "sense:heaven:0487fd6d2efca63c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "宗教天堂、文学天空或极其愉快的情形",
+      "core_meaning_en": "religious heaven, the literary sky, or great happiness",
+      "mental_model_cn": "the heavens以复数表示天空；非正式heaven也可表示极其愉快的地方或体验。",
+      "mental_model_en": "religious heaven, the literary sky, or great happiness."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -65,20 +97,42 @@
               "sense:heaven:9205b450374b5981:collocation:0"
             ],
             "meaning_cn": "星空",
-            "phrase": "the starry heaven"
+            "phrase": "the starry heavens"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "天空；苍天",
-        "definition_en": "the sky, especially when seen as a spiritual place",
-        "governing_pattern": "",
+        "definition_cn": "天空；苍穹（常用复数 the heavens）",
+        "definition_en": "the sky, especially in the plural the heavens",
+        "governing_pattern": "usually plural: the heavens",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:heaven:9205b450374b5981",
-        "sense_label_en": "the sky, especially when seen as a spiritual place",
+        "sense_label_en": "the sky, especially in the plural the heavens",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:heaven:0487fd6d2efca63c",
+        "pos": "noun",
+        "definition_cn": "令人极其愉快的地方或情形（非正式）",
+        "definition_en": "a place or situation of great happiness",
+        "sense_label_en": "a place or situation of great happiness",
+        "governing_pattern": "heaven for somebody; in heaven",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:74d42582638fc06e9ea6",
+            "phrase": "The quiet garden was heaven for readers.",
+            "meaning_cn": "这个安静花园对读书人来说十分惬意。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -108,6 +162,23 @@
           "applicability": [
             {
               "surface": "heaven"
+            },
+            {
+              "surface": "heaven",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:heaven:0487fd6d2efca63c"
+              ],
+              "owner_sense_ids": [
+                "sense:heaven:0487fd6d2efca63c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2297.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "heaven for somebody; in heaven"
             }
           ],
           "sources": [
@@ -433,12 +504,21 @@
         "merged_into_sense_id": null,
         "source_row": 6422,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
+      },
+      {
+        "sense_id": "sense:heaven:0487fd6d2efca63c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2297.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:6ba783035358344246f2",
+      "collocation:edf4f66286f49a2ad659",
       "collocation:c33f4f4d4c51d27e14b2",
-      "collocation:edf4f66286f49a2ad659"
+      "collocation:6ba783035358344246f2",
+      "collocation:74d42582638fc06e9ea6"
     ],
     "facts": [],
     "collocations": [
@@ -456,6 +536,13 @@
         "id": "collocation:edf4f66286f49a2ad659",
         "source_row": 20167,
         "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+      },
+      {
+        "id": "collocation:74d42582638fc06e9ea6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2297.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

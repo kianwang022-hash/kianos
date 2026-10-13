@@ -5,7 +5,7 @@
     "ordinal": 3009,
     "word": "meet",
     "source_owner_path": "content/lexical/words/by-ordinal/o3009.json",
-    "source_fingerprint": "8df2997fadb5420ade298861b3ec4d09d6083da1c76ea0b2c306aa6d122b20f3",
+    "source_fingerprint": "e106078bd84b21127fd6086ad7883df221ad2d7ce5c6fcf57bb44f2b955da05e",
     "sense_lineage": [
       {
         "word_id": "word:meet",
@@ -24,19 +24,19 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "7V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "遇见；满足",
-      "decision_cn": "",
+      "summary_cn": "遇见会面、迎接交锋；满足；遭遇交汇；支付",
+      "decision_cn": "meet a visitor是会面或接站；meet a standard是达标；meet a cost是支付；两条路径meet是交汇；遇到反对可用meet with resistance。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "遇见；满足"
+        "target_label": "遇见会面、迎接交锋；满足；遭遇交汇；支付"
       }
     },
     "senses": [
@@ -44,10 +44,10 @@
         "id": "sense:meet:b72a3ee9a352528c",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "I/T: meet sb; meet at/in + place/time",
+        "governing_pattern": "meet (sb); meet at/in a place; meet for sth; meet to do sth; meet with sb",
         "definition_cn": "遇见；会面；集合",
         "definition_en": "to come together with someone, by chance or arrangement, or for a meeting",
-        "note": "",
+        "note": "可表示偶遇、约好会面、正式商议或初次结识；meet sb at the station也可表示迎接到来的人，须看安排与到达语境。",
         "identity_overlay": null,
         "usage": [
           {
@@ -78,7 +78,7 @@
         "governing_pattern": "",
         "definition_cn": "运动会，集会",
         "definition_en": "a meeting at which a number of athletic contests are held",
-        "note": "",
+        "note": "名词meet常指运动会，尤其美式track/swim meet；不据中文“集会”把普通商务会议一律译为meet。",
         "identity_overlay": null,
         "usage": [
           {
@@ -101,7 +101,7 @@
         "id": "sense:meet:7d8ee826bcf35e12",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "meet a need/demand/requirement/standard/condition/deadline",
         "definition_cn": "满足；符合；达到",
         "definition_en": "to satisfy or fulfill a need, requirement, standard, or condition",
         "note": "",
@@ -112,6 +112,136 @@
           "target_id": "sense:meet:7d8ee826bcf35e12",
           "target_locator": "record.senses[2]",
           "target_label": "满足；符合；达到"
+        }
+      },
+      {
+        "id": "sense:meet:9fca405331c029f6",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "meet sb at a station; meet sb off a train",
+        "definition_cn": "到某处迎接、接到来的人或交通工具",
+        "definition_en": "to go somewhere to receive an arriving person or vehicle",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4a2aedeaf46a5837a2b7",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "meet a visitor at the station",
+            "meaning_cn": "到车站接访客",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:meet:9fca405331c029f6",
+          "target_locator": "record.senses[3]",
+          "target_label": "到某处迎接、接到来的人或交通工具"
+        }
+      },
+      {
+        "id": "sense:meet:7d0e06b7f89e9155",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "meet (sb) in a final/contest",
+        "definition_cn": "在比赛或较量中与对手交锋",
+        "definition_en": "to play or fight against an opponent",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e8e26f02e48421d64c72",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "the two teams meet in the final",
+            "meaning_cn": "两队在决赛中交锋",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:meet:7d0e06b7f89e9155",
+          "target_locator": "record.senses[4]",
+          "target_label": "在比赛或较量中与对手交锋"
+        }
+      },
+      {
+        "id": "sense:meet:e1e68268d3c9956a",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "meet a problem/challenge; meet your death",
+        "definition_cn": "遇到、经历（困难、不快等）",
+        "definition_en": "to experience something, often a difficulty or misfortune",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:337f0b710e4abd27fe34",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "meet an unexpected difficulty",
+            "meaning_cn": "遇到意料之外的困难",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:meet:e1e68268d3c9956a",
+          "target_locator": "record.senses[5]",
+          "target_label": "遇到、经历（困难、不快等）"
+        }
+      },
+      {
+        "id": "sense:meet:e94ef120a10be987",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "two edges meet; a river meets the sea",
+        "definition_cn": "接触；相接；交汇",
+        "definition_en": "to touch or join together",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b81a332ac2b3edf93841",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "the paths meet here",
+            "meaning_cn": "小路在这里交汇",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:meet:e94ef120a10be987",
+          "target_locator": "record.senses[6]",
+          "target_label": "接触；相接；交汇"
+        }
+      },
+      {
+        "id": "sense:meet:c9f35470476c5f24",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "meet the cost/expenses/a bill",
+        "definition_cn": "支付、承担（费用、账单等）",
+        "definition_en": "to pay or cover a cost or financial obligation",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:ba1d6a4d53a5d0ef3385",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "meet the travel expenses",
+            "meaning_cn": "承担差旅费用",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:meet:c9f35470476c5f24",
+          "target_locator": "record.senses[7]",
+          "target_label": "支付、承担（费用、账单等）"
         }
       }
     ],
@@ -125,6 +255,96 @@
           "applicability": [
             {
               "surface": "meet"
+            },
+            {
+              "surface": "meet",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:meet:9fca405331c029f6"
+              ],
+              "owner_sense_ids": [
+                "sense:meet:9fca405331c029f6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3009.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "meet sb at a station; meet sb off a train",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "meet",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:meet:7d0e06b7f89e9155"
+              ],
+              "owner_sense_ids": [
+                "sense:meet:7d0e06b7f89e9155"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3009.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "meet (sb) in a final/contest",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "meet",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:meet:e1e68268d3c9956a"
+              ],
+              "owner_sense_ids": [
+                "sense:meet:e1e68268d3c9956a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3009.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "meet a problem/challenge; meet your death",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "meet",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:meet:e94ef120a10be987"
+              ],
+              "owner_sense_ids": [
+                "sense:meet:e94ef120a10be987"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3009.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "two edges meet; a river meets the sea",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "meet",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:meet:c9f35470476c5f24"
+              ],
+              "owner_sense_ids": [
+                "sense:meet:c9f35470476c5f24"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3009.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "meet the cost/expenses/a bill",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -138,17 +358,254 @@
           "applicability": [
             {
               "surface": "meet"
+            },
+            {
+              "surface": "meet",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:meet:9fca405331c029f6"
+              ],
+              "owner_sense_ids": [
+                "sense:meet:9fca405331c029f6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3009.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "meet sb at a station; meet sb off a train",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "meet",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:meet:7d0e06b7f89e9155"
+              ],
+              "owner_sense_ids": [
+                "sense:meet:7d0e06b7f89e9155"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3009.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "meet (sb) in a final/contest",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "meet",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:meet:e1e68268d3c9956a"
+              ],
+              "owner_sense_ids": [
+                "sense:meet:e1e68268d3c9956a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3009.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "meet a problem/challenge; meet your death",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "meet",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:meet:e94ef120a10be987"
+              ],
+              "owner_sense_ids": [
+                "sense:meet:e94ef120a10be987"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3009.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "two edges meet; a river meets the sea",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "meet",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:meet:c9f35470476c5f24"
+              ],
+              "owner_sense_ids": [
+                "sense:meet:c9f35470476c5f24"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3009.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "meet the cost/expenses/a bill",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:meet:7d0e06b7f89e9155": [
+          0,
+          1
+        ],
+        "sense:meet:9fca405331c029f6": [
+          0,
+          1
+        ],
+        "sense:meet:c9f35470476c5f24": [
+          0,
+          1
+        ],
+        "sense:meet:e1e68268d3c9956a": [
+          0,
+          1
+        ],
+        "sense:meet:e94ef120a10be987": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cbb86f719ce9915e450d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "meet with sth; be met with/by sth; meet sth with sth",
+        "lines": [
+          {
+            "text": "受到某种反应；以某种方式回应",
+            "lang": "cn"
+          },
+          {
+            "text": "宾语为approval/resistance等反应时，不是“与某物会面”；meet with an accident是遭遇事故。",
+            "lang": "cn"
+          },
+          {
+            "text": "receive a particular response, or respond in a particular way",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cbb86f719ce9915e450d",
+          "target_locator": "record.constructions[0]",
+          "target_label": "meet with sth; be met with/by sth; meet sth with sth"
+        }
+      },
+      {
+        "id": "construction:a5b039e23305771e727d",
+        "source_locator": "record.constructions[1]",
+        "pattern": "meet with an accident/disaster",
+        "lines": [
+          {
+            "text": "遭遇事故、灾祸",
+            "lang": "cn"
+          },
+          {
+            "text": "with后的对象为遭遇事件，区别approval/resistance反应。",
+            "lang": "cn"
+          },
+          {
+            "text": "experience an accident or disaster",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a5b039e23305771e727d",
+          "target_locator": "record.constructions[1]",
+          "target_label": "meet with an accident/disaster"
+        }
+      },
+      {
+        "id": "construction:dc57297b03e00aa50787",
+        "source_locator": "record.constructions[2]",
+        "pattern": "meet sb halfway",
+        "lines": [
+          {
+            "text": "彼此让步；作部分妥协",
+            "lang": "cn"
+          },
+          {
+            "text": "通常比喻双方各让一步，也可按语境字面理解。",
+            "lang": "cn"
+          },
+          {
+            "text": "reach agreement by making a partial concession",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dc57297b03e00aa50787",
+          "target_locator": "record.constructions[2]",
+          "target_label": "meet sb halfway"
+        }
+      },
+      {
+        "id": "construction:b23bc3b411867c950ec5",
+        "source_locator": "record.constructions[3]",
+        "pattern": "meet sb’s eyes/gaze; people’s eyes meet",
+        "lines": [
+          {
+            "text": "与某人目光相接；对视",
+            "lang": "cn"
+          },
+          {
+            "text": "人作主语是对视；a sight meets your eyes表示某景象映入眼帘。",
+            "lang": "cn"
+          },
+          {
+            "text": "look directly at one another",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b23bc3b411867c950ec5",
+          "target_locator": "record.constructions[3]",
+          "target_label": "meet sb’s eyes/gaze; people’s eyes meet"
+        }
+      },
+      {
+        "id": "construction:d90613acedba87777ddb",
+        "source_locator": "record.constructions[4]",
+        "pattern": "there is more to sb/sth than meets the eye",
+        "lines": [
+          {
+            "text": "某人或事比表面看来更复杂",
+            "lang": "cn"
+          },
+          {
+            "text": "不是“眼睛能看见更多”；完整句式为there is more to ... than meets the eye。",
+            "lang": "cn"
+          },
+          {
+            "text": "be more complex than appearances suggest",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d90613acedba87777ddb",
+          "target_locator": "record.constructions[4]",
+          "target_label": "there is more to sb/sth than meets the eye"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -214,11 +671,19 @@
     "ordinal": 3010,
     "word": "meeting",
     "source_owner_path": "content/lexical/words/by-ordinal/o3010.json",
-    "source_fingerprint": "23c0213f1ebe8fd104541b564bfb8719cf09dbd5a6edf9ee065c77fe468519f1",
-    "sense_lineage": [],
+    "source_fingerprint": "ba3fec7765d476a6aa258a7fa77ae2ad6b349ed5bb388018dc99bb75e3b2a361",
+    "sense_lineage": [
+      {
+        "word_id": "word:meeting",
+        "target_kind": "sense",
+        "from_target_id": "sense:meeting:b2c0aee23d765c95",
+        "status": "merged",
+        "to_target_id": "sense:meeting:6012dd4174ee55a3"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -238,8 +703,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "正式安排的会议",
-        "definition_en": "a formally arranged gathering",
+        "definition_cn": "会议；聚集在一起的场合（尤其为商议事情，可正式或非正式）",
+        "definition_en": "an occasion when people gather, especially to discuss something, formally or informally",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -258,44 +723,26 @@
             "meaning_cn": "参加会议",
             "kind": "usage_example",
             "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:meeting:6012dd4174ee55a3",
-          "target_locator": "record.senses[0]",
-          "target_label": "正式安排的会议"
-        }
-      },
-      {
-        "id": "sense:meeting:b2c0aee23d765c95",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "非正式的小型社交聚会",
-        "definition_en": "a small informal social gathering",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
+          },
           {
             "id": "collocation:665d21825f18f6670e32",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[2]",
             "phrase": "a family meeting",
-            "meaning_cn": "家庭聚会",
+            "meaning_cn": "家庭会议；家庭成员一起商议",
             "kind": "usage_example",
             "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:meeting:b2c0aee23d765c95",
-          "target_locator": "record.senses[1]",
-          "target_label": "非正式的小型社交聚会"
+          "target_id": "sense:meeting:6012dd4174ee55a3",
+          "target_locator": "record.senses[0]",
+          "target_label": "会议；聚集在一起的场合（尤其为商议事情，可正式或非正式）"
         }
       },
       {
         "id": "sense:meeting:d7216fc17a0c5d2d",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "偶然或意外的相遇",
@@ -305,7 +752,7 @@
         "usage": [
           {
             "id": "collocation:4c4130a9146d85643293",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a chance meeting",
             "meaning_cn": "偶遇",
             "kind": "usage_example",
@@ -315,7 +762,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:meeting:d7216fc17a0c5d2d",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "偶然或意外的相遇"
         }
       }
@@ -360,9 +807,54 @@
       "form": null,
       "family": [
         {
-          "target_word": "",
-          "lines": [],
+          "target_word": "meet",
+          "lines": [
+            {
+              "text": "meeting是会议或相遇的名词；meet是人们相聚的相关动词。",
+              "lang": "cn"
+            },
+            {
+              "text": "词族成员不能直接互换：使用名词meeting或动词meet时须相应调整句子语法。",
+              "lang": "cn"
+            },
+            {
+              "text": "meet is the related verb; meeting is a noun for an occasion when people meet",
+              "lang": "en"
+            }
+          ],
           "source_locator": "record.word_family[0]"
+        }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:665d21825f18f6670e32",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:meeting:b2c0aee23d765c95:collocation:0"
+              ],
+              "meaning_cn": "家庭聚会",
+              "phrase": "a family meeting"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "非正式的小型社交聚会",
+          "definition_en": "a small informal social gathering",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:meeting:b2c0aee23d765c95",
+          "sense_label_en": "a small informal social gathering",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:meeting:b2c0aee23d765c95",
+          "status": "merged",
+          "merged_into_sense_id": "sense:meeting:6012dd4174ee55a3",
+          "reference_only": true,
+          "source_row": 8398,
+          "source_path": "content/lexical/canonical/senses/shards/o3009-3040.json"
         }
       ]
     }
@@ -373,7 +865,7 @@
     "ordinal": 3011,
     "word": "melody",
     "source_owner_path": "content/lexical/words/by-ordinal/o3011.json",
-    "source_fingerprint": "5b66bb6051881d3d9ac074cba34768912b4fc9732aa172baaa4a070285a95aaf",
+    "source_fingerprint": "1c0ade75b8ae9c8731832f595f08eb23efe5fee7d32b2e223a00fedb265aeefb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -382,13 +874,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "悦耳的曲调",
-      "decision_cn": "",
+      "summary_cn": "曲调、旋律",
+      "decision_cn": "可指一首曲子的主要旋律，或音符的旋律组织；beautiful等形容词另说明是否优美。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "悦耳的曲调"
+        "target_label": "曲调、旋律"
       }
     },
     "senses": [
@@ -397,9 +889,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "曲调，旋律，悦耳的音乐",
-        "definition_en": "a pleasing arrangement of musical notes",
-        "note": "",
+        "definition_cn": "曲调；旋律；曲调清晰或简单的曲子",
+        "definition_en": "a tune or arrangement of notes, or a piece of music with a clear tune",
+        "note": "melody不必以“悦耳”为必要条件；可指多声部音乐中的主要旋律。",
         "identity_overlay": null,
         "usage": [
           {
@@ -415,7 +907,7 @@
           "target_kind": "sense",
           "target_id": "sense:melody:1dd6b84164b95447",
           "target_locator": "record.senses[0]",
-          "target_label": "曲调，旋律，悦耳的音乐"
+          "target_label": "曲调；旋律；曲调清晰或简单的曲子"
         }
       }
     ],
@@ -477,7 +969,7 @@
     "ordinal": 3012,
     "word": "melon",
     "source_owner_path": "content/lexical/words/by-ordinal/o3012.json",
-    "source_fingerprint": "280e8dddb3a91099f73ae13c26d78b161aa9701594ca673e2a93c47e2c1c32e5",
+    "source_fingerprint": "3c8173eaeb2cbc13324840c68559b2eaa0ab14c718b759622332b4ec648257c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -558,22 +1050,22 @@
     "ordinal": 3013,
     "word": "melt",
     "source_owner_path": "content/lexical/words/by-ordinal/o3013.json",
-    "source_fingerprint": "47ed12821e2963f5df5cc3c5f51e9abf7f6c0702dad197e469f79164855c4668",
+    "source_fingerprint": "e6082dd3e935770ce59d6940e48b3e6fc478eaba73810bb14b647505d9f50ace",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V"
+        "5V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "熔化；溶解；消散",
-      "decision_cn": "",
+      "summary_cn": "（使）融化；消散融入；情绪缓和",
+      "decision_cn": "受热变液体是融化；melt away/into表示消散或融入；melt sb’s heart使人心软；人的I’m melting是热的夸张说法。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "熔化；溶解；消散"
+        "target_label": "（使）融化；消散融入；情绪缓和"
       }
     },
     "senses": [
@@ -582,7 +1074,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "（使）熔化，（使）溶解",
+        "definition_cn": "（使）熔化；（使）融化",
         "definition_en": "to change or cause to change from solid to liquid by heating",
         "note": "",
         "identity_overlay": null,
@@ -591,7 +1083,7 @@
           "target_kind": "sense",
           "target_id": "sense:melt:2b6da1def6075d77",
           "target_locator": "record.senses[0]",
-          "target_label": "（使）熔化，（使）溶解"
+          "target_label": "（使）熔化；（使）融化"
         }
       },
       {
@@ -671,6 +1163,49 @@
           "target_locator": "record.senses[2]",
           "target_label": "逐渐融合，融入"
         }
+      },
+      {
+        "id": "sense:melt:b67e7228e9a56c43",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "a feeling melts; melt sb’s heart",
+        "definition_cn": "（使情绪、态度等）缓和、变温柔；使心软",
+        "definition_en": "to soften a feeling or emotion, or make it less strong",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:aa568d92fd76c79b2d39",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "the anger melted",
+            "meaning_cn": "怒气渐渐平息",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:melt:b67e7228e9a56c43",
+          "target_locator": "record.senses[3]",
+          "target_label": "（使情绪、态度等）缓和、变温柔；使心软"
+        }
+      },
+      {
+        "id": "sense:melt:448d29ce9825a706",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "I’m melting",
+        "definition_cn": "（夸张地说）热得快化了",
+        "definition_en": "to feel extremely hot, figuratively",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:melt:448d29ce9825a706",
+          "target_locator": "record.senses[4]",
+          "target_label": "（夸张地说）热得快化了"
+        }
       }
     ],
     "pronunciation_support": {
@@ -681,6 +1216,42 @@
           "applicability": [
             {
               "surface": "melt"
+            },
+            {
+              "surface": "melt",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:melt:b67e7228e9a56c43"
+              ],
+              "owner_sense_ids": [
+                "sense:melt:b67e7228e9a56c43"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3013.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a feeling melts; melt sb’s heart",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "melt",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:melt:448d29ce9825a706"
+              ],
+              "owner_sense_ids": [
+                "sense:melt:448d29ce9825a706"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3013.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "I’m melting",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -694,17 +1265,138 @@
           "applicability": [
             {
               "surface": "melt"
+            },
+            {
+              "surface": "melt",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:melt:b67e7228e9a56c43"
+              ],
+              "owner_sense_ids": [
+                "sense:melt:b67e7228e9a56c43"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3013.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a feeling melts; melt sb’s heart",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "melt",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:melt:448d29ce9825a706"
+              ],
+              "owner_sense_ids": [
+                "sense:melt:448d29ce9825a706"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3013.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "I’m melting",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:melt:448d29ce9825a706": [
+          0,
+          1
+        ],
+        "sense:melt:b67e7228e9a56c43": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cfa60a92ddf3582d72c4",
+        "source_locator": "record.constructions[0]",
+        "pattern": "melt in your mouth",
+        "lines": [
+          {
+            "text": "（食物）柔嫩可口、入口即化",
+            "lang": "cn"
+          },
+          {
+            "text": "可用于食物口感，并非必须像金属受热液化。",
+            "lang": "cn"
+          },
+          {
+            "text": "be tender and pleasant to eat",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cfa60a92ddf3582d72c4",
+          "target_locator": "record.constructions[0]",
+          "target_label": "melt in your mouth"
+        }
+      },
+      {
+        "id": "construction:4f92b5564017b496e19f",
+        "source_locator": "record.constructions[1]",
+        "pattern": "butter wouldn’t melt in sb’s mouth",
+        "lines": [
+          {
+            "text": "装得天真无辜或温顺",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式，暗含表里不一，不是在说明奶油的温度。",
+            "lang": "cn"
+          },
+          {
+            "text": "appear innocent while being less innocent than you seem",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:4f92b5564017b496e19f",
+          "target_locator": "record.constructions[1]",
+          "target_label": "butter wouldn’t melt in sb’s mouth"
+        }
+      },
+      {
+        "id": "construction:c5621b5e77abf090429a",
+        "source_locator": "record.constructions[2]",
+        "pattern": "melt sth down",
+        "lines": [
+          {
+            "text": "把金属或蜡制品熔化（通常为重新利用）",
+            "lang": "cn"
+          },
+          {
+            "text": "可分离，代词置于中间：melt it down。",
+            "lang": "cn"
+          },
+          {
+            "text": "liquefy a metal or wax object, often for reuse",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c5621b5e77abf090429a",
+          "target_locator": "record.constructions[2]",
+          "target_label": "melt sth down"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -718,7 +1410,7 @@
     "ordinal": 3014,
     "word": "member",
     "source_owner_path": "content/lexical/words/by-ordinal/o3014.json",
-    "source_fingerprint": "656764cc07a2079124add5d50344f774a6c1978a5965eb6d1e4a5abf10f27faf",
+    "source_fingerprint": "fc5f892f539be845b3abfc63e1da340bae6b13fff38bba14e127d100d6d54fa8",
     "sense_lineage": [
       {
         "word_id": "word:member",
@@ -797,8 +1489,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "肢体",
-        "definition_en": "a part of the body, such as an arm or leg",
+        "definition_cn": "（旧式或文学用语）肢体",
+        "definition_en": "(old-fashioned or literary) a part of the body, such as an arm or leg",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -806,7 +1498,7 @@
             "id": "collocation:80165e92978eab4ce9ce",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "lower member",
-            "meaning_cn": "下肢",
+            "meaning_cn": "下肢（旧式或文学用语；日常通常用 limb）",
             "kind": "usage_example",
             "repair": null
           }
@@ -815,7 +1507,7 @@
           "target_kind": "sense",
           "target_id": "sense:member:fa72f80e043a5fd6",
           "target_locator": "record.senses[1]",
-          "target_label": "肢体"
+          "target_label": "（旧式或文学用语）肢体"
         }
       }
     ],
@@ -1276,11 +1968,19 @@
     "ordinal": 3018,
     "word": "memory",
     "source_owner_path": "content/lexical/words/by-ordinal/o3018.json",
-    "source_fingerprint": "d93196d296deeae14f17f343c02b8231738bf58175a998ea47ae20ffb8c9b3c7",
-    "sense_lineage": [],
+    "source_fingerprint": "915bb9857a11a107c013da4649486ae637b516454ecc0422116b38c47570201d",
+    "sense_lineage": [
+      {
+        "word_id": "word:memory",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b976f19aeca352c9ec31",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "5N"
       ],
       "density": "rich"
     },
@@ -1317,7 +2017,7 @@
             "id": "collocation:fa53428ff48573a5b539",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "memory for + sth",
-            "meaning_cn": "对…的记忆",
+            "meaning_cn": "记住某类信息的能力（常说 a good/bad memory for…）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -1351,19 +2051,6 @@
             "meaning_cn": "童年回忆",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:b976f19aeca352c9ec31",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "in memory of + sb/sth",
-            "meaning_cn": "为了纪念…",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b976f19aeca352c9ec31",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "in memory of + sb/sth"
-            }
           }
         ],
         "repair": {
@@ -1379,8 +2066,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "存储器，内存",
-        "definition_en": "the part of a computer that stores information",
-        "note": "",
+        "definition_en": "computer storage, or the amount of space available for storing information",
+        "note": "可指电脑存储信息的部分，也可指其存储空间/容量，如memory capacity。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1406,6 +2093,58 @@
           "target_locator": "record.senses[2]",
           "target_label": "存储器，内存"
         }
+      },
+      {
+        "id": "sense:memory:78d2601fcabf47e5",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "in/within recent/living memory",
+        "definition_cn": "（个人或群体）记得的时间范围",
+        "definition_en": "the span of time whose events people can remember",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9ddccc630a5ff0f1eaac",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "within living memory",
+            "meaning_cn": "在仍有人能记得的年代范围内",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:memory:78d2601fcabf47e5",
+          "target_locator": "record.senses[3]",
+          "target_label": "（个人或群体）记得的时间范围"
+        }
+      },
+      {
+        "id": "sense:memory:99b9353a2e80eacd",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "honour sb’s memory; sb’s memory lives on",
+        "definition_cn": "（对已故者的）记忆、怀念",
+        "definition_en": "what people remember about someone after their death",
+        "note": "通常不可数，正式语境；honour her memory表示尊重并纪念她。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:5cf8a65184022010cb10",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "honour her memory",
+            "meaning_cn": "尊重并纪念她",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:memory:99b9353a2e80eacd",
+          "target_locator": "record.senses[4]",
+          "target_label": "（对已故者的）记忆、怀念"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1419,6 +2158,42 @@
           "applicability": [
             {
               "surface": "memory"
+            },
+            {
+              "surface": "memory",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:memory:78d2601fcabf47e5"
+              ],
+              "owner_sense_ids": [
+                "sense:memory:78d2601fcabf47e5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3018.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in/within recent/living memory",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "memory",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:memory:99b9353a2e80eacd"
+              ],
+              "owner_sense_ids": [
+                "sense:memory:99b9353a2e80eacd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3018.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "honour sb’s memory; sb’s memory lives on",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -1433,17 +2208,188 @@
           "applicability": [
             {
               "surface": "memory"
+            },
+            {
+              "surface": "memory",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:memory:78d2601fcabf47e5"
+              ],
+              "owner_sense_ids": [
+                "sense:memory:78d2601fcabf47e5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3018.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in/within recent/living memory",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "memory",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:memory:99b9353a2e80eacd"
+              ],
+              "owner_sense_ids": [
+                "sense:memory:99b9353a2e80eacd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3018.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "honour sb’s memory; sb’s memory lives on",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:memory:78d2601fcabf47e5": [
+          0,
+          1
+        ],
+        "sense:memory:99b9353a2e80eacd": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:memory:in-memory-of",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in memory of + sb/sth",
+        "lines": [
+          {
+            "text": "为纪念……（通常为已故者，也可为往事）",
+            "lang": "cn"
+          },
+          {
+            "text": "Commemorative fixed phrase; not a countable memory meaning one remembered experience.",
+            "lang": "en"
+          },
+          {
+            "text": "to commemorate a person, usually someone who has died, or a past event",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:memory:in-memory-of",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in memory of + sb/sth"
+        }
+      },
+      {
+        "id": "construction:f025c7126911ae9b25a6",
+        "source_locator": "record.constructions[1]",
+        "pattern": "from memory",
+        "lines": [
+          {
+            "text": "凭记忆（不看原文等）",
+            "lang": "cn"
+          },
+          {
+            "text": "如凭记忆复述、画图；不是“来自一段回忆”的泛指。",
+            "lang": "cn"
+          },
+          {
+            "text": "using what you remember",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f025c7126911ae9b25a6",
+          "target_locator": "record.constructions[1]",
+          "target_label": "from memory"
+        }
+      },
+      {
+        "id": "construction:8de0606be5f5d4bfe43a",
+        "source_locator": "record.constructions[2]",
+        "pattern": "commit sth to memory",
+        "lines": [
+          {
+            "text": "把某事记住、记牢",
+            "lang": "cn"
+          },
+          {
+            "text": "sth是记住的内容。",
+            "lang": "cn"
+          },
+          {
+            "text": "learn something so that you remember it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8de0606be5f5d4bfe43a",
+          "target_locator": "record.constructions[2]",
+          "target_label": "commit sth to memory"
+        }
+      },
+      {
+        "id": "construction:4437a99b60b1540ea551",
+        "source_locator": "record.constructions[3]",
+        "pattern": "if (my) memory serves (me correctly/well)",
+        "lines": [
+          {
+            "text": "如果我没记错",
+            "lang": "cn"
+          },
+          {
+            "text": "常用于对回忆准确性留余地，不是电脑内存提供服务。",
+            "lang": "cn"
+          },
+          {
+            "text": "if I remember correctly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:4437a99b60b1540ea551",
+          "target_locator": "record.constructions[3]",
+          "target_label": "if (my) memory serves (me correctly/well)"
+        }
+      },
+      {
+        "id": "construction:0f80eb9a4f1d22d85c54",
+        "source_locator": "record.constructions[4]",
+        "pattern": "jog sb’s memory",
+        "lines": [
+          {
+            "text": "唤起某人的记忆",
+            "lang": "cn"
+          },
+          {
+            "text": "通过提示使人记起，不是去慢跑。",
+            "lang": "cn"
+          },
+          {
+            "text": "prompt someone to remember something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0f80eb9a4f1d22d85c54",
+          "target_locator": "record.constructions[4]",
+          "target_label": "jog sb’s memory"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1457,7 +2403,7 @@
     "ordinal": 3019,
     "word": "menace",
     "source_owner_path": "content/lexical/words/by-ordinal/o3019.json",
-    "source_fingerprint": "27d67557b783cf8252e3eb5a31c7c863c1ef6702235fd414ceed225749c2385c",
+    "source_fingerprint": "0dfcb8bfde372aba9cb0ca3363ca05e48f4a8a18e69fbede342cd0a647b210c9",
     "sense_lineage": [
       {
         "word_id": "word:menace",
@@ -1477,7 +2423,7 @@
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -1569,6 +2515,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "威胁；威吓"
         }
+      },
+      {
+        "id": "sense:menace:3ff26007ab206d2f",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a menace; a public menace",
+        "definition_cn": "（非正式）惹麻烦、令人烦恼的人或物",
+        "definition_en": "an annoying person or thing that causes trouble",
+        "note": "非正式；可指烦人、惹麻烦的人或物，不必造成严重危险。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:77fddf2fbf569db64120",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "the noisy dog is a menace",
+            "meaning_cn": "这只吵闹的狗很让人头疼",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:menace:3ff26007ab206d2f",
+          "target_locator": "record.senses[2]",
+          "target_label": "（非正式）惹麻烦、令人烦恼的人或物"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1579,6 +2551,24 @@
           "applicability": [
             {
               "surface": "menace"
+            },
+            {
+              "surface": "menace",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:menace:3ff26007ab206d2f"
+              ],
+              "owner_sense_ids": [
+                "sense:menace:3ff26007ab206d2f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3019.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a menace; a public menace",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -1592,14 +2582,37 @@
           "applicability": [
             {
               "surface": "menace"
+            },
+            {
+              "surface": "menace",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:menace:3ff26007ab206d2f"
+              ],
+              "owner_sense_ids": [
+                "sense:menace:3ff26007ab206d2f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3019.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a menace; a public menace",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:menace:3ff26007ab206d2f": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -1668,11 +2681,11 @@
     "ordinal": 3020,
     "word": "mend",
     "source_owner_path": "content/lexical/words/by-ordinal/o3020.json",
-    "source_fingerprint": "e1b982e7257f6a1f5b467542d9df554d03887a705a10c26489a0f6efeeee4eeb",
+    "source_fingerprint": "7844b065e6ff1a1ff8a4abac548febf04d440fc99978b6044401cb6449ba380b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "1N"
       ],
       "density": "rich"
@@ -1726,10 +2739,10 @@
         "id": "sense:mend:62a6975282fe54fd",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "痊愈；恢复健康",
-        "definition_en": "to become healthy again; to recover from illness or injury",
-        "note": "",
+        "governing_pattern": "a person/bone mends",
+        "definition_cn": "痊愈；恢复健康；（断骨）愈合",
+        "definition_en": "to recover in health, or for a broken bone to heal",
+        "note": "人的不及物mend表示康复，较旧式；断骨mends表示愈合。be on the mend是常用的康复/好转说法。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1745,7 +2758,7 @@
           "target_kind": "sense",
           "target_id": "sense:mend:62a6975282fe54fd",
           "target_locator": "record.senses[1]",
-          "target_label": "痊愈；恢复健康"
+          "target_label": "痊愈；恢复健康；（断骨）愈合"
         }
       },
       {
@@ -1773,6 +2786,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "（衣服等的）修补处"
         }
+      },
+      {
+        "id": "sense:mend:4a21b0250ed28562",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "mend relations/differences/matters",
+        "definition_cn": "改善关系；弥合分歧、解决问题",
+        "definition_en": "to repair a relationship or resolve a disagreement",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f1604f69b0ef5144184e",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "mend relations between the countries",
+            "meaning_cn": "改善两国关系",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mend:4a21b0250ed28562",
+          "target_locator": "record.senses[3]",
+          "target_label": "改善关系；弥合分歧、解决问题"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1786,14 +2825,36 @@
           "applicability": [
             {
               "surface": "mend"
+            },
+            {
+              "surface": "mend",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mend:4a21b0250ed28562"
+              ],
+              "owner_sense_ids": [
+                "sense:mend:4a21b0250ed28562"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3020.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mend relations/differences/matters",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:mend:4a21b0250ed28562": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -1805,6 +2866,14 @@
           {
             "text": "正在康复；正在好转",
             "lang": "cn"
+          },
+          {
+            "text": "Fixed idiom: mend is a noun here; it is not the verb pattern or the noun meaning a patched place.",
+            "lang": "en"
+          },
+          {
+            "text": "recovering from illness or injury, or improving after difficulty",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -1812,6 +2881,56 @@
           "target_id": "construction:a85c25e2eff72e690e78",
           "target_locator": "record.constructions[0]",
           "target_label": "be on the mend"
+        }
+      },
+      {
+        "id": "construction:93f0bfe5e2a071ed4180",
+        "source_locator": "record.constructions[1]",
+        "pattern": "mend (your) fences (with sb)",
+        "lines": [
+          {
+            "text": "弥合与某人的分歧；改善关系",
+            "lang": "cn"
+          },
+          {
+            "text": "政治新闻中的fences是比喻，mend a fence则可字面指修篱笆。",
+            "lang": "cn"
+          },
+          {
+            "text": "resolve a disagreement with someone",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:93f0bfe5e2a071ed4180",
+          "target_locator": "record.constructions[1]",
+          "target_label": "mend (your) fences (with sb)"
+        }
+      },
+      {
+        "id": "construction:ce73a5cf728cd9f77511",
+        "source_locator": "record.constructions[2]",
+        "pattern": "mend your ways",
+        "lines": [
+          {
+            "text": "改正不良行为",
+            "lang": "cn"
+          },
+          {
+            "text": "不是修补道路。",
+            "lang": "cn"
+          },
+          {
+            "text": "stop behaving badly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ce73a5cf728cd9f77511",
+          "target_locator": "record.constructions[2]",
+          "target_label": "mend your ways"
         }
       }
     ],
@@ -2009,7 +3128,7 @@
     "ordinal": 3022,
     "word": "mention",
     "source_owner_path": "content/lexical/words/by-ordinal/o3022.json",
-    "source_fingerprint": "ee330909dbff2b82d440b8406a9dc7bdfe410cdf31e0fa79ab00887674c7d475",
+    "source_fingerprint": "f11a5c304aafa050f48a21ffc1857ba5799e92bec320263b11f2f70af94ee44e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2033,10 +3152,10 @@
         "id": "sense:mention:361880c555295c12",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "mention sb/sth (to sb); mention doing sth; mention that/where/why ...",
         "definition_cn": "提到；提及",
         "definition_en": "to make reference to something or someone",
-        "note": "",
+        "note": "mention是及物动词，不用mention about sth来替代直接宾语；提及做某事用mention doing sth。mention about可在其他完整结构中出现，如mention something about a topic，不能误禁字符串。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2165,6 +3284,31 @@
           "target_id": "construction:39776f04fe6f8d83aada",
           "target_locator": "record.constructions[0]",
           "target_label": "not to mention sth"
+        }
+      },
+      {
+        "id": "construction:88d48edba3285f57de75",
+        "source_locator": "record.constructions[1]",
+        "pattern": "Don’t mention it",
+        "lines": [
+          {
+            "text": "不用谢；不客气",
+            "lang": "cn"
+          },
+          {
+            "text": "感谢回应；字面“不要提这件事”须由语境区别。",
+            "lang": "cn"
+          },
+          {
+            "text": "a polite reply to thanks",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:88d48edba3285f57de75",
+          "target_locator": "record.constructions[1]",
+          "target_label": "Don’t mention it"
         }
       }
     ],
@@ -2324,7 +3468,7 @@
     "ordinal": 3024,
     "word": "menu",
     "source_owner_path": "content/lexical/words/by-ordinal/o3024.json",
-    "source_fingerprint": "4a1c2db73ee819dc4edca632af5eb70083ce51d769192bfaea421ac822d4dab6",
+    "source_fingerprint": "0085e69a45bd663c29b73f2a2a565dc42d7a12297586cef13f3b47efa22df7f8",
     "sense_lineage": [
       {
         "word_id": "word:menu",
@@ -2356,9 +3500,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "菜单",
-        "definition_en": "a list of dishes available at a restaurant",
-        "note": "",
+        "definition_cn": "菜单；一餐将供应的菜肴清单",
+        "definition_en": "a list of food available or planned for a meal",
+        "note": "不仅限于餐馆；如晚餐菜单或计划供应的菜肴。menu还可指组成一餐的菜肴，或电脑上的选项单，按对象区分。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2379,7 +3523,7 @@
           "target_kind": "sense",
           "target_id": "sense:menu:81c93b6206aa5175",
           "target_locator": "record.senses[0]",
-          "target_label": "菜单"
+          "target_label": "菜单；一餐将供应的菜肴清单"
         }
       },
       {
@@ -2752,7 +3896,7 @@
     "ordinal": 3026,
     "word": "merchant",
     "source_owner_path": "content/lexical/words/by-ordinal/o3026.json",
-    "source_fingerprint": "c5217ceab1021d80aef3d6831a22f247f93ca351ac2f40365b4a7db643dbad4f",
+    "source_fingerprint": "b962155604d52b0e9b27b897f06935f2c7b3327a118e7f4669433de6527c6086",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2812,7 +3956,7 @@
             "id": "collocation:34e2f538b6647c25b6db",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "merchant bank",
-            "meaning_cn": "商业银行",
+            "meaning_cn": "商人银行；投资银行（尤英式，主要为企业与投资者处理股份及投资业务）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -3064,7 +4208,7 @@
     "ordinal": 3028,
     "word": "mercy",
     "source_owner_path": "content/lexical/words/by-ordinal/o3028.json",
-    "source_fingerprint": "9958c2d4f843af193ecba7ce7a2cfe589baab245a50b175eb363330c8a970b76",
+    "source_fingerprint": "8d46711757f6be2a92c566ca142fa8c8c5a46284ca508654de94217bdfc9534f",
     "sense_lineage": [
       {
         "word_id": "word:mercy",
@@ -3247,7 +4391,7 @@
     "ordinal": 3029,
     "word": "mere",
     "source_owner_path": "content/lexical/words/by-ordinal/o3029.json",
-    "source_fingerprint": "ce5e2d1b46272da9b631009278fa275ab898932445c407e172fc6dc647915ef1",
+    "source_fingerprint": "2dc6d4f734914b1da9055f8823f2c8a268d1d7931b9eff6f2e9bb8c564005f76",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3272,8 +4416,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "小湖，池塘",
-        "definition_en": "a small pond of standing water",
+        "definition_cn": "（文学或主要为英式方言）湖泊；池塘",
+        "definition_en": "(literary or chiefly British dialect) a lake or pond",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3281,17 +4425,17 @@
           "target_kind": "sense",
           "target_id": "sense:mere:da2efb88b0be577b",
           "target_locator": "record.senses[0]",
-          "target_label": "小湖，池塘"
+          "target_label": "（文学或主要为英式方言）湖泊；池塘"
         }
       },
       {
         "id": "sense:mere:435d174c314a5ba1",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "mere + noun; the mere fact/thought/presence of ...",
         "definition_cn": "仅仅的；只不过的",
         "definition_en": "being nothing more than specified",
-        "note": "",
+        "note": "形容词通常仅置于名词前；可强调“仅仅”，也可强调即使很小的事情本身已有作用：the mere thought of sth。不是一般表语*it is mere；文学中的noun mere另指湖泊或池塘。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -3349,8 +4493,16 @@
     "ordinal": 3030,
     "word": "merely",
     "source_owner_path": "content/lexical/words/by-ordinal/o3030.json",
-    "source_fingerprint": "e55a7ed61a4541747b1d8fc4693b4b84c7e75b4e1aca72c2b6d7fedd4f46d8b8",
-    "sense_lineage": [],
+    "source_fingerprint": "c7ae383c12a1dc6c4f23a2689dac2dfa3b91068a67233072987745026d0e9595",
+    "sense_lineage": [
+      {
+        "word_id": "word:merely",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e5fb329aa874dec6ffd6",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1ADV"
@@ -3372,28 +4524,15 @@
         "id": "sense:merely:bf17b6c071fa5c3a",
         "source_locator": "record.senses[0]",
         "pos": "adverb",
-        "governing_pattern": "",
+        "governing_pattern": "Focus adverb: modifies the word or phrase being limited; It is merely a suggestion.",
         "definition_cn": "仅仅；只不过",
         "definition_en": "and nothing more",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:e5fb329aa874dec6ffd6",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "merely + adj/adv",
-            "meaning_cn": "仅仅……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e5fb329aa874dec6ffd6",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "merely + adj/adv"
-            }
-          },
-          {
             "id": "collocation:8e0d8e3c39edd2883189",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "It is merely a suggestion.",
             "meaning_cn": "这仅仅是个建议。",
             "kind": "usage_example",
@@ -3644,12 +4783,12 @@
     "ordinal": 3032,
     "word": "merit",
     "source_owner_path": "content/lexical/words/by-ordinal/o3032.json",
-    "source_fingerprint": "afac914779d166544a8ed7ab8cd78ccf0a03381c52712c4bf53ab5e4fe7e9425",
+    "source_fingerprint": "10e019e7016ffcc440289ad11f61ce24c7d830628367171accba3a0090d4aa0f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -3669,9 +4808,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "优点，长处",
-        "definition_en": "a good quality that deserves praise",
-        "note": "",
+        "definition_cn": "优点；长处；价值",
+        "definition_en": "a good quality or the value or excellence that deserves approval",
+        "note": "价值通常不可数；具体优点常用复数merits。on merit表示凭才干或品质；consider sth on its own merits按事情本身优劣评判。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3686,7 +4825,7 @@
             "id": "collocation:1dc3ab3012ad74e84b7a",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "on merit",
-            "meaning_cn": "按功过",
+            "meaning_cn": "凭本身的才干、实绩或品质评判（不看其他因素）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -3700,17 +4839,17 @@
           "target_kind": "sense",
           "target_id": "sense:merit:dfc64d43d94a55fc",
           "target_locator": "record.senses[0]",
-          "target_label": "优点，长处"
+          "target_label": "优点；长处；价值"
         }
       },
       {
         "id": "sense:merit:0f45f0ab2e105d69",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "merit sth; merit doing sth",
         "definition_cn": "值得",
         "definition_en": "to deserve something",
-        "note": "",
+        "note": "正式，通常不用进行时；merit doing sth表示值得做某事，不需要机械补to。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3754,6 +4893,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "功绩，功劳"
         }
+      },
+      {
+        "id": "sense:merit:dd5e3decf1ebbcab",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "a merit in an exam; award merits",
+        "definition_cn": "（英式）成绩等级“良好”；因表现好获得的嘉奖分",
+        "definition_en": "a very good grade, or a mark awarded for good performance or behaviour",
+        "note": "考试等级与学校嘉奖分须按具体制度理解，不假定所有考试统一分数或merit一定是最高等级。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:merit:dd5e3decf1ebbcab",
+          "target_locator": "record.senses[3]",
+          "target_label": "（英式）成绩等级“良好”；因表现好获得的嘉奖分"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3767,6 +4923,24 @@
           "applicability": [
             {
               "surface": "merit"
+            },
+            {
+              "surface": "merit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:merit:dd5e3decf1ebbcab"
+              ],
+              "owner_sense_ids": [
+                "sense:merit:dd5e3decf1ebbcab"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3032.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a merit in an exam; award merits",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -3781,14 +4955,37 @@
           "applicability": [
             {
               "surface": "merit"
+            },
+            {
+              "surface": "merit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:merit:dd5e3decf1ebbcab"
+              ],
+              "owner_sense_ids": [
+                "sense:merit:dd5e3decf1ebbcab"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3032.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a merit in an exam; award merits",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:merit:dd5e3decf1ebbcab": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -3805,7 +5002,7 @@
     "ordinal": 3033,
     "word": "merry",
     "source_owner_path": "content/lexical/words/by-ordinal/o3033.json",
-    "source_fingerprint": "cb18aad2360b6181eb715b398ba94ec4113a553c029e8b502bc37b976a7f71a4",
+    "source_fingerprint": "f8ef2ec02ce09a430e044bb2332dda30b86cce7f6d02520e002b4cd546a17859",
     "sense_lineage": [
       {
         "word_id": "word:merry",
@@ -3817,7 +5014,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -3888,6 +5085,23 @@
           "target_locator": "record.senses[1]",
           "target_label": "欢乐的，令人愉快的"
         }
+      },
+      {
+        "id": "sense:merry:7beba0f82fd19797",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "get/be merry after drinks",
+        "definition_cn": "（尤英式非正式）微醉的",
+        "definition_en": "slightly drunk",
+        "note": "尤英式，非正式，指喝酒后的轻微醉意。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:merry:7beba0f82fd19797",
+          "target_locator": "record.senses[2]",
+          "target_label": "（尤英式非正式）微醉的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3900,17 +5114,90 @@
           "applicability": [
             {
               "surface": "merry"
+            },
+            {
+              "surface": "merry",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:merry:7beba0f82fd19797"
+              ],
+              "owner_sense_ids": [
+                "sense:merry:7beba0f82fd19797"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3033.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "get/be merry after drinks",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:merry:7beba0f82fd19797": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:54296aa1fce7d8d75d96",
+        "source_locator": "record.constructions[0]",
+        "pattern": "the more the merrier",
+        "lines": [
+          {
+            "text": "人或物越多越好；越热闹越好",
+            "lang": "cn"
+          },
+          {
+            "text": "常用于欢迎更多人加入；不是普通的快乐比较级断言。",
+            "lang": "cn"
+          },
+          {
+            "text": "more people or things make a situation better",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:54296aa1fce7d8d75d96",
+          "target_locator": "record.constructions[0]",
+          "target_label": "the more the merrier"
+        }
+      },
+      {
+        "id": "construction:d689eed25f970cb32ab2",
+        "source_locator": "record.constructions[1]",
+        "pattern": "lead sb a (merry) dance",
+        "lines": [
+          {
+            "text": "让某人烦恼或费尽周折",
+            "lang": "cn"
+          },
+          {
+            "text": "英式非正式，不必真的带人跳舞。",
+            "lang": "cn"
+          },
+          {
+            "text": "cause someone considerable trouble or worry",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d689eed25f970cb32ab2",
+          "target_locator": "record.constructions[1]",
+          "target_label": "lead sb a (merry) dance"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3951,12 +5238,20 @@
     "ordinal": 3034,
     "word": "mess",
     "source_owner_path": "content/lexical/words/by-ordinal/o3034.json",
-    "source_fingerprint": "c625901a8bd8c5fa5883b3d132e1a7f9aa93dba4a0f76b7b0d032ed5c178b6aa",
-    "sense_lineage": [],
+    "source_fingerprint": "2d5799eb2c0ea554c15da08f34a2e5e7d6a68d1dfa421e33b362b16cdb6a8170",
+    "sense_lineage": [
+      {
+        "word_id": "word:mess",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0e54fdff330c0ca6379b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -3992,19 +5287,6 @@
               "target_id": "collocation:caec87c07260a6a4ae95",
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "in a mess"
-            }
-          },
-          {
-            "id": "collocation:0e54fdff330c0ca6379b",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "make a mess of sth",
-            "meaning_cn": "把某事搞得一团糟",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0e54fdff330c0ca6379b",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "make a mess of sth"
             }
           }
         ],
@@ -4045,7 +5327,7 @@
         "id": "sense:mess:60f99a6b3f175be0",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "mess sth (up); mess it up",
         "definition_cn": "弄乱，弄脏",
         "definition_en": "to make something dirty or untidy",
         "note": "",
@@ -4097,6 +5379,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "干涉，管闲事"
         }
+      },
+      {
+        "id": "sense:mess:7ae525c28d208123",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "sb is a mess; a total mess",
+        "definition_cn": "邋遢的人；（非正式）处境或情绪糟糕的人",
+        "definition_en": "a very untidy person, or someone whose life or emotions are in a bad state",
+        "note": "通常单数；可谈外表邋遢，也可非正式地说人在困境中情绪糟糕，如I was a total mess。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mess:7ae525c28d208123",
+          "target_locator": "record.senses[4]",
+          "target_label": "邋遢的人；（非正式）处境或情绪糟糕的人"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4107,6 +5406,24 @@
           "applicability": [
             {
               "surface": "mess"
+            },
+            {
+              "surface": "mess",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mess:7ae525c28d208123"
+              ],
+              "owner_sense_ids": [
+                "sense:mess:7ae525c28d208123"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3034.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sb is a mess; a total mess",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -4120,14 +5437,37 @@
           "applicability": [
             {
               "surface": "mess"
+            },
+            {
+              "surface": "mess",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mess:7ae525c28d208123"
+              ],
+              "owner_sense_ids": [
+                "sense:mess:7ae525c28d208123"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3034.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sb is a mess; a total mess",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:mess:7ae525c28d208123": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -4164,6 +5504,56 @@
           "target_locator": "record.constructions[1]",
           "target_label": "mess sth up / mess up"
         }
+      },
+      {
+        "id": "construction:a295c2497f180f6d377f",
+        "source_locator": "record.constructions[2]",
+        "pattern": "mess around/about",
+        "lines": [
+          {
+            "text": "瞎闹、无所事事；轻松随意地玩",
+            "lang": "cn"
+          },
+          {
+            "text": "about尤英式；本身不要求with宾语，与原mess with干涉区别。",
+            "lang": "cn"
+          },
+          {
+            "text": "behave foolishly instead of working, or spend time relaxing",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a295c2497f180f6d377f",
+          "target_locator": "record.constructions[2]",
+          "target_label": "mess around/about"
+        }
+      },
+      {
+        "id": "construction:7e5ad4422bc73c7729c8",
+        "source_locator": "record.constructions[3]",
+        "pattern": "mess sb around/about",
+        "lines": [
+          {
+            "text": "反复变卦或失约而折腾某人",
+            "lang": "cn"
+          },
+          {
+            "text": "英式；代词放在中间，不是乱动某物。",
+            "lang": "cn"
+          },
+          {
+            "text": "treat someone unfairly through unreliable or changing behaviour",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7e5ad4422bc73c7729c8",
+          "target_locator": "record.constructions[3]",
+          "target_label": "mess sb around/about"
+        }
       }
     ],
     "reference": {
@@ -4179,7 +5569,7 @@
     "ordinal": 3035,
     "word": "message",
     "source_owner_path": "content/lexical/words/by-ordinal/o3035.json",
-    "source_fingerprint": "f74856169b5e43019830d2a8e51a8a57c63ddc7ff897c498c71924ade02a5dff",
+    "source_fingerprint": "d5fde6e68c2de597fefa46ddc9afb894dc53b4a48fdbbb7341b41f768b35b8e3",
     "sense_lineage": [
       {
         "word_id": "word:message",
@@ -4187,12 +5577,26 @@
         "from_target_id": "sense:message:3d7224d02edc5579",
         "status": "merged",
         "to_target_id": "sense:message:eea4bf0177de5fd3"
+      },
+      {
+        "word_id": "word:message",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4771a3a3de8ea7c41b27",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:message",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4d98521dd91c52f724a1",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -4276,39 +5680,29 @@
         "definition_en": "to send someone an electronic or written message",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:4771a3a3de8ea7c41b27",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "message + sb",
-            "meaning_cn": "给某人发消息",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4771a3a3de8ea7c41b27",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "message + sb"
-            }
-          },
-          {
-            "id": "collocation:4d98521dd91c52f724a1",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "message someone",
-            "meaning_cn": "给某人发消息",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4d98521dd91c52f724a1",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "message someone"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:message:eea4bf0177de5fd3",
           "target_locator": "record.senses[2]",
           "target_label": "给某人发消息；发电子/书面消息给某人"
+        }
+      },
+      {
+        "id": "sense:message:ad15892bd5774e68",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "after these messages",
+        "definition_cn": "（美式广播、电视）广告",
+        "definition_en": "an advertisement broadcast on radio or television",
+        "note": "常见于节目中断后将返回的说明；此处messages是广告，不是私人留言。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:message:ad15892bd5774e68",
+          "target_locator": "record.senses[3]",
+          "target_label": "（美式广播、电视）广告"
         }
       }
     ],
@@ -4323,17 +5717,90 @@
           "applicability": [
             {
               "surface": "message"
+            },
+            {
+              "surface": "message",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:message:ad15892bd5774e68"
+              ],
+              "owner_sense_ids": [
+                "sense:message:ad15892bd5774e68"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3035.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "after these messages",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:message:ad15892bd5774e68": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:debc962e0c48844243de",
+        "source_locator": "record.constructions[0]",
+        "pattern": "get the message",
+        "lines": [
+          {
+            "text": "听懂弦外之音；领会暗示",
+            "lang": "cn"
+          },
+          {
+            "text": "如对方不断看表是在暗示该离开；收到电子消息时是字面通信语境。",
+            "lang": "cn"
+          },
+          {
+            "text": "understand what someone is telling you indirectly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:debc962e0c48844243de",
+          "target_locator": "record.constructions[0]",
+          "target_label": "get the message"
+        }
+      },
+      {
+        "id": "construction:2577883e2fce1d0b989e",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be on/off message",
+        "lines": [
+          {
+            "text": "说法符合/偏离代表组织的官方立场",
+            "lang": "cn"
+          },
+          {
+            "text": "常见政治或组织传播语境，不是网络在线/离线。",
+            "lang": "cn"
+          },
+          {
+            "text": "state or depart from the official view of your organization",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:2577883e2fce1d0b989e",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be on/off message"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4372,7 +5839,7 @@
     "ordinal": 3036,
     "word": "messenger",
     "source_owner_path": "content/lexical/words/by-ordinal/o3036.json",
-    "source_fingerprint": "750c74941b44b6a365fb94d53598e8296444f80e433c2afcf826cdc217ad22a7",
+    "source_fingerprint": "4c946e7df68a89f06304b1d0cfaca51ba41cf0091f23d6c6c51137774fafac2e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4451,7 +5918,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:7dabf249ba167dc8996c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "shoot the messenger",
+        "lines": [
+          {
+            "text": "迁怒于传来坏消息的人",
+            "lang": "cn"
+          },
+          {
+            "text": "通常比喻；Don’t shoot the messenger表示不要因坏消息责怪报信者。",
+            "lang": "cn"
+          },
+          {
+            "text": "blame the bearer of bad news rather than the person responsible",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7dabf249ba167dc8996c",
+          "target_locator": "record.constructions[0]",
+          "target_label": "shoot the messenger"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4465,13 +5958,13 @@
     "ordinal": 3037,
     "word": "metal",
     "source_owner_path": "content/lexical/words/by-ordinal/o3037.json",
-    "source_fingerprint": "94cafffd334b7b3755b6c61549d6678b57f619c51f95013420fc97aa0b34753c",
+    "source_fingerprint": "27207d5fc763b6bc51fdaaebec7e6c6dabb5fdfe0e790f2725d10e2c3bd3653f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
         "1A",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -4492,7 +5985,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "金属",
-        "definition_en": "a solid material that is typically hard, shiny, and conducts electricity and heat",
+        "definition_en": "a material that conducts heat and electricity and is usually hard, shiny, and solid",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4525,7 +6018,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "金属制品，合金",
+        "definition_cn": "一种金属；合金",
         "definition_en": "a type of metal or an alloy",
         "note": "",
         "identity_overlay": null,
@@ -4543,7 +6036,7 @@
           "target_kind": "sense",
           "target_id": "sense:metal:eb9f701b52895c64",
           "target_locator": "record.senses[1]",
-          "target_label": "金属制品，合金"
+          "target_label": "一种金属；合金"
         }
       },
       {
@@ -4597,6 +6090,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "以金属覆盖"
         }
+      },
+      {
+        "id": "sense:metal:aabe28918d0d8245",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "metal music; a metal band",
+        "definition_cn": "（非正式）金属摇滚乐：节奏强烈、音量较大的电吉他摇滚乐",
+        "definition_en": "a loud, forceful style of rock music played on electric guitars",
+        "note": "音乐语境通常不可数；音乐heavy metal指重金属摇滚，材料语境heavy metal指重金属。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:37fa462e89398b628270",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a metal band",
+            "meaning_cn": "金属摇滚乐队",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:metal:aabe28918d0d8245",
+          "target_locator": "record.senses[4]",
+          "target_label": "（非正式）金属摇滚乐：节奏强烈、音量较大的电吉他摇滚乐"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4607,6 +6126,24 @@
           "applicability": [
             {
               "surface": "metal"
+            },
+            {
+              "surface": "metal",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:metal:aabe28918d0d8245"
+              ],
+              "owner_sense_ids": [
+                "sense:metal:aabe28918d0d8245"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3037.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "metal music; a metal band",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -4620,17 +6157,66 @@
           "applicability": [
             {
               "surface": "metal"
+            },
+            {
+              "surface": "metal",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:metal:aabe28918d0d8245"
+              ],
+              "owner_sense_ids": [
+                "sense:metal:aabe28918d0d8245"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3037.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "metal music; a metal band",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:metal:aabe28918d0d8245": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:d955d0a4e5771040e383",
+        "source_locator": "record.constructions[0]",
+        "pattern": "put the pedal to the metal; with the pedal to the metal",
+        "lines": [
+          {
+            "text": "全速驾驶；全力以赴",
+            "lang": "cn"
+          },
+          {
+            "text": "北美非正式；比喻努力时不必开车。",
+            "lang": "cn"
+          },
+          {
+            "text": "drive at full speed, or work with maximum effort",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d955d0a4e5771040e383",
+          "target_locator": "record.constructions[0]",
+          "target_label": "put the pedal to the metal; with the pedal to the metal"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4644,7 +6230,7 @@
     "ordinal": 3038,
     "word": "metaphor",
     "source_owner_path": "content/lexical/words/by-ordinal/o3038.json",
-    "source_fingerprint": "a6b78ec250e0e1187b72cf62799f937ba2bda894192be08b1f324f6a87de007a",
+    "source_fingerprint": "74a0445550609be4fc2b447570262f919adc01b50dd02b9ee9a9e073bd0b2d2f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4670,7 +6256,7 @@
         "governing_pattern": "",
         "definition_cn": "隐喻，暗喻",
         "definition_en": "a figure of speech in which a word or phrase is applied to something it does not literally denote to suggest a resemblance",
-        "note": "",
+        "note": "可指暗喻表达，也可把一个形象、事件或情景用作另一事物的隐喻。mixed metaphor指把不协调的比喻形象混用。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4763,7 +6349,7 @@
     "ordinal": 3039,
     "word": "method",
     "source_owner_path": "content/lexical/words/by-ordinal/o3039.json",
-    "source_fingerprint": "ab8649ca4308086cf551532e57a1bd3a7569b79f0f537afd57073cd51f541e15",
+    "source_fingerprint": "33a5d57321f214f5a71888d9dbdfac5ce9e872fe832f9d04d661a084fdcebecf",
     "sense_lineage": [
       {
         "word_id": "word:method",
@@ -4794,10 +6380,10 @@
         "id": "sense:method:ee4f4c70320b59af",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "a method of/for (doing) sth; a method to do sth",
         "definition_cn": "方法，办法",
         "definition_en": "a particular way of doing something",
-        "note": "",
+        "note": "of/for后可接名词或V-ing；method to do sth亦有正确用例，不能把旧of槽位误教成全面禁止to。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4861,7 +6447,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:cbc9e6996c433f2f3f13",
+        "source_locator": "record.constructions[0]",
+        "pattern": "there is (a) method in sb’s madness",
+        "lines": [
+          {
+            "text": "看似古怪的行为其实有道理、有目的",
+            "lang": "cn"
+          },
+          {
+            "text": "用于看似奇怪、实际有计划的行为；madness在这里是比喻。",
+            "lang": "cn"
+          },
+          {
+            "text": "apparently strange behaviour has a reason or plan",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cbc9e6996c433f2f3f13",
+          "target_locator": "record.constructions[0]",
+          "target_label": "there is (a) method in sb’s madness"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5195,7 +6807,7 @@
     "ordinal": 3042,
     "word": "metropolitan",
     "source_owner_path": "content/lexical/words/by-ordinal/o3042.json",
-    "source_fingerprint": "b43fd63835eea7a984cad24e2970757cc8b9e274ed13a566d1dd9405aaf69d82",
+    "source_fingerprint": "cf76084e55ad6a1741666fc24b6ae8cf4beff2212ae95d01e9270db6925eebc3",
     "sense_lineage": [
       {
         "word_id": "word:metropolitan",
@@ -5220,13 +6832,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "大都市的；大都市居民；（较低层）宗主国的",
-      "decision_cn": "",
+      "summary_cn": "大都市的；大都市居民；宗主国／本土的",
+      "decision_cn": "都市相关；在殖民地对照语境中指宗主国／本土",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "大都市的；大都市居民；（较低层）宗主国的"
+        "target_label": "大都市的；大都市居民；宗主国／本土的"
       }
     },
     "senses": [
@@ -5475,7 +7087,7 @@
     "ordinal": 3044,
     "word": "microscope",
     "source_owner_path": "content/lexical/words/by-ordinal/o3044.json",
-    "source_fingerprint": "631f8f4b89dc6bfb5b2ff27af3ae9f8898f8147347955e5cf2bed2bc8ebdafc9",
+    "source_fingerprint": "2527dedbcc3a88e1ba116c005224b1e3e4163c25e5e30149fc61622d1f94bddb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5500,7 +7112,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "显微镜",
-        "definition_en": "an optical instrument used for viewing very small objects",
+        "definition_en": "an instrument that produces a magnified view of very small objects",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5593,7 +7205,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:9991f91585ffc73f97c1",
+        "source_locator": "record.constructions[0]",
+        "pattern": "put sth under the microscope; sth is under the microscope",
+        "lines": [
+          {
+            "text": "详细审视、分析某事",
+            "lang": "cn"
+          },
+          {
+            "text": "用政策、婚姻等作对象是比喻审视；细菌under a microscope是用显微镜观察。",
+            "lang": "cn"
+          },
+          {
+            "text": "examine something in great detail",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:9991f91585ffc73f97c1",
+          "target_locator": "record.constructions[0]",
+          "target_label": "put sth under the microscope; sth is under the microscope"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5607,23 +7245,23 @@
     "ordinal": 3045,
     "word": "middle",
     "source_owner_path": "content/lexical/words/by-ordinal/o3045.json",
-    "source_fingerprint": "bfd37dbc9e938cae072726e93f1433ecfa43f925ca46ec02301348b1158499c5",
+    "source_fingerprint": "bdfe93794c3475dafa62555e3d18d6a6eeea3ac7a67016b37b19d763050f890e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "中心点或部分",
-      "decision_cn": "",
+      "summary_cn": "空间、时间或序列的中间；中间的",
+      "decision_cn": "middle drawer是中间抽屉，middle of winter是冬季中段；in the middle of writing正忙于写，不要求写完一半；around her middle可指围在她腰部。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "中心点或部分"
+        "target_label": "空间、时间或序列的中间；中间的"
       }
     },
     "senses": [
@@ -5632,8 +7270,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "某物的中心部分或点",
-        "definition_en": "the central part or point of something",
+        "definition_cn": "中间部分或位置；起讫之间的阶段、时段",
+        "definition_en": "the central part or position, or a stage between a beginning and an end",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5663,17 +7301,17 @@
           "target_kind": "sense",
           "target_id": "sense:middle:43e5c1b74d5a5db6",
           "target_locator": "record.senses[0]",
-          "target_label": "某物的中心部分或点"
+          "target_label": "中间部分或位置；起讫之间的阶段、时段"
         }
       },
       {
         "id": "sense:middle:5c6294f8975a50ec",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "离两端或两边等距的；平均的",
-        "definition_en": "equally distant from the ends or sides; average",
-        "note": "",
+        "governing_pattern": "middle + noun",
+        "definition_cn": "中间的；处于序列、时段或范围中部的",
+        "definition_en": "in a middle position in a group, sequence or range",
+        "note": "通常仅置于名词前；middle child不一定是“平均的孩子”，middle forties约为四十五岁上下。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5697,7 +7335,33 @@
           "target_kind": "sense",
           "target_id": "sense:middle:5c6294f8975a50ec",
           "target_locator": "record.senses[1]",
-          "target_label": "离两端或两边等距的；平均的"
+          "target_label": "中间的；处于序列、时段或范围中部的"
+        }
+      },
+      {
+        "id": "sense:middle:46604d95c8ef2293",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "around your middle",
+        "definition_cn": "（非正式）腰部；身体中部",
+        "definition_en": "a person’s waist or midsection",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:fe01b10bce493aacfa52",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a belt around her middle",
+            "meaning_cn": "围在她腰部的腰带",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:middle:46604d95c8ef2293",
+          "target_locator": "record.senses[2]",
+          "target_label": "（非正式）腰部；身体中部"
         }
       }
     ],
@@ -5712,17 +7376,140 @@
           "applicability": [
             {
               "surface": "middle"
+            },
+            {
+              "surface": "middle",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:middle:46604d95c8ef2293"
+              ],
+              "owner_sense_ids": [
+                "sense:middle:46604d95c8ef2293"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3045.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "around your middle",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:middle:46604d95c8ef2293": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:c1276953ec7368c4cd1d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be in the middle of sth/doing sth",
+        "lines": [
+          {
+            "text": "正忙于某事；某事正在进行",
+            "lang": "cn"
+          },
+          {
+            "text": "sth须是进行中的活动；不必恰好完成一半，依语境区别位置在中间。",
+            "lang": "cn"
+          },
+          {
+            "text": "be busy doing something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c1276953ec7368c4cd1d",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be in the middle of sth/doing sth"
+        }
+      },
+      {
+        "id": "construction:ad26c2f23cdec239d76e",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be/get caught in the middle",
+        "lines": [
+          {
+            "text": "夹在争执的双方之间",
+            "lang": "cn"
+          },
+          {
+            "text": "比喻处境，不仅是地理位置。",
+            "lang": "cn"
+          },
+          {
+            "text": "be involved in a dispute between two sides",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ad26c2f23cdec239d76e",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be/get caught in the middle"
+        }
+      },
+      {
+        "id": "construction:e973f42ea418a43e13da",
+        "source_locator": "record.constructions[2]",
+        "pattern": "in the middle of nowhere",
+        "lines": [
+          {
+            "text": "在偏僻、远离城镇的地方",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式，nowhere不是不存在的地点。",
+            "lang": "cn"
+          },
+          {
+            "text": "in a remote place far from towns or buildings",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e973f42ea418a43e13da",
+          "target_locator": "record.constructions[2]",
+          "target_label": "in the middle of nowhere"
+        }
+      },
+      {
+        "id": "construction:8cf71ebe33c32e5a4e2a",
+        "source_locator": "record.constructions[3]",
+        "pattern": "take/steer a middle course; find a middle way",
+        "lines": [
+          {
+            "text": "采取避开两个极端的折中做法",
+            "lang": "cn"
+          },
+          {
+            "text": "指观点或行动上的折中；a middle way是中间路线、折中办法。",
+            "lang": "cn"
+          },
+          {
+            "text": "choose a compromise between extreme positions",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8cf71ebe33c32e5a4e2a",
+          "target_locator": "record.constructions[3]",
+          "target_label": "take/steer a middle course; find a middle way"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5736,13 +7523,20 @@
     "ordinal": 3046,
     "word": "midst",
     "source_owner_path": "content/lexical/words/by-ordinal/o3046.json",
-    "source_fingerprint": "292ce78fca39bd228a0a922c51a0ef3cd7cd8c9c570da50404b4f811737bed5b",
+    "source_fingerprint": "ddccdeb7f8d5683f12792d573dc4d2857ff94ebfc8b2720be4d319432c886765",
     "sense_lineage": [
       {
         "word_id": "word:midst",
         "target_kind": "sense",
         "from_target_id": "sense:midst:4e54b1ce5f5f5f3a",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:midst",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d67eb875ef503adcd39f",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -5772,21 +7566,7 @@
         "definition_en": "the middle part or position of something",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d67eb875ef503adcd39f",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in the midst of sth",
-            "meaning_cn": "在……之中；在……进行过程中",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d67eb875ef503adcd39f",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "in the midst of sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:midst:a0314705008756ab",
@@ -5893,7 +7673,7 @@
     "ordinal": 3047,
     "word": "might",
     "source_owner_path": "content/lexical/words/by-ordinal/o3047.json",
-    "source_fingerprint": "c2c9dd8994b6981e5adcafebba7e196c1fc24edf1d185fb9a0d9506f71955587",
+    "source_fingerprint": "125ba44f602d9a4793d3b02c19306f149e755e5e1db20470006a9c724b2d7c55",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5917,17 +7697,17 @@
         "id": "sense:might:5e5222a70a6752dc",
         "source_locator": "record.senses[0]",
         "pos": "modal",
-        "governing_pattern": "",
-        "definition_cn": "可能，也许",
-        "definition_en": "used to express possibility or permission",
-        "note": "",
+        "governing_pattern": "might + base verb; Might I ...?; said ... might ...",
+        "definition_cn": "可能、也许；may的转述过去式；礼貌请求或建议",
+        "definition_en": "used for possibility, reported may, or polite requests and suggestions",
+        "note": "Might I是正式或非常礼貌的许可请求；不能据此把might当普通许可答复。转述时可作may的过去式，不等于所有might都指过去。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:might:5e5222a70a6752dc",
           "target_locator": "record.senses[0]",
-          "target_label": "可能，也许"
+          "target_label": "可能、也许；may的转述过去式；礼貌请求或建议"
         }
       },
       {
@@ -5987,11 +7767,15 @@
         "pattern": "might as well + base verb",
         "lines": [
           {
-            "text": "不妨；还是……为好；反正可以……",
+            "text": "不妨；还是……为好；反正可以……；（两种选择）也没有实质差别",
             "lang": "cn"
           },
           {
             "text": "reasonable choice when no strong reason favors an alternative",
+            "lang": "en"
+          },
+          {
+            "text": "the practical choice in the circumstances, or an alternative with no real advantage",
             "lang": "en"
           }
         ],
@@ -6000,6 +7784,106 @@
           "target_id": "construction:25af923bcb8b7cc5982e",
           "target_locator": "record.constructions[0]",
           "target_label": "might as well + base verb"
+        }
+      },
+      {
+        "id": "construction:d426c0bf5a0766eb3328",
+        "source_locator": "record.constructions[1]",
+        "pattern": "might have + past participle",
+        "lines": [
+          {
+            "text": "可能已经做过；本可能做但未做；（责备）早该做",
+            "lang": "cn"
+          },
+          {
+            "text": "须按语境区分：可能过去发生不意味着没发生；if条件可表未实现；you might have told me责备没有告知。",
+            "lang": "cn"
+          },
+          {
+            "text": "express past possibility, an unrealized possibility, or reproach",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d426c0bf5a0766eb3328",
+          "target_locator": "record.constructions[1]",
+          "target_label": "might have + past participle"
+        }
+      },
+      {
+        "id": "construction:bd00905879451ea296e3",
+        "source_locator": "record.constructions[2]",
+        "pattern": "You might (at least) + base verb",
+        "lines": [
+          {
+            "text": "不妨……；（不满语气）至少该……",
+            "lang": "cn"
+          },
+          {
+            "text": "语气与at least等线索区分建议与不满，不能一律译成概率上的可能。",
+            "lang": "cn"
+          },
+          {
+            "text": "make a polite suggestion, or complain about a failure to act",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bd00905879451ea296e3",
+          "target_locator": "record.constructions[2]",
+          "target_label": "You might (at least) + base verb"
+        }
+      },
+      {
+        "id": "construction:abaa6e14a79f1ecfefd4",
+        "source_locator": "record.constructions[3]",
+        "pattern": "sb/sth might ..., but ...",
+        "lines": [
+          {
+            "text": "虽然承认某一点，但……",
+            "lang": "cn"
+          },
+          {
+            "text": "可承认该点实际成立，不必表示不知道真假；与普通未确定的可能性由语境区分。",
+            "lang": "cn"
+          },
+          {
+            "text": "concede a point before contrasting it with another",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:abaa6e14a79f1ecfefd4",
+          "target_locator": "record.constructions[3]",
+          "target_label": "sb/sth might ..., but ..."
+        }
+      },
+      {
+        "id": "construction:0212e0845b9f0fb33d6e",
+        "source_locator": "record.constructions[4]",
+        "pattern": "said/thought ... might + base verb",
+        "lines": [
+          {
+            "text": "转述may时使用might",
+            "lang": "cn"
+          },
+          {
+            "text": "转述可能性或许可按原话语境理解；不会把might的一切现在用法改成过去。",
+            "lang": "cn"
+          },
+          {
+            "text": "report an earlier statement using may",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0212e0845b9f0fb33d6e",
+          "target_locator": "record.constructions[4]",
+          "target_label": "said/thought ... might + base verb"
         }
       }
     ],
@@ -6398,11 +8282,11 @@
     "ordinal": 3050,
     "word": "mile",
     "source_owner_path": "content/lexical/words/by-ordinal/o3050.json",
-    "source_fingerprint": "c651c967ed01da2c579c1c1ec0e419b3f3f26780dabc3868a5d3de6a79eb8e61",
+    "source_fingerprint": "42801a4fbbcf6445301f053cfcf15fa3b5156f77181e68d68745ffbb5471a736",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -6476,6 +8360,23 @@
           "target_locator": "record.senses[1]",
           "target_label": "很大的距离"
         }
+      },
+      {
+        "id": "sense:mile:4812467d821fc535",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "the mile; a four-minute mile",
+        "definition_cn": "一英里赛跑",
+        "definition_en": "a race over a distance of one mile",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mile:4812467d821fc535",
+          "target_locator": "record.senses[2]",
+          "target_label": "一英里赛跑"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6489,6 +8390,24 @@
           "applicability": [
             {
               "surface": "mile"
+            },
+            {
+              "surface": "mile",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mile:4812467d821fc535"
+              ],
+              "owner_sense_ids": [
+                "sense:mile:4812467d821fc535"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3050.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the mile; a four-minute mile",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6503,17 +8422,191 @@
           "applicability": [
             {
               "surface": "mile"
+            },
+            {
+              "surface": "mile",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mile:4812467d821fc535"
+              ],
+              "owner_sense_ids": [
+                "sense:mile:4812467d821fc535"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3050.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the mile; a four-minute mile",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:mile:4812467d821fc535": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:1ce8f123f5cbd5cb6a22",
+        "source_locator": "record.constructions[0]",
+        "pattern": "go the extra mile (for sb/sth)",
+        "lines": [
+          {
+            "text": "付出额外努力；多做一步",
+            "lang": "cn"
+          },
+          {
+            "text": "不是必须多走一英里。",
+            "lang": "cn"
+          },
+          {
+            "text": "make a special extra effort to help or achieve something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1ce8f123f5cbd5cb6a22",
+          "target_locator": "record.constructions[0]",
+          "target_label": "go the extra mile (for sb/sth)"
+        }
+      },
+      {
+        "id": "construction:a8c5de0112935747a784",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be miles away",
+        "lines": [
+          {
+            "text": "走神；心不在焉",
+            "lang": "cn"
+          },
+          {
+            "text": "谈人的注意力时指走神；谈位置时可指地理距离很远。",
+            "lang": "cn"
+          },
+          {
+            "text": "be absorbed in thoughts and unaware of the surroundings",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a8c5de0112935747a784",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be miles away"
+        }
+      },
+      {
+        "id": "construction:4a42b6a50148bef5b4b2",
+        "source_locator": "record.constructions[2]",
+        "pattern": "a mile a minute",
+        "lines": [
+          {
+            "text": "（说话、思绪等）飞快地",
+            "lang": "cn"
+          },
+          {
+            "text": "比喻时不是测定六十英里每小时。",
+            "lang": "cn"
+          },
+          {
+            "text": "very fast, especially of speech or thoughts",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:4a42b6a50148bef5b4b2",
+          "target_locator": "record.constructions[2]",
+          "target_label": "a mile a minute"
+        }
+      },
+      {
+        "id": "construction:ea2ebaa9b02dd04cc43d",
+        "source_locator": "record.constructions[3]",
+        "pattern": "see/spot/tell/smell sth a mile off",
+        "lines": [
+          {
+            "text": "很容易就看出、识别出某事",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式；距离不必真的有一英里。",
+            "lang": "cn"
+          },
+          {
+            "text": "recognize something very easily",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ea2ebaa9b02dd04cc43d",
+          "target_locator": "record.constructions[3]",
+          "target_label": "see/spot/tell/smell sth a mile off"
+        }
+      },
+      {
+        "id": "construction:d64bcc3cf9d6fa77e75d",
+        "source_locator": "record.constructions[4]",
+        "pattern": "stand/stick out a mile",
+        "lines": [
+          {
+            "text": "非常显眼、明显",
+            "lang": "cn"
+          },
+          {
+            "text": "通常非正式，主语是事实、差异等。",
+            "lang": "cn"
+          },
+          {
+            "text": "be very obvious or noticeable",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d64bcc3cf9d6fa77e75d",
+          "target_locator": "record.constructions[4]",
+          "target_label": "stand/stick out a mile"
+        }
+      },
+      {
+        "id": "construction:441b69eb32b6813fa0b1",
+        "source_locator": "record.constructions[5]",
+        "pattern": "run a mile (from sb/sth)",
+        "lines": [
+          {
+            "text": "因为害怕或不愿意而极力躲避",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式比喻；与the mile一英里赛跑新noun区别。",
+            "lang": "cn"
+          },
+          {
+            "text": "avoid something because you are frightened of it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:441b69eb32b6813fa0b1",
+          "target_locator": "record.constructions[5]",
+          "target_label": "run a mile (from sb/sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6527,7 +8620,7 @@
     "ordinal": 3051,
     "word": "militant",
     "source_owner_path": "content/lexical/words/by-ordinal/o3051.json",
-    "source_fingerprint": "ab886dd1210c303a7a0d65e6bf2bf4f8aee10aa19d15ac5f0e30435d1d81d7d4",
+    "source_fingerprint": "79aa756b482786125a0848b0500da79bf36f142b8ba8e3f03873d871d1dfdfff",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6552,8 +8645,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "好战的；强硬路线的",
-        "definition_en": "disposed to warfare or hard-line policies",
+        "definition_cn": "激进的；强硬的；好战的（不一定指实际战争）",
+        "definition_en": "forceful, confrontational, or aggressive in support of a cause",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6570,7 +8663,7 @@
           "target_kind": "sense",
           "target_id": "sense:militant:1cf3e86f69d45a67",
           "target_locator": "record.senses[0]",
-          "target_label": "好战的；强硬路线的"
+          "target_label": "激进的；强硬的；好战的（不一定指实际战争）"
         }
       },
       {
@@ -6760,7 +8853,7 @@
     "ordinal": 3053,
     "word": "milk",
     "source_owner_path": "content/lexical/words/by-ordinal/o3053.json",
-    "source_fingerprint": "299b0283e8a91e3332ba83ee07618aca0aea99e925bd60cd0a02910f37d8402f",
+    "source_fingerprint": "e0cc1609996c63c17de4f42fa1d6b2d3cd8facb2c3c115d9a35a3cac288de035",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6771,7 +8864,7 @@
     },
     "word_feel": {
       "summary_cn": "奶；挤奶",
-      "decision_cn": "",
+      "decision_cn": "从对象中取得奶；引申为尽量榨取利益",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6870,9 +8963,9 @@
         "id": "sense:milk:0df38cd8ccc35159",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "榨取；骗取",
-        "definition_en": "to get money or information from someone dishonestly",
+        "governing_pattern": "milk sb/sth; milk sb for sth; milk sb of sth",
+        "definition_cn": "榨取；尽量从……获取利益（常含不公平意味）",
+        "definition_en": "to get as much money, information, or other benefit as possible from someone or something, often unfairly",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6880,7 +8973,7 @@
             "id": "collocation:6b013f9dd32378fe1d95",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "milk sb of sth",
-            "meaning_cn": "骗取某人的某物",
+            "meaning_cn": "从某人处榨取某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -6894,7 +8987,7 @@
           "target_kind": "sense",
           "target_id": "sense:milk:0df38cd8ccc35159",
           "target_locator": "record.senses[3]",
-          "target_label": "榨取；骗取"
+          "target_label": "榨取；尽量从……获取利益（常含不公平意味）"
         }
       },
       {
@@ -6957,7 +9050,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:2d4eb6b065f216d7730e",
+        "source_locator": "record.constructions[0]",
+        "pattern": "cry over spilt/spilled milk",
+        "lines": [
+          {
+            "text": "为已无法挽回的事懊悔",
+            "lang": "cn"
+          },
+          {
+            "text": "常用于no use/point crying…；spilt常见英式，spilled常见美式；并非讨论牛奶保存。",
+            "lang": "cn"
+          },
+          {
+            "text": "worry about a past event that cannot be undone",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:2d4eb6b065f216d7730e",
+          "target_locator": "record.constructions[0]",
+          "target_label": "cry over spilt/spilled milk"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6971,7 +9090,7 @@
     "ordinal": 3054,
     "word": "mill",
     "source_owner_path": "content/lexical/words/by-ordinal/o3054.json",
-    "source_fingerprint": "ebc2b52bace8b58da1e6d1d8a365174265d1c55f70700bb349b910021bb884d2",
+    "source_fingerprint": "8acab513df58e588c0e96e768f087900f9999b7d78da171574c3c1b040ea96ab",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6996,8 +9115,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "磨坊；工厂",
-        "definition_en": "a building or factory where materials are processed, especially by grinding",
+        "definition_cn": "碾磨机；磨坊；工厂",
+        "definition_en": "a machine for grinding, a building containing such machinery, or a factory processing materials",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7022,7 +9141,7 @@
           "target_kind": "sense",
           "target_id": "sense:mill:72c9d8fd3950517e",
           "target_locator": "record.senses[0]",
-          "target_label": "磨坊；工厂"
+          "target_label": "碾磨机；磨坊；工厂"
         }
       },
       {
@@ -7128,8 +9247,16 @@
     "ordinal": 3055,
     "word": "millimetre",
     "source_owner_path": "content/lexical/words/by-ordinal/o3055.json",
-    "source_fingerprint": "a048d14c06462151839736dea30829589e423093963027909e6ef727cdcde85d",
-    "sense_lineage": [],
+    "source_fingerprint": "ef6a2f1827e9a892f35e388df87c6f0735517426495cdce5157e027132d0f0ff",
+    "sense_lineage": [
+      {
+        "word_id": "word:millimetre",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:55c975b36cfa039d7a1f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -7170,13 +9297,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "millimetre by millimetre",
             "meaning_cn": "一毫米一毫米地；逐渐地",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:55c975b36cfa039d7a1f",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "millimetre by millimetre"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:cab02d87eabece0b5370",
@@ -7227,7 +9349,7 @@
     "ordinal": 3056,
     "word": "million",
     "source_owner_path": "content/lexical/words/by-ordinal/o3056.json",
-    "source_fingerprint": "f6c190bc8f56a4383a7c7ba2580ccf7592d3a535e626d5ceb6319d208f9e3eda",
+    "source_fingerprint": "91fd3635089b6aebaea1bf57b14cd65329ccfabe1ca9581aa0a39702a385d75a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7254,7 +9376,7 @@
         "governing_pattern": "",
         "definition_cn": "百万",
         "definition_en": "the number 1,000,000",
-        "note": "",
+        "note": "明确计数（如two、several）后用million，不加复数-s：two/several million people；不定数量用millions of people。数百万人作主语用复数动词，整体金额可用单数动词。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7344,7 +9466,58 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:b95f05a22989111eefd3",
+        "source_locator": "record.constructions[0]",
+        "pattern": "one in a million",
+        "lines": [
+          {
+            "text": "极其特别、难得的人或物",
+            "lang": "cn"
+          },
+          {
+            "text": "用于赞赏；不必把million理解为严格概率。",
+            "lang": "cn"
+          },
+          {
+            "text": "a person or thing that is exceptionally unusual or special",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b95f05a22989111eefd3",
+          "target_locator": "record.constructions[0]",
+          "target_label": "one in a million"
+        }
+      },
+      {
+        "id": "construction:249d4a8a4f80e097ba5a",
+        "source_locator": "record.constructions[1]",
+        "pattern": "look/feel like a million dollars/bucks",
+        "lines": [
+          {
+            "text": "看起来极好；感觉好极了",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式；是整体状态的夸张说法，不是实际身价。",
+            "lang": "cn"
+          },
+          {
+            "text": "look or feel extremely good",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:249d4a8a4f80e097ba5a",
+          "target_locator": "record.constructions[1]",
+          "target_label": "look/feel like a million dollars/bucks"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7358,7 +9531,7 @@
     "ordinal": 3057,
     "word": "millionaire",
     "source_owner_path": "content/lexical/words/by-ordinal/o3057.json",
-    "source_fingerprint": "8348e4e9794905b37320674c5984b93f7056fa3ed1cf9b6dc2bd4b0a9f704809",
+    "source_fingerprint": "63416ca782ea43af7be86c21f885f154caa2cfad9b8c5de47f85ed35557b4b44",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7382,8 +9555,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "百万富翁；资产达到约一百万计价单位的人",
-        "definition_en": "a person whose wealth is at least or about one million units of the relevant currency",
+        "definition_cn": "百万富翁；财富至少达到一百万相关货币单位的人",
+        "definition_en": "a person whose wealth is at least one million units of the relevant currency",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7408,7 +9581,7 @@
           "target_kind": "sense",
           "target_id": "sense:millionaire:1c584b37e2f059d2",
           "target_locator": "record.senses[0]",
-          "target_label": "百万富翁；资产达到约一百万计价单位的人"
+          "target_label": "百万富翁；财富至少达到一百万相关货币单位的人"
         }
       }
     ],
@@ -7459,23 +9632,23 @@
     "ordinal": 3058,
     "word": "mind",
     "source_owner_path": "content/lexical/words/by-ordinal/o3058.json",
-    "source_fingerprint": "9c273917bea594d6da3993ce3587dd2954ba31f2bcbcee32abd444bcdf62f01c",
+    "source_fingerprint": "e6c06072e462635a11986c03582eb2ca3bdeed8ecbce0f79941acc8472e797e1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
-        "2N"
+        "4V",
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "心智；介意",
-      "decision_cn": "",
+      "summary_cn": "心智、想法与才智；介意、留心、照看",
+      "decision_cn": "先看名词还是动词：a great mind可指才俊；mind doing表示介意做某事；mind the gap提醒留心，mind the children是照看。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "心智；介意"
+        "target_label": "心智、想法与才智；介意、留心、照看"
       }
     },
     "senses": [
@@ -7496,19 +9669,6 @@
             "meaning_cn": "心态",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:ceccc7860d1d5e513caf",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "change one's mind",
-            "meaning_cn": "改变主意",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ceccc7860d1d5e513caf",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "change one's mind"
-            }
           }
         ],
         "repair": {
@@ -7523,8 +9683,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "注意力；意图",
-        "definition_en": "attention or intention",
+        "definition_cn": "注意力；想法；意图",
+        "definition_en": "attention, opinion, or intention",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7543,23 +9703,36 @@
             "meaning_cn": "想到；打算",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:ceccc7860d1d5e513caf",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "change one's mind",
+            "meaning_cn": "改变主意",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:ceccc7860d1d5e513caf",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "change one's mind"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:mind:0f32f8bcd4dc5f3c",
           "target_locator": "record.senses[1]",
-          "target_label": "注意力；意图"
+          "target_label": "注意力；想法；意图"
         }
       },
       {
         "id": "sense:mind:7c0f2cdd8ce453bb",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "mind sth/doing sth; Would you mind doing…? / Do you mind if…?; I don't mind.",
         "definition_cn": "介意；反对",
         "definition_en": "to be bothered by; to object to",
-        "note": "",
+        "note": "常用于问句和否定句，通常不用被动；mind doing，不用mind to do。mind sb doing可用普通宾格，正式语体可用所有格。I don’t mind可表示随便、没有偏好；Would you mind doing请求对方做事，Do you mind if I…询问自己可否做事。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7579,7 +9752,7 @@
             "id": "collocation:a58b97d7554fc753e21d",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "Would you mind...?",
-            "meaning_cn": "你介意...吗？",
+            "meaning_cn": "你介意……吗？（礼貌请求；回答 No 表示不介意）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -7647,6 +9820,58 @@
           "target_locator": "record.senses[4]",
           "target_label": "照看"
         }
+      },
+      {
+        "id": "sense:mind:6f28326cdeeb0e1a",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "a great/brilliant mind; the finest minds",
+        "definition_cn": "才智出众的人；聪明才俊",
+        "definition_en": "a person with outstanding intellectual ability",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4f151b077bf4c47a66ee",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "one of the finest minds of her generation",
+            "meaning_cn": "她那一代最有才智的人之一",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mind:6f28326cdeeb0e1a",
+          "target_locator": "record.senses[5]",
+          "target_label": "才智出众的人；聪明才俊"
+        }
+      },
+      {
+        "id": "sense:mind:7fc4e78c2b18f0bc",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "mind sb（尤北美和爱尔兰英语）",
+        "definition_cn": "听从；服从（某人的话）",
+        "definition_en": "pay attention to and obey what somebody says",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3757cfc1a83840ae2dfe",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "mind your parents",
+            "meaning_cn": "听父母的话",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mind:7fc4e78c2b18f0bc",
+          "target_locator": "record.senses[6]",
+          "target_label": "听从；服从（某人的话）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7660,14 +9885,57 @@
           "applicability": [
             {
               "surface": "mind"
+            },
+            {
+              "surface": "mind",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mind:6f28326cdeeb0e1a"
+              ],
+              "owner_sense_ids": [
+                "sense:mind:6f28326cdeeb0e1a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3058.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a great/brilliant mind; the finest minds",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mind",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mind:7fc4e78c2b18f0bc"
+              ],
+              "owner_sense_ids": [
+                "sense:mind:7fc4e78c2b18f0bc"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3058.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mind sb（尤北美和爱尔兰英语）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:mind:6f28326cdeeb0e1a": [
+          0
+        ],
+        "sense:mind:7fc4e78c2b18f0bc": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -7691,6 +9959,181 @@
           "target_locator": "record.constructions[1]",
           "target_label": "mind your own business"
         }
+      },
+      {
+        "id": "construction:edf8d220b81d28706f0f",
+        "source_locator": "record.constructions[2]",
+        "pattern": "be in two minds / be of two minds (about sth/doing sth)",
+        "lines": [
+          {
+            "text": "犹豫不决；拿不定主意",
+            "lang": "cn"
+          },
+          {
+            "text": "in two minds常见英式，of two minds常见北美；不是指两个人。",
+            "lang": "cn"
+          },
+          {
+            "text": "be unsure what to think or whether to do something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:edf8d220b81d28706f0f",
+          "target_locator": "record.constructions[2]",
+          "target_label": "be in two minds / be of two minds (about sth/doing sth)"
+        }
+      },
+      {
+        "id": "construction:10259ddf89e018c74600",
+        "source_locator": "record.constructions[3]",
+        "pattern": "be on sb’s mind",
+        "lines": [
+          {
+            "text": "让某人一直惦记、担心",
+            "lang": "cn"
+          },
+          {
+            "text": "on my mind偏持续惦记；have/keep in mind则侧重想到或记住。",
+            "lang": "cn"
+          },
+          {
+            "text": "occupy somebody’s thoughts, often because of worry",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:10259ddf89e018c74600",
+          "target_locator": "record.constructions[3]",
+          "target_label": "be on sb’s mind"
+        }
+      },
+      {
+        "id": "construction:0dc5eac21e8b7786aec9",
+        "source_locator": "record.constructions[4]",
+        "pattern": "speak your mind",
+        "lines": [
+          {
+            "text": "直言自己的真实想法",
+            "lang": "cn"
+          },
+          {
+            "text": "不要求语气温和，但也不必然表示辱骂。",
+            "lang": "cn"
+          },
+          {
+            "text": "say directly what you really think",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0dc5eac21e8b7786aec9",
+          "target_locator": "record.constructions[4]",
+          "target_label": "speak your mind"
+        }
+      },
+      {
+        "id": "construction:a1e8728d84907b41c7cb",
+        "source_locator": "record.constructions[5]",
+        "pattern": "slip sb’s mind",
+        "lines": [
+          {
+            "text": "被某人忘记；一时忘了",
+            "lang": "cn"
+          },
+          {
+            "text": "事情作主语：The appointment slipped my mind。",
+            "lang": "cn"
+          },
+          {
+            "text": "be forgotten, often unintentionally",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a1e8728d84907b41c7cb",
+          "target_locator": "record.constructions[5]",
+          "target_label": "slip sb’s mind"
+        }
+      },
+      {
+        "id": "construction:0924df8a11cf7dad3751",
+        "source_locator": "record.constructions[6]",
+        "pattern": "give sb a piece of your mind",
+        "lines": [
+          {
+            "text": "生气地训斥、责备某人",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式；piece of your mind不是peace of mind的心安。",
+            "lang": "cn"
+          },
+          {
+            "text": "tell somebody angrily that you disapprove of their behaviour",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0924df8a11cf7dad3751",
+          "target_locator": "record.constructions[6]",
+          "target_label": "give sb a piece of your mind"
+        }
+      },
+      {
+        "id": "construction:fc695c1012f58341ae8f",
+        "source_locator": "record.constructions[7]",
+        "pattern": "mind you",
+        "lines": [
+          {
+            "text": "不过；话说回来（补充限制或转折）",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式话语标记；不按普通“照看你”理解。",
+            "lang": "cn"
+          },
+          {
+            "text": "add a qualification or contrasting point to what was just said",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:fc695c1012f58341ae8f",
+          "target_locator": "record.constructions[7]",
+          "target_label": "mind you"
+        }
+      },
+      {
+        "id": "construction:8fbec3f122da962a9ec3",
+        "source_locator": "record.constructions[8]",
+        "pattern": "Never mind! / never mind (about) sth/doing sth / A, never mind B",
+        "lines": [
+          {
+            "text": "别在意；不必管；更不用说",
+            "lang": "cn"
+          },
+          {
+            "text": "安慰或取消关注时是“没关系/别管”；A, never mind B还可表示“连A都…，更别说B”。",
+            "lang": "cn"
+          },
+          {
+            "text": "say something need not worry you or need not be done; also introduce a stronger, less likely case",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8fbec3f122da962a9ec3",
+          "target_locator": "record.constructions[8]",
+          "target_label": "Never mind! / never mind (about) sth/doing sth / A, never mind B"
+        }
       }
     ],
     "reference": {
@@ -7706,24 +10149,24 @@
     "ordinal": 3059,
     "word": "mine",
     "source_owner_path": "content/lexical/words/by-ordinal/o3059.json",
-    "source_fingerprint": "f03132b995b55cc0b5151e7e2832555741e2d000f2c7c816486513efe7512473",
+    "source_fingerprint": "21a8a8c1b6464b2b52aab22dbb7147d5ba4f5606d21a088572b732861e77bb00",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "4V",
         "2N",
         "1PRON"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "矿藏或爆炸装置；开采或布雷；我的",
-      "decision_cn": "",
+      "summary_cn": "我的所有物；矿井、爆炸雷具；开采及挖掘资源",
+      "decision_cn": "代词mine独立表示“我的”；名词可指矿井或雷具。动词从开采延伸到从记录中提取信息，计算语境还可指挖取加密货币。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "矿藏或爆炸装置；开采或布雷；我的"
+        "target_label": "我的所有物；矿井、爆炸雷具；开采及挖掘资源"
       }
     },
     "senses": [
@@ -7804,9 +10247,9 @@
         "id": "sense:mine:cf78ce54bdfb5206",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "开采（矿物）",
-        "definition_en": "to dig minerals from the earth",
+        "governing_pattern": "mine coal/minerals; mine an area for minerals; mine for minerals",
+        "definition_cn": "采矿；开采矿物",
+        "definition_en": "to dig for or extract minerals from the earth",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -7814,7 +10257,7 @@
           "target_kind": "sense",
           "target_id": "sense:mine:cf78ce54bdfb5206",
           "target_locator": "record.senses[2]",
-          "target_label": "开采（矿物）"
+          "target_label": "采矿；开采矿物"
         }
       },
       {
@@ -7873,6 +10316,58 @@
           "target_locator": "record.senses[4]",
           "target_label": "在…布雷"
         }
+      },
+      {
+        "id": "sense:mine:bb75d381cb9a5513",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "mine data/information; mine records for details",
+        "definition_cn": "挖掘、提取（资料中的信息或价值）",
+        "definition_en": "extract useful information or material from a source",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:1f780b3dfc8b5dd91b39",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "mine the archives for evidence",
+            "meaning_cn": "从档案中挖掘证据",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mine:bb75d381cb9a5513",
+          "target_locator": "record.senses[5]",
+          "target_label": "挖掘、提取（资料中的信息或价值）"
+        }
+      },
+      {
+        "id": "sense:mine:25eb638fbb158de8",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "mine cryptocurrency; mine for cryptocurrency",
+        "definition_cn": "（用计算机验证交易等）挖取加密货币",
+        "definition_en": "use computational work to verify cryptocurrency transactions and obtain cryptocurrency",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:49c9c86cf1f03bdaef18",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "mine Bitcoin",
+            "meaning_cn": "挖取比特币",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mine:25eb638fbb158de8",
+          "target_locator": "record.senses[6]",
+          "target_label": "（用计算机验证交易等）挖取加密货币"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7883,6 +10378,42 @@
           "applicability": [
             {
               "surface": "mine"
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine data/information; mine records for details",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine cryptocurrency; mine for cryptocurrency",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7894,6 +10425,42 @@
           "applicability": [
             {
               "surface": "mine"
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine data/information; mine records for details",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine cryptocurrency; mine for cryptocurrency",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7907,17 +10474,90 @@
           "applicability": [
             {
               "surface": "mine"
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine data/information; mine records for details",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine cryptocurrency; mine for cryptocurrency",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:mine:25eb638fbb158de8": [
+          0,
+          1,
+          2
+        ],
+        "sense:mine:bb75d381cb9a5513": [
+          0,
+          1,
+          2
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:b4de04220298d5400f3d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a mine of information/data (about/on sth)",
+        "lines": [
+          {
+            "text": "丰富的信息、资料来源",
+            "lang": "cn"
+          },
+          {
+            "text": "固定of构式；mine在此为名词，不是表示“我的”的代词。",
+            "lang": "cn"
+          },
+          {
+            "text": "a person or source that supplies a great deal of information",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b4de04220298d5400f3d",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a mine of information/data (about/on sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7931,23 +10571,23 @@
     "ordinal": 3060,
     "word": "mineral",
     "source_owner_path": "content/lexical/words/by-ordinal/o3060.json",
-    "source_fingerprint": "592d95871a9c3d89a65dc55e3c8abe9f808c0a05419e5aa767ad98f35ccbcc00",
+    "source_fingerprint": "3cc8b82059a6a7ffd371910360392f35e54b7a500f1a4c88b20bfc0d4b15d9f9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "矿物；矿物的",
-      "decision_cn": "",
+      "summary_cn": "矿物；营养矿物质；矿物的",
+      "decision_cn": "矿产语境谈地质物质，饮食中的minerals谈钙等无机元素；形容词mineral表示与矿物有关。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "矿物；矿物的"
+        "target_label": "矿物；营养矿物质；矿物的"
       }
     },
     "senses": [
@@ -8002,6 +10642,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "矿物的"
         }
+      },
+      {
+        "id": "sense:mineral:bcebe5c93c6177e6",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "vitamins and minerals; essential minerals",
+        "definition_cn": "（食物、人体中的）矿物质；无机营养元素",
+        "definition_en": "an inorganic nutrient, such as calcium, present in food and the body",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:86fb83df5e612dde7017",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "vitamins and minerals",
+            "meaning_cn": "维生素与矿物质",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mineral:bcebe5c93c6177e6",
+          "target_locator": "record.senses[2]",
+          "target_label": "（食物、人体中的）矿物质；无机营养元素"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8015,6 +10681,24 @@
           "applicability": [
             {
               "surface": "mineral"
+            },
+            {
+              "surface": "mineral",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mineral:bcebe5c93c6177e6"
+              ],
+              "owner_sense_ids": [
+                "sense:mineral:bcebe5c93c6177e6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3060.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "vitamins and minerals; essential minerals",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8028,6 +10712,24 @@
           "applicability": [
             {
               "surface": "mineral"
+            },
+            {
+              "surface": "mineral",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mineral:bcebe5c93c6177e6"
+              ],
+              "owner_sense_ids": [
+                "sense:mineral:bcebe5c93c6177e6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3060.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "vitamins and minerals; essential minerals",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8042,14 +10744,38 @@
           "applicability": [
             {
               "surface": "mineral"
+            },
+            {
+              "surface": "mineral",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mineral:bcebe5c93c6177e6"
+              ],
+              "owner_sense_ids": [
+                "sense:mineral:bcebe5c93c6177e6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3060.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "vitamins and minerals; essential minerals",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:mineral:bcebe5c93c6177e6": [
+          0,
+          1,
+          2
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -8066,7 +10792,7 @@
     "ordinal": 3061,
     "word": "mingle",
     "source_owner_path": "content/lexical/words/by-ordinal/o3061.json",
-    "source_fingerprint": "f858c3977f8549636204630636badd30341c17bd2faf32239d843eeb2e681a0d",
+    "source_fingerprint": "323bf50e5c3de6bfb2bcd60ad28e249d86ca1a5c2bce71a1d6a878e7fdc15e03",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8089,9 +10815,9 @@
         "id": "sense:mingle:78344ce97be95ef7",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使混合",
-        "definition_en": "to mix or combine things together",
+        "governing_pattern": "mingle A with B; A mingles with B; sounds/smells mingle",
+        "definition_cn": "（使）混合",
+        "definition_en": "to mix things together or become mixed",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8121,7 +10847,7 @@
           "target_kind": "sense",
           "target_id": "sense:mingle:78344ce97be95ef7",
           "target_locator": "record.senses[0]",
-          "target_label": "使混合"
+          "target_label": "（使）混合"
         }
       },
       {
@@ -8209,7 +10935,7 @@
     "ordinal": 3062,
     "word": "miniature",
     "source_owner_path": "content/lexical/words/by-ordinal/o3062.json",
-    "source_fingerprint": "5a8375863c2650c939bec31fc75cbf850bc56babee50c561ddb1c40a1596927c",
+    "source_fingerprint": "a1c60e3dc74941907f408726aa219f9b7e90e8247dff2751237b14069d23b796",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8349,7 +11075,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:8a01360ce5618d0ee5ef",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in miniature",
+        "lines": [
+          {
+            "text": "以微缩形式；小规模地",
+            "lang": "cn"
+          },
+          {
+            "text": "作整体状语；也可描述成人生活的微缩呈现。",
+            "lang": "cn"
+          },
+          {
+            "text": "on a very small scale",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8a01360ce5618d0ee5ef",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in miniature"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8363,8 +11115,16 @@
     "ordinal": 3063,
     "word": "minimise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3063.json",
-    "source_fingerprint": "0ca31f4060d5e6e030922c5be8c16a21215e2bcfeb2a9c29e95d62d4bd1aed2b",
-    "sense_lineage": [],
+    "source_fingerprint": "fd6e1625ecc76c0e038ace7012337abed5db70f02807fb11044b8576a28f081b",
+    "sense_lineage": [
+      {
+        "word_id": "word:minimise",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:21e161dde814826f0a70",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -8372,13 +11132,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使最小化，轻视",
-      "decision_cn": "",
+      "summary_cn": "把实际数量降至最低；把重要性说小",
+      "decision_cn": "区分实际减少和表述上的淡化",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使最小化，轻视"
+        "target_label": "把实际数量降至最低；把重要性说小"
       }
     },
     "senses": [
@@ -8407,19 +11167,6 @@
             "meaning_cn": "将风险降到最低",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:21e161dde814826f0a70",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "minimise + sth",
-            "meaning_cn": "使某物最小化",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:21e161dde814826f0a70",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "minimise + sth"
-            }
           }
         ],
         "repair": {
@@ -8434,7 +11181,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "极度轻视，贬低",
+        "definition_cn": "淡化；把……说得不那么重要；贬低",
         "definition_en": "represent something as less important than it really is",
         "note": "",
         "identity_overlay": {
@@ -8451,7 +11198,7 @@
             "id": "collocation:0f7f0504fcb68a32a42d",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "minimise the importance of + sth",
-            "meaning_cn": "轻视某事物的重要性",
+            "meaning_cn": "淡化某事的重要性",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -8465,7 +11212,7 @@
           "target_kind": "sense",
           "target_id": "sense:minimise:3d0e8ad5822c5c1d",
           "target_locator": "record.senses[1]",
-          "target_label": "极度轻视，贬低"
+          "target_label": "淡化；把……说得不那么重要；贬低"
         }
       }
     ],
@@ -8504,7 +11251,7 @@
     "ordinal": 3064,
     "word": "minimum",
     "source_owner_path": "content/lexical/words/by-ordinal/o3064.json",
-    "source_fingerprint": "768508e01f9bc1693cfd7ab7b263c00bd2f43fa1b7a822516016ecefce2c8b5e",
+    "source_fingerprint": "b74fc7c648e790b300e9e040edaafc83f1b07393ff7e9e19e42582f48f933c68",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8529,8 +11276,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "最小值",
-        "definition_en": "the smallest possible quantity",
+        "definition_cn": "最小量；最低限度（可能、允许或要求的）",
+        "definition_en": "the smallest amount or level that is possible, allowed, or required",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -8538,7 +11285,7 @@
           "target_kind": "sense",
           "target_id": "sense:minimum:104645deff8c5328",
           "target_locator": "record.senses[0]",
-          "target_label": "最小值"
+          "target_label": "最小量；最低限度（可能、允许或要求的）"
         }
       },
       {
@@ -8546,8 +11293,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "最小的，最低的",
-        "definition_en": "smallest in amount or degree",
+        "definition_cn": "最小的；最低的（含规定或要求的下限）",
+        "definition_en": "smallest in amount or level, including the lowest allowed or required",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8572,7 +11319,7 @@
           "target_kind": "sense",
           "target_id": "sense:minimum:687dce3cc4225112",
           "target_locator": "record.senses[1]",
-          "target_label": "最小的，最低的"
+          "target_label": "最小的；最低的（含规定或要求的下限）"
         }
       }
     ],
@@ -8623,7 +11370,7 @@
     "ordinal": 3065,
     "word": "minister",
     "source_owner_path": "content/lexical/words/by-ordinal/o3065.json",
-    "source_fingerprint": "4c5d64c37a2e92dfb290acc2a480bbe98dee95336d75ca84099c9382044a23b6",
+    "source_fingerprint": "4de8eaf080f52467f117566c7e3753529bcfe2e70db89d4975e7f8976ccf4d66",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8999,24 +11746,24 @@
     "ordinal": 3067,
     "word": "minor",
     "source_owner_path": "content/lexical/words/by-ordinal/o3067.json",
-    "source_fingerprint": "c2744bd1b2d94a1258a33ac4476820c2559d31190cb3c70d9029e02ec1185dde",
+    "source_fingerprint": "bd93e47077222691a35e01e9f80d70e3b1a4a1f0baa86f22a92aebd9bd9f9bf8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "1A",
+        "2A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "较小的，次要的",
-      "decision_cn": "",
+      "summary_cn": "次要的；未成年人及副修；音乐小调的",
+      "decision_cn": "minor injuries谈程度小，a minor谈未成年，minor in谈副修；C minor是音乐小调，不把小调都说成悲伤音乐。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "较小的，次要的"
+        "target_label": "次要的；未成年人及副修；音乐小调的"
       }
     },
     "senses": [
@@ -9141,6 +11888,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "副修科目；副修专业"
         }
+      },
+      {
+        "id": "sense:minor:3e167c30d7ed174d",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "a minor key; in C minor",
+        "definition_cn": "（音乐）小调的",
+        "definition_en": "based on a minor musical scale, with a semitone between its second and third notes",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:074537767239b1ebccc3",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "in C minor",
+            "meaning_cn": "以C小调",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:minor:3e167c30d7ed174d",
+          "target_locator": "record.senses[4]",
+          "target_label": "（音乐）小调的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9153,6 +11926,24 @@
           "applicability": [
             {
               "surface": "minor"
+            },
+            {
+              "surface": "minor",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:minor:3e167c30d7ed174d"
+              ],
+              "owner_sense_ids": [
+                "sense:minor:3e167c30d7ed174d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3067.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a minor key; in C minor",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -9166,14 +11957,37 @@
           "applicability": [
             {
               "surface": "minor"
+            },
+            {
+              "surface": "minor",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:minor:3e167c30d7ed174d"
+              ],
+              "owner_sense_ids": [
+                "sense:minor:3e167c30d7ed174d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3067.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a minor key; in C minor",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:minor:3e167c30d7ed174d": [
+          0,
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -9190,7 +12004,7 @@
     "ordinal": 3068,
     "word": "minority",
     "source_owner_path": "content/lexical/words/by-ordinal/o3068.json",
-    "source_fingerprint": "f2ad87287e9b5fcb1d8a303d3c795533e24fae69841a70f979e6d583059cbee1",
+    "source_fingerprint": "30804adca89a2a94e6c1382aaf4cbfeafc556c2c92fc4adf385ac45a502a9ac1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9414,24 +12228,24 @@
     "ordinal": 3069,
     "word": "minus",
     "source_owner_path": "content/lexical/words/by-ordinal/o3069.json",
-    "source_fingerprint": "6b33f58284000a8297e6b4464be153c5bcc7297448d28612c6b007ca01a93108",
+    "source_fingerprint": "9babb3d9bfbacb6f9d5910b6212e0f2d9fa1f5fcf46cc9435d5d50f0cf8b4055",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
-        "1N",
+        "3A",
+        "2N",
         "1PREP"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "减法或负的",
-      "decision_cn": "",
+      "summary_cn": "减去、缺少；负值或减号；不利因素及等级稍低",
+      "decision_cn": "five minus two是减法；minus a bag是少了包。pluses and minuses谈利弊，B minus中的minus在字母后表示略低等级。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "减法或负的"
+        "target_label": "减去、缺少；负值或减号；不利因素及等级稍低"
       }
     },
     "senses": [
@@ -9440,9 +12254,9 @@
         "source_locator": "record.senses[0]",
         "pos": "preposition",
         "governing_pattern": "",
-        "definition_cn": "减去，缺少",
-        "definition_en": "with the subtraction of; less",
-        "note": "",
+        "definition_cn": "减去；缺少、没有",
+        "definition_en": "with an amount taken away; without something previously present",
+        "note": "减法与非正式的缺少均可：five minus two；return minus a bag。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9466,7 +12280,7 @@
           "target_kind": "sense",
           "target_id": "sense:minus:035e1e16d03859d2",
           "target_locator": "record.senses[0]",
-          "target_label": "减去，缺少"
+          "target_label": "减去；缺少、没有"
         }
       },
       {
@@ -9533,6 +12347,84 @@
           "target_locator": "record.senses[2]",
           "target_label": "负号，减号"
         }
+      },
+      {
+        "id": "sense:minus:62af5e89fdc2f5b1",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "the pluses and minuses of sth",
+        "definition_cn": "缺点；不利因素",
+        "definition_en": "a disadvantage or negative feature",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:57302adf171f9d0aad7f",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "the pluses and minuses of moving",
+            "meaning_cn": "搬家的利弊",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:minus:62af5e89fdc2f5b1",
+          "target_locator": "record.senses[3]",
+          "target_label": "缺点；不利因素"
+        }
+      },
+      {
+        "id": "sense:minus:0db3bb4553e4c3ba",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "A/B/C minus（置于等级字母后）",
+        "definition_cn": "（等级、成绩）略低于所列等级的",
+        "definition_en": "slightly below a stated grade",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:af68356fb68b99b38fa3",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a B minus",
+            "meaning_cn": "B减的成绩",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:minus:0db3bb4553e4c3ba",
+          "target_locator": "record.senses[4]",
+          "target_label": "（等级、成绩）略低于所列等级的"
+        }
+      },
+      {
+        "id": "sense:minus:2c6cca29b901648b",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "minus points; on the minus side（通常置于名词前）",
+        "definition_cn": "不利的；负面的",
+        "definition_en": "unfavourable or disadvantageous",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:345c5d2483a3932fea48",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "on the minus side",
+            "meaning_cn": "在不利的一面",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:minus:2c6cca29b901648b",
+          "target_locator": "record.senses[5]",
+          "target_label": "不利的；负面的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9546,14 +12438,78 @@
           "applicability": [
             {
               "surface": "minus"
+            },
+            {
+              "surface": "minus",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:minus:62af5e89fdc2f5b1"
+              ],
+              "owner_sense_ids": [
+                "sense:minus:62af5e89fdc2f5b1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3069.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the pluses and minuses of sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "minus",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:minus:0db3bb4553e4c3ba"
+              ],
+              "owner_sense_ids": [
+                "sense:minus:0db3bb4553e4c3ba"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3069.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "A/B/C minus（置于等级字母后）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "minus",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:minus:2c6cca29b901648b"
+              ],
+              "owner_sense_ids": [
+                "sense:minus:2c6cca29b901648b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3069.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "minus points; on the minus side（通常置于名词前）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:minus:0db3bb4553e4c3ba": [
+          0
+        ],
+        "sense:minus:2c6cca29b901648b": [
+          0
+        ],
+        "sense:minus:62af5e89fdc2f5b1": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -9570,7 +12526,7 @@
     "ordinal": 3070,
     "word": "minute",
     "source_owner_path": "content/lexical/words/by-ordinal/o3070.json",
-    "source_fingerprint": "e30e06d912347f240de54436cbf3ef2e0ae2b1e97a77ed930a6e28272f19d7d0",
+    "source_fingerprint": "0175dd8ddbb46d962e2b1ee27a1b08ae5c477eb0c6d4142ddba6f3f0f35985a3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9581,13 +12537,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "时间或角度单位；简短记录；微小或详细的",
-      "decision_cn": "",
+      "summary_cn": "分钟／角分；会议记录；微小的／细致的",
+      "decision_cn": "名词/动词重音在前，指时间、角度或会议记录；形容词重音在后，指微小或细致",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "时间或角度单位；简短记录；微小或详细的"
+        "target_label": "分钟／角分；会议记录；微小的／细致的"
       }
     },
     "senses": [
@@ -9621,7 +12577,7 @@
             "id": "collocation:9c35b6563ca93390e8c9",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "in a minute",
-            "meaning_cn": "马上，立刻",
+            "meaning_cn": "一分钟后；很快；一会儿",
             "kind": "usage_example",
             "repair": null
           }
@@ -9905,7 +12861,108 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:8f6170fc5d87b3f9f6a2",
+        "source_locator": "record.constructions[0]",
+        "pattern": "(at) any minute (now)",
+        "lines": [
+          {
+            "text": "随时就会；马上可能",
+            "lang": "cn"
+          },
+          {
+            "text": "表示即将发生，不是严格倒数60秒。",
+            "lang": "cn"
+          },
+          {
+            "text": "very soon, possibly at any moment",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8f6170fc5d87b3f9f6a2",
+          "target_locator": "record.constructions[0]",
+          "target_label": "(at) any minute (now)"
+        }
+      },
+      {
+        "id": "construction:e26923733ca328fa7d14",
+        "source_locator": "record.constructions[1]",
+        "pattern": "not … for a/one minute",
+        "lines": [
+          {
+            "text": "一点也不（相信、认为等）",
+            "lang": "cn"
+          },
+          {
+            "text": "否定句强调完全不信；与for a minute表示一会儿的时间用法区分。",
+            "lang": "cn"
+          },
+          {
+            "text": "not at all, especially when denying a belief",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e26923733ca328fa7d14",
+          "target_locator": "record.constructions[1]",
+          "target_label": "not … for a/one minute"
+        }
+      },
+      {
+        "id": "construction:1a3e77e303881d9e9a51",
+        "source_locator": "record.constructions[2]",
+        "pattern": "the minute (that) + clause",
+        "lines": [
+          {
+            "text": "一……就……",
+            "lang": "cn"
+          },
+          {
+            "text": "that可省略；整体引导时间关系，后接完整从句。",
+            "lang": "cn"
+          },
+          {
+            "text": "as soon as the event in the following clause happens",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1a3e77e303881d9e9a51",
+          "target_locator": "record.constructions[2]",
+          "target_label": "the minute (that) + clause"
+        }
+      },
+      {
+        "id": "construction:bc0352db2982acb94370",
+        "source_locator": "record.constructions[3]",
+        "pattern": "up to the minute / up-to-the-minute",
+        "lines": [
+          {
+            "text": "最新的；包含刚刚信息的",
+            "lang": "cn"
+          },
+          {
+            "text": "在名词前常写up-to-the-minute，如up-to-the-minute reports。",
+            "lang": "cn"
+          },
+          {
+            "text": "fully current, including the latest available information",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bc0352db2982acb94370",
+          "target_locator": "record.constructions[3]",
+          "target_label": "up to the minute / up-to-the-minute"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9919,7 +12976,7 @@
     "ordinal": 3071,
     "word": "miracle",
     "source_owner_path": "content/lexical/words/by-ordinal/o3071.json",
-    "source_fingerprint": "b5f8ac6e796ff95e4135e7a575db62b7d59858bc6333a8be42e0651622923957",
+    "source_fingerprint": "1aac5ea21712ade07a5bc61da59d1d1b83458ac93debe27e67eb65fd1fd9ab93",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9928,13 +12985,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "超自然或神奇的事件",
-      "decision_cn": "",
+      "summary_cn": "奇迹、奇事；宗教语境中的神迹",
+      "decision_cn": "日常表示出乎意料的好结果；宗教语境才强调神力",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "超自然或神奇的事件"
+        "target_label": "奇迹、奇事；宗教语境中的神迹"
       }
     },
     "senses": [
@@ -9982,9 +13039,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "神迹，超自然事件",
-        "definition_en": "a marvellous event manifesting a supernatural act of a divine agent",
-        "note": "",
+        "definition_cn": "神迹；被认为由神力引起的超自然事件",
+        "definition_en": "an extraordinary event believed to be caused by divine power rather than ordinary natural laws",
+        "note": "宗教语境中的解释或信念，不把神力起因作为已证实的客观事实。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10005,7 +13062,7 @@
           "target_kind": "sense",
           "target_id": "sense:miracle:1c38f824bba75b01",
           "target_locator": "record.senses[1]",
-          "target_label": "神迹，超自然事件"
+          "target_label": "神迹；被认为由神力引起的超自然事件"
         }
       }
     ],

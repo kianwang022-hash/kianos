@@ -10,9 +10,9 @@
     "content_hash": "cc64930d8af3b7177638ee6d570406bea1bf97f5c785e3e59cedbe3e86bb0ed7",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "禁止",
-      "core_meaning_en": "command against",
-      "mental_model_cn": "禁止",
+      "core_meaning_cn": "以规则禁止；或以条件阻断",
+      "core_meaning_en": "to forbid officially or make impossible",
+      "mental_model_cn": "law/rule prohibits→正式禁止；cost/conditions prohibit→条件使行动无法实现。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -49,15 +49,54 @@
         ],
         "confidence": "medium",
         "definition_cn": "禁止，阻止",
-        "definition_en": "command against",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to officially forbid something, especially by a law or rule",
+        "governing_pattern": "vt.: prohibit sth/doing sth; prohibit sb from doing sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:prohibit:ea6b50c6b0af53ad",
-        "sense_label_en": "command against",
+        "sense_label_en": "to officially forbid something, especially by a law or rule",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/prohibit",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:prohibit:8b9c4378456f30aa",
+        "pos": "verb",
+        "definition_cn": "使不可能；阻碍",
+        "definition_en": "to prevent something by making it impossible",
+        "sense_label_en": "to prevent something by making it impossible",
+        "transitivity": "vt",
+        "governing_pattern": "vt.: prohibit sth",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:prohibit:a4e63b3eb960519e",
+            "phrase": "The cost prohibits further expansion.",
+            "meaning_cn": "费用使进一步扩张无法实现。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/prohibit",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "费用、条件等可以prohibit某行动，不要求有命令或法律。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/prohibit",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -307,11 +346,18 @@
         "merged_into_sense_id": null,
         "source_row": 10621,
         "source_path": "content/lexical/canonical/senses/shards/o3809-3840.json"
+      },
+      {
+        "sense_id": "sense:prohibit:8b9c4378456f30aa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3815.json"
       }
     ],
     "active_collocations": [
       "collocation:3190558c5374c5238609",
-      "collocation:d2ff5ab52cb37966e3f2"
+      "collocation:d2ff5ab52cb37966e3f2",
+      "collocation:prohibit:a4e63b3eb960519e"
     ],
     "facts": [
       {
@@ -330,6 +376,10 @@
         "id": "collocation:d2ff5ab52cb37966e3f2",
         "source_row": 17831,
         "source_path": "content/lexical/canonical/collocations/shards/o3809-3840.json"
+      },
+      {
+        "id": "collocation:prohibit:a4e63b3eb960519e",
+        "source_path": "content/lexical/words/by-ordinal/o3815.json"
       }
     ],
     "exam-mappings": [],

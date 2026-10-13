@@ -15,7 +15,18 @@
         "definition_en": "to take unfair advantage of someone or ask too much of their kindness",
         "pattern": "impose on/upon sb / impose on sb’s kindness/hospitality",
         "source_sense_id": "sense:impose:152d6f55f59a5f54",
-        "boundary": "take-advantage/inconvenience pattern; distinct from impose a rule/tax on someone"
+        "boundary": "take-advantage/inconvenience pattern; distinct from impose a rule/tax on someone",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:f55d31be707243650d66",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:impose:152d6f55f59a5f54:collocation:0"
+            ],
+            "meaning_cn": "利用某人的好客",
+            "phrase": "impose on someone's hospitality"
+          }
+        ]
       }
     ],
     "content_hash": "6d6565c89d584fe9488e3355836838e8d052a3004ee355110a311360011690e1",
@@ -79,15 +90,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:5ba64383de5186ec145e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:impose:dc17926350315752:collocation:0"
-            ],
-            "meaning_cn": "对…征税",
-            "phrase": "impose a tax on"
-          },
-          {
             "collocation_id": "collocation:e19329c6eb663ddac617",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
@@ -110,17 +112,7 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:f55d31be707243650d66",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:impose:152d6f55f59a5f54:collocation:0"
-            ],
-            "meaning_cn": "利用某人的好客",
-            "phrase": "impose on someone's hospitality"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "利用，占便宜",
         "definition_en": "to take unfair advantage of someone's kindness",
@@ -143,17 +135,26 @@
             ],
             "meaning_cn": "处以罚款",
             "phrase": "impose a fine"
+          },
+          {
+            "collocation_id": "collocation:5ba64383de5186ec145e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:impose:dc17926350315752:collocation:0"
+            ],
+            "meaning_cn": "对…征税",
+            "phrase": "impose a tax on"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "征收（税等）",
-        "definition_en": "to collect (a tax, fee, etc.)",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "征收（税）；施加（罚款等）",
+        "definition_en": "to introduce or levy a tax, charge or penalty, not necessarily collect the payment",
+        "governing_pattern": "impose a tax/fine/charge on sb/sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:impose:7a4c5c60b577590d",
-        "sense_label_en": "to collect (a tax, fee, etc.)",
+        "sense_label_en": "to introduce or levy a tax, charge or penalty, not necessarily collect the payment",
         "sort_order": 2,
         "transitivity": "vt"
       }
@@ -324,8 +325,7 @@
     "active_collocations": [
       "collocation:46a31e22a115d471b2a7",
       "collocation:5ba64383de5186ec145e",
-      "collocation:e19329c6eb663ddac617",
-      "collocation:f55d31be707243650d66"
+      "collocation:e19329c6eb663ddac617"
     ],
     "facts": [
       {
@@ -348,7 +348,8 @@
       {
         "id": "collocation:5ba64383de5186ec145e",
         "source_row": 7717,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "sense_id": "sense:impose:7a4c5c60b577590d"
       },
       {
         "id": "collocation:e19329c6eb663ddac617",
@@ -358,7 +359,9 @@
       {
         "id": "collocation:f55d31be707243650d66",
         "source_row": 20781,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

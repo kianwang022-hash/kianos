@@ -11,27 +11,29 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "挤作一团，聚在一起；蜷缩",
-          "label_en": "to crowd together in a small group, usually for warmth or protection; to curl up one's body, especially because of cold or fear",
+          "label_cn": "挤作一团，聚在一起；蜷缩；（北美）小组秘密或简短商议",
+          "label_en": "to crowd together in a small group, usually for warmth or protection; to curl up one's body, especially because of cold or fear; to confer privately in a small group",
           "pos": "verb",
           "sense_ids": [
             "sense:huddle:d53cac564101595d",
-            "sense:huddle:23878482a9845bac"
+            "sense:huddle:23878482a9845bac",
+            "sense:huddle:e0470f2efbd361e4"
           ]
         },
         {
-          "label_cn": "挤在一起的一群",
-          "label_en": "a small group of people or things that are close together",
+          "label_cn": "挤在一起的一群；（团队、体育等中的）简短商议",
+          "label_en": "a small group of people or things that are close together; a brief discussion in a close group, often to plan what to do next",
           "pos": "noun",
           "sense_ids": [
-            "sense:huddle:2c82fa3068305676"
+            "sense:huddle:2c82fa3068305676",
+            "sense:huddle:4405be62044550dc"
           ]
         }
       ],
-      "core_meaning_cn": "挤在一起或紧密的一群",
-      "core_meaning_en": "crowd together or a close group",
-      "mental_model_cn": "挤在一起或紧密的一群",
-      "mental_model_en": ""
+      "core_meaning_cn": "挤作一团、蜷缩或小组商议；紧聚的人群或简短商议",
+      "core_meaning_en": "to crowd together, curl up or confer; a close group or short discussion",
+      "mental_model_cn": "靠拢身体与靠拢商议是不同动作；a huddle 可指紧聚人群或一次商议。",
+      "mental_model_en": "to crowd together, curl up or confer; a close group or short discussion."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -121,21 +123,44 @@
             "legacy_source_object_ids": [
               "sense:huddle:4405be62044550dc:collocation:0"
             ],
-            "meaning_cn": "召集秘密会议",
+            "meaning_cn": "召集团队简短商议",
             "phrase": "call a huddle"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（体育等中的）秘密商议",
-        "definition_en": "a private meeting or discussion, especially in sports",
+        "definition_cn": "（团队、体育等中的）简短商议",
+        "definition_en": "a brief discussion in a close group, often to plan what to do next",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:huddle:4405be62044550dc",
-        "sense_label_en": "a private meeting or discussion, especially in sports",
+        "sense_label_en": "a brief discussion in a close group, often to plan what to do next",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:huddle:e0470f2efbd361e4",
+        "pos": "verb",
+        "definition_cn": "（北美）小组秘密或简短商议",
+        "definition_en": "to confer privately in a small group",
+        "sense_label_en": "to confer privately in a small group",
+        "governing_pattern": "huddle with sb; huddle to discuss sth",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:27496296b6d152ba063f",
+            "phrase": "The coach huddled with the players.",
+            "meaning_cn": "教练与队员们聚拢商议。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "此义通常北美；名词 a huddle 也可指一次简短商议。"
       }
     ],
     "verification_summary": {
@@ -165,6 +190,23 @@
           "applicability": [
             {
               "surface": "huddle"
+            },
+            {
+              "surface": "huddle",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:huddle:e0470f2efbd361e4"
+              ],
+              "owner_sense_ids": [
+                "sense:huddle:e0470f2efbd361e4"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2395.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "huddle with sb; huddle to discuss sth"
             }
           ],
           "sources": [
@@ -672,13 +714,22 @@
         "merged_into_sense_id": null,
         "source_row": 6683,
         "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      },
+      {
+        "sense_id": "sense:huddle:e0470f2efbd361e4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2395.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:07c400c4322ead12048f",
       "collocation:8913a0e0b65ccd35ba0d",
+      "collocation:92b7a6086f6b996f8df7",
       "collocation:8a716baac678e15dfb4e",
-      "collocation:92b7a6086f6b996f8df7"
+      "collocation:07c400c4322ead12048f",
+      "collocation:27496296b6d152ba063f"
     ],
     "facts": [],
     "collocations": [
@@ -701,6 +752,13 @@
         "id": "collocation:92b7a6086f6b996f8df7",
         "source_row": 12455,
         "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      },
+      {
+        "id": "collocation:27496296b6d152ba063f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2395.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

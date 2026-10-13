@@ -10,9 +10,9 @@
     "content_hash": "f89405739d7d7b40ca3580e5f8db31e9affc1fde3bd5f406709a84b4484edfd9",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "连接，联系",
-      "core_meaning_en": "a link or relationship between things",
-      "mental_model_cn": "连接，联系",
+      "core_meaning_cn": "连接；关联；（复数）人脉",
+      "core_meaning_en": "a link or relationship; in the plural, useful acquaintances",
+      "mental_model_cn": "连接或关系；connections 可指人脉。旅途中 connection 指转乘班次，miss 是错过、make 是赶上；谈想法时 make a connection 则是看出联系。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -74,14 +74,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "连接状态",
-        "definition_en": "the state of being connected",
+        "definition_cn": "连接；接通；连接部位或连接装置",
+        "definition_en": "a joining or link, including the part that joins things",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:connection:54f6e27dc8035295",
-        "sense_label_en": "the state of being connected",
+        "sense_label_en": "a joining or link, including the part that joins things",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -99,15 +99,36 @@
         ],
         "confidence": "medium",
         "definition_cn": "人脉，关系",
-        "definition_en": "a person who is influential and with whom one has a relationship (usually plural)",
+        "definition_en": "a person or organization one knows and can turn to for help or advice, especially in social or professional life (usually plural)",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:connection:9cb1800444da5703",
-        "sense_label_en": "a person who is influential and with whom one has a relationship (usuall",
+        "sense_label_en": "helpful social or professional contacts",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:connection:469a1c83f2ff9fc7",
+        "pos": "noun",
+        "definition_cn": "转乘的车次或航班",
+        "definition_en": "a train, bus or flight taken after another service to continue a journey",
+        "sense_label_en": "transfer service",
+        "transitivity": "nonverb",
+        "governing_pattern": "countable noun",
+        "level": "L2",
+        "sort_order": 3,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c67f136a206e47d08d58",
+            "phrase": "miss a connection",
+            "meaning_cn": "错过转乘班次",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -355,13 +376,19 @@
         "merged_into_sense_id": null,
         "source_row": 2855,
         "source_path": "content/lexical/canonical/senses/shards/o0993-1024.json"
+      },
+      {
+        "sense_id": "sense:connection:469a1c83f2ff9fc7",
+        "status": "active",
+        "merged_into_sense_id": null
       }
     ],
     "active_collocations": [
       "collocation:2a80693c03f9fbb797ed",
       "collocation:57d0ad0cc7b48eb4caca",
       "collocation:6c3e1928efc74f607517",
-      "collocation:e19bf4f8de2a8d13ba66"
+      "collocation:e19bf4f8de2a8d13ba66",
+      "collocation:c67f136a206e47d08d58"
     ],
     "facts": [
       {
@@ -395,6 +422,9 @@
         "id": "collocation:57d0ad0cc7b48eb4caca",
         "source_row": 21565,
         "source_path": "content/lexical/canonical/collocations/shards/o0993-1024.json"
+      },
+      {
+        "id": "collocation:c67f136a206e47d08d58"
       }
     ],
     "exam-mappings": [],

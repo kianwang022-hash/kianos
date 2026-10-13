@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "减去，缺少",
-          "label_en": "with the subtraction of; less",
+          "label_cn": "减去；缺少、没有",
+          "label_en": "with an amount taken away; without something previously present",
           "pos": "preposition",
           "sense_ids": [
             "sense:minus:035e1e16d03859d2"
@@ -33,12 +33,36 @@
           "sense_ids": [
             "sense:minus:fe920fcd82db5e98"
           ]
+        },
+        {
+          "label_cn": "缺点；不利因素",
+          "label_en": "a disadvantage or negative feature",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:minus:62af5e89fdc2f5b1"
+          ]
+        },
+        {
+          "label_cn": "（等级、成绩）略低于所列等级的",
+          "label_en": "slightly below a stated grade",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:minus:0db3bb4553e4c3ba"
+          ]
+        },
+        {
+          "label_cn": "不利的；负面的",
+          "label_en": "unfavourable or disadvantageous",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:minus:2c6cca29b901648b"
+          ]
         }
       ],
-      "core_meaning_cn": "减法或负的",
-      "core_meaning_en": "subtraction or negative",
-      "mental_model_cn": "减法或负的",
-      "mental_model_en": ""
+      "core_meaning_cn": "减去、缺少；负值或减号；不利因素及等级稍低",
+      "core_meaning_en": "subtraction or absence; negative values and signs; drawbacks or a slightly lower grade",
+      "mental_model_cn": "five minus two是减法；minus a bag是少了包。pluses and minuses谈利弊，B minus中的minus在字母后表示略低等级。",
+      "mental_model_en": "subtraction or absence; negative values and signs; drawbacks or a slightly lower grade."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -70,16 +94,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "减去，缺少",
-        "definition_en": "with the subtraction of; less",
+        "definition_cn": "减去；缺少、没有",
+        "definition_en": "with an amount taken away; without something previously present",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "preposition",
         "sense_id": "sense:minus:035e1e16d03859d2",
-        "sense_label_en": "with the subtraction of; less",
+        "sense_label_en": "with an amount taken away; without something previously present",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "减法与非正式的缺少均可：five minus two；return minus a bag。"
       },
       {
         "collocations": [
@@ -137,6 +162,72 @@
         "sense_label_en": "the sign '-' indicating subtraction or negativity",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:minus:62af5e89fdc2f5b1",
+        "pos": "noun",
+        "definition_cn": "缺点；不利因素",
+        "definition_en": "a disadvantage or negative feature",
+        "sense_label_en": "a disadvantage or negative feature",
+        "governing_pattern": "the pluses and minuses of sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:57302adf171f9d0aad7f",
+            "phrase": "the pluses and minuses of moving",
+            "meaning_cn": "搬家的利弊",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:minus:0db3bb4553e4c3ba",
+        "pos": "adjective",
+        "definition_cn": "（等级、成绩）略低于所列等级的",
+        "definition_en": "slightly below a stated grade",
+        "sense_label_en": "slightly below a stated grade",
+        "governing_pattern": "A/B/C minus（置于等级字母后）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:af68356fb68b99b38fa3",
+            "phrase": "a B minus",
+            "meaning_cn": "B减的成绩",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:minus:2c6cca29b901648b",
+        "pos": "adjective",
+        "definition_cn": "不利的；负面的",
+        "definition_en": "unfavourable or disadvantageous",
+        "sense_label_en": "unfavourable or disadvantageous",
+        "governing_pattern": "minus points; on the minus side（通常置于名词前）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:345c5d2483a3932fea48",
+            "phrase": "on the minus side",
+            "meaning_cn": "在不利的一面",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -190,6 +281,60 @@
           "applicability": [
             {
               "surface": "minus"
+            },
+            {
+              "surface": "minus",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:minus:62af5e89fdc2f5b1"
+              ],
+              "owner_sense_ids": [
+                "sense:minus:62af5e89fdc2f5b1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3069.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the pluses and minuses of sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "minus",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:minus:0db3bb4553e4c3ba"
+              ],
+              "owner_sense_ids": [
+                "sense:minus:0db3bb4553e4c3ba"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3069.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "A/B/C minus（置于等级字母后）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "minus",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:minus:2c6cca29b901648b"
+              ],
+              "owner_sense_ids": [
+                "sense:minus:2c6cca29b901648b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3069.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "minus points; on the minus side（通常置于名词前）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -354,14 +499,41 @@
         "merged_into_sense_id": null,
         "source_row": 8552,
         "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json"
+      },
+      {
+        "sense_id": "sense:minus:62af5e89fdc2f5b1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3069.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:minus:0db3bb4553e4c3ba",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3069.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:minus:2c6cca29b901648b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3069.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
+      "collocation:d367a2201792ef923945",
       "collocation:069ad7f27991932ad69d",
       "collocation:7e810d9b50b788c27d69",
       "collocation:87485ff442e7c6ab090e",
-      "collocation:d367a2201792ef923945",
-      "collocation:dcf5039a70d27c4d1390"
+      "collocation:dcf5039a70d27c4d1390",
+      "collocation:57302adf171f9d0aad7f",
+      "collocation:af68356fb68b99b38fa3",
+      "collocation:345c5d2483a3932fea48"
     ],
     "facts": [],
     "collocations": [
@@ -389,6 +561,27 @@
         "id": "collocation:dcf5039a70d27c4d1390",
         "source_row": 18697,
         "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
+      },
+      {
+        "id": "collocation:57302adf171f9d0aad7f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3069.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:af68356fb68b99b38fa3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3069.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:345c5d2483a3932fea48",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3069.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

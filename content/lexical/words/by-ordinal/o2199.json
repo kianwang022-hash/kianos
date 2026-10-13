@@ -16,17 +16,29 @@
         "definition_en": "to give or receive permission or approval to proceed",
         "source_sense_id": "sense:green:8cf4af1465f35885",
         "boundary": "non-compositional permission metaphor"
+      },
+      {
+        "construction_id": "construction:b6e6f63807ece4fa9203",
+        "pattern": "green with envy",
+        "meaning_cn": "非常嫉妒",
+        "definition_en": "feeling strong envy",
+        "usage_note": "这里green表示嫉妒的状态，不是字面皮肤颜色；如green with envy at someone’s success。",
+        "boundary": "这里green表示嫉妒的状态，不是字面皮肤颜色；如green with envy at someone’s success。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "e18a52c94f26bb1bd2beb0d8c51b66c0f6ea98ce4d27ab566dfa262c369f6173",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "绿色",
-          "label_en": "the color of growing grass or leaves",
+          "label_cn": "绿色；公共草地；（高尔夫）果岭；绿叶蔬菜（greens，复数）",
+          "label_en": "the color of growing grass or leaves; a grassy public area or the short-grass area around a golf hole; leafy vegetables eaten as food, expressed by the plural greens",
           "pos": "noun",
           "sense_ids": [
-            "sense:green:8cf4af1465f35885"
+            "sense:green:8cf4af1465f35885",
+            "sense:green:83a43ca8302fc8f5",
+            "sense:green:eefb18b48854c698"
           ]
         },
         {
@@ -40,10 +52,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "绿色；未成熟",
-      "core_meaning_en": "the color of grass or leaves",
-      "mental_model_cn": "绿色；未成熟",
-      "mental_model_en": ""
+      "core_meaning_cn": "绿色、未成熟或无经验、环保；公共草地或果岭；greens绿叶蔬菜；嫉妒表达",
+      "core_meaning_en": "green colour, unripe or inexperienced, environmental; a grassy public area or golf green; greens as vegetables; envy",
+      "mental_model_cn": "green可为颜色、未成熟或缺乏经验、环保；a village green为公共草地，a putting green为果岭。greens指绿叶蔬菜，该蔬菜义用复数greens；green with envy为非常嫉妒。",
+      "mental_model_en": "green colour, unripe or inexperienced, environmental; a grassy public area or golf green; greens as vegetables; envy."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -122,7 +134,14 @@
               "sense:green:b7225683cdc7500d:collocation:1"
             ],
             "meaning_cn": "新手；生手",
-            "phrase": "green hand"
+            "phrase": "green hand",
+            "usage_note": "greenhand可指缺乏经验的人，尤指水手；一般表示新人时常用beginner、novice或green recruit，不把green hand当作任何场合唯一的常用说法。"
+          },
+          {
+            "collocation_id": "collocation:eaf86f47f2c69f30b5ca",
+            "phrase": "green recruits",
+            "meaning_cn": "缺乏经验的新兵或新人",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
@@ -135,7 +154,8 @@
         "sense_id": "sense:green:b7225683cdc7500d",
         "sense_label_en": "not ripe or not experienced",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "greenhand可指缺乏经验的人，尤指水手；一般表示新人时常用beginner、novice或green recruit，不把green hand当作任何场合唯一的常用说法。"
       },
       {
         "collocations": [
@@ -169,6 +189,56 @@
         "sense_label_en": "concerned with or protecting the environment",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:green:83a43ca8302fc8f5",
+        "pos": "noun",
+        "definition_cn": "公共草地；（高尔夫）果岭",
+        "definition_en": "a grassy public area or the short-grass area around a golf hole",
+        "sense_label_en": "a grassy public area or the short-grass area around a golf hole",
+        "governing_pattern": "a village green; a putting green",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9f27820228aef45fdf21",
+            "phrase": "the village green",
+            "meaning_cn": "村庄公共草地",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:ab000d61c5a34bdc4e59",
+            "phrase": "a putting green",
+            "meaning_cn": "高尔夫果岭",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:green:eefb18b48854c698",
+        "pos": "noun",
+        "definition_cn": "绿叶蔬菜（greens，复数）",
+        "definition_en": "leafy vegetables eaten as food, expressed by the plural greens",
+        "sense_label_en": "leafy vegetables eaten as food, expressed by the plural greens",
+        "governing_pattern": "greens; leafy greens",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:45777b6b9cad25cf9c2d",
+            "phrase": "a bowl of leafy greens",
+            "meaning_cn": "一碗绿叶蔬菜",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -211,6 +281,23 @@
           "applicability": [
             {
               "surface": "green"
+            },
+            {
+              "surface": "green",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:green:83a43ca8302fc8f5"
+              ],
+              "owner_sense_ids": [
+                "sense:green:83a43ca8302fc8f5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2199.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "a village green; a putting green"
+              }
             }
           ],
           "sources": [
@@ -348,6 +435,53 @@
             }
           ]
         }
+      ],
+      "form_type": "lexicalized_plural_boundary",
+      "spelling": "green",
+      "identity_rule": "same_word_owner_plural_lexicalization",
+      "boundary": "green = colour, adjective, or grassy place; lexicalized plural greens = leafy vegetables, with plural agreement",
+      "variants": [
+        {
+          "variant_id": "form:green:ordinary",
+          "surface": "green",
+          "pos": [
+            "noun",
+            "adjective"
+          ],
+          "number": "mass_or_count_singular",
+          "role": "colour, adjective, or grassy place"
+        },
+        {
+          "variant_id": "form:greens:vegetables",
+          "surface": "greens",
+          "pos": [
+            "noun"
+          ],
+          "number": "plural_lexicalized",
+          "role": "leafy vegetables; plural agreement",
+          "sense_ids": [
+            "sense:green:eefb18b48854c698"
+          ],
+          "ipa": "/ɡriːnz/",
+          "locales": [
+            "en-GB"
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "publisher": "Collins English Dictionary / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/greens",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "greens",
+                "pos": "plural noun",
+                "sense": "1: edible leaves and stems as vegetables"
+              },
+              "original_ipa": "ɡriːnz",
+              "transcription_policy": "whole published IPA enclosed in slash delimiters; no inferred dialect or fabricated dataset record"
+            }
+          ]
+        }
       ]
     }
   },
@@ -382,6 +516,22 @@
         "merged_into_sense_id": null,
         "source_row": 6137,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      },
+      {
+        "sense_id": "sense:green:83a43ca8302fc8f5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2199.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:green:eefb18b48854c698",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2199.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -428,6 +578,34 @@
         "id": "collocation:dce52030549fd511b9e1",
         "source_row": 18693,
         "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:9f27820228aef45fdf21",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2199.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:ab000d61c5a34bdc4e59",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2199.json",
+        "source_pointer": "/record/senses/4/collocations/1"
+      },
+      {
+        "id": "collocation:45777b6b9cad25cf9c2d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2199.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:eaf86f47f2c69f30b5ca",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2199.json",
+        "source_pointer": "/record/senses/2/collocations/2"
       }
     ],
     "exam-mappings": [],

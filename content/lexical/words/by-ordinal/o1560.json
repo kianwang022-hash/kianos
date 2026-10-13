@@ -27,6 +27,14 @@
             "sense:echo:3217c4b9e01251e5",
             "sense:echo:6f2049b62d9f58f3"
           ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "呼应；相似之处；使人想起旧事的迹象",
+          "label_en": "a resemblance, repetition, or reminder of something said, done, or experienced before",
+          "sense_ids": [
+            "sense:echo:5cb02bc4b2ed064c"
+          ]
         }
       ],
       "core_meaning_cn": "回声；重复或反射",
@@ -136,7 +144,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:90589415a84409c8a68a",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:echo:6f2049b62d9f58f3:collocation:0"
             ],
@@ -164,6 +172,25 @@
         "sense_label_en": "to repeat or imitate what someone else has said or done",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:echo:5cb02bc4b2ed064c",
+        "pos": "noun",
+        "definition_cn": "呼应；相似之处；使人想起旧事的迹象",
+        "definition_en": "a resemblance, repetition, or reminder of something said, done, or experienced before",
+        "sense_label_en": "a resemblance, repetition, or reminder of something said, done, or experienced before",
+        "governing_pattern": "an echo of sth; echoes of the past",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:echo:5cb02bc4b2ed064c",
+            "phrase": "echoes of the past",
+            "meaning_cn": "使人想起往事的迹象",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "可指风格、事件或话语的呼应，不要求真的听到反射声。"
       }
     ],
     "verification_summary": {
@@ -204,6 +231,30 @@
           "applicability": [
             {
               "surface": "echo"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "echo",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:echo:5cb02bc4b2ed064c"
+              ],
+              "sense_ids": [
+                "sense:echo:5cb02bc4b2ed064c"
+              ],
+              "excluded_sense_ids": [
+                "sense:echo:3217c4b9e01251e5",
+                "sense:echo:5d94d509a1f15610",
+                "sense:echo:6f2049b62d9f58f3",
+                "sense:echo:c6c27f8f74e350f1"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/echo",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -268,6 +319,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/echo",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "echo",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ˈɛk.əʊ/",
+              "applies_to_sense_ids": [
+                "sense:echo:5cb02bc4b2ed064c"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         }
@@ -305,16 +372,24 @@
         "merged_into_sense_id": null,
         "source_row": 4369,
         "source_path": "content/lexical/canonical/senses/shards/o1537-1568.json"
+      },
+      {
+        "sense_id": "sense:echo:5cb02bc4b2ed064c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1560.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:46be38b8d66614090a45",
       "collocation:59ba357e0d75d30cf712",
-      "collocation:90589415a84409c8a68a",
       "collocation:cbfebc397d64fa71010f",
       "collocation:cdf430c4f9d8944d385e",
       "collocation:de608c15d383b8033ad3",
-      "collocation:ee51a14200ad7f9b6765"
+      "collocation:ee51a14200ad7f9b6765",
+      "collocation:echo:5cb02bc4b2ed064c"
     ],
     "facts": [],
     "collocations": [
@@ -331,7 +406,9 @@
       {
         "id": "collocation:90589415a84409c8a68a",
         "source_row": 12251,
-        "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:cbfebc397d64fa71010f",
@@ -352,6 +429,14 @@
         "id": "collocation:ee51a14200ad7f9b6765",
         "source_row": 20191,
         "source_path": "content/lexical/canonical/collocations/shards/o1537-1568.json"
+      },
+      {
+        "id": "collocation:echo:5cb02bc4b2ed064c",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1560.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

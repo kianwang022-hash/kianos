@@ -25,6 +25,14 @@
           "sense_ids": [
             "sense:pickup:78b9339c4dab510a"
           ]
+        },
+        {
+          "pos": "noun",
+          "sense_ids": [
+            "sense:pickup:93b423d4116d6e52"
+          ],
+          "label_cn": "改善；好转；回升",
+          "label_en": "an improvement or increase in activity or conditions"
         }
       ],
       "core_meaning_cn": "接取/拾取；皮卡；拾音装置",
@@ -147,7 +155,41 @@
         "sense_id": "sense:pickup:8e7c6134ede25fe9",
         "sense_label_en": "the act of collecting or picking someone or something up; also a device that picks up sound or signals",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "airport/school pickup指接送人或取物的行为；guitar pickup指吉他拾音器，器件与接取行为要看前面的语境词。"
+      },
+      {
+        "sense_id": "sense:pickup:93b423d4116d6e52",
+        "pos": "noun",
+        "definition_cn": "改善；好转；回升",
+        "definition_en": "an improvement or increase in activity or conditions",
+        "sense_label_en": "an improvement or increase in activity or conditions",
+        "transitivity": "nonverb",
+        "governing_pattern": "a pickup in sth",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:pickup:060a862faf18ded8",
+            "phrase": "a pickup in demand",
+            "meaning_cn": "需求回升",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pickup_1",
+                "role": "meaning support; example authored for this review, not quoted"
+              }
+            ]
+          }
+        ],
+        "usage_note": "a pickup in demand/sales/the economy表示回升或好转，不能按接送行为或皮卡车理解。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pickup_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -270,6 +312,12 @@
         "merged_into_sense_id": null,
         "source_row": 9963,
         "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
+      },
+      {
+        "sense_id": "sense:pickup:93b423d4116d6e52",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3592.json"
       }
     ],
     "active_collocations": [
@@ -277,7 +325,8 @@
       "collocation:54eb1ab76e37a8a068ed",
       "collocation:95b7bdebfd4361f4760a",
       "collocation:e74b7a50da02b1e42c70",
-      "collocation:f80f56a14bb789e30867"
+      "collocation:f80f56a14bb789e30867",
+      "collocation:pickup:060a862faf18ded8"
     ],
     "facts": [],
     "collocations": [
@@ -315,6 +364,10 @@
         "id": "collocation:f80f56a14bb789e30867",
         "source_row": 21006,
         "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      },
+      {
+        "id": "collocation:pickup:060a862faf18ded8",
+        "source_path": "content/lexical/words/by-ordinal/o3592.json"
       }
     ],
     "exam-mappings": [],

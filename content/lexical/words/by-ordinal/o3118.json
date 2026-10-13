@@ -9,11 +9,36 @@
     "constructions": [],
     "content_hash": "70254875661227b9ec834e8e77527df4805f35dd988449807a88f6b034e5ed0a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "纪念碑，纪念物",
-      "core_meaning_en": "a structure or site that preserves the memory of a person or event",
-      "mental_model_cn": "纪念碑，纪念物",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "纪念碑，纪念物",
+          "label_en": "a building, statue, or other structure built to remind people of a famous person or event",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:monument:bdc6589e51335617"
+          ]
+        },
+        {
+          "label_cn": "古迹；有历史重要性的建筑",
+          "label_en": "a building or structure of special historical importance",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:monument:1d89ccdfa02e9183"
+          ]
+        },
+        {
+          "label_cn": "（品质、成就的）长存见证、体现",
+          "label_en": "an enduring demonstration of somebody’s qualities or achievements",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:monument:8fc011783f06d2cf"
+          ]
+        }
+      ],
+      "core_meaning_cn": "纪念建筑、古迹或长存见证",
+      "core_meaning_en": "a commemorative structure, historic monument or enduring testimony",
+      "mental_model_cn": "纪念建筑为记忆某人或事件而建；古迹可因历史价值得名，不一定最初为纪念而建；作品也可成为才华的见证。",
+      "mental_model_en": "a commemorative structure, historic monument or enduring testimony."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -40,8 +65,8 @@
             "legacy_source_object_ids": [
               "sense:monument:bdc6589e51335617:collocation:1"
             ],
-            "meaning_cn": "林肯纪念堂",
-            "phrase": "the Lincoln Monument"
+            "meaning_cn": "林肯纪念堂是一座纪念林肯的建筑",
+            "phrase": "the Lincoln Memorial is a monument to Lincoln"
           }
         ],
         "confidence": "medium",
@@ -52,9 +77,53 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:monument:bdc6589e51335617",
-        "sense_label_en": "a building, statue, or other structure built to remind people of a famou",
+        "sense_label_en": "a building, statue, or other structure built to remind people of a famous person or event",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:monument:1d89ccdfa02e9183",
+        "pos": "noun",
+        "definition_cn": "古迹；有历史重要性的建筑",
+        "definition_en": "a building or structure of special historical importance",
+        "sense_label_en": "a building or structure of special historical importance",
+        "governing_pattern": "an ancient/historic monument",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0dd697faa4d541f5ef4d",
+            "phrase": "an ancient monument",
+            "meaning_cn": "一处古迹",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:monument:8fc011783f06d2cf",
+        "pos": "noun",
+        "definition_cn": "（品质、成就的）长存见证、体现",
+        "definition_en": "an enduring demonstration of somebody’s qualities or achievements",
+        "sense_label_en": "an enduring demonstration of somebody’s qualities or achievements",
+        "governing_pattern": "a monument to sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fe0a062b9d0179bb0bc3",
+            "phrase": "a monument to her talent",
+            "meaning_cn": "她才华的长存见证",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -95,6 +164,42 @@
           "applicability": [
             {
               "surface": "monument"
+            },
+            {
+              "surface": "monument",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:monument:1d89ccdfa02e9183"
+              ],
+              "owner_sense_ids": [
+                "sense:monument:1d89ccdfa02e9183"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3118.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an ancient/historic monument",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "monument",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:monument:8fc011783f06d2cf"
+              ],
+              "owner_sense_ids": [
+                "sense:monument:8fc011783f06d2cf"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3118.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a monument to sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -180,6 +285,42 @@
           "applicability": [
             {
               "surface": "monument"
+            },
+            {
+              "surface": "monument",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:monument:1d89ccdfa02e9183"
+              ],
+              "owner_sense_ids": [
+                "sense:monument:1d89ccdfa02e9183"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3118.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an ancient/historic monument",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "monument",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:monument:8fc011783f06d2cf"
+              ],
+              "owner_sense_ids": [
+                "sense:monument:8fc011783f06d2cf"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3118.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a monument to sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -265,6 +406,42 @@
           "applicability": [
             {
               "surface": "monument"
+            },
+            {
+              "surface": "monument",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:monument:1d89ccdfa02e9183"
+              ],
+              "owner_sense_ids": [
+                "sense:monument:1d89ccdfa02e9183"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3118.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an ancient/historic monument",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "monument",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:monument:8fc011783f06d2cf"
+              ],
+              "owner_sense_ids": [
+                "sense:monument:8fc011783f06d2cf"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3118.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a monument to sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -345,11 +522,29 @@
         "merged_into_sense_id": null,
         "source_row": 8679,
         "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json"
+      },
+      {
+        "sense_id": "sense:monument:1d89ccdfa02e9183",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3118.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:monument:8fc011783f06d2cf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3118.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:0933bb1a04055643b3a4",
-      "collocation:0d5ddec9daf9e1b0bca4"
+      "collocation:0d5ddec9daf9e1b0bca4",
+      "collocation:0dd697faa4d541f5ef4d",
+      "collocation:fe0a062b9d0179bb0bc3"
     ],
     "facts": [],
     "collocations": [
@@ -362,6 +557,20 @@
         "id": "collocation:0d5ddec9daf9e1b0bca4",
         "source_row": 1108,
         "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      },
+      {
+        "id": "collocation:0dd697faa4d541f5ef4d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3118.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:fe0a062b9d0179bb0bc3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3118.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

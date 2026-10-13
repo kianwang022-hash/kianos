@@ -18,19 +18,11 @@
             "sense:packet:ca9ae6e770835358",
             "sense:packet:0e81b7f91f4757e4"
           ]
-        },
-        {
-          "label_cn": "打包，装进小包",
-          "label_en": "to wrap or put into a packet",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:packet:92c573e07b3e5fc9"
-          ]
         }
       ],
       "core_meaning_cn": "小包；数据包",
       "core_meaning_en": "a small package or bundle; a unit of data transmitted over a network",
-      "mental_model_cn": "小包；数据包",
+      "mental_model_cn": "a packet of goods是小包装，网络packet是分块传送的数据；英式cost a packet说很贵，不能按邮包/数据包理解。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -63,7 +55,8 @@
         "sense_id": "sense:packet:ca9ae6e770835358",
         "sense_label_en": "a small package or bundle",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "物理小包/小盒；美式也可指一起发给人的一套资料（如training packet），北美小份粉末/液体包装亦在此宽义内。"
       },
       {
         "collocations": [
@@ -90,28 +83,20 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:7f0375bb9406f533fd6c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:packet:92c573e07b3e5fc9:collocation:0"
-            ],
-            "meaning_cn": "把货物打包",
-            "phrase": "packet the goods"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "打包，装进小包",
-        "definition_en": "to wrap or put into a packet",
-        "governing_pattern": "vt. + object",
+        "sense_id": "sense:packet:e02cc23daafed510",
+        "pos": "noun",
+        "definition_cn": "（英式非正式）一大笔钱",
+        "definition_en": "a large amount of money",
+        "sense_label_en": "a large amount of money",
+        "governing_pattern": "cost/earn a packet",
+        "transitivity": "nonverb",
         "level": "L2",
+        "direction": "R",
+        "confidence": "high",
         "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:packet:92c573e07b3e5fc9",
-        "sense_label_en": "to wrap or put into a packet",
         "sort_order": 2,
-        "transitivity": "vt"
+        "collocations": [],
+        "usage_note": "单数a packet，不是小袋装的钱；相应语体不适合所有正式场合。"
       }
     ],
     "verification_summary": {
@@ -161,6 +146,23 @@
           "applicability": [
             {
               "surface": "packet"
+            },
+            {
+              "surface": "packet",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:packet:e02cc23daafed510"
+              ],
+              "owner_sense_ids": [
+                "sense:packet:e02cc23daafed510"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_path": "content/lexical/words/by-ordinal/o3441.json",
+              "source_pointer": "/record/senses/2",
+              "binding_basis": "Exact whole original unbounded surface/POS observation plus actual independent current semantic evidence. Original full Source/POS/Etym/locale roles and sound conditions retained."
             }
           ],
           "sources": [
@@ -294,7 +296,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:7f0375bb9406f533fd6c",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:packet:92c573e07b3e5fc9:collocation:0"
+          ],
+          "meaning_cn": "把货物打包",
+          "phrase": "packet the goods"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "打包，装进小包",
+      "definition_en": "to wrap or put into a packet",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:packet:92c573e07b3e5fc9",
+      "sense_label_en": "to wrap or put into a packet",
+      "sort_order": 2,
+      "transitivity": "vt",
+      "stable_sense_id": "sense:packet:92c573e07b3e5fc9",
+      "status": "reference",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -306,7 +337,7 @@
       },
       {
         "sense_id": "sense:packet:92c573e07b3e5fc9",
-        "status": "active",
+        "status": "reference",
         "merged_into_sense_id": null,
         "source_row": 9538,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
@@ -317,11 +348,18 @@
         "merged_into_sense_id": null,
         "source_row": 9539,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
+      },
+      {
+        "sense_id": "sense:packet:e02cc23daafed510",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3441.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:0ba5060872d99d0277ff",
-      "collocation:7f0375bb9406f533fd6c",
       "collocation:9c435ed89a0e92bc2063"
     ],
     "facts": [],
@@ -334,7 +372,9 @@
       {
         "id": "collocation:7f0375bb9406f533fd6c",
         "source_row": 10747,
-        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3425-3456.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:9c435ed89a0e92bc2063",

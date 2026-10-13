@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "b7713c89aeb4388796427d803fa5fb30f296cd39d2f304ec91a851499878e8ba",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "举例说明；图解",
-      "core_meaning_en": "to explain or make clear by examples or pictures",
-      "mental_model_cn": "举例说明；图解",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "举例说明；图解；显示或表明某情况；给……加插图",
+          "label_en": "to make something clear with examples or pictures, or show that something is true; to provide a book or article with pictures",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:illustrate:0b6b50418da8534e",
+            "sense:illustrate:3466ec55a6755bd6"
+          ]
+        }
+      ],
+      "core_meaning_cn": "举例说明／显示；配插图",
+      "core_meaning_en": "clarify or demonstrate; supply illustrations",
+      "mental_model_cn": "illustrate论点/过程→说明；事件或数据illustrate情况→表明；illustrate书刊→配插图。",
+      "mental_model_en": "clarify or demonstrate; supply illustrations."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -45,17 +55,23 @@
             ],
             "meaning_cn": "说明这一点",
             "phrase": "illustrate the point"
+          },
+          {
+            "collocation_id": "collocation:814ea85329f5b6fcf39b",
+            "phrase": "The error illustrates why careful checks matter.",
+            "meaning_cn": "这个错误表明了仔细核查为何重要。",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "举例说明；阐明",
-        "definition_en": "to explain or demonstrate something with examples or pictures",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "举例说明；图解；显示或表明某情况",
+        "definition_en": "to make something clear with examples or pictures, or show that something is true",
+        "governing_pattern": "illustrate sth (with sth); illustrate how/what ...; illustrate that ...",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:illustrate:0b6b50418da8534e",
-        "sense_label_en": "to explain or demonstrate something with examples or pictures",
+        "sense_label_en": "to make something clear with examples or pictures, or show that something is true",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -523,8 +539,9 @@
       }
     ],
     "active_collocations": [
-      "collocation:9e8f1cf17dbb2802eba2",
       "collocation:ad21996bd77c7199748d",
+      "collocation:9e8f1cf17dbb2802eba2",
+      "collocation:814ea85329f5b6fcf39b",
       "collocation:e070a6bdf997cb5fea64"
     ],
     "facts": [
@@ -549,6 +566,13 @@
         "id": "collocation:e070a6bdf997cb5fea64",
         "source_row": 18981,
         "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:814ea85329f5b6fcf39b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2447.json",
+        "source_pointer": "/record/senses/0/collocations/2"
       }
     ],
     "exam-mappings": [],

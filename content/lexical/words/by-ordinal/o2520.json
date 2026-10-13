@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [],
       "core_meaning_cn": "传染，感染",
-      "core_meaning_en": "to cause disease or spread influence",
-      "mental_model_cn": "传染，感染",
+      "core_meaning_en": "spread biological or computer infection, or a feeling, to another recipient",
+      "mental_model_cn": "人/动植物看疾病；物质或伤口看微生物污染；computer/program看计算机病毒；情绪看传递感受。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -106,6 +106,28 @@
         "sense_label_en": "to affect with an idea or emotion in a contagious way",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:infect:f9435a91d2cb421b",
+        "pos": "verb",
+        "definition_cn": "使计算机或程序感染计算机病毒",
+        "definition_en": "cause a computer virus to spread to a computer or program",
+        "sense_label_en": "cause a computer virus to spread to a computer or program",
+        "governing_pattern": "infect a computer/program (with a virus)",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:54e3cd1750ddf7f4765c",
+            "phrase": "infect a computer with a virus",
+            "meaning_cn": "使计算机感染病毒",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -203,6 +225,47 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ɪnˈfekt/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "infect",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:infect:f9435a91d2cb421b"
+              ],
+              "owner_sense_ids": [
+                "sense:infect:f9435a91d2cb421b"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/infect",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "infect",
+                "pos": "verb",
+                "sense_indices_1based": [
+                  3
+                ]
+              },
+              "original_ipa": "/ɪnˈfekt/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -231,13 +294,22 @@
         "merged_into_sense_id": null,
         "source_row": 6985,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
+      },
+      {
+        "sense_id": "sense:infect:f9435a91d2cb421b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2520.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:26030e64974e28760282",
       "collocation:40c2e4563d8e2c24f314",
+      "collocation:7bca8331367f59af2ad4",
       "collocation:7725a1b9c78abc4320ad",
-      "collocation:7bca8331367f59af2ad4"
+      "collocation:26030e64974e28760282",
+      "collocation:54e3cd1750ddf7f4765c"
     ],
     "facts": [
       {
@@ -266,6 +338,13 @@
         "id": "collocation:7bca8331367f59af2ad4",
         "source_row": 10466,
         "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+      },
+      {
+        "id": "collocation:54e3cd1750ddf7f4765c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2520.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

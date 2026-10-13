@@ -6,7 +6,28 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:debc962e0c48844243de",
+        "pattern": "get the message",
+        "meaning_cn": "听懂弦外之音；领会暗示",
+        "definition_en": "understand what someone is telling you indirectly",
+        "usage_note": "如对方不断看表是在暗示该离开；收到电子消息时是字面通信语境。",
+        "boundary": "如对方不断看表是在暗示该离开；收到电子消息时是字面通信语境。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:2577883e2fce1d0b989e",
+        "pattern": "be on/off message",
+        "meaning_cn": "说法符合/偏离代表组织的官方立场",
+        "definition_en": "state or depart from the official view of your organization",
+        "usage_note": "常见政治或组织传播语境，不是网络在线/离线。",
+        "boundary": "常见政治或组织传播语境，不是网络在线/离线。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "765dcd47ef66e3d8745280d8db074da2e547006f90285556c1338d53b1bea99e",
     "core_concept": {
       "core_clusters": [
@@ -101,7 +122,19 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "给某人发消息；发电子/书面消息给某人",
+        "definition_en": "to send someone an electronic or written message",
+        "governing_pattern": "vt. + person / message sb about sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:message:eea4bf0177de5fd3",
+        "sense_label_en": "to send someone an electronic or written message",
+        "sort_order": 2,
+        "transitivity": "vt",
+        "source_evidence_objects": [
           {
             "collocation_id": "collocation:4771a3a3de8ea7c41b27",
             "exam_value": "fixed_pattern",
@@ -120,18 +153,23 @@
             "meaning_cn": "给某人发消息",
             "phrase": "message someone"
           }
-        ],
-        "confidence": "medium",
-        "definition_cn": "给某人发消息；发电子/书面消息给某人",
-        "definition_en": "to send someone an electronic or written message",
-        "governing_pattern": "vt. + person / message sb about sth",
+        ]
+      },
+      {
+        "sense_id": "sense:message:ad15892bd5774e68",
+        "pos": "noun",
+        "definition_cn": "（美式广播、电视）广告",
+        "definition_en": "an advertisement broadcast on radio or television",
+        "sense_label_en": "an advertisement broadcast on radio or television",
+        "governing_pattern": "after these messages",
+        "transitivity": "nonverb",
         "level": "L2",
+        "direction": "R",
+        "confidence": "high",
         "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:message:eea4bf0177de5fd3",
-        "sense_label_en": "to send someone an electronic or written message",
-        "sort_order": 2,
-        "transitivity": "vt"
+        "sort_order": 3,
+        "collocations": [],
+        "usage_note": "常见于节目中断后将返回的说明；此处messages是广告，不是私人留言。"
       }
     ],
     "verification_summary": {
@@ -181,6 +219,24 @@
           "applicability": [
             {
               "surface": "message"
+            },
+            {
+              "surface": "message",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:message:ad15892bd5774e68"
+              ],
+              "owner_sense_ids": [
+                "sense:message:ad15892bd5774e68"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3035.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "after these messages",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -368,14 +424,20 @@
         "merged_into_sense_id": null,
         "source_row": 8466,
         "source_path": "content/lexical/canonical/senses/shards/o3009-3040.json"
+      },
+      {
+        "sense_id": "sense:message:ad15892bd5774e68",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3035.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:2a14ed7bd653897c174a",
-      "collocation:4771a3a3de8ea7c41b27",
-      "collocation:4d98521dd91c52f724a1",
+      "collocation:b5597d98446fbf4dd271",
       "collocation:75f7798c6ffa21dbbb3e",
-      "collocation:b5597d98446fbf4dd271"
+      "collocation:2a14ed7bd653897c174a"
     ],
     "facts": [],
     "collocations": [
@@ -387,12 +449,16 @@
       {
         "id": "collocation:4771a3a3de8ea7c41b27",
         "source_row": 6021,
-        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:4d98521dd91c52f724a1",
         "source_row": 6537,
-        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:75f7798c6ffa21dbbb3e",

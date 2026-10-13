@@ -6,7 +6,48 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:c5831a6435916ca5e989",
+        "pattern": "in name only",
+        "meaning_cn": "名义上而已；名不副实",
+        "definition_en": "officially recognized but not true in practice",
+        "usage_note": "名义身份存在，实际职责/情况未必如此。",
+        "boundary": "名义身份存在，实际职责/情况未必如此。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:911050f5577ad1f0e18f",
+        "pattern": "in all but name",
+        "meaning_cn": "实质上已是，只差正式名义",
+        "definition_en": "true in practice but without official recognition",
+        "usage_note": "与in name only的名实方向相反。",
+        "boundary": "与in name only的名实方向相反。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:f5b7ac8caac607ae00bd",
+        "pattern": "the name of the game",
+        "meaning_cn": "关键所在；最重要的方面",
+        "definition_en": "the most important aspect or requirement of an activity",
+        "usage_note": "非正式；不一定真在谈游戏名称。",
+        "boundary": "非正式；不一定真在谈游戏名称。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:4e45fbc4c612967aef77",
+        "pattern": "you name it",
+        "meaning_cn": "你能想到的都有；诸如此类无所不包",
+        "definition_en": "anything you can think of in the relevant category",
+        "usage_note": "非正式概括列举，不是命令对方给它取名。",
+        "boundary": "非正式概括列举，不是命令对方给它取名。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "f5601a4348310e7332d8f982531e79f375b1bda8303e0a9f860e84c9ea78545c",
     "core_concept": {
       "core_clusters": [
@@ -21,8 +62,8 @@
           ]
         },
         {
-          "label_cn": "命名；给……取名；任命；提名；列举；说出……的名字",
-          "label_en": "give a name to; appoint or nominate for a position; mention or identify by name",
+          "label_cn": "命名；给……取名；任命；提名；列举；说出名字；明确说明、指定",
+          "label_en": "give a name to; appoint or nominate for a position; mention or identify by name, or specify an exact detail",
           "pos": "verb",
           "sense_ids": [
             "sense:name:b39fb5a2c7c75503",
@@ -104,7 +145,7 @@
         "confidence": "medium",
         "definition_cn": "命名；给……取名",
         "definition_en": "give a name to",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "name sb/sth + name; name sb/sth after/for sb",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -154,14 +195,14 @@
             "legacy_source_object_ids": [
               "sense:name:9ec098bc361a5447:collocation:0"
             ],
-            "meaning_cn": "任命某人为……",
-            "phrase": "name + sb + as + sth"
+            "meaning_cn": "任命某人担任某职务（as 可省略）",
+            "phrase": "name sb (as) + role"
           }
         ],
         "confidence": "medium",
         "definition_cn": "任命；提名",
         "definition_en": "appoint or nominate for a position",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "name sb (as) captain/director; name sb to a committee; name sb to do sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -204,17 +245,23 @@
             ],
             "meaning_cn": "列举几个",
             "phrase": "name a few"
+          },
+          {
+            "collocation_id": "collocation:ffb8c8866e3775a5471f",
+            "phrase": "name your price",
+            "meaning_cn": "说出、开出你的价格",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "列举；说出……的名字",
-        "definition_en": "mention or identify by name",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "列举；说出名字；明确说明、指定",
+        "definition_en": "mention or identify by name, or specify an exact detail",
+        "governing_pattern": "name sb/sth; name sb as + identity; name a price/date; to name a few",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:name:b72c6ddf354855b8",
-        "sense_label_en": "mention or identify by name",
+        "sense_label_en": "mention or identify by name, or specify an exact detail",
         "sort_order": 5,
         "transitivity": "vt"
       }
@@ -461,14 +508,15 @@
     ],
     "active_collocations": [
       "collocation:0833704e97c27b3e2fe6",
-      "collocation:57bda555ba4adc11418b",
-      "collocation:6f35a6b7c7ac1ecef2b8",
-      "collocation:9b97f6dbf65dbcbc8138",
-      "collocation:a0a6ba6602cfefe87ff6",
-      "collocation:d59384935970e018b5e9",
       "collocation:dcc2501d67c736b3877d",
+      "collocation:a0a6ba6602cfefe87ff6",
+      "collocation:9b97f6dbf65dbcbc8138",
+      "collocation:57bda555ba4adc11418b",
+      "collocation:f620e78c52e853bf6ed2",
+      "collocation:6f35a6b7c7ac1ecef2b8",
       "collocation:e46178c528693745edcb",
-      "collocation:f620e78c52e853bf6ed2"
+      "collocation:d59384935970e018b5e9",
+      "collocation:ffb8c8866e3775a5471f"
     ],
     "facts": [
       {
@@ -522,6 +570,13 @@
         "id": "collocation:f620e78c52e853bf6ed2",
         "source_row": 20851,
         "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:ffb8c8866e3775a5471f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3174.json",
+        "source_pointer": "/record/senses/5/collocations/1"
       }
     ],
     "exam-mappings": [

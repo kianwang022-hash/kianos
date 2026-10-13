@@ -9,10 +9,29 @@
     "constructions": [],
     "content_hash": "1bcfd3e62d3d6c9eb4b45bde623e2cdb57774c926f4edc14139c0f7a53514ba9",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "延伸或扩展的行为或附加部分",
-      "core_meaning_en": "the act of extending or an added part",
-      "mental_model_cn": "延伸或扩展的行为或附加部分",
+      "core_clusters": [
+        {
+          "label_cn": "延长、扩展",
+          "label_en": "lengthening or extending scope",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:extension:2b5177a162005d97",
+            "sense:extension:ddd7ce4a23ca59e1"
+          ]
+        },
+        {
+          "label_cn": "附加部分；文件扩展名",
+          "label_en": "an added part or filename suffix",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:extension:905f056268039807",
+            "sense:extension:85848483c9c4f8b9"
+          ]
+        }
+      ],
+      "core_meaning_cn": "延长或扩展；附加部分；文件扩展名",
+      "core_meaning_en": "lengthening or expansion; an added part; a filename extension",
+      "mental_model_cn": "时间是延期，范围是扩展，物体或电话系统是附加部分或分机；file extension指文件名点号后的类型后缀。肢体动作语境指伸展，extension course是大学进修课程。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,13 +65,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "延期；延长期",
-        "definition_en": "a mutually agreed delay in the date set for the completion of a job or payment of a debt",
+        "definition_en": "extra time added to an existing deadline or period",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:extension:2b5177a162005d97",
-        "sense_label_en": "a mutually agreed delay in the date set for the completion of a job or p",
+        "sense_label_en": "additional time beyond a deadline or period",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -109,7 +128,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:extension:adfbfa21986052ac",
-        "sense_label_en": "an educational opportunity provided by colleges and universities to peop",
+        "sense_label_en": "university education for people outside regular degree enrolment",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -150,6 +169,28 @@
         "sense_label_en": "an added part of a building, telephone system, or object",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:extension:85848483c9c4f8b9",
+        "pos": "noun",
+        "definition_cn": "（计算机）文件扩展名",
+        "definition_en": "the characters after a dot in a filename that indicate the file type",
+        "sense_label_en": "the characters after a dot in a filename that indicate the file type",
+        "governing_pattern": "a file/filename extension",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:465a9f42b81548d57543",
+            "phrase": "a file extension such as .pdf",
+            "meaning_cn": "如.pdf这样的文件扩展名",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -218,6 +259,23 @@
           "applicability": [
             {
               "surface": "extension"
+            },
+            {
+              "surface": "extension",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:extension:85848483c9c4f8b9"
+              ],
+              "owner_sense_ids": [
+                "sense:extension:85848483c9c4f8b9"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1814.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a file/filename extension"
+              }
             }
           ],
           "sources": [
@@ -500,6 +558,14 @@
         "merged_into_sense_id": null,
         "source_row": 4997,
         "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json"
+      },
+      {
+        "sense_id": "sense:extension:85848483c9c4f8b9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1814.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -541,6 +607,13 @@
         "id": "collocation:ce0748fa7bbcb15479fb",
         "source_row": 17415,
         "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+      },
+      {
+        "id": "collocation:465a9f42b81548d57543",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1814.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

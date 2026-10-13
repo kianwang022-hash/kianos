@@ -6,22 +6,38 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:0d5143649576246a2723",
+        "pattern": "heat up",
+        "meaning_cn": "（竞争、活动等）变得更激烈活跃",
+        "definition_en": "to become more active or exciting",
+        "usage_note": "此不及物比喻分支主体为竞争或局势；The contest is heating up表示竞争愈发激烈。",
+        "boundary": "此不及物比喻分支主体为竞争或局势；The contest is heating up表示竞争愈发激烈。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "3f83dc843a2bf07b21e408a4a3e35969b1d5cda28130514c2b0d4623a661c440",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "热；热量；热度；高温；激烈；激动",
-          "label_en": "heat/thermal energy; high temperature; intense emotion",
+          "label_cn": "热；热量；温度；热度；高温状况；激烈；激动；预赛；分组赛；（做饭用的）热源；火；供暖；供暖系统（尤北美）；（食物的）辣劲；促使人行动或达标的压力",
+          "label_en": "a form of energy transferred by a difference in temperature; the level of temperature or hot conditions; intense emotion, especially excitement or anger; one of a series of preliminary races used to select competitors for a later round; a source of heat used for cooking; the supply of warmth to a building or the system providing it; the spicy burning quality of food; pressure to perform or achieve something",
           "pos": "noun",
           "sense_ids": [
             "sense:heat:63ad3bbf05f25d1f",
             "sense:heat:45022e0cf283520d",
-            "sense:heat:2093b7a4641d504f"
+            "sense:heat:2093b7a4641d504f",
+            "sense:heat:46e5a140ddb65168",
+            "sense:heat:412a6a7c7e3dc5ae",
+            "sense:heat:46c991449a3954b4",
+            "sense:heat:8c48db23ddb011be",
+            "sense:heat:3710e0d1c2727499"
           ]
         },
         {
-          "label_cn": "加热；变热",
+          "label_cn": "加热；变热；加热",
           "label_en": "to make something hot; to become hot",
           "pos": "verb",
           "sense_ids": [
@@ -30,10 +46,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "热或加热",
-      "core_meaning_en": "thermal energy or to make hot",
-      "mental_model_cn": "热或加热",
-      "mental_model_en": ""
+      "core_meaning_cn": "热量、温度、热源、供暖、辣劲、情绪或压力；加热、变热；预赛",
+      "core_meaning_en": "heat energy, temperature, cooking heat, heating, spiciness, emotion or pressure; heat things or grow hot; a heat in competition",
+      "mental_model_cn": "heat noun还可表示预赛；作vt为加热，作vi为变热。热源、供暖、辣劲和压力是不同名词用法。",
+      "mental_model_en": "heat energy, temperature, cooking heat, heating, spiciness, emotion or pressure; heat things or grow hot; a heat in competition."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -122,14 +138,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "热度；高温",
-        "definition_en": "the sensation caused by heat energy",
-        "governing_pattern": "",
+        "definition_cn": "温度；热度；高温状况",
+        "definition_en": "the level of temperature or hot conditions",
+        "governing_pattern": "a high/low heat; the heat of the day",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:heat:45022e0cf283520d",
-        "sense_label_en": "the sensation caused by heat energy",
+        "sense_label_en": "the level of temperature or hot conditions",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -170,14 +186,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "预赛",
-        "definition_en": "a preliminary race in which the winner advances",
+        "definition_cn": "预赛；分组赛",
+        "definition_en": "one of a series of preliminary races used to select competitors for a later round",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:heat:46e5a140ddb65168",
-        "sense_label_en": "a preliminary race in which the winner advances",
+        "sense_label_en": "one of a series of preliminary races used to select competitors for a later round",
         "sort_order": 4,
         "transitivity": "nonverb"
       },
@@ -204,6 +220,94 @@
         "sense_label_en": "to become hot",
         "sort_order": 5,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:heat:412a6a7c7e3dc5ae",
+        "pos": "noun",
+        "definition_cn": "（做饭用的）热源；火",
+        "definition_en": "a source of heat used for cooking",
+        "sense_label_en": "a source of heat used for cooking",
+        "governing_pattern": "on/off/over the heat",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:646d7cb0503189d51856",
+            "phrase": "Remove the pan from the heat.",
+            "meaning_cn": "把锅从火上移开。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:heat:46c991449a3954b4",
+        "pos": "noun",
+        "definition_cn": "供暖；供暖系统（尤北美）",
+        "definition_en": "the supply of warmth to a building or the system providing it",
+        "sense_label_en": "the supply of warmth to a building or the system providing it",
+        "governing_pattern": "turn the heat on/off",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5d8addc579324084a13e",
+            "phrase": "The heat is off in this room.",
+            "meaning_cn": "这个房间没开暖气。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:heat:8c48db23ddb011be",
+        "pos": "noun",
+        "definition_cn": "（食物的）辣劲",
+        "definition_en": "the spicy burning quality of food",
+        "sense_label_en": "the spicy burning quality of food",
+        "governing_pattern": "the heat of chilli",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4b5ea8abdbc776dc154f",
+            "phrase": "The chilli adds heat to the sauce.",
+            "meaning_cn": "辣椒增加了酱汁的辣劲。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:heat:3710e0d1c2727499",
+        "pos": "noun",
+        "definition_cn": "促使人行动或达标的压力",
+        "definition_en": "pressure to perform or achieve something",
+        "sense_label_en": "pressure to perform or achieve something",
+        "governing_pattern": "the heat is on; take the heat",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 9,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1f2b2ad1f54411e77923",
+            "phrase": "The heat is on as the deadline approaches.",
+            "meaning_cn": "随着期限临近，压力开始增大。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -577,6 +681,56 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/hiːt/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "heat",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:heat:412a6a7c7e3dc5ae",
+                "sense:heat:46c991449a3954b4",
+                "sense:heat:8c48db23ddb011be",
+                "sense:heat:3710e0d1c2727499"
+              ],
+              "owner_sense_ids": [
+                "sense:heat:412a6a7c7e3dc5ae",
+                "sense:heat:46c991449a3954b4",
+                "sense:heat:8c48db23ddb011be",
+                "sense:heat:3710e0d1c2727499"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/heat_1",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "heat",
+                "pos": "noun",
+                "sense_indices_1based": [
+                  5,
+                  6,
+                  7,
+                  9
+                ]
+              },
+              "original_ipa": "/hiːt/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -626,17 +780,53 @@
         "merged_into_sense_id": null,
         "source_row": 6415,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
+      },
+      {
+        "sense_id": "sense:heat:412a6a7c7e3dc5ae",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2295.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:heat:46c991449a3954b4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2295.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:heat:8c48db23ddb011be",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2295.json",
+        "source_pointer": "/record/senses/8"
+      },
+      {
+        "sense_id": "sense:heat:3710e0d1c2727499",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2295.json",
+        "source_pointer": "/record/senses/9"
       }
     ],
     "active_collocations": [
       "collocation:06fd75e5207e715c8e6a",
-      "collocation:4be262a43b3f306bd1f9",
       "collocation:5847d970e6fe35b251b0",
-      "collocation:61e4e4d098892ae31c1a",
-      "collocation:65a360e41ecd55e2f03c",
-      "collocation:a6b77e8e0ce31dacea41",
       "collocation:cd80312ea1b8b32c59ed",
-      "collocation:edb26f440d3385a1cd1a"
+      "collocation:edb26f440d3385a1cd1a",
+      "collocation:4be262a43b3f306bd1f9",
+      "collocation:65a360e41ecd55e2f03c",
+      "collocation:61e4e4d098892ae31c1a",
+      "collocation:a6b77e8e0ce31dacea41",
+      "collocation:646d7cb0503189d51856",
+      "collocation:5d8addc579324084a13e",
+      "collocation:4b5ea8abdbc776dc154f",
+      "collocation:1f2b2ad1f54411e77923"
     ],
     "facts": [],
     "collocations": [
@@ -679,6 +869,34 @@
         "id": "collocation:edb26f440d3385a1cd1a",
         "source_row": 20144,
         "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+      },
+      {
+        "id": "collocation:646d7cb0503189d51856",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2295.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:5d8addc579324084a13e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2295.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:4b5ea8abdbc776dc154f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2295.json",
+        "source_pointer": "/record/senses/8/collocations/0"
+      },
+      {
+        "id": "collocation:1f2b2ad1f54411e77923",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2295.json",
+        "source_pointer": "/record/senses/9/collocations/0"
       }
     ],
     "exam-mappings": [],

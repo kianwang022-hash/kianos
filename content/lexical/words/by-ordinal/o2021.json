@@ -6,38 +6,78 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:330c7966b00bcb23dee1",
+        "pattern": "look forward to sth/doing sth",
+        "meaning_cn": "期待某事／做某事；to 是介词",
+        "definition_en": "to anticipate something with pleasure",
+        "level": "L2",
+        "direction": "R+P",
+        "semantic_attachment": "construction_only",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:6caecf04dd2fe253ee36",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:forward:a218b1b844375453:collocation:1"
+            ],
+            "meaning_cn": "期待某事／做某事；to 是介词",
+            "phrase": "look forward to sth/doing sth"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:7f1cad303629f3f0f143",
+        "pattern": "put forward sth / put sth forward",
+        "meaning_cn": "提出（计划、建议）；推荐（人选）",
+        "definition_en": "to offer a proposal or person for consideration",
+        "usage_note": "提出供考虑，或推荐人选；代词通常置中，如put it forward。",
+        "boundary": "提出供考虑，或推荐人选；代词通常置中，如put it forward。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "ff30a3f281a6dda07a059e629234ae6e963af478450715d920b0b9d328569656",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "向前地",
-          "label_en": "forward",
+          "label_en": "toward the front or a point ahead",
           "pos": "adverb",
           "sense_ids": [
             "sense:forward:a218b1b844375453"
           ]
         },
         {
-          "label_cn": "向前的；前面的",
-          "label_en": "forward/front",
+          "label_cn": "向前的；前面的；冒昧的；过分大胆或随便的",
+          "label_en": "directed or moving toward the front; too bold or familiar in manner, without proper reserve",
           "pos": "adjective",
           "sense_ids": [
-            "sense:forward:f0c66ce7d2cb5d91"
+            "sense:forward:f0c66ce7d2cb5d91",
+            "sense:forward:49699153c340b4e4"
           ]
         },
         {
           "label_cn": "转寄；转发",
-          "label_en": "to forward/send on",
+          "label_en": "to send a letter, email, etc. to someone after receiving it",
           "pos": "verb",
           "sense_ids": [
             "sense:forward:f6f6d1f9944b53e1"
           ]
+        },
+        {
+          "label_cn": "前锋",
+          "label_en": "a player in a sport such as basketball or soccer who plays near the opponent's goal",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:forward:5725f7b304eb5de1"
+          ]
         }
       ],
-      "core_meaning_cn": "向前；转寄",
-      "core_meaning_en": "toward the front; to send on",
-      "mental_model_cn": "向前；转寄",
+      "core_meaning_cn": "向前；前部的或冒昧的；转寄；前锋；提出建议的表达",
+      "core_meaning_en": "forward; at the front or overly bold; send onward; a forward; propose",
+      "mental_model_cn": "方向forward为向前，邮件forward为转寄，运动名词为前锋；人的forward manner可为冒昧。put forward建议是提出供考虑；look forward to后接名词或doing。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -58,15 +98,6 @@
             ],
             "meaning_cn": "向前移动",
             "phrase": "move forward"
-          },
-          {
-            "collocation_id": "collocation:6caecf04dd2fe253ee36",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:forward:a218b1b844375453:collocation:1"
-            ],
-            "meaning_cn": "期待…",
-            "phrase": "look forward to + sth"
           }
         ],
         "confidence": "medium",
@@ -158,9 +189,31 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:forward:5725f7b304eb5de1",
-        "sense_label_en": "a player in a sport such as basketball or soccer who plays near the oppo",
+        "sense_label_en": "a player in a sport such as basketball or soccer who plays near the opponent's goal",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:forward:49699153c340b4e4",
+        "pos": "adjective",
+        "definition_cn": "冒昧的；过分大胆或随便的",
+        "definition_en": "too bold or familiar in manner, without proper reserve",
+        "sense_label_en": "too bold or familiar in manner, without proper reserve",
+        "governing_pattern": "a forward manner; be forward with sb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ccfbfc921fb2ab621ef8",
+            "phrase": "a forward manner",
+            "meaning_cn": "冒昧、过分随便的举止",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -203,6 +256,23 @@
           "applicability": [
             {
               "surface": "forward"
+            },
+            {
+              "surface": "forward",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:forward:49699153c340b4e4"
+              ],
+              "owner_sense_ids": [
+                "sense:forward:49699153c340b4e4"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2021.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "a forward manner; be forward with sb"
+              }
             }
           ],
           "sources": [
@@ -515,11 +585,18 @@
         "merged_into_sense_id": null,
         "source_row": 5619,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
+      },
+      {
+        "sense_id": "sense:forward:49699153c340b4e4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2021.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:4b2660e8c8f51f80775f",
-      "collocation:6caecf04dd2fe253ee36",
       "collocation:b697d1274dfbe56c1c8f",
       "collocation:c1f4e05ea448813e42d3",
       "collocation:caf671a0e8c160092a6f",
@@ -535,7 +612,9 @@
       {
         "id": "collocation:6caecf04dd2fe253ee36",
         "source_row": 9157,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:b697d1274dfbe56c1c8f",
@@ -556,6 +635,13 @@
         "id": "collocation:d62f5242376cde36e625",
         "source_row": 18120,
         "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      },
+      {
+        "id": "collocation:ccfbfc921fb2ab621ef8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2021.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

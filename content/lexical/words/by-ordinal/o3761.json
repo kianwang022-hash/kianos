@@ -51,7 +51,7 @@
       "core_clusters": [],
       "core_meaning_cn": "假定；擅自",
       "core_meaning_en": "suppose something is true; take liberties",
-      "mental_model_cn": "假定；擅自",
+      "mental_model_cn": "that/to be引出推测；presume on或presume to do谈冒昧；论证或计划可预设前提，证据也可足以推定事实。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -115,14 +115,21 @@
         "confidence": "medium",
         "definition_cn": "擅自行动；利用",
         "definition_en": "take liberties or act with too much confidence",
-        "governing_pattern": "vi. + on/upon",
+        "governing_pattern": "presume on/upon sth; presume to do sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:presume:02602c5f8ae65ba8",
         "sense_label_en": "take liberties or act with too much confidence",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "presume on/upon指冒昧利用某人的好意；presume to do常指无资格或未经允许竟敢做。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/presume",
+            "role": "meaning_and_pattern"
+          }
+        ]
       },
       {
         "collocations": [
@@ -147,6 +154,39 @@
         "sense_label_en": "constitute reasonable evidence for",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:presume:5697ded17f9166d7",
+        "pos": "verb",
+        "definition_cn": "以……为前提；预先要求",
+        "definition_en": "to depend on something being accepted or in place beforehand",
+        "sense_label_en": "to depend on something being accepted or in place beforehand",
+        "transitivity": "vt",
+        "governing_pattern": "vt.: presume sth",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:presume:e77e93615abef964",
+            "phrase": "The plan presumes sufficient funding.",
+            "meaning_cn": "这个计划以有足够资金为前提。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/presume",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "计划、解释、论证作主语时指前提；不同于原另一义constitute reasonable evidence for，后者是从证据推断事实。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/presume",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -309,13 +349,20 @@
         "merged_into_sense_id": null,
         "source_row": 10472,
         "source_path": "content/lexical/canonical/senses/shards/o3745-3776.json"
+      },
+      {
+        "sense_id": "sense:presume:5697ded17f9166d7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3761.json"
       }
     ],
     "active_collocations": [
       "collocation:1460cf4650508efcd158",
       "collocation:26b1843772aa73a32886",
       "collocation:511b6faafbc7efe047d8",
-      "collocation:826af6006657609e5d42"
+      "collocation:826af6006657609e5d42",
+      "collocation:presume:e77e93615abef964"
     ],
     "facts": [
       {
@@ -349,6 +396,10 @@
         "id": "collocation:826af6006657609e5d42",
         "source_row": 11047,
         "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+      },
+      {
+        "id": "collocation:presume:e77e93615abef964",
+        "source_path": "content/lexical/words/by-ordinal/o3761.json"
       }
     ],
     "exam-mappings": [],

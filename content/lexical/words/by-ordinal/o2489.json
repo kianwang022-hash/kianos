@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "640ada3c23269a860a97505bd7ae49d915227cb6d5d6155dd17b4b4cabdfa650",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "顺便说一句；附带地",
-      "core_meaning_en": "by the way; used to introduce a secondary, additional, or loosely related point",
-      "mental_model_cn": "顺便说一句；附带地",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "插入补充信息，或作为附带结果发生",
+          "label_en": "a conversational aside or an incidental occurrence",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:incidentally:6cc913ff5cf058a2",
+            "sense:incidentally:833f697000f3ad1a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "插入补充信息，或作为附带结果发生",
+      "core_meaning_en": "a conversational aside or an incidental occurrence",
+      "mental_model_cn": "句首Incidentally引入旁话；discovered incidentally修饰发现方式，表示并非原计划目标，不能译成说话的顺便提一句。",
+      "mental_model_en": "a conversational aside or an incidental occurrence."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -29,7 +39,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:edbe52425be06da5a9e8",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:incidentally:6cc913ff5cf058a2:collocation:0"
             ],
@@ -54,9 +64,31 @@
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:incidentally:6cc913ff5cf058a2",
-        "sense_label_en": "of a minor or subordinate nature",
+        "sense_label_en": "by the way; used to introduce a secondary, additional, or loosely related point",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:incidentally:833f697000f3ad1a",
+        "pos": "adverb",
+        "definition_cn": "附带地；在处理相关事情时意外地",
+        "definition_en": "as an unplanned or secondary result of another activity",
+        "sense_label_en": "as an unplanned or secondary result of another activity",
+        "governing_pattern": "discover/learn sth incidentally",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d3b71cfd577d17f58032",
+            "phrase": "The discrepancy was discovered incidentally.",
+            "meaning_cn": "这一差异是在处理相关事情时意外发现的。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -96,6 +128,23 @@
           "applicability": [
             {
               "surface": "incidentally"
+            },
+            {
+              "surface": "incidentally",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:incidentally:833f697000f3ad1a"
+              ],
+              "owner_sense_ids": [
+                "sense:incidentally:833f697000f3ad1a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2489.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "discover/learn sth incidentally"
             }
           ],
           "sources": [
@@ -145,11 +194,20 @@
         "merged_into_sense_id": null,
         "source_row": 6911,
         "source_path": "content/lexical/canonical/senses/shards/o2465-2496.json"
+      },
+      {
+        "sense_id": "sense:incidentally:833f697000f3ad1a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2489.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
+      "collocation:edbe52425be06da5a9e8",
       "collocation:aec98007a8837b62d0c9",
-      "collocation:edbe52425be06da5a9e8"
+      "collocation:d3b71cfd577d17f58032"
     ],
     "facts": [],
     "collocations": [
@@ -161,7 +219,16 @@
       {
         "id": "collocation:edbe52425be06da5a9e8",
         "source_row": 20150,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:d3b71cfd577d17f58032",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2489.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

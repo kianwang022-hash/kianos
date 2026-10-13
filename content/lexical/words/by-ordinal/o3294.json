@@ -8,7 +8,7 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "object to + sth 反对某事",
+        "boundary": "object to sth / doing sth；to 是介词，后接动名词而非动词原形",
         "codex_reviewed": false,
         "definition_cn": "反对",
         "definition_en": "to say that you disagree with or oppose something",
@@ -28,9 +28,9 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "反对某事",
+        "meaning_cn": "反对某事或做某事（to 是介词）",
         "module": "constructions",
-        "pattern": "object to + sth",
+        "pattern": "object to sth / doing sth",
         "pos": "verb",
         "presentation_merge": {
           "merge_id": "presentation-merge:577f233f7cc9c719594f",
@@ -61,28 +61,30 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "物体；物品；目标；目的；宾语",
-          "label_en": "a material thing that can be seen and touched; a goal or purpose; in grammar, a noun or phrase acted upon by a verb",
+          "label_cn": "物品、目标或情感/研究的对象；语法宾语",
+          "label_en": "physical things, goals or targets of attention; grammatical objects",
           "pos": "noun",
           "sense_ids": [
             "sense:object:9f46064f92765498",
             "sense:object:4a21e61bd1d15ae7",
-            "sense:object:b9d00f09939e59e3"
+            "sense:object:b9d00f09939e59e3",
+            "sense:object:24241f04e7471305"
           ]
         },
         {
-          "label_cn": "反对",
-          "label_en": "to say that you disagree with or oppose something",
+          "label_cn": "反对；提出反对理由",
+          "label_en": "oppose or state an objection",
           "pos": "verb",
           "sense_ids": [
-            "sense:object:6b584bd2ac9458c4"
+            "sense:object:6b584bd2ac9458c4",
+            "sense:object:5b51060f0f7a0143"
           ]
         }
       ],
-      "core_meaning_cn": "物体；目标；反对",
-      "core_meaning_en": "a thing or a goal; to oppose",
-      "mental_model_cn": "物体；目标；反对",
-      "mental_model_en": ""
+      "core_meaning_cn": "物品、目的或情感/研究对象；宾语；反对或提出异议",
+      "core_meaning_en": "a thing, purpose or target of attention; grammatical object; oppose or state an objection",
+      "mental_model_cn": "名词按语境分清物品、要达成的目的、情感或研究的对象，以及语法宾语。动词object to sth/doing表达反对某事，object that…或直接引语用于提出反对理由。",
+      "mental_model_en": "a thing, purpose or target of attention; grammatical object; oppose or state an objection."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -172,8 +174,8 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "宾语",
-        "definition_en": "in grammar, a noun or phrase acted upon by a verb",
+        "definition_cn": "宾语（可为动词宾语或介词宾语）",
+        "definition_en": "a noun, pronoun, or equivalent phrase functioning as the object of a verb or preposition",
         "governing_pattern": "",
         "level": "L2",
         "lexical_identity_overlay": {
@@ -186,7 +188,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:object:b9d00f09939e59e3",
-        "sense_label_en": "in grammar, a noun or phrase acted upon by a verb",
+        "sense_label_en": "a noun, pronoun, or equivalent phrase functioning as the object of a verb or preposition",
         "sort_order": 2,
         "transitivity": "nonverb"
       },
@@ -198,14 +200,14 @@
             "legacy_source_object_ids": [
               "sense:object:6b584bd2ac9458c4:collocation:0"
             ],
-            "meaning_cn": "反对某事",
-            "phrase": "object to + sth"
+            "meaning_cn": "反对某事或做某事（to 是介词）",
+            "phrase": "object to sth / doing sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "反对",
         "definition_en": "to say that you disagree with or oppose something",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "object (to sth / doing sth); to is a preposition",
         "level": "L2",
         "lexical_identity_overlay": {
           "case_sensitive": false,
@@ -220,6 +222,51 @@
         "sense_label_en": "to say that you disagree with or oppose something",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:object:24241f04e7471305",
+        "pos": "noun",
+        "definition_cn": "（情感、注意、研究等的）对象",
+        "definition_en": "a person or thing at which attention, emotion or study is directed",
+        "sense_label_en": "a person or thing at which attention, emotion or study is directed",
+        "governing_pattern": "the object of affection/attention/study",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b56e85106ab06d3f33d3",
+            "phrase": "the object of intense curiosity",
+            "meaning_cn": "强烈好奇心的对象",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:object:5b51060f0f7a0143",
+        "pos": "verb",
+        "definition_cn": "提出反对理由；以从句或话语表示异议",
+        "definition_en": "state a reason or argument in opposition",
+        "sense_label_en": "state a reason or argument in opposition",
+        "governing_pattern": "object that…; object + direct speech",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0b2b0f5a9f484105d04f",
+            "phrase": "She objected that the price was too high.",
+            "meaning_cn": "她提出异议，说价格过高。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "较正式；She objected that it was unfair说她提出不公平这一反对理由。此vt主要接that从句或直接引语；普通名词事项仍说object to the plan，不说object the plan。"
       }
     ],
     "verification_summary": {
@@ -626,6 +673,88 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ˈɒbdʒɪkt/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "object",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:object:24241f04e7471305"
+              ],
+              "owner_sense_ids": [
+                "sense:object:24241f04e7471305"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3294.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the object of affection/attention/study",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/object_1",
+              "entry_context": {
+                "word": "object",
+                "pos": "noun",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈɒbdʒɪkt/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
+        },
+        {
+          "ipa": "/əbˈdʒekt/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "object",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:object:5b51060f0f7a0143"
+              ],
+              "owner_sense_ids": [
+                "sense:object:5b51060f0f7a0143"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3294.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "object that…; object + direct speech",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/object_2",
+              "entry_context": {
+                "word": "object",
+                "pos": "verb",
+                "etymology_number": null
+              },
+              "original_ipa": "/əbˈdʒekt/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
@@ -661,13 +790,31 @@
         "merged_into_sense_id": null,
         "source_row": 9142,
         "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
+      },
+      {
+        "sense_id": "sense:object:24241f04e7471305",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3294.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:object:5b51060f0f7a0143",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3294.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
       "collocation:13c03563faafe329a3cb",
       "collocation:322deeaa4b2aa461da69",
       "collocation:41ff62bb715e719ec69b",
-      "collocation:cf8a83e8c723ccd2b3ba"
+      "collocation:cf8a83e8c723ccd2b3ba",
+      "collocation:b56e85106ab06d3f33d3",
+      "collocation:0b2b0f5a9f484105d04f"
     ],
     "facts": [
       {
@@ -701,6 +848,20 @@
         "id": "collocation:cf8a83e8c723ccd2b3ba",
         "source_row": 17543,
         "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:b56e85106ab06d3f33d3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3294.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:0b2b0f5a9f484105d04f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3294.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

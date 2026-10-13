@@ -9,7 +9,16 @@
     "constructions": [],
     "content_hash": "5096d4193ed8551faf0c72d960802829887c42866dafdfca3f35038d293fb9db",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "label_cn": "（语法中）修饰；限定另一词的意义",
+          "label_en": "modify another word by adding descriptive information",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:qualify:6f126ef0fd9c83eb"
+          ]
+        }
+      ],
       "core_meaning_cn": "满足条件，或添加条件来限制陈述的适用范围",
       "core_meaning_en": "meet a condition, or add a condition that limits what is true",
       "mental_model_cn": "qualify 都和“条件边界”有关：满足条件获得资格，补充条件限制说法。",
@@ -60,8 +69,8 @@
           }
         ],
         "confidence": "high",
-        "definition_cn": "取得资格；符合条件",
-        "definition_en": "to have or achieve the conditions needed for something",
+        "definition_cn": "取得或赋予资格；符合或使符合条件",
+        "definition_en": "meet the necessary conditions, or make someone eligible or capable",
         "depth": "full_card",
         "domain_tag": "general",
         "frequency_tag": "exam_core",
@@ -70,7 +79,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:qualify:5e16172b1e115dfe",
-        "sense_label_en": "meet requirements",
+        "sense_label_en": "meet the necessary conditions, or make someone eligible or capable",
         "sort_order": 0,
         "source_evidence": [
           {
@@ -88,6 +97,10 @@
           {
             "role": "local_evidence",
             "source": "ai_curated_mvp_v1"
+          },
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/qualify",
+            "role": "semantic support; wording/examples authored in bounded review"
           }
         ],
         "transitivity": "I/T"
@@ -202,14 +215,14 @@
             "legacy_source_object_ids": [
               "sense:qualify:3b94f9eb6dea5fb1:collocation:0"
             ],
-            "meaning_cn": "把……描述为；使具有某性质",
-            "meaning_en": "to describe something by giving it a particular quality",
+            "meaning_cn": "符合某种描述；或把某人/某物描述为、定性为（须看有无宾语）",
+            "meaning_en": "fit a description, or describe someone or something as having particular qualities, depending on the object pattern",
             "phrase": "qualify as"
           }
         ],
         "confidence": "high",
-        "definition_cn": "把……描述为；使具有某性质",
-        "definition_en": "to describe something by giving it a particular quality",
+        "definition_cn": "符合某种描述；使可归为；（正式）把…描述为、定性为",
+        "definition_en": "be describable or classifiable as something, make something fit a description, or characterize it in a particular way",
         "depth": "recognition_only",
         "domain_tag": "formal",
         "frequency_tag": "low",
@@ -217,7 +230,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:qualify:3b94f9eb6dea5fb1",
-        "sense_label_en": "characterize",
+        "sense_label_en": "be describable or classifiable as something, make something fit a description, or characterize it in a particular way",
         "sort_order": 3,
         "source_evidence": [
           {
@@ -235,6 +248,50 @@
           {
             "role": "local_evidence",
             "source": "ai_curated_mvp_v1"
+          },
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/qualify",
+            "role": "semantic support; wording/examples authored in bounded review"
+          },
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/qualify",
+            "role": "Root and independent review: preserve existing characterize meaning alongside classification"
+          }
+        ],
+        "governing_pattern": "qualify as sth; qualify sb/sth as sth",
+        "transitivity": "I/T",
+        "usage_note": "qualify as can express fitting a category; transitive qualify sb/sth as can also characterize someone or something. This differs from gaining a professional qualification."
+      },
+      {
+        "sense_id": "sense:qualify:6f126ef0fd9c83eb",
+        "pos": "verb",
+        "definition_cn": "（语法中）修饰；限定另一词的意义",
+        "definition_en": "modify another word by adding descriptive information",
+        "sense_label_en": "modify another word by adding descriptive information",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "a word qualifies another word",
+        "transitivity": "vt",
+        "usage_note": "Grammar use: an adjective can qualify a noun. This is distinct from qualify as a category.",
+        "collocations": [
+          {
+            "collocation_id": "collocation:qualify:8330fcdfe5fea18f",
+            "phrase": "An adjective qualifies a noun.",
+            "meaning_cn": "形容词修饰名词。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/qualify",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
+          }
+        ],
+        "sort_order": 4,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/qualify",
+            "role": "semantic support; wording/examples authored in bounded review"
           }
         ]
       }
@@ -485,6 +542,12 @@
         "merged_into_sense_id": null,
         "source_row": 10824,
         "source_path": "content/lexical/canonical/senses/shards/o3873-3904.json"
+      },
+      {
+        "sense_id": "sense:qualify:6f126ef0fd9c83eb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3889.json"
       }
     ],
     "active_collocations": [
@@ -494,7 +557,8 @@
       "collocation:7b7bc6673abb25d52b04",
       "collocation:9dc7125310ae6ddbd135",
       "collocation:db5fd438c9afd2d0d5bb",
-      "collocation:f0560912cab43b93e418"
+      "collocation:f0560912cab43b93e418",
+      "collocation:qualify:8330fcdfe5fea18f"
     ],
     "facts": [
       {
@@ -538,6 +602,10 @@
         "id": "collocation:f0560912cab43b93e418",
         "source_row": 20360,
         "source_path": "content/lexical/canonical/collocations/shards/o3873-3904.json"
+      },
+      {
+        "id": "collocation:qualify:8330fcdfe5fea18f",
+        "source_path": "content/lexical/words/by-ordinal/o3889.json"
       }
     ],
     "exam-mappings": [],

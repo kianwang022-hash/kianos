@@ -30,7 +30,7 @@
       ],
       "core_meaning_cn": "压力；施加压力",
       "core_meaning_en": "force exerted on something or influence",
-      "mental_model_cn": "压力；施加压力",
+      "mental_model_cn": "血压/加压储存是物理压力；put pressure on谈对人施压；工作负担带来的焦虑是精神压力。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -56,13 +56,16 @@
             "phrase": "blood pressure"
           },
           {
-            "collocation_id": "collocation:ce5f17e334bdfadbee04",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:pressure:bd49ea9e9cd95c7e:collocation:1"
-            ],
-            "meaning_cn": "在压力下；被迫",
-            "phrase": "under pressure"
+            "collocation_id": "collocation:pressure:77aa9d21c074497f",
+            "phrase": "The gas is stored under pressure.",
+            "meaning_cn": "气体以加压状态储存。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pressure_1",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
           }
         ],
         "confidence": "medium",
@@ -96,6 +99,15 @@
             ],
             "meaning_cn": "对某人施加压力",
             "phrase": "put pressure on + sb"
+          },
+          {
+            "collocation_id": "collocation:ce5f17e334bdfadbee04",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:pressure:bd49ea9e9cd95c7e:collocation:1"
+            ],
+            "meaning_cn": "在压力下；被迫",
+            "phrase": "under pressure"
           }
         ],
         "confidence": "medium",
@@ -133,6 +145,39 @@
         "sense_label_en": "to try to force someone to do something",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:pressure:d5ab6b8e900898be",
+        "pos": "noun",
+        "definition_cn": "（工作或处境带来的）精神压力",
+        "definition_en": "worry or strain caused by demanding circumstances",
+        "sense_label_en": "worry or strain caused by demanding circumstances",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:pressure:e4a9a8530cc775ad",
+            "phrase": "She finds it hard to cope with the pressure at work.",
+            "meaning_cn": "她觉得难以应付工作压力。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pressure_1",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "work pressure、cope with pressure可谈焦虑负担，不一定有人强迫；under pressure也可因此表示承压。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/pressure_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -352,6 +397,12 @@
         "merged_into_sense_id": null,
         "source_row": 10466,
         "source_path": "content/lexical/canonical/senses/shards/o3745-3776.json"
+      },
+      {
+        "sense_id": "sense:pressure:d5ab6b8e900898be",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3758.json"
       }
     ],
     "active_collocations": [
@@ -359,7 +410,9 @@
       "collocation:4023bc8c2dc08f42f3d4",
       "collocation:ce5f17e334bdfadbee04",
       "collocation:ef842af2e6ec257b9836",
-      "collocation:f72f1e931ed78eb64bd0"
+      "collocation:f72f1e931ed78eb64bd0",
+      "collocation:pressure:77aa9d21c074497f",
+      "collocation:pressure:e4a9a8530cc775ad"
     ],
     "facts": [
       {
@@ -393,6 +446,14 @@
         "id": "collocation:f72f1e931ed78eb64bd0",
         "source_row": 20933,
         "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+      },
+      {
+        "id": "collocation:pressure:77aa9d21c074497f",
+        "source_path": "content/lexical/words/by-ordinal/o3758.json"
+      },
+      {
+        "id": "collocation:pressure:e4a9a8530cc775ad",
+        "source_path": "content/lexical/words/by-ordinal/o3758.json"
       }
     ],
     "exam-mappings": [],

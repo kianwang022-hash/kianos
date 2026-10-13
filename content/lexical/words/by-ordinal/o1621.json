@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "出现；从隐蔽处显现",
-          "label_en": "to come out into view from concealment",
+          "label_cn": "从隐蔽处显现；从困境或经历中走出",
+          "label_en": "come out into view; come out of a difficult experience",
           "pos": "verb",
           "sense_ids": [
-            "sense:emerge:82fe243b33f957de"
+            "sense:emerge:82fe243b33f957de",
+            "sense:emerge:0bc66dd21c22e6ad"
           ]
         },
         {
@@ -35,9 +36,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "出现、显现；变得已知；浮出或升起",
-      "core_meaning_en": "to emerge into view, become known/apparent, or rise to the surface",
-      "mental_model_cn": "出现、显现；变得已知；浮出或升起",
+      "core_meaning_cn": "从隐蔽处显现或从困境中走出；事实显现；浮出或升起",
+      "core_meaning_en": "to come out into view or out of a difficult experience, become known, or rise to the surface",
+      "mental_model_cn": "看显现对象与from后语境：实体可从隐蔽处出来或浮到表面；事实可变得已知，as指出出现的身份；from危机或磨难则指走出那段经历。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,7 +89,7 @@
         "confidence": "medium",
         "definition_cn": "变得已知或明显；作为……出现",
         "definition_en": "to become known or apparent, or appear/develop as something",
-        "governing_pattern": "vi. + as",
+        "governing_pattern": "emerge as sth; it emerges that...; facts emerge",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -120,6 +121,25 @@
         "sense_label_en": "to rise or come up to the surface",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:emerge:0bc66dd21c22e6ad",
+        "pos": "verb",
+        "definition_cn": "从困境或不良经历中走出",
+        "definition_en": "to come out of or reach the end of a difficult experience or situation",
+        "sense_label_en": "to come out of or reach the end of a difficult experience or situation",
+        "governing_pattern": "emerge from a crisis/recession/ordeal",
+        "transitivity": "vi",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:emerge:0d1027d26c397df8",
+            "phrase": "emerge from a crisis",
+            "meaning_cn": "走出危机",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "from可接困境或经历，不要求从物理藏身处出现；原事实变得已知和emerge as身份仍保持。"
       }
     ],
     "verification_summary": {
@@ -245,6 +265,29 @@
           "applicability": [
             {
               "surface": "emerge"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "emerge",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:emerge:0bc66dd21c22e6ad"
+              ],
+              "sense_ids": [
+                "sense:emerge:0bc66dd21c22e6ad"
+              ],
+              "excluded_sense_ids": [
+                "sense:emerge:82fe243b33f957de",
+                "sense:emerge:d357172d2c965981",
+                "sense:emerge:dd77f3968b4b5316"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/emerge",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -311,6 +354,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/emerge",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "emerge",
+                "pos": "verb"
+              },
+              "existing_observed_ipa_unchanged": "/ɪˈmɜːd͡ʒ/",
+              "applies_to_sense_ids": [
+                "sense:emerge:0bc66dd21c22e6ad"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         }
@@ -341,12 +400,21 @@
         "merged_into_sense_id": null,
         "source_row": 4516,
         "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
+      },
+      {
+        "sense_id": "sense:emerge:0bc66dd21c22e6ad",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1621.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:216c21f942f03cf3d215",
       "collocation:cfd3e29ff05050454fad",
-      "collocation:e799a9ee6c0a5b1fb521"
+      "collocation:e799a9ee6c0a5b1fb521",
+      "collocation:emerge:0d1027d26c397df8"
     ],
     "facts": [],
     "collocations": [
@@ -384,6 +452,14 @@
         "id": "collocation:e799a9ee6c0a5b1fb521",
         "source_row": 19627,
         "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      },
+      {
+        "id": "collocation:emerge:0d1027d26c397df8",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1621.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

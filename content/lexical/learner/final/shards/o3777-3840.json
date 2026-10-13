@@ -146,18 +146,18 @@
     "ordinal": 3778,
     "word": "principal",
     "source_owner_path": "content/lexical/words/by-ordinal/o3778.json",
-    "source_fingerprint": "f2d405c605daf406cdb02534391ce9e985163346fdc0c4cc5d762385650dc6aa",
+    "source_fingerprint": "8186e7749fc016e4afa4b7ff1a7edc83bbc3e0cf16deacc9b75adc0e577ef209",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "(3+1)N"
+        "(4+1)N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "主要的；首要的；学校负责人；本金",
-      "decision_cn": "",
+      "decision_cn": "修饰名词是主要的；学校语境是校长，interest对举是本金，agent对举是委托人；刑法文本中的principal需看特定角色定义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -262,16 +262,42 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "主犯；主要参与者",
-        "definition_en": "(criminal law) any person involved in a criminal offense, regardless of whether the person profits from such involvement",
-        "note": "",
+        "definition_cn": "（刑法术语）直接实施犯罪者；某些制度下也包括在场协助者",
+        "definition_en": "in criminal-law terminology, a direct perpetrator, or in some systems a person present and assisting in the offence",
+        "note": "不是任何与案件有关的人；与accessory等术语的具体界线依适用法律而定，此处只作阅读辨义。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:principal:5e9aff8576ee5e9b",
           "target_locator": "record.senses[3]",
-          "target_label": "主犯；主要参与者"
+          "target_label": "（刑法术语）直接实施犯罪者；某些制度下也包括在场协助者"
+        }
+      },
+      {
+        "id": "sense:principal:907885f7ffed7724",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "委托人；被代理人",
+        "definition_en": "a person or organization for whom an agent acts",
+        "note": "合同/代理语境，与agent相对；不是学校校长，也不是抽象原则principle。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:principal:cd1e602a87e08d7e",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "The agent acted on behalf of the principal.",
+            "meaning_cn": "代理人代表委托人行事。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:principal:907885f7ffed7724",
+          "target_locator": "record.senses[4]",
+          "target_label": "委托人；被代理人"
         }
       }
     ],
@@ -638,18 +664,18 @@
     "ordinal": 3780,
     "word": "print",
     "source_owner_path": "content/lexical/words/by-ordinal/o3780.json",
-    "source_fingerprint": "6300cc278a787fff5e9bb7815962921e054a32d8e54bc5bcabf69658be9476f9",
+    "source_fingerprint": "a6db3440fd50645bbd9f29fffce1088581d0b5d167a759a491638458007472c9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "印刷；打印",
-      "decision_cn": "",
+      "decision_cn": "机器语境是印刷；表格要求print a name可指正体书写；名词看印刷内容或压出的印记。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -733,6 +759,32 @@
           "target_id": "sense:print:15e5fa03592852a6",
           "target_locator": "record.senses[2]",
           "target_label": "痕迹；印记"
+        }
+      },
+      {
+        "id": "sense:print:cff7dbccac2e9f74",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "I/T: print; print one’s name",
+        "definition_cn": "用正体字母书写",
+        "definition_en": "to write letters separately rather than joined together",
+        "note": "表格Please print your name要求清晰分开写字母，不一定要用打印机。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:print:f85241b3efe4c78e",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "Please print your name clearly.",
+            "meaning_cn": "请用正体字母清楚填写姓名。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:print:cff7dbccac2e9f74",
+          "target_locator": "record.senses[3]",
+          "target_label": "用正体字母书写"
         }
       }
     ],
@@ -1008,7 +1060,7 @@
     "ordinal": 3782,
     "word": "priority",
     "source_owner_path": "content/lexical/words/by-ordinal/o3782.json",
-    "source_fingerprint": "5891efaefba8ab3767f6969a8cdeabfecc7b4e3279690a1b212446e8280a08b7",
+    "source_fingerprint": "c1d9629347e6a677e2b38dfb41c025b27f691861e5b86337f78c47b4e1f229fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1018,7 +1070,7 @@
     },
     "word_feel": {
       "summary_cn": "更重要或更紧急的状态",
-      "decision_cn": "",
+      "decision_cn": "give/take priority谈不可数的优先地位；a priority、top priority或priorities谈具体要先做的事项。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1034,7 +1086,7 @@
         "governing_pattern": "",
         "definition_cn": "优先；优先权",
         "definition_en": "the fact of being more important than other things and needing to be dealt with first",
-        "note": "",
+        "note": "通常不可数，take priority over sth表示优先于某事；give priority to sth表示优先考虑。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1049,14 +1101,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "give priority to + sth"
             }
-          },
-          {
-            "id": "collocation:8a426560b8b4d32ceb89",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "top priority",
-            "meaning_cn": "当务之急",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -1073,7 +1117,7 @@
         "governing_pattern": "",
         "definition_cn": "优先事项；重点",
         "definition_en": "something that is considered more important than other things",
-        "note": "",
+        "note": "可数：a top priority / set priorities谈需要先做的事项。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1081,6 +1125,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "set priorities",
             "meaning_cn": "确定优先事项",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:8a426560b8b4d32ceb89",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "top priority",
+            "meaning_cn": "当务之急",
             "kind": "usage_example",
             "repair": null
           }
@@ -1151,7 +1203,7 @@
     "ordinal": 3783,
     "word": "prison",
     "source_owner_path": "content/lexical/words/by-ordinal/o3783.json",
-    "source_fingerprint": "c843c2eb609c768a65af66f403b1442fe60970db023fc55fda0bbdc815c77dbb",
+    "source_fingerprint": "91edf6924e6ece60601e3aed640930d848796cde39f5edf9056cf6499dcb7464",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1162,7 +1214,7 @@
     },
     "word_feel": {
       "summary_cn": "监狱",
-      "decision_cn": "",
+      "decision_cn": "in prison常指被关押，in the prison可仅指建筑内；prison of fear是比喻禁锢，原动词读法仍按及物结构识别。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1178,7 +1230,7 @@
         "governing_pattern": "",
         "definition_cn": "监狱，拘留所",
         "definition_en": "a correctional institution where persons are confined while on trial or for punishment",
-        "note": "",
+        "note": "in prison通常表示被关押的身份；in the prison可只表示人在特定监狱建筑内。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1243,7 +1295,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "监禁",
         "definition_en": "put in prison",
-        "note": "",
+        "note": "该动词是旧式用法；Collins所收Webster’s New World将其标为imprison的archaic变体。现代一般写作通常用imprison。此处保留旧义供识别，不删原例句。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1576,18 +1628,18 @@
     "ordinal": 3786,
     "word": "private",
     "source_owner_path": "content/lexical/words/by-ordinal/o3786.json",
-    "source_fingerprint": "728a0ef298be3e0804665f9920ad2d29a4c265b3cfd1db6dce8861039fd0b669",
+    "source_fingerprint": "c9172be23067b4a78b01d75d28a00c548143d141f128cb4dae715ef5e1fca70a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4A",
+        "5A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "属于或供特定个人或群体使用的；非公开的",
-      "decision_cn": "",
+      "decision_cn": "property谈私有、meeting谈不公开、school谈私营；private life相对公务；a private person不愿自我透露，a private也可指列兵。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1749,6 +1801,32 @@
           "target_locator": "record.senses[4]",
           "target_label": "列兵，二等兵"
         }
+      },
+      {
+        "id": "sense:private:681b5b423ef0bd07",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "不愿透露个人感情或生活的",
+        "definition_en": "reluctant to discuss personal feelings or private life",
+        "note": "a private person说性格内敛、不愿自我透露，不是私人所有的人。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:private:fe8adf19bdad24b4",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "He is a very private person.",
+            "meaning_cn": "他很不愿谈论自己的私生活。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:private:681b5b423ef0bd07",
+          "target_locator": "record.senses[5]",
+          "target_label": "不愿透露个人感情或生活的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1805,7 +1883,7 @@
     "ordinal": 3787,
     "word": "privilege",
     "source_owner_path": "content/lexical/words/by-ordinal/o3787.json",
-    "source_fingerprint": "c8bce64a8b2f641b54da2bcd8dad770c978850589d07cf8294920b17a426fede",
+    "source_fingerprint": "bb9b00399b4aaab2470c75cbba3f14b517983cb84ac477478863b9407d1016ba",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1816,7 +1894,7 @@
     },
     "word_feel": {
       "summary_cn": "授予某人或某群体的特殊权利或优势",
-      "decision_cn": "",
+      "decision_cn": "名词看特殊优势、法律保密或难得荣幸；动词可给人或事物特殊优势、优先地位。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1896,8 +1974,8 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "给予特权；特免",
-        "definition_en": "to bestow a privilege upon",
-        "note": "",
+        "definition_en": "to give a person or thing a special advantage or favourable position",
+        "note": "较正式，可直接优待某群体、观点或事物，不只授予某人法定特权。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2016,18 +2094,18 @@
     "ordinal": 3788,
     "word": "prize",
     "source_owner_path": "content/lexical/words/by-ordinal/o3788.json",
-    "source_fingerprint": "3a1451ac01e05e92b1eb811f66e252cf63b6a3c167bb26743f4761acd19d1b5e",
+    "source_fingerprint": "4ad67d01a4ec3995fe4223ec7066d98b9c01849afe4427313247e4974e9b969a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "奖品或珍视",
-      "decision_cn": "",
+      "decision_cn": "比赛语境名词是奖品；动词珍视看所重视的对象；prize open/off是用力撬开，须与珍视区分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2099,6 +2177,32 @@
           "target_id": "sense:prize:eb475bd552225e94",
           "target_locator": "record.senses[1]",
           "target_label": "珍视，高度重视"
+        }
+      },
+      {
+        "id": "sense:prize:606f60709f1492b7",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vt.: prize sth open/apart/off",
+        "definition_cn": "撬开；撬起；用力分开",
+        "definition_en": "to force something open or apart",
+        "note": "该动词尤其见于美式prize，英式常拼prise，美式也用pry；看open/apart/off等结果语境，与珍视分开。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:prize:0dac2c1f88273ac1",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "They prized the lid off the box.",
+            "meaning_cn": "他们把箱盖撬了下来。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:prize:606f60709f1492b7",
+          "target_locator": "record.senses[2]",
+          "target_label": "撬开；撬起；用力分开"
         }
       }
     ],
@@ -2900,17 +3004,17 @@
     "ordinal": 3793,
     "word": "procedure",
     "source_owner_path": "content/lexical/words/by-ordinal/o3793.json",
-    "source_fingerprint": "a2818b9b8655550cad6686a7ea7d57bc3c70af7e0e1683f4f533ed0fe51e90ab",
+    "source_fingerprint": "f53d7504274797fc638f80ed4154cac3e9e1b181653c1553d2625630a7c6a112",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "步骤；方法；程序",
-      "decision_cn": "",
+      "decision_cn": "通常是办事步骤或议事程序；medical/surgical procedure及undergo语境可指具体医疗操作或手术。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2985,6 +3089,32 @@
           "target_id": "sense:procedure:d2824f6852ad5a47",
           "target_locator": "record.senses[1]",
           "target_label": "法律程序；议事程序"
+        }
+      },
+      {
+        "id": "sense:procedure:3bdb9690aef7a205",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "医疗操作；手术",
+        "definition_en": "a medical intervention or operation",
+        "note": "medical/surgical procedure、undergo a procedure常指具体诊疗操作，不只是一般流程。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:procedure:62357db77b979b11",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "The patient underwent a minor surgical procedure.",
+            "meaning_cn": "患者接受了一项小手术。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:procedure:3bdb9690aef7a205",
+          "target_locator": "record.senses[2]",
+          "target_label": "医疗操作；手术"
         }
       }
     ],
@@ -3432,18 +3562,18 @@
     "ordinal": 3796,
     "word": "process",
     "source_owner_path": "content/lexical/words/by-ordinal/o3796.json",
-    "source_fingerprint": "3d179709e36e6078ea6acf168f8285a382aa1893863aaf92cbb853debcff642e",
+    "source_fingerprint": "f94242d54f952f436e8708ec1429a6def18ff1f68b5be929191f4970e7acdabd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "(1+1)V",
-        "2N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "过程；处理",
-      "decision_cn": "",
+      "decision_cn": "步骤/自然变化是过程，动词是处理；解剖学process是突起，计算机process是运行中的程序任务。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3549,6 +3679,58 @@
           "target_id": "sense:process:e58bd884792b5323",
           "target_locator": "record.senses[2]",
           "target_label": "自然过程，变化过程"
+        }
+      },
+      {
+        "id": "sense:process:45645b48de52d827",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（骨等的）突起；突",
+        "definition_en": "an anatomical projection from a bone or other body structure",
+        "note": "解剖学中的process是结构突起，不是操作流程。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:process:f8a5c9599a9358c3",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a bony process",
+            "meaning_cn": "骨突",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:process:45645b48de52d827",
+          "target_locator": "record.senses[3]",
+          "target_label": "（骨等的）突起；突"
+        }
+      },
+      {
+        "id": "sense:process:3cc44f71e8174f35",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（计算机）运行中的程序或任务",
+        "definition_en": "a program or task being executed by a computer",
+        "note": "kill/restart a process、process ID选择计算机运行实体，而非泛指步骤。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:process:68a18150ed867d95",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "Restart the unresponsive process.",
+            "meaning_cn": "重新启动无响应的进程。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:process:3cc44f71e8174f35",
+          "target_locator": "record.senses[4]",
+          "target_label": "（计算机）运行中的程序或任务"
         }
       }
     ],
@@ -3800,7 +3982,7 @@
     "ordinal": 3798,
     "word": "proclaim",
     "source_owner_path": "content/lexical/words/by-ordinal/o3798.json",
-    "source_fingerprint": "ca95b4e09739395bdceb106bfb0acb878186ae2270f949d19cffab28159b7d9a",
+    "source_fingerprint": "78eaada1905b9ad1bd02dd378530f2267d013968c395777384d1cce61116332e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3810,7 +3992,7 @@
     },
     "word_feel": {
       "summary_cn": "正式宣布",
-      "decision_cn": "",
+      "decision_cn": "人公开宣布可接that或宾语补足语；表情、标志等非言语主语也可proclaim某特征，意为鲜明显示。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3869,8 +4051,8 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "表明，声明",
-        "definition_en": "to state or announce something clearly",
-        "note": "",
+        "definition_en": "to state openly or make something clearly evident",
+        "note": "话语可声明，标志、表情等非人主语也可鲜明显示某特征；不一定正式发布公告。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3929,7 +4111,7 @@
     "ordinal": 3799,
     "word": "produce",
     "source_owner_path": "content/lexical/words/by-ordinal/o3799.json",
-    "source_fingerprint": "05f03751a37e07d634a868105e1c25efa9116db9e0ff0da4aa0d21ac2a883117",
+    "source_fingerprint": "cf70cc08075935eefab0094f6cadcb55f2a96a216825424e6d936db50da4c289",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3940,7 +4122,7 @@
     },
     "word_feel": {
       "summary_cn": "生产；农产品",
-      "decision_cn": "",
+      "decision_cn": "动词分别看制造的物品、引起的结果或出示的证件；名词produce是农产品，商店里常特别指新鲜果蔬。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4086,8 +4268,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "农产品",
-        "definition_en": "fresh fruits and vegetables grown for sale",
-        "note": "",
+        "definition_en": "food and other goods obtained from farming",
+        "note": "名词通常不可数；商店produce section常以新鲜果蔬为主，但agricultural/farm produce不必只限果蔬。",
         "identity_overlay": {
           "text": "noun produce has initial stress; verb produce has final stress",
           "repair": {
@@ -4408,7 +4590,7 @@
     "ordinal": 3801,
     "word": "production",
     "source_owner_path": "content/lexical/words/by-ordinal/o3801.json",
-    "source_fingerprint": "235edbbccbe90530f3ca9c36f38b434b8787ae8eba3a76e159820ba62f363e42",
+    "source_fingerprint": "2a67a3c4097ded4366806c6dc5a9e3acf4c3c1e3c64774b71d2378d2aa58dea9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4417,13 +4599,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "生产，制造",
-      "decision_cn": "",
+      "summary_cn": "生产过程及其产出",
+      "decision_cn": "production of goods→生产；increase production→产量；a theatre production→作品/演出；on production of a document→出示文件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "生产，制造"
+        "target_label": "生产过程及其产出"
       }
     },
     "senses": [
@@ -4547,7 +4729,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:production:53fa36cb47130066",
+        "source_locator": "record.constructions[0]",
+        "pattern": "on production of sth",
+        "lines": [
+          {
+            "text": "在出示某物后；凭某物",
+            "lang": "cn"
+          },
+          {
+            "text": "正式；后接证件等被出示之物，不是制造完成。",
+            "lang": "cn"
+          },
+          {
+            "text": "when a document or other required item is shown",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:production:53fa36cb47130066",
+          "target_locator": "record.constructions[0]",
+          "target_label": "on production of sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4572,22 +4780,22 @@
     "ordinal": 3802,
     "word": "productive",
     "source_owner_path": "content/lexical/words/by-ordinal/o3802.json",
-    "source_fingerprint": "ee538f10b99987bb0b864e1327e890f9bcfbba5245f4d9612e2ce56ed9495087",
+    "source_fingerprint": "0e7c3ee72c021163af4467f3d39c6012b4fff98beb09a48beab7d9739466882e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "4A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "多产的；有成效的",
-      "decision_cn": "",
+      "summary_cn": "能产出东西或结果的",
+      "decision_cn": "land/worker→产出能力；meeting→有成效；productive of→产生某结果，未必有利；cough→有痰；suffix→能构造新词。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "多产的；有成效的"
+        "target_label": "能产出东西或结果的"
       }
     },
     "senses": [
@@ -4658,6 +4866,58 @@
           "target_locator": "record.senses[1]",
           "target_label": "富有成效的；有效的"
         }
+      },
+      {
+        "id": "sense:productive:8ffc9cef28ec7e15",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（咳嗽）有痰的",
+        "definition_en": "bringing up mucus or sputum when coughing",
+        "note": "医学阅读用语，productive cough不是咳嗽很有效。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:productive:c66abfdce5c0faa0",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a productive cough",
+            "meaning_cn": "有痰咳嗽",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:productive:8ffc9cef28ec7e15",
+          "target_locator": "record.senses[2]",
+          "target_label": "（咳嗽）有痰的"
+        }
+      },
+      {
+        "id": "sense:productive:9096892c3a5f25bd",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（词缀或构词方式）能产的",
+        "definition_en": "able to be used to form new words",
+        "note": "语言学中指可用于构造新词，而不只是现有词很多。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:productive:cedafdf37d58bc69",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a productive suffix",
+            "meaning_cn": "能产后缀",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:productive:9096892c3a5f25bd",
+          "target_locator": "record.senses[3]",
+          "target_label": "（词缀或构词方式）能产的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4713,7 +4973,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:productive:9f5d41779cda5fed",
+        "source_locator": "record.constructions[0]",
+        "pattern": "productive of sth",
+        "lines": [
+          {
+            "text": "产生；导致",
+            "lang": "cn"
+          },
+          {
+            "text": "正式，结果不必有利，如造成麻烦；不能与effective一概等同。",
+            "lang": "cn"
+          },
+          {
+            "text": "causing a particular result",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:productive:9f5d41779cda5fed",
+          "target_locator": "record.constructions[0]",
+          "target_label": "productive of sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4815,22 +5101,22 @@
     "ordinal": 3804,
     "word": "profession",
     "source_owner_path": "content/lexical/words/by-ordinal/o3804.json",
-    "source_fingerprint": "6d2d192ec9d639ea2dbf1dad136cdf9580c9de4e4a1d9d402522faa333063ffd",
+    "source_fingerprint": "63d28d918a02e2ea0970f05c90c30d65b4e76a1017e1cfbd0d78c75ec3a4a4e2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "职业；专业；正式声明",
-      "decision_cn": "",
+      "summary_cn": "专门职业及其从业者；正式公开声明",
+      "decision_cn": "by profession→职业身份；the medical profession→该业全体从业者；a profession of faith→公开表明信仰。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "职业；专业；正式声明"
+        "target_label": "专门职业及其从业者；正式公开声明"
       }
     },
     "senses": [
@@ -4869,10 +5155,27 @@
         "definition_en": "a job or career requiring special education, training, or skill, especially a recognized profession",
         "note": "",
         "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:profession:fa33664877415888",
+          "target_locator": "record.senses[1]",
+          "target_label": "职业；专业（尤指需要专门教育、训练或技能的职业）"
+        }
+      },
+      {
+        "id": "sense:profession:c66a505d0c9f62d3",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（某一专业的）全体从业者；业界",
+        "definition_en": "the people who work in a particular profession",
+        "note": "the medical/legal profession通常统称该行业的专业人员。",
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:9b3bb2f25dea345cdb99",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "the medical/legal profession",
             "meaning_cn": "医学界/法律界",
             "kind": "usage_example",
@@ -4881,9 +5184,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:profession:fa33664877415888",
-          "target_locator": "record.senses[1]",
-          "target_label": "职业；专业（尤指需要专门教育、训练或技能的职业）"
+          "target_id": "sense:profession:c66a505d0c9f62d3",
+          "target_locator": "record.senses[2]",
+          "target_label": "（某一专业的）全体从业者；业界"
         }
       }
     ],
@@ -4922,23 +5225,23 @@
     "ordinal": 3805,
     "word": "professional",
     "source_owner_path": "content/lexical/words/by-ordinal/o3805.json",
-    "source_fingerprint": "99ffd652c690ca7b3837f0ead75384b6e054b129014f5f64c7425a89d2c64d10",
+    "source_fingerprint": "6b7be534321ceb006398fcac9155fe903f8ecaededbc0ff4c55c337886de5d59",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A",
+        "3A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "职业的/专业人士的；也指表现得专业、符合职业水准",
-      "decision_cn": "",
+      "summary_cn": "以专业或职业身份活动；也可评价职业水准",
+      "decision_cn": "professional skills→专业技能；turn professional→以此谋生、区别业余；professional behavior→表现合乎职业水准；a professional→专业人士或职业选手。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "职业的/专业人士的；也指表现得专业、符合职业水准"
+        "target_label": "以专业或职业身份活动；也可评价职业水准"
       }
     },
     "senses": [
@@ -5007,16 +5310,16 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "职业运动员",
-        "definition_en": "an athlete who plays for pay",
+        "definition_cn": "职业选手；以某项活动为职业的人",
+        "definition_en": "a person who does a sport or other activity as paid work rather than as a hobby",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:528c54473b9e9ce2821e",
+            "id": "collocation:professional:05f606b4eb23806f",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a professional athlete",
-            "meaning_cn": "职业运动员",
+            "phrase": "She competes as a professional.",
+            "meaning_cn": "她以职业选手身份参赛。",
             "kind": "usage_example",
             "repair": null
           }
@@ -5025,7 +5328,7 @@
           "target_kind": "sense",
           "target_id": "sense:professional:8ab2a86e606a5ea2",
           "target_locator": "record.senses[2]",
-          "target_label": "职业运动员"
+          "target_label": "职业选手；以某项活动为职业的人"
         }
       },
       {
@@ -5052,6 +5355,40 @@
           "target_id": "sense:professional:168e12db1ec8d37a",
           "target_locator": "record.senses[3]",
           "target_label": "专业的；表现出应有职业水准的"
+        }
+      },
+      {
+        "id": "sense:professional:4a2b6bd0c89b5c3f",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "以此为职业的；领取报酬的",
+        "definition_en": "doing an activity as paid work rather than as a hobby",
+        "note": "与amateur相对；professional不自动保证表现优秀，另有competent标准义。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:professional:853b1700ecfd155a",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "She decided to turn professional.",
+            "meaning_cn": "她决定转为职业选手。",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:528c54473b9e9ce2821e",
+            "source_locator": "record.senses[4].collocations[1]",
+            "phrase": "a professional athlete",
+            "meaning_cn": "职业运动员",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:professional:4a2b6bd0c89b5c3f",
+          "target_locator": "record.senses[4]",
+          "target_label": "以此为职业的；领取报酬的"
         }
       }
     ],
@@ -5316,23 +5653,23 @@
     "ordinal": 3808,
     "word": "profile",
     "source_owner_path": "content/lexical/words/by-ordinal/o3808.json",
-    "source_fingerprint": "ac8d164a97d3f3640275f961b21f9267d07c236913041646c2491f15e4ba202a",
+    "source_fingerprint": "2e9e5e4fbc284c2854518b4c1947d03c9e1246356e3f0c3e19bb9c598f067ceb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "(5+1)N"
+        "(6+1)N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "侧面/轮廓；简介/概况；数字平台个人资料",
-      "decision_cn": "",
+      "summary_cn": "呈现某人或事物的轮廓、特征；也指公众关注度",
+      "decision_cn": "in profile→侧面；company/job profile→简介；risk profile→特征概况；profile page→用户资料；raise/keep a low profile→公众关注程度。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "侧面/轮廓；简介/概况；数字平台个人资料"
+        "target_label": "呈现某人或事物的轮廓、特征；也指公众关注度"
       }
     },
     "senses": [
@@ -5373,7 +5710,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "简介；传略",
-        "definition_en": "a short description of someone's life, work, or character",
+        "definition_en": "a brief description of the life, work, character, or main features of a person or thing",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5407,7 +5744,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "数据图表；概况",
-        "definition_en": "a graph or table showing the extent to which something has various characteristics",
+        "definition_en": "a set or description of the characteristics of someone or something, which may be presented as a graph, table, or other summary",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5495,6 +5832,32 @@
           "target_locator": "record.senses[5]",
           "target_label": "（网站/应用中的）用户资料页；个人档案"
         }
+      },
+      {
+        "id": "sense:profile:cdf6d98c47711f69",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "公众关注度；知名度",
+        "definition_en": "the amount of public attention received by someone or something",
+        "note": "raise a profile谈提高公众关注；不一定指更新个人资料页。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:profile:85c3541dbf1be8d9",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "The campaign raised the charity’s profile.",
+            "meaning_cn": "这场活动提高了该慈善机构的知名度。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:profile:cdf6d98c47711f69",
+          "target_locator": "record.senses[6]",
+          "target_label": "公众关注度；知名度"
+        }
       }
     ],
     "pronunciation_support": {
@@ -5535,7 +5898,7 @@
         "source_locator": "record.secondary_senses[0]",
         "pos": "noun",
         "definition_cn": "简介；传略",
-        "definition_en": "a short description of someone's life, work, or character",
+        "definition_en": "a brief description of the life, work, character, or main features of a person or thing",
         "pattern": "job profile 职位简介",
         "repair": {
           "target_kind": "secondary_sense",
@@ -5789,22 +6152,22 @@
     "ordinal": 3810,
     "word": "profitable",
     "source_owner_path": "content/lexical/words/by-ordinal/o3810.json",
-    "source_fingerprint": "f7a4b3b786427f02a55fd058da8ef91b7bc49665f67258593ef344673fd15ba1",
+    "source_fingerprint": "36ce77b9cb5a467ec800705560a0d3a01484f4da0b41174cfa255cdc5480adf1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有利可图的",
-      "decision_cn": "",
+      "summary_cn": "带来收益或收获的",
+      "decision_cn": "business/investment→金钱利润；discussion/experience→有用收获，不必涉及赚钱。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有利可图的"
+        "target_label": "带来收益或收获的"
       }
     },
     "senses": [
@@ -5840,6 +6203,32 @@
           "target_id": "sense:profitable:fe141b1b297b5eed",
           "target_locator": "record.senses[0]",
           "target_label": "有利润的，有利益的，赚钱的"
+        }
+      },
+      {
+        "id": "sense:profitable:2eae28fbaf3d4869",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "有益的；有收获的",
+        "definition_en": "bringing useful benefits rather than necessarily financial gain",
+        "note": "谈discussion/experience时可以没有金钱收益。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:profitable:52ebcad1f0d21f48",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a profitable discussion",
+            "meaning_cn": "有收获的讨论",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:profitable:2eae28fbaf3d4869",
+          "target_locator": "record.senses[1]",
+          "target_label": "有益的；有收获的"
         }
       }
     ],
@@ -6059,23 +6448,23 @@
     "ordinal": 3812,
     "word": "program",
     "source_owner_path": "content/lexical/words/by-ordinal/o3812.json",
-    "source_fingerprint": "5b8496ac5cc34d96d231816f0648b57d60d010ad451efba07fd4e3e9d0f6c8c5",
+    "source_fingerprint": "e781e54c6658f7badc471a85e9a1d254d6a5ad3d02d11e7944f3460ae6f4166e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "程序；计划",
-      "decision_cn": "",
+      "summary_cn": "为活动或机器安排的一套内容/指令",
+      "decision_cn": "computer→程序；reform/training→方案；TV/radio→节目；degree/master’s→课程项目；作动词可指编程或安排。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "程序；计划"
+        "target_label": "为活动或机器安排的一套内容/指令"
       }
     },
     "senses": [
@@ -6177,7 +6566,7 @@
         "id": "sense:program:577ac3ec590b54c2",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: program; program a computer; program sth to do sth",
         "definition_cn": "为……编程",
         "definition_en": "to give a computer instructions to do something",
         "note": "",
@@ -6223,6 +6612,32 @@
           "target_id": "sense:program:98bbf34f843b510d",
           "target_locator": "record.senses[4]",
           "target_label": "规划，安排"
+        }
+      },
+      {
+        "id": "sense:program:a09948ea390e1f4c",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（学校的）课程；培养项目",
+        "definition_en": "a course of study at a school, college, or university",
+        "note": "尤其美式；degree/master’s program表示学习项目。英式一般用programme，计算机用program。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:program:8d2e818e8fc5bf05",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a master’s program",
+            "meaning_cn": "硕士培养项目",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:program:a09948ea390e1f4c",
+          "target_locator": "record.senses[5]",
+          "target_label": "（学校的）课程；培养项目"
         }
       }
     ],
@@ -6286,7 +6701,7 @@
     "ordinal": 3813,
     "word": "progress",
     "source_owner_path": "content/lexical/words/by-ordinal/o3813.json",
-    "source_fingerprint": "e6acc1e3c079c9978f466e79109b09b1474b45fe7fec97ff5f81b4dbfabbef32",
+    "source_fingerprint": "285a3f810f8a7b6b98f487f64e838dfe8ef1a687db2b7ed25ca9a8baedf96913",
     "sense_lineage": [
       {
         "word_id": "word:progress",
@@ -6298,19 +6713,19 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "前进，发展",
-      "decision_cn": "",
+      "summary_cn": "向前发展或继续推进",
+      "decision_cn": "make progress→取得进展；in progress→正在进行；time/event progresses→随时间推进，不保证改善。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "前进，发展"
+        "target_label": "向前发展或继续推进"
       }
     },
     "senses": [
@@ -6373,7 +6788,7 @@
         "id": "sense:progress:2132360f46425bd2",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + in/with",
+        "governing_pattern": "vi.: progress; progress in/with sth; progress from sth to sth",
         "definition_cn": "进步，进展",
         "definition_en": "develop in a positive way",
         "note": "",
@@ -6419,6 +6834,32 @@
           "target_id": "sense:progress:2132360f46425bd2",
           "target_locator": "record.senses[1]",
           "target_label": "进步，进展"
+        }
+      },
+      {
+        "id": "sense:progress:e2b62f4dbf56b151",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "vi.: time/an event progresses",
+        "definition_cn": "（时间或事件）推移；继续进行",
+        "definition_en": "to continue or move ahead as time passes",
+        "note": "as the evening progressed指晚间时间推移，不承诺情况改善。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:progress:0a36434d2c52c2bd",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "The room grew quieter as the evening progressed.",
+            "meaning_cn": "随着夜晚推移，屋内渐渐安静下来。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:progress:e2b62f4dbf56b151",
+          "target_locator": "record.senses[2]",
+          "target_label": "（时间或事件）推移；继续进行"
         }
       }
     ],
@@ -6541,7 +6982,7 @@
     "ordinal": 3814,
     "word": "progressive",
     "source_owner_path": "content/lexical/words/by-ordinal/o3814.json",
-    "source_fingerprint": "9eafe01fdb494177e7f06d6a41629ced8c2bffb18e38b535b364fc81b925a8f3",
+    "source_fingerprint": "ed81bfba17f82b5f0a60d0cee0e1cdd54a37f73f54b82b5e5f478d4d1e9ecb3c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6551,13 +6992,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "支持进步或改革；进行中的",
-      "decision_cn": "",
+      "summary_cn": "逐步推进；或主张改革进步",
+      "decision_cn": "policy/person→改革立场；disease/decline→逐渐发展，可能恶化；tax→税率随计税基础提高；grammar→进行时。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "支持进步或改革；进行中的"
+        "target_label": "逐步推进；或主张改革进步"
       }
     },
     "senses": [
@@ -6602,7 +7043,7 @@
         "governing_pattern": "",
         "definition_cn": "逐渐的；逐步的",
         "definition_en": "happening gradually over time",
-        "note": "",
+        "note": "逐步发展不一定变好；progressive disease指病情逐渐发展。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6653,8 +7094,8 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "累进的（税率随收入增加而增加）",
-        "definition_en": "of taxes, increasing as income increases",
-        "note": "",
+        "definition_en": "using a higher tax rate for higher amounts of income or other taxable value",
+        "note": "累进说税率随计税基础提高，不只是总缴税额增加。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6746,22 +7187,22 @@
     "ordinal": 3815,
     "word": "prohibit",
     "source_owner_path": "content/lexical/words/by-ordinal/o3815.json",
-    "source_fingerprint": "f5a1bf21fd085367f080cbe44349688d514ed293d088cac16f83e33f8b899726",
+    "source_fingerprint": "adc9830b7a0f6f913fcafb9de1554949259d06fe2fe35a7e540490ab62f9da0e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "禁止",
-      "decision_cn": "",
+      "summary_cn": "以规则禁止；或以条件阻断",
+      "decision_cn": "law/rule prohibits→正式禁止；cost/conditions prohibit→条件使行动无法实现。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "禁止"
+        "target_label": "以规则禁止；或以条件阻断"
       }
     },
     "senses": [
@@ -6769,9 +7210,9 @@
         "id": "sense:prohibit:ea6b50c6b0af53ad",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: prohibit sth/doing sth; prohibit sb from doing sth",
         "definition_cn": "禁止，阻止",
-        "definition_en": "command against",
+        "definition_en": "to officially forbid something, especially by a law or rule",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6807,6 +7248,32 @@
           "target_id": "sense:prohibit:ea6b50c6b0af53ad",
           "target_locator": "record.senses[0]",
           "target_label": "禁止，阻止"
+        }
+      },
+      {
+        "id": "sense:prohibit:8b9c4378456f30aa",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "vt.: prohibit sth",
+        "definition_cn": "使不可能；阻碍",
+        "definition_en": "to prevent something by making it impossible",
+        "note": "费用、条件等可以prohibit某行动，不要求有命令或法律。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:prohibit:a4e63b3eb960519e",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "The cost prohibits further expansion.",
+            "meaning_cn": "费用使进一步扩张无法实现。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:prohibit:8b9c4378456f30aa",
+          "target_locator": "record.senses[1]",
+          "target_label": "使不可能；阻碍"
         }
       }
     ],
@@ -6883,7 +7350,7 @@
     "ordinal": 3816,
     "word": "project",
     "source_owner_path": "content/lexical/words/by-ordinal/o3816.json",
-    "source_fingerprint": "c27c41e95d355b9abc50a4d2805c7962e09acccfc2881519c01306c6d9965c59",
+    "source_fingerprint": "4d065d3120103de97f60486a6c9df6c63c3ad7b6ddb4b9d2035f7df0567549d5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6893,13 +7360,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "项目；投射/放映；预测；展现某种形象/印象",
-      "decision_cn": "",
+      "summary_cn": "项目；向外投射、展现或推算",
+      "decision_cn": "a project→一项计划工作；image onto screen→放映；feelings onto another person→心理投射；growth figures→预测；from a wall→凸出；confidence→展现。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "项目；投射/放映；预测；展现某种形象/印象"
+        "target_label": "项目；向外投射、展现或推算"
       }
     },
     "senses": [
@@ -6996,7 +7463,7 @@
         "id": "sense:project:8a8b8b2a74825dfe",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: project sth; project that...; be projected at sth / to do sth",
         "definition_cn": "预测；推断",
         "definition_en": "to estimate or forecast something based on present data",
         "note": "",
@@ -7043,7 +7510,7 @@
         "id": "sense:project:138c321ae7d85d3d",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + from",
+        "governing_pattern": "vi.: project; project from/into/over sth",
         "definition_cn": "突出；凸出",
         "definition_en": "to stick out or protrude",
         "note": "",
@@ -7179,7 +7646,33 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:project:768aa71e7cfa9d03",
+        "source_locator": "record.constructions[0]",
+        "pattern": "project sth onto sb",
+        "lines": [
+          {
+            "text": "把自己的感情或想法投射到他人身上",
+            "lang": "cn"
+          },
+          {
+            "text": "心理语境中常错误地认为别人具有自己的感情，区别于把图像投到屏幕。",
+            "lang": "cn"
+          },
+          {
+            "text": "to attribute one’s own feelings or ideas to another person",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:project:768aa71e7cfa9d03",
+          "target_locator": "record.constructions[0]",
+          "target_label": "project sth onto sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7592,7 +8085,7 @@
     "ordinal": 3820,
     "word": "promise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3820.json",
-    "source_fingerprint": "a275718d030f99b33d0f28fa08169ff845fb1b76a8287ef65959a967033fd7e6",
+    "source_fingerprint": "2482e48029ca432ab7837d8444d2e471a34b45451b50de80e16082861d9b83b6",
     "sense_lineage": [
       {
         "word_id": "word:promise",
@@ -7610,13 +8103,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "承诺；诺言；也可指前途/潜力",
-      "decision_cn": "",
+      "summary_cn": "作出承诺；或呈现未来迹象",
+      "decision_cn": "person promises to do→承诺者行动；clouds promise rain→预示；show promise→显示成功潜力，名词不是一条诺言。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "承诺；诺言；也可指前途/潜力"
+        "target_label": "作出承诺；或呈现未来迹象"
       }
     },
     "senses": [
@@ -7658,10 +8151,10 @@
         "id": "sense:promise:03e39be070a25a7a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object / to do / that-clause",
+        "governing_pattern": "I/T: promise; promise sth (to sb); promise sb sth; promise to do sth; promise (sb) that...",
         "definition_cn": "承诺；答应",
         "definition_en": "to tell or assure someone that something will happen or that you will do something",
-        "note": "",
+        "note": "promise to do的动作由承诺者自己执行，如I promised to help是我去帮忙。明确承诺对象可用promise sb that...，如I promised her that I would help；不要照搬tell sb to do的宾语控制结构。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7723,7 +8216,7 @@
         "governing_pattern": "I/T: promise to be/do; promise sth",
         "definition_cn": "预示；有望；给人充分理由期待",
         "definition_en": "to show signs of likely future success or results; to give good reason to expect something",
-        "note": "",
+        "note": "promise rain等表示有迹象预示某事，并非每次都是令人满意的结果；与人的承诺和名词潜力区分。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7800,35 +8293,6 @@
           "target_id": "deep:constructions:promise:df896de76219428f",
           "target_locator": "record.constructions[0]",
           "target_label": "vt. + to do sth / that clause"
-        }
-      },
-      {
-        "id": "deep:constructions:promise:62525902ae37d97a",
-        "source_locator": "record.constructions[1]",
-        "pattern": "promise to do sth",
-        "lines": [
-          {
-            "text": "承诺做某事",
-            "lang": "cn"
-          },
-          {
-            "text": "承诺，允诺",
-            "lang": "cn"
-          },
-          {
-            "text": "promise to do sth 承诺做某事",
-            "lang": "cn"
-          },
-          {
-            "text": "to tell someone that you will definitely do something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:promise:62525902ae37d97a",
-          "target_locator": "record.constructions[1]",
-          "target_label": "promise to do sth"
         }
       }
     ],
@@ -8168,7 +8632,7 @@
     "ordinal": 3823,
     "word": "prompt",
     "source_owner_path": "content/lexical/words/by-ordinal/o3823.json",
-    "source_fingerprint": "e5c1c78e15f444647cb15e455ddb5d161a7cd7b0e0639413e8c552a5bd3a87ae",
+    "source_fingerprint": "fe56d06582d755d712c647cb30820273438834b2297cd291df5d2f514ab0cf0c",
     "sense_lineage": [
       {
         "word_id": "word:prompt",
@@ -8503,7 +8967,7 @@
     "ordinal": 3824,
     "word": "prone",
     "source_owner_path": "content/lexical/words/by-ordinal/o3824.json",
-    "source_fingerprint": "a042b92347f11f4963851180c738ba2fc204b6ce814e33794dfe14c3e5bba74c",
+    "source_fingerprint": "be417789a0d4bd60a792775020cc1d6029aed47d51d2d033f79679001acce178",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8526,10 +8990,10 @@
         "id": "sense:prone:e864aacb96dc5c6c",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "a. + to",
+        "governing_pattern": "prone to sth / doing sth / to do sth",
         "definition_cn": "易于…的；有…倾向的",
         "definition_en": "likely to suffer from or do something (usually negative)",
-        "note": "",
+        "note": "可接名词、动名词，也可接to不定式；不能把后一结构误判为错误。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8759,7 +9223,7 @@
     "ordinal": 3826,
     "word": "pronounce",
     "source_owner_path": "content/lexical/words/by-ordinal/o3826.json",
-    "source_fingerprint": "5093cc34d896f73be825cf46ce9761b3faeec80775e834f28c0f513e2e9ce54d",
+    "source_fingerprint": "028b1e9deb703c8c66c84bc449407aff296c9f4ac0f5fc1c8f1d069ccb2b594c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8784,7 +9248,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "发音",
-        "definition_en": "to speak, pronounce, or utter in a certain way",
+        "definition_en": "to produce the sounds of a word or language in a particular way",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8821,9 +9285,9 @@
         "id": "sense:pronounce:4d4cc01115995f52",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: pronounce sb/sth + adjective/noun; pronounce that...; pronounce on/for/against sth",
         "definition_cn": "宣告，宣判",
-        "definition_en": "to pronounce judgment on",
+        "definition_en": "to formally state a judgement or declare someone or something to have a particular status",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9073,7 +9537,7 @@
     "ordinal": 3828,
     "word": "proof",
     "source_owner_path": "content/lexical/words/by-ordinal/o3828.json",
-    "source_fingerprint": "50f225dd50549f4e48777a70ac8ed3b31c9dad361af092b2b2ff2e3b57ba9b17",
+    "source_fingerprint": "1159ccedfbc071d397850dbb712766a0fb88ac46fa7cb2407ead46ca62c3963e",
     "sense_lineage": [
       {
         "word_id": "word:proof",
@@ -9104,13 +9568,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "证据；证明；数学/逻辑证明",
-      "decision_cn": "",
+      "summary_cn": "据以确认真实的证据/证明",
+      "decision_cn": "proof of a claim→事实证据；mathematical proof→形式论证；be proof against→耐受/抵御的形容词结构。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "证据；证明；数学/逻辑证明"
+        "target_label": "据以确认真实的证据/证明"
       }
     },
     "senses": [
@@ -9231,7 +9695,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:proof:07b62d08c7be7ecb",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be proof against sth",
+        "lines": [
+          {
+            "text": "能抵御某事物；不受其影响",
+            "lang": "cn"
+          },
+          {
+            "text": "表语形容词框架；与名词证据、数学证明分开。",
+            "lang": "cn"
+          },
+          {
+            "text": "to resist damage or influence from something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:proof:07b62d08c7be7ecb",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be proof against sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9423,7 +9913,7 @@
     "ordinal": 3830,
     "word": "propagate",
     "source_owner_path": "content/lexical/words/by-ordinal/o3830.json",
-    "source_fingerprint": "f733a73415b47fbe036d2c429fc00e2816f1fbe4aa5ed4d016130e4123f29d21",
+    "source_fingerprint": "15633f9b71ba60742689f2b7becd4e3625210f8096a4a5b2f36c8f066258c0bc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9477,10 +9967,10 @@
         "id": "sense:propagate:9aa2044a93e6591c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: plants propagate; propagate plants",
         "definition_cn": "繁殖；增殖",
         "definition_en": "to reproduce and cause offspring to continue",
-        "note": "",
+        "note": "植物可作不及物主语表示繁殖；也可及物表示使植物繁殖。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9708,7 +10198,7 @@
     "ordinal": 3832,
     "word": "proper",
     "source_owner_path": "content/lexical/words/by-ordinal/o3832.json",
-    "source_fingerprint": "24a79d9bc8f8a47086dff605d96243748a552573e0b39638f7185b47738b7fd9",
+    "source_fingerprint": "0d7bb6fc3597fc71e2317b373c35762de28d70013055ffe50c49aca22524c357",
     "sense_lineage": [
       {
         "word_id": "word:proper",
@@ -9741,18 +10231,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "适当的；正确的",
-      "decision_cn": "",
+      "summary_cn": "合乎所需标准；位置还能改变读法",
+      "decision_cn": "proper procedure→合适正确；a proper meal→真正像样；the city proper→后置限定市区本身；proper noun→专有名词。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "适当的；正确的"
+        "target_label": "合乎所需标准；位置还能改变读法"
       }
     },
     "senses": [
@@ -9780,6 +10270,32 @@
           "target_id": "sense:proper:5aacda5f144453cf",
           "target_locator": "record.senses[0]",
           "target_label": "适当的；合适的；正确的"
+        }
+      },
+      {
+        "id": "sense:proper:9aa9fde482ae6843",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "真正像样的；符合标准的",
+        "definition_en": "real or satisfactory as an example of its kind",
+        "note": "尤其英式非正式，如a proper meal强调像样、够格，不只是礼仪正确。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:proper:b8b41929444ec4de",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "We finally had a proper meal.",
+            "meaning_cn": "我们终于吃上了一顿像样的饭。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:proper:9aa9fde482ae6843",
+          "target_locator": "record.senses[1]",
+          "target_label": "真正像样的；符合标准的"
         }
       }
     ],
@@ -9840,6 +10356,31 @@
           "target_id": "construction:350c1f8512617e8d5b49",
           "target_locator": "record.constructions[0]",
           "target_label": "proper noun/name"
+        }
+      },
+      {
+        "id": "construction:proper:6b0fbdaebd8422e4",
+        "source_locator": "record.constructions[1]",
+        "pattern": "noun + proper",
+        "lines": [
+          {
+            "text": "严格意义上的；本身的",
+            "lang": "cn"
+          },
+          {
+            "text": "放在名词后，如the city proper指市区本身，不含外围；名词前proper通常是合适/真正等读法。",
+            "lang": "cn"
+          },
+          {
+            "text": "the thing itself in the strict or central sense",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:proper:6b0fbdaebd8422e4",
+          "target_locator": "record.constructions[1]",
+          "target_label": "noun + proper"
         }
       }
     ],
@@ -10285,7 +10826,7 @@
     "ordinal": 3835,
     "word": "proportion",
     "source_owner_path": "content/lexical/words/by-ordinal/o3835.json",
-    "source_fingerprint": "ae62fe61038acaeb1e5fec5b89db4c76c91d122a12d8865090cbba2d2477c9b8",
+    "source_fingerprint": "25c8de96e84693a0a14f4ab7c50770024f5e1d2b7b67b89f864d3081ba1b7ff8",
     "sense_lineage": [
       {
         "word_id": "word:proportion",
@@ -10298,18 +10839,18 @@
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "比例；占比；均衡",
-      "decision_cn": "",
+      "summary_cn": "数量之间的相对关系；复数还指规模",
+      "decision_cn": "proportion of A to B→比率；a proportion of the whole→占比；in/out of proportion→相称与否；enormous proportions→尺寸或规模。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "比例；占比；均衡"
+        "target_label": "数量之间的相对关系；复数还指规模"
       }
     },
     "senses": [
@@ -10417,6 +10958,32 @@
           "target_id": "sense:proportion:e26cd9308ffe5921",
           "target_locator": "record.senses[2]",
           "target_label": "比例；比率；两数量之间的比例关系"
+        }
+      },
+      {
+        "id": "sense:proportion:77befead07e7be35",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（复数）尺寸；规模",
+        "definition_en": "the dimensions, size, or extent of something",
+        "note": "本义用复数proportions；of enormous proportions说规模巨大，不是占比高。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:proportion:a9eaee3dab8d4190",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a problem of enormous proportions",
+            "meaning_cn": "规模极大的问题",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:proportion:77befead07e7be35",
+          "target_locator": "record.senses[3]",
+          "target_label": "（复数）尺寸；规模"
         }
       }
     ],
@@ -10893,23 +11460,23 @@
     "ordinal": 3838,
     "word": "proposition",
     "source_owner_path": "content/lexical/words/by-ordinal/o3838.json",
-    "source_fingerprint": "d54cc923c36f7a9cced4acbbc4d752974b3a0855f69185e871aea485f558b519",
+    "source_fingerprint": "d36f6941e694e6e450b632a5c54bbc24c910538c49aed95321cd566698bc7f65",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "提议或陈述",
-      "decision_cn": "",
+      "summary_cn": "提出的主张/命题；也可指应对对象或性提议",
+      "decision_cn": "business→提议；logic→真假命题；a difficult/different proposition→要应付的人或事；美国选票编号→表决提案；proposition sb→直接提出性关系提议。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "提议或陈述"
+        "target_label": "提出的主张/命题；也可指应对对象或性提议"
       }
     },
     "senses": [
@@ -10979,7 +11546,7 @@
             "id": "collocation:a3059b9251883b730319",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "proposition + sb",
-            "meaning_cn": "向某人提出猥亵要求",
+            "meaning_cn": "向某人直接提出发生性关系的提议",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -10994,6 +11561,58 @@
           "target_id": "sense:proposition:caadd9fe6baa5f10",
           "target_locator": "record.senses[2]",
           "target_label": "向某人提出发生性关系的要求/提议"
+        }
+      },
+      {
+        "id": "sense:proposition:1e8e0755d5484853",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "需要应付的人、事或任务",
+        "definition_en": "a person, task, or situation considered in terms of how difficult it is to deal with",
+        "note": "a difficult/different proposition评估应对难度，不一定是提案。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:proposition:cf76bede06607490",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "Running the whole business is a different proposition.",
+            "meaning_cn": "经营整个企业又是另一回事。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:proposition:1e8e0755d5484853",
+          "target_locator": "record.senses[3]",
+          "target_label": "需要应付的人、事或任务"
+        }
+      },
+      {
+        "id": "sense:proposition:411650e1c54e0d79",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（美国）交付选民表决的提案",
+        "definition_en": "a proposed law or measure put to voters for approval",
+        "note": "美式政治用法，常有编号如Proposition 12；不是逻辑真假命题。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:proposition:bc37b771e241ae4f",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "Voters rejected the proposition.",
+            "meaning_cn": "选民否决了该表决提案。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:proposition:411650e1c54e0d79",
+          "target_locator": "record.senses[4]",
+          "target_label": "（美国）交付选民表决的提案"
         }
       }
     ],
@@ -11190,7 +11809,7 @@
     "ordinal": 3840,
     "word": "prosecute",
     "source_owner_path": "content/lexical/words/by-ordinal/o3840.json",
-    "source_fingerprint": "20c67642acad0b05ecddddb72c8c3dc92590aecc6ee9cc2054def3741a627fbe",
+    "source_fingerprint": "5bead2f0787308c0e8cf46d4d8fbfb26608d38be1b1bd565122b7d3202652afe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11213,7 +11832,7 @@
         "id": "sense:prosecute:d8c125abf8125d52",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt.: prosecute sb for sth; prosecute a case",
+        "governing_pattern": "I/T: prosecute; prosecute sb for sth; prosecute a case",
         "definition_cn": "起诉某人；代表控方办理/进行案件",
         "definition_en": "to bring or conduct criminal proceedings against someone, or to conduct a case for the prosecution",
         "note": "",

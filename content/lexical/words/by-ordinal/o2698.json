@@ -12,7 +12,8 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "继续做某事",
-        "pattern": "keep doing sth"
+        "pattern": "keep doing sth",
+        "source_sense_id": "sense:keep:81ac184e68255ebc"
       },
       {
         "construction_id": "construction:d93fdc77fbe34894f07c",
@@ -40,14 +41,55 @@
         "pattern": "keep sth in mind / keep in mind that ...",
         "source_sense_id": "sense:keep:af3204aee72a5b4f",
         "boundary": "remember/consider pattern; distinct from physically keeping or storing an object"
+      },
+      {
+        "construction_id": "construction:3c71b2c84c45b3df2923",
+        "pattern": "keep sb/sth doing sth",
+        "meaning_cn": "使某人/某物持续做某事",
+        "definition_en": "cause someone or something to continue an activity",
+        "usage_note": "sb/sth 是 doing 的动作承担者；keep sb waiting 可带耽搁意味。keep doing 则主语本人继续做。",
+        "boundary": "sb/sth 是 doing 的动作承担者；keep sb waiting 可带耽搁意味。keep doing 则主语本人继续做。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:keep:f892f797890753c2"
+      },
+      {
+        "construction_id": "construction:dd8323e13e74ab8fcb3a",
+        "pattern": "keep sth from sb",
+        "meaning_cn": "瞒着某人；不把某事告诉某人",
+        "definition_en": "withhold information from someone",
+        "usage_note": "sth 是消息/事实，sb 是未被告知的人；与 keep sb from doing（阻止动作）宾语角色不同。",
+        "boundary": "sth 是消息/事实，sb 是未被告知的人；与 keep sb from doing（阻止动作）宾语角色不同。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:cb60f3775cd58c3a2e32",
+        "pattern": "keep up (with sb/sth)",
+        "meaning_cn": "跟上某人/某事的速度、进度或变化",
+        "definition_en": "move or progress at the same rate as someone or something",
+        "usage_note": "with 标所跟上的人、进度或变化；不带 with 时 keep up 也可表示跟上。",
+        "boundary": "with 标所跟上的人、进度或变化；不带 with 时 keep up 也可表示跟上。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:3750140d530315b217ae",
+        "pattern": "keep up with news/events/developments",
+        "meaning_cn": "持续了解消息、时事或发展",
+        "definition_en": "stay informed about news or developments",
+        "usage_note": "对象是消息、时事等；这里强调持续了解，不要求实际移动。",
+        "boundary": "对象是消息、时事等；这里强调持续了解，不要求实际移动。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "258b7323474540237923c2f3d5dddbf79865dc180d02de160b57e1dadcd157a8",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "保持/保留；照料；持续；记录/维护记录",
-          "label_en": "to retain, maintain, continue, care for, or regularly maintain a record",
+          "label_cn": "保留、保持、继续；照料、供养；遵守、记录；耽搁；食物耐存放",
+          "label_en": "to retain, maintain or continue; care for or support; comply or record; delay; remain unspoilt",
           "pos": "verb",
           "sense_ids": [
             "sense:keep:f892f797890753c2",
@@ -55,14 +97,17 @@
             "sense:keep:32b3d47528ac5edb",
             "sense:keep:683a2bb0324f523e",
             "sense:keep:81ac184e68255ebc",
-            "sense:keep:fd96ae7a90334489"
+            "sense:keep:fd96ae7a90334489",
+            "sense:keep:403bb50d49ca0797",
+            "sense:keep:59c57ad03d8c6da9",
+            "sense:keep:0067ca508c94067d"
           ]
         }
       ],
-      "core_meaning_cn": "保持",
-      "core_meaning_en": "continue to have or hold; maintain",
-      "mental_model_cn": "state → 保持；possession → 保留；rules/promises → 遵守；activity → 继续；records → 记录维护；keep in mind → 记住/考虑；earn one’s keep → 挣钱养活自己。低频名词 keep 保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "保留、保持、继续；照料、供养；遵守、记录；耽搁；食物耐存放",
+      "core_meaning_en": "to retain, maintain or continue; care for or support; comply or record; delay; remain unspoilt",
+      "mental_model_cn": "state → 保持；possession → 保留；rules → 遵守；records → 记录；sb → 供养/耽搁，据语境选择；food keeps → 不变质。名词 keep 的生计/食宿用法见 earn one’s keep 及 Reference。",
+      "mental_model_en": "to retain, maintain or continue; care for or support; comply or record; delay; remain unspoilt."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -95,15 +140,15 @@
         ],
         "confidence": "medium",
         "definition_cn": "保持；使保持",
-        "definition_en": "cause to remain in a certain state or condition",
-        "governing_pattern": "vt. + object + complement",
+        "definition_en": "to remain in a state, or cause someone or something to remain in it",
+        "governing_pattern": "keep + adjective; keep sb/sth + adjective",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:keep:f892f797890753c2",
-        "sense_label_en": "cause to remain in a certain state or condition",
+        "sense_label_en": "to remain in a state, or cause someone or something to remain in it",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -195,13 +240,13 @@
               "sense:keep:81ac184e68255ebc:collocation:0"
             ],
             "meaning_cn": "继续做某事",
-            "phrase": "keep on doing + sth"
+            "phrase": "keep on doing sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "继续；持续做某事",
         "definition_en": "continue doing something",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "keep (on) doing sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -260,6 +305,72 @@
         "sense_label_en": "to maintain or regularly make a record, diary, account, or log",
         "sort_order": 6,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:keep:403bb50d49ca0797",
+        "pos": "verb",
+        "definition_cn": "供养；养活",
+        "definition_en": "to provide the money or necessities someone needs to live",
+        "sense_label_en": "to provide the money or necessities someone needs to live",
+        "governing_pattern": "keep sb; keep oneself",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:597697c2c164caa49737",
+            "phrase": "keep herself and her children",
+            "meaning_cn": "养活她自己和孩子",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:keep:59c57ad03d8c6da9",
+        "pos": "verb",
+        "definition_cn": "耽搁；使等待",
+        "definition_en": "to delay someone or make them wait",
+        "sense_label_en": "to delay someone or make them wait",
+        "governing_pattern": "keep sb; what kept sb?",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e947bb07d2621330f924",
+            "phrase": "What kept you?",
+            "meaning_cn": "什么事把你耽搁了？",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:keep:0067ca508c94067d",
+        "pos": "verb",
+        "definition_cn": "（食物）保持不变质；耐存放",
+        "definition_en": "of food, to remain usable without spoiling",
+        "sense_label_en": "of food, to remain usable without spoiling",
+        "governing_pattern": "food keeps; keep for a period",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4c3d6d9bb2894e247d04",
+            "phrase": "The soup will keep for two days.",
+            "meaning_cn": "这汤可以存放两天而不变质。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -289,6 +400,57 @@
           "applicability": [
             {
               "surface": "keep"
+            },
+            {
+              "surface": "keep",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:keep:403bb50d49ca0797"
+              ],
+              "owner_sense_ids": [
+                "sense:keep:403bb50d49ca0797"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2698.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "keep sb; keep oneself"
+            },
+            {
+              "surface": "keep",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:keep:59c57ad03d8c6da9"
+              ],
+              "owner_sense_ids": [
+                "sense:keep:59c57ad03d8c6da9"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2698.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "keep sb; what kept sb?"
+            },
+            {
+              "surface": "keep",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:keep:0067ca508c94067d"
+              ],
+              "owner_sense_ids": [
+                "sense:keep:0067ca508c94067d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2698.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "food keeps; keep for a period"
             }
           ],
           "sources": [
@@ -482,20 +644,47 @@
         "merged_into_sense_id": null,
         "source_row": 7519,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
+      },
+      {
+        "sense_id": "sense:keep:403bb50d49ca0797",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2698.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:keep:59c57ad03d8c6da9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2698.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:keep:0067ca508c94067d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2698.json",
+        "source_pointer": "/record/senses/8"
       }
     ],
     "active_collocations": [
-      "collocation:0a26173b36e49e8ac045",
-      "collocation:132a43407e569ad8ac1d",
-      "collocation:1afd6d75969a008c7780",
-      "collocation:31b2ee0ac76f6c3753b7",
-      "collocation:52f40a7dfa91bbdd5c41",
-      "collocation:791a1790951d14e3e125",
-      "collocation:7c094702bee951a16ea0",
-      "collocation:c61950bed3f2f1ef160e",
       "collocation:c8bc0c21c66e11b20a2d",
+      "collocation:791a1790951d14e3e125",
+      "collocation:52f40a7dfa91bbdd5c41",
+      "collocation:c61950bed3f2f1ef160e",
+      "collocation:7c094702bee951a16ea0",
+      "collocation:132a43407e569ad8ac1d",
+      "collocation:0a26173b36e49e8ac045",
+      "collocation:31b2ee0ac76f6c3753b7",
       "collocation:d55a4e439559756b3214",
-      "collocation:ff71667d5000733c3663"
+      "collocation:1afd6d75969a008c7780",
+      "collocation:ff71667d5000733c3663",
+      "collocation:597697c2c164caa49737",
+      "collocation:e947bb07d2621330f924",
+      "collocation:4c3d6d9bb2894e247d04"
     ],
     "facts": [],
     "collocations": [
@@ -560,6 +749,27 @@
         "id": "collocation:ff71667d5000733c3663",
         "source_row": 21493,
         "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:597697c2c164caa49737",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2698.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:e947bb07d2621330f924",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2698.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:4c3d6d9bb2894e247d04",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2698.json",
+        "source_pointer": "/record/senses/8/collocations/0"
       }
     ],
     "exam-mappings": [],

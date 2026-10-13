@@ -9,7 +9,16 @@
     "constructions": [],
     "content_hash": "1cce2233d1030f369f43c728229cedb236d06130c84628d9425d4a1587e5e03a",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "pos": "verb",
+          "label_cn": "（声音）盖过；淹没（另一声音）",
+          "label_en": "of a sound: to make another sound difficult or impossible to hear",
+          "sense_ids": [
+            "sense:drown:a2e2f9af489637be"
+          ]
+        }
+      ],
       "core_meaning_cn": "淹死，淹没",
       "core_meaning_en": "to die or kill by being under water",
       "mental_model_cn": "淹死，淹没",
@@ -108,6 +117,25 @@
         "sense_label_en": "to cover something completely with water or another liquid",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:drown:a2e2f9af489637be",
+        "pos": "verb",
+        "definition_cn": "（声音）盖过；淹没（另一声音）",
+        "definition_en": "of a sound: to make another sound difficult or impossible to hear",
+        "sense_label_en": "of a sound: to make another sound difficult or impossible to hear",
+        "governing_pattern": "sound drowns (out) another sound",
+        "transitivity": "vt",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:drown:a2e2f9af489637be",
+            "phrase": "The music drowned out her voice.",
+            "meaning_cn": "音乐声盖过了她的声音。",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "常用 drown out，也可省 out；不把声音语境解释成死亡。"
       }
     ],
     "verification_summary": {
@@ -176,6 +204,27 @@
           "applicability": [
             {
               "surface": "drown"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drown",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:drown:a2e2f9af489637be"
+              ],
+              "sense_ids": [
+                "sense:drown:a2e2f9af489637be"
+              ],
+              "excluded_sense_ids": [
+                "sense:drown:49a3bfc6ab9b5390",
+                "sense:drown:56ab09d4b1695363"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drown",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -205,6 +254,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/drown",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "drown",
+                "pos": "verb"
+              },
+              "existing_observed_ipa_unchanged": "/draʊn/",
+              "applies_to_sense_ids": [
+                "sense:drown:a2e2f9af489637be"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         },
@@ -362,6 +427,14 @@
         "merged_into_sense_id": null,
         "source_row": 4239,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      },
+      {
+        "sense_id": "sense:drown:a2e2f9af489637be",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1518.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -370,7 +443,8 @@
       "collocation:592ed0e3549ce05b81cd",
       "collocation:6e642b7aa5ab57e6fd92",
       "collocation:cee530b13c49c9171aba",
-      "collocation:f868475b3a1b06d914b8"
+      "collocation:f868475b3a1b06d914b8",
+      "collocation:drown:a2e2f9af489637be"
     ],
     "facts": [],
     "collocations": [
@@ -403,6 +477,14 @@
         "id": "collocation:f868475b3a1b06d914b8",
         "source_row": 21046,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:drown:a2e2f9af489637be",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1518.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

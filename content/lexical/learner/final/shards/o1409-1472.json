@@ -5,11 +5,11 @@
     "ordinal": 1409,
     "word": "discipline",
     "source_owner_path": "content/lexical/words/by-ordinal/o1409.json",
-    "source_fingerprint": "f330ad5b658909a607e28f2423d483043182d30ba31e256f89935d197f9ff33c",
+    "source_fingerprint": "0bdc6c7958f9c4303f65f385b6f005c5ed8be902f3915efde65e2782493c0488",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "3N"
       ],
       "density": "rich"
@@ -47,7 +47,7 @@
             "id": "collocation:cd5c5f4a5e322efd9dc4",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "scientific discipline",
-            "meaning_cn": "学科；学术领域",
+            "meaning_cn": "科学学科",
             "kind": "usage_example",
             "repair": null
           }
@@ -73,7 +73,7 @@
             "id": "collocation:8b56b6dbca15c3a2f40d",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "maintain discipline",
-            "meaning_cn": "自律；克制",
+            "meaning_cn": "保持自律；维持纪律，依语境而定",
             "kind": "usage_example",
             "repair": null
           },
@@ -81,7 +81,7 @@
             "id": "collocation:529aab46f426eb3ea7f7",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "self-discipline",
-            "meaning_cn": "自律；克制",
+            "meaning_cn": "自律",
             "kind": "usage_example",
             "repair": null
           }
@@ -107,7 +107,7 @@
             "id": "collocation:3baf5bd52ba95748d706",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "military discipline",
-            "meaning_cn": "训练；纪律",
+            "meaning_cn": "军事纪律",
             "kind": "usage_example",
             "repair": null
           },
@@ -115,7 +115,7 @@
             "id": "collocation:b7cd93600873182ca8e1",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "strict discipline",
-            "meaning_cn": "训练；纪律",
+            "meaning_cn": "严格的纪律或训练",
             "kind": "usage_example",
             "repair": null
           }
@@ -141,7 +141,7 @@
             "id": "collocation:038c609f97ba185104c6",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "discipline an employee",
-            "meaning_cn": "惩戒；处分",
+            "meaning_cn": "处分员工",
             "kind": "usage_example",
             "repair": null
           }
@@ -151,6 +151,32 @@
           "target_id": "sense:discipline:8924bdc9bc8e5080",
           "target_locator": "record.senses[3]",
           "target_label": "惩戒；处分"
+        }
+      },
+      {
+        "id": "sense:discipline:6c7c870a5f91924e",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "discipline oneself to do sth",
+        "definition_cn": "训练、约束（行为）；使自律",
+        "definition_en": "to train someone, including oneself, to act in a controlled and orderly way",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:cb8df5acd315b56cb4d6",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "discipline yourself to work regularly",
+            "meaning_cn": "训练自己有规律地工作",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:discipline:6c7c870a5f91924e",
+          "target_locator": "record.senses[4]",
+          "target_label": "训练、约束（行为）；使自律"
         }
       }
     ],
@@ -236,7 +262,7 @@
     "ordinal": 1410,
     "word": "disclose",
     "source_owner_path": "content/lexical/words/by-ordinal/o1410.json",
-    "source_fingerprint": "ef96fcfac22ac6e0ebf2764fa1a6bb7a97a2e4bd3db05f046ddc1aca0c1f3cfd",
+    "source_fingerprint": "257d82f2aa553931f6ae4d5e2b464b45a7a886366c227141fb074fd8e18dd5cc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -349,14 +375,14 @@
     "ordinal": 1411,
     "word": "discount",
     "source_owner_path": "content/lexical/words/by-ordinal/o1411.json",
-    "source_fingerprint": "033cd650af602aa8286c4e80d7218be4524ed8747c7618c33b00a9b16c3b54bb",
+    "source_fingerprint": "859a6c9a440795e74afd922042a2c04915531ea72840a561574a1d5083ff9669",
     "sense_lineage": [
       {
         "word_id": "word:discount",
         "target_kind": "sense",
         "from_target_id": "sense:discount:2d207d7c6bed529c",
-        "status": "merged",
-        "to_target_id": "sense:discount:d06ede37ebe35e6c"
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -367,13 +393,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "折扣",
+      "summary_cn": "折扣、打折；对证据或可能性不予重视",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "折扣"
+        "target_label": "折扣、打折；对证据或可能性不予重视"
       }
     },
     "senses": [
@@ -402,6 +428,19 @@
             "meaning_cn": "折扣价",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:a670e5500b70bc63c945",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "a discount on sth",
+            "meaning_cn": "某物的折扣",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a670e5500b70bc63c945",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "a discount on sth"
+            }
           }
         ],
         "repair": {
@@ -428,19 +467,6 @@
             "meaning_cn": "商品打折",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:a670e5500b70bc63c945",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "discount on + sth",
-            "meaning_cn": "对某物打折",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a670e5500b70bc63c945",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "discount on + sth"
-            }
           }
         ],
         "repair": {
@@ -570,11 +596,11 @@
       "senses": [
         {
           "stable_sense_id": "sense:discount:2d207d7c6bed529c",
-          "status": "merged",
-          "merged_into_sense_id": "sense:discount:d06ede37ebe35e6c",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
           "pos": "verb",
-          "definition_cn": "贴现",
-          "definition_en": "to offer a reduction in price",
+          "definition_cn": "贴现（金融查阅义）：扣除利息后，在票据到期前按折减金额买入或兑付",
+          "definition_en": "to buy or pay a bill or note before maturity at an amount reduced for interest",
           "semantic_key": "e60bd8f985a2dae0f049394e12a3b871c96df0584e9df3a7d1629f6a5be16af2",
           "semantic_key_history": [],
           "legacy_aliases": [
@@ -600,7 +626,7 @@
     "ordinal": 1412,
     "word": "discourage",
     "source_owner_path": "content/lexical/words/by-ordinal/o1412.json",
-    "source_fingerprint": "a01f481bc22b84f0ab6a125fa2f6ba8d621c429c5b8d47cbb1a1cd70c863c03d",
+    "source_fingerprint": "294d66d048c9df7527638a6c6f23aaa8e6d89ac504d353e4f165c8aa392815b6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -609,13 +635,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使失去信心或希望；阻止",
-      "decision_cn": "",
+      "summary_cn": "使灰心；劝阻、抑制",
+      "decision_cn": "discourage sb使人灰心；discourage attempts抑制尝试；discourage sb from doing sth劝阻某人，并不保证事情已被成功阻止。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使失去信心或希望；阻止"
+        "target_label": "使灰心；劝阻、抑制"
       }
     },
     "senses": [
@@ -628,29 +654,7 @@
         "definition_en": "to make someone feel less confident or hopeful about something",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:42f5bb57da5fca395279",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "discourage sb from doing sth",
-            "meaning_cn": "劝阻某人做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:42f5bb57da5fca395279",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "discourage sb from doing sth"
-            }
-          },
-          {
-            "id": "collocation:4481d4ca77a434abc11f",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "discourage attempts",
-            "meaning_cn": "使尝试受挫",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:discourage:5cc1e7889e7c56be",
@@ -662,8 +666,8 @@
         "id": "sense:discourage:b622b0e7217b50ed",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "阻碍，阻止",
+        "governing_pattern": "discourage sth/doing sth; discourage sb from doing sth",
+        "definition_cn": "劝阻；抑制；使某事更不可能发生",
         "definition_en": "to try to prevent something or make it less likely to happen",
         "note": "",
         "identity_overlay": null,
@@ -688,13 +692,34 @@
               "target_locator": "record.senses[1].collocations[1]",
               "target_label": "discourage the use of sth"
             }
+          },
+          {
+            "id": "collocation:42f5bb57da5fca395279",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "discourage sb from doing sth",
+            "meaning_cn": "劝阻某人做某事",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:42f5bb57da5fca395279",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "discourage sb from doing sth"
+            }
+          },
+          {
+            "id": "collocation:4481d4ca77a434abc11f",
+            "source_locator": "record.senses[1].collocations[3]",
+            "phrase": "discourage attempts",
+            "meaning_cn": "抑制或劝阻尝试",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:discourage:b622b0e7217b50ed",
           "target_locator": "record.senses[1]",
-          "target_label": "阻碍，阻止"
+          "target_label": "劝阻；抑制；使某事更不可能发生"
         }
       }
     ],
@@ -914,13 +939,20 @@
     "ordinal": 1414,
     "word": "discover",
     "source_owner_path": "content/lexical/words/by-ordinal/o1414.json",
-    "source_fingerprint": "6ef098031bee1e3941cbf199d2a73cc759c9618ba5b7fd050149d7b7ef3d21aa",
+    "source_fingerprint": "c6eb4007a0c0d830d760e7be04757d2426f139ff4edaae7d14f5c4ee0d138540",
     "sense_lineage": [
       {
         "word_id": "word:discover",
         "target_kind": "sense",
         "from_target_id": "sense:discover:5a28df80a109578f",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:discover",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:414c66a1dfc0d50255ab",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -956,26 +988,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "discover + sth",
             "meaning_cn": "发现某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:414c66a1dfc0d50255ab",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "discover + sth"
-            }
-          },
-          {
-            "id": "collocation:1f34e8737f6db75ae142",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "discover that + clause",
-            "meaning_cn": "发现...",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1f34e8737f6db75ae142",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "discover that + clause"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1002,6 +1016,19 @@
             "meaning_cn": "发现真相",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:1f34e8737f6db75ae142",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "discover that + clause",
+            "meaning_cn": "发现...",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1f34e8737f6db75ae142",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "discover that + clause"
+            }
           }
         ],
         "repair": {
@@ -1274,7 +1301,7 @@
     "ordinal": 1416,
     "word": "discreet",
     "source_owner_path": "content/lexical/words/by-ordinal/o1416.json",
-    "source_fingerprint": "29c65b65ba092a4236937bafcb90627896f52c46ef53c0ef1dbdc04042d56845",
+    "source_fingerprint": "ef38213ee9569528abafb6955370b49900db0966f5885d5e5cd239a150a87562",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1394,7 +1421,7 @@
     "ordinal": 1417,
     "word": "discrepancy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1417.json",
-    "source_fingerprint": "42b598d93f0aae38d699eeebc1b013c39706001d3a095ba6fa9b59368a665161",
+    "source_fingerprint": "a81a66ea520d6861872358c408ecccb022d940bb04a456c7d9ea40ad3e70b6b0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1403,13 +1430,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "差异或不一致",
+      "summary_cn": "本应相符的事物、说法或数据之间的不一致",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "差异或不一致"
+        "target_label": "本应相符的事物、说法或数据之间的不一致"
       }
     },
     "senses": [
@@ -1418,8 +1445,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "差异；不符合",
-        "definition_en": "a difference between conflicting facts or claims",
+        "definition_cn": "本应相符的事物、说法或数据之间的不一致",
+        "definition_en": "a difference between things that should agree or correspond",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1449,7 +1476,7 @@
           "target_kind": "sense",
           "target_id": "sense:discrepancy:4881f634d5595b86",
           "target_locator": "record.senses[0]",
-          "target_label": "差异；不符合"
+          "target_label": "本应相符的事物、说法或数据之间的不一致"
         }
       }
     ],
@@ -1607,7 +1634,7 @@
     "ordinal": 1419,
     "word": "discretion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1419.json",
-    "source_fingerprint": "e7249031c79549f5407e46bdd3af6d4d3ccafd44bf133893f03a8fc3d5da7c73",
+    "source_fingerprint": "1fee1ef1392ff452cfa9ff27dddccc284d30c58f71dd735fff5c7cbe3f9f1108",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1616,13 +1643,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "谨慎；判断力",
+      "summary_cn": "谨慎、判断力；自行决定的权力",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "谨慎；判断力"
+        "target_label": "谨慎、判断力；自行决定的权力"
       }
     },
     "senses": [
@@ -2020,13 +2047,20 @@
     "ordinal": 1421,
     "word": "discuss",
     "source_owner_path": "content/lexical/words/by-ordinal/o1421.json",
-    "source_fingerprint": "0778041f490af51b7c33ae2ff1e2babd3af3357b6f66ad0d896c50fde0baac03",
+    "source_fingerprint": "9408ec7b4a0055b133f387530b187c3f368c243579e64712a163f0bab3bb8f81",
     "sense_lineage": [
       {
         "word_id": "word:discuss",
         "target_kind": "sense",
         "from_target_id": "sense:discuss:d6d4d9e170a25011",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:discuss",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a8b589ebd5f993b00449",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -2101,13 +2135,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "discuss + sth in detail",
             "meaning_cn": "详细论述某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a8b589ebd5f993b00449",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "discuss + sth in detail"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:e0f1eb75140bd4cb261c",
@@ -2275,7 +2304,7 @@
     "ordinal": 1423,
     "word": "disguise",
     "source_owner_path": "content/lexical/words/by-ordinal/o1423.json",
-    "source_fingerprint": "fa829876351952e0b670f0a25ab677a4d0b44df80be2bb048b29d5135d11a8de",
+    "source_fingerprint": "bb8e35dc2263952fefffde649eec3f692ab86fd84106f9cb1786258f2c8d25a9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2340,9 +2369,14 @@
             "id": "collocation:5918af9293c7b7511cc1",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a blessing in disguise",
-            "meaning_cn": "因祸得福",
-            "kind": "usage_example",
-            "repair": null
+            "meaning_cn": "起初看似坏事、后来却带来好处的事；因祸得福",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5918af9293c7b7511cc1",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "a blessing in disguise"
+            }
           }
         ],
         "repair": {
@@ -2449,8 +2483,16 @@
     "ordinal": 1424,
     "word": "disgust",
     "source_owner_path": "content/lexical/words/by-ordinal/o1424.json",
-    "source_fingerprint": "234fea484c1dc5fe8fafc31b3d503ccaf48bb9c041fb9d762a9e0327c3b6a0c8",
-    "sense_lineage": [],
+    "source_fingerprint": "c9de229d54b0678ca6cefdf7114ce9731307c4600bc1ba21bf7609eaa6004c22",
+    "sense_lineage": [
+      {
+        "word_id": "word:disgust",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:936bafbb80bfb02e9403",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -2528,13 +2570,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "disgust sb",
             "meaning_cn": "使某人厌恶",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:936bafbb80bfb02e9403",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "disgust sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:2c3bd5dc9355de86beed",
@@ -2955,8 +2992,16 @@
     "ordinal": 1427,
     "word": "dismay",
     "source_owner_path": "content/lexical/words/by-ordinal/o1427.json",
-    "source_fingerprint": "a109a36ecf9bdb286b369ce1cbc8e86347820e942183645f931850320cbae5f2",
-    "sense_lineage": [],
+    "source_fingerprint": "4ed2db5b13b5bd082439c9e9e409495b3e4554fbe287a68c800908e8bfa9c9d3",
+    "sense_lineage": [
+      {
+        "word_id": "word:dismay",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:347e38a3c46bf0e59a8f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -2990,13 +3035,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "dismay sb",
             "meaning_cn": "使某人惊愕/沮丧",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:347e38a3c46bf0e59a8f",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "dismay sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:852e03ea3d3ca6bd79ad",
@@ -3109,7 +3149,7 @@
     "ordinal": 1428,
     "word": "dismiss",
     "source_owner_path": "content/lexical/words/by-ordinal/o1428.json",
-    "source_fingerprint": "5461678db9ae3e68b531267996c1095a3126df891b7ff9f7d9fb059cb6835bf1",
+    "source_fingerprint": "9431a35dd570418a0349a8ca4d0c251aa25be403bdca387121a484c6d2c7ed43",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3317,13 +3357,20 @@
     "ordinal": 1429,
     "word": "disorder",
     "source_owner_path": "content/lexical/words/by-ordinal/o1429.json",
-    "source_fingerprint": "b41d8dff3d9318e6b805406bd1898b6649ae23cb67fe3406dade031fb510a524",
+    "source_fingerprint": "e8ea1f014518bff11dc099071fbda1faf3b1163ab27f9acd996d3fa3a59d500b",
     "sense_lineage": [
       {
         "word_id": "word:disorder",
         "target_kind": "sense",
         "from_target_id": "sense:disorder:4530c9aefed05db1",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:disorder",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a614e9b5d9a79fe6060f",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -3351,7 +3398,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "失调；紊乱",
-        "definition_en": "a physical condition in which there is a disturbance of normal functioning",
+        "definition_en": "a condition involving disturbed physical or mental functioning",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3394,13 +3441,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "disorder + sth",
             "meaning_cn": "扰乱某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a614e9b5d9a79fe6060f",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "disorder + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:b6a972ad595915651a32",
@@ -3664,8 +3706,23 @@
     "ordinal": 1431,
     "word": "displace",
     "source_owner_path": "content/lexical/words/by-ordinal/o1431.json",
-    "source_fingerprint": "9d2d3d2a51f7fd73dfc625b464798d067444c2c72e63c5056dd92d34005544f2",
-    "sense_lineage": [],
+    "source_fingerprint": "c050cabe4ab1f521e69b7f10323bb865427ed3f4432df21d15b5747adc478a7b",
+    "sense_lineage": [
+      {
+        "word_id": "word:displace",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a9601c48d0fd1fc6eca7",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:displace",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:efb550ce3c592e8e4fbe",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -3698,13 +3755,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "displace + sth",
             "meaning_cn": "使某物移位",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a9601c48d0fd1fc6eca7",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "displace + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:16255da78d2ea5e9a1ec",
@@ -3737,13 +3789,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "displace + sb/sth",
             "meaning_cn": "取代某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:efb550ce3c592e8e4fbe",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "displace + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:0a5e5e1a97055b4a3265",
@@ -3849,8 +3896,16 @@
     "ordinal": 1432,
     "word": "display",
     "source_owner_path": "content/lexical/words/by-ordinal/o1432.json",
-    "source_fingerprint": "97d386be568a709a5bb4f3e7e1b52d02910c6b964fd3cc1adf2610bff5fa70cb",
-    "sense_lineage": [],
+    "source_fingerprint": "1cf8c52623c3fcd2eb541aa96f45e2aee9b90f37f7e551b3d77d81b03769bd5d",
+    "sense_lineage": [
+      {
+        "word_id": "word:display",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cadcacd7aafb72840423",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -3928,13 +3983,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "display + sth",
             "meaning_cn": "展示某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cadcacd7aafb72840423",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "display + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:37c47f5b632a7aae92e7",
@@ -3958,7 +4008,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "显示；显示器",
-        "definition_en": "a visual representation of something",
+        "definition_en": "a visible presentation of information, or the screen showing it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4009,8 +4059,8 @@
         "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "炫耀；夸示",
-        "definition_en": "behavior that makes your feelings public",
+        "definition_cn": "情绪、特质的表现；也可指炫耀",
+        "definition_en": "an outward show of feeling or a quality, sometimes intended to impress",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4027,7 +4077,7 @@
           "target_kind": "sense",
           "target_id": "sense:display:f8bc4fa6f0c053e5",
           "target_locator": "record.senses[4]",
-          "target_label": "炫耀；夸示"
+          "target_label": "情绪、特质的表现；也可指炫耀"
         }
       }
     ],
@@ -4628,8 +4678,16 @@
     "ordinal": 1436,
     "word": "dispute",
     "source_owner_path": "content/lexical/words/by-ordinal/o1436.json",
-    "source_fingerprint": "af97271b93ba924875a3f2c61ea8a2f121951f4012c66b9a06599b4c0f2d00e7",
-    "sense_lineage": [],
+    "source_fingerprint": "322a22e94f326926aa8b4fccdbc2822a9aae216e3b1b94fe0a4e73ab444197ed",
+    "sense_lineage": [
+      {
+        "word_id": "word:dispute",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b6412c4863587642cef4",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -4691,7 +4749,7 @@
         "id": "sense:dispute:a5c267b708f857c3",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "dispute sth; dispute with sb over/about sth",
         "definition_cn": "争论；质疑",
         "definition_en": "to argue about or question the truth or validity of something",
         "note": "",
@@ -4702,13 +4760,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "dispute sth",
             "meaning_cn": "对某事提出质疑",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b6412c4863587642cef4",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "dispute sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:e04e960ffd8f610b6fc8",
@@ -4990,8 +5043,8 @@
           "target_word": "quarrel",
           "lines": [
             {
-              "text": "dispute is often a more formal disagreement or contested claim; quarrel more often suggests a personal argument.",
-              "lang": "en"
+              "text": "quarrel 常指带情绪的人际争吵；dispute 可指争论某事或质疑主张，常较正式。两者不是名词/动词的对应关系：本组比较的是两个动词用法。",
+              "lang": "cn"
             },
             {
               "text": "have a disagreement over something",
@@ -5003,6 +5056,27 @@
             "target_kind": "relation",
             "target_id": "deep:semantic_contrast:quarrel:308daf36a517cd80",
             "target_locator": "record.semantic_neighbors[0]",
+            "target_label": "dispute ↔ quarrel"
+          }
+        },
+        {
+          "title": "dispute ↔ quarrel",
+          "target_word": "quarrel",
+          "lines": [
+            {
+              "text": "dispute is often a more formal disagreement or contested claim; quarrel more often suggests a personal argument.",
+              "lang": "en"
+            },
+            {
+              "text": "an argument or disagreement",
+              "lang": "en"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "relation:horizontal:17a8e33a660e348a4024",
+            "target_locator": "record.semantic_neighbors[1]",
             "target_label": "dispute ↔ quarrel"
           }
         }
@@ -5017,8 +5091,16 @@
     "ordinal": 1437,
     "word": "disrupt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1437.json",
-    "source_fingerprint": "ff3be7beb03976e98fd6f745ad69db9d1155d7f8972e2cf3af2e1e4177216c09",
-    "sense_lineage": [],
+    "source_fingerprint": "fb34a0264d3cec418e33730dc2355c3cb4cd729e31e2809fd1078dbbdfd232e9",
+    "sense_lineage": [
+      {
+        "word_id": "word:disrupt",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1ed032fefede4466a3cd",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -5051,13 +5133,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "disrupt + sth",
             "meaning_cn": "扰乱某事物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1ed032fefede4466a3cd",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "disrupt + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:c73a02d513dbc822d1f1",
@@ -5111,7 +5188,7 @@
     "ordinal": 1438,
     "word": "dissipate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1438.json",
-    "source_fingerprint": "2e18aebbd5582e24e3439d422a844813640cf429919b429e38b9aaaff1af5f95",
+    "source_fingerprint": "95185cd885fbee9534045f6afae5621b46e22fb0c7faeee73f2cdac049ca1ea2",
     "sense_lineage": [
       {
         "word_id": "word:dissipate",
@@ -5297,7 +5374,7 @@
     "ordinal": 1439,
     "word": "dissolve",
     "source_owner_path": "content/lexical/words/by-ordinal/o1439.json",
-    "source_fingerprint": "60a5fd66bdab90a0c3a07aab86bde2d3ed6c43fa6ad722617067379ebbf71524",
+    "source_fingerprint": "bdf0fca9586271a4359e38beafd35afce95f19ffd5545336c6e23da0f0e2eeb0",
     "sense_lineage": [
       {
         "word_id": "word:dissolve",
@@ -5330,7 +5407,7 @@
         "pos": "verb",
         "governing_pattern": "dissolve + object / dissolve in + liquid",
         "definition_cn": "（使）溶解",
-        "definition_en": "to make a solid dissolve in a liquid or become dissolved",
+        "definition_en": "to mix into a liquid until no separate solid pieces remain, or cause this to happen",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5406,23 +5483,23 @@
         "id": "sense:dissolve:40c5314135a05b36",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + into",
-        "definition_cn": "消失，消散",
-        "definition_en": "to gradually disappear or become weaker",
+        "governing_pattern": "dissolve; dissolve into tears/laughter",
+        "definition_cn": "消散、消失；dissolve into tears/laughter 指突然哭起来或笑起来",
+        "definition_en": "to disappear or lose a distinct form; dissolve into tears/laughter means to start crying/laughing",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:da1a3df2766fa8ba5a51",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "dissolve into + sth",
-            "meaning_cn": "逐渐变成……（如泪流满面）",
+            "phrase": "dissolve into tears/laughter",
+            "meaning_cn": "突然哭起来或笑起来",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:da1a3df2766fa8ba5a51",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "dissolve into + sth"
+              "target_label": "dissolve into tears/laughter"
             }
           }
         ],
@@ -5430,7 +5507,7 @@
           "target_kind": "sense",
           "target_id": "sense:dissolve:40c5314135a05b36",
           "target_locator": "record.senses[2]",
-          "target_label": "消失，消散"
+          "target_label": "消散、消失；dissolve into tears/laughter 指突然哭起来或笑起来"
         }
       }
     ],
@@ -5876,7 +5953,7 @@
     "ordinal": 1442,
     "word": "distil",
     "source_owner_path": "content/lexical/words/by-ordinal/o1442.json",
-    "source_fingerprint": "66a425ad77f1ac93899c47133dd3088eb28b48ac1d1ebeec5e8246797bffccc8",
+    "source_fingerprint": "5d2c9121fe1198eea5f3f90efa154ac35746323c09ace6dd050e09e0a3b4bb62",
     "sense_lineage": [
       {
         "word_id": "word:distil",
@@ -5917,7 +5994,7 @@
             "id": "collocation:37e1457f3021a1a9b342",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "distil water",
-            "meaning_cn": "蒸馏水",
+            "meaning_cn": "对水进行蒸馏",
             "kind": "usage_example",
             "repair": null
           },
@@ -6218,7 +6295,7 @@
     "ordinal": 1444,
     "word": "distinction",
     "source_owner_path": "content/lexical/words/by-ordinal/o1444.json",
-    "source_fingerprint": "12fdd812f812bc1b2b6e22ef8384673130a1b2f339aff9e4185201d2dfa61beb",
+    "source_fingerprint": "7134203c781f13489620c71c6f70632cdda6f340982b5303712f5c21bcebfb1d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6227,13 +6304,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "区别",
+      "summary_cn": "区别、差别；卓越、优异或荣誉",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "区别"
+        "target_label": "区别、差别；卓越、优异或荣誉"
       }
     },
     "senses": [
@@ -6348,22 +6425,22 @@
     "ordinal": 1445,
     "word": "distinguish",
     "source_owner_path": "content/lexical/words/by-ordinal/o1445.json",
-    "source_fingerprint": "439b96ee60e66a28d028053e2a72c04dbd27965fce8cbd1df72fa65f7a2738cd",
+    "source_fingerprint": "9f4a4fdba98122796e3b54a1b29cef9d40b1106b6b73c9e52f1e7ae79045b6e7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "识别或标记为不同",
-      "decision_cn": "",
+      "summary_cn": "区分；使具有特色；辨认出",
+      "decision_cn": "distinguish A from B区分两者；distinguish oneself表现出众；distinguish a shape也可以是在模糊条件下辨认出形状。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "识别或标记为不同"
+        "target_label": "区分；使具有特色；辨认出"
       }
     },
     "senses": [
@@ -6371,9 +6448,9 @@
         "id": "sense:distinguish:bd419021a2fb5997",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "distinguish A from B; distinguish between A and B",
         "definition_cn": "区分，辨别",
-        "definition_en": "mark as different",
+        "definition_en": "to recognize or show differences between things",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6454,6 +6531,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "使具有特色，使杰出"
         }
+      },
+      {
+        "id": "sense:distinguish:c9e539f23bd273a9",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "distinguish sth",
+        "definition_cn": "看清、听出、辨认出（不易察觉的事物）",
+        "definition_en": "to make out something that is difficult to see, hear, or otherwise detect",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2268bf054ad089612309",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "I could barely distinguish the sign in the fog.",
+            "meaning_cn": "雾中我几乎辨认不出那块标牌。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:distinguish:c9e539f23bd273a9",
+          "target_locator": "record.senses[2]",
+          "target_label": "看清、听出、辨认出（不易察觉的事物）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6523,8 +6626,16 @@
     "ordinal": 1446,
     "word": "distort",
     "source_owner_path": "content/lexical/words/by-ordinal/o1446.json",
-    "source_fingerprint": "1fb8bfc08cfcc21f1a257c2344e5c555f177f6908f5b9e0deb0cff9f4b2b903f",
-    "sense_lineage": [],
+    "source_fingerprint": "d90641ce0192ab96f381aa14454284acb9f93be21c607415db02e8912580cf40",
+    "sense_lineage": [
+      {
+        "word_id": "word:distort",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:0a2bb920664828c9c458",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -6557,13 +6668,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "distort + sth",
             "meaning_cn": "扭曲某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0a2bb920664828c9c458",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "distort + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6770,7 +6876,7 @@
     "ordinal": 1448,
     "word": "distress",
     "source_owner_path": "content/lexical/words/by-ordinal/o1448.json",
-    "source_fingerprint": "814b330e29528157ed5affbb09523ca528bf7936181ad5076819aa1fb64952ed",
+    "source_fingerprint": "232c8c85b3eae83eff3aca9c9f384c0e4e70632451eb0b4e2b89ae14da5c60a0",
     "sense_lineage": [
       {
         "word_id": "word:distress",
@@ -7352,8 +7458,23 @@
     "ordinal": 1451,
     "word": "disturb",
     "source_owner_path": "content/lexical/words/by-ordinal/o1451.json",
-    "source_fingerprint": "826a92c144053028f7b7c579ecd3f12919a3ed2d39c8353a29d5778aeb6a3978",
-    "sense_lineage": [],
+    "source_fingerprint": "5e9f91c886bf81e0da4ee9dd45a3f1c813c91c3867a122e2033658108fb4f2c3",
+    "sense_lineage": [
+      {
+        "word_id": "word:disturb",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6e65bb0c51ddf734b10a",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:disturb",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7f67c4fd020803a2a08a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -7386,13 +7507,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "disturb sb/sth",
             "meaning_cn": "打扰某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7f67c4fd020803a2a08a",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "disturb sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:9d483257568217387159",
@@ -7425,13 +7541,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "disturb sb deeply",
             "meaning_cn": "使某人深感不安",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6e65bb0c51ddf734b10a",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "disturb sb deeply"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7446,8 +7557,8 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "搅动，扰动（使受损）",
-        "definition_en": "to damage or change something by shaking or moving it",
+        "definition_cn": "扰动；打乱（位置、排列或原有状态）",
+        "definition_en": "to change the position, arrangement, or existing state of something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7464,7 +7575,7 @@
           "target_kind": "sense",
           "target_id": "sense:disturb:8b00f0db4be55ec0",
           "target_locator": "record.senses[2]",
-          "target_label": "搅动，扰动（使受损）"
+          "target_label": "扰动；打乱（位置、排列或原有状态）"
         }
       }
     ],
@@ -7515,7 +7626,7 @@
     "ordinal": 1452,
     "word": "disturbance",
     "source_owner_path": "content/lexical/words/by-ordinal/o1452.json",
-    "source_fingerprint": "3b2d575c79f13249a7598c5cf991751bc16d4774087275d5df618eb41415e498",
+    "source_fingerprint": "672c6bfcef0dbde3db52fd3d5f35111a71354e96401c123dac1bd5dfc2b6b67c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7574,7 +7685,7 @@
             "id": "collocation:c38fb7a1da119a076a7d",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "civil disturbance",
-            "meaning_cn": "民事骚乱",
+            "meaning_cn": "社会骚乱；公共秩序骚乱",
             "kind": "usage_example",
             "repair": null
           }
@@ -7591,8 +7702,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "干扰，扰动",
-        "definition_en": "the act of disturbing something or someone; setting something in motion",
+        "definition_cn": "干扰；扰动（正常状态、秩序或活动）",
+        "definition_en": "a disruption of the normal state, order, or activity of something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7609,7 +7720,7 @@
           "target_kind": "sense",
           "target_id": "sense:disturbance:ee6835657c1251db",
           "target_locator": "record.senses[2]",
-          "target_label": "干扰，扰动"
+          "target_label": "干扰；扰动（正常状态、秩序或活动）"
         }
       }
     ],
@@ -7656,7 +7767,7 @@
           "target_word": "disturb",
           "lines": [
             {
-              "text": "disturb 为动词，disturbance 为名词",
+              "text": "disturb 是动词（打扰、扰乱），disturbance 是对应名词（干扰、扰乱）。情绪困扰属于 disturbance 的另一现有分支。",
               "lang": "cn"
             }
           ],
@@ -7671,8 +7782,23 @@
     "ordinal": 1453,
     "word": "ditch",
     "source_owner_path": "content/lexical/words/by-ordinal/o1453.json",
-    "source_fingerprint": "9c33b788a8c951025a392c02e1b0a6f13e6dede32a248a70bada3630506c3036",
-    "sense_lineage": [],
+    "source_fingerprint": "d747bb8a6666419028a6fd59f0d3b215054c5fb37a79d83d414ab3ce422fdce3",
+    "sense_lineage": [
+      {
+        "word_id": "word:ditch",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:df407a9b71f2ca7d97e5",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:ditch",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:994f281273a5bbe6f510",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
@@ -7731,7 +7857,7 @@
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "抛弃、摆脱或甩掉",
-        "definition_en": "to abandon or get rid of someone or something",
+        "definition_en": "(informal) to abandon or get rid of someone or something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7740,13 +7866,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "ditch a plan/partner",
             "meaning_cn": "抛弃计划/伙伴",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:994f281273a5bbe6f510",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "ditch a plan/partner"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7760,24 +7881,19 @@
         "id": "sense:ditch:8655fb6f9e4a5996",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "ditch an aircraft; an aircraft ditches (in water)",
         "definition_cn": "水上迫降",
-        "definition_en": "to make an emergency landing on water",
+        "definition_en": "to land an aircraft on water in an emergency, or to make such a landing",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:df407a9b71f2ca7d97e5",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "ditch + sth",
-            "meaning_cn": "将某物迫降在水上",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:df407a9b71f2ca7d97e5",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "ditch + sth"
-            }
+            "phrase": "ditch an aircraft",
+            "meaning_cn": "使飞机在水上紧急迫降",
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:4da33008e9aa52982eb3",
@@ -7882,23 +7998,23 @@
     "ordinal": 1454,
     "word": "dive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1454.json",
-    "source_fingerprint": "f0decec0b85a8c50fd6a86fcc5c574837550d043d9f1d507e6cfaf4f272eb78b",
+    "source_fingerprint": "c8db3cb3229b9d3245de8dda1fe963a4de0ac40b24cbdce92f48676672ebe518",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
-        "1N"
+        "5V",
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "跳水，俯冲",
-      "decision_cn": "",
+      "summary_cn": "跳水、潜水或俯冲；投入研究；数值骤降",
+      "decision_cn": "水和飞机语境是身体向下运动；dive into a subject/work 是投入活动；价格或数值作主语时是骤降。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "跳水，俯冲"
+        "target_label": "跳水、潜水或俯冲；投入研究；数值骤降"
       }
     },
     "senses": [
@@ -7971,14 +8087,14 @@
           {
             "id": "collocation:d2e044b73bdebc756157",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "take a dive",
-            "meaning_cn": "跳水；突然下降",
+            "phrase": "take a dive into water",
+            "meaning_cn": "跳入水中（本义项的身体运动）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d2e044b73bdebc756157",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "take a dive"
+              "target_label": "take a dive into water"
             }
           }
         ],
@@ -7993,23 +8109,23 @@
         "id": "sense:dive:c53457a905833dc1",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + into + topic/work / vi. (prices etc.)",
-        "definition_cn": "深入投入某主题或工作；暴跌",
-        "definition_en": "to engage deeply in a topic or work, or fall sharply in amount or price",
+        "governing_pattern": "dive into a subject/task/work",
+        "definition_cn": "深入投入某主题或工作",
+        "definition_en": "to become deeply involved in a subject or activity",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:38e6c1c53a81c4b10aad",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "dive into a topic/work; prices dive",
-            "meaning_cn": "深入研究；价格暴跌",
+            "phrase": "dive into a topic/work",
+            "meaning_cn": "深入研究某主题；投入工作",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:38e6c1c53a81c4b10aad",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "dive into a topic/work; prices dive"
+              "target_label": "dive into a topic/work"
             }
           }
         ],
@@ -8017,7 +8133,85 @@
           "target_kind": "sense",
           "target_id": "sense:dive:c53457a905833dc1",
           "target_locator": "record.senses[3]",
-          "target_label": "深入投入某主题或工作；暴跌"
+          "target_label": "深入投入某主题或工作"
+        }
+      },
+      {
+        "id": "sense:dive:748045228d3a233a",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "prices/figures dive",
+        "definition_cn": "（价格、数值等）骤降；暴跌",
+        "definition_en": "to fall suddenly and sharply in value or amount",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dive:8a503f83fcca48ba",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "prices dive",
+            "meaning_cn": "价格暴跌",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dive:748045228d3a233a",
+          "target_locator": "record.senses[4]",
+          "target_label": "（价格、数值等）骤降；暴跌"
+        }
+      },
+      {
+        "id": "sense:dive:90ca3e7a240189f4",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "dive; dive below the surface",
+        "definition_cn": "潜水；下潜",
+        "definition_en": "to go below the surface of water, especially to swim or explore underwater",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dive:224ad017a71c85a6",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "dive below the surface",
+            "meaning_cn": "潜到水面以下",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dive:90ca3e7a240189f4",
+          "target_locator": "record.senses[5]",
+          "target_label": "潜水；下潜"
+        }
+      },
+      {
+        "id": "sense:dive:b3f72440b35f59b7",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "take a dive",
+        "definition_cn": "骤降；暴跌",
+        "definition_en": "a sudden sharp fall in value or amount",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dive:0251e426fb2bc149",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "take a dive",
+            "meaning_cn": "（价格或数值）骤降",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dive:b3f72440b35f59b7",
+          "target_locator": "record.senses[6]",
+          "target_label": "骤降；暴跌"
         }
       }
     ],
@@ -8048,6 +8242,33 @@
               "excluded_sense_ids": [
                 "sense:dive:84fa707f90675e17"
               ]
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dive:748045228d3a233a",
+                "sense:dive:90ca3e7a240189f4"
+              ],
+              "sense_ids": [
+                "sense:dive:748045228d3a233a",
+                "sense:dive:90ca3e7a240189f4"
+              ],
+              "excluded_sense_ids": [
+                "sense:dive:25327a42fcfb536c",
+                "sense:dive:34a708f7e4d354ac",
+                "sense:dive:84fa707f90675e17",
+                "sense:dive:b3f72440b35f59b7",
+                "sense:dive:c53457a905833dc1"
+              ],
+              "pos": "verb",
+              "surface": "dive",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": true,
+              "binding_basis": "20261011 bounded identity continuation with publisher pronunciation corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dive",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8076,6 +8297,32 @@
                 "sense:dive:25327a42fcfb536c",
                 "sense:dive:c53457a905833dc1"
               ]
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "owner_sense_ids": [
+                "sense:dive:b3f72440b35f59b7"
+              ],
+              "sense_ids": [
+                "sense:dive:b3f72440b35f59b7"
+              ],
+              "excluded_sense_ids": [
+                "sense:dive:25327a42fcfb536c",
+                "sense:dive:34a708f7e4d354ac",
+                "sense:dive:748045228d3a233a",
+                "sense:dive:84fa707f90675e17",
+                "sense:dive:90ca3e7a240189f4",
+                "sense:dive:c53457a905833dc1"
+              ],
+              "pos": "noun",
+              "surface": "dive",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "existing_Form_modified": true,
+              "binding_basis": "20261011 bounded identity continuation with publisher pronunciation corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dive",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8089,10 +8336,19 @@
         "sense:dive:34a708f7e4d354ac": [
           0
         ],
+        "sense:dive:748045228d3a233a": [
+          0
+        ],
+        "sense:dive:90ca3e7a240189f4": [
+          0
+        ],
         "sense:dive:c53457a905833dc1": [
           0
         ],
         "sense:dive:84fa707f90675e17": [
+          1
+        ],
+        "sense:dive:b3f72440b35f59b7": [
           1
         ]
       },
@@ -8139,7 +8395,7 @@
     "ordinal": 1455,
     "word": "diverse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1455.json",
-    "source_fingerprint": "7bbb3c83dd171f8866abca052466b53b08659d6989c81730860105be3f33ac4d",
+    "source_fingerprint": "ede1488e4f2ec113ed718e1285c55b8ffa7929a6b21e8f2815be744be3a4d1e9",
     "sense_lineage": [
       {
         "word_id": "word:diverse",
@@ -8304,7 +8560,7 @@
               "lang": "en"
             },
             {
-              "text": "distinctly dissimilar or unlike",
+              "text": "showing differences or variety",
               "lang": "en"
             }
           ],
@@ -8511,7 +8767,7 @@
     "ordinal": 1457,
     "word": "divert",
     "source_owner_path": "content/lexical/words/by-ordinal/o1457.json",
-    "source_fingerprint": "eb46610f38d5ca2c9abebbc952805d36d8b5e48f1b02b233c846ddb22903204e",
+    "source_fingerprint": "f362ece0e6a9e4977f49a20c3e8ed5c1205255b8026602fd4de4fa14d8b378aa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8547,14 +8803,6 @@
             "meaning_cn": "使车辆改道",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:490fc5873f8ab54c9386",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "divert attention",
-            "meaning_cn": "转移注意力",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -8575,21 +8823,29 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:c38a9f16aff53818c8d1",
+            "id": "collocation:490fc5873f8ab54c9386",
             "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "divert attention",
+            "meaning_cn": "转移注意力",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:c38a9f16aff53818c8d1",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "divert sb from + sth",
             "meaning_cn": "使某人从某事上分心",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:c38a9f16aff53818c8d1",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[1].collocations[1]",
               "target_label": "divert sb from + sth"
             }
           },
           {
             "id": "collocation:2a2344010100f1fe5c2f",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[2]",
             "phrase": "divert the child's attention",
             "meaning_cn": "转移孩子的注意力",
             "kind": "usage_example",
@@ -8608,16 +8864,16 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "挪用；转移（资金）",
+        "definition_cn": "转用；调拨（资金或资源用于另一目的）",
         "definition_en": "to use money or resources for a different purpose",
-        "note": "",
+        "note": "本词只说明用途被改变，不自动表示违法；是否译成“挪用”取决于具体语境。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:c2c9b10cdc3b2169afec",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "divert funds",
-            "meaning_cn": "挪用资金",
+            "meaning_cn": "转用或调拨资金（违规转用时可译为挪用）",
             "kind": "usage_example",
             "repair": null
           }
@@ -8626,7 +8882,7 @@
           "target_kind": "sense",
           "target_id": "sense:divert:3bf386ba8be3567b",
           "target_locator": "record.senses[2]",
-          "target_label": "挪用；转移（资金）"
+          "target_label": "转用；调拨（资金或资源用于另一目的）"
         }
       },
       {
@@ -8716,8 +8972,16 @@
     "ordinal": 1458,
     "word": "divide",
     "source_owner_path": "content/lexical/words/by-ordinal/o1458.json",
-    "source_fingerprint": "e548f770534fb6e702f66186073f7b7ab13276ba2cf2337dbe2232cb063d3b08",
-    "sense_lineage": [],
+    "source_fingerprint": "18b702a800468524df5c26acad104cbc055a81acb88fc7b58447817769a766ae",
+    "sense_lineage": [
+      {
+        "word_id": "word:divide",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c37537aad036b27f842b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -8740,9 +9004,9 @@
         "id": "sense:divide:776981f6c46357e5",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "divide sth into parts; sth divides into parts",
         "definition_cn": "分开；分割",
-        "definition_en": "separate into parts or portions",
+        "definition_en": "to separate something into parts or groups, or to separate in this way",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8777,13 +9041,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "divide 10 by 2",
             "meaning_cn": "10除以2",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c37537aad036b27f842b",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "divide 10 by 2"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8799,7 +9058,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "分歧；隔阂",
-        "definition_en": "a serious disagreement between two groups of people (typically producing tension or hostility)",
+        "definition_en": "a significant difference or separation between groups, often in views, opportunities, or circumstances",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8857,10 +9116,10 @@
       {
         "id": "construction:38287a129a45f06c6b97",
         "source_locator": "record.constructions[0]",
-        "pattern": "divide A into B; divide A by B",
+        "pattern": "divide sth into parts/groups; divide A by B",
         "lines": [
           {
-            "text": "把 A 分成 B；用 B 除 A",
+            "text": "把某物分成若干部分或组；A 除以 B（A 是被除数，B 是除数）",
             "lang": "cn"
           }
         ],
@@ -8868,7 +9127,7 @@
           "target_kind": "construction",
           "target_id": "construction:38287a129a45f06c6b97",
           "target_locator": "record.constructions[0]",
-          "target_label": "divide A into B; divide A by B"
+          "target_label": "divide sth into parts/groups; divide A by B"
         }
       }
     ],
@@ -8885,7 +9144,7 @@
     "ordinal": 1459,
     "word": "dividend",
     "source_owner_path": "content/lexical/words/by-ordinal/o1459.json",
-    "source_fingerprint": "7bbd90e984955a3b35878ddbf939ea5c662a657f8937697ee67fc41d515238f6",
+    "source_fingerprint": "7e4ea73dcfec1025762fe49c82a4909c1c3a1b4d1200ab8b5275478d51879e4a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8910,7 +9169,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "股息；红利",
-        "definition_en": "that part of the earnings of a corporation that is distributed to its shareholders; usually paid quarterly",
+        "definition_en": "a share of a company's profits paid to its shareholders",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9435,8 +9694,16 @@
     "ordinal": 1462,
     "word": "divorce",
     "source_owner_path": "content/lexical/words/by-ordinal/o1462.json",
-    "source_fingerprint": "66f1a46d5ebf12ecfe2477e6734598bee8f7a9f88612b378f7033620d1af670b",
-    "sense_lineage": [],
+    "source_fingerprint": "3091a6a71047edfda842acc2c22ef689f56b7d9b6d1ff25061b6a754232d8d35",
+    "sense_lineage": [
+      {
+        "word_id": "word:divorce",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:889d4d33982a6f4c6b6c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -9493,9 +9760,9 @@
         "id": "sense:divorce:f8d7ef3891f55d69",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "divorce sb; a couple divorces",
         "definition_cn": "与...离婚；解除婚姻关系",
-        "definition_en": "to legally end one's marriage with (someone)",
+        "definition_en": "to legally end a marriage, or legally end one's marriage to someone",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9517,13 +9784,8 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "divorce one's spouse",
             "meaning_cn": "与配偶离婚",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:889d4d33982a6f4c6b6c",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "divorce one's spouse"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9702,8 +9964,16 @@
     "ordinal": 1464,
     "word": "do",
     "source_owner_path": "content/lexical/words/by-ordinal/o1464.json",
-    "source_fingerprint": "7ea2430c73334861b1ff0340cdd97bec5fec855b222dc7f32595d0e222bf4cdb",
-    "sense_lineage": [],
+    "source_fingerprint": "6a347b181ae50e9c13d7a813dddc06e3678080e164dd36fcbd3792f6a195cbe3",
+    "sense_lineage": [
+      {
+        "word_id": "word:do",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:17c3ae7a449daca5f937",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
@@ -9726,9 +9996,9 @@
         "id": "sense:do:0832dc53e83f5ea2",
         "source_locator": "record.senses[0]",
         "pos": "auxiliary",
-        "governing_pattern": "",
-        "definition_cn": "（构成疑问句和否定句）",
-        "definition_en": "used to form questions and negatives",
+        "governing_pattern": "do/does/did + subject + base verb?; do/does/did not + base verb; emphatic do/does/did + base verb",
+        "definition_cn": "助动词：构成疑问、否定或强调",
+        "definition_en": "an auxiliary used to form questions and negatives, or to emphasize an affirmative verb",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9750,7 +10020,7 @@
           "target_kind": "sense",
           "target_id": "sense:do:0832dc53e83f5ea2",
           "target_locator": "record.senses[0]",
-          "target_label": "（构成疑问句和否定句）"
+          "target_label": "助动词：构成疑问、否定或强调"
         }
       },
       {
@@ -9768,13 +10038,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "do + sth",
             "meaning_cn": "做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:17c3ae7a449daca5f937",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "do + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:37a49dc11a533a243aa2",
@@ -9796,9 +10061,9 @@
         "id": "sense:do:bd2c267ad96f58a7",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "行动，表现",
-        "definition_en": "to act or behave",
+        "governing_pattern": "do well/badly; how is sb/sth doing?",
+        "definition_cn": "行动；表现；进展",
+        "definition_en": "to act or behave, or to perform or fare in a particular way",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9815,17 +10080,17 @@
           "target_kind": "sense",
           "target_id": "sense:do:bd2c267ad96f58a7",
           "target_locator": "record.senses[2]",
-          "target_label": "行动，表现"
+          "target_label": "行动；表现；进展"
         }
       },
       {
         "id": "sense:do:ebf3eea0f9b455a8",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "sth will do; sth will do for sb/sth",
         "definition_cn": "够用；合适；行",
         "definition_en": "to be sufficient or suitable for a purpose",
-        "note": "",
+        "note": "这里 do 表示够用或合适，不是执行动作；That will do 表示那样就行。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -9933,7 +10198,7 @@
         "pattern": "have nothing/something to do with sth",
         "lines": [
           {
-            "text": "是否与某事有关",
+            "text": "与某事无关／有关",
             "lang": "cn"
           }
         ],
@@ -9959,6 +10224,31 @@
           "target_id": "construction:bf652bc8bbe867732534",
           "target_locator": "record.constructions[1]",
           "target_label": "do without sth"
+        }
+      },
+      {
+        "id": "construction:do:b03e82c89fc93344",
+        "source_locator": "record.constructions[2]",
+        "pattern": "could do with sth",
+        "lines": [
+          {
+            "text": "需要；很想要某物",
+            "lang": "cn"
+          },
+          {
+            "text": "这里 could do with 是固定的需要表达，不是用某工具做事。",
+            "lang": "cn"
+          },
+          {
+            "text": "to need or want something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:do:b03e82c89fc93344",
+          "target_locator": "record.constructions[2]",
+          "target_label": "could do with sth"
         }
       }
     ],
@@ -10001,7 +10291,7 @@
     "ordinal": 1465,
     "word": "dock",
     "source_owner_path": "content/lexical/words/by-ordinal/o1465.json",
-    "source_fingerprint": "b023522f7684cec46b90bb8db41fbc5d5be87cf610d6b141eba6434ef6c8c8d5",
+    "source_fingerprint": "882b9e116342df676c8fe23bb2c5382541d2814d2b2a08fa2ecf19ac386c95db",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10095,9 +10385,9 @@
         "id": "sense:dock:1d6aed815cbf50b5",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使（船）靠码头；使进港",
-        "definition_en": "to bring a ship into a dock",
+        "governing_pattern": "dock a ship; a ship docks at/in a port",
+        "definition_cn": "（使船）靠码头；（使）进港",
+        "definition_en": "to bring a ship to a dock, or for a ship to arrive there",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10114,7 +10404,7 @@
           "target_kind": "sense",
           "target_id": "sense:dock:1d6aed815cbf50b5",
           "target_locator": "record.senses[2]",
-          "target_label": "使（船）靠码头；使进港"
+          "target_label": "（使船）靠码头；（使）进港"
         }
       },
       {
@@ -10235,7 +10525,7 @@
     "ordinal": 1466,
     "word": "doctor",
     "source_owner_path": "content/lexical/words/by-ordinal/o1466.json",
-    "source_fingerprint": "8a0c574293242c312de8074b0c8ae170423095402a3360f519eaf91a6078ef39",
+    "source_fingerprint": "90f2ad47f82ef6b32da45179f5b4e5f11bc9f2df8d85bff3777140a28fb1ef70",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10402,7 +10692,7 @@
     "ordinal": 1467,
     "word": "doctrine",
     "source_owner_path": "content/lexical/words/by-ordinal/o1467.json",
-    "source_fingerprint": "02375aa2500ae3b19919dbbb2117d3d417332ba60aae66894de95a2e6efd561e",
+    "source_fingerprint": "3f524dd012b0a0bb7b838caa6fa995339ea7b830d5f1e7595032e5b41044a17c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10411,13 +10701,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "教条，学说",
+      "summary_cn": "教义；学说；一套信奉的原则",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "教条，学说"
+        "target_label": "教义；学说；一套信奉的原则"
       }
     },
     "senses": [
@@ -10426,7 +10716,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "教条，主义，学说",
+        "definition_cn": "教义；主义；学说",
         "definition_en": "a belief or set of beliefs held and taught by a church, political party, or other group",
         "note": "",
         "identity_overlay": null,
@@ -10452,7 +10742,7 @@
           "target_kind": "sense",
           "target_id": "sense:doctrine:a451941759045476",
           "target_locator": "record.senses[0]",
-          "target_label": "教条，主义，学说"
+          "target_label": "教义；主义；学说"
         }
       }
     ],
@@ -10490,7 +10780,7 @@
     "ordinal": 1468,
     "word": "document",
     "source_owner_path": "content/lexical/words/by-ordinal/o1468.json",
-    "source_fingerprint": "b489ca1b9eb7291d3021c3e93d3f2713fc014a540bc9a9c4eab201f3ec0d757e",
+    "source_fingerprint": "71d73711c6ed5b707335707f3c1a345124b76d6f7e6dcf0b75ab3e75b83de2b2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10516,7 +10806,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "文件；公文；文档",
-        "definition_en": "a written or printed record that provides information or evidence",
+        "definition_en": "a written, printed, or electronic record that provides information or evidence",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10892,7 +11182,7 @@
     "ordinal": 1470,
     "word": "dog",
     "source_owner_path": "content/lexical/words/by-ordinal/o1470.json",
-    "source_fingerprint": "c821e8d0e622aa4f556df314de86e55f4587d9cece5ca839e9266e1255b5cbe2",
+    "source_fingerprint": "d09710362af4838edaa1449266ffd6cd9723dfbf9655443bd6272f2357e57136",
     "sense_lineage": [
       {
         "word_id": "word:dog",
@@ -10910,13 +11200,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "狗；跟踪",
+      "summary_cn": "狗；持续跟随或困扰",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "狗；跟踪"
+        "target_label": "狗；持续跟随或困扰"
       }
     },
     "senses": [

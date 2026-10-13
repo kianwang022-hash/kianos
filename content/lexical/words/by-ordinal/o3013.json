@@ -6,13 +6,45 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:cfa60a92ddf3582d72c4",
+        "pattern": "melt in your mouth",
+        "meaning_cn": "（食物）柔嫩可口、入口即化",
+        "definition_en": "be tender and pleasant to eat",
+        "usage_note": "可用于食物口感，并非必须像金属受热液化。",
+        "boundary": "可用于食物口感，并非必须像金属受热液化。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:4f92b5564017b496e19f",
+        "pattern": "butter wouldn’t melt in sb’s mouth",
+        "meaning_cn": "装得天真无辜或温顺",
+        "definition_en": "appear innocent while being less innocent than you seem",
+        "usage_note": "非正式，暗含表里不一，不是在说明奶油的温度。",
+        "boundary": "非正式，暗含表里不一，不是在说明奶油的温度。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:c5621b5e77abf090429a",
+        "pattern": "melt sth down",
+        "meaning_cn": "把金属或蜡制品熔化（通常为重新利用）",
+        "definition_en": "liquefy a metal or wax object, often for reuse",
+        "usage_note": "可分离，代词置于中间：melt it down。",
+        "boundary": "可分离，代词置于中间：melt it down。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:melt:2b6da1def6075d77"
+      }
+    ],
     "content_hash": "c75d58b785a769b46f3051bc3524674f2b7a3cf1004713c8b2a91a0173b0f7f3",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "熔化；溶解；消散",
-      "core_meaning_en": "to change from solid to liquid by heat, or to disappear gradually",
-      "mental_model_cn": "熔化；溶解；消散",
+      "core_meaning_cn": "（使）融化；消散融入；情绪缓和",
+      "core_meaning_en": "melt physically; disappear or blend; soften emotions",
+      "mental_model_cn": "受热变液体是融化；melt away/into表示消散或融入；melt sb’s heart使人心软；人的I’m melting是热的夸张说法。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -26,7 +58,7 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "（使）熔化，（使）溶解",
+        "definition_cn": "（使）熔化；（使）融化",
         "definition_en": "to change or cause to change from solid to liquid by heating",
         "governing_pattern": "",
         "level": "L1",
@@ -102,6 +134,43 @@
         "sense_label_en": "to blend gradually into something else",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:melt:b67e7228e9a56c43",
+        "pos": "verb",
+        "definition_cn": "（使情绪、态度等）缓和、变温柔；使心软",
+        "definition_en": "to soften a feeling or emotion, or make it less strong",
+        "sense_label_en": "to soften a feeling or emotion, or make it less strong",
+        "governing_pattern": "a feeling melts; melt sb’s heart",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:aa568d92fd76c79b2d39",
+            "phrase": "the anger melted",
+            "meaning_cn": "怒气渐渐平息",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:melt:448d29ce9825a706",
+        "pos": "verb",
+        "definition_cn": "（夸张地说）热得快化了",
+        "definition_en": "to feel extremely hot, figuratively",
+        "sense_label_en": "to feel extremely hot, figuratively",
+        "governing_pattern": "I’m melting",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -131,6 +200,42 @@
           "applicability": [
             {
               "surface": "melt"
+            },
+            {
+              "surface": "melt",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:melt:b67e7228e9a56c43"
+              ],
+              "owner_sense_ids": [
+                "sense:melt:b67e7228e9a56c43"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3013.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a feeling melts; melt sb’s heart",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "melt",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:melt:448d29ce9825a706"
+              ],
+              "owner_sense_ids": [
+                "sense:melt:448d29ce9825a706"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3013.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "I’m melting",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -324,6 +429,42 @@
           "applicability": [
             {
               "surface": "melt"
+            },
+            {
+              "surface": "melt",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:melt:b67e7228e9a56c43"
+              ],
+              "owner_sense_ids": [
+                "sense:melt:b67e7228e9a56c43"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3013.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a feeling melts; melt sb’s heart",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "melt",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:melt:448d29ce9825a706"
+              ],
+              "owner_sense_ids": [
+                "sense:melt:448d29ce9825a706"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3013.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "I’m melting",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -457,13 +598,30 @@
         "merged_into_sense_id": null,
         "source_row": 8404,
         "source_path": "content/lexical/canonical/senses/shards/o3009-3040.json"
+      },
+      {
+        "sense_id": "sense:melt:b67e7228e9a56c43",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3013.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:melt:448d29ce9825a706",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3013.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:0bcbbdbe088dbb5339f6",
-      "collocation:0ecd71f27efe8aa83abf",
       "collocation:79885b265cc2fd93d3ca",
-      "collocation:a02c66c484d154326c44"
+      "collocation:a02c66c484d154326c44",
+      "collocation:0ecd71f27efe8aa83abf",
+      "collocation:aa568d92fd76c79b2d39"
     ],
     "facts": [],
     "collocations": [
@@ -486,6 +644,13 @@
         "id": "collocation:a02c66c484d154326c44",
         "source_row": 13626,
         "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json"
+      },
+      {
+        "id": "collocation:aa568d92fd76c79b2d39",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3013.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -30,7 +30,7 @@
       ],
       "core_meaning_cn": "过程；处理",
       "core_meaning_en": "a series of actions or steps, or to handle something in a systematic way",
-      "mental_model_cn": "过程；处理",
+      "mental_model_cn": "步骤/自然变化是过程，动词是处理；解剖学process是突起，计算机process是运行中的程序任务。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -170,6 +170,72 @@
         "sense_label_en": "a natural series of changes or events",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:process:45645b48de52d827",
+        "pos": "noun",
+        "definition_cn": "（骨等的）突起；突",
+        "definition_en": "an anatomical projection from a bone or other body structure",
+        "sense_label_en": "an anatomical projection from a bone or other body structure",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:process:f8a5c9599a9358c3",
+            "phrase": "a bony process",
+            "meaning_cn": "骨突",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.collinsdictionary.com/dictionary/english/process",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "解剖学中的process是结构突起，不是操作流程。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/process",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:process:3cc44f71e8174f35",
+        "pos": "noun",
+        "definition_cn": "（计算机）运行中的程序或任务",
+        "definition_en": "a program or task being executed by a computer",
+        "sense_label_en": "a program or task being executed by a computer",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:process:68a18150ed867d95",
+            "phrase": "Restart the unresponsive process.",
+            "meaning_cn": "重新启动无响应的进程。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://learn.microsoft.com/en-us/windows/win32/procthread/processes-and-threads",
+                "role": "Official Microsoft process definition: executing program; example authored, not quoted. Root directly read 2026-10-12."
+              }
+            ]
+          }
+        ],
+        "usage_note": "kill/restart a process、process ID选择计算机运行实体，而非泛指步骤。",
+        "source_evidence": [
+          {
+            "source_url": "https://learn.microsoft.com/en-us/windows/win32/procthread/processes-and-threads",
+            "role": "Official Microsoft process definition: executing program; example authored, not quoted. Root directly read 2026-10-12."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -483,6 +549,18 @@
         "merged_into_sense_id": null,
         "source_row": 10570,
         "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
+      },
+      {
+        "sense_id": "sense:process:45645b48de52d827",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3796.json"
+      },
+      {
+        "sense_id": "sense:process:3cc44f71e8174f35",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3796.json"
       }
     ],
     "active_collocations": [
@@ -490,7 +568,9 @@
       "collocation:a791d4b7f979a9e0f303",
       "collocation:b0f79fa055bd436224ed",
       "collocation:b32fd3bba09b4648a3c2",
-      "collocation:ec237fa9352a6bb012aa"
+      "collocation:ec237fa9352a6bb012aa",
+      "collocation:process:f8a5c9599a9358c3",
+      "collocation:process:68a18150ed867d95"
     ],
     "facts": [
       {
@@ -524,6 +604,14 @@
         "id": "collocation:ec237fa9352a6bb012aa",
         "source_row": 20010,
         "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
+      },
+      {
+        "id": "collocation:process:f8a5c9599a9358c3",
+        "source_path": "content/lexical/words/by-ordinal/o3796.json"
+      },
+      {
+        "id": "collocation:process:68a18150ed867d95",
+        "source_path": "content/lexical/words/by-ordinal/o3796.json"
       }
     ],
     "exam-mappings": [],

@@ -6,33 +6,77 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:5f5beb97100d95f8c64f",
+        "pattern": "be in/out of the loop; keep sb in/leave sb out of the loop",
+        "meaning_cn": "知情并参与；被排除在信息或决策圈外",
+        "definition_en": "be included in or excluded from information and decisions",
+        "usage_note": "the loop 指信息参与圈；与计算机循环不同。",
+        "boundary": "the loop 指信息参与圈；与计算机循环不同。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:a3989da530bda6c6894a",
+        "pattern": "loop sb in (on sth)",
+        "meaning_cn": "告知某人（某事），让其参与知情",
+        "definition_en": "inform someone about something",
+        "usage_note": "非正式，可分离：loop me in；on 接说明事项。",
+        "boundary": "非正式，可分离：loop me in；on 接说明事项。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:6a0310ace9b7ba16f234",
+        "pattern": "loop the loop",
+        "meaning_cn": "（使飞机）作垂直回环飞行",
+        "definition_en": "fly or make an aircraft fly in a vertical circle",
+        "usage_note": "动作构式，含不及物飞行及使飞机飞行；不作为普通环形物名词的搭配。",
+        "boundary": "动作构式，含不及物飞行及使飞机飞行；不作为普通环形物名词的搭配。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:9fae169f0359cf306829",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:loop:6f9da25dca8e5392:collocation:0"
+            ],
+            "meaning_cn": "翻筋斗（飞行特技）",
+            "phrase": "loop the loop"
+          }
+        ]
+      }
+    ],
     "content_hash": "42478a968ee981481fb9c0d8a5b1b40b808795cfa93e69014dfc85698f6be3fd",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "环；圈；环形物；（计算机）循环",
-          "label_en": "anything with a round or oval shape (formed by a curve that is closed and does not intersect itself); a computer program that performs a series of instructions repeatedly until some specified condition is satisfied",
+          "label_cn": "环；圈；环形物；（计算机）循环；循环播放的音频或视频片段",
+          "label_en": "a curved shape that bends back toward or around itself, such as a ring of cord; a set of computer instructions that is repeated, usually until a stopping condition is met; a short audio or video section repeated continuously",
           "pos": "noun",
           "sense_ids": [
             "sense:loop:6f9da25dca8e5392",
-            "sense:loop:c9874394e71659c4"
+            "sense:loop:c9874394e71659c4",
+            "sense:loop:c37bb1578d544734"
           ]
         },
         {
-          "label_cn": "使成环；把…打成环；打环；翻筋斗",
-          "label_en": "make a loop or loops in something; move in a loop or form a loop",
+          "label_cn": "使成环；把…打成环；打环；翻筋斗；（使音频或视频）循环播放",
+          "label_en": "make a loop or loops in something; move in a loop or form a loop; to play a short audio or video section repeatedly",
           "pos": "verb",
           "sense_ids": [
             "sense:loop:a6c691bb2144524b",
-            "sense:loop:e0de447744bf5808"
+            "sense:loop:e0de447744bf5808",
+            "sense:loop:b73f0a23617e6f72"
           ]
         }
       ],
-      "core_meaning_cn": "环；循环",
-      "core_meaning_en": "a circular shape or a repeated sequence",
-      "mental_model_cn": "环；循环",
-      "mental_model_en": ""
+      "core_meaning_cn": "环形物、程序循环或媒体循环片段；成环、回环移动与循环播放",
+      "core_meaning_en": "loop-shaped object, program loop or repeated media; bend, move in a loop or repeat playback",
+      "mental_model_cn": "物理环、代码重复和媒体重复分名词义；loop the loop 为回环飞行动作。",
+      "mental_model_en": "loop-shaped object, program loop or repeated media; bend, move in a loop or repeat playback."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,15 +89,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:9fae169f0359cf306829",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:loop:6f9da25dca8e5392:collocation:0"
-            ],
-            "meaning_cn": "翻筋斗（飞行特技）",
-            "phrase": "loop the loop"
-          },
-          {
             "collocation_id": "collocation:808488f8e523009b94d3",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -65,13 +100,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "环；圈；环形物",
-        "definition_en": "anything with a round or oval shape (formed by a curve that is closed and does not intersect itself)",
+        "definition_en": "a curved shape that bends back toward or around itself, such as a ring of cord",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:loop:6f9da25dca8e5392",
-        "sense_label_en": "anything with a round or oval shape (formed by a curve that is closed an",
+        "sense_label_en": "a curved shape that bends back toward or around itself, such as a ring of cord",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -98,13 +133,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "（计算机）循环",
-        "definition_en": "a computer program that performs a series of instructions repeatedly until some specified condition is satisfied",
+        "definition_en": "a set of computer instructions that is repeated, usually until a stopping condition is met",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:loop:c9874394e71659c4",
-        "sense_label_en": "a computer program that performs a series of instructions repeatedly unt",
+        "sense_label_en": "a set of computer instructions that is repeated, usually until a stopping condition is met",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -155,6 +190,50 @@
         "sense_label_en": "move in a loop or form a loop",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:loop:c37bb1578d544734",
+        "pos": "noun",
+        "definition_cn": "循环播放的音频或视频片段",
+        "definition_en": "a short audio or video section repeated continuously",
+        "sense_label_en": "a short audio or video section repeated continuously",
+        "governing_pattern": "an audio/video loop",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:364df80df3c352c744a9",
+            "phrase": "a video loop",
+            "meaning_cn": "循环播放的视频片段",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:loop:b73f0a23617e6f72",
+        "pos": "verb",
+        "definition_cn": "（使音频或视频）循环播放",
+        "definition_en": "to play a short audio or video section repeatedly",
+        "sense_label_en": "to play a short audio or video section repeatedly",
+        "governing_pattern": "loop (sth)",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4bcfaf27f1369c4cd897",
+            "phrase": "loop a sound clip",
+            "meaning_cn": "循环播放一个声音片段",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -184,6 +263,40 @@
           "applicability": [
             {
               "surface": "loop"
+            },
+            {
+              "surface": "loop",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:loop:c37bb1578d544734"
+              ],
+              "owner_sense_ids": [
+                "sense:loop:c37bb1578d544734"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2883.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an audio/video loop"
+            },
+            {
+              "surface": "loop",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:loop:b73f0a23617e6f72"
+              ],
+              "owner_sense_ids": [
+                "sense:loop:b73f0a23617e6f72"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2883.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "loop (sth)"
             }
           ],
           "sources": [
@@ -331,15 +444,32 @@
         "merged_into_sense_id": null,
         "source_row": 8030,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
+      },
+      {
+        "sense_id": "sense:loop:c37bb1578d544734",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2883.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:loop:b73f0a23617e6f72",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2883.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
+      "collocation:808488f8e523009b94d3",
       "collocation:0e08c910da44070dda56",
       "collocation:198807ffac11b10bc6f0",
-      "collocation:1f970c5d9ff6b938cdea",
       "collocation:236f2078d2544e6973f3",
-      "collocation:808488f8e523009b94d3",
-      "collocation:9fae169f0359cf306829"
+      "collocation:1f970c5d9ff6b938cdea",
+      "collocation:364df80df3c352c744a9",
+      "collocation:4bcfaf27f1369c4cd897"
     ],
     "facts": [],
     "collocations": [
@@ -371,7 +501,24 @@
       {
         "id": "collocation:9fae169f0359cf306829",
         "source_row": 13578,
-        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "retirement_reason": "Meaning is now represented by the exact Word construction; original canonical identity retained as historical evidence."
+      },
+      {
+        "id": "collocation:364df80df3c352c744a9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2883.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:4bcfaf27f1369c4cd897",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2883.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

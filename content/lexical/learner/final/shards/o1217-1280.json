@@ -133,7 +133,7 @@
     "ordinal": 1218,
     "word": "dash",
     "source_owner_path": "content/lexical/words/by-ordinal/o1218.json",
-    "source_fingerprint": "6ab275c6bfefe2da58f52c52c58522e59b8c853938400e10b19d203775268fca",
+    "source_fingerprint": "d415704f80feec490d09e69e3b00d76a20d13ca83a00cb1bb97857a8d6046429",
     "sense_lineage": [
       {
         "word_id": "word:dash",
@@ -159,19 +159,19 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "快速移动或标点符号",
-      "decision_cn": "",
+      "summary_cn": "急奔；使希望破灭；破折号；少量",
+      "decision_cn": "dash to a place是急奔；dash hopes是使希望破灭；a dash of是少量，也可指一点某种特质；标点语境是破折号。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "快速移动或标点符号"
+        "target_label": "急奔；使希望破灭；破折号；少量"
       }
     },
     "senses": [
@@ -238,6 +238,37 @@
           "target_id": "sense:dash:80bad937e98b560b",
           "target_locator": "record.senses[2]",
           "target_label": "少量某物"
+        }
+      },
+      {
+        "id": "sense:dash:77beab4d19417b1f",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "dash sb’s hopes; sb’s hopes are dashed",
+        "definition_cn": "使希望或期待破灭",
+        "definition_en": "destroy a hope or expectation",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:6a0fb48b4b8095400b32",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "dash hopes of sth",
+            "meaning_cn": "使对某事的希望破灭",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:6a0fb48b4b8095400b32",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "dash hopes of sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dash:77beab4d19417b1f",
+          "target_locator": "record.senses[3]",
+          "target_label": "使希望或期待破灭"
         }
       }
     ],
@@ -353,7 +384,7 @@
     "ordinal": 1219,
     "word": "data",
     "source_owner_path": "content/lexical/words/by-ordinal/o1219.json",
-    "source_fingerprint": "4f317a7a87a6529301899d30b1eb88854dd9e890af97562533b2af945902a303",
+    "source_fingerprint": "fb0320df0ffe4b0c730e63f10ce53e74b57f96a1632c398e6fd7e193d83f2684",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -516,7 +547,7 @@
     "ordinal": 1220,
     "word": "database",
     "source_owner_path": "content/lexical/words/by-ordinal/o1220.json",
-    "source_fingerprint": "b462804cab2e8eaa880bbb1fde014bc661a7e6572086f7a6a8e58d5b01a1485d",
+    "source_fingerprint": "767c4f388b3226df3513e4caea77163c6199fed2ae32aed4b4b01de166e133e1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -631,23 +662,31 @@
     "ordinal": 1221,
     "word": "date",
     "source_owner_path": "content/lexical/words/by-ordinal/o1221.json",
-    "source_fingerprint": "b9164f59356ea1c2727c4bfc466a6c58e7480cf51b309581c881715196073496",
-    "sense_lineage": [],
+    "source_fingerprint": "49b3ca821eafbc3ebca13caa303a67bce3d0fce85ee86ee0799e85add5aea100",
+    "sense_lineage": [
+      {
+        "word_id": "word:date",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4dab45b005ad743e1846",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
+        "4V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "特定的日子或时间；与某人约会",
-      "decision_cn": "",
+      "summary_cn": "日期；约会；注明日期或确定年代；变得过时；椰枣",
+      "decision_cn": "date a letter是注明日期，date a building是确定年代；date from/back to是始于过去；a design dates是设计过时；date sb是恋爱交往；水果是椰枣。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "特定的日子或时间；与某人约会"
+        "target_label": "日期；约会；注明日期或确定年代；变得过时；椰枣"
       }
     },
     "senses": [
@@ -682,8 +721,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "约会",
-        "definition_en": "a social meeting between two people who are romantically interested",
+        "definition_cn": "约会；约定的见面，尤指恋爱约会",
+        "definition_en": "an arranged meeting, especially a romantic one",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -705,7 +744,7 @@
           "target_kind": "sense",
           "target_id": "sense:date:41a33486e01c55fa",
           "target_locator": "record.senses[1]",
-          "target_label": "约会"
+          "target_label": "约会；约定的见面，尤指恋爱约会"
         }
       },
       {
@@ -723,13 +762,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "date + sth",
             "meaning_cn": "在某物上注明日期",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4dab45b005ad743e1846",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "date + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:7895e32f99f307926b88",
@@ -751,7 +785,7 @@
         "id": "sense:date:4d18dc468a0d5870",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "date (sb)",
         "definition_cn": "约会",
         "definition_en": "to go out with someone romantically",
         "note": "",
@@ -769,7 +803,7 @@
         "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "枣椰树的果实，枣子",
+        "definition_cn": "椰枣（枣椰树的果实，不是红枣）",
         "definition_en": "a sweet fruit from a date palm",
         "note": "",
         "identity_overlay": null,
@@ -778,7 +812,7 @@
             "id": "collocation:681299063c05ba7ab97c",
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "dried dates",
-            "meaning_cn": "干枣",
+            "meaning_cn": "干椰枣",
             "kind": "usage_example",
             "repair": null
           }
@@ -787,7 +821,59 @@
           "target_kind": "sense",
           "target_id": "sense:date:9be20610f165547f",
           "target_locator": "record.senses[4]",
-          "target_label": "枣椰树的果实，枣子"
+          "target_label": "椰枣（枣椰树的果实，不是红枣）"
+        }
+      },
+      {
+        "id": "sense:date:70dce53d7590ed3a",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "date sth; date sth to a period",
+        "definition_cn": "确定某物或事件的年代",
+        "definition_en": "determine when something was made or began",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7bcd9f4a9faabf70300d",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "date an ancient building",
+            "meaning_cn": "确定一座古建筑的年代",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:date:70dce53d7590ed3a",
+          "target_locator": "record.senses[5]",
+          "target_label": "确定某物或事件的年代"
+        }
+      },
+      {
+        "id": "sense:date:d4cb300d68033372",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "sth dates; sth has dated",
+        "definition_cn": "变得过时；显得陈旧",
+        "definition_en": "become old-fashioned or show its age",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9ec5be68fc117f4da60e",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "The design has dated.",
+            "meaning_cn": "这个设计已经显得过时了。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:date:d4cb300d68033372",
+          "target_locator": "record.senses[6]",
+          "target_label": "变得过时；显得陈旧"
         }
       }
     ],
@@ -829,8 +915,8 @@
         "pattern": "date from / date back to",
         "lines": [
           {
-            "text": "originate from a time in the past",
-            "lang": "en"
+            "text": "始于、追溯到过去某时",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -854,8 +940,16 @@
     "ordinal": 1222,
     "word": "daughter",
     "source_owner_path": "content/lexical/words/by-ordinal/o1222.json",
-    "source_fingerprint": "84481c587c3403218615abece2fd9054524856a395c0f63348d85e50afebfff7",
-    "sense_lineage": [],
+    "source_fingerprint": "54ef9e2683e29a81d54f3ef27e9653c5a483bfc4cbe3accb4cbfaae81d409abd",
+    "sense_lineage": [
+      {
+        "word_id": "word:daughter",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9e2bb837dea5290706b4",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -888,13 +982,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "daughter of + sb",
             "meaning_cn": "某人的女儿",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9e2bb837dea5290706b4",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "daughter of + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:c189fefe2819a49f1491",
@@ -947,7 +1036,7 @@
     "ordinal": 1223,
     "word": "daunting",
     "source_owner_path": "content/lexical/words/by-ordinal/o1223.json",
-    "source_fingerprint": "085d02fbab0f5f2a503337bcdba35f674cab05755fabc1117608baa07c049fb7",
+    "source_fingerprint": "f893fabfe09e18338afbc341e92c8268696e40a9b62c981b416bfa51cba98719",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -956,13 +1045,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使人畏缩的",
-      "decision_cn": "",
+      "summary_cn": "令人生畏、担心难以应付的",
+      "decision_cn": "daunting task强调任务让人觉得难以应付、望而生畏，不一定涉及实际危险。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使人畏缩的"
+        "target_label": "令人生畏、担心难以应付的"
       }
     },
     "senses": [
@@ -971,8 +1060,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "使人畏缩的",
-        "definition_en": "discouraging through fear",
+        "definition_cn": "令人畏缩、担心难以应付的",
+        "definition_en": "making someone feel worried or discouraged about dealing with a difficult task or situation",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -989,7 +1078,7 @@
           "target_kind": "sense",
           "target_id": "sense:daunting:538c13a543275a49",
           "target_locator": "record.senses[0]",
-          "target_label": "使人畏缩的"
+          "target_label": "令人畏缩、担心难以应付的"
         }
       }
     ],
@@ -1040,7 +1129,7 @@
     "ordinal": 1224,
     "word": "dawn",
     "source_owner_path": "content/lexical/words/by-ordinal/o1224.json",
-    "source_fingerprint": "aa9a8d8b5f1ae7e7f306231ceea3fcbc7103db65a051b29cf5ac29bbf3929d1e",
+    "source_fingerprint": "d41cccd1c037e4123b5feae1e113475cb3ab53929e70d7fb888b4b7d39f3fe89",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1051,7 +1140,7 @@
     },
     "word_feel": {
       "summary_cn": "黎明，开端",
-      "decision_cn": "",
+      "decision_cn": "at dawn是黎明；the dawn of是开端；it dawns on sb that表示某人开始意识到，主语不是“意识到的人”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1151,7 +1240,7 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi. + on",
-        "definition_cn": "逐渐被某人理解或意识到",
+        "definition_cn": "开始被某人理解或意识到",
         "definition_en": "to become clear or understood by someone",
         "note": "",
         "identity_overlay": null,
@@ -1160,7 +1249,7 @@
           "target_kind": "sense",
           "target_id": "sense:dawn:08a2ea2af7265f2f",
           "target_locator": "record.senses[3]",
-          "target_label": "逐渐被某人理解或意识到"
+          "target_label": "开始被某人理解或意识到"
         }
       }
     ],
@@ -1191,7 +1280,7 @@
         "pattern": "it dawns on sb that... / sth dawns on sb",
         "lines": [
           {
-            "text": "某人突然意识到/明白…",
+            "text": "某人开始意识到或明白某事",
             "lang": "cn"
           }
         ],
@@ -1513,7 +1602,7 @@
     "ordinal": 1227,
     "word": "dazzle",
     "source_owner_path": "content/lexical/words/by-ordinal/o1227.json",
-    "source_fingerprint": "85caf6b677373002dc6581918c8c63c4608c67cddb171771f9003f9b5b9b33bf",
+    "source_fingerprint": "bfdafc6c53487fef727ea3a43d0e0396d1d5666685c2fb7d0dff6630b51541f6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2214,7 +2303,7 @@
     "ordinal": 1232,
     "word": "deal",
     "source_owner_path": "content/lexical/words/by-ordinal/o1232.json",
-    "source_fingerprint": "5772946161b2c2f631fccad375cfe53aef7900e4b360a08bf111787f3d491376",
+    "source_fingerprint": "c9f16f3af54fa32aff5dd7a6da24a6075891e2dffa615f7b62813259d0bcae08",
     "sense_lineage": [
       {
         "word_id": "word:deal",
@@ -2226,14 +2315,14 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "交易；处理/应对；a great deal (of) 大量",
-      "decision_cn": "deal with sb/sth = 处理、应对；make a deal = 达成交易；a great deal (of) = 大量；deal cards = 发牌。木材名词义保留为 Reference。",
+      "decision_cn": "deal with是处理或论及，deal in是经营；make a deal是达成交易；a great deal of是大量；deal cards发牌；deal a blow是给予打击。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2264,7 +2353,7 @@
             "id": "collocation:97219bd53255bd1e0cf7",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "a good deal",
-            "meaning_cn": "很多；划算的交易",
+            "meaning_cn": "划算的交易（a good deal 表示很多时属数量用法）",
             "kind": "usage_example",
             "repair": null
           }
@@ -2307,8 +2396,8 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "deal with sth/sb",
-        "definition_cn": "处理、应对问题或情况",
-        "definition_en": "to take action to solve a problem or handle a situation",
+        "definition_cn": "处理、应对问题或人；（书、文章等）论及、涉及某主题",
+        "definition_en": "handle a person or situation; discuss or concern a subject",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2316,17 +2405,17 @@
           "target_kind": "sense",
           "target_id": "sense:deal:9dad879330265856",
           "target_locator": "record.senses[2]",
-          "target_label": "处理、应对问题或情况"
+          "target_label": "处理、应对问题或人；（书、文章等）论及、涉及某主题"
         }
       },
       {
         "id": "sense:deal:d961db26c0e5522c",
         "source_locator": "record.senses[3]",
         "pos": "noun",
-        "governing_pattern": "a great deal (of)",
+        "governing_pattern": "a great/good deal (of sth)",
         "definition_cn": "大量、许多",
         "definition_en": "a large amount or degree",
-        "note": "",
+        "note": "a great/good deal of通常接不可数名词；不接of时可表示程度或修饰比较级，如a great deal better。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -2334,6 +2423,37 @@
           "target_id": "sense:deal:d961db26c0e5522c",
           "target_locator": "record.senses[3]",
           "target_label": "大量、许多"
+        }
+      },
+      {
+        "id": "sense:deal:8d1a7aabff08cf38",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "deal in sth",
+        "definition_cn": "经营、买卖某类商品",
+        "definition_en": "trade in a type of goods",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:fed8c05be3b1ee73ef5e",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "deal in antiques",
+            "meaning_cn": "经营古董",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:fed8c05be3b1ee73ef5e",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "deal in antiques"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:deal:8d1a7aabff08cf38",
+          "target_locator": "record.senses[4]",
+          "target_label": "经营、买卖某类商品"
         }
       }
     ],
@@ -2366,7 +2486,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:de307bd7ca5992d3a7e7",
+        "source_locator": "record.constructions[0]",
+        "pattern": "deal sb/sth a blow / deal a blow to sb/sth",
+        "lines": [
+          {
+            "text": "给予实际或比喻性的打击",
+            "lang": "cn"
+          },
+          {
+            "text": "这里deal是施加、给予，不能译成交易或处理。",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:de307bd7ca5992d3a7e7",
+          "target_locator": "record.constructions[0]",
+          "target_label": "deal sb/sth a blow / deal a blow to sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2566,7 +2708,7 @@
     "ordinal": 1234,
     "word": "dean",
     "source_owner_path": "content/lexical/words/by-ordinal/o1234.json",
-    "source_fingerprint": "6bcaa2e4237143f1a16bca1f67d9a1d7d31583a2744da2fa827e87f9e29e5503",
+    "source_fingerprint": "6f6024165b4e3f1d1ae115610e5e85b133514cce3e854f6e2eac0abb3409cc91",
     "sense_lineage": [
       {
         "word_id": "word:dean",
@@ -2607,7 +2749,7 @@
             "id": "collocation:490c04552ecb40e354f0",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "dean of the faculty",
-            "meaning_cn": "系主任",
+            "meaning_cn": "学院院长（具体职称依学校组织而定）",
             "kind": "usage_example",
             "repair": null
           }
@@ -3097,7 +3239,7 @@
     "ordinal": 1237,
     "word": "debate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1237.json",
-    "source_fingerprint": "0c5574c25704d939831209e01d54d24ef97156f2a245329323200ca0196c134b",
+    "source_fingerprint": "69065445b7f37f4c9916f9eb231262ec5bfb01111256d72f3986a32591401aeb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3123,7 +3265,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "辩论，讨论",
-        "definition_en": "formal discussion of a proposition",
+        "definition_en": "discussion of a question involving differing views, sometimes in a formal setting",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3160,9 +3302,9 @@
         "id": "sense:debate:f7af0b1484b5579f",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "辩论，讨论",
-        "definition_en": "discuss or argue about",
+        "governing_pattern": "debate (sth); debate whether...",
+        "definition_cn": "辩论、讨论；也可指自己反复考虑、权衡",
+        "definition_en": "to discuss a question, or weigh it carefully before deciding",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3178,7 +3320,7 @@
             "id": "collocation:c40d1d81235588617a39",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "debate whether ...",
-            "meaning_cn": "辩论是否……",
+            "meaning_cn": "讨论或反复考虑是否……",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -3192,7 +3334,7 @@
           "target_kind": "sense",
           "target_id": "sense:debate:f7af0b1484b5579f",
           "target_locator": "record.senses[1]",
-          "target_label": "辩论，讨论"
+          "target_label": "辩论、讨论；也可指自己反复考虑、权衡"
         }
       }
     ],
@@ -3231,7 +3373,7 @@
     "ordinal": 1238,
     "word": "debt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1238.json",
-    "source_fingerprint": "84a694d6a011fcdd4c4704d89b9ca2804e47bfba7196b6e3095e00918e97d4fa",
+    "source_fingerprint": "83ce3c286fd96eca7519341006374651d038085e07b2de26189763f5dc04c0df",
     "sense_lineage": [
       {
         "word_id": "word:debt",
@@ -3243,18 +3385,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "债务",
-      "decision_cn": "",
+      "summary_cn": "债务；负债；恩情、人情债",
+      "decision_cn": "in debt是负债；pay off a debt是还清；owe a debt of gratitude或be in sb’s debt也可表达感激，不一定欠钱。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "债务"
+        "target_label": "债务；负债；恩情、人情债"
       }
     },
     "senses": [
@@ -3263,8 +3405,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "债务，欠款",
-        "definition_en": "money or goods or services that one person owes to another",
+        "definition_cn": "债务、欠款；负债状态",
+        "definition_en": "money or other obligations owed, or the state of owing them",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3281,7 +3423,38 @@
           "target_kind": "sense",
           "target_id": "sense:debt:d6c6f1833a335dbd",
           "target_locator": "record.senses[0]",
-          "target_label": "债务，欠款"
+          "target_label": "债务、欠款；负债状态"
+        }
+      },
+      {
+        "id": "sense:debt:354b5e35d9f95539",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "owe sb a debt of gratitude; be in sb’s debt",
+        "definition_cn": "恩情；因受到帮助而觉得欠下的人情",
+        "definition_en": "an obligation of gratitude for help received",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3777305775485a637204",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "owe sb a debt of gratitude",
+            "meaning_cn": "欠某人的恩情；非常感激某人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:3777305775485a637204",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "owe sb a debt of gratitude"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:debt:354b5e35d9f95539",
+          "target_locator": "record.senses[1]",
+          "target_label": "恩情；因受到帮助而觉得欠下的人情"
         }
       }
     ],
@@ -3298,17 +3471,6 @@
               "sense_ids": [
                 "sense:debt:d6c6f1833a335dbd"
               ]
-            }
-          ],
-          "evidence_basis": "source_ipa",
-          "spelling_binding": null
-        },
-        {
-          "ipa": "/ˈdɛbt/",
-          "locales": [],
-          "applicability": [
-            {
-              "surface": "debt"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -3345,6 +3507,7 @@
                 "noun"
               ],
               "sense_ids": [
+                "sense:debt:354b5e35d9f95539",
                 "sense:debt:d6c6f1833a335dbd"
               ]
             }
@@ -3357,7 +3520,10 @@
       "sense_readings": {
         "sense:debt:d6c6f1833a335dbd": [
           0,
-          4
+          3
+        ],
+        "sense:debt:354b5e35d9f95539": [
+          3
         ]
       },
       "has_scope": true
@@ -3613,8 +3779,16 @@
     "ordinal": 1240,
     "word": "decade",
     "source_owner_path": "content/lexical/words/by-ordinal/o1240.json",
-    "source_fingerprint": "d13b7d2be95876396ecef0e2d09e03425e593f28433ac689e14aa51acf017083",
-    "sense_lineage": [],
+    "source_fingerprint": "367b9b5eb91f489103f84bd7c497f5565add6872d9c8883856f5ee0e36863b5d",
+    "sense_lineage": [
+      {
+        "word_id": "word:decade",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:009669ce409e40f16bc0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -3655,13 +3829,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "for decades",
             "meaning_cn": "几十年",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:009669ce409e40f16bc0",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "for decades"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4375,7 +4544,7 @@
     "ordinal": 1246,
     "word": "decide",
     "source_owner_path": "content/lexical/words/by-ordinal/o1246.json",
-    "source_fingerprint": "697f30e40befbeb3efc4a71c2f8e8452a74cbbe76236a3aa0c028baa129e221e",
+    "source_fingerprint": "46c28d5913890dc1aacac6cf83b5409d03463b731c833f4bec80e31c23001f53",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4398,7 +4567,7 @@
         "id": "sense:decide:db9664d98f0a5edb",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "decide; decide to do sth; decide on sth; decide whether/what...",
         "definition_cn": "决定；下决心",
         "definition_en": "reach, make, or come to a decision about something",
         "note": "",
@@ -4442,7 +4611,7 @@
         "id": "sense:decide:1d8e566313f55b56",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "decide a case; decide for/in favour of/against sb",
         "definition_cn": "解决；裁决",
         "definition_en": "bring to an end; settle conclusively",
         "note": "",
@@ -4468,8 +4637,8 @@
         "id": "sense:decide:6139d377b3e65475",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "使决定",
+        "governing_pattern": "decide sb (to do sth)",
+        "definition_cn": "促使某人拿定主意",
         "definition_en": "cause to decide",
         "note": "",
         "identity_overlay": null,
@@ -4478,7 +4647,7 @@
           "target_kind": "sense",
           "target_id": "sense:decide:6139d377b3e65475",
           "target_locator": "record.senses[2]",
-          "target_label": "使决定"
+          "target_label": "促使某人拿定主意"
         }
       },
       {
@@ -4486,8 +4655,8 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "决定；影响",
-        "definition_en": "influence or determine",
+        "definition_cn": "决定结果；成为决定性因素",
+        "definition_en": "determine a result or outcome",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4504,7 +4673,7 @@
           "target_kind": "sense",
           "target_id": "sense:decide:faa59e5b2d045526",
           "target_locator": "record.senses[3]",
-          "target_label": "决定；影响"
+          "target_label": "决定结果；成为决定性因素"
         }
       }
     ],
@@ -4540,7 +4709,7 @@
     "ordinal": 1247,
     "word": "decimal",
     "source_owner_path": "content/lexical/words/by-ordinal/o1247.json",
-    "source_fingerprint": "b12a6b75d232fd462f54eb4da49be5db59c25ec598c11420b96be069b2a5d4f1",
+    "source_fingerprint": "04c01ccea24deeff94cbffa5b3cd9e58ee03a23e155cb29d4f62b9e1e7191ece",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4569,21 +4738,7 @@
         "definition_en": "a number in the decimal system",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c145517b8bc014fee8c0",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "decimal point",
-            "meaning_cn": "小数点",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c145517b8bc014fee8c0",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "decimal point"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:decimal:e8196dbe010a5ea6",
@@ -4612,6 +4767,19 @@
               "target_id": "collocation:1980c6acfdab369d6d93",
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "decimal system"
+            }
+          },
+          {
+            "id": "collocation:c145517b8bc014fee8c0",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "decimal point",
+            "meaning_cn": "小数点",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c145517b8bc014fee8c0",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "decimal point"
             }
           }
         ],
@@ -4697,7 +4865,7 @@
     "ordinal": 1248,
     "word": "decision",
     "source_owner_path": "content/lexical/words/by-ordinal/o1248.json",
-    "source_fingerprint": "1ffe92c8b9cc0276ce0616a48ffab14d2e2487d36c7b758e50daf784076a9d79",
+    "source_fingerprint": "19d4783239561b734ea1700cadcc9a96d845cdf9c1298ecb0b34f9b4d153941d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4717,39 +4885,8 @@
     },
     "senses": [
       {
-        "id": "sense:decision:a3f614a7ea1a5388",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "果断，决断力",
-        "definition_en": "the ability to decide quickly and firmly",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9e7b221c38ca3ebf3d53",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "act with decision",
-            "meaning_cn": "果断行事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9e7b221c38ca3ebf3d53",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "act with decision"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:decision:a3f614a7ea1a5388",
-          "target_locator": "record.senses[0]",
-          "target_label": "果断，决断力"
-        }
-      },
-      {
         "id": "sense:decision:6303b746f5e152e6",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "make/reach a decision; decision to do sth",
         "definition_cn": "经过考虑作出的选择或结论",
@@ -4760,8 +4897,39 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:decision:6303b746f5e152e6",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "经过考虑作出的选择或结论"
+        }
+      },
+      {
+        "id": "sense:decision:a3f614a7ea1a5388",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "果断，决断力",
+        "definition_en": "the ability to decide quickly and firmly",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9e7b221c38ca3ebf3d53",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "act with decision",
+            "meaning_cn": "果断行事",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:9e7b221c38ca3ebf3d53",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "act with decision"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:decision:a3f614a7ea1a5388",
+          "target_locator": "record.senses[1]",
+          "target_label": "果断，决断力"
         }
       }
     ],
@@ -5168,7 +5336,7 @@
     "ordinal": 1251,
     "word": "declaration",
     "source_owner_path": "content/lexical/words/by-ordinal/o1251.json",
-    "source_fingerprint": "2ac18829f1ea42c20b5daf75b0f046029e4861138f8de5e6dac5ceef9858e79c",
+    "source_fingerprint": "885d1df75237677966fe99ea74f4e53e0120e71421ebd349e36b6aedcad10d45",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5231,8 +5399,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（法律）陈述；证词",
-        "definition_en": "(law) unsworn statement that can be admitted in evidence in a legal transaction",
+        "definition_cn": "（法律）正式陈述；在适用条件下可作为证据的声明",
+        "definition_en": "a formal statement that may serve as evidence under applicable conditions",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5254,7 +5422,7 @@
           "target_kind": "sense",
           "target_id": "sense:declaration:2aef633e7a5a5b3a",
           "target_locator": "record.senses[1]",
-          "target_label": "（法律）陈述；证词"
+          "target_label": "（法律）正式陈述；在适用条件下可作为证据的声明"
         }
       },
       {
@@ -5324,8 +5492,16 @@
     "ordinal": 1252,
     "word": "declare",
     "source_owner_path": "content/lexical/words/by-ordinal/o1252.json",
-    "source_fingerprint": "1a61f0e870289c48e6f858624295f3432b3435f756ba17c215144e86c9e15a28",
-    "sense_lineage": [],
+    "source_fingerprint": "e296a717516c8967e3a257b33ac3205f8623176fcac5420aebe648610a887d85",
+    "sense_lineage": [
+      {
+        "word_id": "word:declare",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:31df7e0b2c42b0c907f8",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -5333,13 +5509,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "宣布，声明",
+      "summary_cn": "宣布、声明；向官方申报",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "宣布，声明"
+        "target_label": "宣布、声明；向官方申报"
       }
     },
     "senses": [
@@ -5410,13 +5586,8 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "declare + one's support",
             "meaning_cn": "表明支持",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:31df7e0b2c42b0c907f8",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "declare + one's support"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5513,7 +5684,7 @@
     "ordinal": 1253,
     "word": "decline",
     "source_owner_path": "content/lexical/words/by-ordinal/o1253.json",
-    "source_fingerprint": "15d39b0a6f5e42204e3f0cf8496c1d3800182bebfde1d0aa7825b36fa476b0f3",
+    "source_fingerprint": "4e71d77d5443b5e0fcd933c3220172e039ebf268abe28b8f54e035b91c74fdc4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5589,7 +5760,7 @@
         "id": "sense:decline:590dbd8b646250b6",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "decline (sth); decline to do sth",
         "definition_cn": "婉拒；谢绝",
         "definition_en": "to politely refuse to accept or do something",
         "note": "",
@@ -5717,8 +5888,8 @@
         "pattern": "decline to do sth",
         "lines": [
           {
-            "text": "politely refuse to do something",
-            "lang": "en"
+            "text": "婉拒或谢绝做某事",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -5742,7 +5913,7 @@
     "ordinal": 1254,
     "word": "decorate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1254.json",
-    "source_fingerprint": "577a75d1ba89bea0bf992df825120dc440fa0185f88e07a7c6bc3f9df8f1f692",
+    "source_fingerprint": "ed43d05cd40ad1db6eef98da9fa29f10e33b009ca95b52207fa44390210ae99f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5751,13 +5922,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "装饰",
+      "summary_cn": "装饰；授予勋章或荣誉",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "装饰"
+        "target_label": "装饰；授予勋章或荣誉"
       }
     },
     "senses": [
@@ -5862,8 +6033,16 @@
     "ordinal": 1255,
     "word": "decrease",
     "source_owner_path": "content/lexical/words/by-ordinal/o1255.json",
-    "source_fingerprint": "5c7c30d26daa79834a79ac9c8838e6a07604de4ec432b1334f557595b56c573e",
-    "sense_lineage": [],
+    "source_fingerprint": "2595eea8b775e4b6868818573613d1279407391866ec8561d1b6641e9de8bef7",
+    "sense_lineage": [
+      {
+        "word_id": "word:decrease",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:333263301002cbff3d09",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -5897,13 +6076,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "decrease + sth",
             "meaning_cn": "减少某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:333263301002cbff3d09",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "decrease + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6202,7 +6376,7 @@
     "ordinal": 1257,
     "word": "dedicate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1257.json",
-    "source_fingerprint": "ede8698e3ae1153b8b7f798872fb2f4e599764829d6249cd5221690e87264550",
+    "source_fingerprint": "2413fc985f05b57b57e227c7169202d4d947b9c52751f0b54cee5a4d110b3b29",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6225,9 +6399,9 @@
         "id": "sense:dedicate:da5486075aa055c9",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + sth to sb/sth",
-        "definition_cn": "把……奉献给；致力于",
-        "definition_en": "to give all your attention and effort to one particular task, purpose, or person",
+        "governing_pattern": "dedicate oneself/time/effort to sth/doing sth; dedicate a book/work to sb",
+        "definition_cn": "把人、时间或精力投入某事；把作品题献给某人",
+        "definition_en": "to devote oneself, time, or effort to a purpose; to honour somebody by dedicating a work to them",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6262,16 +6436,16 @@
           "target_kind": "sense",
           "target_id": "sense:dedicate:da5486075aa055c9",
           "target_locator": "record.senses[0]",
-          "target_label": "把……奉献给；致力于"
+          "target_label": "把人、时间或精力投入某事；把作品题献给某人"
         }
       },
       {
         "id": "sense:dedicate:a557b019f3a952be",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + sth (as a ceremony)",
-        "definition_cn": "为……举行落成仪式",
-        "definition_en": "to officially open a building or public place, often with a ceremony",
+        "governing_pattern": "dedicate a building/memorial (to sb/sth)",
+        "definition_cn": "举行仪式将建筑、纪念物等用于特定目的或纪念某人",
+        "definition_en": "to mark by ceremony the special purpose or commemorative significance of a building or object",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6288,7 +6462,7 @@
           "target_kind": "sense",
           "target_id": "sense:dedicate:a557b019f3a952be",
           "target_locator": "record.senses[1]",
-          "target_label": "为……举行落成仪式"
+          "target_label": "举行仪式将建筑、纪念物等用于特定目的或纪念某人"
         }
       }
     ],
@@ -6354,7 +6528,7 @@
     "ordinal": 1258,
     "word": "deduce",
     "source_owner_path": "content/lexical/words/by-ordinal/o1258.json",
-    "source_fingerprint": "e62a4422080d57d26f6ebd455ea6fb277a1a0184b98f34d52d581783aecbce53",
+    "source_fingerprint": "e0328286a6c81275eb9cd6d10eff63beb982c211a291eef8599537bcbe6fbfe4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6377,7 +6551,7 @@
         "id": "sense:deduce:ee7a2e049f3a54e7",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "deduce sth from sth",
+        "governing_pattern": "deduce sth from sth; deduce (from sth) that/what/how...",
         "definition_cn": "从证据推断出结论",
         "definition_en": "to infer or reach a conclusion from evidence",
         "note": "",
@@ -6422,7 +6596,7 @@
             "lang": "cn"
           },
           {
-            "text": "推断；演绎",
+            "text": "根据证据或信息推断",
             "lang": "cn"
           },
           {
@@ -6450,11 +6624,11 @@
           "target_word": "infer",
           "lines": [
             {
-              "text": "deduce 更强调演绎推理；infer 泛指由证据推断",
+              "text": "infer 与 deduce 都可根据证据作出推断，日常用法有很大重合；deduce 较正式，常强调推理过程。不要把 deduce 一律理解为严格逻辑演绎，也不要据此判定结论一定更可靠。",
               "lang": "cn"
             },
             {
-              "text": "reason by deduction; establish by deduction",
+              "text": "reach a conclusion by reasoning from evidence or information",
               "lang": "en"
             }
           ],
@@ -6635,7 +6809,7 @@
     "ordinal": 1260,
     "word": "deed",
     "source_owner_path": "content/lexical/words/by-ordinal/o1260.json",
-    "source_fingerprint": "153146054744df7a2502e40aa28e03a8dcffa84838c68277c831ff2094671495",
+    "source_fingerprint": "7aa243e759cf6d2cd0cd9561c1fc1439b789722d2ebf34ac84419189f5fb2393",
     "sense_lineage": [
       {
         "word_id": "word:deed",
@@ -6702,7 +6876,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "契约，证书",
-        "definition_en": "a legal document that shows who owns property or land",
+        "definition_en": "a formal legal document recording an agreement, especially concerning property",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6924,8 +7098,16 @@
     "ordinal": 1262,
     "word": "deep",
     "source_owner_path": "content/lexical/words/by-ordinal/o1262.json",
-    "source_fingerprint": "eba9467435b5d6b07c632aacb3947295766740888db10d06e4d813493954e283",
-    "sense_lineage": [],
+    "source_fingerprint": "aa8916649229a655e7bce060ec6113ab40e4468332f392f5e4ede5ee152d6b6a",
+    "sense_lineage": [
+      {
+        "word_id": "word:deep",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ddf480624344e7e37be1",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3A",
@@ -7035,19 +7217,6 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "dig deep"
             }
-          },
-          {
-            "id": "collocation:1a49544c680ecf7ecba0",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "deep in thought",
-            "meaning_cn": "陷入沉思",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1a49544c680ecf7ecba0",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "deep in thought"
-            }
           }
         ],
         "repair": {
@@ -7088,8 +7257,8 @@
         "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "深刻、深入的；涉及严肃理解或思考的",
-        "definition_en": "profound, thorough, or involving serious understanding or thought",
+        "definition_cn": "深刻、深入的；专注于思考或理解的",
+        "definition_en": "profound or involving serious understanding, thought, or absorption",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7098,12 +7267,20 @@
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "deep understanding/thought/analysis",
             "meaning_cn": "深入理解、深思或深度分析",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:1a49544c680ecf7ecba0",
+            "source_locator": "record.senses[4].collocations[1]",
+            "phrase": "deep in thought",
+            "meaning_cn": "陷入沉思",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:ddf480624344e7e37be1",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "deep understanding/thought/analysis"
+              "target_id": "collocation:1a49544c680ecf7ecba0",
+              "target_locator": "record.senses[4].collocations[1]",
+              "target_label": "deep in thought"
             }
           }
         ],
@@ -7111,7 +7288,7 @@
           "target_kind": "sense",
           "target_id": "sense:deep:18050805db468f35",
           "target_locator": "record.senses[4]",
-          "target_label": "深刻、深入的；涉及严肃理解或思考的"
+          "target_label": "深刻、深入的；专注于思考或理解的"
         }
       }
     ],
@@ -7158,7 +7335,7 @@
     "ordinal": 1263,
     "word": "deer",
     "source_owner_path": "content/lexical/words/by-ordinal/o1263.json",
-    "source_fingerprint": "6da529785e8d3c3a1eb77e3d24196b3f21a5e9848fa604a17f8e7bde91d14c8a",
+    "source_fingerprint": "7f7635a726a58ee92fa5650ab30e4236632e08eeaaf9e1604d4b2addf7bddb1f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7167,13 +7344,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有角的蹄类动物",
+      "summary_cn": "鹿",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有角的蹄类动物"
+        "target_label": "鹿"
       }
     },
     "senses": [
@@ -7183,7 +7360,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "鹿",
-        "definition_en": "a ruminant mammal with solid deciduous antlers in males",
+        "definition_en": "a hoofed ruminant mammal, usually with antlers in the males",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7280,18 +7457,26 @@
     "ordinal": 1264,
     "word": "default",
     "source_owner_path": "content/lexical/words/by-ordinal/o1264.json",
-    "source_fingerprint": "a79fe2384ad8aee8da19a57cac99b03bc20caeca3560736beb807cb5c1281c27",
-    "sense_lineage": [],
+    "source_fingerprint": "323835327d4e077b5138a08c153bcb28cee279078bf83d9ea40a1c855fd68796",
+    "sense_lineage": [
+      {
+        "word_id": "word:default",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:74cd2aa761f06940548b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "未履行义务或预设选项",
-      "decision_cn": "",
+      "decision_cn": "default on是未履行义务；default to是默认采用；by default表示未另作选择或因对方缺席形成的结果。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7305,23 +7490,18 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "违约；拖欠",
-        "definition_en": "act of failing to meet a financial obligation",
+        "definition_cn": "未履行义务；尤指违约、拖欠款项",
+        "definition_en": "failure to fulfil an obligation, especially a payment obligation",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:74cd2aa761f06940548b",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "default on + sth",
-            "meaning_cn": "在...上违约",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:74cd2aa761f06940548b",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "default on + sth"
-            }
+            "phrase": "a default on a loan",
+            "meaning_cn": "贷款违约",
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:2d68b659893964109a04",
@@ -7341,7 +7521,7 @@
           "target_kind": "sense",
           "target_id": "sense:default:bd26cea7a14d5e2c",
           "target_locator": "record.senses[0]",
-          "target_label": "违约；拖欠"
+          "target_label": "未履行义务；尤指违约、拖欠款项"
         }
       },
       {
@@ -7349,8 +7529,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vi. + on",
-        "definition_cn": "违约；拖欠",
-        "definition_en": "fail to pay up",
+        "definition_cn": "未履行义务；违约、拖欠",
+        "definition_en": "fail to fulfil an obligation, especially to pay",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7372,7 +7552,7 @@
           "target_kind": "sense",
           "target_id": "sense:default:431f16107ea85e14",
           "target_locator": "record.senses[1]",
-          "target_label": "违约；拖欠"
+          "target_label": "未履行义务；违约、拖欠"
         }
       },
       {
@@ -7380,7 +7560,7 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "缺席",
+        "definition_cn": "因未到场或未履行要求而被判失利",
         "definition_en": "loss due to not showing up",
         "note": "",
         "identity_overlay": null,
@@ -7389,7 +7569,7 @@
           "target_kind": "sense",
           "target_id": "sense:default:12097297392a5782",
           "target_locator": "record.senses[2]",
-          "target_label": "缺席"
+          "target_label": "因未到场或未履行要求而被判失利"
         }
       },
       {
@@ -7407,6 +7587,32 @@
           "target_id": "sense:default:836aee9f2d66537d",
           "target_locator": "record.senses[3]",
           "target_label": "预设的选项或设置"
+        }
+      },
+      {
+        "id": "sense:default:884c5e2b61324bc2",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "default to sth",
+        "definition_cn": "默认采用；未另作选择时自动采用",
+        "definition_en": "use or choose something automatically unless another choice is made",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:900d06dbb5fbb633dbe6",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "default to the simplest option",
+            "meaning_cn": "默认采用最简单的选项",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:default:884c5e2b61324bc2",
+          "target_locator": "record.senses[4]",
+          "target_label": "默认采用；未另作选择时自动采用"
         }
       }
     ],
@@ -7781,8 +7987,12 @@
         "pattern": "by default",
         "lines": [
           {
-            "text": "在预设情况下",
+            "text": "未作其他选择时自然采用或形成；比赛中也可指因对手缺席等而获胜",
             "lang": "cn"
+          },
+          {
+            "text": "by default can describe an automatic outcome without an alternative choice, or a win because the opponent fails to appear or meet requirements; it need not mean deliberately preset.",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -7806,18 +8016,26 @@
     "ordinal": 1265,
     "word": "defeat",
     "source_owner_path": "content/lexical/words/by-ordinal/o1265.json",
-    "source_fingerprint": "3b605af93b60e435e7e774ba4960ba772ac948b73762c0320ff6723baa9bc43b",
-    "sense_lineage": [],
+    "source_fingerprint": "868b0f3919f571c8d28ebf3f3d4b908ed6e968904a125ec6a196cbcec82aa515",
+    "sense_lineage": [
+      {
+        "word_id": "word:defeat",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f8e039411aa1bb18b9f5",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
+        "3V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "击败；失败",
-      "decision_cn": "",
+      "decision_cn": "defeat sb可指击败对手；问题作主语可指难倒人；defeat a plan/purpose是使计划或目的落空，提案被defeated可指表决未通过。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7849,13 +8067,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "defeat sb in a match",
             "meaning_cn": "在比赛中击败某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f8e039411aa1bb18b9f5",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "defeat sb in a match"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7870,8 +8083,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "失败；战败",
-        "definition_en": "the act of losing a game, battle, or competition",
+        "definition_cn": "失败；战败；未能实现目标",
+        "definition_en": "losing a contest or failing to achieve an aim",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7901,7 +8114,59 @@
           "target_kind": "sense",
           "target_id": "sense:defeat:0b2856a087515342",
           "target_locator": "record.senses[1]",
-          "target_label": "失败；战败"
+          "target_label": "失败；战败；未能实现目标"
+        }
+      },
+      {
+        "id": "sense:defeat:c8ff87e9e6420815",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "defeat a plan/purpose/proposal",
+        "definition_cn": "挫败计划、使目的落空；表决否决提案",
+        "definition_en": "cause a plan to fail or reject a proposal in a vote",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:49b70c37cdf45a8ccde2",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "defeat the purpose",
+            "meaning_cn": "使原本的目的落空",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:defeat:c8ff87e9e6420815",
+          "target_locator": "record.senses[2]",
+          "target_label": "挫败计划、使目的落空；表决否决提案"
+        }
+      },
+      {
+        "id": "sense:defeat:f85f921126b1b748",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "a problem defeats sb",
+        "definition_cn": "（问题等）难倒某人",
+        "definition_en": "be too difficult for someone to solve or accomplish",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:181db43986b60ffdbe51",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The puzzle defeated me.",
+            "meaning_cn": "这道谜题把我难住了。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:defeat:f85f921126b1b748",
+          "target_locator": "record.senses[3]",
+          "target_label": "（问题等）难倒某人"
         }
       }
     ],
@@ -8197,8 +8462,16 @@
     "ordinal": 1267,
     "word": "defend",
     "source_owner_path": "content/lexical/words/by-ordinal/o1267.json",
-    "source_fingerprint": "8e3598eae88a55140c37f31139d240f8fbdfc1279627ae3223553d1f2e3f837c",
-    "sense_lineage": [],
+    "source_fingerprint": "a3ea511e4c655f3b98346847c5f0e660c5be579e00b63d0063530a5622f5b540",
+    "sense_lineage": [
+      {
+        "word_id": "word:defend",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:7b5c727e655f39204889",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -8220,7 +8493,7 @@
         "id": "sense:defend:9d298eef1aa95e81",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "defend sb/sth (against/from sth)",
         "definition_cn": "保卫，防卫",
         "definition_en": "to protect against attack or challenge",
         "note": "",
@@ -8257,13 +8530,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "defend + sb/sth",
             "meaning_cn": "为某人/某事辩护",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:7b5c727e655f39204889",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "defend + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8361,7 +8629,7 @@
     "ordinal": 1268,
     "word": "defense",
     "source_owner_path": "content/lexical/words/by-ordinal/o1268.json",
-    "source_fingerprint": "e3801fe39f7621bb05642d53b2209b5d6dfd39d0057332108c7486a025e43c19",
+    "source_fingerprint": "fb11c70fdd05fc4ff5962b960ca6a02f89587db3a9b5c0dd26548f427bf3244b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8370,13 +8638,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "防御；防卫",
+      "summary_cn": "防御、防守；辩护、维护",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "防御；防卫"
+        "target_label": "防御、防守；辩护、维护"
       }
     },
     "senses": [
@@ -8437,8 +8705,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "辩护；答辩",
-        "definition_en": "the case made by or on behalf of someone accused in a court of law",
+        "definition_cn": "辩护；答辩；支持或维护某人某事的理由",
+        "definition_en": "arguments used to support or justify somebody or something, including in court",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8460,7 +8728,7 @@
           "target_kind": "sense",
           "target_id": "sense:defense:a4e9509e55aa5e6c",
           "target_locator": "record.senses[2]",
-          "target_label": "辩护；答辩"
+          "target_label": "辩护；答辩；支持或维护某人某事的理由"
         }
       }
     ],
@@ -8659,7 +8927,7 @@
     "ordinal": 1270,
     "word": "deficiency",
     "source_owner_path": "content/lexical/words/by-ordinal/o1270.json",
-    "source_fingerprint": "dc80278962e71a43d413312258efff38f103a61a7e67c223da1c7924fe2381f2",
+    "source_fingerprint": "0f08a6a1eaffab5b36716cbfa39bcb3dda19cb640bd465706e863019394196d2",
     "sense_lineage": [
       {
         "word_id": "word:deficiency",
@@ -8691,8 +8959,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "缺乏，不足（需要的东西缺失或不可用）",
-        "definition_en": "the state of needing something that is absent or unavailable",
+        "definition_cn": "缺乏；不足（所需事物欠缺或数量不够）",
+        "definition_en": "a lack or insufficient amount of something needed",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8730,7 +8998,7 @@
           "target_kind": "sense",
           "target_id": "sense:deficiency:49d101430e1d537b",
           "target_locator": "record.senses[0]",
-          "target_label": "缺乏，不足（需要的东西缺失或不可用）"
+          "target_label": "缺乏；不足（所需事物欠缺或数量不够）"
         }
       }
     ],
@@ -9111,7 +9379,7 @@
     "ordinal": 1273,
     "word": "definite",
     "source_owner_path": "content/lexical/words/by-ordinal/o1273.json",
-    "source_fingerprint": "26f3e2fbf0dbab130699280342ee324f41468f47d5d084bba5e9aa8a2a4417e5",
+    "source_fingerprint": "6e94eca3772f25802dc7920efb740ca9e2a64b082a0cccd5c4fbedefd99e19e5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9171,14 +9439,14 @@
         "governing_pattern": "",
         "definition_cn": "肯定的；一定的",
         "definition_en": "known for certain; not vague",
-        "note": "",
+        "note": "definite possibility强调这种可能性确实存在；确定的是可能性，不是结果必然发生。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:0438fb2a717f2f14d9b5",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "definite possibility",
-            "meaning_cn": "肯定的可能性",
+            "meaning_cn": "确实存在的可能性（不等于事情肯定发生）",
             "kind": "usage_example",
             "repair": null
           }
@@ -9252,7 +9520,7 @@
     "ordinal": 1274,
     "word": "definition",
     "source_owner_path": "content/lexical/words/by-ordinal/o1274.json",
-    "source_fingerprint": "3acadeac760988a57dbaefc88a69c7881222683a1c95baba1eaac13cf21de5c3",
+    "source_fingerprint": "80e2788093cc732a49636b8f32e73a9036e4249a119d44bb55a09f9887736b41",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9261,13 +9529,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "定义",
+      "summary_cn": "定义、释义；图像或轮廓的清晰度",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "定义"
+        "target_label": "定义、释义；图像或轮廓的清晰度"
       }
     },
     "senses": [
@@ -9285,7 +9553,7 @@
             "id": "collocation:0ca6a4848ae1e9e61e9f",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "by definition",
-            "meaning_cn": "按照定义；当然地",
+            "meaning_cn": "按定义；由事物的本质或定义必然如此",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -9407,7 +9675,7 @@
     "ordinal": 1275,
     "word": "defy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1275.json",
-    "source_fingerprint": "d9d2f035027db204de36dd66a4c57be7233f97edbe5b8904ebe239f7d2e1a00a",
+    "source_fingerprint": "0a006bfe6231569a1ba33498a14789723eea81b05b4e21aee7f0aeb013bdf508",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9417,7 +9685,7 @@
     },
     "word_feel": {
       "summary_cn": "违抗",
-      "decision_cn": "",
+      "decision_cn": "defy authority是违抗；defy explanation/solution是难以解释或解决；defy sb to do是挑战对方，认为对方办不到。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9456,9 +9724,9 @@
         "id": "sense:defy:bfb13a84318d5660",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使难以理解；使落空",
-        "definition_en": "to be impossible to understand or explain",
+        "governing_pattern": "defy explanation/description/solution",
+        "definition_cn": "使难以解释、理解或解决；使相应尝试无效",
+        "definition_en": "resist explanation, understanding or solution",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9475,16 +9743,16 @@
           "target_kind": "sense",
           "target_id": "sense:defy:bfb13a84318d5660",
           "target_locator": "record.senses[1]",
-          "target_label": "使难以理解；使落空"
+          "target_label": "使难以解释、理解或解决；使相应尝试无效"
         }
       },
       {
         "id": "sense:defy:55c84b8dc6465681",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "向…挑战；激",
-        "definition_en": "to challenge someone to do something",
+        "governing_pattern": "defy sb to do sth",
+        "definition_cn": "向某人挑战，认为对方办不到所说的事",
+        "definition_en": "to challenge somebody to do something that you believe they cannot do",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9492,7 +9760,7 @@
             "id": "collocation:123eeae20fbc9b2ec6a3",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "defy someone to do something",
-            "meaning_cn": "激某人做某事",
+            "meaning_cn": "挑战某人做某事，认为对方办不到",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -9506,7 +9774,7 @@
           "target_kind": "sense",
           "target_id": "sense:defy:55c84b8dc6465681",
           "target_locator": "record.senses[2]",
-          "target_label": "向…挑战；激"
+          "target_label": "向某人挑战，认为对方办不到所说的事"
         }
       }
     ],
@@ -9756,7 +10024,7 @@
     "ordinal": 1277,
     "word": "degree",
     "source_owner_path": "content/lexical/words/by-ordinal/o1277.json",
-    "source_fingerprint": "0c54935bd07b2628906a95b670f71dd0a9b06a3b34b8ba1bcd63a0bdf229120c",
+    "source_fingerprint": "a5f702c02114c8785a440f7edf250140b8b9cb4740e2cff5ede15fafa4521e8b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9765,13 +10033,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "某事物的程度或等级",
+      "summary_cn": "程度、等级；温度或角度的度；学位",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "某事物的程度或等级"
+        "target_label": "程度、等级；温度或角度的度；学位"
       }
     },
     "senses": [
@@ -10123,7 +10391,7 @@
     "ordinal": 1279,
     "word": "delegate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1279.json",
-    "source_fingerprint": "8e93795ba56ce8367ad28db994ca8d67ddbb35ff19e2a127fd470d71f482a93b",
+    "source_fingerprint": "e2fe227972e701db56c5c9ecee46d0106791e0251b312b3e2577907ddd7112cd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10178,7 +10446,7 @@
         "id": "sense:delegate:ab0e849d38fc52de",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "delegate (sth) (to sb)",
         "definition_cn": "委派，授权",
         "definition_en": "to give a task or responsibility to someone",
         "note": "",
@@ -10301,8 +10569,16 @@
     "ordinal": 1280,
     "word": "delete",
     "source_owner_path": "content/lexical/words/by-ordinal/o1280.json",
-    "source_fingerprint": "d74942eaa61d8feb2342fec921a6a05080779f3a5acceb6c134230a7a4250269",
-    "sense_lineage": [],
+    "source_fingerprint": "16198a62c9454f2146a01edb780cf4cb98558899b3bdb7d9741d7a2c7aa38edf",
+    "sense_lineage": [
+      {
+        "word_id": "word:delete",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:00055c3fa83220455380",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -10335,13 +10611,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "delete + sth",
             "meaning_cn": "删除某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:00055c3fa83220455380",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "delete + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:e8c0e37262a4e444bc50",

@@ -28,19 +28,20 @@
           ]
         },
         {
-          "label_cn": "舔食，舔；（水）轻拍，冲刷",
-          "label_en": "to drink by taking up liquid with the tongue; to move gently against something, making soft sounds",
+          "label_cn": "舔食，舔；（水）轻拍，冲刷；在比赛中超过某人一整圈或更多圈；套圈",
+          "label_en": "to drink by taking up liquid with the tongue; to move gently against something, making soft sounds; to pass a competitor who is at least one full circuit behind",
           "pos": "verb",
           "sense_ids": [
             "sense:lap:a939ae6967df5f3c",
-            "sense:lap:2de0bfd550695752"
+            "sense:lap:2de0bfd550695752",
+            "sense:lap:798d6e48ef7c091f"
           ]
         }
       ],
-      "core_meaning_cn": "大腿部；舔",
-      "core_meaning_en": "the top of the legs when sitting; to drink with the tongue",
-      "mental_model_cn": "大腿部；舔",
-      "mental_model_en": ""
+      "core_meaning_cn": "坐着时的膝上；赛道一圈；舔食；水轻拍；套圈",
+      "core_meaning_en": "the seated lap or a circuit; to lap liquid, water to lap, or to lap a competitor",
+      "mental_model_cn": "膝上 → hold on your lap；跑道 → 一圈；动物 → 舔食；水 → 轻拍；lap another runner → 超过一圈，非舔人。lap sth up → 热切享受、接受或相信。",
+      "mental_model_en": "the seated lap or a circuit; to lap liquid, water to lap, or to lap a competitor."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -144,6 +145,28 @@
         "sense_label_en": "to move gently against something, making soft sounds",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:lap:798d6e48ef7c091f",
+        "pos": "verb",
+        "definition_cn": "在比赛中超过某人一整圈或更多圈；套圈",
+        "definition_en": "to pass a competitor who is at least one full circuit behind",
+        "sense_label_en": "to pass a competitor who is at least one full circuit behind",
+        "governing_pattern": "lap another runner/competitor",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:078febb1a58abe7f0a86",
+            "phrase": "lap the slower runners",
+            "meaning_cn": "对较慢的跑者套圈",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -190,6 +213,23 @@
           "applicability": [
             {
               "surface": "lap"
+            },
+            {
+              "surface": "lap",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:lap:798d6e48ef7c091f"
+              ],
+              "owner_sense_ids": [
+                "sense:lap:798d6e48ef7c091f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2747.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "lap another runner/competitor"
             }
           ],
           "sources": [
@@ -501,13 +541,22 @@
         "merged_into_sense_id": null,
         "source_row": 7601,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
+      },
+      {
+        "sense_id": "sense:lap:798d6e48ef7c091f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2747.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:12913ede138f92eccea6",
+      "collocation:ed94b87b369edac553ec",
       "collocation:13a74a3ac4881fffe86a",
       "collocation:9c3e6f43313042278229",
-      "collocation:ed94b87b369edac553ec"
+      "collocation:078febb1a58abe7f0a86"
     ],
     "facts": [],
     "collocations": [
@@ -535,6 +584,13 @@
         "id": "collocation:ed94b87b369edac553ec",
         "source_row": 20132,
         "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:078febb1a58abe7f0a86",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2747.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -20,17 +20,19 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "过滤器；滤波器",
-          "label_en": "device that removes something from whatever passes through it; an electrical device that alters the frequency spectrum of signals passing through it",
+          "label_cn": "过滤器；滤波器；（处理照片、图像的）滤镜效果；（筛选数据、邮件等的）过滤程序或功能",
+          "label_en": "device that removes something from whatever passes through it; an electrical device that alters the frequency spectrum of signals passing through it; an effect used to change the appearance of an image; a program or function that selects data or removes unwanted items",
           "pos": "noun",
           "sense_ids": [
             "sense:filter:a1a5ddfabba8595d",
-            "sense:filter:7f94a71e21395ddf"
+            "sense:filter:7f94a71e21395ddf",
+            "sense:filter:f9fcd7e66ecae2b1",
+            "sense:filter:c7b69f05d0d7c7b5"
           ]
         },
         {
-          "label_cn": "过滤；渗透，渗入",
-          "label_en": "remove by passing through a filter; pass through a filter or slowly through something",
+          "label_cn": "过滤；滤除；渗透，渗入",
+          "label_en": "to pass a liquid or gas through a filter to remove unwanted matter, or remove matter in this way; pass through a filter or slowly through something",
           "pos": "verb",
           "sense_ids": [
             "sense:filter:bdaaef25e3685f62",
@@ -38,9 +40,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "过滤器或过滤",
-      "core_meaning_en": "a device that removes something or to pass through a filter",
-      "mental_model_cn": "过滤器或过滤",
+      "core_meaning_cn": "过滤装置或滤镜；数据筛选；过滤或逐渐传入",
+      "core_meaning_en": "a filter or image effect; data selection; remove or pass gradually",
+      "mental_model_cn": "液体/气体过滤、光声频率滤波与数字图像效果或数据筛选按对象区分；light/news filters through是逐渐透入/传到。filter out是筛除不需要的内容。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -81,7 +83,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:5bff1768560567297358",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:filter:bdaaef25e3685f62:collocation:0"
             ],
@@ -99,14 +101,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "过滤",
-        "definition_en": "remove by passing through a filter",
+        "definition_cn": "过滤；滤除",
+        "definition_en": "to pass a liquid or gas through a filter to remove unwanted matter, or remove matter in this way",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:filter:bdaaef25e3685f62",
-        "sense_label_en": "remove by passing through a filter",
+        "sense_label_en": "to pass a liquid or gas through a filter to remove unwanted matter, or remove matter in this way",
         "sort_order": 2,
         "transitivity": "vt"
       },
@@ -130,7 +132,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:filter:7f94a71e21395ddf",
-        "sense_label_en": "an electrical device that alters the frequency spectrum of signals passi",
+        "sense_label_en": "an electrical device that alters the frequency spectrum of signals passing through it",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -166,6 +168,50 @@
         "sense_label_en": "pass through a filter or slowly through something",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:filter:f9fcd7e66ecae2b1",
+        "pos": "noun",
+        "definition_cn": "（处理照片、图像的）滤镜效果",
+        "definition_en": "an effect used to change the appearance of an image",
+        "sense_label_en": "an effect used to change the appearance of an image",
+        "governing_pattern": "countable: apply/use an image filter",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0bc49cdd3590a1995137",
+            "phrase": "apply a filter to a photo",
+            "meaning_cn": "给照片应用滤镜",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:filter:c7b69f05d0d7c7b5",
+        "pos": "noun",
+        "definition_cn": "（筛选数据、邮件等的）过滤程序或功能",
+        "definition_en": "a program or function that selects data or removes unwanted items",
+        "sense_label_en": "a program or function that selects data or removes unwanted items",
+        "governing_pattern": "countable: a spam/search filter",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:67c63886cc4cb8371665",
+            "phrase": "a spam filter",
+            "meaning_cn": "垃圾邮件过滤程序",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -206,6 +252,40 @@
           "applicability": [
             {
               "surface": "filter"
+            },
+            {
+              "surface": "filter",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:filter:f9fcd7e66ecae2b1"
+              ],
+              "owner_sense_ids": [
+                "sense:filter:f9fcd7e66ecae2b1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1924.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "countable: apply/use an image filter"
+              }
+            },
+            {
+              "surface": "filter",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:filter:c7b69f05d0d7c7b5"
+              ],
+              "owner_sense_ids": [
+                "sense:filter:c7b69f05d0d7c7b5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1924.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "countable: a spam/search filter"
+              }
             }
           ],
           "sources": [
@@ -392,6 +472,22 @@
         "merged_into_sense_id": null,
         "source_row": 5299,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
+      },
+      {
+        "sense_id": "sense:filter:f9fcd7e66ecae2b1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1924.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:filter:c7b69f05d0d7c7b5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1924.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -399,7 +495,6 @@
       "collocation:06a457239cc62519c344",
       "collocation:33bf27dbdc0485f37561",
       "collocation:576f8def2c79161119f0",
-      "collocation:5bff1768560567297358",
       "collocation:8d9fa98b37018a7531ea"
     ],
     "facts": [],
@@ -427,12 +522,28 @@
       {
         "id": "collocation:5bff1768560567297358",
         "source_row": 7743,
-        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:8d9fa98b37018a7531ea",
         "source_row": 12012,
         "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:0bc49cdd3590a1995137",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1924.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:67c63886cc4cb8371665",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1924.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

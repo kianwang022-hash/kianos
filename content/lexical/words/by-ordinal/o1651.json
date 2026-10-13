@@ -10,9 +10,9 @@
     "content_hash": "959451cc3ed5a31943b6837a23045612454a747559777d47c324cceb01164220",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "敌人",
-      "core_meaning_en": "a person or group that is opposed to or fights against another",
-      "mental_model_cn": "敌人",
+      "core_meaning_cn": "敌对的人或势力；另指损害或阻碍某事的因素",
+      "core_meaning_en": "a hostile person or force; also a factor that harms or opposes something",
+      "mental_model_cn": "人际、政治或战争语境指敌对方；抽象事物作enemy时，表示它损害或妨碍另一事物。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -112,6 +112,26 @@
         "sense_label_en": "any hostile group of people",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:enemy:043f02745539a888",
+        "pos": "noun",
+        "definition_cn": "有害或妨碍某事的事物",
+        "definition_en": "something that harms another thing or prevents it from succeeding",
+        "sense_label_en": "something that harms another thing or prevents it from succeeding",
+        "governing_pattern": "the enemy of sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:enemy:6e430a90017b8310",
+            "phrase": "the enemy of progress",
+            "meaning_cn": "进步的阻碍",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "direction": "R",
+        "usage_note": "正式或比喻语境可把某种习惯、因素称作enemy；它不必是人、国家或军队。"
       }
     ],
     "verification_summary": {
@@ -152,6 +172,29 @@
           "applicability": [
             {
               "surface": "enemy"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "enemy",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:enemy:043f02745539a888"
+              ],
+              "sense_ids": [
+                "sense:enemy:043f02745539a888"
+              ],
+              "excluded_sense_ids": [
+                "sense:enemy:7cd6fa4bc0755a43",
+                "sense:enemy:b019828fb53f50a3",
+                "sense:enemy:d4499bdd69175929"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/enemy",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -218,6 +261,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/enemy",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "enemy",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ˈɛnəmi/",
+              "applies_to_sense_ids": [
+                "sense:enemy:043f02745539a888"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         }
@@ -248,6 +307,14 @@
         "merged_into_sense_id": null,
         "source_row": 4575,
         "source_path": "content/lexical/canonical/senses/shards/o1633-1664.json"
+      },
+      {
+        "sense_id": "sense:enemy:043f02745539a888",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1651.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -255,7 +322,8 @@
       "collocation:92bf4f2f117c41463818",
       "collocation:978483280d88abfdcc2e",
       "collocation:9f5581d6e14849a6e6ee",
-      "collocation:ef5a22b1f60160adfaac"
+      "collocation:ef5a22b1f60160adfaac",
+      "collocation:enemy:6e430a90017b8310"
     ],
     "facts": [],
     "collocations": [
@@ -283,6 +351,14 @@
         "id": "collocation:ef5a22b1f60160adfaac",
         "source_row": 20277,
         "source_path": "content/lexical/canonical/collocations/shards/o1633-1664.json"
+      },
+      {
+        "id": "collocation:enemy:6e430a90017b8310",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1651.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

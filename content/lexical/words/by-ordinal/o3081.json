@@ -27,12 +27,20 @@
           "sense_ids": [
             "sense:mission:c1c34f69c2b45d1a"
           ]
+        },
+        {
+          "label_cn": "使团；代表团及其办事处",
+          "label_en": "a group carrying out an official assignment, or its workplace",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mission:4201ac73cb678f36"
+          ]
         }
       ],
-      "core_meaning_cn": "被指派的任务或使命",
-      "core_meaning_en": "a specific task or purpose, often assigned or religious",
-      "mental_model_cn": "被指派的任务或使命",
-      "mental_model_en": ""
+      "core_meaning_cn": "任务、使命与宗旨；使团或传教工作；派遣",
+      "core_meaning_en": "an assignment or guiding purpose; an official delegation or missionary work; send on an assignment",
+      "mental_model_cn": "任务与个人或机构宗旨是不同侧面；mission还可指执行任务的代表团及办事处，传教工作不必只在外国。",
+      "mental_model_en": "an assignment or guiding purpose; an official delegation or missionary work; send on an assignment."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -81,16 +89,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "传教团，传教机构",
-        "definition_en": "an organization of missionaries in a foreign land sent to carry on religious work",
+        "definition_cn": "传教活动；传教团、传教机构",
+        "definition_en": "religious missionary work, especially abroad, or a group or institution doing that work",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:mission:7e714a1c2be55920",
-        "sense_label_en": "an organization of missionaries in a foreign land sent to carry on relig",
+        "sense_label_en": "religious missionary work, especially abroad, or a group or institution doing that work",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "常涉及基督教传播；especially abroad不表示必须在外国。"
       },
       {
         "collocations": [
@@ -139,6 +148,28 @@
         "sense_label_en": "the main purpose or aim that a person or organization is trying to achieve",
         "sort_order": 999,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:mission:4201ac73cb678f36",
+        "pos": "noun",
+        "definition_cn": "使团；代表团及其办事处",
+        "definition_en": "a group carrying out an official assignment, or its workplace",
+        "sense_label_en": "a group carrying out an official assignment, or its workplace",
+        "governing_pattern": "a diplomatic/trade mission; head of the mission",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c64fa9eb860e7744ff44",
+            "phrase": "a diplomatic mission",
+            "meaning_cn": "外交使团",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -168,6 +199,24 @@
           "applicability": [
             {
               "surface": "mission"
+            },
+            {
+              "surface": "mission",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mission:4201ac73cb678f36"
+              ],
+              "owner_sense_ids": [
+                "sense:mission:4201ac73cb678f36"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3081.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a diplomatic/trade mission; head of the mission",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -261,13 +310,22 @@
         "merged_into_sense_id": null,
         "source_row": 8585,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:mission:4201ac73cb678f36",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3081.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:12c7efbe0f4cf28d1c1f",
-      "collocation:16f05ac7e4ebf7022cac",
       "collocation:7269bf2937cb1cd6ce38",
-      "collocation:d7188696f2dfd89047f6"
+      "collocation:d7188696f2dfd89047f6",
+      "collocation:16f05ac7e4ebf7022cac",
+      "collocation:12c7efbe0f4cf28d1c1f",
+      "collocation:c64fa9eb860e7744ff44"
     ],
     "facts": [],
     "collocations": [
@@ -295,6 +353,13 @@
         "id": "collocation:3d5a319e76906a16036d",
         "source_row": 21139,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:c64fa9eb860e7744ff44",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3081.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

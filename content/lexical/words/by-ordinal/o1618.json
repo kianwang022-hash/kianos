@@ -10,9 +10,9 @@
     "content_hash": "45014bc9c347a7e529d6859a6260c33e5bbb53d3ab1f293a8f516f24abca1656",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "体现，具体化",
-      "core_meaning_en": "represent or express in tangible form",
-      "mental_model_cn": "体现，具体化",
+      "core_meaning_cn": "体现抽象理念；包含或纳入整体",
+      "core_meaning_en": "to express an idea in concrete form, or include something within a whole",
+      "mental_model_cn": "主体可体现理念或品质；文书、体系也可包含某项规定或把它纳入其中。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -27,7 +27,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:a67e0cd00c59ce94679a",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:embody:cf6187971c925d7f:collocation:0"
             ],
@@ -55,6 +55,25 @@
         "sense_label_en": "represent or express something abstract in tangible form",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:embody:21cb0d53ffe5e214",
+        "pos": "verb",
+        "definition_cn": "包含；把……纳入整体、体系或文书",
+        "definition_en": "to include or incorporate something as part of a whole, system, or document",
+        "sense_label_en": "to include or incorporate something as part of a whole, system, or document",
+        "governing_pattern": "embody sth in sth; sth is embodied in sth; a document embodies sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:embody:89463f62a48b6a56",
+            "phrase": "embody a proposal in a report",
+            "meaning_cn": "把提议纳入报告",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "可指提议或规定被纳入文件；此处强调包含/纳入，不仅是象征某种精神。"
       }
     ],
     "verification_summary": {
@@ -148,6 +167,27 @@
           "applicability": [
             {
               "surface": "embody"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "embody",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:embody:21cb0d53ffe5e214"
+              ],
+              "sense_ids": [
+                "sense:embody:21cb0d53ffe5e214"
+              ],
+              "excluded_sense_ids": [
+                "sense:embody:cf6187971c925d7f"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/embody",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -181,6 +221,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/embody",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "embody",
+                "pos": "verb"
+              },
+              "existing_observed_ipa_unchanged": "/ɪmˈbɒdi/",
+              "applies_to_sense_ids": [
+                "sense:embody:21cb0d53ffe5e214"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         }
@@ -197,23 +253,41 @@
         "merged_into_sense_id": null,
         "source_row": 4507,
         "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
+      },
+      {
+        "sense_id": "sense:embody:21cb0d53ffe5e214",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1618.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
-      "collocation:a67e0cd00c59ce94679a",
-      "collocation:f9f8c0516865eee74367"
+      "collocation:f9f8c0516865eee74367",
+      "collocation:embody:89463f62a48b6a56"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:a67e0cd00c59ce94679a",
         "source_row": 14124,
-        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f9f8c0516865eee74367",
         "source_row": 21168,
         "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      },
+      {
+        "id": "collocation:embody:89463f62a48b6a56",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1618.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

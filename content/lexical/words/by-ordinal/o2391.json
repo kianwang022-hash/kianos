@@ -9,11 +9,23 @@
     "constructions": [],
     "content_hash": "471ad5472d04c4a8a617de1252b06645479fde7467e129f41547d7f4b6c079e7",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "盘旋，徘徊",
-      "core_meaning_en": "to stay in the air or remain in one place",
-      "mental_model_cn": "盘旋，徘徊",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "悬停；在空中停留；犹豫，摇摆不定；维持在某一水平附近；徘徊在某数值左右；（人在附近）徘徊、迟疑地等候",
+          "label_en": "to remain in roughly one position in the air; be undecided about something; waver between conflicting positions or courses of action; to remain at or near a particular level, figure, or value; to linger nearby uncertainly",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:hover:30bc81a34dad5c36",
+            "sense:hover:0edd5abb528c5d68",
+            "sense:hover:506d53ffa001297b",
+            "sense:hover:6d2e1400d6377153"
+          ]
+        }
+      ],
+      "core_meaning_cn": "悬停；人在附近迟疑等候；在选择间犹豫或在数值附近徘徊",
+      "core_meaning_en": "hover in the air, linger nearby, waver or stay near a level",
+      "mental_model_cn": "停在某处或边界附近；物理悬停、人等候、数值和选择分别看主语。",
+      "mental_model_en": "hover in the air, linger nearby, waver or stay near a level."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -33,7 +45,7 @@
             "legacy_source_object_ids": [
               "sense:hover:30bc81a34dad5c36:collocation:0"
             ],
-            "meaning_cn": "在某物上方盘旋",
+            "meaning_cn": "在某物上方悬停",
             "phrase": "hover over + sth"
           },
           {
@@ -42,19 +54,19 @@
             "legacy_source_object_ids": [
               "sense:hover:30bc81a34dad5c36:collocation:1"
             ],
-            "meaning_cn": "在空中盘旋",
+            "meaning_cn": "悬停在空中",
             "phrase": "hover in the air"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "盘旋",
-        "definition_en": "hang in the air; fly or be suspended above",
+        "definition_cn": "悬停；在空中停留",
+        "definition_en": "to remain in roughly one position in the air",
         "governing_pattern": "vi. + over/around",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hover:30bc81a34dad5c36",
-        "sense_label_en": "hang in the air; fly or be suspended above",
+        "sense_label_en": "to remain in roughly one position in the air",
         "sort_order": 0,
         "transitivity": "vi"
       },
@@ -78,7 +90,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hover:0edd5abb528c5d68",
-        "sense_label_en": "be undecided about something; waver between conflicting positions or cou",
+        "sense_label_en": "be undecided about something; waver between conflicting positions or courses of action",
         "sort_order": 1,
         "transitivity": "vi"
       },
@@ -105,6 +117,29 @@
         "sense_label_en": "to remain at or near a particular level, figure, or value",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:hover:6d2e1400d6377153",
+        "pos": "verb",
+        "definition_cn": "（人在附近）徘徊、迟疑地等候",
+        "definition_en": "to linger nearby uncertainly",
+        "sense_label_en": "to linger nearby uncertainly",
+        "governing_pattern": "hover near/around/over sb; hover in a doorway",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:45c8884e66a7c5c679c3",
+            "phrase": "He hovered nervously in the doorway.",
+            "meaning_cn": "他紧张地在门口徘徊。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "不要求人在空中；数值在某水平附近或人犹豫选择，要看不同补语。"
       }
     ],
     "verification_summary": {
@@ -145,6 +180,23 @@
           "applicability": [
             {
               "surface": "hover"
+            },
+            {
+              "surface": "hover",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hover:6d2e1400d6377153"
+              ],
+              "owner_sense_ids": [
+                "sense:hover:6d2e1400d6377153"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2391.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hover near/around/over sb; hover in a doorway"
             }
           ],
           "sources": [
@@ -498,13 +550,22 @@
         "merged_into_sense_id": null,
         "source_row": 6699,
         "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      },
+      {
+        "sense_id": "sense:hover:6d2e1400d6377153",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2391.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:361b5df23738b82a5dff",
-      "collocation:5737e064adc73d1d2e83",
       "collocation:7c604f9bdb9291b186e2",
-      "collocation:c17596dc8fde88eedb96"
+      "collocation:5737e064adc73d1d2e83",
+      "collocation:361b5df23738b82a5dff",
+      "collocation:c17596dc8fde88eedb96",
+      "collocation:45c8884e66a7c5c679c3"
     ],
     "facts": [],
     "collocations": [
@@ -527,6 +588,13 @@
         "id": "collocation:c17596dc8fde88eedb96",
         "source_row": 21532,
         "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      },
+      {
+        "id": "collocation:45c8884e66a7c5c679c3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2391.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

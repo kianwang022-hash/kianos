@@ -6,13 +6,24 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:61066717e50d82ef2d46",
+        "pattern": "in sb’s (infinite) wisdom",
+        "meaning_cn": "（常讽刺）某人自以为英明地作出的决定",
+        "definition_en": "often ironic reference to what someone considers a wise decision",
+        "usage_note": "infinite可省；反讽对象是某人的判断，不是数学无穷量。",
+        "boundary": "infinite可省；反讽对象是某人的判断，不是数学无穷量。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "a27d1008443ffba1196caa886cdc9bb7635f271832caf7d625c02bf73e421c07",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "无限的；无穷的",
-          "label_en": "having no limits or boundaries in time, space, or extent",
+          "label_cn": "无限或极大",
+          "label_en": "unlimited or extremely great",
           "pos": "adjective",
           "sense_ids": [
             "sense:infinite:625b8ad0935f551a"
@@ -21,7 +32,7 @@
       ],
       "core_meaning_cn": "无限的；无穷的",
       "core_meaning_en": "without limits or end",
-      "mental_model_cn": "adjective infinite → 无限的/无穷的。名词 the Infinite = 无限/神 的哲学神学义保留为 Reference。",
+      "mental_model_cn": "adjective infinite → 无限的/无穷的。名词 the Infinite = 无限/神 的哲学神学义保留为 Reference。 patience/variety常是夸张“极大”；in sb’s (infinite) wisdom常讽刺自以为英明。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -33,18 +44,26 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:30184f52035a843dab9d",
+            "phrase": "infinite patience",
+            "meaning_cn": "极大的耐心",
+            "exam_value": "fixed_pattern"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "无限的；无穷的",
-        "definition_en": "having no limits or boundaries in time, space, or extent",
+        "definition_cn": "无限的；无穷的；极多或极大的",
+        "definition_en": "without an end or limit; also used emphatically for an extremely large amount or degree",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:infinite:625b8ad0935f551a",
-        "sense_label_en": "having no limits or boundaries in time, space, or extent",
+        "sense_label_en": "without an end or limit; also used emphatically for an extremely large amount or degree",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "数学/宇宙等语境可为严格无界；patience/variety等常为强调极大，并不声明可证明的实际无限。"
       }
     ],
     "verification_summary": {
@@ -471,7 +490,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:30184f52035a843dab9d"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -488,6 +509,13 @@
         "id": "collocation:f24f0242169463f69616",
         "source_row": 20532,
         "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+      },
+      {
+        "id": "collocation:30184f52035a843dab9d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2525.json",
+        "source_pointer": "/record/senses/0/collocations/0"
       }
     ],
     "exam-mappings": [],

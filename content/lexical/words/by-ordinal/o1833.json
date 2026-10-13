@@ -33,8 +33,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "脸，面孔；外观，表面",
-          "label_en": "the front part of the head from forehead to chin; the general outward appearance of something",
+          "label_cn": "脸或物体外表",
+          "label_en": "face, surface, or outward appearance",
           "pos": "noun",
           "sense_ids": [
             "sense:face:88f430a08834544f",
@@ -42,18 +42,26 @@
           ]
         },
         {
-          "label_cn": "面对，面临；朝向，面向",
-          "label_en": "to confront or deal with something; to be positioned with the front toward something",
+          "label_cn": "面对或朝向",
+          "label_en": "confront or be oriented towards",
           "pos": "verb",
           "sense_ids": [
             "sense:face:31591609f6455d37",
             "sense:face:2a03a6677a01508d"
           ]
+        },
+        {
+          "label_cn": "尊严、声望",
+          "label_en": "dignity or reputation",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:face:f74d0546c4220947"
+          ]
         }
       ],
-      "core_meaning_cn": "脸；面对",
-      "core_meaning_en": "front of the head; to confront",
-      "mental_model_cn": "脸；面对",
+      "core_meaning_cn": "脸或外表面；面对、朝向；尊严声望",
+      "core_meaning_en": "a face or outward surface; confront or face a direction; dignity or reputation",
+      "mental_model_cn": "人体指脸，钟表、岩壁等指正面或表面；动词接困难指面对，接方向指朝向。save/lose face中的face是他人眼中的尊严和声望。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -103,7 +111,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:06f2dc762ef340e1ee73",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:face:31591609f6455d37:collocation:0"
             ],
@@ -155,13 +163,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "外观，表面",
-        "definition_en": "the general outward appearance of something",
+        "definition_en": "the surface or front of an object, or its general outward appearance",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:face:5785c18ae3395e87",
-        "sense_label_en": "the general outward appearance of something",
+        "sense_label_en": "a surface/front or outward appearance",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -189,14 +197,42 @@
         "confidence": "medium",
         "definition_cn": "朝向，面向",
         "definition_en": "to be positioned with the front toward something",
-        "governing_pattern": "vi. + toward",
+        "governing_pattern": "face sb/sth; face north/south; face towards/toward sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:face:2a03a6677a01508d",
         "sense_label_en": "to be positioned with the front toward something",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:face:f74d0546c4220947",
+        "pos": "noun",
+        "definition_cn": "面子；尊严；声望",
+        "definition_en": "the respect or dignity that a person retains in the eyes of others",
+        "sense_label_en": "the respect or dignity that a person retains in the eyes of others",
+        "governing_pattern": "uncountable: save face; lose face",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ec5493f22754c070510e",
+            "phrase": "save face",
+            "meaning_cn": "保全面子、避免失去尊重",
+            "exam_value": "fixed_pattern"
+          },
+          {
+            "collocation_id": "collocation:c2d1199e10b1d803162f",
+            "phrase": "lose face",
+            "meaning_cn": "丢面子、失去尊重",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -248,6 +284,23 @@
           "applicability": [
             {
               "surface": "face"
+            },
+            {
+              "surface": "face",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:face:f74d0546c4220947"
+              ],
+              "owner_sense_ids": [
+                "sense:face:f74d0546c4220947"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1833.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "uncountable: save face; lose face"
+              }
             }
           ],
           "sources": [
@@ -386,10 +439,17 @@
         "merged_into_sense_id": null,
         "source_row": 5017,
         "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      },
+      {
+        "sense_id": "sense:face:f74d0546c4220947",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1833.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:06f2dc762ef340e1ee73",
       "collocation:0d7314edcd6121380229",
       "collocation:31514498263e6aab07ee",
       "collocation:4d8ca90b11d4f3b4f7ca",
@@ -403,7 +463,9 @@
       {
         "id": "collocation:06f2dc762ef340e1ee73",
         "source_row": 578,
-        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:0d7314edcd6121380229",
@@ -439,6 +501,20 @@
         "id": "collocation:eada6fb47821f71aad03",
         "source_row": 19896,
         "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      },
+      {
+        "id": "collocation:ec5493f22754c070510e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1833.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:c2d1199e10b1d803162f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1833.json",
+        "source_pointer": "/record/senses/4/collocations/1"
       }
     ],
     "exam-mappings": [],

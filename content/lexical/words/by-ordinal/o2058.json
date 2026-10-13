@@ -9,11 +9,24 @@
     "constructions": [],
     "content_hash": "d182afe4ec1646a0bd97f2ea2664bdfe02ff5ac6b5252fc7afd6e317f5a92fec",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "表示起点、来源或原因",
-      "core_meaning_en": "indicating starting point, source, or cause",
-      "mental_model_cn": "表示起点、来源或原因",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "从（表示地点、时间或数量的起点）；来自，源于；由于，因为；离开、免于或防止（表示分离、移除或防护的对象）；与……相比或相区别",
+          "label_en": "used to show a starting place, time, or amount; used to show the source or origin of something; used to show the cause or reason; used to mark what someone or something is separated, removed, or protected from; used to mark what something differs from or is distinguished from",
+          "pos": "preposition",
+          "sense_ids": [
+            "sense:from:5f18715c6fb252e8",
+            "sense:from:3e66b0e484af5602",
+            "sense:from:5812e318252e5753",
+            "sense:from:82bf740af070c8f3",
+            "sense:from:f695a4691d0edbe9"
+          ]
+        }
+      ],
+      "core_meaning_cn": "从起点、来源或原因；分离、防护或区别的对象",
+      "core_meaning_en": "a starting point, source, or cause; separation, protection, or distinction",
+      "mental_model_cn": "from地点、时间、价格为起点，from某人为来源，from某原因表示由于。protect from标防护对象，different from标区别对象；这些框架仍按各主词的义项理解。",
+      "mental_model_en": "a starting point, source, or cause; separation, protection, or distinction."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -35,24 +48,27 @@
             "phrase": "from A to B"
           },
           {
-            "collocation_id": "collocation:5cfc53f441493b5307e2",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:from:5f18715c6fb252e8:collocation:1"
-            ],
-            "meaning_cn": "来自某地",
-            "phrase": "come from + place"
+            "collocation_id": "collocation:d4990aecbaf56ea0888f",
+            "phrase": "from Monday",
+            "meaning_cn": "从星期一开始",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:118eaa05b93bd2aaeee4",
+            "phrase": "prices from ten pounds",
+            "meaning_cn": "价格十英镑起",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "从（表示起点）",
-        "definition_en": "used to show the starting point of a movement or action",
+        "definition_cn": "从（表示地点、时间或数量的起点）",
+        "definition_en": "used to show a starting place, time, or amount",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "preposition",
         "sense_id": "sense:from:5f18715c6fb252e8",
-        "sense_label_en": "used to show the starting point of a movement or action",
+        "sense_label_en": "used to show a starting place, time, or amount",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -69,12 +85,21 @@
           },
           {
             "collocation_id": "collocation:f34501f21e5eb4996536",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:from:3e66b0e484af5602:collocation:1"
             ],
             "meaning_cn": "从某来源",
             "phrase": "from + source"
+          },
+          {
+            "collocation_id": "collocation:5cfc53f441493b5307e2",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:from:5f18715c6fb252e8:collocation:1"
+            ],
+            "meaning_cn": "来自某地",
+            "phrase": "come from + place"
           }
         ],
         "confidence": "medium",
@@ -102,7 +127,7 @@
           },
           {
             "collocation_id": "collocation:db442911fbaccd94fb04",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:from:5812e318252e5753:collocation:1"
             ],
@@ -121,6 +146,50 @@
         "sense_label_en": "used to show the cause or reason",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:from:82bf740af070c8f3",
+        "pos": "preposition",
+        "definition_cn": "离开、免于或防止（表示分离、移除或防护的对象）",
+        "definition_en": "used to mark what someone or something is separated, removed, or protected from",
+        "sense_label_en": "used to mark what someone or something is separated, removed, or protected from",
+        "governing_pattern": "away from sth; remove A from B; protect sb from sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6c49eaeed0c2069fe6e7",
+            "phrase": "protect the plants from frost",
+            "meaning_cn": "保护植物免受霜冻",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:from:f695a4691d0edbe9",
+        "pos": "preposition",
+        "definition_cn": "与……相比或相区别",
+        "definition_en": "used to mark what something differs from or is distinguished from",
+        "sense_label_en": "used to mark what something differs from or is distinguished from",
+        "governing_pattern": "different from sth; distinguish A from B",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:15da0fc9c1f16d7e163c",
+            "phrase": "different from the original",
+            "meaning_cn": "与原来的不同",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -160,6 +229,40 @@
           "applicability": [
             {
               "surface": "from"
+            },
+            {
+              "surface": "from",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:from:82bf740af070c8f3"
+              ],
+              "owner_sense_ids": [
+                "sense:from:82bf740af070c8f3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2058.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "away from sth; remove A from B; protect sb from sth"
+              }
+            },
+            {
+              "surface": "from",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:from:f695a4691d0edbe9"
+              ],
+              "owner_sense_ids": [
+                "sense:from:f695a4691d0edbe9"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2058.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "different from sth; distinguish A from B"
+              }
             }
           ],
           "sources": [
@@ -277,14 +380,28 @@
         "merged_into_sense_id": null,
         "source_row": 5728,
         "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
+      },
+      {
+        "sense_id": "sense:from:82bf740af070c8f3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2058.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:from:f695a4691d0edbe9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2058.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:339245e524e101e7ec76",
       "collocation:5cfc53f441493b5307e2",
       "collocation:cb1e28d997a27dc3c593",
-      "collocation:db442911fbaccd94fb04",
-      "collocation:f34501f21e5eb4996536",
       "collocation:fbeec7d8eb95d5710244"
     ],
     "facts": [],
@@ -297,7 +414,8 @@
       {
         "id": "collocation:5cfc53f441493b5307e2",
         "source_row": 7827,
-        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json",
+        "sense_id": "sense:from:3e66b0e484af5602"
       },
       {
         "id": "collocation:cb1e28d997a27dc3c593",
@@ -307,17 +425,49 @@
       {
         "id": "collocation:db442911fbaccd94fb04",
         "source_row": 18554,
-        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f34501f21e5eb4996536",
         "source_row": 20603,
-        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:fbeec7d8eb95d5710244",
         "source_row": 21314,
         "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+      },
+      {
+        "id": "collocation:d4990aecbaf56ea0888f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2058.json",
+        "source_pointer": "/record/senses/0/collocations/1"
+      },
+      {
+        "id": "collocation:118eaa05b93bd2aaeee4",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2058.json",
+        "source_pointer": "/record/senses/0/collocations/2"
+      },
+      {
+        "id": "collocation:6c49eaeed0c2069fe6e7",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2058.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:15da0fc9c1f16d7e163c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2058.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

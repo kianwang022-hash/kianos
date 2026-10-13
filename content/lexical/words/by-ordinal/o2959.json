@@ -9,11 +9,24 @@
     "constructions": [],
     "content_hash": "7d5528bc2e0d7c54f65ccb460ae83c76186a23b84889e0f439f736d8002ef728",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "处于边缘的；极小的；勉强够的",
-      "core_meaning_en": "at the edge; minimal; barely sufficient",
-      "mental_model_cn": "处于边缘的；极小的；勉强够的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "边缘、微小或勉强够；非主流；边际变化；选举微弱票差",
+          "label_en": "at an edge; slight or barely adequate; outside the mainstream; incremental; electorally close",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:marginal:b5bc6dbabbfe54de",
+            "sense:marginal:80047e4857b759dd",
+            "sense:marginal:80fd7acba1d87e1e",
+            "sense:marginal:7b40be85108a75c1",
+            "sense:marginal:16d972c499ce48ab"
+          ]
+        }
+      ],
+      "core_meaning_cn": "边缘、微小或勉强够；非主流；边际变化；选举微弱票差",
+      "core_meaning_en": "at an edge; slight or barely adequate; outside the mainstream; incremental; electorally close",
+      "mental_model_cn": "marginal notes是页边注；marginal improvement很小；marginal groups不是主要群体；marginal cost是额外变化；marginal seat是选举竞争接近。",
+      "mental_model_en": "at an edge; slight or barely adequate; outside the mainstream; incremental; electorally close."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -33,15 +46,6 @@
             ],
             "meaning_cn": "旁注",
             "phrase": "marginal notes"
-          },
-          {
-            "collocation_id": "collocation:e5ee0cd229293f00d5ed",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:marginal:b5bc6dbabbfe54de:collocation:1"
-            ],
-            "meaning_cn": "边际土地",
-            "phrase": "marginal land"
           }
         ],
         "confidence": "medium",
@@ -66,6 +70,15 @@
             ],
             "meaning_cn": "微小的改进",
             "phrase": "marginal improvement"
+          },
+          {
+            "collocation_id": "collocation:e5ee0cd229293f00d5ed",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:marginal:b5bc6dbabbfe54de:collocation:1"
+            ],
+            "meaning_cn": "贫瘠、勉强可耕种或收益很低的土地",
+            "phrase": "marginal land"
           }
         ],
         "confidence": "medium",
@@ -78,7 +91,8 @@
         "sense_id": "sense:marginal:80047e4857b759dd",
         "sense_label_en": "very small in amount or effect; barely adequate",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "可指量或作用很小，也可指重要性很低：of marginal interest；marginal land指收益很低、勉强可耕种的土地，不是土地面积小。"
       },
       {
         "collocations": [
@@ -121,6 +135,50 @@
         "sense_label_en": "relating to the additional change, cost, benefit, or output from one extra unit",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:marginal:7b40be85108a75c1",
+        "pos": "adjective",
+        "definition_cn": "非主流的；不属于主要或重要群体的",
+        "definition_en": "outside a main or important group or situation",
+        "sense_label_en": "outside a main or important group or situation",
+        "governing_pattern": "marginal groups/languages",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:05409078e5311ad4366a",
+            "phrase": "marginal groups in society",
+            "meaning_cn": "社会中的边缘群体",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:marginal:16d972c499ce48ab",
+        "pos": "adjective",
+        "definition_cn": "（尤英式政治）以很小票差决定胜负的",
+        "definition_en": "won or lost by a very small number of votes",
+        "sense_label_en": "won or lost by a very small number of votes",
+        "governing_pattern": "a marginal seat/constituency",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1b4d4448fc451770d888",
+            "phrase": "a marginal constituency",
+            "meaning_cn": "胜负票差很小的选区",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -161,6 +219,40 @@
           "applicability": [
             {
               "surface": "marginal"
+            },
+            {
+              "surface": "marginal",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:marginal:7b40be85108a75c1"
+              ],
+              "owner_sense_ids": [
+                "sense:marginal:7b40be85108a75c1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2959.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "marginal groups/languages"
+            },
+            {
+              "surface": "marginal",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:marginal:16d972c499ce48ab"
+              ],
+              "owner_sense_ids": [
+                "sense:marginal:16d972c499ce48ab"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2959.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a marginal seat/constituency"
             }
           ],
           "sources": [
@@ -342,15 +434,33 @@
         "merged_into_sense_id": null,
         "source_row": 8301,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:marginal:7b40be85108a75c1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2959.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:marginal:16d972c499ce48ab",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2959.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:44039ead3bb8e0fe7bdb",
-      "collocation:c7ea74ffafa586f23e32",
       "collocation:da67f84a9dfc14d761ff",
+      "collocation:fcd7ef31bef8c5e5c7e2",
       "collocation:e5ee0cd229293f00d5ed",
+      "collocation:c7ea74ffafa586f23e32",
       "collocation:e697f4a41226b737624b",
-      "collocation:fcd7ef31bef8c5e5c7e2"
+      "collocation:44039ead3bb8e0fe7bdb",
+      "collocation:05409078e5311ad4366a",
+      "collocation:1b4d4448fc451770d888"
     ],
     "facts": [],
     "collocations": [
@@ -367,7 +477,8 @@
       {
         "id": "collocation:e5ee0cd229293f00d5ed",
         "source_row": 19475,
-        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json",
+        "sense_id": "sense:marginal:80047e4857b759dd"
       },
       {
         "id": "collocation:fcd7ef31bef8c5e5c7e2",
@@ -383,6 +494,20 @@
         "id": "collocation:e697f4a41226b737624b",
         "source_row": 21485,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:05409078e5311ad4366a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2959.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:1b4d4448fc451770d888",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2959.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

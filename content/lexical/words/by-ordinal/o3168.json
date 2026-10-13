@@ -9,11 +9,28 @@
     "constructions": [],
     "content_hash": "9c7dfdb5002e3cf4b56df1261701f64fecf57253db920d81ef528229acdab251",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "神秘的",
-      "core_meaning_en": "difficult to understand or explain",
-      "mental_model_cn": "神秘的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "神秘的；难解释、难理解的",
+          "label_en": "strange or difficult to understand or explain",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:mysterious:068421f0ab5d5062"
+          ]
+        },
+        {
+          "label_cn": "故弄玄虚的；不愿透露详情的",
+          "label_en": "not revealing much about something when others want to know",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:mysterious:d65504399e275009"
+          ]
+        }
+      ],
+      "core_meaning_cn": "难理解的、神秘的；不愿透露详情的",
+      "core_meaning_en": "unexplained or enigmatic; deliberately unrevealing",
+      "mental_model_cn": "神秘失踪可能无法解释；be mysterious about plans说本人不愿透露，不必涉及超自然现象。",
+      "mental_model_en": "unexplained or enigmatic; deliberately unrevealing."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,16 +62,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "神秘的；难解的",
-        "definition_en": "having an import not apparent to the senses nor obvious to the intelligence; beyond ordinary understanding",
+        "definition_cn": "神秘的；难解释、难理解的",
+        "definition_en": "strange or difficult to understand or explain",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:mysterious:068421f0ab5d5062",
-        "sense_label_en": "having an import not apparent to the senses nor obvious to the intellige",
+        "sense_label_en": "strange or difficult to understand or explain",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:mysterious:d65504399e275009",
+        "pos": "adjective",
+        "definition_cn": "故弄玄虚的；不愿透露详情的",
+        "definition_en": "not revealing much about something when others want to know",
+        "sense_label_en": "not revealing much about something when others want to know",
+        "governing_pattern": "be mysterious about sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a0ef8fb0685b69cfe3f6",
+            "phrase": "be mysterious about your plans",
+            "meaning_cn": "对你的计划故弄玄虚、不愿多说",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -94,6 +133,24 @@
           "applicability": [
             {
               "surface": "mysterious"
+            },
+            {
+              "surface": "mysterious",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mysterious:d65504399e275009"
+              ],
+              "owner_sense_ids": [
+                "sense:mysterious:d65504399e275009"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3168.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be mysterious about sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -147,6 +204,24 @@
           "applicability": [
             {
               "surface": "mysterious"
+            },
+            {
+              "surface": "mysterious",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mysterious:d65504399e275009"
+              ],
+              "owner_sense_ids": [
+                "sense:mysterious:d65504399e275009"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3168.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be mysterious about sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -200,6 +275,24 @@
           "applicability": [
             {
               "surface": "mysterious"
+            },
+            {
+              "surface": "mysterious",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mysterious:d65504399e275009"
+              ],
+              "owner_sense_ids": [
+                "sense:mysterious:d65504399e275009"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3168.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be mysterious about sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -249,11 +342,20 @@
         "merged_into_sense_id": null,
         "source_row": 8819,
         "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      },
+      {
+        "sense_id": "sense:mysterious:d65504399e275009",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3168.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
+      "collocation:b9656300de4106859bac",
       "collocation:7dad8e7e5c801ad2bfd3",
-      "collocation:b9656300de4106859bac"
+      "collocation:a0ef8fb0685b69cfe3f6"
     ],
     "facts": [],
     "collocations": [
@@ -266,6 +368,13 @@
         "id": "collocation:b9656300de4106859bac",
         "source_row": 15713,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:a0ef8fb0685b69cfe3f6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3168.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

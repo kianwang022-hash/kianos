@@ -15,16 +15,75 @@
         "definition_en": "to be very interested in or enthusiastic about something",
         "pattern": "be into sth",
         "source_sense_id": "sense:into:c92e6a1f25e1554c",
-        "boundary": "informal interest/involvement use; distinct from physical movement into a place"
+        "boundary": "informal interest/involvement use; distinct from physical movement into a place",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:c460144b32b914a436bf",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:into:c92e6a1f25e1554c:collocation:0"
+            ],
+            "meaning_cn": "对……感兴趣",
+            "phrase": "be into + sth"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:a82a164fb56d9a856d7e",
+        "pattern": "N days/weeks into sth; late/well into a period",
+        "meaning_cn": "进入某一时段；到某时段中的某点",
+        "definition_en": "to a point reached within an ongoing period of time",
+        "usage_note": "表示已到时段内部，不表示整个时段总长或“在 N 天内完成”。",
+        "boundary": "表示已到时段内部，不表示整个时段总长或“在 N 天内完成”。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:into:a82a164fb56d9a85"
+      },
+      {
+        "construction_id": "construction:3d82895f7f874e377093",
+        "pattern": "inquiry/research/investigation into sth",
+        "meaning_cn": "关于；涉及",
+        "definition_en": "concerning the subject of an examination or inquiry",
+        "usage_note": "into 标研究、调查的对象；具体名词自身含义仍属各名词 owner。",
+        "boundary": "into 标研究、调查的对象；具体名词自身含义仍属各名词 owner。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:into:3d82895f7f874e37"
+      },
+      {
+        "construction_id": "construction:b0782e898f14c5c03349",
+        "pattern": "A into B (is C)",
+        "meaning_cn": "（算术）除（A into B 表示 B÷A）",
+        "definition_en": "in division, indicating the number being divided by a preceding divisor",
+        "usage_note": "此顺序是 B ÷ A = C，不能按字面顺序误读成 A ÷ B。",
+        "boundary": "此顺序是 B ÷ A = C，不能按字面顺序误读成 A ÷ B。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:into:b0782e898f14c5c0"
       }
     ],
     "content_hash": "e75d3613f2f5db5cc807320156d9c301a6f055d632b359d833c87cd3fa28942f",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "进入或变成",
-      "core_meaning_en": "indicating movement to the inside or a change of state",
-      "mental_model_cn": "movement → 进入；change → 变成；be into sth → 对…感兴趣/热衷。",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "进入；变成；达到时段内部",
+          "label_en": "towards an inside position, a changed state or a point in time",
+          "pos": "preposition",
+          "sense_ids": [
+            "sense:into:18c5b6c5d3335d3f",
+            "sense:into:2ef699e8a8355773",
+            "sense:into:c92e6a1f25e1554c",
+            "sense:into:3c02346ca88bc1a1",
+            "sense:into:a82a164fb56d9a85",
+            "sense:into:3d82895f7f874e37",
+            "sense:into:b0782e898f14c5c0"
+          ]
+        }
+      ],
+      "core_meaning_cn": "进入；变成；达到时段内部",
+      "core_meaning_en": "towards an inside position, a changed state or a point in time",
+      "mental_model_cn": "空间 → 进入/撞上；状态 → 变成；时间 → 达到某段内部；调查 → 关于；算术 → B 除以 A；be into → 热衷。",
+      "mental_model_en": "towards an inside position, a changed state or a point in time."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -110,17 +169,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:c460144b32b914a436bf",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:into:c92e6a1f25e1554c:collocation:0"
-            ],
-            "meaning_cn": "对……感兴趣",
-            "phrase": "be into + sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "对……感兴趣；从事",
         "definition_en": "indicating involvement or interest",
@@ -132,6 +181,94 @@
         "sense_label_en": "indicating involvement or interest",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:into:3c02346ca88bc1a1",
+        "pos": "preposition",
+        "definition_cn": "碰到；撞上",
+        "definition_en": "towards the point of contact in a collision",
+        "sense_label_en": "towards the point of contact in a collision",
+        "governing_pattern": "motion/contact verb + into + object",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b2c2d31afad0efcffeac",
+            "phrase": "The van crashed into a wall.",
+            "meaning_cn": "货车撞上了一堵墙。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:into:a82a164fb56d9a85",
+        "pos": "preposition",
+        "definition_cn": "进入某一时段；到某时段中的某点",
+        "definition_en": "to a point reached within an ongoing period of time",
+        "sense_label_en": "to a point reached within an ongoing period of time",
+        "governing_pattern": "late/well/N hours into a period",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:eccb655059d5ba6e4a72",
+            "phrase": "three weeks into the course",
+            "meaning_cn": "课程开始三周后",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:into:3d82895f7f874e37",
+        "pos": "preposition",
+        "definition_cn": "关于；涉及",
+        "definition_en": "concerning the subject of an examination or inquiry",
+        "sense_label_en": "concerning the subject of an examination or inquiry",
+        "governing_pattern": "inquiry/research/investigation into sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:47fe0ac358a946d33f3a",
+            "phrase": "research into sleep",
+            "meaning_cn": "关于睡眠的研究",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:into:b0782e898f14c5c0",
+        "pos": "preposition",
+        "definition_cn": "（算术）除（A into B 表示 B÷A）",
+        "definition_en": "in division, indicating the number being divided by a preceding divisor",
+        "sense_label_en": "in division, indicating the number being divided by a preceding divisor",
+        "governing_pattern": "A into B gives B divided by A",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:51995c8dab7bc4de0ef0",
+            "phrase": "4 into 20 is 5.",
+            "meaning_cn": "20 除以 4 等于 5。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -171,6 +308,74 @@
           "applicability": [
             {
               "surface": "into"
+            },
+            {
+              "surface": "into",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:into:3c02346ca88bc1a1"
+              ],
+              "owner_sense_ids": [
+                "sense:into:3c02346ca88bc1a1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2618.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "motion/contact verb + into + object"
+            },
+            {
+              "surface": "into",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:into:a82a164fb56d9a85"
+              ],
+              "owner_sense_ids": [
+                "sense:into:a82a164fb56d9a85"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2618.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "late/well/N hours into a period"
+            },
+            {
+              "surface": "into",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:into:3d82895f7f874e37"
+              ],
+              "owner_sense_ids": [
+                "sense:into:3d82895f7f874e37"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2618.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "inquiry/research/investigation into sth"
+            },
+            {
+              "surface": "into",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:into:b0782e898f14c5c0"
+              ],
+              "owner_sense_ids": [
+                "sense:into:b0782e898f14c5c0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2618.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "A into B gives B divided by A"
             }
           ],
           "sources": [
@@ -234,15 +439,50 @@
         "merged_into_sense_id": null,
         "source_row": 7221,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:into:3c02346ca88bc1a1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2618.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:into:a82a164fb56d9a85",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2618.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:into:3d82895f7f874e37",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2618.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:into:b0782e898f14c5c0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2618.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
+      "collocation:eba3c82cd714374941d3",
       "collocation:83f966d96de8d35f9c11",
       "collocation:c383bfe35ee009201b47",
-      "collocation:c460144b32b914a436bf",
-      "collocation:eba3c82cd714374941d3",
+      "collocation:fc9500a64466a56ef40a",
       "collocation:f7a0f270cebfdbf8da96",
-      "collocation:fc9500a64466a56ef40a"
+      "collocation:b2c2d31afad0efcffeac",
+      "collocation:eccb655059d5ba6e4a72",
+      "collocation:47fe0ac358a946d33f3a",
+      "collocation:51995c8dab7bc4de0ef0"
     ],
     "facts": [],
     "collocations": [
@@ -259,7 +499,9 @@
       {
         "id": "collocation:c460144b32b914a436bf",
         "source_row": 16621,
-        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:eba3c82cd714374941d3",
@@ -275,6 +517,34 @@
         "id": "collocation:fc9500a64466a56ef40a",
         "source_row": 21361,
         "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:b2c2d31afad0efcffeac",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2618.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:eccb655059d5ba6e4a72",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2618.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:47fe0ac358a946d33f3a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2618.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:51995c8dab7bc4de0ef0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2618.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

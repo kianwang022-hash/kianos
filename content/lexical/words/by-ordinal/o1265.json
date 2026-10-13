@@ -11,16 +11,18 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "击败；战胜",
-          "label_en": "to win against someone in a game, battle, or competition",
+          "label_cn": "击败；挫败；难倒",
+          "label_en": "beat an opponent; thwart a plan; baffle someone",
           "pos": "verb",
           "sense_ids": [
-            "sense:defeat:9ed45ee10da757b2"
+            "sense:defeat:9ed45ee10da757b2",
+            "sense:defeat:c8ff87e9e6420815",
+            "sense:defeat:f85f921126b1b748"
           ]
         },
         {
           "label_cn": "失败；战败",
-          "label_en": "the act of losing a game, battle, or competition",
+          "label_en": "loss or failure to achieve an aim",
           "pos": "noun",
           "sense_ids": [
             "sense:defeat:0b2856a087515342"
@@ -29,7 +31,7 @@
       ],
       "core_meaning_cn": "击败；失败",
       "core_meaning_en": "to win against someone or something; the act of losing",
-      "mental_model_cn": "击败；失败",
+      "mental_model_cn": "defeat sb可指击败对手；问题作主语可指难倒人；defeat a plan/purpose是使计划或目的落空，提案被defeated可指表决未通过。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -53,7 +55,7 @@
           },
           {
             "collocation_id": "collocation:f8e039411aa1bb18b9f5",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:defeat:9ed45ee10da757b2:collocation:1"
             ],
@@ -95,16 +97,58 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "失败；战败",
-        "definition_en": "the act of losing a game, battle, or competition",
+        "definition_cn": "失败；战败；未能实现目标",
+        "definition_en": "losing a contest or failing to achieve an aim",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:defeat:0b2856a087515342",
-        "sense_label_en": "the act of losing a game, battle, or competition",
+        "sense_label_en": "loss or failure to achieve an aim",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:defeat:c8ff87e9e6420815",
+        "pos": "verb",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 2,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "挫败计划、使目的落空；表决否决提案",
+        "definition_en": "cause a plan to fail or reject a proposal in a vote",
+        "sense_label_en": "cause a plan to fail or reject a proposal in a vote",
+        "governing_pattern": "defeat a plan/purpose/proposal",
+        "collocations": [
+          {
+            "collocation_id": "collocation:49b70c37cdf45a8ccde2",
+            "exam_value": "usage_example",
+            "phrase": "defeat the purpose",
+            "meaning_cn": "使原本的目的落空"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:defeat:f85f921126b1b748",
+        "pos": "verb",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 3,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "（问题等）难倒某人",
+        "definition_en": "be too difficult for someone to solve or accomplish",
+        "sense_label_en": "be too difficult for someone to solve or accomplish",
+        "governing_pattern": "a problem defeats sb",
+        "collocations": [
+          {
+            "collocation_id": "collocation:181db43986b60ffdbe51",
+            "exam_value": "usage_example",
+            "phrase": "The puzzle defeated me.",
+            "meaning_cn": "这道谜题把我难住了。"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -406,13 +450,28 @@
         "merged_into_sense_id": null,
         "source_row": 3554,
         "source_path": "content/lexical/canonical/senses/shards/o1249-1280.json"
+      },
+      {
+        "sense_id": "sense:defeat:c8ff87e9e6420815",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1265.json"
+      },
+      {
+        "sense_id": "sense:defeat:f85f921126b1b748",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1265.json"
       }
     ],
     "active_collocations": [
       "collocation:6ad79b18d38450e6abda",
       "collocation:7678c2a43cc02a6be897",
       "collocation:a6aebe75fb9771df84d2",
-      "collocation:f8e039411aa1bb18b9f5"
+      "collocation:49b70c37cdf45a8ccde2",
+      "collocation:181db43986b60ffdbe51"
     ],
     "facts": [],
     "collocations": [
@@ -434,7 +493,19 @@
       {
         "id": "collocation:f8e039411aa1bb18b9f5",
         "source_row": 21088,
-        "source_path": "content/lexical/canonical/collocations/shards/o1249-1280.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1249-1280.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:49b70c37cdf45a8ccde2",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1265.json"
+      },
+      {
+        "id": "collocation:181db43986b60ffdbe51",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1265.json"
       }
     ],
     "exam-mappings": [],

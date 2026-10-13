@@ -11,35 +11,31 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "邮件；信件/包裹",
-          "label_en": "letters and packages sent by post",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:mail:d3106f144c4b5444"
-          ]
-        },
-        {
-          "label_cn": "邮政系统；一次投递邮件",
-          "label_en": "the postal system; a batch/delivery of mail",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:mail:ed97d47b8ff65d51",
-            "sense:mail:78feeb8d280a5aa0"
-          ]
-        },
-        {
-          "label_cn": "邮寄",
-          "label_en": "to send by post",
+          "label_cn": "邮寄；发电子邮件；以邮件发送",
+          "label_en": "to send something by mail; to contact someone or send something by email",
           "pos": "verb",
           "sense_ids": [
-            "sense:mail:80192f0a94425543"
+            "sense:mail:80192f0a94425543",
+            "sense:mail:880248f2f0251c28"
+          ]
+        },
+        {
+          "label_cn": "邮件；信件；包裹；一批邮件；邮政系统；邮政；电子邮件；通过电脑发送或接收的邮件；锁子甲；由金属环相连制成的护甲",
+          "label_en": "letters and packages transported by the postal service; any particular collection of letters or packages that is delivered; the system whereby messages are transmitted via the post office; messages, or a message, sent or received electronically; protective armour formed from linked metal rings",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mail:d3106f144c4b5444",
+            "sense:mail:78feeb8d280a5aa0",
+            "sense:mail:ed97d47b8ff65d51",
+            "sense:mail:87f8657503a07218",
+            "sense:mail:6fbfbcbf743fc7a8"
           ]
         }
       ],
-      "core_meaning_cn": "邮件；邮政系统；邮寄",
-      "core_meaning_en": "mail/post; the postal system; to send by post",
-      "mental_model_cn": "邮件；邮政系统；邮寄",
-      "mental_model_en": ""
+      "core_meaning_cn": "邮寄；邮政邮件与系统；电子邮件；锁子甲",
+      "core_meaning_en": "postal letters and services; email and sending it; linked-ring armour",
+      "mental_model_cn": "纸信包裹与电子邮件由语境区分；check your mail 常指电子邮件；chain mail/a coat of mail 可指护甲。",
+      "mental_model_en": "postal letters and services; email and sending it; linked-ring armour."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -116,6 +112,72 @@
         "sense_label_en": "the system whereby messages are transmitted via the post office",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:mail:87f8657503a07218",
+        "pos": "noun",
+        "definition_cn": "电子邮件；通过电脑发送或接收的邮件",
+        "definition_en": "messages, or a message, sent or received electronically",
+        "sense_label_en": "messages, or a message, sent or received electronically",
+        "governing_pattern": "check/send/receive mail",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e0b1e12531908948fe26",
+            "phrase": "check your mail",
+            "meaning_cn": "查看电子邮件",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mail:880248f2f0251c28",
+        "pos": "verb",
+        "definition_cn": "发电子邮件；以邮件发送",
+        "definition_en": "to contact someone or send something by email",
+        "sense_label_en": "to contact someone or send something by email",
+        "governing_pattern": "mail sb; mail sth to sb; mail sb sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:74bc2cf89eda69499073",
+            "phrase": "mail me the document",
+            "meaning_cn": "把文件通过电子邮件发给我",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mail:6fbfbcbf743fc7a8",
+        "pos": "noun",
+        "definition_cn": "锁子甲；由金属环相连制成的护甲",
+        "definition_en": "protective armour formed from linked metal rings",
+        "sense_label_en": "protective armour formed from linked metal rings",
+        "governing_pattern": "chain mail; a coat of mail",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ad0e62e4206d3acd8889",
+            "phrase": "chain mail",
+            "meaning_cn": "锁子甲",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -171,6 +233,57 @@
           "applicability": [
             {
               "surface": "mail"
+            },
+            {
+              "surface": "mail",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mail:87f8657503a07218"
+              ],
+              "owner_sense_ids": [
+                "sense:mail:87f8657503a07218"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2928.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "check/send/receive mail"
+            },
+            {
+              "surface": "mail",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mail:880248f2f0251c28"
+              ],
+              "owner_sense_ids": [
+                "sense:mail:880248f2f0251c28"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2928.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mail sb; mail sth to sb; mail sb sth"
+            },
+            {
+              "surface": "mail",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mail:6fbfbcbf743fc7a8"
+              ],
+              "owner_sense_ids": [
+                "sense:mail:6fbfbcbf743fc7a8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2928.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "chain mail; a coat of mail"
             }
           ],
           "sources": [
@@ -442,10 +555,37 @@
         "merged_into_sense_id": null,
         "source_row": 8152,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:mail:87f8657503a07218",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2928.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:mail:880248f2f0251c28",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2928.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:mail:6fbfbcbf743fc7a8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2928.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
-      "collocation:c1fc68c26a671beb5845"
+      "collocation:c1fc68c26a671beb5845",
+      "collocation:e0b1e12531908948fe26",
+      "collocation:74bc2cf89eda69499073",
+      "collocation:ad0e62e4206d3acd8889"
     ],
     "facts": [
       {
@@ -474,6 +614,27 @@
         "id": "collocation:de7167727656c05d3dfa",
         "source_row": 18837,
         "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:e0b1e12531908948fe26",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2928.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:74bc2cf89eda69499073",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2928.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:ad0e62e4206d3acd8889",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2928.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

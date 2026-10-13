@@ -26,11 +26,19 @@
             "sense:park:91c9fdd72cc05ba0",
             "sense:park:2564c09eb7ba51cd"
           ]
+        },
+        {
+          "pos": "verb",
+          "sense_ids": [
+            "sense:park:4c49e5648095a4c9"
+          ],
+          "label_cn": "暂时搁置（问题、想法等），留待以后处理",
+          "label_en": "to set an issue or idea aside for later consideration"
         }
       ],
       "core_meaning_cn": "公园/园区；停车",
       "core_meaning_en": "a park/park area; to park a vehicle",
-      "mental_model_cn": "公园/园区；停车",
+      "mental_model_cn": "名词指公园/用途园区；车辆作动词宾语是停放，议题或想法作宾语是暂搁待议；in park 可指自动挡停车挡。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -146,16 +154,36 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "停车挡",
-        "definition_en": "a gear position that acts as a parking brake",
+        "definition_cn": "（自动挡车辆的）停车挡",
+        "definition_en": "the transmission selector position used to keep a parked vehicle from moving",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:park:ff0bd7966d67522e",
-        "sense_label_en": "a gear position that acts as a parking brake",
+        "sense_label_en": "the transmission selector position used to keep a parked vehicle from moving",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:park:4c49e5648095a4c9",
+        "pos": "verb",
+        "definition_cn": "暂时搁置（问题、想法等），留待以后处理",
+        "definition_en": "to set an issue or idea aside for later consideration",
+        "sense_label_en": "to set an issue or idea aside for later consideration",
+        "transitivity": "vt",
+        "governing_pattern": "park an issue/idea (for now)",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 4,
+        "collocations": [],
+        "usage_note": "非正式会议用法：宾语为议题/想法时指暂搁，通常仍打算稍后再处理；不是已解决。",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/park",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -429,6 +457,12 @@
         "merged_into_sense_id": null,
         "source_row": 9657,
         "source_path": "content/lexical/canonical/senses/shards/o3457-3488.json"
+      },
+      {
+        "sense_id": "sense:park:4c49e5648095a4c9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3478.json"
       }
     ],
     "active_collocations": [

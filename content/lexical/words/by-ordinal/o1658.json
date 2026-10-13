@@ -11,25 +11,27 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "工程师，技师",
-          "label_en": "a person who designs, builds, or maintains engines, machines, or structures",
+          "label_cn": "工程师、技师；北美铁路中的机车司机",
+          "label_en": "a technical professional; in North American railway usage, a locomotive operator",
           "pos": "noun",
           "sense_ids": [
-            "sense:engineer:182a34bcb5585666"
+            "sense:engineer:182a34bcb5585666",
+            "sense:engineer:1db2ac6eb97d2593"
           ]
         },
         {
-          "label_cn": "设计，建造",
-          "label_en": "to design and build something, especially as an engineer",
+          "label_cn": "设计、建造；策划事件",
+          "label_en": "to design and build; to arrange an event or situation",
           "pos": "verb",
           "sense_ids": [
-            "sense:engineer:e3e205a90c465991"
+            "sense:engineer:e3e205a90c465991",
+            "sense:engineer:52514890e9765c8e"
           ]
         }
       ],
-      "core_meaning_cn": "工程师；设计、建造",
-      "core_meaning_en": "an engineer; to design and build",
-      "mental_model_cn": "默认先认职业“工程师”，动词主干是设计/建造；策划、操纵保留为低优先级扩展。",
+      "core_meaning_cn": "工程师或技师；设计建造或策划；北美铁路语境也指机车司机",
+      "core_meaning_en": "a technical professional; to design, build, or arrange; also a North American locomotive operator",
+      "mental_model_cn": "默认认技术职业或设计建造动词；事件、交易作宾语可指策划；北美铁路名词语境的locomotive engineer是机车司机。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -65,13 +67,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "工程师，技师",
-        "definition_en": "a person who designs, builds, or maintains engines, machines, or structures",
+        "definition_en": "a person who designs, builds, or maintains machines, structures, technical systems, or software",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:engineer:182a34bcb5585666",
-        "sense_label_en": "a person who designs, builds, or maintains engines, machines, or structu",
+        "sense_label_en": "a specialist who designs, builds, or maintains technical systems",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -122,6 +124,26 @@
         "sense_label_en": "to arrange or bring about skillfully",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:engineer:1db2ac6eb97d2593",
+        "pos": "noun",
+        "definition_cn": "（美国、加拿大用法）机车司机",
+        "definition_en": "in US and Canadian usage, a person who operates a railway locomotive",
+        "sense_label_en": "in US and Canadian usage, a person who operates a railway locomotive",
+        "governing_pattern": "a locomotive engineer",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:engineer:2565bc52ed93030d",
+            "phrase": "a locomotive engineer",
+            "meaning_cn": "机车司机",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "direction": "R",
+        "usage_note": "限定美国/加拿大铁路用法；不把所有engineer都理解为火车司机，原工程师、设计建造和策划身份保持。"
       }
     ],
     "verification_summary": {
@@ -211,6 +233,29 @@
           "applicability": [
             {
               "surface": "engineer"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "engineer",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:engineer:1db2ac6eb97d2593"
+              ],
+              "sense_ids": [
+                "sense:engineer:1db2ac6eb97d2593"
+              ],
+              "excluded_sense_ids": [
+                "sense:engineer:182a34bcb5585666",
+                "sense:engineer:52514890e9765c8e",
+                "sense:engineer:e3e205a90c465991"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/engineer",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -275,6 +320,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/engineer",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "engineer",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ˌɛnd͡ʒɪˈnɪr/",
+              "applies_to_sense_ids": [
+                "sense:engineer:1db2ac6eb97d2593"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         },
@@ -390,13 +451,22 @@
         "merged_into_sense_id": null,
         "source_row": 4598,
         "source_path": "content/lexical/canonical/senses/shards/o1633-1664.json"
+      },
+      {
+        "sense_id": "sense:engineer:1db2ac6eb97d2593",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1658.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:254c044c968a9d86895c",
       "collocation:26c92f052a1f8fc44963",
       "collocation:41d25d3adea9698891e0",
-      "collocation:d010f04f3062188f1c00"
+      "collocation:d010f04f3062188f1c00",
+      "collocation:engineer:2565bc52ed93030d"
     ],
     "facts": [],
     "collocations": [
@@ -419,6 +489,14 @@
         "id": "collocation:d010f04f3062188f1c00",
         "source_row": 17575,
         "source_path": "content/lexical/canonical/collocations/shards/o1633-1664.json"
+      },
+      {
+        "id": "collocation:engineer:2565bc52ed93030d",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1658.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

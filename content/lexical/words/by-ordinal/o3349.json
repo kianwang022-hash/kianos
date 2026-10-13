@@ -9,11 +9,23 @@
     "constructions": [],
     "content_hash": "cae8f2a0df7ced0f93bbc93b51b5524572f2b965b5538e380c9658aad990e590",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "操作者或运算符",
-      "core_meaning_en": "a person who operates something or a symbol representing an operation",
-      "mental_model_cn": "操作者或运算符",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "操作员、经营者/公司、运算符或善周旋的人",
+          "label_en": "machine users, business providers, mathematical symbols or shrewd people",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:operator:4f2813878f605b27",
+            "sense:operator:9c3f7c0925ff530d",
+            "sense:operator:99bd163d6c375d66",
+            "sense:operator:d16474dc53778f3a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "操作人员；经营者/运营商；运算符；善周旋的人",
+      "core_meaning_en": "a machine user, business provider, mathematical symbol or shrewd person",
+      "mental_model_cn": "machine operator操作机器，bus/tour operator可指公司，binary operator讲运算；a smooth operator常说精于周旋、可能不太诚实的人。",
+      "mental_model_en": "a machine user, business provider, mathematical symbol or shrewd person."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -81,19 +93,48 @@
             ],
             "meaning_cn": "旅行社经营者",
             "phrase": "a tour operator"
+          },
+          {
+            "collocation_id": "collocation:8da02cd8dffd62339eca",
+            "phrase": "a bus operator",
+            "meaning_cn": "公共汽车运营公司",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "经营者；运营商",
-        "definition_en": "someone who owns or operates a business",
+        "definition_cn": "经营者；运营商；经营业务的人或公司",
+        "definition_en": "a person or company that runs a business",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:operator:99bd163d6c375d66",
-        "sense_label_en": "someone who owns or operates a business",
+        "sense_label_en": "a person or company that runs a business",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:operator:d16474dc53778f3a",
+        "pos": "noun",
+        "definition_cn": "（非正式，常含贬义）善于谋利、周旋的人",
+        "definition_en": "a skilful person who gets what they want, sometimes through manipulation",
+        "sense_label_en": "a skilful person who gets what they want, sometimes through manipulation",
+        "governing_pattern": "a smooth/slick/shrewd operator",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6294ae8b45fa316bf0a1",
+            "phrase": "a smooth operator",
+            "meaning_cn": "善于周旋、谋取所需的人",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "常暗示精于算计或不诚实，依语境判断；不是机器操作员，也不必是公司经营者。"
       }
     ],
     "verification_summary": {
@@ -133,6 +174,24 @@
           "applicability": [
             {
               "surface": "operator"
+            },
+            {
+              "surface": "operator",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:operator:d16474dc53778f3a"
+              ],
+              "owner_sense_ids": [
+                "sense:operator:d16474dc53778f3a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3349.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a smooth/slick/shrewd operator",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -186,6 +245,24 @@
           "applicability": [
             {
               "surface": "operator"
+            },
+            {
+              "surface": "operator",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:operator:d16474dc53778f3a"
+              ],
+              "owner_sense_ids": [
+                "sense:operator:d16474dc53778f3a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3349.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a smooth/slick/shrewd operator",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -249,12 +326,22 @@
         "merged_into_sense_id": null,
         "source_row": 9308,
         "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
+      },
+      {
+        "sense_id": "sense:operator:d16474dc53778f3a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3349.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:88059b42a6b4bbc90537",
+      "collocation:c8bcd0ab53d04c8e1674",
       "collocation:c829ab5884a7c558954d",
-      "collocation:c8bcd0ab53d04c8e1674"
+      "collocation:88059b42a6b4bbc90537",
+      "collocation:8da02cd8dffd62339eca",
+      "collocation:6294ae8b45fa316bf0a1"
     ],
     "facts": [],
     "collocations": [
@@ -272,6 +359,20 @@
         "id": "collocation:c8bcd0ab53d04c8e1674",
         "source_row": 16964,
         "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:8da02cd8dffd62339eca",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3349.json",
+        "source_pointer": "/record/senses/2/collocations/1"
+      },
+      {
+        "id": "collocation:6294ae8b45fa316bf0a1",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3349.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

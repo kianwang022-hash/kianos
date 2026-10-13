@@ -6,13 +6,34 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:ef0cff06b7510337082b",
+        "pattern": "of note / worthy of note",
+        "meaning_cn": "重要的／值得注意的",
+        "definition_en": "be important or worth attention",
+        "usage_note": "如a writer of note知名或重要作家；worthy of note表示值得关注，不是某一页的笔记。",
+        "boundary": "如a writer of note知名或重要作家；worthy of note表示值得关注，不是某一页的笔记。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:40602cc73e813e8c6d7e",
+        "pattern": "take note (of sth)",
+        "meaning_cn": "留意并记住某事",
+        "definition_en": "pay attention to something and remember it",
+        "usage_note": "不要求写下来；take notes指记笔记。of后接要留意的事项，也可单用Take note!。",
+        "boundary": "不要求写下来；take notes指记笔记。of后接要留意的事项，也可单用Take note!。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "07518e41c978879a0f6fd832a695ab969c08972679aca81b319b82310ad1a282",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "笔记/便条；纸币；音符；语气",
-          "label_en": "a written note/message; banknote; musical note; tone",
+          "label_cn": "书面记录与便条；音符、语气或格调；纸币",
+          "label_en": "records and messages; musical notes and conveyed tone; banknotes",
           "pos": "noun",
           "sense_ids": [
             "sense:note:d45008fbf6e45984",
@@ -23,19 +44,20 @@
           ]
         },
         {
-          "label_cn": "注意，留意；记录，记下",
-          "label_en": "to notice or pay attention to something; to write something down so that you remember it",
+          "label_cn": "注意、记录或指出",
+          "label_en": "notice, record or mention an important point",
           "pos": "verb",
           "sense_ids": [
             "sense:note:6485f07b0b225bf3",
-            "sense:note:6326388302d35299"
+            "sense:note:6326388302d35299",
+            "sense:note:5ac7ba5c9def1f02"
           ]
         }
       ],
-      "core_meaning_cn": "简短的书面记录或短信",
-      "core_meaning_en": "a brief written record or a short letter",
-      "mental_model_cn": "简短的书面记录或短信",
-      "mental_model_en": ""
+      "core_meaning_cn": "书面记录、音符/格调或纸币；注意、记下或指出",
+      "core_meaning_en": "a record, musical note, tone or banknote; notice, write down or mention",
+      "mental_model_cn": "take notes写笔记，take note留意记住。note sth可注意、记录或指出；主语为报告或作者时常是指出。on a positive note可说讲话或事件的积极格调。",
+      "mental_model_en": "a record, musical note, tone or banknote; notice, write down or mention."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -46,7 +68,7 @@
     ],
     "secondary_senses": [
       {
-        "boundary": "note down sth 记下",
+        "boundary": "note sth down / note down sth；代词置中：note it down",
         "codex_reviewed": false,
         "definition_cn": "记录，记下",
         "definition_en": "to write something down so that you remember it",
@@ -58,7 +80,7 @@
           "register": "通用",
           "semantic_prosody": "中性",
           "strength": "强",
-          "syntax": "及物动词",
+          "syntax": "及物；down 可分离，代词置于 note 与 down 之间",
           "writing_safety": "安全"
         },
         "direction": "R",
@@ -228,17 +250,23 @@
             ],
             "meaning_cn": "愤怒的语气",
             "phrase": "a note of anger"
+          },
+          {
+            "collocation_id": "collocation:1b35634f56758694157b",
+            "phrase": "end on a positive note",
+            "meaning_cn": "以积极的调子结束",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "语气，声调",
-        "definition_en": "a quality in someone's voice that shows a feeling",
-        "governing_pattern": "",
+        "definition_cn": "语气；声调；言语或场合体现的情绪、格调",
+        "definition_en": "a feeling or quality conveyed by a voice, statement or situation",
+        "governing_pattern": "a note of sth; on a … note",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:note:ec6404a64e0c5d6e",
-        "sense_label_en": "a quality in someone's voice that shows a feeling",
+        "sense_label_en": "a feeling or quality conveyed by a voice, statement or situation",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -251,7 +279,7 @@
               "sense:note:6326388302d35299:collocation:0"
             ],
             "meaning_cn": "记下某事",
-            "phrase": "note down + sth"
+            "phrase": "note sth down / note down sth"
           },
           {
             "collocation_id": "collocation:04560c18e6ec80671350",
@@ -266,7 +294,7 @@
         "confidence": "medium",
         "definition_cn": "记录，记下",
         "definition_en": "to write something down so that you remember it",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "note sth; note sth down / note down sth; note it down",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -298,6 +326,29 @@
         "sense_label_en": "a piece of paper money; a banknote, chiefly British English",
         "sort_order": 6,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:note:5ac7ba5c9def1f02",
+        "pos": "verb",
+        "definition_cn": "指出；提及值得注意的事",
+        "definition_en": "mention a fact or point as worth attention",
+        "sense_label_en": "mention a fact or point as worth attention",
+        "governing_pattern": "note sth; note that…; note how/where…",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a06498f37f6ed27e1a3f",
+            "phrase": "The report notes a rise in sales.",
+            "meaning_cn": "报告指出销量上升。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "较正式的报道、论述用语；The report notes that…说报告指出某事实，区别于读者注意到或拿笔记下。"
       }
     ],
     "verification_summary": {
@@ -339,6 +390,24 @@
           "applicability": [
             {
               "surface": "note"
+            },
+            {
+              "surface": "note",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:note:5ac7ba5c9def1f02"
+              ],
+              "owner_sense_ids": [
+                "sense:note:5ac7ba5c9def1f02"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3257.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "note sth; note that…; note how/where…",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -459,6 +528,24 @@
           "applicability": [
             {
               "surface": "note"
+            },
+            {
+              "surface": "note",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:note:5ac7ba5c9def1f02"
+              ],
+              "owner_sense_ids": [
+                "sense:note:5ac7ba5c9def1f02"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3257.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "note sth; note that…; note how/where…",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -612,20 +699,30 @@
         "merged_into_sense_id": null,
         "source_row": 9073,
         "source_path": "content/lexical/canonical/senses/shards/o3233-3264.json"
+      },
+      {
+        "sense_id": "sense:note:5ac7ba5c9def1f02",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3257.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:04560c18e6ec80671350",
-      "collocation:096e9276df97e088d2b8",
       "collocation:0b13d7451c0108116723",
-      "collocation:10c91ff5dd52462970bd",
       "collocation:151a05ba2e8dedbe42b8",
       "collocation:2543a75d7e487a7215fd",
-      "collocation:31b171111e8d52e967ed",
-      "collocation:49e55cbd93ee16017835",
-      "collocation:5618061a61620533789d",
       "collocation:956dd2e7815ba31cd909",
-      "collocation:e9a98243273bfe9a6ab6"
+      "collocation:10c91ff5dd52462970bd",
+      "collocation:49e55cbd93ee16017835",
+      "collocation:e9a98243273bfe9a6ab6",
+      "collocation:31b171111e8d52e967ed",
+      "collocation:1b35634f56758694157b",
+      "collocation:096e9276df97e088d2b8",
+      "collocation:04560c18e6ec80671350",
+      "collocation:5618061a61620533789d",
+      "collocation:a06498f37f6ed27e1a3f"
     ],
     "facts": [
       {
@@ -689,6 +786,20 @@
         "id": "collocation:5618061a61620533789d",
         "source_row": 21538,
         "source_path": "content/lexical/canonical/collocations/shards/o3233-3264.json"
+      },
+      {
+        "id": "collocation:1b35634f56758694157b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3257.json",
+        "source_pointer": "/record/senses/4/collocations/1"
+      },
+      {
+        "id": "collocation:a06498f37f6ed27e1a3f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3257.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

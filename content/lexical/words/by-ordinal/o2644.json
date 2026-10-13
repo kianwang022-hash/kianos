@@ -16,6 +16,17 @@
         "boundary": "iron sth out = resolve/remove problems or differences; phrase truth, not literal clothes-ironing attachment",
         "definition_en": "to resolve or remove problems, difficulties, or differences",
         "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:7510ed11963f68e3b20d",
+        "pattern": "an iron fist/hand (in a velvet glove)",
+        "meaning_cn": "铁腕；（外表温和下的）严厉控制",
+        "definition_en": "severe control or treatment, possibly concealed by a gentle appearance",
+        "usage_note": "fist/hand 表严厉控制，velvet glove 表外在温和；不是熨烫动作。",
+        "boundary": "fist/hand 表严厉控制，velvet glove 表外在温和；不是熨烫动作。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:iron:55603fd59bcd16b2"
       }
     ],
     "content_hash": "0d0b67d780457736e4a8e869a3c5f77021bb051f3ea25469ffffbdc12a172d05",
@@ -23,7 +34,7 @@
       "core_clusters": [
         {
           "label_cn": "铁；熨斗",
-          "label_en": "iron as a magnetic metallic element; an appliance used to smooth clothing",
+          "label_en": "iron metal or an ironing appliance",
           "pos": "noun",
           "sense_ids": [
             "sense:iron:77b13aa091e552a4",
@@ -31,18 +42,26 @@
           ]
         },
         {
-          "label_cn": "熨，烫平；（衣物）被烫平",
-          "label_en": "to smooth (clothes) with an iron; to become smooth by ironing",
+          "label_cn": "熨烫；容易烫平",
+          "label_en": "to iron cloth or respond well to ironing",
           "pos": "verb",
           "sense_ids": [
             "sense:iron:6df34532c197576c",
             "sense:iron:1a142bf970af50f0"
           ]
+        },
+        {
+          "label_cn": "坚强坚定的",
+          "label_en": "strong or determined",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:iron:55603fd59bcd16b2"
+          ]
         }
       ],
-      "core_meaning_cn": "铁；熨斗",
-      "core_meaning_en": "a strong, hard magnetic silvery-grey metal, or an appliance used to smooth clothes",
-      "mental_model_cn": "material → 铁；appliance → 熨斗；verb → 熨烫；iron sth out → 解决问题/分歧。高尔夫铁杆和烙印工具义保留为 Reference。",
+      "core_meaning_cn": "铁；熨斗、熨烫；坚强坚定的",
+      "core_meaning_en": "iron metal, an ironing appliance or action; exceptionally strong",
+      "mental_model_cn": "noun → 铁/熨斗；verb → 熨烫；adjective → 意志等坚强坚定；iron out → 消除问题。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -133,7 +152,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:iron:77b13aa091e552a4",
-        "sense_label_en": "a heavy ductile magnetic metallic element; is silver-white in pure form ",
+        "sense_label_en": "a heavy ductile magnetic metallic element; is silver-white in pure form but readily rusts; used in construction and tools and armament; plays a role in the transport of oxygen by the blood",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -157,7 +176,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:iron:9bcf8d1f745e5ac9",
-        "sense_label_en": "home appliance consisting of a flat metal base that is heated and used t",
+        "sense_label_en": "home appliance consisting of a flat metal base that is heated and used to smooth cloth",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -200,7 +219,7 @@
         "confidence": "medium",
         "definition_cn": "（衣物）被烫平",
         "definition_en": "to become smooth by ironing",
-        "governing_pattern": "vi. + out",
+        "governing_pattern": "fabric/clothes iron well/easily",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -208,6 +227,28 @@
         "sense_label_en": "to become smooth by ironing",
         "sort_order": 5,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:iron:55603fd59bcd16b2",
+        "pos": "adjective",
+        "definition_cn": "坚强坚定的；铁一般的",
+        "definition_en": "exceptionally strong or determined",
+        "sense_label_en": "exceptionally strong or determined",
+        "governing_pattern": "only before a noun: iron will/discipline",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fa0d83fcf51515e9be36",
+            "phrase": "iron will",
+            "meaning_cn": "坚定不移的意志",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -249,6 +290,23 @@
           "applicability": [
             {
               "surface": "iron"
+            },
+            {
+              "surface": "iron",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:iron:55603fd59bcd16b2"
+              ],
+              "owner_sense_ids": [
+                "sense:iron:55603fd59bcd16b2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2644.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "only before a noun: iron will/discipline"
             }
           ],
           "sources": [
@@ -561,14 +619,23 @@
         "merged_into_sense_id": null,
         "source_row": 7291,
         "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
+      },
+      {
+        "sense_id": "sense:iron:55603fd59bcd16b2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2644.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:214b99a3ce540b46cd81",
-      "collocation:249ff3b21fd2878a16b1",
+      "collocation:a6a72e9265867bb248ca",
       "collocation:8f2390cf61b23db21084",
+      "collocation:214b99a3ce540b46cd81",
       "collocation:905a934bd1a4e3938825",
-      "collocation:a6a72e9265867bb248ca"
+      "collocation:249ff3b21fd2878a16b1",
+      "collocation:fa0d83fcf51515e9be36"
     ],
     "facts": [
       {
@@ -626,6 +693,13 @@
         "id": "collocation:ada1a7744028755964c8",
         "source_row": 14705,
         "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+      },
+      {
+        "id": "collocation:fa0d83fcf51515e9be36",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2644.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

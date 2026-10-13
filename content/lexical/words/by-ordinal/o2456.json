@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "b77b275e48b4f140fcf62e3bad252eff757d799dde628150f448deb8dc4c9aac",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "立即的；直接的",
-      "core_meaning_en": "without delay or in direct relation",
-      "mental_model_cn": "立即的；直接的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "没有时间或关系上的间隔；眼下急需处理",
+          "label_en": "without delay or intervening distance; pressing at the present time",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:immediate:97ba48fca4e55256",
+            "sense:immediate:da3b1309efc7581e",
+            "sense:immediate:c524c7137bffa7a5"
+          ]
+        }
+      ],
+      "core_meaning_cn": "没有时间或关系上的间隔；眼下急需处理",
+      "core_meaning_en": "without delay or intervening distance; pressing at the present time",
+      "mental_model_cn": "response指立刻反应；concern/need指眼下迫切；vicinity/family/superior/aftermath指空间、关系、等级或时间上紧邻。",
+      "mental_model_en": "without delay or intervening distance; pressing at the present time."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -64,7 +75,7 @@
             "legacy_source_object_ids": [
               "sense:immediate:da3b1309efc7581e:collocation:0"
             ],
-            "meaning_cn": "直系亲属",
+            "meaning_cn": "近亲属；最亲近的家人（可包括兄弟姐妹）",
             "phrase": "immediate family"
           },
           {
@@ -78,16 +89,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "直接的，最接近的",
-        "definition_en": "nearest in relationship or position",
+        "definition_cn": "直接的；最接近的",
+        "definition_en": "nearest or most direct in relationship, position or cause",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:immediate:da3b1309efc7581e",
-        "sense_label_en": "nearest in relationship or position",
+        "sense_label_en": "nearest or most direct in relationship, position or cause",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:immediate:c524c7137bffa7a5",
+        "pos": "adjective",
+        "definition_cn": "当前存在、需要马上处理的",
+        "definition_en": "present now and requiring prompt attention",
+        "sense_label_en": "present now and requiring prompt attention",
+        "governing_pattern": "immediate concern/need/threat; usually before noun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:cdf1fb724b1af5b381cd",
+            "phrase": "our immediate concern",
+            "meaning_cn": "我们眼下迫切要处理的问题",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -127,6 +160,23 @@
           "applicability": [
             {
               "surface": "immediate"
+            },
+            {
+              "surface": "immediate",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:immediate:c524c7137bffa7a5"
+              ],
+              "owner_sense_ids": [
+                "sense:immediate:c524c7137bffa7a5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2456.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "immediate concern/need/threat; usually before noun"
             }
           ],
           "sources": [
@@ -344,13 +394,22 @@
         "merged_into_sense_id": null,
         "source_row": 6826,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      },
+      {
+        "sense_id": "sense:immediate:c524c7137bffa7a5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2456.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:51b4e866ed586b050c2d",
+      "collocation:fce12cb5da40de12811e",
       "collocation:971446e15ff4d38c19c3",
+      "collocation:51b4e866ed586b050c2d",
       "collocation:ab2688d572f3a04b40f8",
-      "collocation:fce12cb5da40de12811e"
+      "collocation:cdf1fb724b1af5b381cd"
     ],
     "facts": [],
     "collocations": [
@@ -373,6 +432,13 @@
         "id": "collocation:fce12cb5da40de12811e",
         "source_row": 21386,
         "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:cdf1fb724b1af5b381cd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2456.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

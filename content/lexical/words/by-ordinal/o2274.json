@@ -6,13 +6,24 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:8a60e6bd143e2a1b7cb9",
+        "pattern": "batten down the hatches",
+        "meaning_cn": "为困难时期作好准备；（船上）关严舱口",
+        "definition_en": "to prepare for trouble, or literally secure a ship’s openings",
+        "usage_note": "比喻与字面船舶义分别由上下文判定，不能只解释成关窗。",
+        "boundary": "比喻与字面船舶义分别由上下文判定，不能只解释成关窗。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "feeecd05f31b36592d697dcb3bb65e962ed4c5a3142930400dade81175b6cee0",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "孵化，孵出；孵出，孵化；策划，图谋",
-          "label_en": "emerge from an egg; cause young to emerge from (eggs); devise or originate (a plot or plan)",
+          "label_cn": "（幼崽）孵出；（蛋）孵化裂开；孵出，孵化；策划，图谋",
+          "label_en": "for a young creature to emerge from an egg, or for an egg to open and release it; cause young to emerge from (eggs); devise or originate (a plot or plan)",
           "pos": "verb",
           "sense_ids": [
             "sense:hatch:884a1c800e625216",
@@ -21,18 +32,18 @@
           ]
         },
         {
-          "label_cn": "舱口，舱门",
-          "label_en": "a movable barrier covering a hatchway",
+          "label_cn": "舱口／小开口；舱门／盖板",
+          "label_en": "an opening in a floor, roof, wall or vehicle, or the cover over it",
           "pos": "noun",
           "sense_ids": [
             "sense:hatch:3019194be44655e7"
           ]
         }
       ],
-      "core_meaning_cn": "孵化；舱口",
-      "core_meaning_en": "to emerge from an egg; a covering for an opening",
-      "mental_model_cn": "egg → 孵化/孵出；plan → hatch a plan 策划；opening → 舱口/舱门。绘画交叉阴影线义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "孵化、孵出、孵育或秘密策划；舱口和开口",
+      "core_meaning_en": "hatch from eggs, incubate or devise secretly; a hatch or opening",
+      "mental_model_cn": "幼崽hatch为孵出，蛋hatch为裂开孵化；hatch a plan为秘密策划，hatch noun为舱口等开口。",
+      "mental_model_en": "hatch from eggs, incubate or devise secretly; a hatch or opening."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -61,17 +72,23 @@
             ],
             "meaning_cn": "小鸡今天早上孵出来了。",
             "phrase": "The chicks hatched this morning."
+          },
+          {
+            "collocation_id": "collocation:94c590289341bb6357e7",
+            "phrase": "The eggs will hatch soon.",
+            "meaning_cn": "这些蛋很快就会孵化。",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "孵化，孵出",
-        "definition_en": "emerge from an egg",
-        "governing_pattern": "",
+        "definition_cn": "（幼崽）孵出；（蛋）孵化裂开",
+        "definition_en": "for a young creature to emerge from an egg, or for an egg to open and release it",
+        "governing_pattern": "an egg/chick hatches (out)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hatch:884a1c800e625216",
-        "sense_label_en": "emerge from an egg",
+        "sense_label_en": "for a young creature to emerge from an egg, or for an egg to open and release it",
         "sort_order": 0,
         "transitivity": "vi"
       },
@@ -145,14 +162,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "舱口，舱门",
-        "definition_en": "a movable barrier covering a hatchway",
+        "definition_cn": "舱口／小开口；舱门／盖板",
+        "definition_en": "an opening in a floor, roof, wall or vehicle, or the cover over it",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:hatch:3019194be44655e7",
-        "sense_label_en": "a movable barrier covering a hatchway",
+        "sense_label_en": "an opening in a floor, roof, wall or vehicle, or the cover over it",
         "sort_order": 3,
         "transitivity": "nonverb"
       }
@@ -873,12 +890,13 @@
       }
     ],
     "active_collocations": [
+      "collocation:fbcdc3acac1935e86406",
+      "collocation:dd757955d838385cbfc4",
+      "collocation:94c590289341bb6357e7",
       "collocation:75e368fc8fa77ccfa34e",
       "collocation:8a29a4b27fbe752c0f55",
-      "collocation:ab2160ec1629b0d326e6",
-      "collocation:dd757955d838385cbfc4",
       "collocation:e47903a2245a40823880",
-      "collocation:fbcdc3acac1935e86406"
+      "collocation:ab2160ec1629b0d326e6"
     ],
     "facts": [],
     "collocations": [
@@ -918,6 +936,13 @@
         "id": "collocation:fbcdc3acac1935e86406",
         "source_row": 21303,
         "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+      },
+      {
+        "id": "collocation:94c590289341bb6357e7",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2274.json",
+        "source_pointer": "/record/senses/0/collocations/2"
       }
     ],
     "exam-mappings": [],

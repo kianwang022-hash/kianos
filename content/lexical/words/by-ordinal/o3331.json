@@ -6,13 +6,24 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:9662aa3c6ba1ef458c16",
+        "pattern": "oil the wheels",
+        "meaning_cn": "使事情顺利推进",
+        "definition_en": "help a process move forward smoothly",
+        "usage_note": "英式比喻用语，常说商业、行政等流程；不一定真给车轮加油。",
+        "boundary": "英式比喻用语，常说商业、行政等流程；不一定真给车轮加油。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "0a9f4ffb6a55425571c477fdc28db4b215818f8e7d7b774091d91fd56a81da71",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "油；石油；油画颜料",
-          "label_en": "a thick liquid that does not mix with water, used for fuel or cooking; paint made with oil",
+          "label_en": "oil liquids, petroleum or artists’ oil paint",
           "pos": "noun",
           "sense_ids": [
             "sense:oil:8eb5a67ce3425ea5",
@@ -28,10 +39,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "油；涂油",
-      "core_meaning_en": "a viscous liquid or to apply such liquid",
-      "mental_model_cn": "油；涂油",
-      "mental_model_en": ""
+      "core_meaning_cn": "油或石油；油画颜料；涂油、润滑",
+      "core_meaning_en": "oil or petroleum; artists’ oil paint; apply oil or lubricate",
+      "mental_model_cn": "crude oil是石油，olive oil可食用，engine oil用于润滑；in oils说用油画颜料作画。oil the machine给机器上油，oil the wheels也可比喻促成事情顺利推进。",
+      "mental_model_en": "oil or petroleum; artists’ oil paint; apply oil or lubricate."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -60,17 +71,23 @@
             ],
             "meaning_cn": "橄榄油",
             "phrase": "olive oil"
+          },
+          {
+            "collocation_id": "collocation:0a5e11e75b64e925b2a9",
+            "phrase": "engine oil",
+            "meaning_cn": "发动机润滑油",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "油；石油",
-        "definition_en": "a thick liquid that does not mix with water, used for fuel or cooking",
+        "definition_cn": "油；石油（可作燃料、食用、润滑或护肤等用途）",
+        "definition_en": "a liquid that does not mix readily with water, used for fuel, cooking, lubrication or skin care",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:oil:8eb5a67ce3425ea5",
-        "sense_label_en": "a thick liquid that does not mix with water, used for fuel or cooking",
+        "sense_label_en": "a liquid that does not mix readily with water, used for fuel, cooking, lubrication or skin care",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -84,6 +101,12 @@
             ],
             "meaning_cn": "油画",
             "phrase": "oil painting"
+          },
+          {
+            "collocation_id": "collocation:9bdf19fc59d66b254681",
+            "phrase": "paint in oils",
+            "meaning_cn": "用油画颜料作画",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
@@ -269,10 +292,12 @@
       }
     ],
     "active_collocations": [
+      "collocation:e51272ed75fe7a35a9cc",
       "collocation:16766b27b05ed8ce60d6",
+      "collocation:0a5e11e75b64e925b2a9",
       "collocation:b886378380d8bd2b5c26",
-      "collocation:cb679c87aa37dfc64ddf",
-      "collocation:e51272ed75fe7a35a9cc"
+      "collocation:9bdf19fc59d66b254681",
+      "collocation:cb679c87aa37dfc64ddf"
     ],
     "facts": [],
     "collocations": [
@@ -295,6 +320,20 @@
         "id": "collocation:e51272ed75fe7a35a9cc",
         "source_row": 19396,
         "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:0a5e11e75b64e925b2a9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3331.json",
+        "source_pointer": "/record/senses/0/collocations/2"
+      },
+      {
+        "id": "collocation:9bdf19fc59d66b254681",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3331.json",
+        "source_pointer": "/record/senses/1/collocations/1"
       }
     ],
     "exam-mappings": [

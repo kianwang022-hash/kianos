@@ -6,13 +6,48 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:df0ad4dfa7da705088be",
+        "pattern": "for all + noun phrase",
+        "meaning_cn": "尽管；虽然有……",
+        "definition_en": "despite something",
+        "usage_note": "for all her experience表示尽管她经验丰富；整体不等于为了所有人。for all也可另按字面表示面向所有人，须看上下文。",
+        "boundary": "for all her experience表示尽管她经验丰富；整体不等于为了所有人。for all也可另按字面表示面向所有人，须看上下文。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "06611d793bf3fd50e72c5a01ea25b676cf296988e4e6f99c4fe60ad74337cea4",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "表示目的、原因、持续时间或支持",
-      "core_meaning_en": "indicating purpose, reason, duration, or support",
-      "mental_model_cn": "表示目的、原因、持续时间或支持",
+      "core_clusters": [
+        {
+          "label_cn": "为了；给；因为；由于；持续（时间或距离）；支持；赞成；以……为交换；以……的价格；前往；以……为目的地；代表；代替；就……而言；以……为比较标准",
+          "label_en": "used to show purpose or intended recipient; used to show reason or cause; used to show duration or distance; used to show support or in favor of; in exchange for something or at a stated price; towards an intended destination; on behalf of or in place of someone or something; in relation to a particular reference or standard",
+          "pos": "preposition",
+          "sense_ids": [
+            "sense:for:58de1d10a7d155b2",
+            "sense:for:ac128d447f20516a",
+            "sense:for:e37cd3e5f4ff503d",
+            "sense:for:2673473049e058b6",
+            "sense:for:e490f2ccf95678d5",
+            "sense:for:23f5d9ef62379a25",
+            "sense:for:87c710c046b66d42",
+            "sense:for:ffb1ffe6451f14fc"
+          ]
+        },
+        {
+          "label_cn": "因为（连接分句，说明前一陈述的理由）",
+          "label_en": "because, introducing an explanation of a preceding statement",
+          "pos": "conjunction",
+          "sense_ids": [
+            "sense:for:1ad5ca4e1f163199"
+          ]
+        }
+      ],
+      "core_meaning_cn": "为了、给、因为、持续或支持；交换、去向、代表或比较",
+      "core_meaning_en": "for purpose, recipient, reason, duration, or support; exchange, destination, representation, or comparison",
+      "mental_model_cn": "for的目的、原因、时间/距离和支持义按上下文读；for价格为交换，leave for为去向，speak for为代表，tall for age为比较标准。连词for接完整分句解释理由；for all可整体表示尽管。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -154,6 +189,116 @@
         "sense_label_en": "used to show support or in favor of",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:for:e490f2ccf95678d5",
+        "pos": "preposition",
+        "definition_cn": "以……为交换；以……的价格",
+        "definition_en": "in exchange for something or at a stated price",
+        "sense_label_en": "in exchange for something or at a stated price",
+        "governing_pattern": "pay/buy/sell sth for an amount",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6e519ddf8ad7be9149ae",
+            "phrase": "buy it for ten pounds",
+            "meaning_cn": "以十英镑买下它",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:for:23f5d9ef62379a25",
+        "pos": "preposition",
+        "definition_cn": "前往；以……为目的地",
+        "definition_en": "towards an intended destination",
+        "sense_label_en": "towards an intended destination",
+        "governing_pattern": "leave/set off for a place",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2fc93e4de622d4fe692f",
+            "phrase": "leave for London",
+            "meaning_cn": "动身去伦敦",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:for:87c710c046b66d42",
+        "pos": "preposition",
+        "definition_cn": "代表；代替",
+        "definition_en": "on behalf of or in place of someone or something",
+        "sense_label_en": "on behalf of or in place of someone or something",
+        "governing_pattern": "speak/work for sb; do sth for sb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:950b1fbc86994ac357a3",
+            "phrase": "speak for the team",
+            "meaning_cn": "代表团队发言",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:for:ffb1ffe6451f14fc",
+        "pos": "preposition",
+        "definition_cn": "就……而言；以……为比较标准",
+        "definition_en": "in relation to a particular reference or standard",
+        "sense_label_en": "in relation to a particular reference or standard",
+        "governing_pattern": "adjective + for + comparison standard",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ccda5d82a229cf5b7242",
+            "phrase": "tall for her age",
+            "meaning_cn": "就她的年龄而言个子高",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:for:1ad5ca4e1f163199",
+        "pos": "conjunction",
+        "definition_cn": "因为（连接分句，说明前一陈述的理由）",
+        "definition_en": "because, introducing an explanation of a preceding statement",
+        "sense_label_en": "because, introducing an explanation of a preceding statement",
+        "governing_pattern": "statement, for + clause",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8530bf45e29bb37c28a8",
+            "phrase": "She stayed, for she wanted to help.",
+            "meaning_cn": "她留下了，因为想帮忙。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -198,6 +343,91 @@
               "conditions": [
                 "stressed / strong form"
               ]
+            },
+            {
+              "surface": "for",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:for:e490f2ccf95678d5"
+              ],
+              "owner_sense_ids": [
+                "sense:for:e490f2ccf95678d5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1990.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "pay/buy/sell sth for an amount"
+              }
+            },
+            {
+              "surface": "for",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:for:23f5d9ef62379a25"
+              ],
+              "owner_sense_ids": [
+                "sense:for:23f5d9ef62379a25"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1990.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "leave/set off for a place"
+              }
+            },
+            {
+              "surface": "for",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:for:87c710c046b66d42"
+              ],
+              "owner_sense_ids": [
+                "sense:for:87c710c046b66d42"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1990.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "speak/work for sb; do sth for sb"
+              }
+            },
+            {
+              "surface": "for",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:for:ffb1ffe6451f14fc"
+              ],
+              "owner_sense_ids": [
+                "sense:for:ffb1ffe6451f14fc"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1990.json",
+              "source_pointer": "/record/senses/7",
+              "conditions": {
+                "current_owner_usage": "adjective + for + comparison standard"
+              }
+            },
+            {
+              "surface": "for",
+              "pos": [
+                "conjunction"
+              ],
+              "sense_ids": [
+                "sense:for:1ad5ca4e1f163199"
+              ],
+              "owner_sense_ids": [
+                "sense:for:1ad5ca4e1f163199"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1990.json",
+              "source_pointer": "/record/senses/8",
+              "conditions": {
+                "current_owner_usage": "statement, for + clause"
+              }
             }
           ],
           "sources": [
@@ -909,6 +1139,46 @@
         "merged_into_sense_id": null,
         "source_row": 5535,
         "source_path": "content/lexical/canonical/senses/shards/o1985-2016.json"
+      },
+      {
+        "sense_id": "sense:for:e490f2ccf95678d5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1990.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:for:23f5d9ef62379a25",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1990.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:for:87c710c046b66d42",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1990.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:for:ffb1ffe6451f14fc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1990.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:for:1ad5ca4e1f163199",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1990.json",
+        "source_pointer": "/record/senses/8"
       }
     ],
     "active_collocations": [
@@ -962,6 +1232,41 @@
         "id": "collocation:cf71c5ad82030910d752",
         "source_row": 17527,
         "source_path": "content/lexical/canonical/collocations/shards/o1985-2016.json"
+      },
+      {
+        "id": "collocation:6e519ddf8ad7be9149ae",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1990.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:2fc93e4de622d4fe692f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1990.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:950b1fbc86994ac357a3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1990.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:ccda5d82a229cf5b7242",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1990.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:8530bf45e29bb37c28a8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1990.json",
+        "source_pointer": "/record/senses/8/collocations/0"
       }
     ],
     "exam-mappings": [],

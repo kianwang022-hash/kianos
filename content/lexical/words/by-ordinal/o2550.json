@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "内陆的，内地的",
-          "label_en": "situated away from the coast or border; in the interior of a country",
+          "label_cn": "内陆的与国内的",
+          "label_en": "interior or domestic",
           "pos": "adjective",
           "sense_ids": [
-            "sense:inland:35e5ad6e1fe95f99"
+            "sense:inland:35e5ad6e1fe95f99",
+            "sense:inland:321ab983fd4f4f69"
           ]
         },
         {
@@ -27,9 +28,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "远离海岸",
-      "core_meaning_en": "away from the coast",
-      "mental_model_cn": "远离海岸",
+      "core_meaning_cn": "内陆；向内陆；国内进行的",
+      "core_meaning_en": "in or towards the interior; also taking place within a country",
+      "mental_model_cn": "位置/移动看远离海岸；trade/post等英式业务语境看国内而非国际，不要求贸易发生在远离海岸处。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -87,6 +88,28 @@
         "sense_label_en": "towards or into the interior of a region",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:inland:321ab983fd4f4f69",
+        "pos": "adjective",
+        "definition_cn": "（尤英式）国内进行的；非国际的",
+        "definition_en": "taking place within one country rather than between countries",
+        "sense_label_en": "taking place within one country rather than between countries",
+        "governing_pattern": "usually before a noun: inland trade/post",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a64db91c122c943b7b99",
+            "phrase": "inland trade",
+            "meaning_cn": "国内贸易",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -116,6 +139,23 @@
           "applicability": [
             {
               "surface": "inland"
+            },
+            {
+              "surface": "inland",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:inland:321ab983fd4f4f69"
+              ],
+              "owner_sense_ids": [
+                "sense:inland:321ab983fd4f4f69"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2550.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "usually before a noun: inland trade/post"
             }
           ],
           "sources": [
@@ -222,11 +262,20 @@
         "merged_into_sense_id": null,
         "source_row": 7052,
         "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
+      },
+      {
+        "sense_id": "sense:inland:321ab983fd4f4f69",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2550.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
+      "collocation:c77d0fe88e6d7ec6028d",
       "collocation:2f63091ea19590e19ab6",
-      "collocation:c77d0fe88e6d7ec6028d"
+      "collocation:a64db91c122c943b7b99"
     ],
     "facts": [],
     "collocations": [
@@ -239,6 +288,13 @@
         "id": "collocation:c77d0fe88e6d7ec6028d",
         "source_row": 16870,
         "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      },
+      {
+        "id": "collocation:a64db91c122c943b7b99",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2550.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

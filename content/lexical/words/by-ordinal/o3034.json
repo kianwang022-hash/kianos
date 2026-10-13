@@ -13,7 +13,18 @@
         "level": "L1",
         "meaning_cn": "把某事搞砸；做得很差",
         "pattern": "make a mess of sth",
-        "source_sense_id": "sense:mess:7b45e7a7bca051f4"
+        "source_sense_id": "sense:mess:7b45e7a7bca051f4",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:0e54fdff330c0ca6379b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:mess:7b45e7a7bca051f4:collocation:1"
+            ],
+            "meaning_cn": "把某事搞得一团糟",
+            "phrase": "make a mess of sth"
+          }
+        ]
       },
       {
         "construction_id": "construction:9af995a97fe122cfb955",
@@ -21,6 +32,26 @@
         "level": "L1",
         "meaning_cn": "搞砸；弄错；犯错；处理得很差",
         "pattern": "mess sth up / mess up"
+      },
+      {
+        "construction_id": "construction:a295c2497f180f6d377f",
+        "pattern": "mess around/about",
+        "meaning_cn": "瞎闹、无所事事；轻松随意地玩",
+        "definition_en": "behave foolishly instead of working, or spend time relaxing",
+        "usage_note": "about尤英式；本身不要求with宾语，与原mess with干涉区别。",
+        "boundary": "about尤英式；本身不要求with宾语，与原mess with干涉区别。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:7e5ad4422bc73c7729c8",
+        "pattern": "mess sb around/about",
+        "meaning_cn": "反复变卦或失约而折腾某人",
+        "definition_en": "treat someone unfairly through unreliable or changing behaviour",
+        "usage_note": "英式；代词放在中间，不是乱动某物。",
+        "boundary": "英式；代词放在中间，不是乱动某物。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "2f53c4b75952a87016fe338969ea775ae9dcd6079ff3d0d6a90b0190948bfd11",
@@ -68,15 +99,6 @@
             ],
             "meaning_cn": "乱七八糟，处境狼狈",
             "phrase": "in a mess"
-          },
-          {
-            "collocation_id": "collocation:0e54fdff330c0ca6379b",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:mess:7b45e7a7bca051f4:collocation:1"
-            ],
-            "meaning_cn": "把某事搞得一团糟",
-            "phrase": "make a mess of sth"
           }
         ],
         "confidence": "medium",
@@ -130,7 +152,7 @@
         "confidence": "medium",
         "definition_cn": "弄乱，弄脏",
         "definition_en": "to make something dirty or untidy",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "mess sth (up); mess it up",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -162,6 +184,22 @@
         "sense_label_en": "to interfere or meddle with something",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:mess:7ae525c28d208123",
+        "pos": "noun",
+        "definition_cn": "邋遢的人；（非正式）处境或情绪糟糕的人",
+        "definition_en": "a very untidy person, or someone whose life or emotions are in a bad state",
+        "sense_label_en": "a very untidy person, or someone whose life or emotions are in a bad state",
+        "governing_pattern": "sb is a mess; a total mess",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [],
+        "usage_note": "通常单数；可谈外表邋遢，也可非正式地说人在困境中情绪糟糕，如I was a total mess。"
       }
     ],
     "verification_summary": {
@@ -191,6 +229,24 @@
           "applicability": [
             {
               "surface": "mess"
+            },
+            {
+              "surface": "mess",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mess:7ae525c28d208123"
+              ],
+              "owner_sense_ids": [
+                "sense:mess:7ae525c28d208123"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3034.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sb is a mess; a total mess",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -537,6 +593,24 @@
           "applicability": [
             {
               "surface": "mess"
+            },
+            {
+              "surface": "mess",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mess:7ae525c28d208123"
+              ],
+              "owner_sense_ids": [
+                "sense:mess:7ae525c28d208123"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3034.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sb is a mess; a total mess",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -758,21 +832,30 @@
         "merged_into_sense_id": null,
         "source_row": 8462,
         "source_path": "content/lexical/canonical/senses/shards/o3009-3040.json"
+      },
+      {
+        "sense_id": "sense:mess:7ae525c28d208123",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3034.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:0e54fdff330c0ca6379b",
-      "collocation:37893b2d0973f937fdf1",
+      "collocation:caec87c07260a6a4ae95",
       "collocation:40b71b607bacb071bdf8",
-      "collocation:a9cb00f50c9fccd696d6",
-      "collocation:caec87c07260a6a4ae95"
+      "collocation:37893b2d0973f937fdf1",
+      "collocation:a9cb00f50c9fccd696d6"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:0e54fdff330c0ca6379b",
         "source_row": 1193,
-        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:37893b2d0973f937fdf1",

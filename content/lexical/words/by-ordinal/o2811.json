@@ -11,12 +11,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "杠杆；控制杆；操纵杆",
-          "label_en": "a rigid bar that rests on a pivot and is used to lift or move heavy objects; a handle used to operate a machine or control",
+          "label_cn": "杠杆；控制杆；操纵杆；施压的手段；促成变化的力量",
+          "label_en": "a rigid bar that rests on a pivot and is used to lift or move heavy objects; a handle used to operate a machine or control; a means of exerting pressure to obtain a desired action or change",
           "pos": "noun",
           "sense_ids": [
             "sense:lever:967a7371a91152a1",
-            "sense:lever:ed4de411d31a5563"
+            "sense:lever:ed4de411d31a5563",
+            "sense:lever:ab43912cedeac2b8"
           ]
         },
         {
@@ -28,10 +29,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "杠杆；撬动",
-      "core_meaning_en": "a rigid bar used to lift or move something; a handle used to operate a machine; to move with a lever",
-      "mental_model_cn": "杠杆；撬动",
-      "mental_model_en": ""
+      "core_meaning_cn": "杠杆、操纵杆；施压手段；撬动",
+      "core_meaning_en": "a lever or control handle; a means of pressure; to prise with a lever",
+      "mental_model_cn": "实物杠杆通过支点撬动；抽象 lever 指影响他人或促成变化的手段。",
+      "mental_model_en": "a lever or control handle; a means of pressure; to prise with a lever."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -43,15 +44,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:e86530145020b5f886f4",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:lever:967a7371a91152a1:collocation:0"
-            ],
-            "meaning_cn": "拉动手柄",
-            "phrase": "pull the lever"
-          },
           {
             "collocation_id": "collocation:e954a692ca17ee108431",
             "exam_value": "usage_example",
@@ -93,6 +85,15 @@
             ],
             "meaning_cn": "控制杆",
             "phrase": "control lever"
+          },
+          {
+            "collocation_id": "collocation:e86530145020b5f886f4",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:lever:967a7371a91152a1:collocation:0"
+            ],
+            "meaning_cn": "拉动手柄",
+            "phrase": "pull the lever"
           }
         ],
         "confidence": "medium",
@@ -139,6 +140,28 @@
         "sense_label_en": "to move or lift something with a lever",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:lever:ab43912cedeac2b8",
+        "pos": "noun",
+        "definition_cn": "施压的手段；促成变化的力量",
+        "definition_en": "a means of exerting pressure to obtain a desired action or change",
+        "sense_label_en": "a means of exerting pressure to obtain a desired action or change",
+        "governing_pattern": "a lever for/against sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5411b5f9d6399fd74ded",
+            "phrase": "a powerful lever for change",
+            "meaning_cn": "促成变化的有力手段",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -180,6 +203,23 @@
           "applicability": [
             {
               "surface": "lever"
+            },
+            {
+              "surface": "lever",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:lever:ab43912cedeac2b8"
+              ],
+              "owner_sense_ids": [
+                "sense:lever:ab43912cedeac2b8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2811.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a lever for/against sth"
             }
           ],
           "sources": [
@@ -545,15 +585,24 @@
         "merged_into_sense_id": null,
         "source_row": 7802,
         "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json"
+      },
+      {
+        "sense_id": "sense:lever:ab43912cedeac2b8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2811.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:3a2ce8217c14840e22d3",
-      "collocation:40200e31664ffce08007",
-      "collocation:cf52cd125bbbc5ddaa7f",
+      "collocation:e954a692ca17ee108431",
       "collocation:e1ecd935995a7f31c5c0",
+      "collocation:3a2ce8217c14840e22d3",
       "collocation:e86530145020b5f886f4",
-      "collocation:e954a692ca17ee108431"
+      "collocation:cf52cd125bbbc5ddaa7f",
+      "collocation:40200e31664ffce08007",
+      "collocation:5411b5f9d6399fd74ded"
     ],
     "facts": [],
     "collocations": [
@@ -580,12 +629,20 @@
       {
         "id": "collocation:e86530145020b5f886f4",
         "source_row": 19694,
-        "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json",
+        "sense_id": "sense:lever:ed4de411d31a5563"
       },
       {
         "id": "collocation:e954a692ca17ee108431",
         "source_row": 19765,
         "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json"
+      },
+      {
+        "id": "collocation:5411b5f9d6399fd74ded",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2811.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

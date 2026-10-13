@@ -9,10 +9,28 @@
     "constructions": [],
     "content_hash": "bb92ce2976dc952ebc5bde6c651ddcd293b02f9e7bbf26b7fec0702c6a251bec",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "碎片；片段",
-      "core_meaning_en": "a piece broken off or incomplete",
-      "mental_model_cn": "碎片；片段",
+      "core_clusters": [
+        {
+          "label_cn": "碎片；破片；片段；不完整部分",
+          "label_en": "a small piece that has broken off or been cut off from something; an incomplete piece of something, such as a piece of writing or a conversation",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:fragment:51187d093b805edc",
+            "sense:fragment:d5b28d60e50a5a82"
+          ]
+        },
+        {
+          "label_cn": "（使）碎裂；（使群体或结构）分裂",
+          "label_en": "to break or cause to break into smaller pieces or separate parts",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:fragment:b7d6c6f26390240d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "碎片、片段；（使）碎裂或分裂",
+      "core_meaning_en": "a fragment; break into pieces or separate parts",
+      "mental_model_cn": "名词fragment为实体碎片或不完整片段；动词可使实体碎裂或群体分裂。英式用法中名词通常重音在前，动词通常重音在后。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -76,9 +94,31 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:fragment:d5b28d60e50a5a82",
-        "sense_label_en": "an incomplete piece of something, such as a piece of writing or a conver",
+        "sense_label_en": "an incomplete piece of something, such as a piece of writing or a conversation",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:fragment:b7d6c6f26390240d",
+        "pos": "verb",
+        "definition_cn": "（使）碎裂；（使群体或结构）分裂",
+        "definition_en": "to break or cause to break into smaller pieces or separate parts",
+        "sense_label_en": "to break or cause to break into smaller pieces or separate parts",
+        "governing_pattern": "fragment (sth); fragment into parts/groups",
+        "transitivity": "I/T",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e35bd5002af74ed80d6c",
+            "phrase": "The group fragmented into smaller teams.",
+            "meaning_cn": "这个群体分裂成较小的团队。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -169,6 +209,57 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/fræɡˈmɛnt/",
+          "locales": [
+            "en-GB"
+          ],
+          "locale_evidence": [
+            {
+              "locale": "en-GB",
+              "source_id": "fragment",
+              "basis": "Collins English Dictionary explicit British English verb heading"
+            }
+          ],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "fragment",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fragment:b7d6c6f26390240d"
+              ],
+              "owner_sense_ids": [
+                "sense:fragment:b7d6c6f26390240d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2034.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "fragment (sth); fragment into parts/groups"
+              }
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Collins English Dictionary / HarperCollins",
+              "page": "https://www.collinsdictionary.com/dictionary/english/fragment",
+              "source_id": "fragment",
+              "accessed_on": "2026-10-11",
+              "entry_context": {
+                "word": "fragment",
+                "pos": "verb",
+                "region": "British English"
+              },
+              "original_ipa": "fræɡˈmɛnt",
+              "notation_conversion": "publisher parentheses rendered as phonemic slashes; phoneme symbols and stress retained",
+              "attribution": "Collins English Dictionary, HarperCollins; short pronunciation citation, not dataset attribution"
+            }
+          ]
         }
       ]
     }
@@ -190,6 +281,14 @@
         "merged_into_sense_id": null,
         "source_row": 5655,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
+      },
+      {
+        "sense_id": "sense:fragment:b7d6c6f26390240d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2034.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -213,6 +312,13 @@
         "id": "collocation:5107ea2c1af73e5f5293",
         "source_row": 6845,
         "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+      },
+      {
+        "id": "collocation:e35bd5002af74ed80d6c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2034.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

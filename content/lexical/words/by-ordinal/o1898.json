@@ -6,33 +6,65 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:5073f0a355684def5f1f",
+        "pattern": "feel like sth / doing sth",
+        "meaning_cn": "想要某物；想做某事",
+        "definition_en": "to want something or to do something",
+        "usage_note": "表示意愿时like后接名词或doing，不接to do；与物体feels like某物的相似触感以及人的feeling状态按语境分开。",
+        "boundary": "表示意愿时like后接名词或doing，不接to do；与物体feels like某物的相似触感以及人的feeling状态按语境分开。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:82198046ecaba078e15d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:feel:6f9e5e7557af5877:collocation:1"
+            ],
+            "meaning_cn": "想要做",
+            "phrase": "feel like + doing"
+          }
+        ]
+      }
+    ],
     "content_hash": "382111d02f4e7b2c2774000b738e007e9e38a1858df396adc862831eb024cd6c",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "触摸；感觉到；感觉；觉得；摸索；同情",
-          "label_en": "perceive by a physical sensation, e.g., coming from the skin or muscles; undergo an emotional sensation or be in a particular state of mind; to search for something by touching; to have sympathy or compassion",
+          "label_cn": "感知、触摸、状态；摸起来",
+          "label_en": "touch, experience a state, or have a perceptible quality",
           "pos": "verb",
           "sense_ids": [
             "sense:feel:55819ebc6d5550de",
             "sense:feel:6f9e5e7557af5877",
+            "sense:feel:4663d69434119ead"
+          ]
+        },
+        {
+          "label_cn": "认为；摸索；同情",
+          "label_en": "believe, search by touch, or sympathize",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:feel:47d8c715e6783930",
             "sense:feel:f0a82cddc71a55b0",
             "sense:feel:58e709caad995967"
           ]
         },
         {
-          "label_cn": "感觉；直觉",
-          "label_en": "an intuitive awareness",
+          "label_cn": "直觉；触感或氛围",
+          "label_en": "intuition or perceptible quality/atmosphere",
           "pos": "noun",
           "sense_ids": [
-            "sense:feel:a915ed79de5b53e2"
+            "sense:feel:a915ed79de5b53e2",
+            "sense:feel:8359c059316b1117"
           ]
         }
       ],
-      "core_meaning_cn": "感觉；触摸",
-      "core_meaning_en": "experience or perceive through touch or emotion",
-      "mental_model_cn": "感觉；触摸",
+      "core_meaning_cn": "感觉、触摸或摸起来；认为；触感与直觉",
+      "core_meaning_en": "experience, touch, or feel to the touch; believe; feel or intuition",
+      "mental_model_cn": "人feel happy是自身感觉；东西feels soft是摸起来的性质。feel that表达看法，feel like doing表示想做；名词既可触感/氛围，也可a feel for的直觉。原feel for的摸索与同情分开保留。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -77,26 +109,17 @@
             ],
             "meaning_cn": "感到高兴",
             "phrase": "feel happy"
-          },
-          {
-            "collocation_id": "collocation:82198046ecaba078e15d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:feel:6f9e5e7557af5877:collocation:1"
-            ],
-            "meaning_cn": "想要做",
-            "phrase": "feel like + doing"
           }
         ],
         "confidence": "medium",
         "definition_cn": "感觉；觉得",
-        "definition_en": "undergo an emotional sensation or be in a particular state of mind",
-        "governing_pattern": "feel + adjective / feel like + doing",
+        "definition_en": "to experience an emotional or physical state",
+        "governing_pattern": "feel + adjective; feel as if + clause",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:feel:6f9e5e7557af5877",
-        "sense_label_en": "undergo an emotional sensation or be in a particular state of mind",
+        "sense_label_en": "experience a physical or emotional state",
         "sort_order": 1,
         "transitivity": "linking/I"
       },
@@ -171,6 +194,72 @@
         "sense_label_en": "an intuitive awareness",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:feel:4663d69434119ead",
+        "pos": "verb",
+        "definition_cn": "（物体等）摸起来；给人某种感觉",
+        "definition_en": "of an object or situation: to have a quality perceived through touch or experience",
+        "sense_label_en": "of an object or situation: to have a quality perceived through touch or experience",
+        "governing_pattern": "linking: sth feels + adjective; sth feels like + noun",
+        "transitivity": "linking",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7566f4805b58a891734c",
+            "phrase": "The fabric feels soft.",
+            "meaning_cn": "这种布摸起来很柔软。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:feel:47d8c715e6783930",
+        "pos": "verb",
+        "definition_cn": "认为；觉得（某事属实）",
+        "definition_en": "to believe or have an opinion that something is the case",
+        "sense_label_en": "to believe or have an opinion that something is the case",
+        "governing_pattern": "feel (that) + clause; feel about sth",
+        "transitivity": "I/T",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d403b32ed934e984dced",
+            "phrase": "I feel that we need more time.",
+            "meaning_cn": "我认为我们需要更多时间。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:feel:8359c059316b1117",
+        "pos": "noun",
+        "definition_cn": "触感；（地方、情境等的）氛围、给人的感觉",
+        "definition_en": "a quality noticed by touch, or the impression or atmosphere something gives",
+        "sense_label_en": "a quality noticed by touch, or the impression or atmosphere something gives",
+        "governing_pattern": "usually singular: the feel of sth; a soft/friendly feel",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:29f8ff717cd122fdc94d",
+            "phrase": "the feel of the fabric",
+            "meaning_cn": "这种布料的触感",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -223,6 +312,57 @@
           "applicability": [
             {
               "surface": "feel"
+            },
+            {
+              "surface": "feel",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:feel:4663d69434119ead"
+              ],
+              "owner_sense_ids": [
+                "sense:feel:4663d69434119ead"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1898.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "linking: sth feels + adjective; sth feels like + noun"
+              }
+            },
+            {
+              "surface": "feel",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:feel:47d8c715e6783930"
+              ],
+              "owner_sense_ids": [
+                "sense:feel:47d8c715e6783930"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1898.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "feel (that) + clause; feel about sth"
+              }
+            },
+            {
+              "surface": "feel",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:feel:8359c059316b1117"
+              ],
+              "owner_sense_ids": [
+                "sense:feel:8359c059316b1117"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1898.json",
+              "source_pointer": "/record/senses/7",
+              "conditions": {
+                "current_owner_usage": "usually singular: the feel of sth; a soft/friendly feel"
+              }
             }
           ],
           "sources": [
@@ -389,13 +529,36 @@
         "merged_into_sense_id": null,
         "source_row": 5216,
         "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json"
+      },
+      {
+        "sense_id": "sense:feel:4663d69434119ead",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1898.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:feel:47d8c715e6783930",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1898.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:feel:8359c059316b1117",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1898.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
       "collocation:23a49cf075c5a462ae5b",
       "collocation:5374d760ee5416126109",
       "collocation:595dde51c8b22655fc9e",
-      "collocation:82198046ecaba078e15d",
       "collocation:c930642ae92135d70867",
       "collocation:f930dc82c4de56b4b0cd"
     ],
@@ -419,7 +582,10 @@
       {
         "id": "collocation:82198046ecaba078e15d",
         "source_row": 11020,
-        "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json",
+        "status": "deprecated",
+        "merged_into_id": null,
+        "retirement_reason": "Meaning is now represented by the exact Word construction; original canonical identity retained as historical evidence."
       },
       {
         "id": "collocation:c930642ae92135d70867",
@@ -430,6 +596,27 @@
         "id": "collocation:f930dc82c4de56b4b0cd",
         "source_row": 21107,
         "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json"
+      },
+      {
+        "id": "collocation:7566f4805b58a891734c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1898.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:d403b32ed934e984dced",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1898.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:29f8ff717cd122fdc94d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1898.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

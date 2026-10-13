@@ -5,23 +5,23 @@
     "ordinal": 3905,
     "word": "queue",
     "source_owner_path": "content/lexical/words/by-ordinal/o3905.json",
-    "source_fingerprint": "1ed7efcaf8d75116287dc71e7f62d569c8659a0918eebdade5aa9d82759bdf5b",
+    "source_fingerprint": "9f89e5c949f7a0a3e73ff8ba141ad6705d77b403ef7f8f9b109ed0307318d87c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "队列；排队；计算中的队列",
-      "decision_cn": "",
+      "summary_cn": "按顺序等待处理的队列；排队",
+      "decision_cn": "人和车辆排队等候，计算机任务也可以排队等待执行；辫子是独立较低层名词义，不用计算机比喻解释。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "队列；排队；计算中的队列"
+        "target_label": "按顺序等待处理的队列；排队"
       }
     },
     "senses": [
@@ -146,6 +146,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "排队；列队等候"
         }
+      },
+      {
+        "id": "sense:queue:91e33f55062cc9e7",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（计算机任务或数据的）等待处理队列",
+        "definition_en": "an ordered list of tasks or data waiting to be processed",
+        "note": "计算语境中的 print queue / task queue 不是现场排队的人群。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:queue:c2df8626849c0738",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a print queue",
+            "meaning_cn": "打印任务队列",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:queue:91e33f55062cc9e7",
+          "target_locator": "record.senses[4]",
+          "target_label": "（计算机任务或数据的）等待处理队列"
+        }
       }
     ],
     "pronunciation_support": {
@@ -221,7 +247,7 @@
     "ordinal": 3906,
     "word": "quick",
     "source_owner_path": "content/lexical/words/by-ordinal/o3906.json",
-    "source_fingerprint": "b9a4400d8fb847514bda3aba7afe24bdbb38f36eceda34c1dc355898f7d3bfbb",
+    "source_fingerprint": "ecd824fc89faea0ea32ad9d96eaa933efad8f9ca37e9835fc09bdf024ef892d2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -364,16 +390,16 @@
         "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "要害；核心",
-        "definition_en": "the sensitive flesh under a nail or the core of something",
-        "note": "",
+        "definition_cn": "（指甲下的）嫩肉；（比喻）感情最敏感处",
+        "definition_en": "the tender flesh beneath a nail; figuratively, a deeply sensitive emotional point",
+        "note": "通常用 the quick；cut sb to the quick 表深深伤害感情，不宜把 quick 当作通用的“核心”名词。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:6cc72a92b2e7da33f4f2",
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "cut to the quick",
-            "meaning_cn": "触及要害；伤害感情",
+            "meaning_cn": "深深伤害感情；刺痛心灵",
             "kind": "usage_example",
             "repair": null
           }
@@ -382,7 +408,7 @@
           "target_kind": "sense",
           "target_id": "sense:quick:889f44b6b5b45a9a",
           "target_locator": "record.senses[4]",
-          "target_label": "要害；核心"
+          "target_label": "（指甲下的）嫩肉；（比喻）感情最敏感处"
         }
       }
     ],
@@ -1058,7 +1084,7 @@
     "ordinal": 3910,
     "word": "quite",
     "source_owner_path": "content/lexical/words/by-ordinal/o3910.json",
-    "source_fingerprint": "3edf3df2035abb332925f022443111cea0fd95724302e95c2254071f5502b568",
+    "source_fingerprint": "6c2b1434c8d7386808b61a146b2462b9f18f78020b39eff1c40684ce9285dbb3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1067,13 +1093,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "程度副词，表示相当或完全",
-      "decision_cn": "",
+      "summary_cn": "程度副词：相当；很；完全",
+      "decision_cn": "可分级性质在英式语境常表相当，也可因语境和重读加强；极限性质如 empty 常表完全。not quite 是尚未完全，quite a few 是不少。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "程度副词，表示相当或完全"
+        "target_label": "程度副词：相当；很；完全"
       }
     },
     "senses": [
@@ -1084,7 +1110,7 @@
         "governing_pattern": "",
         "definition_cn": "相当；颇",
         "definition_en": "to a noticeable or moderate degree; fairly",
-        "note": "",
+        "note": "英式英语常接可分级形容词表示“相当”；北美英语更常有“很”的强度。强度须结合上下文，不能机械地一律译成“有点”。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1118,7 +1144,7 @@
         "governing_pattern": "",
         "definition_cn": "完全，十分",
         "definition_en": "to the greatest extent; completely",
-        "note": "",
+        "note": "not quite 通常是“还不完全／差一点”，不是完全否定；如 not quite ready 为尚未完全准备好。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1489,12 +1515,12 @@
     "ordinal": 3912,
     "word": "quiz",
     "source_owner_path": "content/lexical/words/by-ordinal/o3912.json",
-    "source_fingerprint": "848adbef7c1a403809b816d319d7bd9c30314a68c4c62c23b2a7eebc4e62e362",
+    "source_fingerprint": "a647cd41768aecb1331f69919141b2c4610d91f443b6cf3afe53ccf1f23ca667",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
-        "1N"
+        "2V",
+        "2N"
       ],
       "density": "rich"
     },
@@ -1578,6 +1604,49 @@
           "target_locator": "record.senses[1]",
           "target_label": "考查；测验"
         }
+      },
+      {
+        "id": "sense:quiz:fa60c9b482e77c05",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "知识问答游戏；知识竞赛",
+        "definition_en": "a game or contest in which participants answer knowledge questions",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:quiz:75bbe5c5a3384647",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a team quiz",
+            "meaning_cn": "团队知识问答比赛",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:quiz:fa60c9b482e77c05",
+          "target_locator": "record.senses[2]",
+          "target_label": "知识问答游戏；知识竞赛"
+        }
+      },
+      {
+        "id": "sense:quiz:4ea0a80e4bf95217",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "quiz sb about/on/over sth",
+        "definition_cn": "追问；盘问",
+        "definition_en": "to ask someone many questions in order to obtain information",
+        "note": "新闻报道中警方或记者 quiz sb，通常不是给对方做知识测验。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:quiz:4ea0a80e4bf95217",
+          "target_locator": "record.senses[3]",
+          "target_label": "追问；盘问"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1625,7 +1694,7 @@
     "ordinal": 3913,
     "word": "quota",
     "source_owner_path": "content/lexical/words/by-ordinal/o3913.json",
-    "source_fingerprint": "d74e59e210738f8937f071b9845ac51e23ba46250198cb59404dcbb8bd945acc",
+    "source_fingerprint": "01655dfda93c778fd12498db827e1e19306ca02c41765e0b4f8b7aa7c4819f8f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1688,9 +1757,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "定额；分配额",
-        "definition_en": "a proportional share assigned to each participant",
-        "note": "",
+        "definition_cn": "分配的份额；需要完成或达到的定额",
+        "definition_en": "an allocated share or an amount expected or required to be achieved",
+        "note": "sales/work quota 是任务目标，不只表示按比例分得的份额；与限制最高可进口数量的 import quota 分开判断。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1719,7 +1788,7 @@
           "target_kind": "sense",
           "target_id": "sense:quota:0770d21dd4f25708",
           "target_locator": "record.senses[1]",
-          "target_label": "定额；分配额"
+          "target_label": "分配的份额；需要完成或达到的定额"
         }
       }
     ],
@@ -1783,7 +1852,7 @@
     "ordinal": 3914,
     "word": "quote",
     "source_owner_path": "content/lexical/words/by-ordinal/o3914.json",
-    "source_fingerprint": "fd173341f81941c3f46f4881a703769bcebb27cd93756ed30c6afeb333326aef",
+    "source_fingerprint": "ddcc92f7da27895d5711a8d8fdb452368d09676387fb51b8d44f1db5668d3a4d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1807,7 +1876,7 @@
         "id": "sense:quote:f0a18438581f5e4a",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "quote sb/sth; quote (sth) from a source",
         "definition_cn": "引用；引述",
         "definition_en": "to repeat or copy out words from a text or speech",
         "note": "",
@@ -1846,7 +1915,7 @@
         "id": "sense:quote:f8a276fd0e915e88",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "quote (a price) for sth; quote sb an amount (for sth)",
         "definition_cn": "报价；开价",
         "definition_en": "to state the price of something",
         "note": "",
@@ -1988,7 +2057,7 @@
     "ordinal": 3915,
     "word": "rabbit",
     "source_owner_path": "content/lexical/words/by-ordinal/o3915.json",
-    "source_fingerprint": "4845ca1248784fbcef5f2edfb9903f6c043ed5ad2bce3809799010a73483969f",
+    "source_fingerprint": "7f5da2c1fd8c3edb5dee49f40298ddc7afa38b48c297f305a6c70a7164a16b32",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2067,7 +2136,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "让...见鬼去",
         "definition_en": "to damn or curse (used in exclamations)",
-        "note": "",
+        "note": "已过时的感叹用法，如 rabbit it!；保留历史识别，不作现代中性“诅咒”动词自由套用。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2133,7 +2202,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:rabbit:8ea2c32a37ebde72",
+        "source_locator": "record.constructions[0]",
+        "pattern": "rabbit on (about sth)",
+        "lines": [
+          {
+            "text": "（英式口语，常含不耐烦）没完没了地闲扯",
+            "lang": "cn"
+          },
+          {
+            "text": "通常带 on；不能由动物义直译。",
+            "lang": "cn"
+          },
+          {
+            "text": "to keep talking about unimportant things",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:rabbit:8ea2c32a37ebde72",
+          "target_locator": "record.constructions[0]",
+          "target_label": "rabbit on (about sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2147,23 +2242,23 @@
     "ordinal": 3916,
     "word": "race",
     "source_owner_path": "content/lexical/words/by-ordinal/o3916.json",
-    "source_fingerprint": "3a89c5808dc4f3abfdf86b75f62b32cca1016a3a68bbf86551c732964d35783d",
+    "source_fingerprint": "c84d0d1fe0488a93e01adf7ca01eec9398c9044b0fe4c4be54eafaaf6ac7a331",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "比赛；种族类别；the human race = 人类",
-      "decision_cn": "",
+      "summary_cn": "竞速或争先；飞快运行；种族类别与人类",
+      "decision_cn": "比赛看对手或 to do 目标；方向词引出疾行，heart/mind 引出急跳或思绪飞转；人类分类义与竞速义分开。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "比赛；种族类别；the human race = 人类"
+        "target_label": "竞速或争先；飞快运行；种族类别与人类"
       }
     },
     "senses": [
@@ -2222,10 +2317,10 @@
         "id": "sense:race:24710a00c8fb5294",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + against/with",
+        "governing_pattern": "race (against) sb/sth; race to do sth",
         "definition_cn": "赛跑；竞赛",
         "definition_en": "to compete in a race",
-        "note": "",
+        "note": "可以直接接比赛对手作宾语；race to do sth 也可指争先完成某事。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2253,9 +2348,9 @@
         "id": "sense:race:4638d56de19450fc",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使疾走；使猛转",
-        "definition_en": "to cause to move or go at great speed",
+        "governing_pattern": "race + direction; race sb/sth + direction; an engine races; race the engine",
+        "definition_cn": "（使）飞快移动；（使发动机）高速运转",
+        "definition_en": "to move or make something move very fast; to run or make an engine run very fast",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2272,7 +2367,7 @@
           "target_kind": "sense",
           "target_id": "sense:race:4638d56de19450fc",
           "target_locator": "record.senses[3]",
-          "target_label": "使疾走；使猛转"
+          "target_label": "（使）飞快移动；（使发动机）高速运转"
         }
       },
       {
@@ -2304,6 +2399,23 @@
           "target_id": "sense:race:466bdf13a03ae178",
           "target_locator": "record.senses[4]",
           "target_label": "人类；全人类"
+        }
+      },
+      {
+        "id": "sense:race:90289720c238f08b",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "one's heart/mind races",
+        "definition_cn": "（心脏）急速跳动；（思绪）飞速运转",
+        "definition_en": "of a heart or mind, to work unusually fast through excitement, fear or urgency",
+        "note": "heart/mind/thoughts 作主语时，通常不是真正参加比赛。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:race:90289720c238f08b",
+          "target_locator": "record.senses[5]",
+          "target_label": "（心脏）急速跳动；（思绪）飞速运转"
         }
       }
     ],
@@ -2452,7 +2564,7 @@
     "ordinal": 3918,
     "word": "rack",
     "source_owner_path": "content/lexical/words/by-ordinal/o3918.json",
-    "source_fingerprint": "b9f34d2afe435728881156afb9d6759ffebe6b7c85885bb5cae6655c34f2c509",
+    "source_fingerprint": "d76f5ab565c5a5c1e6bac4b50eb2718ad6acb1c9b920f48d1dac46675c7fd80a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2591,9 +2703,9 @@
         "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "榨取；剥削",
-        "definition_en": "to extract or squeeze out (as in rack rent)",
-        "note": "",
+        "definition_cn": "索取过高租金；以高租金盘剥",
+        "definition_en": "to charge an excessive rent or raise rents excessively",
+        "note": "这是较旧的高租金盘剥用法。rack rent 本身是名词性组合，不能由此推成“榨取任何东西”的通用动词。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2614,7 +2726,7 @@
           "target_kind": "sense",
           "target_id": "sense:rack:88092e202670507c",
           "target_locator": "record.senses[4]",
-          "target_label": "榨取；剥削"
+          "target_label": "索取过高租金；以高租金盘剥"
         }
       },
       {
@@ -2676,6 +2788,31 @@
           "target_id": "construction:2d60621b4502712e2a29",
           "target_locator": "record.constructions[0]",
           "target_label": "rack one's brains"
+        }
+      },
+      {
+        "id": "construction:rack:a6c543720b529b80",
+        "source_locator": "record.constructions[1]",
+        "pattern": "rack up sth / rack sth up",
+        "lines": [
+          {
+            "text": "累计获得；累积（分数、收益、损失或债务等）",
+            "lang": "cn"
+          },
+          {
+            "text": "结果可好可坏；代词宾语放中间，如 rack them up。",
+            "lang": "cn"
+          },
+          {
+            "text": "to accumulate a total, including gains or losses",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:rack:a6c543720b529b80",
+          "target_locator": "record.constructions[1]",
+          "target_label": "rack up sth / rack sth up"
         }
       }
     ],
@@ -2914,7 +3051,7 @@
     "ordinal": 3920,
     "word": "radar",
     "source_owner_path": "content/lexical/words/by-ordinal/o3920.json",
-    "source_fingerprint": "e2df59728ec611665c355a68c45f0b20ae8b5560502859de31a2297144fc9484",
+    "source_fingerprint": "55e11f36ae41a018c05373acca1102eacafd08b05786d7a9e8d6d3b3fc22d1fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2997,7 +3134,7 @@
       {
         "id": "construction:59ac977a45dbcb9efa09",
         "source_locator": "record.constructions[0]",
-        "pattern": "be/put sth on the radar",
+        "pattern": "be on the radar / put sth on the radar",
         "lines": [
           {
             "text": "在关注/监测范围内；引起注意",
@@ -3016,7 +3153,32 @@
           "target_kind": "construction",
           "target_id": "construction:59ac977a45dbcb9efa09",
           "target_locator": "record.constructions[0]",
-          "target_label": "be/put sth on the radar"
+          "target_label": "be on the radar / put sth on the radar"
+        }
+      },
+      {
+        "id": "construction:radar:69e639c7807f85d4",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be/stay below/under the radar",
+        "lines": [
+          {
+            "text": "未被注意；未进入关注范围",
+            "lang": "cn"
+          },
+          {
+            "text": "比喻是否被注意；与现有on the radar的进入关注范围相对。",
+            "lang": "cn"
+          },
+          {
+            "text": "to remain unnoticed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:radar:69e639c7807f85d4",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be/stay below/under the radar"
         }
       }
     ],
@@ -3033,7 +3195,7 @@
     "ordinal": 3921,
     "word": "radiant",
     "source_owner_path": "content/lexical/words/by-ordinal/o3921.json",
-    "source_fingerprint": "4257c2d419fa5d3c741deb139bf4b34c58f691ab3db775c5d10e68ea6efedd7f",
+    "source_fingerprint": "90186aed5422063fc49c87794fb076db0f8464c0b718f64f3b7699aa8c95016c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3058,8 +3220,8 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "发光的，辐射的",
-        "definition_en": "radiating or as if radiating light",
-        "note": "",
+        "definition_en": "shining brightly, or describing heat or energy transmitted in rays",
+        "note": "radiant heat/energy 讲辐射传递，不限可见光；形容笑容或人时转到喜悦健康的另一枝。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3166,7 +3328,7 @@
     "ordinal": 3922,
     "word": "radiate",
     "source_owner_path": "content/lexical/words/by-ordinal/o3922.json",
-    "source_fingerprint": "c058329490300a3b7d66884112d0084f499aa17251d1f11902a609eb9ec6b7cd",
+    "source_fingerprint": "7978f52bbeafd308cef9d0b1db618c5d234e18b2116d30753437831146851b07",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3176,13 +3338,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "辐射，散发",
-      "decision_cn": "",
+      "summary_cn": "由一个中心向外发散",
+      "decision_cn": "热光能量可由物体发出；道路或疼痛向外延伸；人的情绪品质显露出来。注意“物体radiates热量”与“热量radiates from物体”两种主语。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "辐射，散发"
+        "target_label": "由一个中心向外发散"
       }
     },
     "senses": [
@@ -3190,7 +3352,7 @@
         "id": "sense:radiate:c477444c26775753",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt.: radiate heat/light/energy",
+        "governing_pattern": "radiate heat/light/energy; heat/light/energy radiates (from sth)",
         "definition_cn": "放射，辐射",
         "definition_en": "to send out rays or waves (light, heat, etc.)",
         "note": "",
@@ -3260,7 +3422,7 @@
         "id": "sense:radiate:6fa71d5ab298588f",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "radiate confidence/joy; confidence/joy radiates from sb",
         "definition_cn": "流露，显出",
         "definition_en": "to show a feeling or quality clearly",
         "note": "",
@@ -3352,7 +3514,7 @@
     "ordinal": 3923,
     "word": "radical",
     "source_owner_path": "content/lexical/words/by-ordinal/o3923.json",
-    "source_fingerprint": "5996770aea856d343c99044e0269821028c56b567cfca8ed40a832449376c748",
+    "source_fingerprint": "b549968dffbf4d4b76918994c59b5c2cb4d867b4a080e5822a02ee5eb96c8aba",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3482,8 +3644,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（汉字的）部首",
-        "definition_en": "a character conveying the lexical meaning of a logogram (e.g., in Chinese)",
-        "note": "",
+        "definition_en": "a component of a written Chinese character, often used to indicate meaning or classify it",
+        "note": "指汉字的部件／部首，不要求它本身是一整个独立汉字。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3508,8 +3670,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "自由基；（化学）基团",
-        "definition_en": "an atom, molecule, or group with an unpaired electron, especially a highly reactive free radical",
-        "note": "",
+        "definition_en": "an atom, molecule or group with one or more unpaired electrons; also an atom group treated as a unit in older chemical terminology",
+        "note": "free radical 的关键是不成对电子；旧称“基团”的用法不能据此断定所有基团都有不成对电子。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3590,7 +3752,7 @@
     "ordinal": 3924,
     "word": "radio",
     "source_owner_path": "content/lexical/words/by-ordinal/o3924.json",
-    "source_fingerprint": "5d2b7207049983d57dafb3cd6cc4847fc74718b39858126198db35b9f20f4617",
+    "source_fingerprint": "4b2cffe975e22ab8f3a6d65d4e4c1fb6d8135324a5debac57d4408164c319e5d",
     "sense_lineage": [
       {
         "word_id": "word:radio",
@@ -3682,7 +3844,7 @@
         "id": "sense:radio:25251989cb275fb2",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "radio a message (to sb); radio for help; radio that ...",
         "definition_cn": "用无线电发送",
         "definition_en": "to transmit a message via radio",
         "note": "",
@@ -3859,7 +4021,7 @@
     "ordinal": 3926,
     "word": "radius",
     "source_owner_path": "content/lexical/words/by-ordinal/o3926.json",
-    "source_fingerprint": "f526c967f5c8508d56d1227c6c17a3a5add160c762174166f23d96c7dea88458",
+    "source_fingerprint": "4d111a10c7a7a56c5e1d98f730158694ad18c09c418d0e623bf8c148749c0903",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3954,8 +4116,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "桡骨",
-        "definition_en": "the shorter bone of the forearm",
-        "note": "",
+        "definition_en": "the forearm bone on the thumb side, between the elbow and wrist",
+        "note": "解剖义用拇指侧定位，不只靠长短判断。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4031,12 +4193,12 @@
     "ordinal": 3927,
     "word": "rag",
     "source_owner_path": "content/lexical/words/by-ordinal/o3927.json",
-    "source_fingerprint": "fda935e5c4481ce9e676d8e507a300e0c88184298d444160d0c55408888da3c4",
+    "source_fingerprint": "93b829b4fe95a70ce66caaf71cc3d70470cc05e10d72430fe8331aed07e62fa8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -4057,8 +4219,8 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "戏弄；责骂",
-        "definition_en": "tease or scold someone playfully",
-        "note": "",
+        "definition_en": "to tease, criticize, scold or nag someone",
+        "note": "可指戏弄、批评、责骂或唠叨，不一律是友善的玩笑。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4087,9 +4249,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（英国大学的）慈善募捐周",
-        "definition_en": "a week at British universities with events to raise money for charity",
-        "note": "",
+        "definition_cn": "（英国大学生组织的）慈善募捐活动",
+        "definition_en": "a student event or series of events held to raise money for charity",
+        "note": "rag week 是募捐周；rag 本身并不限定活动必须持续一周。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4110,7 +4272,7 @@
           "target_kind": "sense",
           "target_id": "sense:rag:5a098efc9ad95bdf",
           "target_locator": "record.senses[1]",
-          "target_label": "（英国大学的）慈善募捐周"
+          "target_label": "（英国大学生组织的）慈善募捐活动"
         }
       },
       {
@@ -4119,7 +4281,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "碎布；破布",
-        "definition_en": "a small piece of cloth or paper",
+        "definition_en": "a piece of old or torn cloth, especially one used for cleaning",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4128,6 +4290,23 @@
           "target_id": "sense:rag:42cd8522646a56a5",
           "target_locator": "record.senses[2]",
           "target_label": "碎布；破布"
+        }
+      },
+      {
+        "id": "sense:rag:c0139b12fc7f9d1a",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（贬称）低劣报纸",
+        "definition_en": "a newspaper referred to dismissively as poor-quality",
+        "note": "口语贬称；the local rag 是对当地报纸的轻蔑叫法，不是抹布。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:rag:c0139b12fc7f9d1a",
+          "target_locator": "record.senses[3]",
+          "target_label": "（贬称）低劣报纸"
         }
       }
     ],
@@ -4151,7 +4330,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:rag:f70ddb135be5f4bd",
+        "source_locator": "record.constructions[0]",
+        "pattern": "(from) rags to riches",
+        "lines": [
+          {
+            "text": "从赤贫到富有",
+            "lang": "cn"
+          },
+          {
+            "text": "rags 在此指破旧衣物所代表的贫穷；用于人生经历。",
+            "lang": "cn"
+          },
+          {
+            "text": "from poverty to wealth",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:rag:f70ddb135be5f4bd",
+          "target_locator": "record.constructions[0]",
+          "target_label": "(from) rags to riches"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4391,11 +4596,11 @@
     "ordinal": 3929,
     "word": "raid",
     "source_owner_path": "content/lexical/words/by-ordinal/o3929.json",
-    "source_fingerprint": "94e3a181a0a6c2575797ea1f5be43b52dbf8b06906c67d8a52a96211f690ff8b",
+    "source_fingerprint": "6015b7f6ab57ba40e0677bc6f8244796bbcdebd459b661bc93996aa3863fff6e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "4V",
         "1N"
       ],
       "density": "rich"
@@ -4532,6 +4737,37 @@
           "target_locator": "record.senses[3]",
           "target_label": "（通过收购控股）接管（公司）"
         }
+      },
+      {
+        "id": "sense:raid:d5a94804ea964888",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "闯入抢掠；（口语）翻找拿取",
+        "definition_en": "to enter a place to steal from it; informally, to take things such as food from a store",
+        "note": "raid a shop 指闯入抢掠；raid the fridge 可幽默地指翻冰箱找吃的。须按执行者和对象区别警方搜查与盗抢。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:raid:9c020f98380ee53d",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "raid the fridge",
+            "meaning_cn": "翻冰箱找吃的",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:raid:9c020f98380ee53d",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "raid the fridge"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:raid:d5a94804ea964888",
+          "target_locator": "record.senses[4]",
+          "target_label": "闯入抢掠；（口语）翻找拿取"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4590,7 +4826,7 @@
     "ordinal": 3930,
     "word": "rail",
     "source_owner_path": "content/lexical/words/by-ordinal/o3930.json",
-    "source_fingerprint": "7019e811d2decbe50b77ee14b4970f7ee9c80bbc7fc4bb0bf7bc7b071fb2dcb5",
+    "source_fingerprint": "c7f17061f515ee34270b074c8526b32ef0a2fe825d11dd9d4b748de117d9a770",
     "sense_lineage": [
       {
         "word_id": "word:rail",
@@ -4610,7 +4846,7 @@
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -4688,6 +4924,37 @@
           "target_id": "sense:rail:5529025fd2f6503f",
           "target_locator": "record.senses[2]",
           "target_label": "责骂，抱怨"
+        }
+      },
+      {
+        "id": "sense:rail:7353244c8ce5e3d7",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "铁路运输；铁路系统",
+        "definition_en": "railways considered as a means of transport",
+        "note": "通常不可数；by rail 表乘火车或通过铁路运输，不是站在一根铁轨上。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:rail:7c35565b685c79ea",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "by rail",
+            "meaning_cn": "乘火车；经铁路运输",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:rail:7c35565b685c79ea",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "by rail"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:rail:7353244c8ce5e3d7",
+          "target_locator": "record.senses[3]",
+          "target_label": "铁路运输；铁路系统"
         }
       }
     ],
@@ -4908,7 +5175,7 @@
     "ordinal": 3932,
     "word": "rain",
     "source_owner_path": "content/lexical/words/by-ordinal/o3932.json",
-    "source_fingerprint": "ca5c8821b2b8e672ec55ad6e1c97b9251918f52ca33df8628f46fede9d5583d1",
+    "source_fingerprint": "a6d272dec7f8730dcdb5aff878ccabba7ed7a411737686f111c7dc6c77a2e0e1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5000,9 +5267,9 @@
         "id": "sense:rain:5f9a95e009c5545f",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使大量落下",
-        "definition_en": "cause to fall in large quantities",
+        "governing_pattern": "rain (down) on sb/sth; rain sth (down) on/upon sb/sth",
+        "definition_cn": "（使）大量落下；（使）接连而来",
+        "definition_en": "to fall, or cause things to fall, in large quantities",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5037,7 +5304,7 @@
           "target_kind": "sense",
           "target_id": "sense:rain:5f9a95e009c5545f",
           "target_locator": "record.senses[2]",
-          "target_label": "使大量落下"
+          "target_label": "（使）大量落下；（使）接连而来"
         }
       },
       {
@@ -5046,7 +5313,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "如雨般的事物；大量",
-        "definition_en": "anything happening rapidly or in quick successive",
+        "definition_en": "a large amount of things falling or arriving in quick succession",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5266,23 +5533,23 @@
     "ordinal": 3934,
     "word": "raise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3934.json",
-    "source_fingerprint": "a03433cd1fe99fc4fb1fe2037b13e6b54dd2b4f5e1c3c0cf49baf1befc1f137d",
+    "source_fingerprint": "3bd9e303bd078a089125cef4c893b8c71733510b7e03c3e2d58da02e0003212d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "5V",
+        "6V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "举起或增加",
-      "decision_cn": "",
+      "summary_cn": "使升高、增加、成长或出现",
+      "decision_cn": "按宾语判断：hand 举起，price 提高，funds 筹集，child/cattle/crops 养育或种植，question 提出，doubts 引起。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "举起或增加"
+        "target_label": "使升高、增加、成长或出现"
       }
     },
     "senses": [
@@ -5377,16 +5644,16 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "抚养；养育",
-        "definition_en": "to bring up a child",
-        "note": "",
+        "definition_cn": "抚养；养育；饲养；种植",
+        "definition_en": "to care for children or animals as they grow, or to grow crops",
+        "note": "raise children 是养育；raise cattle/crops 是饲养或种植，不是把它们举高。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:fb5eba9b3b78b035fe36",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "raise a family",
-            "meaning_cn": "养家",
+            "meaning_cn": "养育子女；抚养孩子长大",
             "kind": "usage_example",
             "repair": null
           }
@@ -5395,7 +5662,7 @@
           "target_kind": "sense",
           "target_id": "sense:raise:3ae39809d44a559f",
           "target_locator": "record.senses[3]",
-          "target_label": "抚养；养育"
+          "target_label": "抚养；养育；饲养；种植"
         }
       },
       {
@@ -5448,6 +5715,32 @@
           "target_id": "sense:raise:24022dbedf015e49",
           "target_locator": "record.senses[5]",
           "target_label": "加薪"
+        }
+      },
+      {
+        "id": "sense:raise:990e7849cb33f406",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "raise doubts/fears; raise a smile; raise dust",
+        "definition_cn": "引起；使出现（情绪、反应或现象）",
+        "definition_en": "to cause a feeling, reaction or phenomenon to arise",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:raise:f1c1ea104ce3d84c",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "raise doubts about the plan",
+            "meaning_cn": "引起对计划的怀疑",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:raise:990e7849cb33f406",
+          "target_locator": "record.senses[6]",
+          "target_label": "引起；使出现（情绪、反应或现象）"
         }
       }
     ],
@@ -5525,7 +5818,7 @@
     "ordinal": 3935,
     "word": "rake",
     "source_owner_path": "content/lexical/words/by-ordinal/o3935.json",
-    "source_fingerprint": "280c363e049b3d3b7a0e43e87dcef21a1fb7d5f1acdc91ae1a339525dbc91764",
+    "source_fingerprint": "5feb352d9c52943e5f530a14cf25af7c737982477b315df05fbb71b9f04ea3a0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5675,7 +5968,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:rake:25091093e6822b43",
+        "source_locator": "record.constructions[0]",
+        "pattern": "rake in sth / rake sth in",
+        "lines": [
+          {
+            "text": "赚进大量（钱、利润等）",
+            "lang": "cn"
+          },
+          {
+            "text": "口语，常暗示收入很多；不能从“耙地”逐字推出。",
+            "lang": "cn"
+          },
+          {
+            "text": "to receive or earn a large amount of money",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:rake:25091093e6822b43",
+          "target_locator": "record.constructions[0]",
+          "target_label": "rake in sth / rake sth in"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5689,12 +6008,12 @@
     "ordinal": 3936,
     "word": "rally",
     "source_owner_path": "content/lexical/words/by-ordinal/o3936.json",
-    "source_fingerprint": "a61b4c816ef5f7190e4f02c6f2b4456f6b0df34073503f162af62670139d9f8b",
+    "source_fingerprint": "ac5e7c5d1063f3dba7cba390a531d687cfc8b7f993837c8262d78d1da945f0f2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -5752,9 +6071,9 @@
         "id": "sense:rally:37ce91610eb55849",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + around",
-        "definition_cn": "集合；团结",
-        "definition_en": "come together to support a cause",
+        "governing_pattern": "rally around/behind/to sb/sth; rally sb/support (for sth)",
+        "definition_cn": "集合；团结；召集；争取支持",
+        "definition_en": "to gather or bring people together to support someone or something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5776,7 +6095,7 @@
           "target_kind": "sense",
           "target_id": "sense:rally:37ce91610eb55849",
           "target_locator": "record.senses[1]",
-          "target_label": "集合；团结"
+          "target_label": "集合；团结；召集；争取支持"
         }
       },
       {
@@ -5860,6 +6179,32 @@
           "target_id": "sense:rally:7354ec9697dc55c5",
           "target_locator": "record.senses[4]",
           "target_label": "汽车拉力赛"
+        }
+      },
+      {
+        "id": "sense:rally:82a119b70b8ea338",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（网球等）连续对打的一个回合",
+        "definition_en": "a sequence of return shots before a point ends in tennis or similar sports",
+        "note": "计一分之前的来回击球，不是汽车赛也不是整场比赛。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:rally:fa4ac61b456c272c",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a long rally",
+            "meaning_cn": "多拍对打的回合",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:rally:82a119b70b8ea338",
+          "target_locator": "record.senses[5]",
+          "target_label": "（网球等）连续对打的一个回合"
         }
       }
     ],
@@ -6064,7 +6409,7 @@
     "ordinal": 3938,
     "word": "range",
     "source_owner_path": "content/lexical/words/by-ordinal/o3938.json",
-    "source_fingerprint": "a7b5f05bd49c6b37bd2b17e1afd9e6e4eeea67fb01e8420dfb194750bdb7c22b",
+    "source_fingerprint": "739945f27983395f241c816fdb36775cd6fdba07c729be842b9986967742fe77",
     "sense_lineage": [
       {
         "word_id": "word:range",
@@ -6077,18 +6422,18 @@
     "recall_map": {
       "parts": [
         "2V",
-        "5N"
+        "6N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "范围；一系列/多种；山脉；（动词）在范围内变化",
-      "decision_cn": "",
+      "summary_cn": "范围、种类或连成系列的一组",
+      "decision_cn": "from A to B 选数值或类别变化；a range of 选多种事物；out of range 选有效距离；mountain range 是山脉。牧场和靶场也是地点意义，须按上下文辨认。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "范围；一系列/多种；山脉；（动词）在范围内变化"
+        "target_label": "范围、种类或连成系列的一组"
       }
     },
     "senses": [
@@ -6268,6 +6613,37 @@
           "target_locator": "record.senses[6]",
           "target_label": "一系列；多种；范围内的一组"
         }
+      },
+      {
+        "id": "sense:range:b728ce9d587d89c0",
+        "source_locator": "record.senses[7]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "有效距离；可及范围；续航里程",
+        "definition_en": "the distance over which something can operate, be detected or travel",
+        "note": "at close range 是近距离；out of range 可指信号等不可及；车辆range可指补充燃料或能量前的行程。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:range:9357e0d1d4f2efcb",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "out of range",
+            "meaning_cn": "超出有效范围",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:range:9357e0d1d4f2efcb",
+              "target_locator": "record.senses[7].collocations[0]",
+              "target_label": "out of range"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:range:b728ce9d587d89c0",
+          "target_locator": "record.senses[7]",
+          "target_label": "有效距离；可及范围；续航里程"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6332,24 +6708,24 @@
     "ordinal": 3939,
     "word": "rank",
     "source_owner_path": "content/lexical/words/by-ordinal/o3939.json",
-    "source_fingerprint": "3df01363e2cfb8c94812b28d145ecedb4aad015e86f66f0d22df7b4c9040192e",
+    "source_fingerprint": "b4f7f368f3304a510f2b634785279f726563629a6567f433637cf6ed1edd2871",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "(2+1)V",
-        "1A",
+        "2A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "等级；排列",
-      "decision_cn": "",
+      "summary_cn": "等级、排名或行列；另有恶臭与十足之义",
+      "decision_cn": "rank sb 与 sb ranks 分别是给人排名、位居；rank smell 是恶臭，rank hypocrisy 是十足的虚伪，不能用“等级”硬解。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "等级；排列"
+        "target_label": "等级、排名或行列；另有恶臭与十足之义"
       }
     },
     "senses": [
@@ -6531,6 +6907,32 @@
           "target_locator": "record.senses[4]",
           "target_label": "恶臭的；茂密丛生的"
         }
+      },
+      {
+        "id": "sense:rank:df0af88f89111f1f",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "十足的；完全的（强调不良性质）",
+        "definition_en": "complete or extreme, emphasizing a bad quality",
+        "note": "常置于名词前，如 rank hypocrisy；不表示恶臭或组织等级。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:rank:93cb317ea78ea30f",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "rank hypocrisy",
+            "meaning_cn": "十足的虚伪",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:rank:df0af88f89111f1f",
+          "target_locator": "record.senses[5]",
+          "target_label": "十足的；完全的（强调不良性质）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6595,7 +6997,7 @@
     "ordinal": 3940,
     "word": "rap",
     "source_owner_path": "content/lexical/words/by-ordinal/o3940.json",
-    "source_fingerprint": "68efa50bc81eb0791b594247c260f77c763e1a1121750a2b6f8f5a73ff2e3866",
+    "source_fingerprint": "eb5daefae9eec20f3fb03a4c173c914bfa5f3b0bbbeb1185346469481d3c0f98",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6620,8 +7022,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "轻敲；拍击",
-        "definition_en": "a gentle blow",
+        "definition_cn": "短促的敲击；叩击声",
+        "definition_en": "a short, sharp knock or blow",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6638,7 +7040,7 @@
           "target_kind": "sense",
           "target_id": "sense:rap:e02d96ac31d55402",
           "target_locator": "record.senses[0]",
-          "target_label": "轻敲；拍击"
+          "target_label": "短促的敲击；叩击声"
         }
       },
       {
@@ -6709,8 +7111,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "说唱音乐",
-        "definition_en": "genre of African-American music of the 1980s and 1990s in which rhyming lyrics are chanted to a musical accompaniment",
-        "note": "",
+        "definition_en": "a style of music featuring rhythmic spoken lyrics, usually over a beat",
+        "note": "起源于黑人音乐文化的持续发展的音乐形式，不限于20世纪80至90年代。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -6789,7 +7191,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:rap:a75241f5740fd548",
+        "source_locator": "record.constructions[0]",
+        "pattern": "get/have a bad rap",
+        "lines": [
+          {
+            "text": "受到不公正的恶评；背负坏名声",
+            "lang": "cn"
+          },
+          {
+            "text": "北美口语；rap 此处不是说唱或敲击。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be judged unfairly or have an undeserved bad reputation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:rap:a75241f5740fd548",
+          "target_locator": "record.constructions[0]",
+          "target_label": "get/have a bad rap"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6963,7 +7391,7 @@
     "ordinal": 3942,
     "word": "rapid",
     "source_owner_path": "content/lexical/words/by-ordinal/o3942.json",
-    "source_fingerprint": "916b79e22853447070b36d9a67c424fc2fc66d50bd4c5fd4f8554ba0326c8c95",
+    "source_fingerprint": "6e47a50aa323e893552641eaff5602a424e001a199570630ad9db3fd0c4a8384",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7024,7 +7452,7 @@
         "governing_pattern": "",
         "definition_cn": "急流",
         "definition_en": "a part of a river where the current is very fast",
-        "note": "",
+        "note": "这个河流义通常用复数 rapids；shoot the rapids 指乘船快速穿过急流，不是射击。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7078,7 +7506,7 @@
     "ordinal": 3943,
     "word": "rare",
     "source_owner_path": "content/lexical/words/by-ordinal/o3943.json",
-    "source_fingerprint": "1a0a54cf9acacce2e4f13e5beb5644ad8a414f4ed56e81135ed2cd29f6a20ab6",
+    "source_fingerprint": "84ae0f1a0cca3279455e02b091c92ed80221cefb0953b563cad55d74f3e2aa02",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7087,13 +7515,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "稀少的，不常见的",
-      "decision_cn": "",
+      "summary_cn": "稀少、不常见；肉烹得较生",
+      "decision_cn": "species/occasion 选稀有或难得；steak 与点餐语境选内部仍红的较生熟度；空气稀薄义保留为较低层。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "稀少的，不常见的"
+        "target_label": "稀少、不常见；肉烹得较生"
       }
     },
     "senses": [
@@ -7136,16 +7564,16 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "（肉）半熟的，煮得嫩的",
+        "definition_cn": "（肉）煎得较生、内部仍红的",
         "definition_en": "of meat, cooked for a short time so that the inside is still red",
-        "note": "",
+        "note": "餐饮语境按烹熟程度理解，不是肉很稀有；中文几分熟说法是约略对应，不能把“嫩”当成充分定义。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:fd74827e990faad79b67",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "rare steak",
-            "meaning_cn": "三分熟的牛排",
+            "meaning_cn": "较生、内部仍红的牛排",
             "kind": "usage_example",
             "repair": null
           }
@@ -7154,7 +7582,7 @@
           "target_kind": "sense",
           "target_id": "sense:rare:ec1b2f6ce33d508e",
           "target_locator": "record.senses[1]",
-          "target_label": "（肉）半熟的，煮得嫩的"
+          "target_label": "（肉）煎得较生、内部仍红的"
         }
       },
       {
@@ -7744,11 +8172,11 @@
     "ordinal": 3947,
     "word": "rate",
     "source_owner_path": "content/lexical/words/by-ordinal/o3947.json",
-    "source_fingerprint": "10c1c6f4255c1bc3a0a84d0531c88d3aed9bd53fce6688d0207c556252ba7f96",
+    "source_fingerprint": "920e05059a3658d248afd050ab96d97d9c21f33c1a00b230a342e48a0a129bf2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
@@ -7807,9 +8235,9 @@
         "id": "sense:rate:f19b4bb6872050c3",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object + (as) + complement",
-        "definition_cn": "评价，评级",
-        "definition_en": "to assign a rank or rating to someone or something",
+        "governing_pattern": "rate sb/sth (as) ...; sb/sth rates as ...; rate high/low",
+        "definition_cn": "评价；评级；列为；被认为具有某种水平",
+        "definition_en": "to judge quality or value, or to have a particular standing",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7839,7 +8267,7 @@
           "target_kind": "sense",
           "target_id": "sense:rate:f19b4bb6872050c3",
           "target_locator": "record.senses[1]",
-          "target_label": "评价，评级"
+          "target_label": "评价；评级；列为；被认为具有某种水平"
         }
       },
       {
@@ -7879,6 +8307,32 @@
           "target_id": "sense:rate:ffed512b3a065c49",
           "target_locator": "record.senses[2]",
           "target_label": "费用，价格"
+        }
+      },
+      {
+        "id": "sense:rate:35a27965ab6cf01a",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "rate a mention/attention",
+        "definition_cn": "值得；应得（某种关注或待遇）",
+        "definition_en": "to be important or good enough to deserve particular treatment",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:rate:cbeb4de054a5ca45",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The error hardly rated a mention.",
+            "meaning_cn": "这个错误几乎不值得一提。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:rate:35a27965ab6cf01a",
+          "target_locator": "record.senses[3]",
+          "target_label": "值得；应得（某种关注或待遇）"
         }
       }
     ],
@@ -7960,7 +8414,7 @@
     "ordinal": 3948,
     "word": "rather",
     "source_owner_path": "content/lexical/words/by-ordinal/o3948.json",
-    "source_fingerprint": "9a215503a73d36fc27eface5fe86df21d61d846007744b192530e33a991e8fd8",
+    "source_fingerprint": "98f0576435f7495fb42c8d6943a26dd19f14d3aee2b9b8ab42fb795c1e23c458",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8097,6 +8551,31 @@
           "target_id": "construction:2585fcd7142b5e83a475",
           "target_locator": "record.constructions[1]",
           "target_label": "would rather + base verb (than ...)"
+        }
+      },
+      {
+        "id": "construction:rather:7e75d9a12afb8d47",
+        "source_locator": "record.constructions[2]",
+        "pattern": "would rather + subject + past simple / past perfect",
+        "lines": [
+          {
+            "text": "宁愿别人现在或将来……；宁愿别人过去已……",
+            "lang": "cn"
+          },
+          {
+            "text": "与同主语would rather +动词原形分开；过去式不一定表示过去时间。",
+            "lang": "cn"
+          },
+          {
+            "text": "to express a preference about another subject, using a past form for present/future preference or past perfect for the past",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:rather:7e75d9a12afb8d47",
+          "target_locator": "record.constructions[2]",
+          "target_label": "would rather + subject + past simple / past perfect"
         }
       }
     ],
@@ -8245,23 +8724,23 @@
     "ordinal": 3950,
     "word": "rational",
     "source_owner_path": "content/lexical/words/by-ordinal/o3950.json",
-    "source_fingerprint": "a767ca3831c98bfcce6b6b83d14124c638c4a0d3df40c803a5aea8fdbb0294fc",
+    "source_fingerprint": "444a928f680c7df63d0d9e94ce72ebc45fbaa1fe50423ff5e32b0036374d2523",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
+        "2A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "理性的，合理的",
-      "decision_cn": "",
+      "summary_cn": "基于理性；数学中可用整数比表示",
+      "decision_cn": "decision/explanation 选理性合理；number 或数学语境选有理数性质，分母不能为零。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "理性的，合理的"
+        "target_label": "基于理性；数学中可用整数比表示"
       }
     },
     "senses": [
@@ -8305,8 +8784,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "有理数",
-        "definition_en": "a number that can be expressed as a quotient of two integers",
-        "note": "",
+        "definition_en": "a number expressible as an integer divided by a non-zero integer",
+        "note": "名词 a rational 指一个有理数；组合 rational number 中的 rational 则是形容词，不能据搭配认定它总是名词。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8328,6 +8807,23 @@
           "target_id": "sense:rational:493a0aa79ffd5cf8",
           "target_locator": "record.senses[1]",
           "target_label": "有理数"
+        }
+      },
+      {
+        "id": "sense:rational:281f8762fca3cb2f",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（数学）有理的",
+        "definition_en": "of a number, expressible as a ratio of integers with a non-zero denominator",
+        "note": "修饰 number 时表达数学性质，不能理解为人的理性。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:rational:281f8762fca3cb2f",
+          "target_locator": "record.senses[2]",
+          "target_label": "（数学）有理的"
         }
       }
     ],
@@ -8369,23 +8865,23 @@
     "ordinal": 3951,
     "word": "raw",
     "source_owner_path": "content/lexical/words/by-ordinal/o3951.json",
-    "source_fingerprint": "a43987d111173bfe2f0e1b321872c9520f28768858325c2817716f9c668bafbc",
+    "source_fingerprint": "7d10a78218926ddd92a7494094c0928661fcb4723101e8abd87f4faba146c890",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3A",
+        "6A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "未煮熟的、未加工的或未精炼的；处于自然状态",
-      "decision_cn": "",
+      "summary_cn": "未经烹煮、加工或打磨的原始状态；也可指身体刺痛、天气阴冷",
+      "decision_cn": "材料与数据看是否加工；人看经验，情绪与力量看是否加以控制。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "未煮熟的、未加工的或未精炼的；处于自然状态"
+        "target_label": "未经烹煮、加工或打磨的原始状态；也可指身体刺痛、天气阴冷"
       }
     },
     "senses": [
@@ -8432,6 +8928,14 @@
             "meaning_cn": "原材料",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:raw:0ba14d34c9760a65",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "raw data",
+            "meaning_cn": "未经整理分析的原始数据",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8471,10 +8975,10 @@
         "id": "sense:raw:de328bb3f2fb5772",
         "source_locator": "record.senses[3]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "in the raw",
         "definition_cn": "裸体（非正式）",
         "definition_en": "informal terms for nakedness",
-        "note": "",
+        "note": "裸体义用于 in the raw；该短语也可指不掩饰生活中粗粝、不愉快的一面。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -8482,6 +8986,75 @@
           "target_id": "sense:raw:de328bb3f2fb5772",
           "target_locator": "record.senses[3]",
           "target_label": "裸体（非正式）"
+        }
+      },
+      {
+        "id": "sense:raw:c64fcb47e5c85cba",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "未经训练的；缺乏经验的",
+        "definition_en": "without the experience or training needed for an activity",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:raw:fc7d11886a48b906",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "raw recruits",
+            "meaning_cn": "未经训练的新兵",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:raw:c64fcb47e5c85cba",
+          "target_locator": "record.senses[4]",
+          "target_label": "未经训练的；缺乏经验的"
+        }
+      },
+      {
+        "id": "sense:raw:ef09c374684cadb8",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（情绪、力量、才能）强烈而未加控制或打磨的",
+        "definition_en": "powerful and direct, without control or training",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:raw:47e6e803d9efbda8",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "raw emotion",
+            "meaning_cn": "强烈而未加掩饰的情绪",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:raw:ef09c374684cadb8",
+          "target_locator": "record.senses[5]",
+          "target_label": "（情绪、力量、才能）强烈而未加控制或打磨的"
+        }
+      },
+      {
+        "id": "sense:raw:247da8a746a587e9",
+        "source_locator": "record.senses[6]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（天气）阴冷刺骨的",
+        "definition_en": "unpleasantly cold, often with dampness",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:raw:247da8a746a587e9",
+          "target_locator": "record.senses[6]",
+          "target_label": "（天气）阴冷刺骨的"
         }
       }
     ],
@@ -8518,7 +9091,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:raw:3c732da0bde16894",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a raw deal",
+        "lines": [
+          {
+            "text": "不公平的待遇",
+            "lang": "cn"
+          },
+          {
+            "text": "通常说 get/give sb a raw deal。",
+            "lang": "cn"
+          },
+          {
+            "text": "unfair treatment",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:raw:3c732da0bde16894",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a raw deal"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8532,12 +9131,12 @@
     "ordinal": 3952,
     "word": "ray",
     "source_owner_path": "content/lexical/words/by-ordinal/o3952.json",
-    "source_fingerprint": "8639cd35adf4729ff2334661a92a9cc27bd9d0482f0745f5a5728726949c0c4b",
+    "source_fingerprint": "28008c3ffe8ac8041a9ef1ca699d6213218e77c32383cb099ad4ee055aab77ae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -8658,6 +9257,37 @@
           "target_id": "sense:ray:46429dfd32625e1e",
           "target_locator": "record.senses[3]",
           "target_label": "射出光线"
+        }
+      },
+      {
+        "id": "sense:ray:797f4c70833b677a",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "a ray of sth",
+        "definition_cn": "一线；一丝（希望或好事）",
+        "definition_en": "a small sign or amount of something positive",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:ray:b158e25a4c1f64e6",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a ray of hope",
+            "meaning_cn": "一线希望",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:ray:b158e25a4c1f64e6",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "a ray of hope"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ray:797f4c70833b677a",
+          "target_locator": "record.senses[4]",
+          "target_label": "一线；一丝（希望或好事）"
         }
       }
     ],
@@ -8815,11 +9445,11 @@
     "ordinal": 3954,
     "word": "reach",
     "source_owner_path": "content/lexical/words/by-ordinal/o3954.json",
-    "source_fingerprint": "16c46ba3c01664715d107a119ec89bd361ecd2fea86b1048a081d3f7e4d1819d",
+    "source_fingerprint": "7d11c1762fb245152ba015706ccc0cd6c1e6b787197ff38e635c79012cbb27ca",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4V",
+        "5V",
         "1N"
       ],
       "density": "rich"
@@ -8917,7 +9547,7 @@
         "id": "sense:reach:2e5f009b70bd59c8",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "I/T: reach for/across/out; reach sth",
         "definition_cn": "伸手（去够）",
         "definition_en": "to stretch out an arm or hand to touch or grasp something",
         "note": "",
@@ -9026,6 +9656,32 @@
           "target_locator": "record.senses[4]",
           "target_label": "联系到；与……取得联系"
         }
+      },
+      {
+        "id": "sense:reach:fe8936272a4263d7",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "reach sth; reach to/down to sth",
+        "definition_cn": "延伸到；够到（某处）",
+        "definition_en": "to extend as far as a place or point",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:reach:bfbce8393280163b",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "The cable reaches the desk.",
+            "meaning_cn": "电缆一直够到书桌。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:reach:fe8936272a4263d7",
+          "target_locator": "record.senses[5]",
+          "target_label": "延伸到；够到（某处）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9057,7 +9713,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:reach:ad24075bbc5c5abe",
+        "source_locator": "record.constructions[0]",
+        "pattern": "reach out (to sb)",
+        "lines": [
+          {
+            "text": "主动联系、表示关心或寻求帮助",
+            "lang": "cn"
+          },
+          {
+            "text": "用于联络人，不等同于伸手够物。",
+            "lang": "cn"
+          },
+          {
+            "text": "to make contact to offer support or seek help",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:reach:ad24075bbc5c5abe",
+          "target_locator": "record.constructions[0]",
+          "target_label": "reach out (to sb)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9071,11 +9753,11 @@
     "ordinal": 3955,
     "word": "react",
     "source_owner_path": "content/lexical/words/by-ordinal/o3955.json",
-    "source_fingerprint": "5cb359144cdac31764fe7cc9d63fa76b802a93e32ae08f88073250341b48a663",
+    "source_fingerprint": "5228d790870676cf2d62a1f167e4661dd62f3821224b4c6a730e08ac0447a999",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V"
+        "4V"
       ],
       "density": "rich"
     },
@@ -9094,7 +9776,7 @@
         "id": "sense:react:8021f035bc3255a4",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "react (to sth); react by doing sth; react with sth",
         "definition_cn": "对……作出反应",
         "definition_en": "show a response or a reaction to something",
         "note": "",
@@ -9190,6 +9872,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "（化学）起反应"
         }
+      },
+      {
+        "id": "sense:react:6649c0c4b44eac82",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "react (badly/adversely) to sth",
+        "definition_cn": "（身体对食物、药物等）产生不良反应",
+        "definition_en": "to suffer an adverse bodily response to a substance",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:react:6649c0c4b44eac82",
+          "target_locator": "record.senses[3]",
+          "target_label": "（身体对食物、药物等）产生不良反应"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9245,7 +9944,7 @@
           "target_word": "respond",
           "lines": [
             {
-              "text": "react侧重本能反应，respond侧重言语回应",
+              "text": "react 和 respond 都可指行为、情绪或身体的反应；respond 还常指口头或书面答复。不能机械分成本能反应与言语回应。",
               "lang": "cn"
             },
             {
@@ -9272,11 +9971,11 @@
     "ordinal": 3956,
     "word": "read",
     "source_owner_path": "content/lexical/words/by-ordinal/o3956.json",
-    "source_fingerprint": "9fd40000715b7d1fb5bc2146caff1c2b3e19dee5a5cf14a27acfbec6cbcb6eb1",
+    "source_fingerprint": "d8d10b374b14b05392e4040150dcbc0e68bcc79272384c74f6e25c4c097a4f49",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "5V",
         "1N"
       ],
       "density": "rich"
@@ -9296,9 +9995,9 @@
         "id": "sense:read:cb13f22a2dae588e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "阅读；读懂",
-        "definition_en": "look at and understand written words",
+        "governing_pattern": "I/T: read (sth); read sth to sb; read sb sth",
+        "definition_cn": "阅读；读懂；朗读",
+        "definition_en": "to understand written words or symbols, or say written words aloud",
         "note": "",
         "identity_overlay": {
           "text": "base/present read is pronounced /riːd/; past and past participle read keep the spelling read but are pronounced /red/",
@@ -9323,7 +10022,7 @@
           "target_kind": "sense",
           "target_id": "sense:read:cb13f22a2dae588e",
           "target_locator": "record.senses[0]",
-          "target_label": "阅读；读懂"
+          "target_label": "阅读；读懂；朗读"
         }
       },
       {
@@ -9351,6 +10050,19 @@
             "meaning_cn": "解读形势",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:read:1ddeac914d795f90",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "read someone's mind",
+            "meaning_cn": "看出某人在想什么",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:read:1ddeac914d795f90",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "read someone's mind"
+            }
           }
         ],
         "repair": {
@@ -9409,6 +10121,49 @@
           "target_id": "sense:read:3e0f17eb40279685",
           "target_locator": "record.senses[3]",
           "target_label": "显示；标明；写着"
+        }
+      },
+      {
+        "id": "sense:read:13d14830faec3fb1",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "read + adverb; read like sth",
+        "definition_cn": "读起来给人某种印象",
+        "definition_en": "to produce a particular impression through its wording",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:read:50960b8aea82d05c",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "The report reads well.",
+            "meaning_cn": "这篇报告读起来很顺畅。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:read:13d14830faec3fb1",
+          "target_locator": "record.senses[4]",
+          "target_label": "读起来给人某种印象"
+        }
+      },
+      {
+        "id": "sense:read:39021f00a61f5259",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "read sth; read for a degree",
+        "definition_cn": "（英式正式或旧用法）攻读（学科、学位）",
+        "definition_en": "to study an academic subject at university",
+        "note": "英国正式或较旧的大学语境；不等于随便读一本书。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:read:39021f00a61f5259",
+          "target_locator": "record.senses[5]",
+          "target_label": "（英式正式或旧用法）攻读（学科、学位）"
         }
       }
     ],
@@ -9994,11 +10749,11 @@
     "ordinal": 3959,
     "word": "reading",
     "source_owner_path": "content/lexical/words/by-ordinal/o3959.json",
-    "source_fingerprint": "4bd5722bc0a2c397b24679941b3b97e32c3a3841e8fb340668e31eba6df87885",
+    "source_fingerprint": "e4daf77ff92b2881af5eea7252f50d68224d5d028aef3283cbc2deb50e39d161",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
@@ -10124,6 +10879,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "读数"
         }
+      },
+      {
+        "id": "sense:reading:e339e5573a9cbc80",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "朗读会；公开朗读的片段",
+        "definition_en": "a public presentation of a text by reading it aloud, or the text presented",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:reading:0467e3798c6a1488",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a poetry reading",
+            "meaning_cn": "诗歌朗读会",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:reading:e339e5573a9cbc80",
+          "target_locator": "record.senses[4]",
+          "target_label": "朗读会；公开朗读的片段"
+        }
       }
     ],
     "pronunciation_support": {
@@ -10169,7 +10950,7 @@
     "ordinal": 3960,
     "word": "ready",
     "source_owner_path": "content/lexical/words/by-ordinal/o3960.json",
-    "source_fingerprint": "2a455a0a04c40e39dbbf689aff2d25caea0185c85de88d5be43a8f4b604839bf",
+    "source_fingerprint": "c17be51ae55e6b17720bc03ba29b27e15ae53e36c94aa1e2280b243244fcf585",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10197,7 +10978,7 @@
         "governing_pattern": "",
         "definition_cn": "准备好的；可立即使用的",
         "definition_en": "completely prepared or in condition for immediate action or use",
-        "note": "",
+        "note": "ready to do 也可指眼看就要发生，并非有意准备：ready to collapse 是快撑不住了。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10405,7 +11186,7 @@
     "ordinal": 3961,
     "word": "real",
     "source_owner_path": "content/lexical/words/by-ordinal/o3961.json",
-    "source_fingerprint": "f6c5756ea7f7bb0b0413595a9f5d14236d9cb1155a4f2783be2dd30c17831815",
+    "source_fingerprint": "2b4b24246810101f016f38b0ff31037251fe70c4b1d76df86c715853132ea39d",
     "sense_lineage": [
       {
         "word_id": "word:real",
@@ -10417,7 +11198,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2A",
+        "3A",
         "2N",
         "1ADV"
       ],
@@ -10535,6 +11316,32 @@
           "target_id": "sense:real:3b195a98c63754f2",
           "target_locator": "record.senses[4]",
           "target_label": "真实的，实际的"
+        }
+      },
+      {
+        "id": "sense:real:8fcd6615eaaba254",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（收入、价值等）扣除物价变动影响的；实际的",
+        "definition_en": "measured with changes in purchasing power taken into account",
+        "note": "real wages/income 看购买力，不能仅理解成非虚构。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:real:fcc2a29568a8ecd0",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "real wages",
+            "meaning_cn": "实际工资（经物价因素调整）",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:real:8fcd6615eaaba254",
+          "target_locator": "record.senses[5]",
+          "target_label": "（收入、价值等）扣除物价变动影响的；实际的"
         }
       }
     ],
@@ -10685,11 +11492,11 @@
     "ordinal": 3962,
     "word": "realise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3962.json",
-    "source_fingerprint": "91c86d1bd9f23bb73c86c6a3fbe45602e78b7f248375310d2af06e20cf1feb61",
+    "source_fingerprint": "ef6c7c7aab0fcf8c485e6d7a0ac4d15021de1ce757394f2418b99636af81298a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V"
+        "4V"
       ],
       "density": "rich"
     },
@@ -10708,7 +11515,7 @@
         "id": "sense:realise:40c2cb3ba10d5dcb",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + that-clause / vt. + object",
+        "governing_pattern": "I/T: realise (sth); realise that/how/what ...",
         "definition_cn": "认识到，意识到",
         "definition_en": "be fully aware or cognizant of",
         "note": "",
@@ -10763,7 +11570,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "实现，使成为现实",
         "definition_en": "make real or concrete; give reality or substance to",
-        "note": "",
+        "note": "realise a dream/potential 是实现；fears are realised 表担心的事果然发生，常用被动。",
         "identity_overlay": {
           "text": "realise and realize are regional spelling variants of the same lexeme; realise is common BrE, while realize is common AmE and also accepted in some BrE styles",
           "repair": {
@@ -10835,6 +11642,32 @@
           "target_id": "sense:realise:478d2a0eddb6589a",
           "target_locator": "record.senses[2]",
           "target_label": "变卖（财产）为现金"
+        }
+      },
+      {
+        "id": "sense:realise:63c267d755f298c1",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "realise + amount",
+        "definition_cn": "（出售物品）卖得；获得（金额）",
+        "definition_en": "to bring in a stated amount of money when sold",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:realise:dc36c90a253f50cf",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The sale realised £500.",
+            "meaning_cn": "出售所得为500英镑。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:realise:63c267d755f298c1",
+          "target_locator": "record.senses[3]",
+          "target_label": "（出售物品）卖得；获得（金额）"
         }
       }
     ],
@@ -11098,7 +11931,7 @@
     "ordinal": 3964,
     "word": "reality",
     "source_owner_path": "content/lexical/words/by-ordinal/o3964.json",
-    "source_fingerprint": "65235f072c165747db9b3a5a4d44eb560eb9b49feafc8e7b81d25fec208e1810",
+    "source_fingerprint": "c120a6045a45466a686af571b9059a91890b8446a4691b5dcc66f8b003b159a0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11121,10 +11954,10 @@
         "id": "sense:reality:0a8c8bc8ed02593b",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "reality [U]; a reality [C]; realities [plural]",
         "definition_cn": "现实；事实",
         "definition_en": "the state of things as they actually exist, rather than as they are imagined",
-        "note": "",
+        "note": "a reality 指已成为事实的事；realities 常指生活、经济等实际处境。",
         "identity_overlay": null,
         "usage": [
           {
@@ -11147,6 +11980,19 @@
             "meaning_cn": "面对现实",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:reality:247d8a4143fd03f1",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "become a reality",
+            "meaning_cn": "成为现实",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:reality:247d8a4143fd03f1",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "become a reality"
+            }
           }
         ],
         "repair": {
@@ -11163,14 +12009,14 @@
         "governing_pattern": "",
         "definition_cn": "真实性；逼真",
         "definition_en": "the quality of being real",
-        "note": "",
+        "note": "quality of being real 指真实存在或真实感；旧例 the reality of the situation 通常指情况的实际面貌，不是证明情况“是真的”。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:63542bd3247922154b6b",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "the reality of the situation",
-            "meaning_cn": "情况的真实性",
+            "meaning_cn": "情况的实际面貌",
             "kind": "usage_example",
             "repair": null
           }
@@ -11506,7 +12352,7 @@
     "ordinal": 3966,
     "word": "realm",
     "source_owner_path": "content/lexical/words/by-ordinal/o3966.json",
-    "source_fingerprint": "5182505886d1e5f2df81998a8d03cf5296142b627a647da9bf4e502e9f971146",
+    "source_fingerprint": "d0c919d7ae94c99c82919b143ef1460618d7fa8a224836e5198c8de3f9d80238",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11531,7 +12377,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "领域；范围",
-        "definition_en": "a domain in which something is dominant",
+        "definition_en": "a field of activity, thought, interest, or knowledge",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11571,7 +12417,7 @@
         "governing_pattern": "",
         "definition_cn": "王国",
         "definition_en": "the domain ruled by a king or queen",
-        "note": "",
+        "note": "王国义较正式。",
         "identity_overlay": null,
         "usage": [
           {
@@ -11635,7 +12481,7 @@
           "target_word": "kingdom",
           "lines": [
             {
-              "text": "kingdom与realm均指王国，但realm更抽象",
+              "text": "二者都可指王国；realm 的王国义较正式。realm 另常指知识或活动领域，这不表示它在王国义中必然更抽象。",
               "lang": "cn"
             },
             {
@@ -11662,7 +12508,7 @@
     "ordinal": 3967,
     "word": "reap",
     "source_owner_path": "content/lexical/words/by-ordinal/o3967.json",
-    "source_fingerprint": "f98d06eadf8a1589a50a1282a735d274d255efaaef79cb3545b95ee2eedb8aa1",
+    "source_fingerprint": "7ec988d15e4d3587cd5792739dba82fe1132166e89e6072321a402fa321bafff",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11685,7 +12531,7 @@
         "id": "sense:reap:bb30c478b0765cf2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: reap (a crop)",
         "definition_cn": "收割；收获",
         "definition_en": "to cut and gather a crop",
         "note": "",
@@ -11763,23 +12609,23 @@
         "id": "sense:reap:5ad6c13934df5a27",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + from",
+        "governing_pattern": "reap benefits/rewards/a harvest (from sth)",
         "definition_cn": "得到报应；收获",
         "definition_en": "to receive a benefit or punishment as a result of one's actions",
-        "note": "",
+        "note": "结果通常作直接宾语；from 指来源。旧 reap from + sth 应补明收获内容，不能当作普遍必用的不及物框架。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:d16093cea4cbc18e2f45",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "reap from + sth",
-            "meaning_cn": "从…中收获",
+            "phrase": "reap benefits/rewards from sth",
+            "meaning_cn": "从某事中获得好处或回报",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d16093cea4cbc18e2f45",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "reap from + sth"
+              "target_label": "reap benefits/rewards from sth"
             }
           }
         ],

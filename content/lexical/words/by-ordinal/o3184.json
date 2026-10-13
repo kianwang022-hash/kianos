@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "本地/原产的；与生俱来的；母语的",
-          "label_en": "native to a place; innate; relating to a first language",
+          "label_cn": "本地的；土生土长的；原产于某地的；与生俱来的；母语的；从幼年起作为第一语言使用的",
+          "label_en": "originating naturally in or belonging to a particular place; indigenous; belonging to one by birth; relating to the first language a person learns or has used from earliest childhood",
           "pos": "adjective",
           "sense_ids": [
             "sense:native:84a02df549e855df",
@@ -28,12 +28,20 @@
             "sense:native:b4982b01f2a455e1",
             "sense:native:ec375482449152cf"
           ]
+        },
+        {
+          "label_cn": "（计算机）原生的；为特定平台设计或内置的",
+          "label_en": "designed for or built into a particular computing system",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:native:f5b30ba961cb11cb"
+          ]
         }
       ],
-      "core_meaning_cn": "本地的，本国的",
-      "core_meaning_en": "belonging to a place by birth or origin",
-      "mental_model_cn": "本地的，本国的",
-      "mental_model_en": ""
+      "core_meaning_cn": "本地/原产、天生和母语的；本地人/物；纯态矿物与平台原生",
+      "core_meaning_en": "native origin, innate ability and first language; natives; pure minerals and platform-native computing",
+      "mental_model_cn": "native to表示原产地；native speaker是母语者；native copper谈天然纯态，native app谈特定平台，不是程序员籍贯。",
+      "mental_model_en": "native origin, innate ability and first language; natives; pure minerals and platform-native computing."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -67,7 +75,7 @@
         "confidence": "medium",
         "definition_cn": "本地的；土生土长的；原产于某地的",
         "definition_en": "originating naturally in or belonging to a particular place; indigenous",
-        "governing_pattern": "",
+        "governing_pattern": "native to + place; native country/species",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
@@ -180,6 +188,50 @@
         "sense_label_en": "relating to the first language a person learns or has used from earliest childhood",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:native:2852558dffe58d70",
+        "pos": "adjective",
+        "definition_cn": "（矿物、金属）天然纯态的",
+        "definition_en": "occurring naturally in a pure elemental state",
+        "sense_label_en": "occurring naturally in a pure elemental state",
+        "governing_pattern": "native gold/copper（矿物或金属）",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1e2c76316fb153dbbfbd",
+            "phrase": "native copper",
+            "meaning_cn": "自然铜",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:native:f5b30ba961cb11cb",
+        "pos": "adjective",
+        "definition_cn": "（计算机）原生的；为特定平台设计或内置的",
+        "definition_en": "designed for or built into a particular computing system",
+        "sense_label_en": "designed for or built into a particular computing system",
+        "governing_pattern": "native app/code/format",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c042b8c1eae14f70db4d",
+            "phrase": "a native app",
+            "meaning_cn": "为特定平台设计的原生应用",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -220,6 +272,42 @@
           "applicability": [
             {
               "surface": "native"
+            },
+            {
+              "surface": "native",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:native:2852558dffe58d70"
+              ],
+              "owner_sense_ids": [
+                "sense:native:2852558dffe58d70"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3184.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "native gold/copper（矿物或金属）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "native",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:native:f5b30ba961cb11cb"
+              ],
+              "owner_sense_ids": [
+                "sense:native:f5b30ba961cb11cb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3184.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "native app/code/format",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -388,16 +476,34 @@
         "merged_into_sense_id": null,
         "source_row": 8906,
         "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
+      },
+      {
+        "sense_id": "sense:native:2852558dffe58d70",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3184.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:native:f5b30ba961cb11cb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3184.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
+      "collocation:f34653f15079ef7b1b9b",
+      "collocation:e03991445a66dd5141e1",
       "collocation:55f1d87714fca30f256c",
       "collocation:84bd139f6e457af6a6bb",
       "collocation:8f91cb239cda8ae298b8",
       "collocation:ab9079a22df10284fefe",
       "collocation:d42dc0c62226423477d4",
-      "collocation:e03991445a66dd5141e1",
-      "collocation:f34653f15079ef7b1b9b"
+      "collocation:1e2c76316fb153dbbfbd",
+      "collocation:c042b8c1eae14f70db4d"
     ],
     "facts": [],
     "collocations": [
@@ -435,6 +541,20 @@
         "id": "collocation:d42dc0c62226423477d4",
         "source_row": 21356,
         "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:1e2c76316fb153dbbfbd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3184.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:c042b8c1eae14f70db4d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3184.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -11,27 +11,31 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "飞；飞翔；飞越；逃离",
-          "label_en": "to fly, fly over, or flee quickly",
+          "label_cn": "飞；飞翔；乘飞机旅行；飞越；逃走；逃离；驾驶（飞机等）；放飞、操控（风筝等）；空运（人或货物）；迅速移动、传播；（时间）飞逝",
+          "label_en": "to move through the air, or travel by aircraft; to travel over or across by flying; to flee or escape; to operate an aircraft in flight or cause and control an object’s flight; to transport people or goods by aircraft; to move or spread quickly, or seem to pass quickly",
           "pos": "verb",
           "sense_ids": [
             "sense:fly:1b7f62f335595750",
             "sense:fly:fa4de5ce75725904",
-            "sense:fly:5b07b9e6f0b85043"
+            "sense:fly:5b07b9e6f0b85043",
+            "sense:fly:3e98476f8fdf8abe",
+            "sense:fly:e5faeaba0034479a",
+            "sense:fly:da0e29eee56923a3"
           ]
         },
         {
-          "label_cn": "苍蝇",
-          "label_en": "a fly insect",
+          "label_cn": "苍蝇；（裤子的）开口；门襟",
+          "label_en": "a two-winged insect; an opening in a garment closed by a zipper or buttons",
           "pos": "noun",
           "sense_ids": [
-            "sense:fly:c5b5e628afc75ca6"
+            "sense:fly:c5b5e628afc75ca6",
+            "sense:fly:f981456cea6952ed"
           ]
         }
       ],
-      "core_meaning_cn": "飞行或昆虫",
-      "core_meaning_en": "to move through the air or an insect",
-      "mental_model_cn": "飞行或昆虫",
+      "core_meaning_cn": "飞行、飞越、驾驶或空运；飞逝；苍蝇或门襟",
+      "core_meaning_en": "fly, cross by air, operate or transport by air; pass quickly; a fly or garment fly",
+      "mental_model_cn": "乘飞机fly to，驾驶fly a plane，放风筝fly a kite，空运fly supplies to按宾语区分；Time flies为时间飞逝。名词苍蝇与裤子门襟是不同对象，逃离义按上下文读。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,14 +68,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "飞；飞翔",
-        "definition_en": "to move through the air using wings",
+        "definition_cn": "飞；飞翔；乘飞机旅行",
+        "definition_en": "to move through the air, or travel by aircraft",
         "governing_pattern": "vi. + to/from/into",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:fly:1b7f62f335595750",
-        "sense_label_en": "to move through the air using wings",
+        "sense_label_en": "to move through the air, or travel by aircraft",
         "sort_order": 0,
         "transitivity": "vi"
       },
@@ -179,6 +183,72 @@
         "sense_label_en": "an opening in a garment closed by a zipper or buttons",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:fly:3e98476f8fdf8abe",
+        "pos": "verb",
+        "definition_cn": "驾驶（飞机等）；放飞、操控（风筝等）",
+        "definition_en": "to operate an aircraft in flight or cause and control an object’s flight",
+        "sense_label_en": "to operate an aircraft in flight or cause and control an object’s flight",
+        "governing_pattern": "fly an aircraft/kite",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:de60d6aab7bf4c3a4fe0",
+            "phrase": "fly a plane / fly a kite",
+            "meaning_cn": "驾驶飞机／放风筝",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:fly:e5faeaba0034479a",
+        "pos": "verb",
+        "definition_cn": "空运（人或货物）",
+        "definition_en": "to transport people or goods by aircraft",
+        "sense_label_en": "to transport people or goods by aircraft",
+        "governing_pattern": "fly sb/sth to/from a place",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6ab12cbcd0fb8814afaa",
+            "phrase": "fly supplies to the island",
+            "meaning_cn": "把物资空运到岛上",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:fly:da0e29eee56923a3",
+        "pos": "verb",
+        "definition_cn": "迅速移动、传播；（时间）飞逝",
+        "definition_en": "to move or spread quickly, or seem to pass quickly",
+        "sense_label_en": "to move or spread quickly, or seem to pass quickly",
+        "governing_pattern": "time flies; rumours fly; fly past",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2eaebb74a05afa468d2b",
+            "phrase": "Time flies.",
+            "meaning_cn": "时光飞逝。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -231,6 +301,57 @@
           "applicability": [
             {
               "surface": "fly"
+            },
+            {
+              "surface": "fly",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fly:3e98476f8fdf8abe"
+              ],
+              "owner_sense_ids": [
+                "sense:fly:3e98476f8fdf8abe"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1975.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "fly an aircraft/kite"
+              }
+            },
+            {
+              "surface": "fly",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fly:e5faeaba0034479a"
+              ],
+              "owner_sense_ids": [
+                "sense:fly:e5faeaba0034479a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1975.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "fly sb/sth to/from a place"
+              }
+            },
+            {
+              "surface": "fly",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fly:da0e29eee56923a3"
+              ],
+              "owner_sense_ids": [
+                "sense:fly:da0e29eee56923a3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1975.json",
+              "source_pointer": "/record/senses/7",
+              "conditions": {
+                "current_owner_usage": "time flies; rumours fly; fly past"
+              }
             }
           ],
           "sources": [
@@ -1078,6 +1199,30 @@
         "merged_into_sense_id": null,
         "source_row": 5486,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
+      },
+      {
+        "sense_id": "sense:fly:3e98476f8fdf8abe",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1975.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:fly:e5faeaba0034479a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1975.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:fly:da0e29eee56923a3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1975.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
@@ -1130,6 +1275,27 @@
         "id": "collocation:e2f0f836f513049688fe",
         "source_row": 19205,
         "source_path": "content/lexical/canonical/collocations/shards/o1953-1984.json"
+      },
+      {
+        "id": "collocation:de60d6aab7bf4c3a4fe0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1975.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:6ab12cbcd0fb8814afaa",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1975.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:2eaebb74a05afa468d2b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1975.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

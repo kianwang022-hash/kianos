@@ -9,10 +9,27 @@
     "constructions": [],
     "content_hash": "dda0eae221405c7feaef662e119fa6e6dc3926a7d6ad1fd8d0dd5ce8d8942616",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "存在；生存",
-      "core_meaning_en": "the state of being real or present",
-      "mental_model_cn": "存在；生存",
+      "core_clusters": [
+        {
+          "label_cn": "存在、生存",
+          "label_en": "the state of being or living",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:existence:f3247a02f1c35712"
+          ]
+        },
+        {
+          "label_cn": "生活方式、状况",
+          "label_en": "a manner or conditions of living",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:existence:edace6cd46862005"
+          ]
+        }
+      ],
+      "core_meaning_cn": "存在、生存；生活状况",
+      "core_meaning_en": "the fact of being or continuing to live; a way of life",
+      "mental_model_cn": "the existence of强调存在事实；生存语境指生命维持。a miserable/quiet existence指具体生活状况。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,15 +63,37 @@
         ],
         "confidence": "medium",
         "definition_cn": "存在；生存",
-        "definition_en": "the state of being real or present",
-        "governing_pattern": "",
+        "definition_en": "the state of being real or present, or of continuing to live",
+        "governing_pattern": "usually uncountable: the existence of sth; come into existence; a struggle for existence",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:existence:f3247a02f1c35712",
-        "sense_label_en": "the state of being real or present",
+        "sense_label_en": "the fact of being or continuing to live",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:existence:edace6cd46862005",
+        "pos": "noun",
+        "definition_cn": "生活方式或生存状况（常指困难条件）",
+        "definition_en": "a person’s manner or conditions of living, often difficult",
+        "sense_label_en": "a person’s manner or conditions of living, often difficult",
+        "governing_pattern": "countable: a miserable/precarious/quiet existence; lead an existence",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6237d55bb3e3dc79c2bd",
+            "phrase": "lead a precarious existence",
+            "meaning_cn": "过着朝不保夕的生活",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -94,6 +133,23 @@
           "applicability": [
             {
               "surface": "existence"
+            },
+            {
+              "surface": "existence",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:existence:edace6cd46862005"
+              ],
+              "owner_sense_ids": [
+                "sense:existence:edace6cd46862005"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1781.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "countable: a miserable/precarious/quiet existence; lead an existence"
+              }
             }
           ],
           "sources": [
@@ -147,6 +203,23 @@
           "applicability": [
             {
               "surface": "existence"
+            },
+            {
+              "surface": "existence",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:existence:edace6cd46862005"
+              ],
+              "owner_sense_ids": [
+                "sense:existence:edace6cd46862005"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1781.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "countable: a miserable/precarious/quiet existence; lead an existence"
+              }
             }
           ],
           "sources": [
@@ -249,6 +322,14 @@
         "merged_into_sense_id": null,
         "source_row": 4878,
         "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json"
+      },
+      {
+        "sense_id": "sense:existence:edace6cd46862005",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1781.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -266,6 +347,13 @@
         "id": "collocation:feb8cb560d2c7488d013",
         "source_row": 21537,
         "source_path": "content/lexical/canonical/collocations/shards/o1761-1792.json"
+      },
+      {
+        "id": "collocation:6237d55bb3e3dc79c2bd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1781.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

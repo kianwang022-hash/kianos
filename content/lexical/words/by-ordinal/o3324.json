@@ -54,7 +54,17 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "source_evidence_objects": [
+          {
+            "construction_id": "construction:d1c563bac47430aadf7b",
+            "direction": "R+P",
+            "level": "L1",
+            "meaning_cn": "主动提出/表示愿意做某事",
+            "pattern": "offer to do sth",
+            "source_sense_id": "sense:offer:cbeb7ebf21975377"
+          }
+        ]
       },
       {
         "construction_id": "construction:c3e5f4b84bfdd9933acd",
@@ -62,15 +72,28 @@
         "level": "L1",
         "meaning_cn": "把某物提供给某人接受/考虑",
         "pattern": "offer sb sth / offer sth to sb",
-        "source_sense_id": "sense:offer:ec31d64f2b1e5829"
+        "source_sense_id": "sense:offer:ec31d64f2b1e5829",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:538b0233f7adf0287e41",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:offer:ec31d64f2b1e5829:collocation:0"
+            ],
+            "meaning_cn": "提供某物",
+            "phrase": "offer + sth"
+          }
+        ]
       },
       {
-        "construction_id": "construction:d1c563bac47430aadf7b",
+        "construction_id": "construction:2a3f5907d4c37257a254",
+        "pattern": "on offer",
+        "meaning_cn": "可供购买、使用或选择；（尤英式）在促销",
+        "definition_en": "available to buy or use; in British usage also temporarily discounted",
+        "usage_note": "courses on offer指可选课程，products on special offer可指促销商品。是否优惠看语境，不一律译打折。",
+        "boundary": "courses on offer指可选课程，products on special offer可指促销商品。是否优惠看语境，不一律译打折。",
         "direction": "R+P",
-        "level": "L1",
-        "meaning_cn": "主动提出/表示愿意做某事",
-        "pattern": "offer to do sth",
-        "source_sense_id": "sense:offer:cbeb7ebf21975377"
+        "level": "L2"
       }
     ],
     "content_hash": "dad1efebe98efdd4057b6e18d4c043bcbc31b27ad7fe3334356d247aac16421e",
@@ -87,19 +110,20 @@
           ]
         },
         {
-          "label_cn": "提议；提供；出价；报价",
-          "label_en": "a statement saying that you are willing to do something or give something; a price that someone says they will pay for something",
+          "label_cn": "提议、出价或促销优惠",
+          "label_en": "offers of help, bids or promotional deals",
           "pos": "noun",
           "sense_ids": [
             "sense:offer:d8331ddaefe75c0d",
-            "sense:offer:0caedd5442565a55"
+            "sense:offer:0caedd5442565a55",
+            "sense:offer:bb0cbc9f80e5fd92"
           ]
         }
       ],
-      "core_meaning_cn": "提供；提议",
-      "core_meaning_en": "to present something for acceptance or rejection",
-      "mental_model_cn": "提供；提议",
-      "mental_model_en": ""
+      "core_meaning_cn": "提供或主动提出；提议、出价或促销；献祭",
+      "core_meaning_en": "present something or volunteer; a proposal, bid or promotion; give something in worship",
+      "mental_model_cn": "offer sb sth/offer sth to sb提供东西，offer to do主动提出，offer £500 for sth出价；special offer促销，on offer可说可供选择，也可指优惠。献祭语境也可用offer。",
+      "mental_model_en": "present something or volunteer; a proposal, bid or promotion; give something in worship."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -115,15 +139,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:538b0233f7adf0287e41",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:offer:ec31d64f2b1e5829:collocation:0"
-            ],
-            "meaning_cn": "提供某物",
-            "phrase": "offer + sth"
-          },
-          {
             "collocation_id": "collocation:2f498c7b41a7e1b10bcf",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -136,14 +151,15 @@
         "confidence": "medium",
         "definition_cn": "提供；提出",
         "definition_en": "to present something for someone to accept or reject",
-        "governing_pattern": "offer sb sth; offer sth to sb",
+        "governing_pattern": "offer (sth); offer sb sth; offer sth to sb; offer an amount for sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:offer:ec31d64f2b1e5829",
         "sense_label_en": "to present something for someone to accept or reject",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "usage_note": "可以裸用I should offer anyway，也可双宾语或to结构提供东西。offer an amount for sth用于出价；offer to do仍表示主动提出做某事。"
       },
       {
         "collocations": [
@@ -213,7 +229,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:offer:d8331ddaefe75c0d",
-        "sense_label_en": "a statement saying that you are willing to do something or give somethin",
+        "sense_label_en": "a statement saying that you are willing to do something or give something",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -225,8 +241,8 @@
             "legacy_source_object_ids": [
               "sense:offer:0caedd5442565a55:collocation:0"
             ],
-            "meaning_cn": "报价",
-            "phrase": "offer price"
+            "meaning_cn": "500英镑的出价",
+            "phrase": "an offer of £500"
           }
         ],
         "confidence": "medium",
@@ -240,6 +256,28 @@
         "sense_label_en": "a price that someone says they will pay for something",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:offer:bb0cbc9f80e5fd92",
+        "pos": "noun",
+        "definition_cn": "优惠；促销优惠价或条件",
+        "definition_en": "a temporary reduction in price or other promotional benefit",
+        "sense_label_en": "a temporary reduction in price or other promotional benefit",
+        "governing_pattern": "a special/introductory offer; an offer on sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b6a7a67aefb18396a02e",
+            "phrase": "a special offer on books",
+            "meaning_cn": "图书的促销优惠",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -281,6 +319,24 @@
           "applicability": [
             {
               "surface": "offer"
+            },
+            {
+              "surface": "offer",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:offer:bb0cbc9f80e5fd92"
+              ],
+              "owner_sense_ids": [
+                "sense:offer:bb0cbc9f80e5fd92"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3324.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a special/introductory offer; an offer on sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -420,21 +476,35 @@
         "merged_into_sense_id": null,
         "source_row": 9225,
         "source_path": "content/lexical/canonical/senses/shards/o3297-3328.json"
+      },
+      {
+        "sense_id": "sense:offer:bb0cbc9f80e5fd92",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3324.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:1142808b180fee77d003",
       "collocation:2f498c7b41a7e1b10bcf",
+      "collocation:d32b22b2cb7c00347248",
+      "collocation:1142808b180fee77d003",
       "collocation:488c892d1166c75f12ea",
-      "collocation:538b0233f7adf0287e41",
       "collocation:7ceb8a9b4fc1eb1007be",
-      "collocation:d32b22b2cb7c00347248"
+      "collocation:b6a7a67aefb18396a02e"
     ],
     "facts": [
       {
         "id": "deep:constructions:offer:c1cc59d5808b50ec",
         "source_row": 803,
         "source_path": "content/lexical/canonical/facts/shards/o3297-3328.json"
+      },
+      {
+        "id": "construction:d1c563bac47430aadf7b",
+        "status": "reference",
+        "target_kind": "construction",
+        "merged_into_id": null
       }
     ],
     "collocations": [
@@ -456,7 +526,9 @@
       {
         "id": "collocation:538b0233f7adf0287e41",
         "source_row": 7039,
-        "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:7ceb8a9b4fc1eb1007be",
@@ -467,6 +539,13 @@
         "id": "collocation:d32b22b2cb7c00347248",
         "source_row": 17845,
         "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      },
+      {
+        "id": "collocation:b6a7a67aefb18396a02e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3324.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

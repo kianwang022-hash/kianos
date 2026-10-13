@@ -11,16 +11,17 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "内部；室内",
-          "label_en": "the inner part of something, such as a building or room",
+          "label_cn": "内部；内陆",
+          "label_en": "inside space or inland region",
           "pos": "noun",
           "sense_ids": [
-            "sense:interior:15aa0acd73965bb9"
+            "sense:interior:15aa0acd73965bb9",
+            "sense:interior:1adaac450d4e4066"
           ]
         },
         {
-          "label_cn": "内部的；室内的；内地的；内陆的",
-          "label_en": "situated within or inside; suitable for indoor use; of or coming from the middle of a region or country",
+          "label_cn": "内部的；室内的；内陆的",
+          "label_en": "situated inside, indoors or inland",
           "pos": "adjective",
           "sense_ids": [
             "sense:interior:293a2eb23b2856aa",
@@ -28,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "内部",
-      "core_meaning_en": "inside part or inner area",
-      "mental_model_cn": "noun/adjective → 内部、室内；geography → 内陆的。政府体系中的“内政/内政部”专门义保留为 Reference。",
+      "core_meaning_cn": "内部；内陆；内部的",
+      "core_meaning_en": "the inside or inland region; situated inside",
+      "mental_model_cn": "the interior of a building → 内部；the interior of a country → 内陆；interior design → 室内设计。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -114,6 +115,28 @@
         "sense_label_en": "of or coming from the middle of a region or country",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:interior:1adaac450d4e4066",
+        "pos": "noun",
+        "definition_cn": "内陆；远离海岸的腹地",
+        "definition_en": "the inland central region of a country or continent, away from its coast",
+        "sense_label_en": "the inland central region of a country or continent, away from its coast",
+        "governing_pattern": "the interior (of a country/continent)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0cd36530d81a8c6fc8d4",
+            "phrase": "travel into the interior",
+            "meaning_cn": "前往内陆腹地",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -154,6 +177,23 @@
           "applicability": [
             {
               "surface": "interior"
+            },
+            {
+              "surface": "interior",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:interior:1adaac450d4e4066"
+              ],
+              "owner_sense_ids": [
+                "sense:interior:1adaac450d4e4066"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2604.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the interior (of a country/continent)"
             }
           ],
           "sources": [
@@ -372,12 +412,21 @@
         "merged_into_sense_id": null,
         "source_row": 7185,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:interior:1adaac450d4e4066",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2604.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:370ad6b78a66f37f0eac",
       "collocation:bb75a4301c3980bc5587",
-      "collocation:cee703068e4b7d271f2c"
+      "collocation:cee703068e4b7d271f2c",
+      "collocation:370ad6b78a66f37f0eac",
+      "collocation:0cd36530d81a8c6fc8d4"
     ],
     "facts": [],
     "collocations": [
@@ -402,6 +451,13 @@
         "id": "collocation:cee703068e4b7d271f2c",
         "source_row": 17485,
         "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:0cd36530d81a8c6fc8d4",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2604.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

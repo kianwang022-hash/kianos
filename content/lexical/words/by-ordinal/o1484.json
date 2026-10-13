@@ -11,17 +11,17 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "剂量；一剂",
-          "label_en": "a measured quantity of medicine or another substance",
+          "label_cn": "剂量；一份或一定量",
+          "label_en": "a measured dose; by extension, an amount of an experience or quality",
           "pos": "noun",
           "sense_ids": [
             "sense:dose:b7e83a8c502306d8"
           ]
         }
       ],
-      "core_meaning_cn": "（药物或物质的）剂量；一剂",
-      "core_meaning_en": "a measured quantity or dose of medicine or another substance",
-      "mental_model_cn": "药物或药剂的量",
+      "core_meaning_cn": "剂量；某种经历或品质的一份、一定量",
+      "core_meaning_en": "a measured dose; an amount of an experience or quality",
+      "mental_model_cn": "药物语境读作剂量；抽象事物语境按“一份或一定量”理解，如一番现实提醒或一份自信。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -42,19 +42,26 @@
             ],
             "meaning_cn": "一剂药",
             "phrase": "a dose of medicine"
+          },
+          {
+            "collocation_id": "collocation:dose:cea0aef8dc3cebb2",
+            "phrase": "a dose of reality",
+            "meaning_cn": "一番让人认清现实的体验",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（药物或物质的）一定剂量",
-        "definition_en": "a measured amount of medicine or another substance",
-        "governing_pattern": "",
+        "definition_cn": "（药物或物质的）剂量；（经历、品质等的）一份或一定量",
+        "definition_en": "a measured amount of medicine or another substance; by extension, an amount of something such as an experience or quality",
+        "governing_pattern": "a dose of medicine/reality/humour/self-confidence",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:dose:b7e83a8c502306d8",
-        "sense_label_en": "a measured amount of medicine or another substance",
+        "sense_label_en": "a measured dose; an amount of an experience or quality",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "保留“一定量”的数量模型：medicine 等是剂量；reality、humour、self-confidence 等是比喻的一份或一定量，可正面也可负面，不自动理解成吃药。"
       },
       {
         "collocations": [
@@ -66,12 +73,21 @@
             ],
             "meaning_cn": "给某人服某药",
             "phrase": "dose sb with + medicine"
+          },
+          {
+            "collocation_id": "collocation:28fed8d59e752d1e488d",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:dose:a755828905c45f7a:collocation:0"
+            ],
+            "meaning_cn": "给自己服某种药",
+            "phrase": "dose oneself with medicine"
           }
         ],
         "confidence": "medium",
         "definition_cn": "给...服药",
         "definition_en": "to give a dose of medicine to someone",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "dose sb/oneself with medicine",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -81,28 +97,19 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:28fed8d59e752d1e488d",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:dose:a755828905c45f7a:collocation:0"
-            ],
-            "meaning_cn": "服用某药",
-            "phrase": "dose with + medicine"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "服药",
         "definition_en": "to take a dose of medicine",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "dose (take a dose of medicine)",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:dose:a755828905c45f7a",
         "sense_label_en": "to take a dose of medicine",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "不及物用法指服药；dose oneself with medicine 含反身宾语，归给药的及物义项。"
       }
     ],
     "verification_summary": {
@@ -662,7 +669,8 @@
     "active_collocations": [
       "collocation:13fc488e5e159392465d",
       "collocation:28fed8d59e752d1e488d",
-      "collocation:e36c894a2780eb4e8eff"
+      "collocation:e36c894a2780eb4e8eff",
+      "collocation:dose:cea0aef8dc3cebb2"
     ],
     "facts": [],
     "collocations": [
@@ -690,6 +698,14 @@
         "id": "collocation:e36c894a2780eb4e8eff",
         "source_row": 21625,
         "source_path": "content/lexical/canonical/collocations/shards/o1473-1504.json"
+      },
+      {
+        "id": "collocation:dose:cea0aef8dc3cebb2",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1484.json",
+        "source_pointer": "/record/senses/0/collocations/1"
       }
     ],
     "exam-mappings": [],

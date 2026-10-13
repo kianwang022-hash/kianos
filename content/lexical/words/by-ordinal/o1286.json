@@ -10,9 +10,9 @@
     "content_hash": "adba85d32bc9eaa747ef0852da07bd8d06fa37186da36c51716334ecaab4861b",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "将某物带给或交给某人的行为",
-      "core_meaning_en": "the act of bringing or handing something to someone",
-      "mental_model_cn": "将某物带给或交给某人的行为",
+      "core_meaning_cn": "递送、交付；分娩；讲话的表达方式",
+      "core_meaning_en": "delivery of goods; childbirth; manner of speaking",
+      "mental_model_cn": "delivery of goods是递送，delivery room是产房；评价演讲时delivery指表达方式，而不只是讲话内容。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -23,6 +23,20 @@
     "secondary_senses": [],
     "semantic_neighbors": [],
     "senses": [
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "把货物、信件或物品送到目的地",
+        "definition_en": "the act of taking or sending goods, messages, or items to a destination",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:delivery:10763cd054a55f8c",
+        "sense_label_en": "the act of taking or sending goods, messages, or items to a destination",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
       {
         "collocations": [
           {
@@ -44,22 +58,29 @@
         "pos": "noun",
         "sense_id": "sense:delivery:3de96feb2b5558b3",
         "sense_label_en": "the event of giving birth",
-        "sort_order": 0,
+        "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
-        "collocations": [],
-        "confidence": "medium",
-        "definition_cn": "把货物、信件或物品送到目的地",
-        "definition_en": "the act of taking or sending goods, messages, or items to a destination",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
+        "sense_id": "sense:delivery:933369c03a11fff9",
         "pos": "noun",
-        "sense_id": "sense:delivery:10763cd054a55f8c",
-        "sense_label_en": "the act of taking or sending goods, messages, or items to a destination",
-        "sort_order": 999,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 2,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "演讲或讲话的表达方式",
+        "definition_en": "the manner in which someone gives a speech",
+        "sense_label_en": "the manner in which someone gives a speech",
+        "governing_pattern": "one’s delivery",
+        "collocations": [
+          {
+            "collocation_id": "collocation:fa58c96bc84865917d96",
+            "exam_value": "usage_example",
+            "phrase": "a confident delivery",
+            "meaning_cn": "自信的演讲表达方式"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -217,10 +238,18 @@
         "merged_into_sense_id": null,
         "source_row": 3610,
         "source_path": "content/lexical/canonical/senses/shards/o1281-1312.json"
+      },
+      {
+        "sense_id": "sense:delivery:933369c03a11fff9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1286.json"
       }
     ],
     "active_collocations": [
-      "collocation:53e8c47dcce553b7a7ec"
+      "collocation:53e8c47dcce553b7a7ec",
+      "collocation:fa58c96bc84865917d96"
     ],
     "facts": [],
     "collocations": [
@@ -243,6 +272,11 @@
         "id": "collocation:b09d82d14772831f612c",
         "source_row": 14954,
         "source_path": "content/lexical/canonical/collocations/shards/o1281-1312.json"
+      },
+      {
+        "id": "collocation:fa58c96bc84865917d96",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1286.json"
       }
     ],
     "exam-mappings": [],

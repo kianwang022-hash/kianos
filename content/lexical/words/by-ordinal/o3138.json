@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "登上；爬上；增长；上升；安装；装裱；安放；发起；开展；上演",
-          "label_en": "to go up or climb something; to increase in amount or intensity; to attach or fix something onto a support or backing; to organize and begin something such as a campaign or event",
+          "label_cn": "登上；爬上；跨上（坐骑等）；增长；上升；安装；装裱；安放；发起；开展；上演",
+          "label_en": "go up onto a raised place, or get onto an animal or vehicle to ride; to increase in amount or intensity; to attach or fix something onto a support or backing; to organize and begin something such as a campaign or event",
           "pos": "verb",
           "sense_ids": [
             "sense:mount:1d01d42577c05c38",
@@ -29,12 +29,20 @@
             "sense:mount:ec746d98f8175b02",
             "sense:mount:5bd1a72bee345ba7"
           ]
+        },
+        {
+          "label_cn": "（用于地名）山；山丘（Mount，缩写Mt）",
+          "label_en": "a mountain or hill named with Mount, often abbreviated Mt",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mount:feb3b0d7c794f4fe"
+          ]
         }
       ],
-      "core_meaning_cn": "登上或增加，或安装或设置",
-      "core_meaning_en": "to go up or increase, or to attach or set up",
-      "mental_model_cn": "登上或增加，或安装或设置",
-      "mental_model_en": ""
+      "core_meaning_cn": "登上、骑上、增长或安装/组织；坐骑、支架；地名Mount",
+      "core_meaning_en": "climb, get on, increase, fix or organize; a riding animal or support; Mount in place names",
+      "mental_model_cn": "mount stairs直接接宾语；上马可说He mounted。Mount用于山丘地名；成本mount/up是增加，mount an exhibition是组织举办。",
+      "mental_model_en": "climb, get on, increase, fix or organize; a riding animal or support; Mount in place names."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -52,7 +60,7 @@
             "legacy_source_object_ids": [
               "sense:mount:1d01d42577c05c38:collocation:0"
             ],
-            "meaning_cn": "骑马",
+            "meaning_cn": "上马；跨上马背",
             "phrase": "mount a horse"
           },
           {
@@ -66,16 +74,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "登上；爬上",
-        "definition_en": "to go up or climb something",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "登上；爬上；跨上（坐骑等）",
+        "definition_en": "go up onto a raised place, or get onto an animal or vehicle to ride",
+        "governing_pattern": "mount stairs/a platform（vt）；mount (a horse/bike)（骑乘可I/T）",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mount:1d01d42577c05c38",
-        "sense_label_en": "to go up or climb something",
+        "sense_label_en": "go up onto a raised place, or get onto an animal or vehicle to ride",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -101,7 +109,7 @@
         "confidence": "medium",
         "definition_cn": "增长；上升",
         "definition_en": "to increase in amount or intensity",
-        "governing_pattern": "vi. + up",
+        "governing_pattern": "vi.: costs/pressure mount; mount up（up 可省略）",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -223,6 +231,35 @@
         "sense_label_en": "a support or setting for something",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:mount:feb3b0d7c794f4fe",
+        "pos": "noun",
+        "definition_cn": "（用于地名）山；山丘（Mount，缩写Mt）",
+        "definition_en": "a mountain or hill named with Mount, often abbreviated Mt",
+        "sense_label_en": "a mountain or hill named with Mount, often abbreviated Mt",
+        "governing_pattern": "Mount + name; place name + Mount",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c48bf964d9e926e8beb0",
+            "phrase": "Mount Everest",
+            "meaning_cn": "珠穆朗玛峰",
+            "exam_value": "usage_example"
+          }
+        ],
+        "lexical_identity_overlay": {
+          "case_sensitive": true,
+          "identity_type": "proper_name_case",
+          "surface_lemma": "Mount",
+          "paired_form": "mount",
+          "note": "This geographical element is capitalized Mount in modern place names, also abbreviated Mt."
+        }
       }
     ],
     "verification_summary": {
@@ -374,6 +411,47 @@
               }
             }
           ]
+        },
+        {
+          "ipa": "/maʊnt/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "Mount",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mount:feb3b0d7c794f4fe"
+              ],
+              "owner_sense_ids": [
+                "sense:mount:feb3b0d7c794f4fe"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3138.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "Mount + name; place name + Mount",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/mount_2",
+              "entry_context": {
+                "word": "mount",
+                "pos": "noun",
+                "etymology_number": null
+              },
+              "original_ipa": "/maʊnt/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
@@ -423,19 +501,28 @@
         "merged_into_sense_id": null,
         "source_row": 8737,
         "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      },
+      {
+        "sense_id": "sense:mount:feb3b0d7c794f4fe",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3138.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
-      "collocation:03561a360b144beb28bc",
       "collocation:1cb0f1da02b298f4a607",
-      "collocation:3a35131926fc0df83943",
-      "collocation:3b31a5d2530ab0ae760a",
       "collocation:4b081458aded7f3665a1",
+      "collocation:3a35131926fc0df83943",
       "collocation:55c5ea8af4c368db739c",
-      "collocation:648ff3c2e8747f35b78a",
       "collocation:65d27db269c9333e595c",
+      "collocation:648ff3c2e8747f35b78a",
+      "collocation:3b31a5d2530ab0ae760a",
+      "collocation:ce820610f93596b5cdf1",
+      "collocation:03561a360b144beb28bc",
       "collocation:6d05bfaf66db6ea1438e",
-      "collocation:ce820610f93596b5cdf1"
+      "collocation:c48bf964d9e926e8beb0"
     ],
     "facts": [],
     "collocations": [
@@ -488,6 +575,13 @@
         "id": "collocation:ce820610f93596b5cdf1",
         "source_row": 17458,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:c48bf964d9e926e8beb0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3138.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

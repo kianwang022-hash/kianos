@@ -13,15 +13,36 @@
         "level": "L2",
         "meaning_cn": "与…意见不合；与…相矛盾",
         "pattern": "be at odds with sb/sth"
+      },
+      {
+        "construction_id": "construction:d84e2c28ff0a24fdbbd6",
+        "pattern": "odds and ends",
+        "meaning_cn": "零碎物品；杂七杂八的小东西或小任务",
+        "definition_en": "small miscellaneous items or tasks",
+        "usage_note": "非正式复数整体，强调零散、不同种类；不是某件事发生的赔率。",
+        "boundary": "非正式复数整体，强调零散、不同种类；不是某件事发生的赔率。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "61318f38d866b8c9bb691190575373bb827d70afd7df1ab3b9116cb7c3a9ee6e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "可能性；几率",
-      "core_meaning_en": "the likelihood of something happening",
-      "mental_model_cn": "可能性；几率",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "几率与赔率；不利条件",
+          "label_en": "likelihood and betting odds; obstacles to success",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:odds:b861e51db3b251cc",
+            "sense:odds:8f79c250457956d4",
+            "sense:odds:0b192468bd5a7f6a"
+          ]
+        }
+      ],
+      "core_meaning_cn": "几率、赔率；不利条件",
+      "core_meaning_en": "likelihood, betting odds or adverse conditions",
+      "mental_model_cn": "the odds are that…说很可能；betting odds说赔率；overcome overwhelming odds说克服巨大阻力。odds作复数，at odds with仍说意见不合或相矛盾。",
+      "mental_model_en": "likelihood, betting odds or adverse conditions."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -57,7 +78,7 @@
         "confidence": "medium",
         "definition_cn": "可能性；几率",
         "definition_en": "the likelihood of a thing occurring rather than not occurring",
-        "governing_pattern": "",
+        "governing_pattern": "plural: the odds are…; the odds of sth/doing sth; the odds are that…; odds in favour of / against sb/sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
@@ -89,6 +110,29 @@
         "sense_label_en": "the quoted ratio or price in betting that expresses likelihood and the potential return on a wager",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:odds:0b192468bd5a7f6a",
+        "pos": "noun",
+        "definition_cn": "不利条件；使成功困难的阻力",
+        "definition_en": "conditions or obstacles that make success difficult",
+        "sense_label_en": "conditions or obstacles that make success difficult",
+        "governing_pattern": "overcome/beat the odds; face overwhelming odds",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fc6db542560bcfe86e01",
+            "phrase": "overcome overwhelming odds",
+            "meaning_cn": "克服极为不利的条件",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "复数名词。overwhelming odds可说巨大阻力，不只是用数值表达几率；against all odds也可按不利形势理解。"
       }
     ],
     "verification_summary": {
@@ -129,6 +173,24 @@
           "applicability": [
             {
               "surface": "odds"
+            },
+            {
+              "surface": "odds",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:odds:0b192468bd5a7f6a"
+              ],
+              "owner_sense_ids": [
+                "sense:odds:0b192468bd5a7f6a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3318.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "overcome/beat the odds; face overwhelming odds",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -214,6 +276,24 @@
           "applicability": [
             {
               "surface": "odds"
+            },
+            {
+              "surface": "odds",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:odds:0b192468bd5a7f6a"
+              ],
+              "owner_sense_ids": [
+                "sense:odds:0b192468bd5a7f6a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3318.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "overcome/beat the odds; face overwhelming odds",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -301,12 +381,21 @@
         "merged_into_sense_id": null,
         "source_row": 9200,
         "source_path": "content/lexical/canonical/senses/shards/o3297-3328.json"
+      },
+      {
+        "sense_id": "sense:odds:0b192468bd5a7f6a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3318.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:2d89d1181b7cef49dc3c",
+      "collocation:e76d686e6f73478cdb78",
       "collocation:8925e578f31abd2230c1",
-      "collocation:e76d686e6f73478cdb78"
+      "collocation:fc6db542560bcfe86e01"
     ],
     "facts": [],
     "collocations": [
@@ -324,6 +413,13 @@
         "id": "collocation:e76d686e6f73478cdb78",
         "source_row": 19614,
         "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      },
+      {
+        "id": "collocation:fc6db542560bcfe86e01",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3318.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

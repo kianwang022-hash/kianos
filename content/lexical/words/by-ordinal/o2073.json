@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "基金，资金",
-          "label_en": "a sum of money saved or made available for a particular purpose",
+          "label_cn": "基金，资金；（知识、经验等的）储备；积累",
+          "label_en": "a sum of money saved or made available for a particular purpose; a supply of material or intangible resources available for use",
           "pos": "noun",
           "sense_ids": [
-            "sense:fund:88b3ccbd7a1859d5"
+            "sense:fund:88b3ccbd7a1859d5",
+            "sense:fund:ba988689d3324d0e"
           ]
         },
         {
@@ -27,10 +28,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "资金；资助",
-      "core_meaning_en": "a sum of money saved or made available for a purpose; to provide money for",
-      "mental_model_cn": "资金；资助",
-      "mental_model_en": ""
+      "core_meaning_cn": "基金、资金或资源储备；资助",
+      "core_meaning_en": "money set aside, a resource supply, or financing",
+      "mental_model_cn": "fund名词为专用资金，也可指知识、经验等积累；fund a project为给项目提供资金。",
+      "mental_model_en": "money set aside, a resource supply, or financing."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -105,6 +106,28 @@
         "sense_label_en": "provide with money for a particular purpose",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:fund:ba988689d3324d0e",
+        "pos": "noun",
+        "definition_cn": "（知识、经验等的）储备；积累",
+        "definition_en": "a supply of material or intangible resources available for use",
+        "sense_label_en": "a supply of material or intangible resources available for use",
+        "governing_pattern": "a fund of knowledge/experience",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:86bc36b8378221ef9c17",
+            "phrase": "a fund of knowledge",
+            "meaning_cn": "丰富的知识储备",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -134,6 +157,23 @@
           "applicability": [
             {
               "surface": "fund"
+            },
+            {
+              "surface": "fund",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:fund:ba988689d3324d0e"
+              ],
+              "owner_sense_ids": [
+                "sense:fund:ba988689d3324d0e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2073.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "a fund of knowledge/experience"
+              }
             }
           ],
           "sources": [
@@ -433,6 +473,14 @@
         "merged_into_sense_id": null,
         "source_row": 5783,
         "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
+      },
+      {
+        "sense_id": "sense:fund:ba988689d3324d0e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2073.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -462,6 +510,13 @@
         "id": "collocation:a68cbc622491fc16e80b",
         "source_row": 14130,
         "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+      },
+      {
+        "id": "collocation:86bc36b8378221ef9c17",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2073.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

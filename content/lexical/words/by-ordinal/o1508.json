@@ -19,19 +19,35 @@
           ]
         },
         {
-          "label_cn": "穿衣；给…穿衣；装饰；整理；包扎",
-          "label_en": "to put clothes on oneself; to put clothes on someone else; to decorate or arrange something, especially a display or a wound",
+          "label_cn": "穿衣；给人穿衣；布置展示",
+          "label_en": "put clothes on oneself/another person; arrange a display",
           "pos": "verb",
           "sense_ids": [
             "sense:dress:249144971fee5953",
             "sense:dress:18063fc3b9a653d5",
             "sense:dress:0ce2e7a8db665fbf"
           ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "服装；衣着（总称或某种风格）",
+          "label_en": "clothing considered as a whole or in a particular style",
+          "sense_ids": [
+            "sense:dress:e362d702ace11a45"
+          ]
+        },
+        {
+          "pos": "verb",
+          "label_cn": "清理并包扎（伤口）",
+          "label_en": "to clean a wound and apply a protective covering",
+          "sense_ids": [
+            "sense:dress:6a34d3af4b4fc670"
+          ]
         }
       ],
-      "core_meaning_cn": "穿衣；连衣裙",
-      "core_meaning_en": "to put on clothes or a one-piece garment for women",
-      "mental_model_cn": "穿衣；连衣裙",
+      "core_meaning_cn": "穿衣；连衣裙或某种衣着；布置展示与包扎伤口",
+      "core_meaning_en": "put on clothes; a dress or clothing style; arrange displays or treat wounds",
+      "mental_model_cn": "衣着语境区分可数的连衣裙与通常不可数的服装总称；伤口处理与展示布置依宾语各自归属，不靠一个混合定义硬记。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -62,7 +78,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:dress:51dfb19595bd509e",
-        "sense_label_en": "a one-piece garment for a woman that covers the body and extends down ov",
+        "sense_label_en": "a one-piece garment with a skirt",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -117,15 +133,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:d5d582b66f651cfb32d2",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:dress:0ce2e7a8db665fbf:collocation:0"
-            ],
-            "meaning_cn": "包扎伤口",
-            "phrase": "dress a wound"
-          },
-          {
             "collocation_id": "collocation:b40ae473d545ea907f0c",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -136,16 +143,56 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "装饰；整理；包扎",
-        "definition_en": "to decorate or arrange something, especially a display or a wound",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "装饰；布置（橱窗等展示空间）",
+        "definition_en": "to arrange or decorate a display",
+        "governing_pattern": "dress a shop window/display",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:dress:0ce2e7a8db665fbf",
-        "sense_label_en": "to decorate or arrange something, especially a display or a wound",
+        "sense_label_en": "to arrange or decorate a display",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:dress:6a34d3af4b4fc670",
+        "pos": "verb",
+        "definition_cn": "清理并包扎（伤口）",
+        "definition_en": "to clean a wound and apply a protective covering",
+        "sense_label_en": "to clean a wound and apply a protective covering",
+        "governing_pattern": "dress a wound",
+        "transitivity": "vt",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:d5d582b66f651cfb32d2",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dress:0ce2e7a8db665fbf:collocation:0"
+            ],
+            "meaning_cn": "包扎伤口",
+            "phrase": "dress a wound"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:dress:e362d702ace11a45",
+        "pos": "noun",
+        "definition_cn": "服装；衣着（总称或某种风格）",
+        "definition_en": "clothing considered as a whole or in a particular style",
+        "sense_label_en": "clothing considered as a whole or in a particular style",
+        "governing_pattern": "formal/traditional/national dress",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:dress:e362d702ace11a45",
+            "phrase": "traditional dress",
+            "meaning_cn": "传统服装",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "此义通常不可数，不限于女性连衣裙；a dress / two dresses 的可数名词仍是连衣裙。"
       }
     ],
     "verification_summary": {
@@ -186,6 +233,54 @@
           "applicability": [
             {
               "surface": "dress"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dress",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:dress:e362d702ace11a45"
+              ],
+              "sense_ids": [
+                "sense:dress:e362d702ace11a45"
+              ],
+              "excluded_sense_ids": [
+                "sense:dress:0ce2e7a8db665fbf",
+                "sense:dress:18063fc3b9a653d5",
+                "sense:dress:249144971fee5953",
+                "sense:dress:51dfb19595bd509e",
+                "sense:dress:6a34d3af4b4fc670"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dress",
+              "source_checked_date": "2026-10-11"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dress",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:dress:6a34d3af4b4fc670"
+              ],
+              "sense_ids": [
+                "sense:dress:6a34d3af4b4fc670"
+              ],
+              "excluded_sense_ids": [
+                "sense:dress:0ce2e7a8db665fbf",
+                "sense:dress:18063fc3b9a653d5",
+                "sense:dress:249144971fee5953",
+                "sense:dress:51dfb19595bd509e",
+                "sense:dress:e362d702ace11a45"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dress",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -252,6 +347,38 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/dress",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "dress",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/dɹes/",
+              "applies_to_sense_ids": [
+                "sense:dress:e362d702ace11a45"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/dress",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "dress",
+                "pos": "verb"
+              },
+              "existing_observed_ipa_unchanged": "/dɹes/",
+              "applies_to_sense_ids": [
+                "sense:dress:6a34d3af4b4fc670"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         }
@@ -296,6 +423,22 @@
         "merged_into_sense_id": null,
         "source_row": 4196,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      },
+      {
+        "sense_id": "sense:dress:6a34d3af4b4fc670",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1508.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:dress:e362d702ace11a45",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1508.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -303,7 +446,8 @@
       "collocation:4843c713d92ef698adb8",
       "collocation:8bdfc36efaeeed68cb63",
       "collocation:b40ae473d545ea907f0c",
-      "collocation:d5d582b66f651cfb32d2"
+      "collocation:d5d582b66f651cfb32d2",
+      "collocation:dress:e362d702ace11a45"
     ],
     "facts": [],
     "collocations": [
@@ -329,8 +473,21 @@
       },
       {
         "id": "collocation:d5d582b66f651cfb32d2",
-        "source_row": 18089,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1508.json",
+        "historical_source_locator": {
+          "source_row": 18089,
+          "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        },
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:dress:e362d702ace11a45",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1508.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

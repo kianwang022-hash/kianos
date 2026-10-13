@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "3e986ba5745988fa998061bff64d4ce6b273af0ada7874912da00eb013511412",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "意义不能从单个词推断的短语",
-      "core_meaning_en": "a phrase whose meaning is not predictable from the individual words",
-      "mental_model_cn": "意义不能从单个词推断的短语",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "习语；成语；（正式）某人群、时代或地区特有的语言表达方式；（正式）某人、群体或时期特有的艺术表达风格",
+          "label_en": "an expression whose meaning cannot be inferred from the meanings of the words that make it up; the characteristic language and grammar of a group, period or place; a characteristic style of music, art or writing",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:idiom:72966b9b8ba55534",
+            "sense:idiom:81e7bdc0d26bdac6",
+            "sense:idiom:592f3a408907a6a0"
+          ]
+        }
+      ],
+      "core_meaning_cn": "习语；特有语言表达方式／艺术风格",
+      "core_meaning_en": "an idiom; characteristic language or artistic style",
+      "mental_model_cn": "语言学习中的idiom→习语；群体/年代的idiom→特有语言；艺术评论中的idiom→表达风格，不要都译成成语。",
+      "mental_model_en": "an idiom; characteristic language or artistic style."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -52,9 +63,53 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:idiom:72966b9b8ba55534",
-        "sense_label_en": "an expression whose meaning cannot be inferred from the meanings of the ",
+        "sense_label_en": "an expression whose meaning cannot be inferred from the meanings of the words that make it up",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:idiom:81e7bdc0d26bdac6",
+        "pos": "noun",
+        "definition_cn": "（正式）某人群、时代或地区特有的语言表达方式",
+        "definition_en": "the characteristic language and grammar of a group, period or place",
+        "sense_label_en": "the characteristic language and grammar of a group, period or place",
+        "governing_pattern": "the idiom of a group/place (countable or uncountable)",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:768f162a969624145663",
+            "phrase": "The dialogue uses the idiom of the local fishing community.",
+            "meaning_cn": "对白使用了当地渔民群体的语言表达方式。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:idiom:592f3a408907a6a0",
+        "pos": "noun",
+        "definition_cn": "（正式）某人、群体或时期特有的艺术表达风格",
+        "definition_en": "a characteristic style of music, art or writing",
+        "sense_label_en": "a characteristic style of music, art or writing",
+        "governing_pattern": "in a modern/classical idiom (countable or uncountable)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b0a3bdea5ef148ad2a94",
+            "phrase": "The composer writes in a contemporary idiom.",
+            "meaning_cn": "这位作曲家采用当代音乐的表达风格。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -84,6 +139,40 @@
           "applicability": [
             {
               "surface": "idiom"
+            },
+            {
+              "surface": "idiom",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:idiom:81e7bdc0d26bdac6"
+              ],
+              "owner_sense_ids": [
+                "sense:idiom:81e7bdc0d26bdac6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2433.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the idiom of a group/place (countable or uncountable)"
+            },
+            {
+              "surface": "idiom",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:idiom:592f3a408907a6a0"
+              ],
+              "owner_sense_ids": [
+                "sense:idiom:592f3a408907a6a0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2433.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in a modern/classical idiom (countable or uncountable)"
             }
           ],
           "sources": [
@@ -402,11 +491,29 @@
         "merged_into_sense_id": null,
         "source_row": 6778,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      },
+      {
+        "sense_id": "sense:idiom:81e7bdc0d26bdac6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2433.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:idiom:592f3a408907a6a0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2433.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:b57a955baec1a6531718",
-      "collocation:f79ec7ddcb7686720ffe"
+      "collocation:f79ec7ddcb7686720ffe",
+      "collocation:768f162a969624145663",
+      "collocation:b0a3bdea5ef148ad2a94"
     ],
     "facts": [],
     "collocations": [
@@ -419,6 +526,20 @@
         "id": "collocation:f79ec7ddcb7686720ffe",
         "source_row": 20967,
         "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:768f162a969624145663",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2433.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:b0a3bdea5ef148ad2a94",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2433.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

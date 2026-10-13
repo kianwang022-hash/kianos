@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "22ccd130d35dfd302f198da649e5b039b258726eb0ac922d3900374b317c2788",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "招致，惹来",
-      "core_meaning_en": "to bring upon oneself",
-      "mental_model_cn": "招致，惹来",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "使自己承担后果或费用",
+          "label_en": "to become subject to adverse consequences or liable for expenses",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:incur:e308073036b75653",
+            "sense:incur:4d0ad1fddaca23dd"
+          ]
+        }
+      ],
+      "core_meaning_cn": "使自己承担后果或费用",
+      "core_meaning_en": "to become subject to adverse consequences or liable for expenses",
+      "mental_model_cn": "criticism/wrath是招致负面后果；costs/expenses/charges是费用产生，不能都当成过错或灾难，也不等于已经付款。",
+      "mental_model_en": "to become subject to adverse consequences or liable for expenses."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -27,7 +37,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:750a010d7b0ae8bdfa53",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:incur:e308073036b75653:collocation:0"
             ],
@@ -64,6 +74,29 @@
         "sense_label_en": "to become subject to something unpleasant as a result of one's actions",
         "sort_order": 0,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:incur:4d0ad1fddaca23dd",
+        "pos": "verb",
+        "definition_cn": "产生、承担（费用、开支等支付责任）",
+        "definition_en": "to become liable for costs or expenses",
+        "sense_label_en": "to become liable for costs or expenses",
+        "governing_pattern": "incur costs/expenses/charges",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:123f7c6080b9579a108c",
+            "phrase": "incur additional costs",
+            "meaning_cn": "产生额外费用",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "formal；表示费用已经产生、须承担，不保证款项已实际付清。"
       }
     ],
     "verification_summary": {
@@ -103,6 +136,23 @@
           "applicability": [
             {
               "surface": "incur"
+            },
+            {
+              "surface": "incur",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:incur:4d0ad1fddaca23dd"
+              ],
+              "owner_sense_ids": [
+                "sense:incur:4d0ad1fddaca23dd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2498.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "incur costs/expenses/charges"
             }
           ],
           "sources": [
@@ -205,12 +255,21 @@
         "merged_into_sense_id": null,
         "source_row": 6930,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
+      },
+      {
+        "sense_id": "sense:incur:4d0ad1fddaca23dd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2498.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
-      "collocation:39edf2cc2a69bb94f2c6",
       "collocation:750a010d7b0ae8bdfa53",
-      "collocation:f3ff14bdb4bf8bb15e89"
+      "collocation:39edf2cc2a69bb94f2c6",
+      "collocation:f3ff14bdb4bf8bb15e89",
+      "collocation:123f7c6080b9579a108c"
     ],
     "facts": [],
     "collocations": [
@@ -222,12 +281,21 @@
       {
         "id": "collocation:750a010d7b0ae8bdfa53",
         "source_row": 9871,
-        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f3ff14bdb4bf8bb15e89",
         "source_row": 20667,
         "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+      },
+      {
+        "id": "collocation:123f7c6080b9579a108c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2498.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

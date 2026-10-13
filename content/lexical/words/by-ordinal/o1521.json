@@ -9,7 +9,24 @@
     "constructions": [],
     "content_hash": "05c506d455384d4d15877921f9df30be4b4c549a8666b529c34e3464b20d1382",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "pos": "noun",
+          "label_cn": "醉汉",
+          "label_en": "a person who is drunk",
+          "sense_ids": [
+            "sense:drunk:2ec4ededdfb85f41"
+          ]
+        },
+        {
+          "pos": "adjective",
+          "label_cn": "陶醉于；被强烈情绪冲昏头脑的",
+          "label_en": "overwhelmed by a strong feeling or influence",
+          "sense_ids": [
+            "sense:drunk:daa0b51c8beba2b3"
+          ]
+        }
+      ],
       "core_meaning_cn": "醉的",
       "core_meaning_en": "intoxicated with alcohol",
       "mental_model_cn": "醉的",
@@ -38,6 +55,43 @@
         "sense_label_en": "intoxicated by alcohol",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:drunk:2ec4ededdfb85f41",
+        "pos": "noun",
+        "definition_cn": "醉酒的人；常喝醉的人",
+        "definition_en": "a person who is drunk or often gets drunk",
+        "sense_label_en": "a person who is drunk or often gets drunk",
+        "governing_pattern": "a drunk; drunks",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:drunk:396446634224bf20",
+            "phrase": "a drunk",
+            "meaning_cn": "一个喝醉的人",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "可数名词，可带贬意；形容词 be drunk 与名词 a drunk 的词类不同。"
+      },
+      {
+        "sense_id": "sense:drunk:daa0b51c8beba2b3",
+        "pos": "adjective",
+        "definition_cn": "陶醉于；被强烈情绪冲昏头脑的",
+        "definition_en": "overwhelmed by a strong feeling or influence",
+        "sense_label_en": "overwhelmed by a strong feeling or influence",
+        "governing_pattern": "be drunk with power/success/joy",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:drunk:daa0b51c8beba2b3",
+            "phrase": "drunk with power",
+            "meaning_cn": "被权力冲昏头脑的",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -205,6 +259,48 @@
           "applicability": [
             {
               "surface": "drunk"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drunk",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:drunk:daa0b51c8beba2b3"
+              ],
+              "sense_ids": [
+                "sense:drunk:daa0b51c8beba2b3"
+              ],
+              "excluded_sense_ids": [
+                "sense:drunk:2ec4ededdfb85f41",
+                "sense:drunk:f4a08b85dddec78c"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drunk",
+              "source_checked_date": "2026-10-11"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drunk",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:drunk:2ec4ededdfb85f41"
+              ],
+              "sense_ids": [
+                "sense:drunk:2ec4ededdfb85f41"
+              ],
+              "excluded_sense_ids": [
+                "sense:drunk:daa0b51c8beba2b3",
+                "sense:drunk:f4a08b85dddec78c"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drunk",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -288,6 +384,38 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/drunk",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "drunk",
+                "pos": "adjective"
+              },
+              "existing_observed_ipa_unchanged": "/drʌŋk/",
+              "applies_to_sense_ids": [
+                "sense:drunk:daa0b51c8beba2b3"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/drunk",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "drunk",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/drʌŋk/",
+              "applies_to_sense_ids": [
+                "sense:drunk:2ec4ededdfb85f41"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         },
@@ -573,31 +701,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:drunk:2ec4ededdfb85f41",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "noun",
-      "definition_cn": "醉汉",
-      "definition_en": "a person who is drunk",
-      "semantic_key": "24206579d47e4c4ee88d810b00812815238939990bb19a09555e6eca16b8e6cb",
-      "semantic_key_history": [
-        "647b21139e34cb817d7a88ab8d9bcc2335bb4d92f069a472601d35946e15abbc"
-      ],
-      "legacy_aliases": [
-        "drunk:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "drunk:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4250,
-      "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:drunk:50257d2750745491",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -627,10 +730,18 @@
     "senses": [
       {
         "sense_id": "sense:drunk:2ec4ededdfb85f41",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
-        "source_row": 4250,
-        "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1521.json",
+        "source_pointer": "/record/senses/1",
+        "historical_source_locator": {
+          "sense_id": "sense:drunk:2ec4ededdfb85f41",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "source_row": 4250,
+          "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+        }
       },
       {
         "sense_id": "sense:drunk:50257d2750745491",
@@ -645,9 +756,20 @@
         "merged_into_sense_id": null,
         "source_row": 4303,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      },
+      {
+        "sense_id": "sense:drunk:daa0b51c8beba2b3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1521.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:drunk:396446634224bf20",
+      "collocation:drunk:daa0b51c8beba2b3"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -664,6 +786,22 @@
         "id": "collocation:e8499f1d3adee2cdedad",
         "source_row": 19680,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:drunk:396446634224bf20",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1521.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:drunk:daa0b51c8beba2b3",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1521.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

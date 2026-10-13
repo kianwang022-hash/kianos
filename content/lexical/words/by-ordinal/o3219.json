@@ -6,14 +6,50 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:ee8ab1d1240e4a6076de",
+        "pattern": "be news to sb",
+        "meaning_cn": "对某人来说是此前不知道的消息",
+        "definition_en": "be information somebody did not know before",
+        "usage_note": "It’s news to me表示我之前不知道，可带惊讶；不是宣称它一定是媒体报道。",
+        "boundary": "It’s news to me表示我之前不知道，可带惊讶；不是宣称它一定是媒体报道。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "992f0d5e6a31435d8396f49cfed3800cdcf8161dac138a11809161bd65f6be98",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "关于近期事件的新信息",
-      "core_meaning_en": "new information about recent events",
-      "mental_model_cn": "关于近期事件的新信息",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "新闻，新闻报道",
+          "label_en": "information about recent and important events, especially as reported in newspapers, television, etc.",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:news:e4f5d3127dee51f7"
+          ]
+        },
+        {
+          "label_cn": "消息，信息",
+          "label_en": "information about something that has happened recently",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:news:5800a70273115202"
+          ]
+        },
+        {
+          "label_cn": "（the news）电视或广播的新闻节目",
+          "label_en": "a television or radio programme reporting recent events",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:news:04c751fd420b6ef6"
+          ]
+        }
+      ],
+      "core_meaning_cn": "新闻报道、消息与新鲜事；新闻节目",
+      "core_meaning_en": "news reports, information and new things; a news broadcast",
+      "mental_model_cn": "news外形以-s结尾但普通用法仍是不可数名词，谓语一般单数；a piece/item of news计一条。watch the news看节目，news to me说此前未知。",
+      "mental_model_en": "news reports, information and new things; a news broadcast."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -66,7 +102,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:news:e4f5d3127dee51f7",
-        "sense_label_en": "information about recent and important events, especially as reported in",
+        "sense_label_en": "information about recent and important events, especially as reported in newspapers, television, etc.",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -136,6 +172,28 @@
         "sense_label_en": "informal information that is not previously known to someone",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:news:04c751fd420b6ef6",
+        "pos": "noun",
+        "definition_cn": "（the news）电视或广播的新闻节目",
+        "definition_en": "a television or radio programme reporting recent events",
+        "sense_label_en": "a television or radio programme reporting recent events",
+        "governing_pattern": "the news; watch/listen to the news",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:26b67613482e35750336",
+            "phrase": "watch the news",
+            "meaning_cn": "看新闻节目",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -176,6 +234,24 @@
           "applicability": [
             {
               "surface": "news"
+            },
+            {
+              "surface": "news",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:news:04c751fd420b6ef6"
+              ],
+              "owner_sense_ids": [
+                "sense:news:04c751fd420b6ef6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3219.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the news; watch/listen to the news",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -261,6 +337,24 @@
           "applicability": [
             {
               "surface": "news"
+            },
+            {
+              "surface": "news",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:news:04c751fd420b6ef6"
+              ],
+              "owner_sense_ids": [
+                "sense:news:04c751fd420b6ef6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3219.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the news; watch/listen to the news",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -355,15 +449,24 @@
         "merged_into_sense_id": null,
         "source_row": 8962,
         "source_path": "content/lexical/canonical/senses/shards/o3201-3232.json"
+      },
+      {
+        "sense_id": "sense:news:04c751fd420b6ef6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3219.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:84200b4b0fb70ee68949",
-      "collocation:8f1cfb9899f16f064d61",
-      "collocation:c90585aa591c1075a68e",
       "collocation:daeb0a173828e68526f4",
       "collocation:f10aedd968132b6034c0",
-      "collocation:fc8687787c193fac86e6"
+      "collocation:8f1cfb9899f16f064d61",
+      "collocation:c90585aa591c1075a68e",
+      "collocation:84200b4b0fb70ee68949",
+      "collocation:fc8687787c193fac86e6",
+      "collocation:26b67613482e35750336"
     ],
     "facts": [],
     "collocations": [
@@ -396,6 +499,13 @@
         "id": "collocation:8f1cfb9899f16f064d61",
         "source_row": 21421,
         "source_path": "content/lexical/canonical/collocations/shards/o3201-3232.json"
+      },
+      {
+        "id": "collocation:26b67613482e35750336",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3219.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

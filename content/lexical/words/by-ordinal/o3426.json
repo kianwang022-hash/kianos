@@ -6,7 +6,20 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:b3d5e84b8115d959006d",
+        "pattern": "be working overtime（脑子/想象等）",
+        "meaning_cn": "非常活跃；过度运转",
+        "definition_en": "being very active or excessively active",
+        "boundary": "非正式，比喻脑子、想象等；不是某人加班的字面工时。",
+        "usage_note": "非正式，比喻脑子、想象等；不是某人加班的字面工时。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      }
+    ],
     "content_hash": "e9f08f46e29bf355dd7cc12b6f988e3dbae88dd4b656ebf8a1dbb813d533e198",
     "core_concept": {
       "core_clusters": [
@@ -38,7 +51,7 @@
       ],
       "core_meaning_cn": "加班/超时；加时赛",
       "core_meaning_en": "work beyond regular hours; extra sports time; overtime use",
-      "mental_model_cn": "加班/超时；加时赛",
+      "mental_model_cn": "work/do overtime选加班时数，salary plus overtime选加班费；a game goes into overtime选北美比赛加时。imagination working overtime是想象过度活跃，不能算工时报酬。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -136,6 +149,21 @@
         "sense_label_en": "relating to work or time beyond regular hours",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:overtime:7009611f8267c7b8",
+        "pos": "noun",
+        "definition_cn": "加班费；加班所得报酬",
+        "definition_en": "money earned for working extra hours",
+        "sense_label_en": "money earned for working extra hours",
+        "governing_pattern": "earn/receive overtime; salary plus overtime",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -178,6 +206,23 @@
           "applicability": [
             {
               "surface": "overtime"
+            },
+            {
+              "surface": "overtime",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:overtime:7009611f8267c7b8"
+              ],
+              "owner_sense_ids": [
+                "sense:overtime:7009611f8267c7b8"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_path": "content/lexical/words/by-ordinal/o3426.json",
+              "source_pointer": "/record/senses/4",
+              "binding_basis": "Exact whole original unbounded surface/POS observation plus actual independent current semantic evidence. Original full Source/POS/Etym/locale roles and sound conditions retained."
             }
           ],
           "sources": [
@@ -327,6 +372,23 @@
           "applicability": [
             {
               "surface": "overtime"
+            },
+            {
+              "surface": "overtime",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:overtime:7009611f8267c7b8"
+              ],
+              "owner_sense_ids": [
+                "sense:overtime:7009611f8267c7b8"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "source_path": "content/lexical/words/by-ordinal/o3426.json",
+              "source_pointer": "/record/senses/4",
+              "binding_basis": "Exact whole original unbounded surface/POS observation plus actual independent current semantic evidence. Original full Source/POS/Etym/locale roles and sound conditions retained."
             }
           ],
           "sources": [
@@ -523,11 +585,19 @@
         "merged_into_sense_id": null,
         "source_row": 9503,
         "source_path": "content/lexical/canonical/senses/shards/o3425-3456.json"
+      },
+      {
+        "sense_id": "sense:overtime:7009611f8267c7b8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3426.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:61fbc93b02afde2180b1",
       "collocation:d573693c8c4a44718d9b",
+      "collocation:61fbc93b02afde2180b1",
       "collocation:eb9d0e4ee22bc6361901"
     ],
     "facts": [],

@@ -13,7 +13,39 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "只有在…条件下才；仅当…时",
-        "pattern": "only if + clause"
+        "pattern": "only if + clause",
+        "boundary": "only if 表示必要条件；only if 从句前置时，主句通常部分倒装：Only if ... can/will/do + subject ...；if 从句不倒装。"
+      },
+      {
+        "construction_id": "construction:only:96a5a4e4e60d4b801ae3",
+        "pattern": "..., only to do sth",
+        "meaning_cn": "结果却……；不料……（出乎意料的后续结果）",
+        "definition_en": "introducing a subsequent result that is surprising or disappointing",
+        "boundary": "此结果句式不按目的“只是为了……”读；是否为结果须看前后事件关系。",
+        "direction": "R",
+        "level": "L2",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:efceccb7c367d0ea9069",
+        "pattern": "only just",
+        "meaning_cn": "刚刚才；勉强才做到",
+        "definition_en": "very recently, or barely enough to succeed",
+        "usage_note": "We have only just arrived是刚到；only just caught the train是差一点没赶上。按时间还是成功程度判断。",
+        "boundary": "We have only just arrived是刚到；only just caught the train是差一点没赶上。按时间还是成功程度判断。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:776e0376140bbed5ac29",
+        "pattern": "only too + adjective/adverb",
+        "meaning_cn": "很；十分……",
+        "definition_en": "emphasize a high degree",
+        "usage_note": "only too pleased/willing to help表示非常乐意帮助；only too well表示太清楚了，可带遗憾。这里不把too解释为因过度而不能。",
+        "boundary": "only too pleased/willing to help表示非常乐意帮助；only too well表示太清楚了，可带遗憾。这里不把too解释为因过度而不能。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "0cfa3109172ed48a8fbc1f779b0fbc1e784ca81cf1a07861984aac8373cfe00d",
@@ -74,14 +106,15 @@
         "confidence": "medium",
         "definition_cn": "唯一的；仅有的",
         "definition_en": "being the single one or the sole one",
-        "governing_pattern": "",
+        "governing_pattern": "only + noun",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:only:2bad358f1f93551e",
         "sense_label_en": "being the single one or the sole one",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "作唯一的形容词时通常放名词前，如the only answer。"
       },
       {
         "collocations": [
@@ -105,7 +138,8 @@
         "sense_id": "sense:only:8b8c91259d3552b3",
         "sense_label_en": "and nothing more; merely",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "only限定哪个成分，须看位置、重音和语境；如Only Anna called限定来电者，Anna only called可限定行为。only yesterday常强调就在昨天、离现在很近，不能机械读成只在昨天发生过一次。"
       },
       {
         "collocations": [
@@ -692,10 +726,17 @@
     ],
     "active_collocations": [
       "collocation:116e0bc00db880b01b2e",
-      "collocation:33f0b0f1c324a0735b14",
-      "collocation:3a8b2a3e40ab4ccc5abd"
+      "collocation:3a8b2a3e40ab4ccc5abd",
+      "collocation:33f0b0f1c324a0735b14"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:only:96a5a4e4e60d4b801ae3",
+        "status": "active",
+        "target_kind": "construction",
+        "merged_into_id": null
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:116e0bc00db880b01b2e",

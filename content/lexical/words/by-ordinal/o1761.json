@@ -11,27 +11,36 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "交换，互换",
-          "label_en": "to give something to someone and receive something in return",
+          "label_cn": "交换、互换",
+          "label_en": "give and receive reciprocally",
           "pos": "verb",
           "sense_ids": [
             "sense:exchange:0717ab7d10445590"
           ]
         },
         {
-          "label_cn": "交换，互换；兑换，汇兑；交易所",
-          "label_en": "the act of giving something and receiving something in return; the act of changing money from one currency to another; a place where stocks, commodities, etc. are bought and sold",
+          "label_cn": "交换、交流与互访",
+          "label_en": "reciprocal transfer, words, or visits",
           "pos": "noun",
           "sense_ids": [
             "sense:exchange:9ec86f7ff6c1534f",
+            "sense:exchange:12f0e1272cf0363e",
+            "sense:exchange:7b28f30ec7e73b39"
+          ]
+        },
+        {
+          "label_cn": "兑换；交易所",
+          "label_en": "currency exchange or trading market",
+          "pos": "noun",
+          "sense_ids": [
             "sense:exchange:5705c820909f5128",
             "sense:exchange:43646585352c5ebe"
           ]
         }
       ],
-      "core_meaning_cn": "交换",
-      "core_meaning_en": "to give something and receive something in return",
-      "mental_model_cn": "交换",
+      "core_meaning_cn": "交换、互换；交流或争论、互访；兑换、交易所",
+      "core_meaning_en": "give and receive reciprocally; an exchange of words or visits; currency exchange or a trading market",
+      "mental_model_cn": "动词with接互换对象，for接换得的物品；a heated exchange指一番争论，student exchange指互访，金融语境指兑换或交易所。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,12 +73,18 @@
             ],
             "meaning_cn": "交流思想",
             "phrase": "exchange ideas"
+          },
+          {
+            "collocation_id": "collocation:f06e8f8a2d48343fba1e",
+            "phrase": "exchange ideas with colleagues",
+            "meaning_cn": "与同事交流想法",
+            "exam_value": "fixed_pattern"
           }
         ],
         "confidence": "medium",
         "definition_cn": "交换，互换",
         "definition_en": "to give something to someone and receive something in return",
-        "governing_pattern": "vt. + sth + for + sth",
+        "governing_pattern": "exchange sth; exchange sth with sb (mutual giving); exchange sth for sth (replacement)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -158,6 +173,50 @@
         "sense_label_en": "a place where stocks, commodities, etc. are bought and sold",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:exchange:12f0e1272cf0363e",
+        "pos": "noun",
+        "definition_cn": "一番交谈；（常指）争论",
+        "definition_en": "a brief conversation, often an argument",
+        "sense_label_en": "a brief conversation, often an argument",
+        "governing_pattern": "an exchange with/between people; a heated/bitter exchange",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:91c6dd0441b1ba3a6265",
+            "phrase": "a heated exchange between the speakers",
+            "meaning_cn": "发言者之间一番激烈的争论",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:exchange:7b28f30ec7e73b39",
+        "pos": "noun",
+        "definition_cn": "（学校、文化等的）交流互访",
+        "definition_en": "an arrangement for reciprocal visits between people or institutions, often in different countries",
+        "sense_label_en": "an arrangement for reciprocal visits between people or institutions, often in different countries",
+        "governing_pattern": "a student/cultural exchange; go on an exchange",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b9be73518bdaab160439",
+            "phrase": "a student exchange programme",
+            "meaning_cn": "学生交流项目",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -187,6 +246,40 @@
           "applicability": [
             {
               "surface": "exchange"
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an exchange with/between people; a heated/bitter exchange"
+              }
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a student/cultural exchange; go on an exchange"
+              }
             }
           ],
           "sources": [
@@ -253,6 +346,40 @@
           "applicability": [
             {
               "surface": "exchange"
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an exchange with/between people; a heated/bitter exchange"
+              }
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a student/cultural exchange; go on an exchange"
+              }
             }
           ],
           "sources": [
@@ -319,6 +446,40 @@
           "applicability": [
             {
               "surface": "exchange"
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an exchange with/between people; a heated/bitter exchange"
+              }
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a student/cultural exchange; go on an exchange"
+              }
             }
           ],
           "sources": [
@@ -475,6 +636,40 @@
           "applicability": [
             {
               "surface": "exchange"
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:12f0e1272cf0363e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "an exchange with/between people; a heated/bitter exchange"
+              }
+            },
+            {
+              "surface": "exchange",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "owner_sense_ids": [
+                "sense:exchange:7b28f30ec7e73b39"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1761.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a student/cultural exchange; go on an exchange"
+              }
             }
           ],
           "sources": [
@@ -588,6 +783,22 @@
         "merged_into_sense_id": null,
         "source_row": 4828,
         "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json"
+      },
+      {
+        "sense_id": "sense:exchange:12f0e1272cf0363e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1761.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:exchange:7b28f30ec7e73b39",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1761.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -635,6 +846,27 @@
         "id": "collocation:fb333f42f8b77ccdbc47",
         "source_row": 21255,
         "source_path": "content/lexical/canonical/collocations/shards/o1761-1792.json"
+      },
+      {
+        "id": "collocation:f06e8f8a2d48343fba1e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1761.json",
+        "source_pointer": "/record/senses/0/collocations/2"
+      },
+      {
+        "id": "collocation:91c6dd0441b1ba3a6265",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1761.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:b9be73518bdaab160439",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1761.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

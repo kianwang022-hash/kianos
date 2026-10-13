@@ -9,11 +9,23 @@
     "constructions": [],
     "content_hash": "6a54bc289d772eba920a9fabb9e97a44926d760d412e52a5d042cf81fe6a6685",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "机构或长期存在的习俗/制度",
-      "core_meaning_en": "an established organization or custom",
-      "mental_model_cn": "机构或长期存在的习俗/制度",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "机构；长期制度习俗；设立；老资格人物",
+          "label_en": "organization, established practice, establishment, or a familiar figure",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:institution:b36f9dd49742596a",
+            "sense:institution:d1c3a7d0f02c525b",
+            "sense:institution:184d03f5e531d73c",
+            "sense:institution:83721b1c76f073a8"
+          ]
+        }
+      ],
+      "core_meaning_cn": "机构；长期制度习俗；设立；老资格人物",
+      "core_meaning_en": "organization, established practice, establishment, or a familiar figure",
+      "mental_model_cn": "an institution看机构；institution of marriage看制度；institution of procedures看设立过程；he is an institution看幽默人物义。",
+      "mental_model_en": "organization, established practice, establishment, or a familiar figure."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -79,6 +91,52 @@
         "sense_label_en": "a custom or practice that has existed for a long time",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:institution:184d03f5e531d73c",
+        "pos": "noun",
+        "definition_cn": "设立；引入或开始实施（制度、法律等）",
+        "definition_en": "the act of introducing or establishing a system, law or procedure",
+        "sense_label_en": "the act of introducing or establishing a system, law or procedure",
+        "governing_pattern": "the institution of sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a99f9c299fd90267d1ea",
+            "phrase": "the institution of new procedures",
+            "meaning_cn": "新程序的设立实施",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "此过程义不可数；已有机构义为可数。"
+      },
+      {
+        "sense_id": "sense:institution:83721b1c76f073a8",
+        "pos": "noun",
+        "definition_cn": "（非正式、幽默）久居某地或久任某职而人人熟悉的人",
+        "definition_en": "a long-established person well known in a place or job",
+        "sense_label_en": "a long-established person well known in a place or job",
+        "governing_pattern": "be an institution around here",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:52678cc5c79298492093",
+            "phrase": "an institution around here",
+            "meaning_cn": "这里人人熟悉的老资格人物",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "可数；可称某人为an institution，不是把人当正式机构。"
       }
     ],
     "verification_summary": {
@@ -118,6 +176,40 @@
           "applicability": [
             {
               "surface": "institution"
+            },
+            {
+              "surface": "institution",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:institution:184d03f5e531d73c"
+              ],
+              "owner_sense_ids": [
+                "sense:institution:184d03f5e531d73c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2574.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the institution of sth"
+            },
+            {
+              "surface": "institution",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:institution:83721b1c76f073a8"
+              ],
+              "owner_sense_ids": [
+                "sense:institution:83721b1c76f073a8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2574.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be an institution around here"
             }
           ],
           "sources": [
@@ -175,12 +267,30 @@
         "merged_into_sense_id": null,
         "source_row": 7113,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
+      },
+      {
+        "sense_id": "sense:institution:184d03f5e531d73c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2574.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:institution:83721b1c76f073a8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2574.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:0e48ce27ac22468e16d9",
+      "collocation:c12f19031947447739d8",
       "collocation:2a63f7df797e78963efe",
-      "collocation:c12f19031947447739d8"
+      "collocation:a99f9c299fd90267d1ea",
+      "collocation:52678cc5c79298492093"
     ],
     "facts": [],
     "collocations": [
@@ -198,6 +308,20 @@
         "id": "collocation:c12f19031947447739d8",
         "source_row": 16326,
         "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json"
+      },
+      {
+        "id": "collocation:a99f9c299fd90267d1ea",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2574.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:52678cc5c79298492093",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2574.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

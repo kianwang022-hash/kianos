@@ -11,7 +11,7 @@
         "construction_id": "construction:1861d57e764051bf3c87",
         "direction": "R+P",
         "level": "L2",
-        "meaning_cn": "是否与某事有关",
+        "meaning_cn": "与某事无关／有关",
         "pattern": "have nothing/something to do with sth"
       },
       {
@@ -20,6 +20,17 @@
         "level": "L2",
         "meaning_cn": "没有某物也能应付",
         "pattern": "do without sth"
+      },
+      {
+        "construction_id": "construction:do:b03e82c89fc93344",
+        "pattern": "could do with sth",
+        "meaning_cn": "需要；很想要某物",
+        "definition_en": "to need or want something",
+        "boundary": "这里 could do with 是固定的需要表达，不是用某工具做事。",
+        "direction": "R+P",
+        "level": "L2",
+        "example": "I could do with a short break.",
+        "example_cn": "我真想休息一会儿。"
       }
     ],
     "content_hash": "e6aee1973de19ffb0ece0c4481deb218d1404d1bd3c76c4f45acb7d5cab07a70",
@@ -71,14 +82,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（构成疑问句和否定句）",
-        "definition_en": "used to form questions and negatives",
-        "governing_pattern": "",
+        "definition_cn": "助动词：构成疑问、否定或强调",
+        "definition_en": "an auxiliary used to form questions and negatives, or to emphasize an affirmative verb",
+        "governing_pattern": "do/does/did + subject + base verb?; do/does/did not + base verb; emphatic do/does/did + base verb",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "auxiliary",
         "sense_id": "sense:do:0832dc53e83f5ea2",
-        "sense_label_en": "used to form questions and negatives",
+        "sense_label_en": "an auxiliary used to form questions and negatives, or to emphasize an affirmative verb",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -86,7 +97,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:17c3ae7a449daca5f937",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:do:a964fede106a530b:collocation:0"
             ],
@@ -128,14 +139,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "行动，表现",
-        "definition_en": "to act or behave",
-        "governing_pattern": "",
+        "definition_cn": "行动；表现；进展",
+        "definition_en": "to act or behave, or to perform or fare in a particular way",
+        "governing_pattern": "do well/badly; how is sb/sth doing?",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:do:bd2c267ad96f58a7",
-        "sense_label_en": "to act or behave",
+        "sense_label_en": "to act or behave, or to perform or fare in a particular way",
         "sort_order": 2,
         "transitivity": "vi"
       },
@@ -161,7 +172,10 @@
             "source_operation_sha256": "268d71896cb74fd4fc1afdd668087c457ca7907eb41355a0a6ab29a33981ab93",
             "verification_status": "semantic_auditor_verified"
           }
-        ]
+        ],
+        "governing_pattern": "sth will do; sth will do for sb/sth",
+        "transitivity": "vi",
+        "usage_note": "这里 do 表示够用或合适，不是执行动作；That will do 表示那样就行。"
       }
     ],
     "verification_summary": {
@@ -434,7 +448,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:17c3ae7a449daca5f937",
       "collocation:37a49dc11a533a243aa2",
       "collocation:ace4b835f9477ccb5d2b",
       "collocation:fc137c534caea557cf8e"
@@ -444,7 +457,9 @@
       {
         "id": "collocation:17c3ae7a449daca5f937",
         "source_row": 1962,
-        "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1441-1472.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:37a49dc11a533a243aa2",

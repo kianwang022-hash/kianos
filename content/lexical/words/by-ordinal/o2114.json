@@ -27,7 +27,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:a21fb40d88fb1057b2a3",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:generate:ccb71cdc505857ee:collocation:0"
             ],
@@ -42,22 +42,7 @@
             ],
             "meaning_cn": "发电",
             "phrase": "generate electricity"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "产生；引起",
-        "definition_en": "to bring something into existence",
-        "governing_pattern": "vt. + object",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:generate:ccb71cdc505857ee",
-        "sense_label_en": "to bring something into existence",
-        "sort_order": 0,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:eaba8bf352d6d90d8deb",
             "exam_value": "usage_example",
@@ -69,15 +54,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "产生（能量）",
-        "definition_en": "to produce energy or power",
+        "definition_cn": "产生；生成；引起（包括发电、产生能量）",
+        "definition_en": "to produce or bring something into existence, including energy or power",
         "governing_pattern": "vt. + object",
-        "level": "L2",
+        "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:generate:ffd6abf81a625d97",
-        "sense_label_en": "to produce energy or power",
-        "sort_order": 1,
+        "sense_id": "sense:generate:ccb71cdc505857ee",
+        "sense_label_en": "to produce or bring something into existence, including energy or power",
+        "sort_order": 0,
         "transitivity": "vt"
       }
     ],
@@ -501,7 +486,36 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:eaba8bf352d6d90d8deb",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:generate:ffd6abf81a625d97:collocation:0"
+          ],
+          "meaning_cn": "产生动力",
+          "phrase": "generate power"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "产生（能量）",
+      "definition_en": "to produce energy or power",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:generate:ffd6abf81a625d97",
+      "sense_label_en": "to produce energy or power",
+      "sort_order": 1,
+      "transitivity": "vt",
+      "stable_sense_id": "sense:generate:ffd6abf81a625d97",
+      "status": "merged",
+      "merged_into_sense_id": "sense:generate:ccb71cdc505857ee",
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -513,15 +527,14 @@
       },
       {
         "sense_id": "sense:generate:ffd6abf81a625d97",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:generate:ccb71cdc505857ee",
         "source_row": 5897,
         "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json"
       }
     ],
     "active_collocations": [
       "collocation:2ef246b52fbb57088ad0",
-      "collocation:a21fb40d88fb1057b2a3",
       "collocation:eaba8bf352d6d90d8deb"
     ],
     "facts": [],
@@ -534,12 +547,15 @@
       {
         "id": "collocation:a21fb40d88fb1057b2a3",
         "source_row": 13762,
-        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:eaba8bf352d6d90d8deb",
         "source_row": 19883,
-        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json",
+        "sense_id": "sense:generate:ccb71cdc505857ee"
       }
     ],
     "exam-mappings": [],

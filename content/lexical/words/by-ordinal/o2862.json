@@ -12,35 +12,69 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "load A with B：把B装入A；load B into/onto A：把B装入/装上A",
-        "pattern": "load A with B vs load B into/onto A"
+        "pattern": "load A with B vs load B into/onto A",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:f5e315f0c06ac6217bb7",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:load:11b109cdeea95bf5:collocation:0"
+            ],
+            "meaning_cn": "把某物装到某物上",
+            "phrase": "load + sth with + sth"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:99c1de2267a0b903bec0",
+        "pattern": "a load of / loads of sth",
+        "meaning_cn": "很多；大量（非正式）",
+        "definition_en": "a large amount or number, informally",
+        "usage_note": "可修饰可数复数或不可数名词；物理 a load of ... 则表示载重。",
+        "boundary": "可修饰可数复数或不可数名词；物理 a load of ... 则表示载重。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:6799f5e0ddc4470bba0d",
+        "pattern": "a load off sb’s mind",
+        "meaning_cn": "使某人松一口气的事",
+        "definition_en": "something that removes a worry",
+        "usage_note": "可说 That is a load off my mind 或 take a load off sb’s mind；强调担忧解除。",
+        "boundary": "可说 That is a load off my mind 或 take a load off sb’s mind；强调担忧解除。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:load:5047f9d9a0a3f59f"
       }
     ],
     "content_hash": "7ae53f998dd7225efd14448ca1ba1d7f45de0cb21eb0d0c44ae0a803946cb7d6",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "负荷；装载量；工作量；负载",
-          "label_en": "a weight or amount that is carried or transported; the amount of work or power that a system can handle",
+          "label_cn": "负荷；装载量；工作量；负载；重担；令人忧虑的责任或负担",
+          "label_en": "a weight or amount that is carried or transported; the amount of work to be done, or demand placed on a person, machine, or system; a responsibility or worry that weighs on someone",
           "pos": "noun",
           "sense_ids": [
             "sense:load:a83db54256015982",
-            "sense:load:d0923cbc3bc15a68"
+            "sense:load:d0923cbc3bc15a68",
+            "sense:load:5047f9d9a0a3f59f"
           ]
         },
         {
-          "label_cn": "装载；装填；装货",
-          "label_en": "to put a load into or onto something; to take on a load",
+          "label_cn": "装载；装填；装货；加载；装入（数据/程序）；（页面/程序）载入并就绪",
+          "label_en": "to put a load into or onto something; to take on a load; to put data, a program, or content into a computer/system; or for a page/app/program to appear or become ready",
           "pos": "verb",
           "sense_ids": [
             "sense:load:11b109cdeea95bf5",
-            "sense:load:67625cdbc5ee584f"
+            "sense:load:67625cdbc5ee584f",
+            "sense:load:6fe2c39442bcbf4e"
           ]
         }
       ],
-      "core_meaning_cn": "装载；负荷",
-      "core_meaning_en": "to put or place something into a vehicle or container; the amount carried",
-      "mental_model_cn": "装载；负荷",
-      "mental_model_en": ""
+      "core_meaning_cn": "载荷、工作负载或心理重担；装载与数据加载",
+      "core_meaning_en": "physical load, workload or mental burden; load goods or computer content",
+      "mental_model_cn": "承载的量可为货物、工作需求或责任忧虑；计算机加载是另一动词用法。",
+      "mental_model_en": "physical load, workload or mental burden; load goods or computer content."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -128,15 +162,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:f5e315f0c06ac6217bb7",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:load:11b109cdeea95bf5:collocation:0"
-            ],
-            "meaning_cn": "把某物装到某物上",
-            "phrase": "load + sth with + sth"
-          },
-          {
             "collocation_id": "collocation:2e7340e635a163364110",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -195,13 +220,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "工作量；负载",
-        "definition_en": "the amount of work or power that a system can handle",
+        "definition_en": "the amount of work to be done, or demand placed on a person, machine, or system",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:load:d0923cbc3bc15a68",
-        "sense_label_en": "the amount of work or power that a system can handle",
+        "sense_label_en": "the amount of work to be done, or demand placed on a person, machine, or system",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -237,6 +262,28 @@
         "sense_label_en": "to put data, a program, or content into a computer/system; or for a page/app/program to appear or become ready",
         "sort_order": 4,
         "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:load:5047f9d9a0a3f59f",
+        "pos": "noun",
+        "definition_cn": "重担；令人忧虑的责任或负担",
+        "definition_en": "a responsibility or worry that weighs on someone",
+        "sense_label_en": "a responsibility or worry that weighs on someone",
+        "governing_pattern": "bear/carry a load of responsibility",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f71ee8c711d6d2ead8f8",
+            "phrase": "a load of responsibility",
+            "meaning_cn": "沉重的责任负担",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -277,6 +324,23 @@
           "applicability": [
             {
               "surface": "load"
+            },
+            {
+              "surface": "load",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:load:5047f9d9a0a3f59f"
+              ],
+              "owner_sense_ids": [
+                "sense:load:5047f9d9a0a3f59f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2862.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "bear/carry a load of responsibility"
             }
           ],
           "sources": [
@@ -477,17 +541,25 @@
         "merged_into_sense_id": null,
         "source_row": 8023,
         "source_path": "content/lexical/canonical/senses/shards/o2849-2880.json"
+      },
+      {
+        "sense_id": "sense:load:5047f9d9a0a3f59f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2862.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:23d438b24375a7ef0254",
-      "collocation:2e7340e635a163364110",
       "collocation:3821fa3a874a91e30afd",
-      "collocation:7c2ceeba19a3ea3ad4b7",
-      "collocation:9c82277bb1a6b3f1e3e3",
       "collocation:f427cce889826099adef",
-      "collocation:f5e315f0c06ac6217bb7",
-      "collocation:f92f00e48ee6a646486d"
+      "collocation:2e7340e635a163364110",
+      "collocation:9c82277bb1a6b3f1e3e3",
+      "collocation:f92f00e48ee6a646486d",
+      "collocation:23d438b24375a7ef0254",
+      "collocation:7c2ceeba19a3ea3ad4b7",
+      "collocation:f71ee8c711d6d2ead8f8"
     ],
     "facts": [
       {
@@ -525,7 +597,9 @@
       {
         "id": "collocation:f5e315f0c06ac6217bb7",
         "source_row": 20823,
-        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:f92f00e48ee6a646486d",
@@ -541,6 +615,13 @@
         "id": "collocation:7c2ceeba19a3ea3ad4b7",
         "source_row": 21504,
         "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:f71ee8c711d6d2ead8f8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2862.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

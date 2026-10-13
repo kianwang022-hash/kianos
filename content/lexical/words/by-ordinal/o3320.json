@@ -6,14 +6,39 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:ad984c02d445f4cdf6e1",
+        "pattern": "be of + abstract noun（use/value/importance等）",
+        "meaning_cn": "具有某种性质；有用、有价值、重要等",
+        "definition_en": "describe a characteristic using an abstract noun",
+        "usage_note": "如be of great use很有用，be of little value价值不大。不是任意名词都可代替形容词；use/value/importance是常见例。",
+        "boundary": "如be of great use很有用，be of little value价值不大。不是任意名词都可代替形容词；use/value/importance是常见例。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "431db1f74453922df3d4ee18ffb1c055dbc3c86d58d9236c8c79211e37ebd7d5",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "属于或关于",
-      "core_meaning_en": "belonging to or relating to",
-      "mental_model_cn": "属于或关于",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "连接所属、来源、内容、整体、主题或性质",
+          "label_en": "connect possession, source, contents, a whole, topic or quality",
+          "pos": "preposition",
+          "sense_ids": [
+            "sense:of:10d2035eba455b32",
+            "sense:of:36d3eef558d0549e",
+            "sense:of:8ea108f08aee5fc4",
+            "sense:of:d5e8a98ce4395e8d",
+            "sense:of:80ce1ad05b2bd498",
+            "sense:of:537775888759d7e7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "连接所属、来源、内容、部分、主题或性质",
+      "core_meaning_en": "link possession, source, contents, a part, topic or quality",
+      "mental_model_cn": "看of前后名词关系：a cup of water是内容，some of the people是部分，a map of a city是所描绘对象；the arrival of sb与criticism of sb中的sb角色不同。of great value可描述很有价值。",
+      "mental_model_en": "link possession, source, contents, a part, topic or quality."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -84,16 +109,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "表示材料或构成",
-        "definition_en": "used to show material or composition",
+        "definition_cn": "表示材料、内容或某一数量所包含的东西",
+        "definition_en": "used to identify material, contents, or what a stated amount consists of",
         "governing_pattern": "prep. + noun/pronoun",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "preposition",
         "sense_id": "sense:of:8ea108f08aee5fc4",
-        "sense_label_en": "used to show material or composition",
+        "sense_label_en": "used to identify material, contents, or what a stated amount consists of",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "a cup of water 是一杯水（内容/数量），不是杯子由水制成。"
       },
       {
         "collocations": [
@@ -118,6 +144,51 @@
         "sense_label_en": "used to show part of a whole",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:of:80ce1ad05b2bd498",
+        "pos": "preposition",
+        "definition_cn": "表示所涉主题、对象，或名词所述行为由谁实施、针对谁",
+        "definition_en": "link a noun to what it depicts or concerns, or to a participant in the action it names",
+        "sense_label_en": "link a noun to what it depicts or concerns, or to a participant in the action it names",
+        "governing_pattern": "a picture/story of sth; the arrival/criticism of sb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d0f9e967c6fed30b8ca6",
+            "phrase": "a picture of the coast",
+            "meaning_cn": "一幅海岸的图画",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "of后的名词角色看前面的名词：the arrival of the police是警察到达；criticism of the police通常是警察受到批评。不能一律译属于。"
+      },
+      {
+        "sense_id": "sense:of:537775888759d7e7",
+        "pos": "preposition",
+        "definition_cn": "表示具有某种性质、特征",
+        "definition_en": "describe a quality or characteristic that somebody or something has",
+        "sense_label_en": "describe a quality or characteristic that somebody or something has",
+        "governing_pattern": "a person of courage; be of value/use/importance",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fa86639ec85eb360fe5c",
+            "phrase": "a decision of great importance",
+            "meaning_cn": "一项很重要的决定",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -335,6 +406,73 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ɒv/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "of",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:of:80ce1ad05b2bd498"
+              ],
+              "owner_sense_ids": [
+                "sense:of:80ce1ad05b2bd498"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3320.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a picture/story of sth; the arrival/criticism of sb",
+              "conditions": {
+                "form": "strong form"
+              },
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "of",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:of:537775888759d7e7"
+              ],
+              "owner_sense_ids": [
+                "sense:of:537775888759d7e7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3320.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a person of courage; be of value/use/importance",
+              "conditions": {
+                "form": "strong form"
+              },
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/of",
+              "entry_context": {
+                "word": "of",
+                "pos": "prep",
+                "etymology_number": null
+              },
+              "original_ipa": "/ɒv/",
+              "sound_qualifiers": {
+                "form": "strong form"
+              },
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
@@ -370,13 +508,31 @@
         "merged_into_sense_id": null,
         "source_row": 9205,
         "source_path": "content/lexical/canonical/senses/shards/o3297-3328.json"
+      },
+      {
+        "sense_id": "sense:of:80ce1ad05b2bd498",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3320.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:of:537775888759d7e7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3320.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
       "collocation:4b564d8d94039120e267",
-      "collocation:66f52bea5d1b18100a86",
+      "collocation:6ee230b642c1833c4360",
       "collocation:66fdaae7a35adbbd3905",
-      "collocation:6ee230b642c1833c4360"
+      "collocation:66f52bea5d1b18100a86",
+      "collocation:d0f9e967c6fed30b8ca6",
+      "collocation:fa86639ec85eb360fe5c"
     ],
     "facts": [],
     "collocations": [
@@ -399,6 +555,20 @@
         "id": "collocation:6ee230b642c1833c4360",
         "source_row": 9362,
         "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      },
+      {
+        "id": "collocation:d0f9e967c6fed30b8ca6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3320.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:fa86639ec85eb360fe5c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3320.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

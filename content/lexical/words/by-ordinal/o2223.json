@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "a2c4d7bbf16a43e9882c758c033bdebe17b81d7fdb879c6e7930d5c539007ddf",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "指导或引导",
-      "core_meaning_en": "help or advice that guides",
-      "mental_model_cn": "指导或引导",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "告诉你该做什么的帮助或建议；（使用电子设备的）方向引导、制导",
+          "label_en": "help or advice that tells you what to do; electronic control of the direction of a rocket or similar object",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:guidance:68a470be9f3b57f4",
+            "sense:guidance:5a687a2e9058f65c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "指导建议；电子方向引导",
+      "core_meaning_en": "advice or electronic direction control",
+      "mental_model_cn": "guidance可指给人的指导，也可为火箭等的电子方向引导过程。",
+      "mental_model_en": "advice or electronic direction control."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -55,6 +65,28 @@
         "sense_label_en": "help or advice that tells you what to do",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:guidance:5a687a2e9058f65c",
+        "pos": "noun",
+        "definition_cn": "（使用电子设备的）方向引导、制导",
+        "definition_en": "electronic control of the direction of a rocket or similar object",
+        "sense_label_en": "electronic control of the direction of a rocket or similar object",
+        "governing_pattern": "a guidance system",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f48935bdaa6f970aa3df",
+            "phrase": "a guidance system",
+            "meaning_cn": "方向引导系统",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -84,6 +116,23 @@
           "applicability": [
             {
               "surface": "guidance"
+            },
+            {
+              "surface": "guidance",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:guidance:5a687a2e9058f65c"
+              ],
+              "owner_sense_ids": [
+                "sense:guidance:5a687a2e9058f65c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2223.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "a guidance system"
+              }
             }
           ],
           "sources": [
@@ -322,11 +371,20 @@
         "merged_into_sense_id": null,
         "source_row": 6209,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:guidance:5a687a2e9058f65c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2223.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
       "collocation:0ca9bd6228e7e461feb1",
-      "collocation:d47785bb2f00c592a6a9"
+      "collocation:d47785bb2f00c592a6a9",
+      "collocation:f48935bdaa6f970aa3df"
     ],
     "facts": [],
     "collocations": [
@@ -339,6 +397,13 @@
         "id": "collocation:d47785bb2f00c592a6a9",
         "source_row": 17950,
         "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+      },
+      {
+        "id": "collocation:f48935bdaa6f970aa3df",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2223.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

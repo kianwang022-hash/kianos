@@ -6,13 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:embryo:a93bcb4458a5a85c",
+        "direction": "R+P",
+        "level": "L2",
+        "pattern": "be in embryo",
+        "meaning_cn": "处于雏形或萌芽阶段",
+        "definition_en": "to be at a very early stage of development",
+        "boundary": "可用于计划等抽象事物；保留两种原生物学Sense，不展开医学阶段目录。",
+        "example": {
+          "en": "The plan is still in embryo.",
+          "cn": "这项计划还处在雏形阶段。"
+        },
+        "learning_note": "例：The plan is still in embryo. → 这项计划还处在雏形阶段。",
+        "sense_id": "sense:embryo:ee2dec1bb6da54e2"
+      }
+    ],
     "content_hash": "ebc328d5619a6917df28632aecb9ad4c9d50512cd378a147f716deb2871f8689",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "生物发育的早期阶段",
-      "core_meaning_en": "early developmental stage of an organism",
-      "mental_model_cn": "生物发育的早期阶段",
+      "core_meaning_cn": "尚未充分发育的早期形态：生物的胚或事物的雏形",
+      "core_meaning_en": "an early, undeveloped form of an organism, idea, plan, or other thing",
+      "mental_model_cn": "生物语境指动物胚胎或种子中的植物胚；想法、计划等抽象语境指尚未成熟的雏形，in embryo表示仍在萌芽阶段。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -69,7 +85,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "植物胚芽",
+        "definition_cn": "植物胚；种子内尚未充分发育的幼小植株",
         "definition_en": "a minute rudimentary plant contained within a seed",
         "governing_pattern": "",
         "level": "L2",
@@ -79,6 +95,25 @@
         "sense_label_en": "a minute rudimentary plant contained within a seed",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:embryo:ee2dec1bb6da54e2",
+        "pos": "noun",
+        "definition_cn": "雏形；萌芽阶段的事物",
+        "definition_en": "an early or undeveloped stage of something, or something at that stage",
+        "sense_label_en": "an early or undeveloped stage of something, or something at that stage",
+        "governing_pattern": "an embryo of an idea; in embryo",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:embryo:7630334180a4dbf9",
+            "phrase": "the embryo of an idea",
+            "meaning_cn": "一个想法的雏形",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "此比喻义可用于想法、计划或组织；并非动物或植物胚胎。"
       }
     ],
     "verification_summary": {
@@ -171,6 +206,28 @@
           "applicability": [
             {
               "surface": "embryo"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "embryo",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:embryo:ee2dec1bb6da54e2"
+              ],
+              "sense_ids": [
+                "sense:embryo:ee2dec1bb6da54e2"
+              ],
+              "excluded_sense_ids": [
+                "sense:embryo:474d52c8b73c5a47",
+                "sense:embryo:5c06638845d35d17"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/embryo",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -204,6 +261,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/embryo",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "embryo",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ˈɛmbɹi.əʊ/",
+              "applies_to_sense_ids": [
+                "sense:embryo:ee2dec1bb6da54e2"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         }
@@ -227,12 +300,21 @@
         "merged_into_sense_id": null,
         "source_row": 4513,
         "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
+      },
+      {
+        "sense_id": "sense:embryo:ee2dec1bb6da54e2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1620.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:323c25363bffe4431f42",
       "collocation:c298befecaa88487617a",
-      "collocation:dea2b5be0faa44ee5e0e"
+      "collocation:dea2b5be0faa44ee5e0e",
+      "collocation:embryo:7630334180a4dbf9"
     ],
     "facts": [],
     "collocations": [
@@ -250,6 +332,14 @@
         "id": "collocation:dea2b5be0faa44ee5e0e",
         "source_row": 18852,
         "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      },
+      {
+        "id": "collocation:embryo:7630334180a4dbf9",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1620.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -25,6 +25,14 @@
           "sense_ids": [
             "sense:drift:8ac0ffbf6fbb5024"
           ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "大意；要旨",
+          "label_en": "the general meaning or main point of what someone says",
+          "sense_ids": [
+            "sense:drift:e32800acd1964ee7"
+          ]
         }
       ],
       "core_meaning_cn": "漂移；逐渐偏移或变化",
@@ -120,6 +128,25 @@
         "sense_label_en": "a pile of snow or sand made by the wind",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:drift:e32800acd1964ee7",
+        "pos": "noun",
+        "definition_cn": "大意；要旨",
+        "definition_en": "the general meaning or main point of what someone says",
+        "sense_label_en": "the general meaning or main point of what someone says",
+        "governing_pattern": "get/catch/follow the drift (of sth)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:drift:e32800acd1964ee7",
+            "phrase": "Do you get my drift?",
+            "meaning_cn": "你明白我的意思吗？",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "这里不是风水漂移或政策逐渐偏移，而是话语的总体意思。"
       }
     ],
     "verification_summary": {
@@ -149,6 +176,28 @@
           "applicability": [
             {
               "surface": "drift"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drift",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:drift:e32800acd1964ee7"
+              ],
+              "sense_ids": [
+                "sense:drift:e32800acd1964ee7"
+              ],
+              "excluded_sense_ids": [
+                "sense:drift:02d489f6851058c6",
+                "sense:drift:37703025fbaa5c34",
+                "sense:drift:8ac0ffbf6fbb5024"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drift",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -205,6 +254,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/drift",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "drift",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/dɹɪft/",
+              "applies_to_sense_ids": [
+                "sense:drift:e32800acd1964ee7"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         },
@@ -430,13 +495,22 @@
         "merged_into_sense_id": null,
         "source_row": 4200,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      },
+      {
+        "sense_id": "sense:drift:e32800acd1964ee7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1509.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:27211810df2a19a7155d",
       "collocation:5698c82f46fcb776e80e",
       "collocation:86a52468fd2a3ecd4822",
-      "collocation:cde4bc8f1c8cb15cc6c2"
+      "collocation:cde4bc8f1c8cb15cc6c2",
+      "collocation:drift:e32800acd1964ee7"
     ],
     "facts": [],
     "collocations": [
@@ -469,6 +543,14 @@
         "id": "collocation:cde4bc8f1c8cb15cc6c2",
         "source_row": 21618,
         "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+      },
+      {
+        "id": "collocation:drift:e32800acd1964ee7",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1509.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

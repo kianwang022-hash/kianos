@@ -6,31 +6,43 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:0e952f1e17c24d770c29",
+        "pattern": "in the main",
+        "meaning_cn": "大体上；在多数情况下",
+        "definition_en": "generally or for the most part",
+        "usage_note": "固定状语；不按形容词“主要的”直译为“在主要里”。",
+        "boundary": "固定状语；不按形容词“主要的”直译为“在主要里”。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "cbbef695366f0f7f9848b0936cb097fd5b8bc8952731d32fa3abf80a29c484cc",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "主要的；最重要的",
-          "label_en": "principal or most important",
+          "label_en": "most important; chief",
           "pos": "adjective",
           "sense_ids": [
             "sense:main:7207802bccea50ec"
           ]
         },
         {
-          "label_cn": "主管线；干线",
-          "label_en": "a principal pipe or line",
+          "label_cn": "总管道；干线；（英式，mains）供水、供气、供电的总系统、接入点",
+          "label_en": "a principal pipe or line for water, gas, electricity, etc.; the main supply system or connection for water, gas or electricity",
           "pos": "noun",
           "sense_ids": [
-            "sense:main:b9476ef1273f5faf"
+            "sense:main:b9476ef1273f5faf",
+            "sense:main:7d4c9f103b824e4a"
           ]
         }
       ],
-      "core_meaning_cn": "主要的；主管线/干线",
-      "core_meaning_en": "principal or most important; a principal pipe/line",
-      "mental_model_cn": "主要的；主管线/干线",
-      "mental_model_en": ""
+      "core_meaning_cn": "主要的；总管干线；mains供给系统",
+      "core_meaning_en": "principal; a main pipe or cable; mains as a supply system",
+      "mental_model_cn": "main reason在名词前；a gas main是总管；the mains指供给系统或接入点；in the main表示大体上。",
+      "mental_model_en": "principal; a main pipe or cable; mains as a supply system."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -71,7 +83,8 @@
         "sense_id": "sense:main:7207802bccea50ec",
         "sense_label_en": "most important; chief",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "main通常只置于名词前：the main reason/entrance；通常不用The reason is main。"
       },
       {
         "collocations": [
@@ -96,6 +109,29 @@
         "sense_label_en": "a principal pipe or line for water, gas, electricity, etc.",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:main:7d4c9f103b824e4a",
+        "pos": "noun",
+        "definition_cn": "（英式，mains）供水、供气、供电的总系统、接入点",
+        "definition_en": "the main supply system or connection for water, gas or electricity",
+        "sense_label_en": "the main supply system or connection for water, gas or electricity",
+        "governing_pattern": "the mains; at/on the mains; mains electricity",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8a815edd39eaf20ab06f",
+            "phrase": "connected to the mains",
+            "meaning_cn": "连接到市政供水、供气或电网",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "此义采用mains复数形式，但可指单一供给系统；区别于普通的多个总管。"
       }
     ],
     "verification_summary": {
@@ -151,6 +187,23 @@
           "applicability": [
             {
               "surface": "main"
+            },
+            {
+              "surface": "main",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:main:7d4c9f103b824e4a"
+              ],
+              "owner_sense_ids": [
+                "sense:main:7d4c9f103b824e4a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2929.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the mains; at/on the mains; mains electricity"
             }
           ],
           "sources": [
@@ -369,12 +422,21 @@
         "merged_into_sense_id": null,
         "source_row": 8155,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:main:7d4c9f103b824e4a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2929.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:085ec2d646bff200eb98",
       "collocation:897e955b82c1f73ebc2f",
-      "collocation:e8a8a37e40cbf2b59059"
+      "collocation:e8a8a37e40cbf2b59059",
+      "collocation:8a815edd39eaf20ab06f"
     ],
     "facts": [],
     "collocations": [
@@ -392,6 +454,13 @@
         "id": "collocation:e8a8a37e40cbf2b59059",
         "source_row": 19713,
         "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:8a815edd39eaf20ab06f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2929.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

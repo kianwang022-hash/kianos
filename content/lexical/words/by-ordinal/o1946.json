@@ -6,40 +6,47 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:2e8b84a42d2b17275501",
+        "pattern": "fix one’s eyes/attention on sth",
+        "meaning_cn": "凝视某物；把注意力集中于某事",
+        "definition_en": "to direct one’s gaze or attention steadily at something",
+        "usage_note": "eyes/attention作宾语，on接关注对象；eyes fix on也可描述目光停在某处，不等于修理眼睛。",
+        "boundary": "eyes/attention作宾语，on接关注对象；eyes fix on也可描述目光停在某处，不等于修理眼睛。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "78639b1fb95c53c83d0e69a9fa70497d4a8bb37244256e036d05cfd1e95bdd76",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "修理；确定；固定；准备（食物或饮料）",
-          "label_en": "to repair something that is broken or not working; to decide or set something definitely; to prepare a meal or drink",
+          "label_cn": "修理；修正；解决（问题）；确定；固定；准备（食物或饮料）；把……牢固装在某处；固定；操纵（比赛、选举等结果）；使……作弊作假",
+          "label_en": "to repair something or correct a fault or problem; to decide or set something definitely; to prepare a meal or drink; to attach or secure something firmly in a position; to arrange an event dishonestly or unfairly so that its result is controlled",
           "pos": "verb",
           "sense_ids": [
             "sense:fix:68ec2099a2745dd9",
             "sense:fix:b878ff2b6876537b",
-            "sense:fix:a858791412805960"
+            "sense:fix:a858791412805960",
+            "sense:fix:70d582eb529f7268",
+            "sense:fix:79c8454ccfcdc9af"
           ]
         },
         {
-          "label_cn": "困境",
-          "label_en": "a difficult situation",
+          "label_cn": "困境；解决办法；补救办法；（比赛、选举等的）作弊安排；骗局",
+          "label_en": "a difficult situation; a solution or remedy, often quick or temporary; a dishonest arrangement that controls an event or its result",
           "pos": "noun",
           "sense_ids": [
-            "sense:fix:691300c40513564b"
-          ]
-        },
-        {
-          "label_cn": "解决办法；补救办法",
-          "label_en": "a solution or remedy",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:fix:cd983621b3977ee8"
+            "sense:fix:691300c40513564b",
+            "sense:fix:cd983621b3977ee8",
+            "sense:fix:795c3508d97acaa3"
           ]
         }
       ],
-      "core_meaning_cn": "修理；固定",
-      "core_meaning_en": "to repair, set, or make firm",
-      "mental_model_cn": "修理；固定",
+      "core_meaning_cn": "修理、确定或固定；准备；操纵；困境或补救",
+      "core_meaning_en": "repair, decide, attach, prepare, or rig; a predicament or remedy",
+      "mental_model_cn": "修理东西、确定日期/价格、牢固装上按对象分开；fix food/drinks是准备。fix a match及a fix可指作弊，不是补救；in a fix是困境。fix eyes/attention on是凝视/集中。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -56,7 +63,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:dc2cf791f21ef58164a8",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:fix:68ec2099a2745dd9:collocation:0"
             ],
@@ -74,14 +81,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "修理",
-        "definition_en": "to repair something that is broken or not working",
+        "definition_cn": "修理；修正；解决（问题）",
+        "definition_en": "to repair something or correct a fault or problem",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:fix:68ec2099a2745dd9",
-        "sense_label_en": "to repair something that is broken or not working",
+        "sense_label_en": "to repair something or correct a fault or problem",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -207,6 +214,72 @@
         "sense_label_en": "a solution or remedy, often quick or temporary",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:fix:70d582eb529f7268",
+        "pos": "verb",
+        "definition_cn": "把……牢固装在某处；固定",
+        "definition_en": "to attach or secure something firmly in a position",
+        "sense_label_en": "to attach or secure something firmly in a position",
+        "governing_pattern": "fix sth to/onto/in sth; be fixed to sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:cd992f93ebdea7db5047",
+            "phrase": "fix a shelf to the wall",
+            "meaning_cn": "把架子固定在墙上",
+            "exam_value": "fixed_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:fix:79c8454ccfcdc9af",
+        "pos": "verb",
+        "definition_cn": "操纵（比赛、选举等结果）；使……作弊作假",
+        "definition_en": "to arrange an event dishonestly or unfairly so that its result is controlled",
+        "sense_label_en": "to arrange an event dishonestly or unfairly so that its result is controlled",
+        "governing_pattern": "fix a match/race/election",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:621c93f3a18e7a23c693",
+            "phrase": "The match was fixed.",
+            "meaning_cn": "这场比赛被操纵了。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:fix:795c3508d97acaa3",
+        "pos": "noun",
+        "definition_cn": "（比赛、选举等的）作弊安排；骗局",
+        "definition_en": "a dishonest arrangement that controls an event or its result",
+        "sense_label_en": "a dishonest arrangement that controls an event or its result",
+        "governing_pattern": "countable, informal: the contest is a fix",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9c7992db99f7e2256cd3",
+            "phrase": "The contest was a fix.",
+            "meaning_cn": "这次比赛是做了手脚的。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -256,6 +329,57 @@
           "applicability": [
             {
               "surface": "fix"
+            },
+            {
+              "surface": "fix",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fix:70d582eb529f7268"
+              ],
+              "owner_sense_ids": [
+                "sense:fix:70d582eb529f7268"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1946.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "fix sth to/onto/in sth; be fixed to sth"
+              }
+            },
+            {
+              "surface": "fix",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:fix:79c8454ccfcdc9af"
+              ],
+              "owner_sense_ids": [
+                "sense:fix:79c8454ccfcdc9af"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1946.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "fix a match/race/election"
+              }
+            },
+            {
+              "surface": "fix",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:fix:795c3508d97acaa3"
+              ],
+              "owner_sense_ids": [
+                "sense:fix:795c3508d97acaa3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1946.json",
+              "source_pointer": "/record/senses/7",
+              "conditions": {
+                "current_owner_usage": "countable, informal: the contest is a fix"
+              }
             }
           ],
           "sources": [
@@ -370,6 +494,30 @@
         "merged_into_sense_id": null,
         "source_row": 5404,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
+      },
+      {
+        "sense_id": "sense:fix:70d582eb529f7268",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1946.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:fix:79c8454ccfcdc9af",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1946.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:fix:795c3508d97acaa3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1946.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
@@ -378,7 +526,6 @@
       "collocation:a06e52fd0afc8b1f577d",
       "collocation:b1c591644f018a6a7b3d",
       "collocation:cf67f80d8a3de831a98e",
-      "collocation:dc2cf791f21ef58164a8",
       "collocation:e340ce3ac3f56aeeae7a",
       "collocation:edba973e6c6b6b8fc7b0",
       "collocation:fdeca1f5b7aa962b4ce5"
@@ -413,7 +560,9 @@
       {
         "id": "collocation:dc2cf791f21ef58164a8",
         "source_row": 18634,
-        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:e340ce3ac3f56aeeae7a",
@@ -429,6 +578,27 @@
         "id": "collocation:fdeca1f5b7aa962b4ce5",
         "source_row": 21472,
         "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:cd992f93ebdea7db5047",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1946.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:621c93f3a18e7a23c693",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1946.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:9c7992db99f7e2256cd3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1946.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -9,11 +9,32 @@
     "constructions": [],
     "content_hash": "edcda8669f40035f413361b9631ba309b5db89cdd1543059f3d402b77b1cb2ca",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "宏大、壮观或重要",
-      "core_meaning_en": "large, impressive, or important",
-      "mental_model_cn": "宏大、壮观或重要",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "宏伟的，壮观的；华丽的，豪华的；重大的，宏大的；总的；全部的；极好的；令人愉快的",
+          "label_en": "large and impressive in physical size or extent; important and magnificent in adornment; very important or ambitious; including the whole amount or overall result; very good or enjoyable",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:grand:d879413565c150ce",
+            "sense:grand:158c536c2e26504d",
+            "sense:grand:66e07fe8aa9a56ef",
+            "sense:grand:fcbb792c370a72bd",
+            "sense:grand:5df6dbc6059b428a"
+          ]
+        },
+        {
+          "label_cn": "一千美元、英镑等（非正式）",
+          "label_en": "one thousand dollars, pounds, or another unit of currency",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:grand:865e248f5d2316dd"
+          ]
+        }
+      ],
+      "core_meaning_cn": "宏大、豪华、重要、总的或极好的；一千的金额（非正式）",
+      "core_meaning_en": "large, splendid, important, total, or wonderful; a thousand in an informal money expression",
+      "mental_model_cn": "grand建筑为宏大或豪华，grand plan为宏伟计划；grand total为总数，grand time为玩得很开心。金额a grand沿用非正式一千的身份。",
+      "mental_model_en": "large, splendid, important, total, or wonderful; a thousand in an informal money expression."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -109,6 +130,50 @@
         "sort_order": 3,
         "transitivity": "nonverb",
         "usage_note": "informal currency use"
+      },
+      {
+        "sense_id": "sense:grand:fcbb792c370a72bd",
+        "pos": "adjective",
+        "definition_cn": "总的；全部的",
+        "definition_en": "including the whole amount or overall result",
+        "sense_label_en": "including the whole amount or overall result",
+        "governing_pattern": "a grand total",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:025d77df608be93b2bed",
+            "phrase": "a grand total of fifty entries",
+            "meaning_cn": "总共五十个条目",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:grand:5df6dbc6059b428a",
+        "pos": "adjective",
+        "definition_cn": "极好的；令人愉快的",
+        "definition_en": "very good or enjoyable",
+        "sense_label_en": "very good or enjoyable",
+        "governing_pattern": "a grand time",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e79a0f4d760bac188ee0",
+            "phrase": "We had a grand time.",
+            "meaning_cn": "我们玩得很开心。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -160,6 +225,40 @@
           "applicability": [
             {
               "surface": "grand"
+            },
+            {
+              "surface": "grand",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:grand:fcbb792c370a72bd"
+              ],
+              "owner_sense_ids": [
+                "sense:grand:fcbb792c370a72bd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2183.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "a grand total"
+              }
+            },
+            {
+              "surface": "grand",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:grand:5df6dbc6059b428a"
+              ],
+              "owner_sense_ids": [
+                "sense:grand:5df6dbc6059b428a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2183.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a grand time"
+              }
             }
           ],
           "sources": [
@@ -388,6 +487,22 @@
         "merged_into_sense_id": null,
         "source_row": 6161,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      },
+      {
+        "sense_id": "sense:grand:fcbb792c370a72bd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2183.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:grand:5df6dbc6059b428a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2183.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -411,6 +526,20 @@
         "id": "collocation:b3f7a072fcf9baaf79b7",
         "source_row": 15258,
         "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:025d77df608be93b2bed",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2183.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:e79a0f4d760bac188ee0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2183.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

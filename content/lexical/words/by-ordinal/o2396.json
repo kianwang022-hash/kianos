@@ -11,11 +11,15 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "拥抱；紧抱",
-          "label_en": "to put your arms around someone and hold them tightly",
+          "label_cn": "拥抱；紧抱；拥抱；彼此紧抱；把物品或身体部位紧抱在身前；沿着……紧贴行进；（衣物等）紧贴身体",
+          "label_en": "to put your arms around someone and hold them tightly; to embrace without an expressed object; to hold an object close with your arms; to stay close to a feature while moving; to fit tightly around a body",
           "pos": "verb",
           "sense_ids": [
-            "sense:hug:3145193dd164586b"
+            "sense:hug:3145193dd164586b",
+            "sense:hug:7e1cc6e62457d5d7",
+            "sense:hug:fa3c4139fdbfe480",
+            "sense:hug:824dc87af6aac7ba",
+            "sense:hug:1da0dc906dad8692"
           ]
         },
         {
@@ -27,10 +31,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "拥抱",
-      "core_meaning_en": "to embrace tightly",
-      "mental_model_cn": "拥抱",
-      "mental_model_en": ""
+      "core_meaning_cn": "拥抱或紧抱物品；紧贴地形行进或紧贴身体；一次拥抱",
+      "core_meaning_en": "to embrace, hold close, follow closely or fit tightly; a hug",
+      "mental_model_cn": "贴近并环抱；道路紧贴海岸和衣服贴身不等于对人拥抱。",
+      "mental_model_en": "to embrace, hold close, follow closely or fit tightly; a hug."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -47,7 +51,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:eca71734a957aa42d5a9",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:hug:3145193dd164586b:collocation:0"
             ],
@@ -99,6 +103,95 @@
         "sense_label_en": "an act of hugging",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hug:7e1cc6e62457d5d7",
+        "pos": "verb",
+        "definition_cn": "拥抱；彼此紧抱",
+        "definition_en": "to embrace without an expressed object",
+        "sense_label_en": "to embrace without an expressed object",
+        "governing_pattern": "hug; hug together",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:bbe38f8534dedd8de0e9",
+            "phrase": "They hugged and said goodbye.",
+            "meaning_cn": "他们拥抱后道别。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "不带宾语的动词框架；hug sb 是及物框架，a hug 则是名词。"
+      },
+      {
+        "sense_id": "sense:hug:fa3c4139fdbfe480",
+        "pos": "verb",
+        "definition_cn": "把物品或身体部位紧抱在身前",
+        "definition_en": "to hold an object close with your arms",
+        "sense_label_en": "to hold an object close with your arms",
+        "governing_pattern": "hug sth (to your chest)",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7071efce1e78a45368ce",
+            "phrase": "She hugged her knees.",
+            "meaning_cn": "她抱紧双膝。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:hug:824dc87af6aac7ba",
+        "pos": "verb",
+        "definition_cn": "沿着……紧贴行进",
+        "definition_en": "to stay close to a feature while moving",
+        "sense_label_en": "to stay close to a feature while moving",
+        "governing_pattern": "hug the coast/wall/fence",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9f2fe4ac3994e11e8079",
+            "phrase": "The path hugs the coast.",
+            "meaning_cn": "这条小路紧贴海岸延伸。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:hug:1da0dc906dad8692",
+        "pos": "verb",
+        "definition_cn": "（衣物等）紧贴身体",
+        "definition_en": "to fit tightly around a body",
+        "sense_label_en": "to fit tightly around a body",
+        "governing_pattern": "hug the body/figure",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1862857f66d380767aca",
+            "phrase": "The dress hugs her figure.",
+            "meaning_cn": "这条裙子紧贴她的身形。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -128,6 +221,74 @@
           "applicability": [
             {
               "surface": "hug"
+            },
+            {
+              "surface": "hug",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hug:7e1cc6e62457d5d7"
+              ],
+              "owner_sense_ids": [
+                "sense:hug:7e1cc6e62457d5d7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2396.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hug; hug together"
+            },
+            {
+              "surface": "hug",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hug:fa3c4139fdbfe480"
+              ],
+              "owner_sense_ids": [
+                "sense:hug:fa3c4139fdbfe480"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2396.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hug sth (to your chest)"
+            },
+            {
+              "surface": "hug",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hug:824dc87af6aac7ba"
+              ],
+              "owner_sense_ids": [
+                "sense:hug:824dc87af6aac7ba"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2396.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hug the coast/wall/fence"
+            },
+            {
+              "surface": "hug",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hug:1da0dc906dad8692"
+              ],
+              "owner_sense_ids": [
+                "sense:hug:1da0dc906dad8692"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2396.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hug the body/figure"
             }
           ],
           "sources": [
@@ -368,12 +529,48 @@
         "merged_into_sense_id": null,
         "source_row": 6685,
         "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      },
+      {
+        "sense_id": "sense:hug:7e1cc6e62457d5d7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2396.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:hug:fa3c4139fdbfe480",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2396.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:hug:824dc87af6aac7ba",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2396.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:hug:1da0dc906dad8692",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2396.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:08a1395dc1549eed381f",
+      "collocation:eca71734a957aa42d5a9",
       "collocation:8e13b052fe16d624e88d",
-      "collocation:eca71734a957aa42d5a9"
+      "collocation:08a1395dc1549eed381f",
+      "collocation:bbe38f8534dedd8de0e9",
+      "collocation:7071efce1e78a45368ce",
+      "collocation:9f2fe4ac3994e11e8079",
+      "collocation:1862857f66d380767aca"
     ],
     "facts": [
       {
@@ -396,7 +593,37 @@
       {
         "id": "collocation:eca71734a957aa42d5a9",
         "source_row": 20057,
-        "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:bbe38f8534dedd8de0e9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2396.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:7071efce1e78a45368ce",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2396.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:9f2fe4ac3994e11e8079",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2396.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:1862857f66d380767aca",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2396.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

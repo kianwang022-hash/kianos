@@ -1,0 +1,119 @@
+{
+  "schema": "kianos.lexical.relation_owner.v1",
+  "relation_id": "relation:horizontal:17a8e33a660e348a4024",
+  "canonical_record": null,
+  "fact_record": null,
+  "word_views": [
+    {
+      "source_word_id": "word:quarrel",
+      "source_ordinal": 3896,
+      "field": "semantic_neighbors",
+      "index": 1,
+      "payload": {
+        "boundary": "作名词时，quarrel 常指带怒气的个人争吵；dispute 范围更广，也可指正式争议。不能据此把 quarrel with 与及物 dispute 的句法互换。",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "have a quarrel",
+          "core_meaning": "争吵与争论",
+          "register": "中性",
+          "semantic_prosody": "负面",
+          "strength": "中",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": "noun",
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "an argument or disagreement",
+        "source_sense_id": "sense:quarrel:64cde9eec6e55ec7",
+        "target_sense_id": "sense:dispute:2f8cfa8a59865bc3",
+        "target_word": "dispute",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "relation_id": "relation:horizontal:17a8e33a660e348a4024",
+        "relation_type": "semantic_contrast",
+        "relation_scope": "sense",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/quarrel_1",
+            "role": "Accepted noun comparison support; original 3876–3900 independent review and successful readback on 2026-10-13."
+          }
+        ]
+      }
+    },
+    {
+      "source_word_id": "word:dispute",
+      "source_ordinal": 1436,
+      "field": "semantic_neighbors",
+      "index": 1,
+      "payload": {
+        "boundary": "dispute is often a more formal disagreement or contested claim; quarrel more often suggests a personal argument.",
+        "codex_reviewed": false,
+        "definition_cn": null,
+        "definition_en": null,
+        "dimensions": {
+          "certainty": "高",
+          "collocation": "have a quarrel",
+          "core_meaning": "争吵与争论",
+          "register": "中性",
+          "semantic_prosody": "负面",
+          "strength": "中",
+          "writing_safety": "安全"
+        },
+        "direction": "C",
+        "family_sources": [],
+        "label_en": null,
+        "level": null,
+        "meaning_cn": null,
+        "module": "semantic_contrast",
+        "pattern": null,
+        "pos": "noun",
+        "priority": "A",
+        "publication_status": "publishable",
+        "shared_definition": "an argument or disagreement",
+        "source_sense_id": "sense:dispute:2f8cfa8a59865bc3",
+        "target_sense_id": "sense:quarrel:64cde9eec6e55ec7",
+        "target_word": "quarrel",
+        "task_tags": [
+          "reading"
+        ],
+        "verification_status": "verified",
+        "writing_safe": false,
+        "relation_id": "relation:horizontal:17a8e33a660e348a4024",
+        "relation_type": "semantic_contrast",
+        "relation_scope": "sense",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/quarrel_1",
+            "role": "Accepted noun comparison support; original 3876–3900 independent review and successful readback on 2026-10-13."
+          }
+        ]
+      }
+    }
+  ],
+  "provenance": {
+    "materialized_from": "accepted noun/verb relation separation",
+    "accepted_noun_snapshot_sha256": "e65566c01c1335949894821ec198a52194c835c511de739c5446c3b485951483",
+    "preserved_verb_relation_id": "deep:semantic_contrast:quarrel:308daf36a517cd80",
+    "identity_seed": [
+      "semantic_contrast",
+      "noun",
+      "sense:dispute:2f8cfa8a59865bc3",
+      "sense:quarrel:64cde9eec6e55ec7"
+    ],
+    "source_review": "3801–4000 delivery / batches/3900/lexical-3900-root-review/independent-review/REVIEW-3876-3900.md",
+    "note": "Existing noun Sense identities and accepted wording reused; old verb fact/synset stays with original relation. No learner state migration."
+  }
+}

@@ -31,7 +31,7 @@
       "core_clusters": [
         {
           "label_cn": "侧面；轮廓；简介；传略；数据图表；概况；剖面；剖面图",
-          "label_en": "an outline of something, especially a face as seen from one side; a short description of someone's life, work, or character; a graph or table showing the extent to which something has various characteristics; a vertical section of the Earth's crust showing layers",
+          "label_en": "an outline of something, especially a face as seen from one side; a brief description of the life, work, character, or main features of a person or thing; a set or description of the characteristics of someone or something, which may be presented as a graph, table, or other summary; a vertical section of the Earth's crust showing layers",
           "pos": "noun",
           "sense_ids": [
             "sense:profile:deafb43e4b5357cf",
@@ -55,11 +55,19 @@
           "sense_ids": [
             "sense:profile:a343de06cea2cdf0"
           ]
+        },
+        {
+          "label_cn": "公众关注程度",
+          "label_en": "the level of public attention",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:profile:cdf6d98c47711f69"
+          ]
         }
       ],
-      "core_meaning_cn": "侧面/轮廓；简介/概况；数字平台个人资料",
-      "core_meaning_en": "a side view or profile; a brief description; an online user/account profile",
-      "mental_model_cn": "侧面/轮廓；简介/概况；数字平台个人资料",
+      "core_meaning_cn": "呈现某人或事物的轮廓、特征；也指公众关注度",
+      "core_meaning_en": "an outline or representation of features; public visibility",
+      "mental_model_cn": "in profile→侧面；company/job profile→简介；risk profile→特征概况；profile page→用户资料；raise/keep a low profile→公众关注程度。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -75,7 +83,7 @@
         "boundary": "job profile 职位简介",
         "codex_reviewed": false,
         "definition_cn": "简介；传略",
-        "definition_en": "a short description of someone's life, work, or character",
+        "definition_en": "a brief description of the life, work, character, or main features of a person or thing",
         "dimensions": {},
         "direction": "R+P",
         "evidence": [
@@ -90,7 +98,7 @@
         ],
         "fact_id": "deep:secondary_senses:profile:45a77a6f2b07e724",
         "family_sources": [],
-        "label_en": "a short description of someone's life, work, or character",
+        "label_en": "a brief description of the life, work, character, or main features of a person or thing",
         "level": "L1",
         "meaning_cn": null,
         "module": "secondary_senses",
@@ -158,15 +166,21 @@
         ],
         "confidence": "medium",
         "definition_cn": "简介；传略",
-        "definition_en": "a short description of someone's life, work, or character",
+        "definition_en": "a brief description of the life, work, character, or main features of a person or thing",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:profile:2c93255c8a7a5805",
-        "sense_label_en": "a short description of someone's life, work, or character",
+        "sense_label_en": "a brief description of the life, work, character, or main features of a person or thing",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/profile_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
       },
       {
         "collocations": [
@@ -182,15 +196,25 @@
         ],
         "confidence": "medium",
         "definition_cn": "数据图表；概况",
-        "definition_en": "a graph or table showing the extent to which something has various characteristics",
+        "definition_en": "a set or description of the characteristics of someone or something, which may be presented as a graph, table, or other summary",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:profile:23d781a79bbd544b",
-        "sense_label_en": "a graph or table showing the extent to which something has various chara",
+        "sense_label_en": "a set or description of the characteristics of someone or something, which may be presented as a graph, table, or other summary",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/risk-profile",
+            "role": "risk level or risk analysis need not be graphical"
+          },
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/profile",
+            "role": "set of characteristics and verbal, numerical, or graphic summary; retain graph/table use"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -253,6 +277,39 @@
         "sense_label_en": "a page or set of information describing a user, account, or person on an online service",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:profile:cdf6d98c47711f69",
+        "pos": "noun",
+        "definition_cn": "公众关注度；知名度",
+        "definition_en": "the amount of public attention received by someone or something",
+        "sense_label_en": "the amount of public attention received by someone or something",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:profile:85c3541dbf1be8d9",
+            "phrase": "The campaign raised the charity’s profile.",
+            "meaning_cn": "这场活动提高了该慈善机构的知名度。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/profile_1",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "raise a profile谈提高公众关注；不一定指更新个人资料页。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/profile_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -495,6 +552,12 @@
         "merged_into_sense_id": null,
         "source_row": 10601,
         "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
+      },
+      {
+        "sense_id": "sense:profile:cdf6d98c47711f69",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3808.json"
       }
     ],
     "active_collocations": [
@@ -503,7 +566,8 @@
       "collocation:b52bceba9c85c015c128",
       "collocation:b68f2b40b1cf68e0ddc5",
       "collocation:d9332f9728931924c6f3",
-      "collocation:fd2dcfde4ce9db44ea1c"
+      "collocation:fd2dcfde4ce9db44ea1c",
+      "collocation:profile:85c3541dbf1be8d9"
     ],
     "facts": [
       {
@@ -542,6 +606,10 @@
         "id": "collocation:b52bceba9c85c015c128",
         "source_row": 21520,
         "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
+      },
+      {
+        "id": "collocation:profile:85c3541dbf1be8d9",
+        "source_path": "content/lexical/words/by-ordinal/o3808.json"
       }
     ],
     "exam-mappings": [],

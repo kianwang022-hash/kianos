@@ -9,10 +9,27 @@
     "constructions": [],
     "content_hash": "373cec9c9bb04e37403e5adccc671509be60868f4a7892e46e210d5a9270abad",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "短途旅行",
-      "core_meaning_en": "short journey for pleasure",
-      "mental_model_cn": "短途旅行",
+      "core_clusters": [
+        {
+          "label_cn": "短途出游",
+          "label_en": "a short journey, especially for pleasure",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:excursion:674e6f682c3b5e1c"
+          ]
+        },
+        {
+          "label_cn": "涉足、探索",
+          "label_en": "an exploratory activity",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:excursion:c3dc48c1ba31a8aa"
+          ]
+        }
+      ],
+      "core_meaning_cn": "短途出游；涉足、探索",
+      "core_meaning_en": "a short trip; an exploration of a new subject or activity",
+      "mental_model_cn": "去某地时指短途出游；excursion into + 学科/活动可比喻涉足或探索。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,6 +63,28 @@
         "sense_label_en": "a short journey taken for pleasure",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:excursion:c3dc48c1ba31a8aa",
+        "pos": "noun",
+        "definition_cn": "（比喻）涉足、尝试或探索新领域",
+        "definition_en": "an attempt to explore or develop an unfamiliar subject or activity",
+        "sense_label_en": "an attempt to explore or develop an unfamiliar subject or activity",
+        "governing_pattern": "an excursion into + subject/activity",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:94d39c108a6026ddf1d0",
+            "phrase": "an excursion into political history",
+            "meaning_cn": "对政治史的一番探索",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -86,6 +125,23 @@
           "applicability": [
             {
               "surface": "excursion"
+            },
+            {
+              "surface": "excursion",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:excursion:c3dc48c1ba31a8aa"
+              ],
+              "owner_sense_ids": [
+                "sense:excursion:c3dc48c1ba31a8aa"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1768.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "an excursion into + subject/activity"
+              }
             }
           ],
           "sources": [
@@ -173,6 +229,23 @@
           "applicability": [
             {
               "surface": "excursion"
+            },
+            {
+              "surface": "excursion",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:excursion:c3dc48c1ba31a8aa"
+              ],
+              "owner_sense_ids": [
+                "sense:excursion:c3dc48c1ba31a8aa"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1768.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "an excursion into + subject/activity"
+              }
             }
           ],
           "sources": [
@@ -253,6 +326,14 @@
         "merged_into_sense_id": null,
         "source_row": 4840,
         "source_path": "content/lexical/canonical/senses/shards/o1761-1792.json"
+      },
+      {
+        "sense_id": "sense:excursion:c3dc48c1ba31a8aa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1768.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -264,6 +345,13 @@
         "id": "collocation:60efe6ae770336b3f218",
         "source_row": 8157,
         "source_path": "content/lexical/canonical/collocations/shards/o1761-1792.json"
+      },
+      {
+        "id": "collocation:94d39c108a6026ddf1d0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1768.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

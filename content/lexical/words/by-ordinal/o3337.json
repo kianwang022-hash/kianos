@@ -14,13 +14,43 @@
         "level": "L1",
         "meaning_cn": "彼此；互相（= each other）",
         "pattern": "one another"
+      },
+      {
+        "construction_id": "construction:06fc0754d0921493ff7f",
+        "pattern": "one by one",
+        "meaning_cn": "逐一；一个接一个地",
+        "definition_en": "separately and in order",
+        "usage_note": "逐个处理人或物，强调单独、按次序，不是同一批同时处理。",
+        "boundary": "逐个处理人或物，强调单独、按次序，不是同一批同时处理。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:076c71802a134852f37a",
+        "pattern": "one and the same",
+        "meaning_cn": "同一个人或事物",
+        "definition_en": "exactly the same person or thing",
+        "usage_note": "强调两个名称、描述等实际指同一对象。",
+        "boundary": "强调两个名称、描述等实际指同一对象。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:3306f4f3f13736524d90",
+        "pattern": "one + time expression（one day/night等）",
+        "meaning_cn": "过去或未来未指明的某一天、某晚等",
+        "definition_en": "an unspecified occasion in the past or future",
+        "usage_note": "One day you will understand说将来有一天；I met her one evening说过去某晚。时间方向由整句决定，不总是一天的时长。",
+        "boundary": "One day you will understand说将来有一天；I met her one evening说过去某晚。时间方向由整句决定，不总是一天的时长。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "b5c5eff5efecf2187daa569ca2c41deb5f3434b65679d3629dcf9a52a838b3d7",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "一，一个",
+          "label_cn": "数字一（也可名词化）",
           "label_en": "the number 1",
           "pos": "numeral",
           "sense_ids": [
@@ -28,7 +58,7 @@
           ]
         },
         {
-          "label_cn": "一个人，任何人",
+          "label_cn": "一个人或物；泛指人们",
           "label_en": "a single person or thing; any person",
           "pos": "pronoun",
           "sense_ids": [
@@ -42,20 +72,12 @@
           "sense_ids": [
             "sense:one:eb84d68790a058fd"
           ]
-        },
-        {
-          "label_cn": "一（个）",
-          "label_en": "the number 1; a single person or thing",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:one:2cb65810bfb65d28"
-          ]
         }
       ],
-      "core_meaning_cn": "数字一",
-      "core_meaning_en": "the number 1",
-      "mental_model_cn": "数字一",
-      "mental_model_en": ""
+      "core_meaning_cn": "数字一、一个；替代可数对象或泛指人；某次时间",
+      "core_meaning_en": "one unit; a substitute for a countable noun or a generic person; an unspecified occasion",
+      "mental_model_cn": "one of the books选一个，a red one替代已知可数物；正式泛指one接单数谓语。one day可说过去或未来某一天，one by one说逐一。",
+      "mental_model_en": "one unit; a substitute for a countable noun or a generic person; an unspecified occasion."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -80,26 +102,27 @@
         "confidence": "medium",
         "definition_cn": "一，一个",
         "definition_en": "the number 1",
-        "governing_pattern": "",
+        "governing_pattern": "one of + plural pronoun / determiner + plural count noun",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "numeral",
         "sense_id": "sense:one:2cb65810bfb65d28",
         "sense_label_en": "the number 1",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "one of them / one of the books中，one指其中一个；该短语整体作主语时普通主句用单数谓语。"
       },
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "一个人，任何人",
-        "definition_en": "a single person or thing; any person",
-        "governing_pattern": "",
+        "definition_cn": "一个人或物（代替已知可数名词，复数 ones）；（正式）人们、任何人",
+        "definition_en": "a person or thing referred to without repeating a countable noun (plural ones); also a formal generic pronoun meaning people in general",
+        "governing_pattern": "a/the ... one; ... ones; generic one + singular verb",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "pronoun",
         "sense_id": "sense:one:c9c6f122476a567d",
-        "sense_label_en": "a single person or thing; any person",
+        "sense_label_en": "a person or thing referred to without repeating a countable noun (plural ones); also a formal generic pronoun meaning people in general",
         "sort_order": 1,
         "transitivity": "nonverb"
       },

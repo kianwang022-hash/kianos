@@ -10,9 +10,9 @@
     "content_hash": "9986a8e54ecf6a714526d91ed93d7c245b76650c516b13b9abe6814eb6fe74ce",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "等式，相等",
-      "core_meaning_en": "a statement of equality",
-      "mental_model_cn": "等式，相等",
+      "core_meaning_cn": "数学等式或方程；另指需综合考虑多个因素的局面",
+      "core_meaning_en": "a mathematical equality; also a situation involving several related factors",
+      "mental_model_cn": "数学语境可解方程；方案或局面语境中的part of/out of the equation谈考虑或排除哪些因素，不需要出现等号。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,6 +55,25 @@
         "sense_label_en": "a mathematical statement that two expressions are equal",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:equation:89ebaaea7a488a75",
+        "pos": "noun",
+        "definition_cn": "需把多个因素合起来考虑的局面或问题",
+        "definition_en": "a situation or problem understood by considering several factors together",
+        "sense_label_en": "a situation or problem understood by considering several factors together",
+        "governing_pattern": "part of the equation; take/leave sth out of the equation",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:equation:d634d0b4021f68bb",
+            "phrase": "part of the equation",
+            "meaning_cn": "需要考虑的一个因素",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "抽象讨论中的equation不一定是真正方程；take sth out of the equation指排除该因素，不能直接译作把符号移出等式。"
       }
     ],
     "verification_summary": {
@@ -102,6 +121,27 @@
           "applicability": [
             {
               "surface": "equation"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "equation",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:equation:89ebaaea7a488a75"
+              ],
+              "sense_ids": [
+                "sense:equation:89ebaaea7a488a75"
+              ],
+              "excluded_sense_ids": [
+                "sense:equation:61d3ed9035565ed6"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/equation",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -167,6 +207,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/equation",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "equation",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ɪˈkweɪ.ʒən/",
+              "applies_to_sense_ids": [
+                "sense:equation:89ebaaea7a488a75"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         }
@@ -216,11 +272,20 @@
         "merged_into_sense_id": null,
         "source_row": 4675,
         "source_path": "content/lexical/canonical/senses/shards/o1665-1696.json"
+      },
+      {
+        "sense_id": "sense:equation:89ebaaea7a488a75",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1694.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
       "collocation:c50bbadd60aba6276bdd",
-      "collocation:e07afa404827ab6bb2d8"
+      "collocation:e07afa404827ab6bb2d8",
+      "collocation:equation:d634d0b4021f68bb"
     ],
     "facts": [],
     "collocations": [
@@ -238,6 +303,14 @@
         "id": "collocation:e07afa404827ab6bb2d8",
         "source_row": 18984,
         "source_path": "content/lexical/canonical/collocations/shards/o1665-1696.json"
+      },
+      {
+        "id": "collocation:equation:d634d0b4021f68bb",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1694.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

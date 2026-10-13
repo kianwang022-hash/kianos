@@ -11,18 +11,34 @@
     "core_concept": {
       "core_clusters": [
         {
+          "label_cn": "郊游；短途出游",
+          "label_en": "a short leisure trip, often with a group",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:outing:1c8212de10af5bf5"
+          ]
+        },
+        {
           "label_cn": "公开他人私人身份信息（敏感/语境受限）",
           "label_en": "public disclosure of private identity/information",
           "pos": "noun",
           "sense_ids": [
             "sense:outing:6b6c2c551c1ebcbd"
           ]
+        },
+        {
+          "label_cn": "一次参赛或出场",
+          "label_en": "a sporting appearance",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:outing:cfa09a1236c97d1e"
+          ]
         }
       ],
-      "core_meaning_cn": "短途旅行；郊游",
-      "core_meaning_en": "a short trip for pleasure",
-      "mental_model_cn": "短途旅行；郊游",
-      "mental_model_en": ""
+      "core_meaning_cn": "娱乐或学习的短程出游；一次参赛；公开私人身份信息",
+      "core_meaning_en": "a short leisure or educational trip; a sporting appearance; disclosure of private identity",
+      "mental_model_cn": "school outing可说短途学习参观，a first outing在体育中可说首次出场。公开他人私人身份的语境保持敏感、受限，不能把所有outing都读成郊游。",
+      "mental_model_en": "a short leisure or educational trip; a sporting appearance; disclosure of private identity."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -56,14 +72,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "郊游；远足",
-        "definition_en": "a short trip taken for pleasure, especially by a group",
-        "governing_pattern": "",
+        "definition_cn": "短途出游；郊游（为娱乐或学习）",
+        "definition_en": "a short trip for pleasure or education, often with a group",
+        "governing_pattern": "go on an outing; an outing to/from a place",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:outing:1c8212de10af5bf5",
-        "sense_label_en": "a short trip taken for pleasure, especially by a group",
+        "sense_label_en": "a short trip for pleasure or education, often with a group",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -91,6 +107,34 @@
         "sort_order": 1,
         "transitivity": "nonverb",
         "usage_note": "Sensitive modern use, especially disclosure of sexual orientation or other private identity without consent; context/register marked."
+      },
+      {
+        "sense_id": "sense:outing:cfa09a1236c97d1e",
+        "pos": "noun",
+        "definition_cn": "（体育，非正式）一次参赛、出场",
+        "definition_en": "an occasion on which a person takes part in a sporting competition",
+        "sense_label_en": "an occasion on which a person takes part in a sporting competition",
+        "governing_pattern": "a first/latest outing in a competition",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ef853abfe0d9d9424e59",
+            "phrase": "her first outing of the season",
+            "meaning_cn": "她本赛季的首次参赛",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ],
+        "usage_note": "体育报道中的非正式用法，说某次参赛或出场，不必是去郊游。"
       }
     ],
     "verification_summary": {
@@ -120,6 +164,24 @@
           "applicability": [
             {
               "surface": "outing"
+            },
+            {
+              "surface": "outing",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:outing:cfa09a1236c97d1e"
+              ],
+              "owner_sense_ids": [
+                "sense:outing:cfa09a1236c97d1e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3398.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a first/latest outing in a competition",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -313,6 +375,24 @@
           "applicability": [
             {
               "surface": "outing"
+            },
+            {
+              "surface": "outing",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:outing:cfa09a1236c97d1e"
+              ],
+              "owner_sense_ids": [
+                "sense:outing:cfa09a1236c97d1e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3398.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a first/latest outing in a competition",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -439,12 +519,21 @@
         "merged_into_sense_id": null,
         "source_row": 9497,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
+      },
+      {
+        "sense_id": "sense:outing:cfa09a1236c97d1e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3398.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:50307c98a7ebed191696",
+      "collocation:e177fd7eed39befbe070",
       "collocation:5f28c3d3a7eb4f10424c",
-      "collocation:e177fd7eed39befbe070"
+      "collocation:50307c98a7ebed191696",
+      "collocation:ef853abfe0d9d9424e59"
     ],
     "facts": [],
     "collocations": [
@@ -462,6 +551,13 @@
         "id": "collocation:e177fd7eed39befbe070",
         "source_row": 19066,
         "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      },
+      {
+        "id": "collocation:ef853abfe0d9d9424e59",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3398.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

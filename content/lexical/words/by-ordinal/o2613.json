@@ -6,14 +6,37 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:118570b6221d204cf270",
+        "pattern": "at regular/irregular/N-minute/N-metre intervals",
+        "meaning_cn": "按固定或不固定的时间、空间间隔",
+        "definition_en": "with specified gaps in time or distance",
+        "usage_note": "regular 不等于“偶尔”；N-minute 表时间，N-metre 表空间。",
+        "boundary": "regular 不等于“偶尔”；N-minute 表时间，N-metre 表空间。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:interval:5a9686c47e725a70"
+      }
+    ],
     "content_hash": "2456263ca0175c0d636571dd474994151fb8502de0aee32b744ca379f938735a",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "两个事物之间的空间或时间",
-      "core_meaning_en": "a space or time between two things",
-      "mental_model_cn": "两个事物之间的空间或时间",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "间隔；中场休息；音程",
+          "label_en": "a gap in time, space or musical pitch; a performance break",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:interval:5a9686c47e725a70",
+            "sense:interval:2bf4f8374a11c0ea",
+            "sense:interval:062cc6d971ca7a8f"
+          ]
+        }
+      ],
+      "core_meaning_cn": "间隔；中场休息；音程",
+      "core_meaning_en": "a gap in time, space or musical pitch; a performance break",
+      "mental_model_cn": "time/space → 间隔；British performance → 中场休息；music → 音程。",
+      "mental_model_en": "a gap in time, space or musical pitch; a performance break."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -55,6 +78,50 @@
         "sense_label_en": "a period of time between two events or a space between two objects",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:interval:2bf4f8374a11c0ea",
+        "pos": "noun",
+        "definition_cn": "（英式）演出、电影等的中场休息",
+        "definition_en": "in British English, a break between sections of a performance or film",
+        "sense_label_en": "in British English, a break between sections of a performance or film",
+        "governing_pattern": "a countable interval; during the interval",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f05a84991fb1f89e46f1",
+            "phrase": "during the interval",
+            "meaning_cn": "在中场休息时",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:interval:062cc6d971ca7a8f",
+        "pos": "noun",
+        "definition_cn": "（音乐）音程",
+        "definition_en": "the pitch distance between two musical notes",
+        "sense_label_en": "the pitch distance between two musical notes",
+        "governing_pattern": "an interval of a third/an octave",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3e6641c72bd53b1e3bb2",
+            "phrase": "an interval of a fifth",
+            "meaning_cn": "五度音程",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -94,6 +161,40 @@
           "applicability": [
             {
               "surface": "interval"
+            },
+            {
+              "surface": "interval",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:interval:2bf4f8374a11c0ea"
+              ],
+              "owner_sense_ids": [
+                "sense:interval:2bf4f8374a11c0ea"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2613.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a countable interval; during the interval"
+            },
+            {
+              "surface": "interval",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:interval:062cc6d971ca7a8f"
+              ],
+              "owner_sense_ids": [
+                "sense:interval:062cc6d971ca7a8f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2613.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an interval of a third/an octave"
             }
           ],
           "sources": [
@@ -131,7 +232,7 @@
           ]
         },
         {
-          "ipa": "/ˈɪntəvəʊ/",
+          "ipa": "/ˈɪntəvəl/",
           "locales": [
             "en-GB"
           ],
@@ -140,7 +241,7 @@
               "locale": "en-GB",
               "evidence_basis": "direct_source",
               "source_indices": [
-                0
+                1
               ]
             }
           ],
@@ -179,7 +280,32 @@
                 "url": "https://creativecommons.org/licenses/by-sa/4.0/",
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
-              }
+              },
+              "scope_relation": "Historical snapshot transcription /ˈɪntəvəʊ/ retained verbatim; it is not the evidence for the corrected current reading."
+            },
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://en.wiktionary.org/wiki/interval#English",
+              "retrieved_at_utc": "2026-10-07T22:51:46Z",
+              "entry_context": {
+                "word": "interval",
+                "pos": "noun",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈɪntəvəl/",
+              "sound_qualifiers": {
+                "tags": [
+                  "Received-Pronunciation"
+                ]
+              },
+              "license": {
+                "id": "CC-BY-SA-4.0",
+                "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+                "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
+                "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
+              },
+              "scope_relation": "Current English Pronunciation section explicitly lists RP /ˈɪntəvəl/. Local correction of stored transcription, not a reinterpretation of snapshot evidence."
             }
           ]
         }
@@ -196,11 +322,29 @@
         "merged_into_sense_id": null,
         "source_row": 7206,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:interval:2bf4f8374a11c0ea",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2613.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:interval:062cc6d971ca7a8f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2613.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
+      "collocation:e2e15b66d5a75b141ba8",
       "collocation:c87addb70519fc077ee1",
-      "collocation:e2e15b66d5a75b141ba8"
+      "collocation:f05a84991fb1f89e46f1",
+      "collocation:3e6641c72bd53b1e3bb2"
     ],
     "facts": [],
     "collocations": [
@@ -213,6 +357,20 @@
         "id": "collocation:e2e15b66d5a75b141ba8",
         "source_row": 19198,
         "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:f05a84991fb1f89e46f1",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2613.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:3e6641c72bd53b1e3bb2",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2613.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

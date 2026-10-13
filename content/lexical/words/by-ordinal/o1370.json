@@ -10,9 +10,9 @@
     "content_hash": "f6f7965c261d545e03eaf410f724549b19a7c5346c781eeb65eb3d357823f436",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "不同，差异",
-      "core_meaning_en": "the state or quality of being unlike or dissimilar",
-      "mental_model_cn": "不同，差异",
+      "core_meaning_cn": "差异；影响；意见分歧；差额",
+      "core_meaning_en": "dissimilarity; effect; disagreement; numerical gap",
+      "mental_model_cn": "difference between比较差异；make a difference表示产生影响；settle differences解决分歧；pay the difference补差额。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -35,6 +35,15 @@
             ],
             "meaning_cn": "A和B之间的差异",
             "phrase": "difference between A and B"
+          },
+          {
+            "collocation_id": "collocation:99e5a5fbdd09a853f47d",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:difference:5fadcb074e345437:collocation:0"
+            ],
+            "meaning_cn": "质量上的差异",
+            "phrase": "a difference in quality"
           }
         ],
         "confidence": "medium",
@@ -51,15 +60,6 @@
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:99e5a5fbdd09a853f47d",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:difference:5fadcb074e345437:collocation:0"
-            ],
-            "meaning_cn": "质量上的差异",
-            "phrase": "a difference in quality"
-          },
           {
             "collocation_id": "collocation:318c3cb947613ceaecf6",
             "exam_value": "fixed_pattern",
@@ -81,6 +81,48 @@
         "sense_label_en": "a significant effect or change in a situation",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:difference:c58e5ef6100ddcce",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 2,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "意见分歧；不和",
+        "definition_en": "a disagreement in views or aims",
+        "sense_label_en": "a disagreement in views or aims",
+        "governing_pattern": "differences over sth; settle one’s differences",
+        "collocations": [
+          {
+            "collocation_id": "collocation:20d388ea336a6075f3dc",
+            "exam_value": "usage_example",
+            "phrase": "settle their differences",
+            "meaning_cn": "解决他们的分歧"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:difference:5ac567bff0507637",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 3,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "差；差额",
+        "definition_en": "the amount separating two quantities",
+        "sense_label_en": "the amount separating two quantities",
+        "governing_pattern": "the difference between two amounts",
+        "collocations": [
+          {
+            "collocation_id": "collocation:2a5584366355d756d646",
+            "exam_value": "usage_example",
+            "phrase": "pay the difference",
+            "meaning_cn": "补付差额"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -501,12 +543,28 @@
         "merged_into_sense_id": null,
         "source_row": 3810,
         "source_path": "content/lexical/canonical/senses/shards/o1345-1376.json"
+      },
+      {
+        "sense_id": "sense:difference:c58e5ef6100ddcce",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1370.json"
+      },
+      {
+        "sense_id": "sense:difference:5ac567bff0507637",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1370.json"
       }
     ],
     "active_collocations": [
       "collocation:318c3cb947613ceaecf6",
       "collocation:99e5a5fbdd09a853f47d",
-      "collocation:fd152d6c416fa26fbebc"
+      "collocation:fd152d6c416fa26fbebc",
+      "collocation:20d388ea336a6075f3dc",
+      "collocation:2a5584366355d756d646"
     ],
     "facts": [],
     "collocations": [
@@ -524,6 +582,16 @@
         "id": "collocation:fd152d6c416fa26fbebc",
         "source_row": 21410,
         "source_path": "content/lexical/canonical/collocations/shards/o1345-1376.json"
+      },
+      {
+        "id": "collocation:20d388ea336a6075f3dc",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1370.json"
+      },
+      {
+        "id": "collocation:2a5584366355d756d646",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1370.json"
       }
     ],
     "exam-mappings": [],

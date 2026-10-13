@@ -6,13 +6,24 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:4fe4b43d94c397a228d7",
+        "pattern": "That/It figures.",
+        "meaning_cn": "这就说得通了；果然如此",
+        "definition_en": "that is understandable or to be expected",
+        "usage_note": "非正式的整句表达；figures不接宾语，不能按及物calculate解作正在计算。",
+        "boundary": "非正式的整句表达；figures不接宾语，不能按及物calculate解作正在计算。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "6441aa239f14a183f48c534ed696511024da689453fa3cb0775ee143cabf50f9",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "数字，数额；图形，图表；身材，体形；人物，人士",
-          "label_en": "a number representing an amount, especially money; a shape or diagram in a text; the shape of a person's body; a person of a particular kind, especially an important one",
+          "label_cn": "数字；数值、数量（尤指统计数据）；数字符号；图形，图表；身材，体形；人物，人士",
+          "label_en": "a number expressing an amount, especially a statistic, or a written digit from 0 to 9; a shape or diagram in a text; the shape of a person's body; a person of a particular kind, especially an important one",
           "pos": "noun",
           "sense_ids": [
             "sense:figure:94dbaa42cf6e5b7d",
@@ -22,18 +33,19 @@
           ]
         },
         {
-          "label_cn": "认为，估计；计算出；弄明白",
-          "label_en": "to think or decide that something is true; to calculate or understand something",
+          "label_cn": "认为，估计；计算出；弄明白；出现于；在……中有一席之地或起作用",
+          "label_en": "to think or decide that something is true; to calculate or understand something; to appear or be included in something, sometimes prominently",
           "pos": "verb",
           "sense_ids": [
             "sense:figure:8bc6917047eb5e96",
-            "sense:figure:1d08d7c11083587e"
+            "sense:figure:1d08d7c11083587e",
+            "sense:figure:9c00b44d71db6677"
           ]
         }
       ],
-      "core_meaning_cn": "数字；图形；认为",
-      "core_meaning_en": "a number, shape, or person; to think or calculate",
-      "mental_model_cn": "数字；图形；认为",
+      "core_meaning_cn": "数字、图形、身材或人物；认为、算出或出现",
+      "core_meaning_en": "a number, diagram, body shape, or person; think, work out, or appear",
+      "mental_model_cn": "名词可为数据/数字符号、图示、身材或人物；动词figure that认为，figure out算出/弄懂。figure in是出现或起作用，That figures表示这就说得通。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -72,14 +84,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "数字，数额",
-        "definition_en": "a number representing an amount, especially money",
+        "definition_cn": "数字；数值、数量（尤指统计数据）；数字符号",
+        "definition_en": "a number expressing an amount, especially a statistic, or a written digit from 0 to 9",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:figure:94dbaa42cf6e5b7d",
-        "sense_label_en": "a number representing an amount, especially money",
+        "sense_label_en": "a number expressing an amount, especially a statistic, or a written digit from 0 to 9",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -212,14 +224,36 @@
         "confidence": "medium",
         "definition_cn": "计算出；弄明白",
         "definition_en": "to calculate or understand something",
-        "governing_pattern": "vi. + out",
+        "governing_pattern": "figure sth out / figure out sth; figure it out",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:figure:1d08d7c11083587e",
         "sense_label_en": "to calculate or understand something",
         "sort_order": 5,
-        "transitivity": "vi"
+        "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:figure:9c00b44d71db6677",
+        "pos": "verb",
+        "definition_cn": "出现于；在……中有一席之地或起作用",
+        "definition_en": "to appear or be included in something, sometimes prominently",
+        "sense_label_en": "to appear or be included in something, sometimes prominently",
+        "governing_pattern": "figure in/as sth; figure prominently in sth",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a44ffde226400e3c9fc0",
+            "phrase": "Costs figured prominently in the discussion.",
+            "meaning_cn": "成本在讨论中占了重要位置。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -260,6 +294,23 @@
           "applicability": [
             {
               "surface": "figure"
+            },
+            {
+              "surface": "figure",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:figure:9c00b44d71db6677"
+              ],
+              "owner_sense_ids": [
+                "sense:figure:9c00b44d71db6677"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1920.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "figure in/as sth; figure prominently in sth"
+              }
             }
           ],
           "sources": [
@@ -375,6 +426,14 @@
         "merged_into_sense_id": null,
         "source_row": 5280,
         "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json"
+      },
+      {
+        "sense_id": "sense:figure:9c00b44d71db6677",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1920.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
@@ -450,6 +509,13 @@
         "id": "collocation:f3f11cf275f1dc19ea55",
         "source_row": 20662,
         "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json"
+      },
+      {
+        "id": "collocation:a44ffde226400e3c9fc0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1920.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

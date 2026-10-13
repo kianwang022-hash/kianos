@@ -20,6 +20,26 @@
         "level": "L1",
         "meaning_cn": "鉴于；考虑到；根据……来看",
         "pattern": "in the light of sth"
+      },
+      {
+        "construction_id": "construction:cb8b04f8340a99c6b42f",
+        "pattern": "come to light",
+        "meaning_cn": "被发现；为人所知",
+        "definition_en": "to become known after being hidden or unknown",
+        "usage_note": "常以事实、证据或信息作主语；与 shed light on 使人更理解有别。",
+        "boundary": "常以事实、证据或信息作主语；与 shed light on 使人更理解有别。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:d116c828e528d13e53ee",
+        "pattern": "make light of sth",
+        "meaning_cn": "轻视；把事情说得不严重",
+        "definition_en": "to treat a matter as unimportant or less serious than it is",
+        "usage_note": "整体表示态度轻率或淡化严重性，不表示照明，也不等于轻松完成任务。",
+        "boundary": "整体表示态度轻率或淡化严重性，不表示照明，也不等于轻松完成任务。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "5b26d29787731d614be094ea1c7cc60d0c9b35973feae73c6062e59f6093234f",
@@ -36,27 +56,31 @@
           ]
         },
         {
+          "label_cn": "轻的；浅色的；淡色的；轻度的；少量的；不强烈的；明亮的；有日光的；轻松消遣的；不严肃或不费心的",
+          "label_en": "of little weight; not heavy; pale or not dark in color; not heavy, severe, dense, rich, or intense; having enough light to see, or receiving daylight; intended for amusement rather than serious thought or mental effort",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:light:82010ee7fa255634",
+            "sense:light:c100fd5068e4e8b0",
+            "sense:light:3a1547d0dd0c95bf",
+            "sense:light:47939ce92663ac9b",
+            "sense:light:3bb007cd18ee5826"
+          ]
+        },
+        {
           "label_cn": "点燃，照亮；点着，变亮",
-          "label_en": "to cause to start burning; ignite; to become ignited or illuminated",
+          "label_en": "to make something burn, or provide light for a place; to become ignited or illuminated",
           "pos": "verb",
           "sense_ids": [
             "sense:light:1301b9960cc051c9",
             "sense:light:a4f3e4dea59659ce"
           ]
-        },
-        {
-          "label_cn": "轻的",
-          "label_en": "of little weight; not heavy",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:light:82010ee7fa255634"
-          ]
         }
       ],
-      "core_meaning_cn": "光；轻的；点燃",
-      "core_meaning_en": "electromagnetic radiation that makes things visible; also lightness or illumination",
-      "mental_model_cn": "光；轻的；点燃",
-      "mental_model_en": ""
+      "core_meaning_cn": "光、灯或看待方式；轻、浅色、少量、明亮或轻松；点燃、照亮",
+      "core_meaning_en": "light or a lamp; a perspective; lightweight, pale, slight, bright, or entertaining; to ignite or illuminate",
+      "mental_model_cn": "房间 light 是明亮，颜色 light 是浅色，读物 light 是轻松消遣；come to light 为被发现，make light of 为轻视。",
+      "mental_model_en": "light or a lamp; a perspective; lightweight, pale, slight, bright, or entertaining; to ignite or illuminate."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -189,13 +213,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "点燃，照亮",
-        "definition_en": "to cause to start burning; ignite",
+        "definition_en": "to make something burn, or provide light for a place",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:light:1301b9960cc051c9",
-        "sense_label_en": "to cause to start burning; ignite",
+        "sense_label_en": "to make something burn, or provide light for a place",
         "sort_order": 4,
         "transitivity": "vt"
       },
@@ -319,6 +343,50 @@
         "sense_label_en": "not heavy, severe, dense, rich, or intense",
         "sort_order": 7,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:light:47939ce92663ac9b",
+        "pos": "adjective",
+        "definition_cn": "明亮的；有日光的",
+        "definition_en": "having enough light to see, or receiving daylight",
+        "sense_label_en": "having enough light to see, or receiving daylight",
+        "governing_pattern": "a light room; it is/gets light",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6838f9e3c03b6f2f8864",
+            "phrase": "a light and airy room",
+            "meaning_cn": "明亮通风的房间",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:light:3bb007cd18ee5826",
+        "pos": "adjective",
+        "definition_cn": "轻松消遣的；不严肃或不费心的",
+        "definition_en": "intended for amusement rather than serious thought or mental effort",
+        "sense_label_en": "intended for amusement rather than serious thought or mental effort",
+        "governing_pattern": "light reading/entertainment/conversation",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 9,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e830d8c9b4f1e16cdadb",
+            "phrase": "light reading",
+            "meaning_cn": "轻松消遣读物",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -348,6 +416,40 @@
           "applicability": [
             {
               "surface": "light"
+            },
+            {
+              "surface": "light",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:light:47939ce92663ac9b"
+              ],
+              "owner_sense_ids": [
+                "sense:light:47939ce92663ac9b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2827.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a light room; it is/gets light"
+            },
+            {
+              "surface": "light",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:light:3bb007cd18ee5826"
+              ],
+              "owner_sense_ids": [
+                "sense:light:3bb007cd18ee5826"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2827.json",
+              "source_pointer": "/record/senses/9",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "light reading/entertainment/conversation"
             }
           ],
           "sources": [
@@ -712,20 +814,38 @@
         "merged_into_sense_id": null,
         "source_row": 7924,
         "source_path": "content/lexical/canonical/senses/shards/o2817-2848.json"
+      },
+      {
+        "sense_id": "sense:light:47939ce92663ac9b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2827.json",
+        "source_pointer": "/record/senses/8"
+      },
+      {
+        "sense_id": "sense:light:3bb007cd18ee5826",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2827.json",
+        "source_pointer": "/record/senses/9"
       }
     ],
     "active_collocations": [
-      "collocation:32c0da83e180df211669",
-      "collocation:3b20a509712f2048538d",
-      "collocation:79bdf742b4ad289727c5",
-      "collocation:800d9705684a5a9e479e",
-      "collocation:8698163a443732ae1cb9",
-      "collocation:aec43b5c99d0995fb5b1",
-      "collocation:b160c3034df05401fcd3",
       "collocation:b6794a25abc6835441a8",
-      "collocation:b685665f0e192f98fe28",
+      "collocation:aec43b5c99d0995fb5b1",
+      "collocation:32c0da83e180df211669",
+      "collocation:800d9705684a5a9e479e",
+      "collocation:79bdf742b4ad289727c5",
       "collocation:b80f15e73bb04a47575c",
-      "collocation:efb9cc1cca3b6bd3902f"
+      "collocation:efb9cc1cca3b6bd3902f",
+      "collocation:8698163a443732ae1cb9",
+      "collocation:b685665f0e192f98fe28",
+      "collocation:3b20a509712f2048538d",
+      "collocation:b160c3034df05401fcd3",
+      "collocation:6838f9e3c03b6f2f8864",
+      "collocation:e830d8c9b4f1e16cdadb"
     ],
     "facts": [],
     "collocations": [
@@ -788,6 +908,20 @@
         "id": "collocation:efb9cc1cca3b6bd3902f",
         "source_row": 21630,
         "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+      },
+      {
+        "id": "collocation:6838f9e3c03b6f2f8864",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2827.json",
+        "source_pointer": "/record/senses/8/collocations/0"
+      },
+      {
+        "id": "collocation:e830d8c9b4f1e16cdadb",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2827.json",
+        "source_pointer": "/record/senses/9/collocations/0"
       }
     ],
     "exam-mappings": [

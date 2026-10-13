@@ -6,18 +6,43 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:on:2fd949703d5ad2bc1896",
+        "pattern": "on/upon + doing sth / event noun",
+        "meaning_cn": "一……就……；在……发生后立即",
+        "definition_en": "immediately after the action or event named",
+        "boundary": "on arrival / on hearing the news 表示紧接该事件，不是普通日期或表面位置；on 后为名词或动名词。",
+        "direction": "R",
+        "level": "L2",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only"
+      },
+      {
+        "construction_id": "construction:a61366b2f6430160249a",
+        "pattern": "on and on",
+        "meaning_cn": "不停地；持续不断地",
+        "definition_en": "continuously, often longer than desired",
+        "usage_note": "She talked on and on可说讲个不停，强调连续；on and off则说时断时续。",
+        "boundary": "She talked on and on可说讲个不停，强调连续；on and off则说时断时续。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "d2dc9f8bd6ae5f1437c4e5f0f6223c6d369389bda818660a164c20d61420f95a",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "在...上；在（某天）；关于",
-          "label_en": "touching or covering a surface; used to show a day or date; about or concerning",
+          "label_cn": "位置、日期、主题；活动状态、媒介或依据",
+          "label_en": "surface position, dates and topics; activity, means or basis",
           "pos": "preposition",
           "sense_ids": [
             "sense:on:04d2701dc5e55806",
             "sense:on:3e89a8eb73fb5761",
-            "sense:on:e3adf67512415a7a"
+            "sense:on:e3adf67512415a7a",
+            "sense:on:8eecea1cdbacbbc4",
+            "sense:on:2ffe34b8b5157622",
+            "sense:on:f8ddbbf6c329adf5"
           ]
         },
         {
@@ -37,10 +62,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "表示位置、接触或活动状态",
-      "core_meaning_en": "indicating position, contact, or active state",
-      "mental_model_cn": "表示位置、接触或活动状态",
-      "mental_model_en": ""
+      "core_meaning_cn": "位置、日期或主题；状态、媒介、依据；继续或正在运行",
+      "core_meaning_en": "position, dates or topic; a state, medium or basis; continuation or active operation",
+      "mental_model_cn": "on the table在表面，on Monday讲日期，a book on sth讲主题；on duty值勤，on the phone通过电话，on advice依据建议。the light is on在运行，read on继续读。",
+      "mental_model_en": "position, dates or topic; a state, medium or basis; continuation or active operation."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -209,6 +234,72 @@
             "source_operation_id": "operation:0efc1915b60fe976ef03",
             "source_operation_sha256": "f5dbcb9aa7ab9ef52dda09fc0d398aa5395150a4b435fc2fd516fd7f4e28da87",
             "verification_status": "auditor_verified"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:on:8eecea1cdbacbbc4",
+        "pos": "preposition",
+        "definition_cn": "处于某种活动或状态中",
+        "definition_en": "engaged in an activity or in a stated condition",
+        "sense_label_en": "engaged in an activity or in a stated condition",
+        "governing_pattern": "on business/holiday/duty/loan",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c6b3efdf82ea47378bf6",
+            "phrase": "on holiday / on loan",
+            "meaning_cn": "在度假／已借出",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:on:2ffe34b8b5157622",
+        "pos": "preposition",
+        "definition_cn": "通过或使用某种工具、媒介或交通方式",
+        "definition_en": "using a means, medium or form of transport",
+        "sense_label_en": "using a means, medium or form of transport",
+        "governing_pattern": "on the phone/internet; on a bus/bike",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:aea54fdffa7fb1961ba2",
+            "phrase": "speak on the phone",
+            "meaning_cn": "通过电话交谈",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:on:f8ddbbf6c329adf5",
+        "pos": "preposition",
+        "definition_cn": "根据、依据某事",
+        "definition_en": "on the basis of advice, evidence or another reason",
+        "sense_label_en": "on the basis of advice, evidence or another reason",
+        "governing_pattern": "on sb’s advice; on the evidence; on that basis",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:bb5782f4063184554895",
+            "phrase": "act on their advice",
+            "meaning_cn": "根据他们的建议行动",
+            "exam_value": "usage_example"
           }
         ]
       }
@@ -849,6 +940,83 @@
               "scope_relation": "Exact active/operating/happening adjective subgroup of the combined owner adverb/adjective target; source adverb L633 sense 1 independently gives movement to an operating state. Preserve all original regional labels, normalize only explicit RP to UK."
             }
           ]
+        },
+        {
+          "ipa": "/ɒn/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "on",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:on:8eecea1cdbacbbc4"
+              ],
+              "owner_sense_ids": [
+                "sense:on:8eecea1cdbacbbc4"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3335.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "on business/holiday/duty/loan",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "on",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:on:2ffe34b8b5157622"
+              ],
+              "owner_sense_ids": [
+                "sense:on:2ffe34b8b5157622"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3335.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "on the phone/internet; on a bus/bike",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "on",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:on:f8ddbbf6c329adf5"
+              ],
+              "owner_sense_ids": [
+                "sense:on:f8ddbbf6c329adf5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3335.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "on sb’s advice; on the evidence; on that basis",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/on_1",
+              "entry_context": {
+                "word": "on",
+                "pos": "prep",
+                "etymology_number": null
+              },
+              "original_ipa": "/ɒn/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
@@ -891,19 +1059,53 @@
         "merged_into_sense_id": null,
         "source_row": 9260,
         "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
+      },
+      {
+        "sense_id": "sense:on:8eecea1cdbacbbc4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3335.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:on:2ffe34b8b5157622",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3335.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:on:f8ddbbf6c329adf5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3335.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:1a54e8f36762153c7816",
+      "collocation:fa59f4e8fcac48157394",
       "collocation:1df4f5442c08ec720bb4",
-      "collocation:2c3df0970beca0e29de7",
-      "collocation:84a4d4af5328bc5c5860",
-      "collocation:8cecbef91b60eebd216b",
-      "collocation:ba4049a59a5aa9d629fc",
+      "collocation:1a54e8f36762153c7816",
       "collocation:d73ad20171621cf3d56c",
-      "collocation:fa59f4e8fcac48157394"
+      "collocation:2c3df0970beca0e29de7",
+      "collocation:8cecbef91b60eebd216b",
+      "collocation:84a4d4af5328bc5c5860",
+      "collocation:ba4049a59a5aa9d629fc",
+      "collocation:c6b3efdf82ea47378bf6",
+      "collocation:aea54fdffa7fb1961ba2",
+      "collocation:bb5782f4063184554895"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:on:2fd949703d5ad2bc1896",
+        "status": "active",
+        "target_kind": "construction",
+        "merged_into_id": null
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:1a54e8f36762153c7816",
@@ -944,6 +1146,27 @@
         "id": "collocation:fa59f4e8fcac48157394",
         "source_row": 21194,
         "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:c6b3efdf82ea47378bf6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3335.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:aea54fdffa7fb1961ba2",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3335.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:bb5782f4063184554895",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3335.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [

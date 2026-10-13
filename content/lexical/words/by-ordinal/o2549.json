@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:100036e5e4c576b6288b",
+        "pattern": "ink sth in; ink in sth",
+        "meaning_cn": "把铅笔稿描成墨稿；（比喻）把日期或计划正式确定",
+        "definition_en": "trace pencil marks in ink; figuratively make a plan definite",
+        "usage_note": "代词作宾语用ink it in；计划语境为确定安排，不等于已签合同。",
+        "boundary": "代词作宾语用ink it in；计划语境为确定安排，不等于已签合同。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "e6c6ca824c34b1c78d3f4f698ea5d1e8c81df04c912d296e29f1757bccf3e292",
     "core_concept": {
       "core_clusters": [
@@ -20,17 +31,18 @@
           ]
         },
         {
-          "label_cn": "签署",
-          "label_en": "to sign one's name",
+          "label_cn": "签署与纹身",
+          "label_en": "signing and tattooing",
           "pos": "verb",
           "sense_ids": [
-            "sense:ink:45bc360d03da55a1"
+            "sense:ink:45bc360d03da55a1",
+            "sense:ink:cdb7b77d102f6b85"
           ]
         }
       ],
       "core_meaning_cn": "墨水；签署",
       "core_meaning_en": "ink; to sign",
-      "mental_model_cn": "noun → 墨水（也可指 squid ink）；journalistic verb ink a deal → 签署协议。技术“给…涂墨”动词义保留为 Reference。",
+      "mental_model_cn": "noun → 墨水（也可指 squid ink）；journalistic verb ink a deal → 签署协议。技术“给…涂墨”动词义保留为 Reference。 design/skin/on an arm看纹身；ink sth in看墨描或确定安排。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -58,7 +70,7 @@
             "legacy_source_object_ids": [
               "sense:ink:a344337d86f556c5:collocation:1"
             ],
-            "meaning_cn": "钢笔",
+            "meaning_cn": "墨水笔；使用墨水的笔",
             "phrase": "ink pen"
           }
         ],
@@ -111,16 +123,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "签署",
-        "definition_en": "to sign one's name",
+        "definition_cn": "签署（协议、合同等，常见于新闻语体）",
+        "definition_en": "to sign an agreement or contract",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:ink:45bc360d03da55a1",
-        "sense_label_en": "to sign one's name",
+        "sense_label_en": "to sign an agreement or contract",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:ink:cdb7b77d102f6b85",
+        "pos": "verb",
+        "definition_cn": "把图案以纹身方式纹在皮肤上",
+        "definition_en": "tattoo a design onto someone’s skin",
+        "sense_label_en": "tattoo a design onto someone’s skin",
+        "governing_pattern": "ink a design (on skin); have sth inked on an arm",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c91c80e9a3cfc784cddc",
+            "phrase": "have a design inked on an arm",
+            "meaning_cn": "在手臂上纹一个图案",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -150,6 +184,23 @@
           "applicability": [
             {
               "surface": "ink"
+            },
+            {
+              "surface": "ink",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:ink:cdb7b77d102f6b85"
+              ],
+              "owner_sense_ids": [
+                "sense:ink:cdb7b77d102f6b85"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2549.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "ink a design (on skin); have sth inked on an arm"
             }
           ],
           "sources": [
@@ -509,13 +560,22 @@
         "merged_into_sense_id": null,
         "source_row": 7050,
         "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
+      },
+      {
+        "sense_id": "sense:ink:cdb7b77d102f6b85",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2549.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:1ff9d9835d74421732c8",
-      "collocation:3876fe337ce6d8dff7c3",
       "collocation:6bf714e62f7e54ebfb2f",
-      "collocation:9619bdae348ead31450a"
+      "collocation:3876fe337ce6d8dff7c3",
+      "collocation:9619bdae348ead31450a",
+      "collocation:1ff9d9835d74421732c8",
+      "collocation:c91c80e9a3cfc784cddc"
     ],
     "facts": [],
     "collocations": [
@@ -545,6 +605,13 @@
         "id": "collocation:9619bdae348ead31450a",
         "source_row": 12776,
         "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      },
+      {
+        "id": "collocation:c91c80e9a3cfc784cddc",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2549.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

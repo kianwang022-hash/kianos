@@ -9,11 +9,44 @@
     "constructions": [],
     "content_hash": "2db8721f7a5f28a8f8df1c5bed5c9318d318beeee6ced429eacde1b6cba86c7d",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "极其痛苦或不适",
-      "core_meaning_en": "extremely unhappy or uncomfortable",
-      "mental_model_cn": "极其痛苦或不适",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "痛苦的；悲惨的",
+          "label_en": "very unhappy or uncomfortable",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:miserable:845d58194a975486"
+          ]
+        },
+        {
+          "label_cn": "令人难受、沮丧的；糟糕的",
+          "label_en": "causing unhappiness or discomfort; very unsatisfactory",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:miserable:52e2d41ee71905ac"
+          ]
+        },
+        {
+          "label_cn": "脾气坏、阴沉不友好的",
+          "label_en": "habitually unhappy, unfriendly and bad-tempered",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:miserable:e434c116428feb05"
+          ]
+        },
+        {
+          "label_cn": "少得可怜的；微不足道的",
+          "label_en": "so small in amount as to be inadequate",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:miserable:1fb7c78045ba291f"
+          ]
+        }
+      ],
+      "core_meaning_cn": "痛苦的或令人难受的；阴沉的；少得可怜的",
+      "core_meaning_en": "unhappy or uncomfortable; causing unhappiness; grumpy or inadequately small",
+      "mental_model_cn": "先区分人的感受与造成感受的条件；a miserable wage说工资少得可怜，不是工资有情绪。",
+      "mental_model_en": "unhappy or uncomfortable; causing unhappiness; grumpy or inadequately small."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -55,6 +88,72 @@
         "sense_label_en": "very unhappy or uncomfortable",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:miserable:52e2d41ee71905ac",
+        "pos": "adjective",
+        "definition_cn": "令人难受、沮丧的；糟糕的",
+        "definition_en": "causing unhappiness or discomfort; very unsatisfactory",
+        "sense_label_en": "causing unhappiness or discomfort; very unsatisfactory",
+        "governing_pattern": "miserable weather/conditions; a miserable failure",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b248e641b87235a70d43",
+            "phrase": "miserable working conditions",
+            "meaning_cn": "令人难受的工作条件",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:miserable:e434c116428feb05",
+        "pos": "adjective",
+        "definition_cn": "脾气坏、阴沉不友好的",
+        "definition_en": "habitually unhappy, unfriendly and bad-tempered",
+        "sense_label_en": "habitually unhappy, unfriendly and bad-tempered",
+        "governing_pattern": "a miserable person（此义用于名词前，含不赞同）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:cc4f343ba720161c2358",
+            "phrase": "a miserable old man",
+            "meaning_cn": "阴沉不好相处的老人",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:miserable:1fb7c78045ba291f",
+        "pos": "adjective",
+        "definition_cn": "少得可怜的；微不足道的",
+        "definition_en": "so small in amount as to be inadequate",
+        "sense_label_en": "so small in amount as to be inadequate",
+        "governing_pattern": "a miserable wage/sum",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:443fa7ade713841dee4d",
+            "phrase": "a miserable sum",
+            "meaning_cn": "少得可怜的一笔钱",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -85,6 +184,78 @@
           "applicability": [
             {
               "surface": "miserable",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                }
+              ]
+            },
+            {
+              "surface": "miserable",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:miserable:52e2d41ee71905ac"
+              ],
+              "owner_sense_ids": [
+                "sense:miserable:52e2d41ee71905ac"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3074.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "miserable weather/conditions; a miserable failure",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged.",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                }
+              ]
+            },
+            {
+              "surface": "miserable",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:miserable:e434c116428feb05"
+              ],
+              "owner_sense_ids": [
+                "sense:miserable:e434c116428feb05"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3074.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a miserable person（此义用于名词前，含不赞同）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged.",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                }
+              ]
+            },
+            {
+              "surface": "miserable",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:miserable:1fb7c78045ba291f"
+              ],
+              "owner_sense_ids": [
+                "sense:miserable:1fb7c78045ba291f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3074.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a miserable wage/sum",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged.",
               "conditions": [
                 {
                   "kind": "original_optional_notation",
@@ -163,11 +334,38 @@
         "merged_into_sense_id": null,
         "source_row": 8567,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:miserable:52e2d41ee71905ac",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3074.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:miserable:e434c116428feb05",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3074.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:miserable:1fb7c78045ba291f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3074.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:710760413ab2ec53b136",
-      "collocation:e3f33f8fc102150d460a"
+      "collocation:e3f33f8fc102150d460a",
+      "collocation:b248e641b87235a70d43",
+      "collocation:cc4f343ba720161c2358",
+      "collocation:443fa7ade713841dee4d"
     ],
     "facts": [],
     "collocations": [
@@ -180,6 +378,27 @@
         "id": "collocation:e3f33f8fc102150d460a",
         "source_row": 19299,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:b248e641b87235a70d43",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3074.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:cc4f343ba720161c2358",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3074.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:443fa7ade713841dee4d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3074.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

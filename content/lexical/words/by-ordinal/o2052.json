@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "友好的；亲切的；互助的；支持的；不敌对的",
-          "label_en": "kind and pleasant; showing friendship; inclined to help or support; not hostile",
+          "label_cn": "友好的；亲切的；友方的；不敌对的；（复合词中）适用、易用、有利或无害的",
+          "label_en": "kind and pleasant; showing friendship; supportive or not hostile; in compounds, suited to someone’s needs, easy to use, helpful, or not harmful",
           "pos": "adjective",
           "sense_ids": [
             "sense:friendly:c0f6774b76ae50a8",
@@ -20,16 +20,18 @@
           ]
         },
         {
-          "label_cn": "友善地；温和地",
-          "label_en": "in a friendly manner",
-          "pos": "adverb",
-          "sense_ids": []
+          "label_cn": "（主要英式）友谊赛",
+          "label_en": "chiefly British: a sports match outside league or championship competition",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:friendly:960462daac44893a"
+          ]
         }
       ],
-      "core_meaning_cn": "友善的；友好的",
-      "core_meaning_en": "kind and pleasant; showing friendship",
-      "mental_model_cn": "友善的；友好的",
-      "mental_model_en": ""
+      "core_meaning_cn": "友善、友方或适用无害的；友谊赛",
+      "core_meaning_en": "kind, supportive, suitable, or harmless; a friendly match",
+      "mental_model_cn": "人的friendly为友善，friendly fire为己方误击；user-friendly为易用，environmentally friendly为环保。名词friendly在主要英式体育语境指友谊赛。",
+      "mental_model_en": "kind, supportive, suitable, or harmless; a friendly match."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -92,7 +94,7 @@
             "legacy_source_object_ids": [
               "sense:friendly:530aa5914a735a3b:collocation:0"
             ],
-            "meaning_cn": "友军火力",
+            "meaning_cn": "己方火力误击／误伤己方人员",
             "phrase": "friendly fire"
           },
           {
@@ -103,19 +105,47 @@
             ],
             "meaning_cn": "环保的",
             "phrase": "environmentally friendly"
+          },
+          {
+            "collocation_id": "collocation:3832319a04ee70bb8dcb",
+            "phrase": "user-friendly",
+            "meaning_cn": "易用的；对用户友好的",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "互助的；支持的；不敌对的",
-        "definition_en": "inclined to help or support; not hostile",
+        "definition_cn": "友方的；不敌对的；（复合词中）适用、易用、有利或无害的",
+        "definition_en": "supportive or not hostile; in compounds, suited to someone’s needs, easy to use, helpful, or not harmful",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:friendly:530aa5914a735a3b",
-        "sense_label_en": "inclined to help or support; not hostile",
+        "sense_label_en": "supportive or not hostile; in compounds, suited to someone’s needs, easy to use, helpful, or not harmful",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:friendly:960462daac44893a",
+        "pos": "noun",
+        "definition_cn": "（主要英式）友谊赛",
+        "definition_en": "chiefly British: a sports match outside league or championship competition",
+        "sense_label_en": "chiefly British: a sports match outside league or championship competition",
+        "governing_pattern": "play a friendly; plural friendlies",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2907b03646466c95265d",
+            "phrase": "play a friendly",
+            "meaning_cn": "打一场友谊赛",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -185,6 +215,23 @@
           "applicability": [
             {
               "surface": "friendly"
+            },
+            {
+              "surface": "friendly",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:friendly:960462daac44893a"
+              ],
+              "owner_sense_ids": [
+                "sense:friendly:960462daac44893a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2052.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "play a friendly; plural friendlies"
+              }
             }
           ],
           "sources": [
@@ -949,6 +996,14 @@
         "merged_into_sense_id": null,
         "source_row": 5710,
         "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json"
+      },
+      {
+        "sense_id": "sense:friendly:960462daac44893a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2052.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -990,6 +1045,20 @@
         "id": "collocation:e180456deb1058495dbb",
         "source_row": 19068,
         "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+      },
+      {
+        "id": "collocation:3832319a04ee70bb8dcb",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2052.json",
+        "source_pointer": "/record/senses/1/collocations/2"
+      },
+      {
+        "id": "collocation:2907b03646466c95265d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2052.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

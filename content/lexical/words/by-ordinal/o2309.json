@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "9c6106d99aaac75dad86706ae95937f515e9394706146e16b52cac9a23b278b7",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "提供帮助或益处",
-      "core_meaning_en": "providing assistance or benefit",
-      "mental_model_cn": "提供帮助或益处",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "有帮助的，有用的；乐于帮忙的",
+          "label_en": "providing assistance or serving a useful function; willing to give somebody assistance",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:helpful:d81c75cd574d5ad6",
+            "sense:helpful:5ee8dd624df699be"
+          ]
+        }
+      ],
+      "core_meaning_cn": "有用的；乐于帮忙的",
+      "core_meaning_en": "useful or willing to assist",
+      "mental_model_cn": "信息有用与人乐于帮忙是两个常用侧重点。",
+      "mental_model_en": "useful or willing to assist."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -55,6 +65,28 @@
         "sense_label_en": "providing assistance or serving a useful function",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:helpful:5ee8dd624df699be",
+        "pos": "adjective",
+        "definition_cn": "乐于帮忙的",
+        "definition_en": "willing to give somebody assistance",
+        "sense_label_en": "willing to give somebody assistance",
+        "governing_pattern": "a helpful person/staff member",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:037900906c0541cfc646",
+            "phrase": "The helpful librarian found the book for me.",
+            "meaning_cn": "那位热心的图书管理员帮我找到了书。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -84,6 +116,23 @@
           "applicability": [
             {
               "surface": "helpful"
+            },
+            {
+              "surface": "helpful",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:helpful:5ee8dd624df699be"
+              ],
+              "owner_sense_ids": [
+                "sense:helpful:5ee8dd624df699be"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2309.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a helpful person/staff member"
             }
           ],
           "sources": [
@@ -168,11 +217,20 @@
         "merged_into_sense_id": null,
         "source_row": 6458,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:helpful:5ee8dd624df699be",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2309.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
+      "collocation:61a8a2619da0926fdd76",
       "collocation:40942e1d2f05bb862bb8",
-      "collocation:61a8a2619da0926fdd76"
+      "collocation:037900906c0541cfc646"
     ],
     "facts": [],
     "collocations": [
@@ -185,6 +243,13 @@
         "id": "collocation:61a8a2619da0926fdd76",
         "source_row": 8227,
         "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:037900906c0541cfc646",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2309.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

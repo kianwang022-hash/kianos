@@ -9,10 +9,28 @@
     "constructions": [],
     "content_hash": "7a07b0aff0c157243ed853a2c5ac38a1dbabb3ff106f7fe4fe97cc8acc1eb1ee",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "支持信念或结论的信息或迹象",
-      "core_meaning_en": "information or signs that support a belief or conclusion",
-      "mental_model_cn": "支持信念或结论的信息或迹象",
+      "core_clusters": [
+        {
+          "label_cn": "证据、迹象",
+          "label_en": "information or signs supporting a conclusion",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:evidence:06f1286c8cb65e19",
+            "sense:evidence:9e96c285d5c45ce7"
+          ]
+        },
+        {
+          "label_cn": "正式动词：表明、显示",
+          "label_en": "show or provide evidence for",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:evidence:2bad488419c13812"
+          ]
+        }
+      ],
+      "core_meaning_cn": "支持判断的证据或迹象；动词表明、显示",
+      "core_meaning_en": "information or signs supporting a conclusion; to show or provide evidence",
+      "mental_model_cn": "名词通常不可数，指判断或法庭证据，按evidence of/for/that等框架使用；正式动词接宾语表示表明，be evidenced by接显示该结论的依据。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -42,31 +60,31 @@
             ],
             "meaning_cn": "提供证据",
             "phrase": "provide evidence"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "证明某事为真的事实或迹象",
-        "definition_en": "facts or signs that show something is true",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:evidence:06f1286c8cb65e19",
-        "sense_label_en": "facts or signs that show something is true",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
+          },
           {
             "collocation_id": "collocation:8b1ec08d82fdca7b3c1b",
             "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:evidence:9e96c285d5c45ce7:collocation:0"
             ],
-            "meaning_cn": "明显可见；作为证据",
+            "meaning_cn": "明显可见；法律语境 admit/submit sth in evidence 指把某物作为证据提交或接纳",
             "phrase": "in evidence"
-          },
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "支持判断的事实、信息或迹象",
+        "definition_en": "facts, information, or signs that support a conclusion or belief",
+        "governing_pattern": "uncountable: evidence of/for sth; evidence that…; a piece of evidence",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:evidence:06f1286c8cb65e19",
+        "sense_label_en": "facts, information, or signs supporting a conclusion",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
           {
             "collocation_id": "collocation:2844c330e3cfead4eb24",
             "exam_value": "usage_example",
@@ -78,16 +96,44 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "法庭上用于证明案件的资料",
-        "definition_en": "information used in a court of law to prove a case",
-        "governing_pattern": "",
+        "definition_cn": "法庭上用于支持或反驳事实判断的资料",
+        "definition_en": "information presented in court to help establish or dispute facts",
+        "governing_pattern": "normally uncountable: give evidence; admit/submit sth in evidence",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:evidence:9e96c285d5c45ce7",
-        "sense_label_en": "information used in a court of law to prove a case",
+        "sense_label_en": "information used to establish or dispute facts in court",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:evidence:2bad488419c13812",
+        "pos": "verb",
+        "definition_cn": "（正式）表明、显示；提供证据支持",
+        "definition_en": "formal: to show something or provide evidence for it",
+        "sense_label_en": "formal: to show something or provide evidence for it",
+        "governing_pattern": "evidence sth; be evidenced by sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b4264bc8aea2fbf7db16",
+            "phrase": "as evidenced by the results",
+            "meaning_cn": "正如结果所显示的",
+            "exam_value": "fixed_pattern"
+          },
+          {
+            "collocation_id": "collocation:2b29d56e663c9a934a2f",
+            "phrase": "Her notes evidenced careful preparation.",
+            "meaning_cn": "她的笔记表明她做了仔细准备。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -137,6 +183,28 @@
           "applicability": [
             {
               "surface": "evidence"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "evidence",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:evidence:2bad488419c13812"
+              ],
+              "sense_ids": [
+                "sense:evidence:2bad488419c13812"
+              ],
+              "excluded_sense_ids": [
+                "sense:evidence:06f1286c8cb65e19",
+                "sense:evidence:9e96c285d5c45ce7"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/evidence",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -203,6 +271,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/evidence",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "evidence",
+                "pos": "verb"
+              },
+              "existing_observed_ipa_unchanged": "/ˈɛv.ə.dəns/",
+              "applies_to_sense_ids": [
+                "sense:evidence:2bad488419c13812"
+              ],
+              "evidence_note": "Same headword meaning checked; original observed IPA, regional/source conditions retained; bounded identity support only, no new IPA/default locale."
             }
           ]
         },
@@ -388,6 +472,14 @@
         "merged_into_sense_id": null,
         "source_row": 4782,
         "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json"
+      },
+      {
+        "sense_id": "sense:evidence:2bad488419c13812",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1740.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -411,12 +503,27 @@
       {
         "id": "collocation:8b1ec08d82fdca7b3c1b",
         "source_row": 11797,
-        "source_path": "content/lexical/canonical/collocations/shards/o1729-1760.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1729-1760.json",
+        "sense_id": "sense:evidence:06f1286c8cb65e19"
       },
       {
         "id": "collocation:adf1f60c4aa3bea37f8c",
         "source_row": 14726,
         "source_path": "content/lexical/canonical/collocations/shards/o1729-1760.json"
+      },
+      {
+        "id": "collocation:b4264bc8aea2fbf7db16",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1740.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:2b29d56e663c9a934a2f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1740.json",
+        "source_pointer": "/record/senses/2/collocations/1"
       }
     ],
     "exam-mappings": [],

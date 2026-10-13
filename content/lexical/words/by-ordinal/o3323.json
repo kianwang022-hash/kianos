@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:7acbba43aee5cda844fe",
+        "pattern": "be/go on the offensive",
+        "meaning_cn": "处于／转而采取主动进攻姿态",
+        "definition_en": "attack or challenge others rather than wait for them to act",
+        "usage_note": "可指军事、比赛，也可指回应批评等主动反击；不只指口出冒犯语言。",
+        "boundary": "可指军事、比赛，也可指回应批评等主动反击；不只指口出冒犯语言。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "6aa433cd0dd26d00cf1a3468b6f500c6ca111b2b9cb51f7d24fa87543fc24b3b",
     "core_concept": {
       "core_clusters": [
@@ -20,18 +31,19 @@
           ]
         },
         {
-          "label_cn": "进攻；攻势",
-          "label_en": "a military attack or campaign",
+          "label_cn": "军事或非军事攻势",
+          "label_en": "military attacks or organized campaigns",
           "pos": "noun",
           "sense_ids": [
-            "sense:offensive:c005cc1d51cd5c84"
+            "sense:offensive:c005cc1d51cd5c84",
+            "sense:offensive:500f1ba89079fea8"
           ]
         }
       ],
-      "core_meaning_cn": "冒犯的；攻击的",
-      "core_meaning_en": "causing offense; relating to attack",
-      "mental_model_cn": "冒犯的；攻击的",
-      "mental_model_en": ""
+      "core_meaning_cn": "冒犯或极不快的；进攻的；军事/非军事攻势",
+      "core_meaning_en": "insulting or unpleasant; attacking; a military offensive or public campaign",
+      "mental_model_cn": "offensive language可冒犯听者，offensive smell是气味令人厌恶。offensive weapons讲进攻；a sales/charm offensive讲为目标集中开展的行动。",
+      "mental_model_en": "insulting or unpleasant; attacking; a military offensive or public campaign."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -60,17 +72,23 @@
             ],
             "meaning_cn": "对某人冒犯的",
             "phrase": "offensive to + sb"
+          },
+          {
+            "collocation_id": "collocation:19ab33962a9a30678095",
+            "phrase": "an offensive smell",
+            "meaning_cn": "令人厌恶的气味",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "冒犯的；令人不快的",
-        "definition_en": "causing anger or annoyance; insulting",
+        "definition_cn": "冒犯的；令人不快的；（正式）极难闻、令人厌恶的",
+        "definition_en": "insulting or upsetting; also, in formal use, extremely unpleasant",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:offensive:0fda59036eed5142",
-        "sense_label_en": "causing anger or annoyance; insulting",
+        "sense_label_en": "insulting or upsetting; also, in formal use, extremely unpleasant",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -139,6 +157,28 @@
         "sense_label_en": "a military attack or campaign",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:offensive:500f1ba89079fea8",
+        "pos": "noun",
+        "definition_cn": "（为达到目的开展的）集中行动、攻势",
+        "definition_en": "a sustained campaign aimed at a goal, often intended to attract attention",
+        "sense_label_en": "a sustained campaign aimed at a goal, often intended to attract attention",
+        "governing_pattern": "a sales/charm offensive; an offensive against sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3d4865ec65642eaafa46",
+            "phrase": "a publicity offensive",
+            "meaning_cn": "一场宣传攻势",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -168,6 +208,24 @@
           "applicability": [
             {
               "surface": "offensive"
+            },
+            {
+              "surface": "offensive",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:offensive:500f1ba89079fea8"
+              ],
+              "owner_sense_ids": [
+                "sense:offensive:500f1ba89079fea8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3323.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a sales/charm offensive; an offensive against sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -308,15 +366,25 @@
         "merged_into_sense_id": null,
         "source_row": 9220,
         "source_path": "content/lexical/canonical/senses/shards/o3297-3328.json"
+      },
+      {
+        "sense_id": "sense:offensive:500f1ba89079fea8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3323.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:1ce165b584dfaa425842",
-      "collocation:583e81e5f72c6de30174",
       "collocation:943f5a34eef4d2d7e1c6",
-      "collocation:d5e30d8472f7ed14b8c7",
+      "collocation:583e81e5f72c6de30174",
+      "collocation:19ab33962a9a30678095",
+      "collocation:1ce165b584dfaa425842",
       "collocation:ea19a24599ffba108b40",
-      "collocation:eccb88b846e238b228b1"
+      "collocation:d5e30d8472f7ed14b8c7",
+      "collocation:eccb88b846e238b228b1",
+      "collocation:3d4865ec65642eaafa46"
     ],
     "facts": [],
     "collocations": [
@@ -349,6 +417,20 @@
         "id": "collocation:eccb88b846e238b228b1",
         "source_row": 20067,
         "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      },
+      {
+        "id": "collocation:19ab33962a9a30678095",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3323.json",
+        "source_pointer": "/record/senses/0/collocations/2"
+      },
+      {
+        "id": "collocation:3d4865ec65642eaafa46",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3323.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

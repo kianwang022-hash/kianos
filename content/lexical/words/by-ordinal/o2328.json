@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "a72855042d3f89da8be3fe486a4136ea8173f9a355e26cceb16bf3c603e5e143",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "等级或组织的体系",
-      "core_meaning_en": "a system of ranking or organization",
-      "mental_model_cn": "等级或组织的体系",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "等级体系；层次结构；大型组织的掌权者；领导层",
+          "label_en": "a series of ordered groupings of people or things within a system; the people who control a large organization",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:hierarchy:61d7c8eeadc157fd",
+            "sense:hierarchy:449ed0b49c22b8a7"
+          ]
+        }
+      ],
+      "core_meaning_cn": "等级体系；组织的领导层",
+      "core_meaning_en": "a hierarchy of ranks or a group of leaders",
+      "mental_model_cn": "等级体系可包含各层级；the hierarchy也可直接指掌权的领导层。",
+      "mental_model_en": "a hierarchy of ranks or a group of leaders."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -55,6 +65,29 @@
         "sense_label_en": "a series of ordered groupings of people or things within a system",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hierarchy:449ed0b49c22b8a7",
+        "pos": "noun",
+        "definition_cn": "大型组织的掌权者；领导层",
+        "definition_en": "the people who control a large organization",
+        "sense_label_en": "the people who control a large organization",
+        "governing_pattern": "the party/company hierarchy",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2f223dac95f848afadf0",
+            "phrase": "The party hierarchy approved the proposal.",
+            "meaning_cn": "党的领导层批准了提案。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "可数集合名词；表示一群掌权者，谓语可单数或复数，区别于等级体系本身。"
       }
     ],
     "verification_summary": {
@@ -85,6 +118,29 @@
           "applicability": [
             {
               "surface": "hierarchy",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                }
+              ]
+            },
+            {
+              "surface": "hierarchy",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hierarchy:449ed0b49c22b8a7"
+              ],
+              "owner_sense_ids": [
+                "sense:hierarchy:449ed0b49c22b8a7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2328.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the party/company hierarchy",
               "conditions": [
                 {
                   "kind": "original_optional_notation",
@@ -273,11 +329,20 @@
         "merged_into_sense_id": "sense:hierarchy:61d7c8eeadc157fd",
         "source_row": 6497,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:hierarchy:449ed0b49c22b8a7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2328.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
       "collocation:73dffeb8e59513a2358f",
-      "collocation:87c818f300e0dbfc248f"
+      "collocation:87c818f300e0dbfc248f",
+      "collocation:2f223dac95f848afadf0"
     ],
     "facts": [],
     "collocations": [
@@ -295,6 +360,13 @@
         "id": "collocation:87c818f300e0dbfc248f",
         "source_row": 11531,
         "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:2f223dac95f848afadf0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2328.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

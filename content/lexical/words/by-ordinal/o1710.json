@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "逃跑；逃脱；逃避；避免",
-          "label_en": "to get away or avoid something unpleasant or dangerous",
+          "label_cn": "逃脱、避免；未被注意或想起",
+          "label_en": "get away or avoid; fail to be noticed or remembered",
           "pos": "verb",
           "sense_ids": [
             "sense:escape:3bfaa99e40075fc3",
@@ -20,18 +20,28 @@
           ]
         },
         {
-          "label_cn": "逃跑；逃脱；逃避现实；消遣",
-          "label_en": "the act of escaping or a retreat from unpleasant reality",
+          "label_cn": "气体、液体或热逸出",
+          "label_en": "gas, liquid, or heat comes out",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:escape:3427cedf2889422c"
+          ]
+        },
+        {
+          "label_cn": "逃脱、出路、消遣或泄漏",
+          "label_en": "escape, a way out, diversion, or leakage",
           "pos": "noun",
           "sense_ids": [
             "sense:escape:efbc75e61c1f5bef",
-            "sense:escape:ba35c83946fb5224"
+            "sense:escape:ba35c83946fb5224",
+            "sense:escape:71052d60a686557d",
+            "sense:escape:698a85ce0f38fa9a"
           ]
         }
       ],
-      "core_meaning_cn": "逃跑、逃脱或逃避；逃脱的行为",
-      "core_meaning_en": "to escape or avoid; an act or means of mental escape",
-      "mental_model_cn": "主干是“从束缚、危险或不愉快中脱离”；fire escape 等具体出口留在低优先级。",
+      "core_meaning_cn": "逃脱、避免；未被注意/想起；逸出；逃脱或消遣",
+      "core_meaning_en": "get away or avoid; elude notice or memory; leak out; escape or diversion",
+      "mental_model_cn": "人从束缚或危险中逃脱；危险/惩罚作宾语时指避免；notice、memory或人作宾语时，主语未被注意或想起；气体、液体或热作主语时指逸出。名词按语境指逃脱、出路、消遣或泄漏。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -66,14 +76,14 @@
         "confidence": "medium",
         "definition_cn": "逃跑；逃脱",
         "definition_en": "to get away from a place or dangerous situation",
-        "governing_pattern": "vi. + from",
+        "governing_pattern": "escape; escape from sb/sth; escape a place/captor",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:escape:3bfaa99e40075fc3",
         "sense_label_en": "to get away from a place or dangerous situation",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -92,21 +102,22 @@
             "legacy_source_object_ids": [
               "sense:escape:2f6d6ca1ffd75dc2:collocation:1"
             ],
-            "meaning_cn": "逃过注意",
+            "meaning_cn": "未被注意到；主语是未被注意到的人或事物，不表示主语没有注意到别人或别的事物",
             "phrase": "escape notice"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "逃避；避免",
-        "definition_en": "to avoid something unpleasant or dangerous",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "避免、逃过；未被注意到或想起",
+        "definition_en": "to avoid something unpleasant or dangerous, or fail to be noticed or remembered",
+        "governing_pattern": "escape sth; escape doing sth; escape sb / sb’s notice or memory (normally no passive)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:escape:2f6d6ca1ffd75dc2",
-        "sense_label_en": "to avoid something unpleasant or dangerous",
+        "sense_label_en": "avoid an outcome; elude notice or memory",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "With notice, attention, or a person as object, the subject is the thing not noticed or remembered: Her name escapes me. With danger or punishment, it avoids the outcome."
       },
       {
         "collocations": [
@@ -155,13 +166,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "逃避现实；消遣",
-        "definition_en": "an inclination to retreat from unpleasant realities through diversion or fantasy",
+        "definition_en": "an activity or experience that takes attention away from unpleasant reality",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:escape:ba35c83946fb5224",
-        "sense_label_en": "an inclination to retreat from unpleasant realities through diversion or",
+        "sense_label_en": "a diversion from unpleasant reality",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -188,6 +199,50 @@
         "sense_label_en": "a means or way of escaping",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:escape:3427cedf2889422c",
+        "pos": "verb",
+        "definition_cn": "（气体、液体、热等）逸出、泄漏",
+        "definition_en": "of gas, liquid, heat, etc.: to come out of a containing space",
+        "sense_label_en": "of gas, liquid, heat, etc.: to come out of a containing space",
+        "governing_pattern": "escape; escape from/out of a container",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0506c674e06677304730",
+            "phrase": "Air escaped through a crack in the pipe.",
+            "meaning_cn": "空气从管道裂缝中逸出。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:escape:698a85ce0f38fa9a",
+        "pos": "noun",
+        "definition_cn": "（气体、液体等的）泄漏、逸出",
+        "definition_en": "an outflow or leakage of gas or liquid",
+        "sense_label_en": "an outflow or leakage of gas or liquid",
+        "governing_pattern": "an escape of gas/liquid",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:34fd25750653b491bc0a",
+            "phrase": "an escape of gas",
+            "meaning_cn": "气体泄漏",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -237,6 +292,58 @@
           "applicability": [
             {
               "surface": "escape"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "escape",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:escape:698a85ce0f38fa9a"
+              ],
+              "sense_ids": [
+                "sense:escape:698a85ce0f38fa9a"
+              ],
+              "excluded_sense_ids": [
+                "sense:escape:2f6d6ca1ffd75dc2",
+                "sense:escape:3427cedf2889422c",
+                "sense:escape:3bfaa99e40075fc3",
+                "sense:escape:71052d60a686557d",
+                "sense:escape:ba35c83946fb5224",
+                "sense:escape:efbc75e61c1f5bef"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/escape",
+              "source_checked_date": "2026-10-11"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "escape",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:escape:3427cedf2889422c"
+              ],
+              "sense_ids": [
+                "sense:escape:3427cedf2889422c"
+              ],
+              "excluded_sense_ids": [
+                "sense:escape:2f6d6ca1ffd75dc2",
+                "sense:escape:3bfaa99e40075fc3",
+                "sense:escape:698a85ce0f38fa9a",
+                "sense:escape:71052d60a686557d",
+                "sense:escape:ba35c83946fb5224",
+                "sense:escape:efbc75e61c1f5bef"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/escape",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -363,6 +470,38 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/escape",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "escape",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ɪˈskeɪp/",
+              "applies_to_sense_ids": [
+                "sense:escape:698a85ce0f38fa9a"
+              ],
+              "evidence_note": "Same headword meaning checked; original observed IPA, regional/source conditions retained; bounded identity support only, no new IPA/default locale."
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/escape",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "escape",
+                "pos": "verb"
+              },
+              "existing_observed_ipa_unchanged": "/ɪˈskeɪp/",
+              "applies_to_sense_ids": [
+                "sense:escape:3427cedf2889422c"
+              ],
+              "evidence_note": "Same headword meaning checked; original observed IPA, regional/source conditions retained; bounded identity support only, no new IPA/default locale."
             }
           ]
         }
@@ -407,6 +546,22 @@
         "merged_into_sense_id": null,
         "source_row": 4712,
         "source_path": "content/lexical/canonical/senses/shards/o1697-1728.json"
+      },
+      {
+        "sense_id": "sense:escape:3427cedf2889422c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1710.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:escape:698a85ce0f38fa9a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1710.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
@@ -460,6 +615,20 @@
         "id": "collocation:ec83daddf899569978a5",
         "source_row": 20043,
         "source_path": "content/lexical/canonical/collocations/shards/o1697-1728.json"
+      },
+      {
+        "id": "collocation:0506c674e06677304730",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1710.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:34fd25750653b491bc0a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1710.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

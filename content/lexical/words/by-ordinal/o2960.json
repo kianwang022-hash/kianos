@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "美国海军陆战队士兵；水兵；海军陆战队士兵",
-          "label_en": "a member of the United States Marine Corps; a soldier who serves both on shipboard and on land",
+          "label_cn": "美国海军陆战队士兵；海军陆战队员",
+          "label_en": "a member of the United States Marine Corps; a member of a military force trained for operations at sea and on land",
           "pos": "noun",
           "sense_ids": [
             "sense:marine:85465e349fd95139",
@@ -20,18 +20,19 @@
           ]
         },
         {
-          "label_cn": "海洋的；Marine（美国海军陆战队员）",
-          "label_en": "marine/sea-related; Marine as a U.S. Marine Corps member",
+          "label_cn": "海的；海产的；海洋的；船舶的；海运、海上贸易的",
+          "label_en": "of or relating to the sea or ocean, especially marine life or the marine environment; relating to ships or trade at sea",
           "pos": "adjective",
           "sense_ids": [
-            "sense:marine:c05916f9e2e15ff5"
+            "sense:marine:c05916f9e2e15ff5",
+            "sense:marine:41aaa68388ce744f"
           ]
         }
       ],
-      "core_meaning_cn": "与海洋或海军相关的；海军陆战队士兵",
-      "core_meaning_en": "relating to the sea or navy; a soldier serving on sea and land",
-      "mental_model_cn": "与海洋或海军相关的；海军陆战队士兵",
-      "mental_model_en": ""
+      "core_meaning_cn": "海洋生物与环境的；海运船舶的；海军陆战队员",
+      "core_meaning_en": "relating to sea life/environment or sea transport; a marine soldier",
+      "mental_model_cn": "marine life指海洋生物；marine transport指海运；a Marine/a marine指海军陆战队员，不能把普通海洋形容词当军队专用。",
+      "mental_model_en": "relating to sea life/environment or sea transport; a marine soldier."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -87,21 +88,45 @@
         "sense_id": "sense:marine:c05916f9e2e15ff5",
         "sense_label_en": "of or relating to the sea or ocean, especially marine life or the marine environment",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "通常置于名词前：marine life/environment。"
       },
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "水兵；海军陆战队士兵",
-        "definition_en": "a soldier who serves both on shipboard and on land",
+        "definition_cn": "海军陆战队员",
+        "definition_en": "a member of a military force trained for operations at sea and on land",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:marine:fa81f9ccac555a21",
-        "sense_label_en": "a soldier who serves both on shipboard and on land",
+        "sense_label_en": "a member of a military force trained for operations at sea and on land",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:marine:41aaa68388ce744f",
+        "pos": "adjective",
+        "definition_cn": "船舶的；海运、海上贸易的",
+        "definition_en": "relating to ships or trade at sea",
+        "sense_label_en": "relating to ships or trade at sea",
+        "governing_pattern": "marine transport/insurance",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4699d141722a4dca0ee8",
+            "phrase": "marine transport",
+            "meaning_cn": "海上运输",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "通常置于名词前；marine insurance指海上运输相关保险，不能一律解成海洋生物保险。"
       }
     ],
     "verification_summary": {
@@ -131,6 +156,23 @@
           "applicability": [
             {
               "surface": "marine"
+            },
+            {
+              "surface": "marine",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:marine:41aaa68388ce744f"
+              ],
+              "owner_sense_ids": [
+                "sense:marine:41aaa68388ce744f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2960.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "marine transport/insurance"
             }
           ],
           "sources": [
@@ -343,10 +385,19 @@
         "merged_into_sense_id": null,
         "source_row": 8248,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:marine:41aaa68388ce744f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2960.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:3137ce1384d1099dbc3d"
+      "collocation:3137ce1384d1099dbc3d",
+      "collocation:4699d141722a4dca0ee8"
     ],
     "facts": [],
     "collocations": [
@@ -374,6 +425,13 @@
         "id": "collocation:c903277e281996d7a8a9",
         "source_row": 16979,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:4699d141722a4dca0ee8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2960.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

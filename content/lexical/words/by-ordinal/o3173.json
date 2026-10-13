@@ -18,11 +18,44 @@
     ],
     "content_hash": "281598fa434c286be02d5e89dab58b11e5ae3d2e1c3e372a63cc0fdd71a0f4fb",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "无遮盖的，裸体的",
-      "core_meaning_en": "without clothing or covering",
-      "mental_model_cn": "无遮盖的，裸体的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "裸体的，无遮盖的",
+          "label_en": "not wearing clothes; without any covering",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:naked:e57aed779f245ec4"
+          ]
+        },
+        {
+          "label_cn": "（指眼睛等）未经仪器辅助的",
+          "label_en": "without the aid of an instrument",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:naked:2ace5a8d959c51ea"
+          ]
+        },
+        {
+          "label_cn": "（感情、态度等）毫无遮掩的；公然的",
+          "label_en": "strongly expressed and undisguised",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:naked:879bc7377672917c"
+          ]
+        },
+        {
+          "label_cn": "（比喻）无防备的；无法保护自己的",
+          "label_en": "unable to protect oneself from harm or criticism",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:naked:75e274c8f5a0dd27"
+          ]
+        }
+      ],
+      "core_meaning_cn": "裸体、无遮盖；肉眼的；毫无遮掩或无防备",
+      "core_meaning_en": "unclothed or uncovered; unaided sight; undisguised or defenceless",
+      "mental_model_cn": "naked body/裸露物体是无遮盖；naked aggression说公然不掩饰，feel naked可说无防备；naked eye不用仪器。",
+      "mental_model_en": "unclothed or uncovered; unaided sight; undisguised or defenceless."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -78,6 +111,50 @@
         "sense_label_en": "without the aid of an instrument",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:naked:879bc7377672917c",
+        "pos": "adjective",
+        "definition_cn": "（感情、态度等）毫无遮掩的；公然的",
+        "definition_en": "strongly expressed and undisguised",
+        "sense_label_en": "strongly expressed and undisguised",
+        "governing_pattern": "naked ambition/aggression（名词前）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b293bc61a534781ac20d",
+            "phrase": "naked aggression",
+            "meaning_cn": "公然的侵略、敌意",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:naked:75e274c8f5a0dd27",
+        "pos": "adjective",
+        "definition_cn": "（比喻）无防备的；无法保护自己的",
+        "definition_en": "unable to protect oneself from harm or criticism",
+        "sense_label_en": "unable to protect oneself from harm or criticism",
+        "governing_pattern": "feel naked（通常作表语）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d13c42e3b8799d55d2da",
+            "phrase": "feel naked and vulnerable",
+            "meaning_cn": "感到毫无防备、容易受伤害",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -163,6 +240,65 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ˈneɪkɪd/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "naked",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:naked:879bc7377672917c"
+              ],
+              "owner_sense_ids": [
+                "sense:naked:879bc7377672917c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3173.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "naked ambition/aggression（名词前）",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "naked",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:naked:75e274c8f5a0dd27"
+              ],
+              "owner_sense_ids": [
+                "sense:naked:75e274c8f5a0dd27"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3173.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "feel naked（通常作表语）",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/naked",
+              "entry_context": {
+                "word": "naked",
+                "pos": "adj",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈneɪkɪd/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-12",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
@@ -184,11 +320,29 @@
         "merged_into_sense_id": null,
         "source_row": 8831,
         "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
+      },
+      {
+        "sense_id": "sense:naked:879bc7377672917c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3173.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:naked:75e274c8f5a0dd27",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3173.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
+      "collocation:7bc524117fc321ae3bb9",
       "collocation:3e37bada44688add63a6",
-      "collocation:7bc524117fc321ae3bb9"
+      "collocation:b293bc61a534781ac20d",
+      "collocation:d13c42e3b8799d55d2da"
     ],
     "facts": [],
     "collocations": [
@@ -206,6 +360,20 @@
         "id": "collocation:7bc524117fc321ae3bb9",
         "source_row": 10463,
         "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:b293bc61a534781ac20d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3173.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:d13c42e3b8799d55d2da",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3173.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

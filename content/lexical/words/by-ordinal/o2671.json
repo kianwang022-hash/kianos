@@ -15,27 +15,51 @@
         "definition_en": "to take part in an activity that is already happening",
         "pattern": "join in (sth) / join in with sb",
         "source_sense_id": "sense:join:feaf8f38dabc5b9d",
-        "boundary": "participation pattern; distinct from join an organization or physically connect things"
+        "boundary": "participation pattern; distinct from join an organization or physically connect things",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:cbbd10746d4bca45290b",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:join:feaf8f38dabc5b9d:collocation:0"
+            ],
+            "meaning_cn": "参加（活动）",
+            "phrase": "join in + sth"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:0b237079d3f10feffe35",
+        "pattern": "join sb for sth / join sb in doing sth",
+        "meaning_cn": "和某人一起参加某活动",
+        "definition_en": "be with someone for an activity or take part with them in doing it",
+        "usage_note": "join 后直接接人；for 后接活动名词，in 后可接 doing。join a club 是成为成员；join in (sth) 则直接接活动。",
+        "boundary": "join 后直接接人；for 后接活动名词，in 后可接 doing。join a club 是成为成员；join in (sth) 则直接接活动。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:join:66a33ca27a64fe4d"
       }
     ],
     "content_hash": "5c1a5743ce177f8f2769657fc6d0def1bb92c95f9092256b8aa51a8b3b303ab6",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "加入，参加（组织、团体）；连接，接合；参加（活动）",
-          "label_en": "to become a member of a group or organization; to connect or fasten things together; to take part in an activity with others",
+          "label_cn": "连接；加入；会合、共同参与；汇合、联合",
+          "label_en": "to connect, become a member, be with others, or come together",
           "pos": "verb",
           "sense_ids": [
             "sense:join:81e44219579758eb",
             "sense:join:1b6e9f34bb215047",
-            "sense:join:feaf8f38dabc5b9d"
+            "sense:join:feaf8f38dabc5b9d",
+            "sense:join:66a33ca27a64fe4d",
+            "sense:join:f9105a2cf43031a1"
           ]
         }
       ],
-      "core_meaning_cn": "连接；加入",
-      "core_meaning_en": "to connect or become a member",
-      "mental_model_cn": "group → 加入；objects → 连接；join in → 参加正在进行的活动。低价值名词“连接处”保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "连接；加入；会合、共同参与；汇合、联合",
+      "core_meaning_en": "to connect, become a member, be with others, or come together",
+      "mental_model_cn": "group → 加入；objects → 连接；join sb for/in → 和某人一起；roads → 汇合；join forces → 联合力量。join in → 参加正在进行的活动。",
+      "mental_model_en": "to connect, become a member, be with others, or come together."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -114,15 +138,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:cbbd10746d4bca45290b",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:join:feaf8f38dabc5b9d:collocation:0"
-            ],
-            "meaning_cn": "参加（活动）",
-            "phrase": "join in + sth"
-          },
-          {
             "collocation_id": "collocation:b2e0e05a92e78f8503d0",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -143,6 +158,56 @@
         "sense_label_en": "to take part in an activity with others",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:join:66a33ca27a64fe4d",
+        "pos": "verb",
+        "definition_cn": "与某人会合；和某人一起（做事）",
+        "definition_en": "to go or come to be with someone, often to share an activity",
+        "sense_label_en": "to go or come to be with someone, often to share an activity",
+        "governing_pattern": "join sb; join sb for sth; join sb in doing sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:aa41b3c1cc5f8cba4665",
+            "phrase": "join us for lunch",
+            "meaning_cn": "和我们一起吃午饭",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:join:f9105a2cf43031a1",
+        "pos": "verb",
+        "definition_cn": "汇合；联合起来",
+        "definition_en": "to meet or come together, or combine with others",
+        "sense_label_en": "to meet or come together, or combine with others",
+        "governing_pattern": "roads/paths join; join with sb to do sth; join forces",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:231824409b758787a7ef",
+            "phrase": "The two paths join here.",
+            "meaning_cn": "两条小路在这里汇合。",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:51ccfacf5f5358424e46",
+            "phrase": "join forces to solve the problem",
+            "meaning_cn": "联合力量解决问题",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -172,6 +237,40 @@
           "applicability": [
             {
               "surface": "join"
+            },
+            {
+              "surface": "join",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:join:66a33ca27a64fe4d"
+              ],
+              "owner_sense_ids": [
+                "sense:join:66a33ca27a64fe4d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2671.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "join sb; join sb for sth; join sb in doing sth"
+            },
+            {
+              "surface": "join",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:join:f9105a2cf43031a1"
+              ],
+              "owner_sense_ids": [
+                "sense:join:f9105a2cf43031a1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2671.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "roads/paths join; join with sb to do sth; join forces"
             }
           ],
           "sources": [
@@ -441,15 +540,33 @@
         "merged_into_sense_id": null,
         "source_row": 7370,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
+      },
+      {
+        "sense_id": "sense:join:66a33ca27a64fe4d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2671.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:join:f9105a2cf43031a1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2671.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:1e94123582d92c75e63f",
       "collocation:6686e5235251b60c2636",
       "collocation:9f67320c451d09ad1a30",
+      "collocation:1e94123582d92c75e63f",
+      "collocation:fb44a98d772bb72fd334",
       "collocation:b2e0e05a92e78f8503d0",
-      "collocation:cbbd10746d4bca45290b",
-      "collocation:fb44a98d772bb72fd334"
+      "collocation:aa41b3c1cc5f8cba4665",
+      "collocation:231824409b758787a7ef",
+      "collocation:51ccfacf5f5358424e46"
     ],
     "facts": [],
     "collocations": [
@@ -476,12 +593,35 @@
       {
         "id": "collocation:cbbd10746d4bca45290b",
         "source_row": 17205,
-        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:fb44a98d772bb72fd334",
         "source_row": 21260,
         "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+      },
+      {
+        "id": "collocation:aa41b3c1cc5f8cba4665",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2671.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:231824409b758787a7ef",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2671.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:51ccfacf5f5358424e46",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2671.json",
+        "source_pointer": "/record/senses/4/collocations/1"
       }
     ],
     "exam-mappings": [],

@@ -11,16 +11,17 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "跛行；一瘸一拐地走",
-          "label_en": "to walk with difficulty, typically because of an injured leg or foot",
+          "label_cn": "跛行；一瘸一拐地走；（受损后）勉强移动；（活动、组织等）艰难地继续",
+          "label_en": "to walk with difficulty, typically because of an injured leg or foot; to move or continue slowly and with difficulty after damage or setbacks",
           "pos": "verb",
           "sense_ids": [
-            "sense:limp:358cfc68207858b9"
+            "sense:limp:358cfc68207858b9",
+            "sense:limp:3e56476fc2acc01a"
           ]
         },
         {
           "label_cn": "跛行；一瘸一拐",
-          "label_en": "an uneven way of walking caused by an injury",
+          "label_en": "an uneven way of walking, often because a leg or foot is painful or impaired",
           "pos": "noun",
           "sense_ids": [
             "sense:limp:705d6ac7aab551ea"
@@ -35,10 +36,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "因伤跛行，或缺乏硬度",
-      "core_meaning_en": "to walk unevenly due to injury, or lacking firmness",
-      "mental_model_cn": "因伤跛行，或缺乏硬度",
-      "mental_model_en": ""
+      "core_meaning_cn": "跛行；艰难地移动或继续；无力、软塌的",
+      "core_meaning_en": "to walk with a limp or progress with difficulty; a limp; weak or floppy",
+      "mental_model_cn": "人的腿受伤为跛行；受损飞机或业务 limp back/along 表示艰难移动或维持；形容词仍为无力、软塌。",
+      "mental_model_en": "to walk with a limp or progress with difficulty; a limp; weak or floppy."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -95,13 +96,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "跛行；一瘸一拐",
-        "definition_en": "an uneven way of walking caused by an injury",
+        "definition_en": "an uneven way of walking, often because a leg or foot is painful or impaired",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:limp:705d6ac7aab551ea",
-        "sense_label_en": "an uneven way of walking caused by an injury",
+        "sense_label_en": "an uneven way of walking, often because a leg or foot is painful or impaired",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -137,6 +138,28 @@
         "sense_label_en": "not stiff or firm; lacking strength or resilience",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:limp:3e56476fc2acc01a",
+        "pos": "verb",
+        "definition_cn": "（受损后）勉强移动；（活动、组织等）艰难地继续",
+        "definition_en": "to move or continue slowly and with difficulty after damage or setbacks",
+        "sense_label_en": "to move or continue slowly and with difficulty after damage or setbacks",
+        "governing_pattern": "limp along/on/back + optional destination",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:27279aa3f3db96cd14c0",
+            "phrase": "the business limped along",
+            "meaning_cn": "这家企业艰难地维持经营",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -166,6 +189,23 @@
           "applicability": [
             {
               "surface": "limp"
+            },
+            {
+              "surface": "limp",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:limp:3e56476fc2acc01a"
+              ],
+              "owner_sense_ids": [
+                "sense:limp:3e56476fc2acc01a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2837.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "limp along/on/back + optional destination"
             }
           ],
           "sources": [
@@ -738,14 +778,23 @@
         "merged_into_sense_id": null,
         "source_row": 7884,
         "source_path": "content/lexical/canonical/senses/shards/o2817-2848.json"
+      },
+      {
+        "sense_id": "sense:limp:3e56476fc2acc01a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2837.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:1faaa3fe894c5daadeca",
-      "collocation:3affa1082052558314ec",
       "collocation:78d13a54b7b3157d2b24",
+      "collocation:d4b1ac47ca5bc2e3e5c4",
+      "collocation:3affa1082052558314ec",
       "collocation:b399907d2a6ea4d01965",
-      "collocation:d4b1ac47ca5bc2e3e5c4"
+      "collocation:27279aa3f3db96cd14c0"
     ],
     "facts": [],
     "collocations": [
@@ -773,6 +822,13 @@
         "id": "collocation:d4b1ac47ca5bc2e3e5c4",
         "source_row": 17967,
         "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+      },
+      {
+        "id": "collocation:27279aa3f3db96cd14c0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2837.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

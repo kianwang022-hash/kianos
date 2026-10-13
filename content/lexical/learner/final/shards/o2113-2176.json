@@ -5,7 +5,7 @@
     "ordinal": 2113,
     "word": "generalise",
     "source_owner_path": "content/lexical/words/by-ordinal/o2113.json",
-    "source_fingerprint": "9001ba5192a3a698da1426a763ca5eac1f3585479bf972c664087bce3055d1e5",
+    "source_fingerprint": "9ee955c6dbfffc102e6132b25c0fd3bf77764a00e9116af30b0abbe948c307af",
     "sense_lineage": [
       {
         "word_id": "word:generalise",
@@ -26,16 +26,16 @@
       "parts": [
         "1V"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "概括；归纳",
-      "decision_cn": "",
+      "summary_cn": "概括、归纳或推广结论的适用范围",
+      "decision_cn": "generalise from具体实例为归纳一般结论，generalise findings to其他群体为扩大适用范围；不能仅凭个别例子保证结论普遍成立。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "概括；归纳"
+        "target_label": "概括、归纳或推广结论的适用范围"
       }
     },
     "senses": [
@@ -43,17 +43,34 @@
         "id": "sense:generalise:a40c5cc55256501d",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "概括；归纳",
-        "definition_en": "to draw a general conclusion from specific cases",
+        "governing_pattern": "generalise about sth; generalise from examples; generalise findings to other cases",
+        "definition_cn": "概括；归纳；推广为一般结论或适用规律",
+        "definition_en": "to draw a general conclusion from particular cases or extend a finding or rule to a wider range of cases",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:ffcf68d9ffdad887860a",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "generalise from a few examples",
+            "meaning_cn": "从少数例子归纳出一般结论",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:d95404377891e30975fd",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "generalise the findings to other groups",
+            "meaning_cn": "将研究结果推广到其他群体",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:generalise:a40c5cc55256501d",
           "target_locator": "record.senses[0]",
-          "target_label": "概括；归纳"
+          "target_label": "概括；归纳；推广为一般结论或适用规律"
         }
       }
     ],
@@ -175,11 +192,26 @@
     "ordinal": 2114,
     "word": "generate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2114.json",
-    "source_fingerprint": "babcd6bee207aa1c21eb3281f3b17085d0caabaafe582875cb1bc4c3081f14e1",
-    "sense_lineage": [],
+    "source_fingerprint": "475df601128618e4a6f4743cc7b255830f51682323bf257f29ea55e0b371f204",
+    "sense_lineage": [
+      {
+        "word_id": "word:generate",
+        "target_kind": "sense",
+        "from_target_id": "sense:generate:ffd6abf81a625d97",
+        "status": "merged",
+        "to_target_id": "sense:generate:ccb71cdc505857ee"
+      },
+      {
+        "word_id": "word:generate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a21fb40d88fb1057b2a3",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V"
+        "1V"
       ],
       "density": "rich"
     },
@@ -199,8 +231,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "产生；引起",
-        "definition_en": "to bring something into existence",
+        "definition_cn": "产生；生成；引起（包括发电、产生能量）",
+        "definition_en": "to produce or bring something into existence, including energy or power",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -209,13 +241,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "generate + sth",
             "meaning_cn": "产生某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a21fb40d88fb1057b2a3",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "generate + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:2ef246b52fbb57088ad0",
@@ -224,28 +251,10 @@
             "meaning_cn": "发电",
             "kind": "usage_example",
             "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:generate:ccb71cdc505857ee",
-          "target_locator": "record.senses[0]",
-          "target_label": "产生；引起"
-        }
-      },
-      {
-        "id": "sense:generate:ffd6abf81a625d97",
-        "source_locator": "record.senses[1]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "产生（能量）",
-        "definition_en": "to produce energy or power",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
+          },
           {
             "id": "collocation:eaba8bf352d6d90d8deb",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[2]",
             "phrase": "generate power",
             "meaning_cn": "产生动力",
             "kind": "usage_example",
@@ -254,9 +263,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:generate:ffd6abf81a625d97",
-          "target_locator": "record.senses[1]",
-          "target_label": "产生（能量）"
+          "target_id": "sense:generate:ccb71cdc505857ee",
+          "target_locator": "record.senses[0]",
+          "target_label": "产生；生成；引起（包括发电、产生能量）"
         }
       }
     ],
@@ -388,13 +397,6 @@
           2,
           3,
           4
-        ],
-        "sense:generate:ffd6abf81a625d97": [
-          0,
-          1,
-          2,
-          3,
-          4
         ]
       },
       "has_scope": true
@@ -405,7 +407,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:eaba8bf352d6d90d8deb",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:generate:ffd6abf81a625d97:collocation:0"
+              ],
+              "meaning_cn": "产生动力",
+              "phrase": "generate power"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "产生（能量）",
+          "definition_en": "to produce energy or power",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:generate:ffd6abf81a625d97",
+          "sense_label_en": "to produce energy or power",
+          "sort_order": 1,
+          "transitivity": "vt",
+          "stable_sense_id": "sense:generate:ffd6abf81a625d97",
+          "status": "merged",
+          "merged_into_sense_id": "sense:generate:ccb71cdc505857ee",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -414,22 +446,22 @@
     "ordinal": 2115,
     "word": "generation",
     "source_owner_path": "content/lexical/words/by-ordinal/o2115.json",
-    "source_fingerprint": "b6d098dce4f93358cc5378247413a32be06ed525ffe82b5c170a607e1da3adf6",
+    "source_fingerprint": "54e7f909d96b100fe5db65f61e4f65bf3e1982cfc1474ef2fa8368c36b02a9b1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "同代人或产生的行为",
-      "decision_cn": "",
+      "summary_cn": "一代人、一代的时间、产生过程或产品的一代",
+      "decision_cn": "generation可指同代人，也可指父母与子女出生之间的一代时间；power generation为发电，新一代设备中的generation指产品阶段。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "同代人或产生的行为"
+        "target_label": "一代人、一代的时间、产生过程或产品的一代"
       }
     },
     "senses": [
@@ -531,6 +563,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "（技术或产品的）代"
         }
+      },
+      {
+        "id": "sense:generation:8be32a7492dce93c",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "a generation ago; for a generation",
+        "definition_cn": "一代的时间；父母和子女出生之间的平均间隔",
+        "definition_en": "the usual time interval between the birth of parents and the birth of their children",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a2f4a9ade6f4cd5aefaa",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a generation ago",
+            "meaning_cn": "一代人之前",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:generation:8be32a7492dce93c",
+          "target_locator": "record.senses[3]",
+          "target_label": "一代的时间；父母和子女出生之间的平均间隔"
+        }
       }
     ],
     "pronunciation_support": {
@@ -544,14 +602,35 @@
           "applicability": [
             {
               "surface": "generation"
+            },
+            {
+              "surface": "generation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:generation:8be32a7492dce93c"
+              ],
+              "owner_sense_ids": [
+                "sense:generation:8be32a7492dce93c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2115.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "a generation ago; for a generation"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:generation:8be32a7492dce93c": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -579,7 +658,7 @@
     "ordinal": 2116,
     "word": "generator",
     "source_owner_path": "content/lexical/words/by-ordinal/o2116.json",
-    "source_fingerprint": "33dee4e58fd9f2c431c77f8737d9475cf172d426815c772e6986ce00903905aa",
+    "source_fingerprint": "eb59e046512b04ce49ce0f09fca570b6d01f642f5bb3de550b686d160c7df516",
     "sense_lineage": [
       {
         "word_id": "word:generator",
@@ -686,8 +765,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "发起者；创造者",
-        "definition_en": "a person who originates or causes something",
+        "definition_cn": "产生者；来源；创造者",
+        "definition_en": "a person or thing that produces, originates or causes something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -704,7 +783,7 @@
           "target_kind": "sense",
           "target_id": "sense:generator:da81f6efba775e0a",
           "target_locator": "record.senses[2]",
-          "target_label": "发起者；创造者"
+          "target_label": "产生者；来源；创造者"
         }
       }
     ],
@@ -772,22 +851,22 @@
     "ordinal": 2117,
     "word": "generous",
     "source_owner_path": "content/lexical/words/by-ordinal/o2117.json",
-    "source_fingerprint": "d4402d45d2890192d0c08d95e9c764c920de6626bda505a174b98f5609ed3b5d",
+    "source_fingerprint": "178b245543f060a75e7c4adc310f0c7d47dcf6ac6dbc9d4380f727693b80725e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "慷慨的；大方的",
-      "decision_cn": "",
+      "summary_cn": "慷慨、宽厚或充裕的",
+      "decision_cn": "generous with time or money为乐于付出；a generous heart为宽厚，a generous portion为分量充足。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "慷慨的；大方的"
+        "target_label": "慷慨、宽厚或充裕的"
       }
     },
     "senses": [
@@ -819,6 +898,14 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "a generous donation",
             "meaning_cn": "慷慨的捐赠",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:2718cd13540b4cc67014",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "be generous with one’s time",
+            "meaning_cn": "不吝惜自己的时间",
             "kind": "usage_example",
             "repair": null
           }
@@ -855,6 +942,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "丰富的；充足的"
         }
+      },
+      {
+        "id": "sense:generous:58050ae956f21f11",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "a generous heart; a generous person",
+        "definition_cn": "宽厚的；宽宏大量的",
+        "definition_en": "kind and magnanimous in spirit or in the way one treats others",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a36806d51c08a01ef534",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a generous heart",
+            "meaning_cn": "宽厚的心",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:generous:58050ae956f21f11",
+          "target_locator": "record.senses[2]",
+          "target_label": "宽厚的；宽宏大量的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -883,13 +996,34 @@
                   }
                 }
               ]
+            },
+            {
+              "surface": "generous",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:generous:58050ae956f21f11"
+              ],
+              "owner_sense_ids": [
+                "sense:generous:58050ae956f21f11"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2117.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "a generous heart; a generous person"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
+      "sense_readings": {
+        "sense:generous:58050ae956f21f11": [
+          0
+        ]
+      },
       "has_scope": true
     },
     "secondary_senses": [],
@@ -907,11 +1041,19 @@
     "ordinal": 2118,
     "word": "genetic",
     "source_owner_path": "content/lexical/words/by-ordinal/o2118.json",
-    "source_fingerprint": "2c6c4141c6e473a02e26c6395c0680fa10d1defea8b22212c710b7e3bd04dfab",
-    "sense_lineage": [],
+    "source_fingerprint": "7772a8780a40029daed3728642ed3b9afd41cd65aac2e9fd5aaddf1e84eea4ba",
+    "sense_lineage": [
+      {
+        "word_id": "word:genetic",
+        "target_kind": "sense",
+        "from_target_id": "sense:genetic:fae530836f32538d",
+        "status": "merged",
+        "to_target_id": "sense:genetic:f379ddae95355449"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
       "density": "rich"
     },
@@ -931,8 +1073,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "遗传的，基因的",
-        "definition_en": "relating to genes or heredity",
+        "definition_cn": "基因的；遗传的；遗传学的",
+        "definition_en": "relating to genes, heredity or their study",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -951,28 +1093,10 @@
             "meaning_cn": "遗传信息",
             "kind": "usage_example",
             "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:genetic:f379ddae95355449",
-          "target_locator": "record.senses[0]",
-          "target_label": "遗传的，基因的"
-        }
-      },
-      {
-        "id": "sense:genetic:fae530836f32538d",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "遗传学的",
-        "definition_en": "relating to the science of genetics",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
+          },
           {
             "id": "collocation:1df8a0b0616c65a3f2ad",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[2]",
             "phrase": "genetic research",
             "meaning_cn": "遗传学研究",
             "kind": "usage_example",
@@ -981,9 +1105,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:genetic:fae530836f32538d",
-          "target_locator": "record.senses[1]",
-          "target_label": "遗传学的"
+          "target_id": "sense:genetic:f379ddae95355449",
+          "target_locator": "record.senses[0]",
+          "target_label": "基因的；遗传的；遗传学的"
         }
       }
     ],
@@ -1034,7 +1158,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:1df8a0b0616c65a3f2ad",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:genetic:fae530836f32538d:collocation:0"
+              ],
+              "meaning_cn": "遗传学研究",
+              "phrase": "genetic research"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "遗传学的",
+          "definition_en": "relating to the science of genetics",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:genetic:fae530836f32538d",
+          "sense_label_en": "relating to the science of genetics",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:genetic:fae530836f32538d",
+          "status": "merged",
+          "merged_into_sense_id": "sense:genetic:f379ddae95355449",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -1043,7 +1197,7 @@
     "ordinal": 2119,
     "word": "genius",
     "source_owner_path": "content/lexical/words/by-ordinal/o2119.json",
-    "source_fingerprint": "73ac8fc021a4369526f8d258416b8a1e74a01364b304434815584f6b044dcf61",
+    "source_fingerprint": "c971df5425f67e4e2ae4f78f50886cc61db3ccf4af3f00b6d3274e474b258ed9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1073,21 +1227,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:a106cd21e4d841045879",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a genius for + sth/doing sth",
-            "meaning_cn": "…的天才，做…的天赋",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a106cd21e4d841045879",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "a genius for + sth/doing sth"
-            }
-          },
-          {
             "id": "collocation:66bbab40068c8aff4d93",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a mathematical genius",
             "meaning_cn": "数学天才",
             "kind": "usage_example",
@@ -1106,8 +1247,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "天赋，才华",
-        "definition_en": "exceptional creative ability",
+        "definition_cn": "天赋；卓越才智或创造力",
+        "definition_en": "exceptional intellectual or creative ability",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1126,13 +1267,26 @@
             "meaning_cn": "创造力，创作天赋",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:a106cd21e4d841045879",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "a genius for + sth/doing sth",
+            "meaning_cn": "对某事／做某事的卓越天赋",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a106cd21e4d841045879",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "a genius for + sth/doing sth"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:genius:e22a02fba60c54c0",
           "target_locator": "record.senses[1]",
-          "target_label": "天赋，才华"
+          "target_label": "天赋；卓越才智或创造力"
         }
       }
     ],
@@ -1196,7 +1350,7 @@
     "ordinal": 2120,
     "word": "genre",
     "source_owner_path": "content/lexical/words/by-ordinal/o2120.json",
-    "source_fingerprint": "2053c93ceb3fbf1be204a1cbe82da83a1513c36d5da92fbef3687b3571896d91",
+    "source_fingerprint": "9b70d7fb659a5c094a29ed7b1d9d46fc6ac58b567a1d403117eed9019ec6cb78",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1336,30 +1490,37 @@
     "ordinal": 2121,
     "word": "gentle",
     "source_owner_path": "content/lexical/words/by-ordinal/o2121.json",
-    "source_fingerprint": "cdd6dc206ad9a0f8d74f869e6be7dba56f9511f6b0cce69218f0ce5cea18c80e",
+    "source_fingerprint": "56d257a1ef3a0f7c1a8c517a6468f27b161b9f757895de3535a9ab7048907e2c",
     "sense_lineage": [
       {
         "word_id": "word:gentle",
         "target_kind": "sense",
-        "from_target_id": "sense:gentle:6fbd9951ff2d54d2",
+        "from_target_id": "sense:gentle:3e6627f89e925d9c",
         "status": "merged",
         "to_target_id": "sense:gentle:b9bfe7ccd20552c9"
+      },
+      {
+        "word_id": "word:gentle",
+        "target_kind": "sense",
+        "from_target_id": "sense:gentle:6fbd9951ff2d54d2",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
-      "summary_cn": "温和的，轻柔的",
-      "decision_cn": "",
+      "summary_cn": "温和的；轻柔的；（坡度等）平缓的",
+      "decision_cn": "人或动作不粗暴、力量轻；坡度不陡。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "温和的，轻柔的"
+        "target_label": "温和的；轻柔的；（坡度等）平缓的"
       }
     },
     "senses": [
@@ -1367,9 +1528,9 @@
         "id": "sense:gentle:b9bfe7ccd20552c9",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "温和的；和善的；柔和的",
-        "definition_en": "mild, kind, or soft in manner or effect",
+        "governing_pattern": "gentle with sb/sth; a gentle slope",
+        "definition_cn": "温和的；轻柔的；（坡度等）平缓的",
+        "definition_en": "kind or mild in manner, soft rather than forceful, or gradual rather than steep",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -1377,24 +1538,7 @@
           "target_kind": "sense",
           "target_id": "sense:gentle:b9bfe7ccd20552c9",
           "target_locator": "record.senses[0]",
-          "target_label": "温和的；和善的；柔和的"
-        }
-      },
-      {
-        "id": "sense:gentle:3e6627f89e925d9c",
-        "source_locator": "record.senses[1]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "和蔼的；温柔的",
-        "definition_en": "having or showing a kindly or tender nature",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:gentle:3e6627f89e925d9c",
-          "target_locator": "record.senses[1]",
-          "target_label": "和蔼的；温柔的"
+          "target_label": "温和的；轻柔的；（坡度等）平缓的"
         }
       }
     ],
@@ -1428,8 +1572,8 @@
       "senses": [
         {
           "stable_sense_id": "sense:gentle:6fbd9951ff2d54d2",
-          "status": "merged",
-          "merged_into_sense_id": "sense:gentle:b9bfe7ccd20552c9",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
           "pos": "verb",
           "definition_cn": "抚慰，轻抚",
           "definition_en": "stroke soothingly",
@@ -1450,6 +1594,24 @@
           "source_row": 5913,
           "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "和蔼的；温柔的",
+          "definition_en": "having or showing a kindly or tender nature",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:gentle:3e6627f89e925d9c",
+          "sense_label_en": "having or showing a kindly or tender nature",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:gentle:3e6627f89e925d9c",
+          "status": "merged",
+          "merged_into_sense_id": "sense:gentle:b9bfe7ccd20552c9",
+          "reference_only": true
         }
       ]
     }
@@ -1460,22 +1622,22 @@
     "ordinal": 2122,
     "word": "gentleman",
     "source_owner_path": "content/lexical/words/by-ordinal/o2122.json",
-    "source_fingerprint": "66f5e64ebf2c8ce5c213ba3afbdeac6b276273f98476ad9f519791d2c77d724b",
+    "source_fingerprint": "e82666ddcdd312d439233d1d8ead3b91946c062bfc5736f61e87185c707dfd56",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有教养、有风度的男子",
-      "decision_cn": "",
+      "summary_cn": "有礼貌、有风度的男子；先生或男士的礼貌称呼",
+      "decision_cn": "gentleman可评价男子的礼貌举止，也可只是礼貌称为先生或男士；ladies and gentlemen是常用称呼。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有教养、有风度的男子"
+        "target_label": "有礼貌、有风度的男子；先生或男士的礼貌称呼"
       }
     },
     "senses": [
@@ -1485,7 +1647,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "绅士；有教养的男人",
-        "definition_en": "a man who is polite, well-educated, and has high standards of behavior",
+        "definition_en": "a man whose behaviour is polite, considerate, and proper",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1517,6 +1679,32 @@
           "target_locator": "record.senses[0]",
           "target_label": "绅士；有教养的男人"
         }
+      },
+      {
+        "id": "sense:gentleman:75727353f86d63df",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a gentleman; ladies and gentlemen",
+        "definition_cn": "先生；男士（礼貌称呼或指称）",
+        "definition_en": "a polite way to refer to or address a man",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:6316bf82fa566c1a568a",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "ladies and gentlemen",
+            "meaning_cn": "女士们、先生们",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:gentleman:75727353f86d63df",
+          "target_locator": "record.senses[1]",
+          "target_label": "先生；男士（礼貌称呼或指称）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1527,6 +1715,23 @@
           "applicability": [
             {
               "surface": "gentleman"
+            },
+            {
+              "surface": "gentleman",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:gentleman:75727353f86d63df"
+              ],
+              "owner_sense_ids": [
+                "sense:gentleman:75727353f86d63df"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2122.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "a gentleman; ladies and gentlemen"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -1544,8 +1749,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:gentleman:75727353f86d63df": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -1562,7 +1771,7 @@
     "ordinal": 2123,
     "word": "gently",
     "source_owner_path": "content/lexical/words/by-ordinal/o2123.json",
-    "source_fingerprint": "ba59e6f1d2e2f1400aca25bde8dd5346e20f14b97daede72489c3edf82a3d155",
+    "source_fingerprint": "e2e442d64a66ecc57f0cb874104ffd4658d806128aae5a2b590a54d69bb818ca",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1571,13 +1780,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "温柔地",
-      "decision_cn": "",
+      "summary_cn": "轻柔、温和地；平缓、逐渐地",
+      "decision_cn": "gently说话或触碰为轻柔温和；gently sloping为坡度平缓，描述渐变时为逐渐地。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "温柔地"
+        "target_label": "轻柔、温和地；平缓、逐渐地"
       }
     },
     "senses": [
@@ -1620,8 +1829,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "逐渐地",
-        "definition_en": "in a gradual way",
+        "definition_cn": "平缓地；逐渐而不剧烈地",
+        "definition_en": "with a slight gradient or gradual, non-abrupt change",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1629,7 +1838,7 @@
             "id": "collocation:b1bffc14d551d93ed286",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "gently sloping",
-            "meaning_cn": "缓缓倾斜的",
+            "meaning_cn": "坡度平缓的",
             "kind": "usage_example",
             "repair": null
           }
@@ -1638,7 +1847,7 @@
           "target_kind": "sense",
           "target_id": "sense:gently:70cc7a7f89a05473",
           "target_locator": "record.senses[1]",
-          "target_label": "逐渐地"
+          "target_label": "平缓地；逐渐而不剧烈地"
         }
       }
     ],
@@ -1820,22 +2029,22 @@
     "ordinal": 2125,
     "word": "geography",
     "source_owner_path": "content/lexical/words/by-ordinal/o2125.json",
-    "source_fingerprint": "41e7448a23b5feb1a4371e04952a69f11c64cfcbfb8c5fc798ee6f5c757bf964",
+    "source_fingerprint": "0ce429434e411bea4f2e5fbfedec148a64c0145183dd3b904ed7179b50442e7e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "地理学；地理",
-      "decision_cn": "",
+      "summary_cn": "地理学；一个地区的地理特征",
+      "decision_cn": "学科geography研究地表及相关人地活动；the geography of a place指该地的地形和地理特征。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "地理学；地理"
+        "target_label": "地理学；一个地区的地理特征"
       }
     },
     "senses": [
@@ -1872,6 +2081,32 @@
           "target_locator": "record.senses[0]",
           "target_label": "地理学；地理"
         }
+      },
+      {
+        "id": "sense:geography:d930a6d176eba3ec",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "the geography of a region/island",
+        "definition_cn": "地理特征；地形或地理环境",
+        "definition_en": "the geographical features of a place",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:8c9c095298430639446c",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "the geography of the island",
+            "meaning_cn": "这座岛的地理特征",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:geography:d930a6d176eba3ec",
+          "target_locator": "record.senses[1]",
+          "target_label": "地理特征；地形或地理环境"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1884,6 +2119,23 @@
           "applicability": [
             {
               "surface": "geography"
+            },
+            {
+              "surface": "geography",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:geography:d930a6d176eba3ec"
+              ],
+              "owner_sense_ids": [
+                "sense:geography:d930a6d176eba3ec"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2125.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "the geography of a region/island"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -1927,8 +2179,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:geography:d930a6d176eba3ec": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -1945,7 +2201,7 @@
     "ordinal": 2126,
     "word": "geology",
     "source_owner_path": "content/lexical/words/by-ordinal/o2126.json",
-    "source_fingerprint": "e774be70380b629b84aa640df842097087a9b4b36975d4005ce903da949a2b3d",
+    "source_fingerprint": "1bed7e4cdecdfc3236f5f100f7bad64365bf9657df524d40456ea58ac23b88c0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1954,13 +2210,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "研究地球岩石记录的历史和结构的科学",
-      "decision_cn": "",
+      "summary_cn": "地质学；地区的地质特征",
+      "decision_cn": "geology可指研究地球岩石与形成过程的学科；the geology of a region指该地区的地质状况。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "研究地球岩石记录的历史和结构的科学"
+        "target_label": "地质学；地区的地质特征"
       }
     },
     "senses": [
@@ -2069,22 +2325,22 @@
     "ordinal": 2127,
     "word": "geometry",
     "source_owner_path": "content/lexical/words/by-ordinal/o2127.json",
-    "source_fingerprint": "96609a0a7f10988e289e0cb7e892fa3b87420f017af49926ee135de6944458ad",
+    "source_fingerprint": "5605c88000c770158ff70328e3903ef1f6cd983d660ad6ceb92277af304307bf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "几何学",
-      "decision_cn": "",
+      "summary_cn": "几何学；几何形状或空间布局",
+      "decision_cn": "学科geometry研究形状与空间关系；the geometry of a building指其几何形状或空间安排。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "几何学"
+        "target_label": "几何学；几何形状或空间布局"
       }
     },
     "senses": [
@@ -2131,6 +2387,32 @@
           "target_locator": "record.senses[0]",
           "target_label": "几何学"
         }
+      },
+      {
+        "id": "sense:geometry:ba5bf6cac2f86456",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "the geometry of a shape/building",
+        "definition_cn": "几何形状；空间结构或布局",
+        "definition_en": "the geometric shape or spatial arrangement of something or its parts",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a55f5f91a501886b07b8",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "the geometry of the building",
+            "meaning_cn": "这座建筑的几何形状与布局",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:geometry:ba5bf6cac2f86456",
+          "target_locator": "record.senses[1]",
+          "target_label": "几何形状；空间结构或布局"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2143,6 +2425,23 @@
           "applicability": [
             {
               "surface": "geometry"
+            },
+            {
+              "surface": "geometry",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:geometry:ba5bf6cac2f86456"
+              ],
+              "owner_sense_ids": [
+                "sense:geometry:ba5bf6cac2f86456"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2127.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "the geometry of a shape/building"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2175,8 +2474,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:geometry:ba5bf6cac2f86456": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -2193,7 +2496,7 @@
     "ordinal": 2128,
     "word": "germ",
     "source_owner_path": "content/lexical/words/by-ordinal/o2128.json",
-    "source_fingerprint": "a6c8ad7f44d61ad8d96dfc68858438fd5f502df176586f2983b40376bef461ce",
+    "source_fingerprint": "cfd1c5c7426deb33b7e6ed6da4e3e7bf6c292dd1bd27996eb665752ecb94cc76",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2202,13 +2505,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "细菌，胚芽",
-      "decision_cn": "",
+      "summary_cn": "胚芽、病菌或思想的萌芽",
+      "decision_cn": "germ可为谷物的胚芽或早期生命结构，日常germs为病菌而不只指细菌；the germ of an idea为想法的萌芽。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "细菌，胚芽"
+        "target_label": "胚芽、病菌或思想的萌芽"
       }
     },
     "senses": [
@@ -2217,8 +2520,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "胚芽，生殖细胞",
-        "definition_en": "a small apparently simple structure (as a fertilized egg) from which new tissue can develop into a complete organism",
+        "definition_cn": "胚芽；能发育成生物或其部分的原始结构",
+        "definition_en": "an early living structure that can develop into an organism or part of one",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2240,7 +2543,7 @@
           "target_kind": "sense",
           "target_id": "sense:germ:4fa106be7cca5c52",
           "target_locator": "record.senses[0]",
-          "target_label": "胚芽，生殖细胞"
+          "target_label": "胚芽；能发育成生物或其部分的原始结构"
         }
       },
       {
@@ -2248,9 +2551,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "细菌，病菌",
+        "definition_cn": "病菌；微生物（尤指致病者）",
         "definition_en": "a microorganism, especially one causing disease",
-        "note": "",
+        "note": "日常病菌义不限于细菌，也可指病毒等致病微生物。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2270,7 +2573,7 @@
             "id": "collocation:e825dffa59e6b261a45d",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "spread germs",
-            "meaning_cn": "传播细菌",
+            "meaning_cn": "传播病菌",
             "kind": "usage_example",
             "repair": null
           }
@@ -2279,7 +2582,7 @@
           "target_kind": "sense",
           "target_id": "sense:germ:3a831f8860b0587d",
           "target_locator": "record.senses[1]",
-          "target_label": "细菌，病菌"
+          "target_label": "病菌；微生物（尤指致病者）"
         }
       },
       {
@@ -2361,7 +2664,7 @@
     "ordinal": 2129,
     "word": "gesture",
     "source_owner_path": "content/lexical/words/by-ordinal/o2129.json",
-    "source_fingerprint": "e4cabfde5541c81e2d5c1a7f57c31f018e64af4f5d297a772457a60e02022981",
+    "source_fingerprint": "3a0407681a629708345f970963bf8a2eef229fcf622bf6bae6938d3efdf2e863",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2371,13 +2674,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "手势",
-      "decision_cn": "",
+      "summary_cn": "身体动作或手势；表达态度的举动；打手势",
+      "decision_cn": "gesture可为手、头等动作，也可为表示善意或态度的举动；动词gesture to/at表示打手势示意。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "手势"
+        "target_label": "身体动作或手势；表达态度的举动；打手势"
       }
     },
     "senses": [
@@ -2403,14 +2706,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "make a gesture"
             }
-          },
-          {
-            "id": "collocation:797d4fcb9742c1035785",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "a gesture of goodwill",
-            "meaning_cn": "善意的表示",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -2435,6 +2730,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a political gesture",
             "meaning_cn": "政治姿态",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:797d4fcb9742c1035785",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a gesture of goodwill",
+            "meaning_cn": "善意的表示",
             "kind": "usage_example",
             "repair": null
           }
@@ -2533,22 +2836,30 @@
     "ordinal": 2130,
     "word": "get",
     "source_owner_path": "content/lexical/words/by-ordinal/o2130.json",
-    "source_fingerprint": "97a849a3466edf6cc55bbf72515307c3111cd9118919a53321f7bf0766ea3edd",
-    "sense_lineage": [],
+    "source_fingerprint": "7d784c034a7b9fd9710e1c8368d039a69d0839777a700a105f516541268c0213",
+    "sense_lineage": [
+      {
+        "word_id": "word:get",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3f2fa60f0be01fbcc5df",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "5V"
+        "7V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "得到；变得",
-      "decision_cn": "",
+      "summary_cn": "获得、取来、到达、变得、促成、理解或患上；常用get构式",
+      "decision_cn": "按宾语和补语辨认：get a job为获得，get a coat可为取来，get home为到家，get tired为变累，get sb to help为促成帮忙，get a joke为理解，get a cold为患感冒。get被动式、have got及含介副词的构式按整体模式理解。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "得到；变得"
+        "target_label": "获得、取来、到达、变得、促成、理解或患上；常用get构式"
       }
     },
     "senses": [
@@ -2575,13 +2886,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "get + sth",
             "meaning_cn": "得到某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:3f2fa60f0be01fbcc5df",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "get + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -2595,9 +2901,9 @@
         "id": "sense:get:fe196a3b43775355",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
-        "definition_cn": "到达",
-        "definition_en": "to arrive at a place",
+        "governing_pattern": "get to a place; get home; get into/out of a place",
+        "definition_cn": "到达；移动到或进入某处",
+        "definition_en": "to reach a place or move into a particular position or location",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2627,7 +2933,7 @@
           "target_kind": "sense",
           "target_id": "sense:get:fe196a3b43775355",
           "target_locator": "record.senses[1]",
-          "target_label": "到达"
+          "target_label": "到达；移动到或进入某处"
         }
       },
       {
@@ -2711,6 +3017,58 @@
           "target_locator": "record.senses[4]",
           "target_label": "理解；明白"
         }
+      },
+      {
+        "id": "sense:get:db1ec5f01dbe95a8",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "get sb/sth from a place",
+        "definition_cn": "取来；接来",
+        "definition_en": "to go and bring someone or something to where they are wanted",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b2a49846dcd26845bc17",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "Could you get my coat?",
+            "meaning_cn": "你能把我的外套拿来吗？",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:get:db1ec5f01dbe95a8",
+          "target_locator": "record.senses[5]",
+          "target_label": "取来；接来"
+        }
+      },
+      {
+        "id": "sense:get:36cabeedcb6c74e4",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "get a cold/headache",
+        "definition_cn": "患上；受到（疾病或身体状况的影响）",
+        "definition_en": "to become affected by an illness or bodily condition",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:0c240fd54fb6881fa06a",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "get a headache",
+            "meaning_cn": "头疼起来",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:get:36cabeedcb6c74e4",
+          "target_locator": "record.senses[6]",
+          "target_label": "患上；受到（疾病或身体状况的影响）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2724,14 +3082,55 @@
           "applicability": [
             {
               "surface": "get"
+            },
+            {
+              "surface": "get",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:get:db1ec5f01dbe95a8"
+              ],
+              "owner_sense_ids": [
+                "sense:get:db1ec5f01dbe95a8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2130.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "get sb/sth from a place"
+              }
+            },
+            {
+              "surface": "get",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:get:36cabeedcb6c74e4"
+              ],
+              "owner_sense_ids": [
+                "sense:get:36cabeedcb6c74e4"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2130.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "get a cold/headache"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:get:36cabeedcb6c74e4": [
+          0
+        ],
+        "sense:get:db1ec5f01dbe95a8": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -2792,6 +3191,356 @@
           "target_id": "construction:55b224c4cea7322ec217",
           "target_locator": "record.constructions[2]",
           "target_label": "get rid of sth"
+        }
+      },
+      {
+        "id": "construction:1e8e79c780c2f1c28fbf",
+        "source_locator": "record.constructions[3]",
+        "pattern": "get + past participle",
+        "lines": [
+          {
+            "text": "受到或经历某事（get被动式）",
+            "lang": "cn"
+          },
+          {
+            "text": "如They got caught为他们被抓住了；主体经历该动作。与get sth done中安排或促成某事不同，部分过去分词也可表示状态变化。",
+            "lang": "cn"
+          },
+          {
+            "text": "to undergo an action expressed by a past participle",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1e8e79c780c2f1c28fbf",
+          "target_locator": "record.constructions[3]",
+          "target_label": "get + past participle"
+        }
+      },
+      {
+        "id": "construction:5def2a2ffc78af8d0c9b",
+        "source_locator": "record.constructions[4]",
+        "pattern": "have/has got + sth",
+        "lines": [
+          {
+            "text": "有；拥有",
+            "lang": "cn"
+          },
+          {
+            "text": "常用于口语表示现在拥有，如I have got a ticket；这里got是固定表达的一部分，不改为gotten。",
+            "lang": "cn"
+          },
+          {
+            "text": "to have something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5def2a2ffc78af8d0c9b",
+          "target_locator": "record.constructions[4]",
+          "target_label": "have/has got + sth"
+        }
+      },
+      {
+        "id": "construction:00b69dfabe4a0e604a6c",
+        "source_locator": "record.constructions[5]",
+        "pattern": "have/has got to + do",
+        "lines": [
+          {
+            "text": "必须；不得不",
+            "lang": "cn"
+          },
+          {
+            "text": "表示当前必要或义务，如We have got to leave；不是“得到某事”，也不要与有机会做某事的get to do混淆。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be obliged to do something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:00b69dfabe4a0e604a6c",
+          "target_locator": "record.constructions[5]",
+          "target_label": "have/has got to + do"
+        }
+      },
+      {
+        "id": "construction:3cc075b4b802eb9bb4d1",
+        "source_locator": "record.constructions[6]",
+        "pattern": "get up",
+        "lines": [
+          {
+            "text": "起床；站起来",
+            "lang": "cn"
+          },
+          {
+            "text": "如get up early为早起；get up也可表示从坐姿或躺姿站起。",
+            "lang": "cn"
+          },
+          {
+            "text": "to leave bed or rise to one’s feet",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3cc075b4b802eb9bb4d1",
+          "target_locator": "record.constructions[6]",
+          "target_label": "get up"
+        }
+      },
+      {
+        "id": "construction:75b9fe16c220d17c7acc",
+        "source_locator": "record.constructions[7]",
+        "pattern": "get in/into a car; get out of a car",
+        "lines": [
+          {
+            "text": "上车；下车（进入或离开车内）",
+            "lang": "cn"
+          },
+          {
+            "text": "常说get into a taxi、get out of a car；in/into表示进入，out of表示出来。",
+            "lang": "cn"
+          },
+          {
+            "text": "to enter or leave the inside of a vehicle such as a car",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:75b9fe16c220d17c7acc",
+          "target_locator": "record.constructions[7]",
+          "target_label": "get in/into a car; get out of a car"
+        }
+      },
+      {
+        "id": "construction:ed67d1973a886a00e523",
+        "source_locator": "record.constructions[8]",
+        "pattern": "get on/off a bus/train",
+        "lines": [
+          {
+            "text": "上公共汽车或火车；下车",
+            "lang": "cn"
+          },
+          {
+            "text": "on表示乘上，off表示下车；这些是常见车辆搭配，不把每一种交通工具强制归为同一介词规则。",
+            "lang": "cn"
+          },
+          {
+            "text": "to board or leave a bus or train",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ed67d1973a886a00e523",
+          "target_locator": "record.constructions[8]",
+          "target_label": "get on/off a bus/train"
+        }
+      },
+      {
+        "id": "construction:7c0f435041c25271ab52",
+        "source_locator": "record.constructions[9]",
+        "pattern": "get over sth",
+        "lines": [
+          {
+            "text": "恢复；克服；从失望等情绪中缓过来",
+            "lang": "cn"
+          },
+          {
+            "text": "如get over a cold为感冒后恢复，get over a disappointment为走出失望；本条不把所有over都解释为疾病。",
+            "lang": "cn"
+          },
+          {
+            "text": "to recover from an illness or upset, or overcome a difficulty",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7c0f435041c25271ab52",
+          "target_locator": "record.constructions[9]",
+          "target_label": "get over sth"
+        }
+      },
+      {
+        "id": "construction:87bdd180d703bc348ea0",
+        "source_locator": "record.constructions[10]",
+        "pattern": "get along/on with sb",
+        "lines": [
+          {
+            "text": "与某人相处；与某人合得来",
+            "lang": "cn"
+          },
+          {
+            "text": "well/badly可说明相处情况，如get along well with a neighbour；此处with后的对象是人。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be on friendly terms with someone",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:87bdd180d703bc348ea0",
+          "target_locator": "record.constructions[10]",
+          "target_label": "get along/on with sb"
+        }
+      },
+      {
+        "id": "construction:af3dd5a1d54c04a6f607",
+        "source_locator": "record.constructions[11]",
+        "pattern": "get by",
+        "lines": [
+          {
+            "text": "勉强过活；勉强应付",
+            "lang": "cn"
+          },
+          {
+            "text": "如get by on a small income表示收入有限但勉强维持；强调将就应付。",
+            "lang": "cn"
+          },
+          {
+            "text": "to manage to meet basic needs or do enough to cope",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:af3dd5a1d54c04a6f607",
+          "target_locator": "record.constructions[11]",
+          "target_label": "get by"
+        }
+      },
+      {
+        "id": "construction:c4c242a4f0b76c02ba1c",
+        "source_locator": "record.constructions[12]",
+        "pattern": "get through sth",
+        "lines": [
+          {
+            "text": "完成；熬过或渡过",
+            "lang": "cn"
+          },
+          {
+            "text": "如get through the work为做完工作，get through a difficult week为熬过艰难的一周。",
+            "lang": "cn"
+          },
+          {
+            "text": "to finish something or make it to the end of a difficult experience",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c4c242a4f0b76c02ba1c",
+          "target_locator": "record.constructions[12]",
+          "target_label": "get through sth"
+        }
+      },
+      {
+        "id": "construction:1f13421b714e3ebf19c7",
+        "source_locator": "record.constructions[13]",
+        "pattern": "get through (to sb)",
+        "lines": [
+          {
+            "text": "接通联系；让某人明白或理解信息",
+            "lang": "cn"
+          },
+          {
+            "text": "电话语境为接通；信息语境为让意思传达进去，如The message got through to him；不等同于一般“通过考试”。",
+            "lang": "cn"
+          },
+          {
+            "text": "to establish communication with someone or make a message understood",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1f13421b714e3ebf19c7",
+          "target_locator": "record.constructions[13]",
+          "target_label": "get through (to sb)"
+        }
+      },
+      {
+        "id": "construction:5684d513f4db01ec0658",
+        "source_locator": "record.constructions[14]",
+        "pattern": "get back (to a place/state/activity)",
+        "lines": [
+          {
+            "text": "回来；回到原有地方、状态或活动",
+            "lang": "cn"
+          },
+          {
+            "text": "如get back home为回家，get back to normal为恢复正常；to后的内容决定回到何处或何种状态。",
+            "lang": "cn"
+          },
+          {
+            "text": "to return to a previous place, state, or activity",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5684d513f4db01ec0658",
+          "target_locator": "record.constructions[14]",
+          "target_label": "get back (to a place/state/activity)"
+        }
+      },
+      {
+        "id": "construction:9ccd9fa7bd1aba69e304",
+        "source_locator": "record.constructions[15]",
+        "pattern": "get sth back",
+        "lines": [
+          {
+            "text": "取回；重新得到",
+            "lang": "cn"
+          },
+          {
+            "text": "如get a book back为把书取回；代词通常置于get与back之间：get it back。",
+            "lang": "cn"
+          },
+          {
+            "text": "to regain something one had before",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:9ccd9fa7bd1aba69e304",
+          "target_locator": "record.constructions[15]",
+          "target_label": "get sth back"
+        }
+      },
+      {
+        "id": "construction:90ada97024af17d34dee",
+        "source_locator": "record.constructions[16]",
+        "pattern": "get down to sth/doing sth",
+        "lines": [
+          {
+            "text": "开始认真做；着手处理",
+            "lang": "cn"
+          },
+          {
+            "text": "这里to是介词，后接名词或动名词，如get down to work或get down to writing。",
+            "lang": "cn"
+          },
+          {
+            "text": "to begin concentrating on a task or activity",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:90ada97024af17d34dee",
+          "target_locator": "record.constructions[16]",
+          "target_label": "get down to sth/doing sth"
         }
       }
     ],
@@ -2861,7 +3610,7 @@
     "ordinal": 2131,
     "word": "ghost",
     "source_owner_path": "content/lexical/words/by-ordinal/o2131.json",
-    "source_fingerprint": "a3a28f84bd0cd6c60195058c73235de8f463050aa3931c37fe72990b5e7209fa",
+    "source_fingerprint": "53684ceaaa108184166cc980c2cc938ff1b8440d2a377217f924b7c8521c561d",
     "sense_lineage": [
       {
         "word_id": "word:ghost",
@@ -2879,13 +3628,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "鬼、幽灵；一丝迹象；代笔；现代口语还可指突然断联",
-      "decision_cn": "spirit → 鬼/幽灵；a ghost of… → 一丝；ghost a book → 代笔；ghost someone / be ghosted → 突然断联。",
+      "summary_cn": "幽灵、一丝迹象；代笔或突然断联",
+      "decision_cn": "ghost为幽灵；a ghost of为一丝，ghost a book为代笔，ghost someone为无解释地停止联系。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "鬼、幽灵；一丝迹象；代笔；现代口语还可指突然断联"
+        "target_label": "幽灵、一丝迹象；代笔或突然断联"
       }
     },
     "senses": [
@@ -3057,7 +3806,7 @@
     "ordinal": 2132,
     "word": "giant",
     "source_owner_path": "content/lexical/words/by-ordinal/o2132.json",
-    "source_fingerprint": "4e80648f688a04ff987703d06c6d2c08e436810a1c85dabab41ac8b240c05d14",
+    "source_fingerprint": "ac3e7fd0c37eb1d1eaec99116966d2627eab3470e20826c4ebe7e8d46e55058c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3067,13 +3816,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "巨大的人或物",
-      "decision_cn": "",
+      "summary_cn": "巨人或巨物、企业或领域巨头；巨大的",
+      "decision_cn": "giant可指体形很大的生物或物体；industry giant为行业巨头，a giant of literature为文学巨匠；形容词为巨大的。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "巨大的人或物"
+        "target_label": "巨人或巨物、企业或领域巨头；巨大的"
       }
     },
     "senses": [
@@ -3083,7 +3832,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "巨人；巨物",
-        "definition_en": "a person or creature of exceptional size",
+        "definition_en": "a person, creature, or thing of exceptional size",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3108,8 +3857,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "巨头；大公司",
-        "definition_en": "an unusually large enterprise",
+        "definition_cn": "巨头；大公司；某领域的杰出人物",
+        "definition_en": "a very large or powerful enterprise, or a person of exceptional ability or influence in a field",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3120,13 +3869,21 @@
             "meaning_cn": "行业巨头",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:389a3d00365d28e04f82",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a giant of literature",
+            "meaning_cn": "文学界的巨匠",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:giant:74d0b75d23e65320",
           "target_locator": "record.senses[1]",
-          "target_label": "巨头；大公司"
+          "target_label": "巨头；大公司；某领域的杰出人物"
         }
       },
       {
@@ -3225,7 +3982,7 @@
     "ordinal": 2133,
     "word": "gift",
     "source_owner_path": "content/lexical/words/by-ordinal/o2133.json",
-    "source_fingerprint": "85cf08ee52623c3f2654cecfa79476245aa720fccdccd1864868199cce966cb8",
+    "source_fingerprint": "91c8a005c537f09b9c6976d7ffecf5ffb6fbf288f481591d9001af36a8179833",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3235,13 +3992,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "礼物；天赋",
-      "decision_cn": "",
+      "summary_cn": "礼物、天赋；赠送",
+      "decision_cn": "gift为赠送的礼物或天赋；动词gift表示把某物作为礼物赠给某人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "礼物；天赋"
+        "target_label": "礼物、天赋；赠送"
       }
     },
     "senses": [
@@ -3301,7 +4058,7 @@
         "id": "sense:gift:e7f186f8216751c6",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + sb + with + sth",
+        "governing_pattern": "gift sth to sb; gift sb with sth",
         "definition_cn": "赋予；赠送",
         "definition_en": "to give something to someone as a gift",
         "note": "",
@@ -3375,7 +4132,7 @@
     "ordinal": 2134,
     "word": "gigantic",
     "source_owner_path": "content/lexical/words/by-ordinal/o2134.json",
-    "source_fingerprint": "82a4f8f69cfe3a4892d2b5aecb065f319b0cd686c91b24014e90793ddcaaa1c5",
+    "source_fingerprint": "b4bfe0bfb36b748aeeaad09d5558bcf564ca5d07a261869a4ee9f8664f1cb76c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3416,7 +4173,7 @@
             "id": "collocation:b4929998140d4f60996e",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "gigantic task",
-            "meaning_cn": "艰巨的任务",
+            "meaning_cn": "规模庞大的任务",
             "kind": "usage_example",
             "repair": null
           }
@@ -3582,7 +4339,7 @@
     "ordinal": 2136,
     "word": "girl",
     "source_owner_path": "content/lexical/words/by-ordinal/o2136.json",
-    "source_fingerprint": "da4d0db85bdcd9a67769f762d957f546d46d3dfb8b41db6156620de4cb2717f9",
+    "source_fingerprint": "858099cac4b7d2036b2964fedf9f43256909950bd8f21f2ef1ddc966896232c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3632,8 +4389,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "女人（非正式称呼）",
-        "definition_en": "a friendly informal reference to a grown woman",
+        "definition_cn": "成年女子（非正式称呼，可能显得不尊重）",
+        "definition_en": "an informal way of referring to an adult woman, sometimes affectionate but potentially patronizing",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3641,7 +4398,7 @@
             "id": "collocation:b45bd41b0ec5b5157b7a",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "old girl",
-            "meaning_cn": "老姑娘，老同学（英式）",
+            "meaning_cn": "（英式）女校校友；对年长女子的非正式称呼，有时不敬（不表示未婚）",
             "kind": "usage_example",
             "repair": null
           }
@@ -3650,7 +4407,7 @@
           "target_kind": "sense",
           "target_id": "sense:girl:95f934dc4dee50df",
           "target_locator": "record.senses[1]",
-          "target_label": "女人（非正式称呼）"
+          "target_label": "成年女子（非正式称呼，可能显得不尊重）"
         }
       }
     ],
@@ -3714,23 +4471,31 @@
     "ordinal": 2137,
     "word": "give",
     "source_owner_path": "content/lexical/words/by-ordinal/o2137.json",
-    "source_fingerprint": "d6c6f00ccbd88efe1d68a777188cba58854b23a3c2b8dfd28c50d161646aef53",
-    "sense_lineage": [],
+    "source_fingerprint": "32ca79496c15a4034b81be66b7ace44e38d0e413b993f205f0bd18ae9826a5b6",
+    "sense_lineage": [
+      {
+        "word_id": "word:give",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d590b4c2b53ea151bec7",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "6V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "给",
-      "decision_cn": "",
+      "summary_cn": "给予、提供、让步、受力变形、引起或做出动作；弹性及常用构式",
+      "decision_cn": "give可为给予物品或提供帮助，也可引起感觉或做出动作。材料give为受力弯曲或塌陷，名词give为弹性。give in、give up、give rise to和give way to按已有整体模式理解；away、back、off、out各有对应构式。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "给"
+        "target_label": "给予、提供、让步、受力变形、引起或做出动作；弹性及常用构式"
       }
     },
     "senses": [
@@ -3826,7 +4591,7 @@
         "id": "sense:give:e9c09603102055d3",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + in/up",
+        "governing_pattern": "give in (to sb/sth); give up; give up sth/doing sth",
         "definition_cn": "让步，屈服",
         "definition_en": "to yield or surrender",
         "note": "",
@@ -3843,19 +4608,6 @@
               "target_id": "collocation:5c95d423455e122b8d3b",
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "give in"
-            }
-          },
-          {
-            "id": "collocation:d590b4c2b53ea151bec7",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "give up",
-            "meaning_cn": "放弃",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d590b4c2b53ea151bec7",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "give up"
             }
           }
         ],
@@ -3891,6 +4643,84 @@
           "target_locator": "record.senses[3]",
           "target_label": "弹性"
         }
+      },
+      {
+        "id": "sense:give:7a4eb81fe24af903",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "sth gives under pressure/weight",
+        "definition_cn": "（受力或受压后）弯曲、变形或塌陷",
+        "definition_en": "to bend, move, or collapse under physical force or pressure",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c40fab4e53d2e314e0be",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "The shelf gave under the weight.",
+            "meaning_cn": "架子承受不住重量，塌了下来。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:give:7a4eb81fe24af903",
+          "target_locator": "record.senses[4]",
+          "target_label": "（受力或受压后）弯曲、变形或塌陷"
+        }
+      },
+      {
+        "id": "sense:give:98c37fe8d9ca1b2f",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "give sb pleasure/confidence/a headache",
+        "definition_cn": "使产生（某种感觉或状态）",
+        "definition_en": "to cause someone to experience a feeling or condition",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4a6b4571ba9fc51d2164",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "The news gave her hope.",
+            "meaning_cn": "这个消息让她产生了希望。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:give:98c37fe8d9ca1b2f",
+          "target_locator": "record.senses[5]",
+          "target_label": "使产生（某种感觉或状态）"
+        }
+      },
+      {
+        "id": "sense:give:f04d04e7f744c54c",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "give a smile/push/nod",
+        "definition_cn": "做出；进行（以名词表达的动作）",
+        "definition_en": "to perform an action expressed by a following noun",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:05ff8538cd12bb17df2d",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "She gave a small nod.",
+            "meaning_cn": "她轻轻点了一下头。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:give:f04d04e7f744c54c",
+          "target_locator": "record.senses[6]",
+          "target_label": "做出；进行（以名词表达的动作）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3910,6 +4740,57 @@
               "excluded_sense_ids": [
                 "sense:give:ca65388918fb51ef"
               ]
+            },
+            {
+              "surface": "give",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:give:7a4eb81fe24af903"
+              ],
+              "owner_sense_ids": [
+                "sense:give:7a4eb81fe24af903"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2137.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "sth gives under pressure/weight"
+              }
+            },
+            {
+              "surface": "give",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:give:98c37fe8d9ca1b2f"
+              ],
+              "owner_sense_ids": [
+                "sense:give:98c37fe8d9ca1b2f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2137.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "give sb pleasure/confidence/a headache"
+              }
+            },
+            {
+              "surface": "give",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:give:f04d04e7f744c54c"
+              ],
+              "owner_sense_ids": [
+                "sense:give:f04d04e7f744c54c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2137.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "give a smile/push/nod"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -3981,6 +4862,12 @@
           0,
           1
         ],
+        "sense:give:7a4eb81fe24af903": [
+          0
+        ],
+        "sense:give:98c37fe8d9ca1b2f": [
+          0
+        ],
         "sense:give:af9558e1bdcd592d": [
           0,
           1
@@ -3988,6 +4875,9 @@
         "sense:give:e9c09603102055d3": [
           0,
           1
+        ],
+        "sense:give:f04d04e7f744c54c": [
+          0
         ],
         "sense:give:ca65388918fb51ef": [
           2,
@@ -4071,6 +4961,156 @@
           "target_id": "construction:788ac465c42bd5d5862f",
           "target_locator": "record.constructions[2]",
           "target_label": "give up sth/doing sth"
+        }
+      },
+      {
+        "id": "construction:ef77a6c053f5addfb8c7",
+        "source_locator": "record.constructions[3]",
+        "pattern": "give sth away",
+        "lines": [
+          {
+            "text": "免费送出；赠送",
+            "lang": "cn"
+          },
+          {
+            "text": "名词可置于away前或后，代词通常在中间，如give it away；这里是物品转让。",
+            "lang": "cn"
+          },
+          {
+            "text": "to give something to someone without payment",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ef77a6c053f5addfb8c7",
+          "target_locator": "record.constructions[3]",
+          "target_label": "give sth away"
+        }
+      },
+      {
+        "id": "construction:ecb69d6974fc40f4d8f6",
+        "source_locator": "record.constructions[4]",
+        "pattern": "give sth/sb away",
+        "lines": [
+          {
+            "text": "泄露；暴露（秘密、身份或真实情况）",
+            "lang": "cn"
+          },
+          {
+            "text": "如His accent gave him away为口音暴露了他；与免费送出物品的give away不同。",
+            "lang": "cn"
+          },
+          {
+            "text": "to reveal a secret or expose someone’s identity or real situation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ecb69d6974fc40f4d8f6",
+          "target_locator": "record.constructions[4]",
+          "target_label": "give sth/sb away"
+        }
+      },
+      {
+        "id": "construction:344e59e50e7edee77132",
+        "source_locator": "record.constructions[5]",
+        "pattern": "give sth back (to sb)",
+        "lines": [
+          {
+            "text": "归还",
+            "lang": "cn"
+          },
+          {
+            "text": "代词通常置于give与back之间，如give it back；可接to sb标归还对象。",
+            "lang": "cn"
+          },
+          {
+            "text": "to return something to its owner or previous holder",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:344e59e50e7edee77132",
+          "target_locator": "record.constructions[5]",
+          "target_label": "give sth back (to sb)"
+        }
+      },
+      {
+        "id": "construction:afb6f872bcf09447b1d6",
+        "source_locator": "record.constructions[6]",
+        "pattern": "give off sth",
+        "lines": [
+          {
+            "text": "散发；发出（气味、光或热等）",
+            "lang": "cn"
+          },
+          {
+            "text": "如The lamp gives off heat表示灯发热；不是把一件礼物交给别人。",
+            "lang": "cn"
+          },
+          {
+            "text": "to emit a smell, light, heat, or a similar output",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:afb6f872bcf09447b1d6",
+          "target_locator": "record.constructions[6]",
+          "target_label": "give off sth"
+        }
+      },
+      {
+        "id": "construction:96329318fa7320a6c44c",
+        "source_locator": "record.constructions[7]",
+        "pattern": "give out sth",
+        "lines": [
+          {
+            "text": "分发；发放",
+            "lang": "cn"
+          },
+          {
+            "text": "如give out leaflets为发传单；代词通常在中间：give them out。",
+            "lang": "cn"
+          },
+          {
+            "text": "to distribute something to people",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:96329318fa7320a6c44c",
+          "target_locator": "record.constructions[7]",
+          "target_label": "give out sth"
+        }
+      },
+      {
+        "id": "construction:a0d6a95a7201bda53d81",
+        "source_locator": "record.constructions[8]",
+        "pattern": "give out",
+        "lines": [
+          {
+            "text": "耗尽；失灵；支撑不住",
+            "lang": "cn"
+          },
+          {
+            "text": "如My energy gave out为精力耗尽；此用法无被分发的宾语，区别give out sth。",
+            "lang": "cn"
+          },
+          {
+            "text": "to become exhausted, stop working, or fail",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a0d6a95a7201bda53d81",
+          "target_locator": "record.constructions[8]",
+          "target_label": "give out"
         }
       }
     ],
@@ -4219,7 +5259,7 @@
     "ordinal": 2139,
     "word": "glad",
     "source_owner_path": "content/lexical/words/by-ordinal/o2139.json",
-    "source_fingerprint": "c132c47fdf4d48a47846ca7ab86b5ed3535847de607ad818b35a2ac9de324f4c",
+    "source_fingerprint": "a302bd087362192f4f4bd13c9d791948adb162329ecb151905adfdfbe7fb24c7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4228,13 +5268,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "高兴的，欢喜的",
-      "decision_cn": "",
+      "summary_cn": "高兴的；乐意的",
+      "decision_cn": "glad可表示高兴；be glad to help也可表示乐意帮忙，需按上下文理解。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "高兴的，欢喜的"
+        "target_label": "高兴的；乐意的"
       }
     },
     "senses": [
@@ -4264,8 +5304,8 @@
           {
             "id": "collocation:bd1e2a7369a8f650c1a7",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "glad news",
-            "meaning_cn": "好消息",
+            "phrase": "I'm glad to hear the news.",
+            "meaning_cn": "听到这个消息我很高兴。",
             "kind": "usage_example",
             "repair": null
           }
@@ -4339,7 +5379,7 @@
     "ordinal": 2140,
     "word": "glamor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2140.json",
-    "source_fingerprint": "7f47da584339796f5b83bd4b166cb3d9ddc71d09e2977e44313f718b66b2c773",
+    "source_fingerprint": "ea05ffbf6521d648874e0ecc9a25787d06aae14a2ef6c35bdd31a8cd3ae89e06",
     "sense_lineage": [
       {
         "word_id": "word:glamor",
@@ -4357,7 +5397,7 @@
     },
     "word_feel": {
       "summary_cn": "魅力；迷人的美",
-      "decision_cn": "US spelling glamor / BrE glamour → 魅力、迷人的吸引力。少见动词“迷惑/迷住”保留为 Reference。",
+      "decision_cn": "glamor 是 glamour 的北美变体；glamour 在英美均使用。主要表示美感、风格或地位带来的吸引力。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4371,8 +5411,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "魅力；迷人的美",
-        "definition_en": "alluring beauty or charm (often with sex-appeal)",
+        "definition_cn": "魅力；令人向往的吸引力",
+        "definition_en": "an attractive or exciting quality associated with beauty, style, wealth or status",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4389,7 +5429,7 @@
           "target_kind": "sense",
           "target_id": "sense:glamor:b54e005fdaa45d1a",
           "target_locator": "record.senses[0]",
-          "target_label": "魅力；迷人的美"
+          "target_label": "魅力；令人向往的吸引力"
         }
       }
     ],
@@ -4450,17 +5490,17 @@
       "confusables": [],
       "relations": [],
       "form": {
-        "boundary": "glamor is the usual American spelling; glamour is the usual British spelling. Both frozen Word owners remain distinct catalogue identities.",
+        "boundary": "glamor is a North American variant of glamour; glamour is used in both British and American English. Frozen Word identities remain distinct.",
         "boundaries": [
           {
             "surface": "glamor",
-            "condition": "American English",
-            "note": "AmE spelling"
+            "condition": "North American variant",
+            "note": "variant spelling"
           },
           {
             "surface": "glamour",
-            "condition": "British English",
-            "note": "BrE spelling"
+            "condition": "British and American English",
+            "note": "shared spelling, not British-only"
           }
         ],
         "variants": [],
@@ -4468,7 +5508,7 @@
           "target_kind": "form_identity",
           "target_id": null,
           "target_locator": "record.form_identity",
-          "target_label": "glamor is the usual American spelling; glamour is the usual British spelling. Both frozen Word owners remain distinct catalogue identities."
+          "target_label": "glamor is a North American variant of glamour; glamour is used in both British and American English. Frozen Word identities remain distinct."
         }
       },
       "family": [],
@@ -4497,7 +5537,7 @@
     "ordinal": 2141,
     "word": "glance",
     "source_owner_path": "content/lexical/words/by-ordinal/o2141.json",
-    "source_fingerprint": "bb082dd43d820381d12978712887ee29f04d173723729fb08e928ace7790b381",
+    "source_fingerprint": "58a2bf8052c9655a245b208f8dec27bbe1ee15d760a726ddbd3b67a23a509df1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4507,13 +5547,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "快速看一眼",
-      "decision_cn": "",
+      "summary_cn": "瞥见或一瞥；斜碰后弹开",
+      "decision_cn": "glance为快速看或一瞥；glance off a surface为斜碰该表面后弹开，不能译成看了一眼。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "快速看一眼"
+        "target_label": "瞥见或一瞥；斜碰后弹开"
       }
     },
     "senses": [
@@ -4653,7 +5693,7 @@
     "ordinal": 2142,
     "word": "glare",
     "source_owner_path": "content/lexical/words/by-ordinal/o2142.json",
-    "source_fingerprint": "eefc9418eaefe5a62cea9f87289d4286e662e6211647295d77ab799666a83258",
+    "source_fingerprint": "dc6c3b31dc1365a77c09bb4648430cc3bb034b3b2e175c793cdb042fc5ad91e1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4775,7 +5815,7 @@
             "id": "collocation:0efb122aa241befe4e27",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "The sun glared down.",
-            "meaning_cn": "太阳灼热地照射。",
+            "meaning_cn": "太阳发出刺眼的光。",
             "kind": "usage_example",
             "repair": null
           }
@@ -4835,7 +5875,7 @@
     "ordinal": 2143,
     "word": "glass",
     "source_owner_path": "content/lexical/words/by-ordinal/o2143.json",
-    "source_fingerprint": "4fb1fe8ecb5b6edd2ec0a83e7eae71f80d58fe8e96b02af823a126cdfcf7069a",
+    "source_fingerprint": "f65bcf85427309ab25c0763b2b2b384f340f2e44609bdba7f59951fa9407ecce",
     "sense_lineage": [
       {
         "word_id": "word:glass",
@@ -4875,21 +5915,13 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "玻璃",
-        "definition_en": "a hard, brittle, transparent material made from sand",
+        "definition_en": "a hard, brittle material, usually transparent, used for windows, bottles and other objects",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:3c0e66075d02a01a4990",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a glass of water",
-            "meaning_cn": "一杯水",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:218dbbdbdac7423ee06a",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "glass bottle",
             "meaning_cn": "玻璃瓶",
             "kind": "usage_example",
@@ -4908,8 +5940,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "玻璃杯",
-        "definition_en": "a container for drinking, made of glass",
+        "definition_cn": "玻璃杯；一杯的量",
+        "definition_en": "a drinking container, usually made of glass, or the amount it holds",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4928,13 +5960,21 @@
             "meaning_cn": "一杯酒",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:3c0e66075d02a01a4990",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "a glass of water",
+            "meaning_cn": "一杯水",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:glass:be73dade7d205a48",
           "target_locator": "record.senses[1]",
-          "target_label": "玻璃杯"
+          "target_label": "玻璃杯；一杯的量"
         }
       },
       {
@@ -5066,7 +6106,7 @@
     "ordinal": 2144,
     "word": "glide",
     "source_owner_path": "content/lexical/words/by-ordinal/o2144.json",
-    "source_fingerprint": "20495c5f0e5de1768a0ad3df5a584a98b1c82a4ded51e9a287d7b9addef5da63",
+    "source_fingerprint": "4e737dc90a3fda13fe9ae63420bdb795f5c6d91a8654c4b593a8a9aec6b8d91d",
     "sense_lineage": [
       {
         "word_id": "word:glide",
@@ -5081,6 +6121,13 @@
         "from_target_id": "collocation:bd3679fec6b8af2024ab",
         "status": "reference",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:glide",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c53146b67785fb04582c",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -5092,7 +6139,7 @@
     },
     "word_feel": {
       "summary_cn": "平滑地移动",
-      "decision_cn": "motion → 平稳无声地滑行；air → 滑翔；noun → 滑翔活动。少见使动“使…滑动/悄悄移动”保留为 Reference。",
+      "decision_cn": "地面、水面等 → 平稳滑行；空中 → 不拍翼或不使用发动机的滑翔；名词可指一次平稳滑行。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5124,10 +6171,19 @@
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "滑翔",
-        "definition_en": "fly in or as if in a glider plane",
+        "definition_en": "to fly smoothly without flapping wings or using engine power",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:c53146b67785fb04582c",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "go gliding",
+            "meaning_cn": "去滑翔",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:glide:9672727e4971558c",
@@ -5140,30 +6196,16 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "滑翔运动",
-        "definition_en": "the activity of flying a glider",
+        "definition_cn": "平稳滑行；滑翔",
+        "definition_en": "a continuous smooth movement, including a gliding flight",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c53146b67785fb04582c",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "go gliding",
-            "meaning_cn": "去滑翔",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c53146b67785fb04582c",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "go gliding"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:glide:fe9e1c7d6fc25afd",
           "target_locator": "record.senses[2]",
-          "target_label": "滑翔运动"
+          "target_label": "平稳滑行；滑翔"
         }
       }
     ],
@@ -5238,13 +6280,20 @@
     "ordinal": 2145,
     "word": "glimpse",
     "source_owner_path": "content/lexical/words/by-ordinal/o2145.json",
-    "source_fingerprint": "88b4e1311656571a2de208e1b1aa49b419e5975ad161d9bc6b46f66bca5c3b74",
+    "source_fingerprint": "a06d922a9745ffd92c42cd182c516098496de45ed910e7e5015ab2cc2cf67de1",
     "sense_lineage": [
       {
         "word_id": "word:glimpse",
         "target_kind": "sense",
         "from_target_id": "sense:glimpse:1c93293825da5c70",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:glimpse",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:efd3081cdcb9cf31370e",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -5320,13 +6369,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "glimpse + sb/sth",
             "meaning_cn": "瞥见某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:efd3081cdcb9cf31370e",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "glimpse + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:27f4ebc06a0952efefb7",
@@ -5494,23 +6538,23 @@
     "ordinal": 2146,
     "word": "glitter",
     "source_owner_path": "content/lexical/words/by-ordinal/o2146.json",
-    "source_fingerprint": "b39401ace1fba7c78023bd4fbd8eaaa5507fd6f8d7f7afb0ed410f90f8b23ba8",
+    "source_fingerprint": "fd4a6a20cb70757500b991a3e81bfe5a26b536472282cdc6d5765d45110cdc7a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "闪烁，闪耀",
-      "decision_cn": "",
+      "summary_cn": "闪烁、闪光；闪光碎片或亮粉",
+      "decision_cn": "glitter作动词为闪烁，名词可为闪光，也可为装饰卡片或物品的亮粉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "闪烁，闪耀"
+        "target_label": "闪烁、闪光；闪光碎片或亮粉"
       }
     },
     "senses": [
@@ -5556,6 +6600,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "闪烁的光，灿烂"
         }
+      },
+      {
+        "id": "sense:glitter:87b1d6226041bdfe",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "sprinkle glitter on sth",
+        "definition_cn": "装饰用闪光碎片；亮粉",
+        "definition_en": "small shiny particles used as decoration",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9d8632cfc24e11260cdf",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "gold glitter on the card",
+            "meaning_cn": "卡片上的金色亮粉",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:glitter:87b1d6226041bdfe",
+          "target_locator": "record.senses[2]",
+          "target_label": "装饰用闪光碎片；亮粉"
+        }
       }
     ],
     "pronunciation_support": {
@@ -5568,6 +6638,23 @@
           "applicability": [
             {
               "surface": "glitter"
+            },
+            {
+              "surface": "glitter",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:glitter:87b1d6226041bdfe"
+              ],
+              "owner_sense_ids": [
+                "sense:glitter:87b1d6226041bdfe"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2146.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "sprinkle glitter on sth"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -5587,8 +6674,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:glitter:87b1d6226041bdfe": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -5732,7 +6823,7 @@
     "ordinal": 2148,
     "word": "globe",
     "source_owner_path": "content/lexical/words/by-ordinal/o2148.json",
-    "source_fingerprint": "284976e0649cffea7df01fde64370b68eacdee70236d8b897e0f3e20837b5806",
+    "source_fingerprint": "ea1a2654f17799ea521ea349dc9730891fdc4ee9ab8a41e4ae3d5eed802c4c8e",
     "sense_lineage": [
       {
         "word_id": "word:globe",
@@ -5942,7 +7033,7 @@
     "ordinal": 2149,
     "word": "gloomy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2149.json",
-    "source_fingerprint": "1dd5c8123212c1e7b16303256f8e35d63b0d6553fdf816643adb051912d28996",
+    "source_fingerprint": "12f90038cd690bfb7a20070bec61e15cbf9662e8f54d0d282e41e4cf1e344c82",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5951,13 +7042,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "阴暗的；忧郁的",
-      "decision_cn": "",
+      "summary_cn": "阴暗的；忧郁的；悲观的",
+      "decision_cn": "环境可阴暗；心情可沮丧；看法或前景可悲观。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "阴暗的；忧郁的"
+        "target_label": "阴暗的；忧郁的；悲观的"
       }
     },
     "senses": [
@@ -5966,8 +7057,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "忧郁的，沮丧的",
-        "definition_en": "filled with melancholy and despondency",
+        "definition_cn": "忧郁的；沮丧或悲观的",
+        "definition_en": "sad or pessimistic; offering little reason for hope",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5997,7 +7088,7 @@
           "target_kind": "sense",
           "target_id": "sense:gloomy:9c70e416620f51a3",
           "target_locator": "record.senses[0]",
-          "target_label": "忧郁的，沮丧的"
+          "target_label": "忧郁的；沮丧或悲观的"
         }
       },
       {
@@ -6074,22 +7165,22 @@
     "ordinal": 2150,
     "word": "glorious",
     "source_owner_path": "content/lexical/words/by-ordinal/o2150.json",
-    "source_fingerprint": "edee782f83506e51764ee50d0fd0739fe59416a60097dfd02d6e9a99b0df622b",
+    "source_fingerprint": "ac2656225c04b5b19459de4f40a00d57c2dcd565624a4ddcc7341b75a7aaef17",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "光荣的；辉煌的",
-      "decision_cn": "",
+      "summary_cn": "光荣的、壮丽的或美妙愉快的",
+      "decision_cn": "glorious victory为光荣胜利，glorious scenery为壮丽景色；glorious weekend可只是非常愉快的周末。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "光荣的；辉煌的"
+        "target_label": "光荣的、壮丽的或美妙愉快的"
       }
     },
     "senses": [
@@ -6170,6 +7261,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "壮丽的；辉煌的"
         }
+      },
+      {
+        "id": "sense:glorious:0820aff589e37220",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "a glorious day/weekend",
+        "definition_cn": "极好的；令人愉快的",
+        "definition_en": "very enjoyable or wonderful",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e957c51686d6d5830e80",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a glorious weekend",
+            "meaning_cn": "一个美妙的周末",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:glorious:0820aff589e37220",
+          "target_locator": "record.senses[2]",
+          "target_label": "极好的；令人愉快的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6182,6 +7299,23 @@
           "applicability": [
             {
               "surface": "glorious"
+            },
+            {
+              "surface": "glorious",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:glorious:0820aff589e37220"
+              ],
+              "owner_sense_ids": [
+                "sense:glorious:0820aff589e37220"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2150.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "a glorious day/weekend"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6201,8 +7335,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:glorious:0820aff589e37220": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -6219,23 +7357,23 @@
     "ordinal": 2151,
     "word": "glory",
     "source_owner_path": "content/lexical/words/by-ordinal/o2151.json",
-    "source_fingerprint": "4101b1ed673e9ceb3080cbbaac99bd2c6f77391e8de70557a4425507f510129b",
+    "source_fingerprint": "aa031305dc53e7b8bef4188802b18f8bd61a53f1c3f8afcfa9882f13c26a788e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "极大的荣誉或美丽",
-      "decision_cn": "",
+      "summary_cn": "荣耀、壮美或引以为傲的人与事；感到自豪",
+      "decision_cn": "glory可为成就带来的荣耀、美景的壮美，或引以为傲的人与事；glory in sth表示以某事为荣。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "极大的荣誉或美丽"
+        "target_label": "荣耀、壮美或引以为傲的人与事；感到自豪"
       }
     },
     "senses": [
@@ -6320,6 +7458,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "自豪；得意"
         }
+      },
+      {
+        "id": "sense:glory:8a179df6653ee39b",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "the glory of a place/group",
+        "definition_cn": "引以为傲或令人赞叹的人、事物",
+        "definition_en": "a person or thing that brings pride or admiration",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d84e84a06ea2dcffb1ed",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The museum is the glory of the town.",
+            "meaning_cn": "这座博物馆是镇上引以为傲的地方。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:glory:8a179df6653ee39b",
+          "target_locator": "record.senses[3]",
+          "target_label": "引以为傲或令人赞叹的人、事物"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6332,6 +7496,23 @@
           "applicability": [
             {
               "surface": "glory"
+            },
+            {
+              "surface": "glory",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:glory:8a179df6653ee39b"
+              ],
+              "owner_sense_ids": [
+                "sense:glory:8a179df6653ee39b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2151.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "the glory of a place/group"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6351,8 +7532,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:glory:8a179df6653ee39b": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -6395,7 +7580,7 @@
     "ordinal": 2152,
     "word": "glove",
     "source_owner_path": "content/lexical/words/by-ordinal/o2152.json",
-    "source_fingerprint": "b386539a45b69eee06a1e6503aae5e61fcfd35b2e3c1487c9a77d809c9edff57",
+    "source_fingerprint": "198bd9b985d69324321bd294be1577c6f4d39fa7b813b699cdf84020cdafcb5f",
     "sense_lineage": [
       {
         "word_id": "word:glove",
@@ -6409,7 +7594,7 @@
       "parts": [
         "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "手套",
@@ -6471,7 +7656,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:21507ceccfcb32041522",
+        "source_locator": "record.constructions[0]",
+        "pattern": "fit like a glove",
+        "lines": [
+          {
+            "text": "十分合身；完全适合",
+            "lang": "cn"
+          },
+          {
+            "text": "衣服语境表示尺寸合身；其他语境表示非常适合，如The role fits her like a glove。",
+            "lang": "cn"
+          },
+          {
+            "text": "to fit a person or purpose extremely well",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:21507ceccfcb32041522",
+          "target_locator": "record.constructions[0]",
+          "target_label": "fit like a glove"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6512,7 +7723,7 @@
     "ordinal": 2153,
     "word": "glow",
     "source_owner_path": "content/lexical/words/by-ordinal/o2153.json",
-    "source_fingerprint": "4689b4ad82d88886a819070e1dcb893ca4aca2879185ac3e6c545bfda4f26c0d",
+    "source_fingerprint": "c250437bb5c4a5aaa9359ab499c4e453184e201fb15030e719ff21a47107d070",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6522,13 +7733,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "发出稳定的光，发光",
-      "decision_cn": "",
+      "summary_cn": "稳定的光、发光、温暖愉快的感觉或容光焕发",
+      "decision_cn": "glow可为稳定的光，热物也可glow发光；a glow of pride为自豪感，glow with pride为因自豪而容光焕发。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "发出稳定的光，发光"
+        "target_label": "稳定的光、发光、温暖愉快的感觉或容光焕发"
       }
     },
     "senses": [
@@ -6537,8 +7748,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "光辉，炽热",
-        "definition_en": "a steady even light without flames",
+        "definition_cn": "柔和稳定的光；炽热物发出的光",
+        "definition_en": "a steady soft light, such as the light from something hot",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6555,7 +7766,7 @@
           "target_kind": "sense",
           "target_id": "sense:glow:ad7f3062078358f6",
           "target_locator": "record.senses[0]",
-          "target_label": "光辉，炽热"
+          "target_label": "柔和稳定的光；炽热物发出的光"
         }
       },
       {
@@ -6563,8 +7774,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vi.",
-        "definition_cn": "发光，发热",
-        "definition_en": "emit a steady even light without flames",
+        "definition_cn": "发出稳定的光（尤指受热后）",
+        "definition_en": "to give off a steady light, especially as if heated",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6594,7 +7805,7 @@
           "target_kind": "sense",
           "target_id": "sense:glow:bd64725d201c5f12",
           "target_locator": "record.senses[1]",
-          "target_label": "发光，发热"
+          "target_label": "发出稳定的光（尤指受热后）"
         }
       },
       {
@@ -6602,8 +7813,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "热情，热烈",
-        "definition_en": "a feeling of considerable warmth",
+        "definition_cn": "温暖愉快的感觉",
+        "definition_en": "a warm pleasant feeling, for example of pride or satisfaction",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6620,7 +7831,7 @@
           "target_kind": "sense",
           "target_id": "sense:glow:a7e797d223f95bbb",
           "target_locator": "record.senses[2]",
-          "target_label": "热情，热烈"
+          "target_label": "温暖愉快的感觉"
         }
       },
       {
@@ -6628,8 +7839,8 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi.",
-        "definition_cn": "容光焕发，脸红",
-        "definition_en": "have a complexion with a strong bright color, such as red or pink",
+        "definition_cn": "（因健康、快乐等）容光焕发；脸色红润",
+        "definition_en": "to look bright or flushed because of health, happiness or another strong feeling",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6640,13 +7851,21 @@
             "meaning_cn": "容光焕发",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:6d271601797f5f6674f1",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "glow with pride",
+            "meaning_cn": "因自豪而容光焕发",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:glow:0fabf1d0b3ac50c0",
           "target_locator": "record.senses[3]",
-          "target_label": "容光焕发，脸红"
+          "target_label": "（因健康、快乐等）容光焕发；脸色红润"
         }
       }
     ],
@@ -6697,23 +7916,23 @@
     "ordinal": 2154,
     "word": "glue",
     "source_owner_path": "content/lexical/words/by-ordinal/o2154.json",
-    "source_fingerprint": "9ec55138879a4342c69ec697df1a07079bfb24cd19c4f7149ecd232e734d1d63",
+    "source_fingerprint": "db6046000e63e217fd830b1dcc47efa55cf409946feb744d8ca25bf18346ff54",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "胶水或粘合",
-      "decision_cn": "",
+      "summary_cn": "胶水、粘合或凝聚纽带；注意力牢牢固定",
+      "decision_cn": "glue物品为粘合；the glue that holds a group together可比喻维系团体的纽带。be glued to sth表示注意力牢牢固定。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "胶水或粘合"
+        "target_label": "胶水、粘合或凝聚纽带；注意力牢牢固定"
       }
     },
     "senses": [
@@ -6722,8 +7941,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "胶，胶水",
-        "definition_en": "cement consisting of a sticky substance that is used as an adhesive",
+        "definition_cn": "胶；胶水",
+        "definition_en": "a sticky substance used to fasten things together",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6740,7 +7959,7 @@
           "target_kind": "sense",
           "target_id": "sense:glue:9238d872dbf653e9",
           "target_locator": "record.senses[0]",
-          "target_label": "胶，胶水"
+          "target_label": "胶；胶水"
         }
       },
       {
@@ -6786,9 +8005,9 @@
         "id": "sense:glue:f4eeb2985e825184",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "粘住，紧贴",
-        "definition_en": "be fixed as if by glue",
+        "governing_pattern": "usually passive: be glued to sth",
+        "definition_cn": "紧贴；目不转睛地看；全神贯注于",
+        "definition_en": "to remain very close to something or give it all one's attention, as if attached",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -6796,7 +8015,33 @@
           "target_kind": "sense",
           "target_id": "sense:glue:f4eeb2985e825184",
           "target_locator": "record.senses[2]",
-          "target_label": "粘住，紧贴"
+          "target_label": "紧贴；目不转睛地看；全神贯注于"
+        }
+      },
+      {
+        "id": "sense:glue:976dd8862630bbec",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "the glue that holds a group together",
+        "definition_cn": "凝聚力；维系关系的纽带",
+        "definition_en": "a factor that holds a group or relationship together",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:5efa5921278c54cae1e5",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "Music was the glue that held the group together.",
+            "meaning_cn": "音乐是维系这个团体的纽带。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:glue:976dd8862630bbec",
+          "target_locator": "record.senses[3]",
+          "target_label": "凝聚力；维系关系的纽带"
         }
       }
     ],
@@ -6810,6 +8055,23 @@
           "applicability": [
             {
               "surface": "glue"
+            },
+            {
+              "surface": "glue",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:glue:976dd8862630bbec"
+              ],
+              "owner_sense_ids": [
+                "sense:glue:976dd8862630bbec"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2154.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "the glue that holds a group together"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6829,8 +8091,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:glue:976dd8862630bbec": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -6847,23 +8113,31 @@
     "ordinal": 2155,
     "word": "go",
     "source_owner_path": "content/lexical/words/by-ordinal/o2155.json",
-    "source_fingerprint": "8c81ab29d16ab2d32d826f033e5aed51451de76a4a47fc1ca4b3c634fb1613a8",
-    "sense_lineage": [],
+    "source_fingerprint": "53a2ae27e1c3e73f7019b4bdedc8ebd5e457986bf3a45ae39e8e6867fa0fa1f2",
+    "sense_lineage": [
+      {
+        "word_id": "word:go",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:d27303de79782d50f3d9",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "5V",
+        "10V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "去，走",
-      "decision_cn": "",
+      "summary_cn": "移动、进行、消失、花费用途、变得或尝试；措辞旋律、空间、位置、延伸与声音；常用构式",
+      "decision_cn": "先看主语和补语：人go为移动，事情go well为顺利进行；箱子go through门可指过得去，钥匙go in抽屉可指应放在那里。道路go to某处为通向，旋律go like this为曲调如此，go bang为发出砰声。含介副词的常用构式按各自整体模式理解。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "去，走"
+        "target_label": "移动、进行、消失、花费用途、变得或尝试；措辞旋律、空间、位置、延伸与声音；常用构式"
       }
     },
     "senses": [
@@ -6918,9 +8192,9 @@
         "id": "sense:go:a4968567c9a45855",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + on/with",
+        "governing_pattern": "go well/badly; go on doing sth; go on to do sth",
         "definition_cn": "进行，运转",
-        "definition_en": "to continue or proceed in a certain way",
+        "definition_en": "to proceed in a particular way or to function",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6936,19 +8210,6 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "go on"
             }
-          },
-          {
-            "id": "collocation:d27303de79782d50f3d9",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "go with + sth",
-            "meaning_cn": "与...相配",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d27303de79782d50f3d9",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "go with + sth"
-            }
           }
         ],
         "repair": {
@@ -6963,8 +8224,8 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "消失，结束",
-        "definition_en": "to leave or disappear",
+        "definition_cn": "离开；消失、结束",
+        "definition_en": "to leave, disappear, or come to an end",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -6972,7 +8233,7 @@
           "target_kind": "sense",
           "target_id": "sense:go:5a6d967024f75d10",
           "target_locator": "record.senses[2]",
-          "target_label": "消失，结束"
+          "target_label": "离开；消失、结束"
         }
       },
       {
@@ -7039,6 +8300,136 @@
           "target_locator": "record.senses[5]",
           "target_label": "变得；进入某种状态"
         }
+      },
+      {
+        "id": "sense:go:a3966b34200dd725",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "go like this; as the story goes",
+        "definition_cn": "（故事、措辞或旋律）是这样说、唱或演奏的",
+        "definition_en": "to have a particular wording, story, or tune",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:8982af27272b4d0cb1db",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "The tune goes like this.",
+            "meaning_cn": "旋律是这样的。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:go:a3966b34200dd725",
+          "target_locator": "record.senses[6]",
+          "target_label": "（故事、措辞或旋律）是这样说、唱或演奏的"
+        }
+      },
+      {
+        "id": "sense:go:1c5bb16ebb1b521d",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "go in/into/through a space",
+        "definition_cn": "放得下；穿得过",
+        "definition_en": "to fit into or pass through a space",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9e71d7e077a17a02082a",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "The box will not go through the door.",
+            "meaning_cn": "这个箱子过不了这扇门。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:go:1c5bb16ebb1b521d",
+          "target_locator": "record.senses[7]",
+          "target_label": "放得下；穿得过"
+        }
+      },
+      {
+        "id": "sense:go:4128d8eae7b321af",
+        "source_locator": "record.senses[8]",
+        "pos": "verb",
+        "governing_pattern": "sth goes here/there/on a shelf",
+        "definition_cn": "应放在；应处于某个位置",
+        "definition_en": "to belong or be normally kept in a particular place",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:47b3052b62c6ea6757f6",
+            "source_locator": "record.senses[8].collocations[0]",
+            "phrase": "These keys go in the drawer.",
+            "meaning_cn": "这些钥匙应该放在抽屉里。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:go:4128d8eae7b321af",
+          "target_locator": "record.senses[8]",
+          "target_label": "应放在；应处于某个位置"
+        }
+      },
+      {
+        "id": "sense:go:aead8343315e7475",
+        "source_locator": "record.senses[9]",
+        "pos": "verb",
+        "governing_pattern": "a road/path goes to/from a place",
+        "definition_cn": "（道路等）延伸、通向",
+        "definition_en": "to extend or lead to a place",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:ec9abc55299649ccd252",
+            "source_locator": "record.senses[9].collocations[0]",
+            "phrase": "The path goes down to the river.",
+            "meaning_cn": "这条小路一直通到河边。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:go:aead8343315e7475",
+          "target_locator": "record.senses[9]",
+          "target_label": "（道路等）延伸、通向"
+        }
+      },
+      {
+        "id": "sense:go:bdddab48f750be98",
+        "source_locator": "record.senses[10]",
+        "pos": "verb",
+        "governing_pattern": "go bang; go, “…”",
+        "definition_cn": "发出（某种声音）；（口语转述）说",
+        "definition_en": "to produce a specified sound or quote someone’s words in informal speech",
+        "note": "go bang等发声模式是不及物go后接声音补语；bang不是普通受事宾语，不作相应被动。go, “…”用于非正式口语转述，后接引语。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:160a7cffb704c79cbfd6",
+            "source_locator": "record.senses[10].collocations[0]",
+            "phrase": "The door went bang.",
+            "meaning_cn": "门砰地响了一声。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:go:bdddab48f750be98",
+          "target_locator": "record.senses[10]",
+          "target_label": "发出（某种声音）；（口语转述）说"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7051,6 +8442,91 @@
           "applicability": [
             {
               "surface": "go"
+            },
+            {
+              "surface": "go",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:go:a3966b34200dd725"
+              ],
+              "owner_sense_ids": [
+                "sense:go:a3966b34200dd725"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2155.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "go like this; as the story goes"
+              }
+            },
+            {
+              "surface": "go",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:go:1c5bb16ebb1b521d"
+              ],
+              "owner_sense_ids": [
+                "sense:go:1c5bb16ebb1b521d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2155.json",
+              "source_pointer": "/record/senses/7",
+              "conditions": {
+                "current_owner_usage": "go in/into/through a space"
+              }
+            },
+            {
+              "surface": "go",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:go:4128d8eae7b321af"
+              ],
+              "owner_sense_ids": [
+                "sense:go:4128d8eae7b321af"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2155.json",
+              "source_pointer": "/record/senses/8",
+              "conditions": {
+                "current_owner_usage": "sth goes here/there/on a shelf"
+              }
+            },
+            {
+              "surface": "go",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:go:aead8343315e7475"
+              ],
+              "owner_sense_ids": [
+                "sense:go:aead8343315e7475"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2155.json",
+              "source_pointer": "/record/senses/9",
+              "conditions": {
+                "current_owner_usage": "a road/path goes to/from a place"
+              }
+            },
+            {
+              "surface": "go",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:go:bdddab48f750be98"
+              ],
+              "owner_sense_ids": [
+                "sense:go:bdddab48f750be98"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2155.json",
+              "source_pointer": "/record/senses/10",
+              "conditions": {
+                "current_owner_usage": "go bang; go, “…”"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7070,8 +8546,24 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:go:1c5bb16ebb1b521d": [
+          0
+        ],
+        "sense:go:4128d8eae7b321af": [
+          0
+        ],
+        "sense:go:a3966b34200dd725": [
+          0
+        ],
+        "sense:go:aead8343315e7475": [
+          0
+        ],
+        "sense:go:bdddab48f750be98": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -7107,6 +8599,606 @@
           "target_id": "construction:8fe37298cdb48dd97d6f",
           "target_locator": "record.constructions[1]",
           "target_label": "go on to do sth"
+        }
+      },
+      {
+        "id": "construction:go:go-with-match",
+        "source_locator": "record.constructions[2]",
+        "pattern": "go with sth",
+        "lines": [
+          {
+            "text": "与……相配／协调",
+            "lang": "cn"
+          },
+          {
+            "text": "matching use; distinct from proceeding and literal accompanying",
+            "lang": "en"
+          },
+          {
+            "text": "to match or look suitable together",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:go:go-with-match",
+          "target_locator": "record.constructions[2]",
+          "target_label": "go with sth"
+        }
+      },
+      {
+        "id": "construction:bac6e63dcd429cc65a90",
+        "source_locator": "record.constructions[3]",
+        "pattern": "be going to + do",
+        "lines": [
+          {
+            "text": "打算做；预计将会发生",
+            "lang": "cn"
+          },
+          {
+            "text": "如I am going to call her表示打算；It is going to rain表示预计下雨。to后接动词原形，不是表示活动的going swimming。",
+            "lang": "cn"
+          },
+          {
+            "text": "to express an intention or an expected future event",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bac6e63dcd429cc65a90",
+          "target_locator": "record.constructions[3]",
+          "target_label": "be going to + do"
+        }
+      },
+      {
+        "id": "construction:bdf825aca55104e2cfaf",
+        "source_locator": "record.constructions[4]",
+        "pattern": "go + doing sth",
+        "lines": [
+          {
+            "text": "去从事某项活动",
+            "lang": "cn"
+          },
+          {
+            "text": "常见go swimming、go shopping；此模式中的活动用动名词，不可把所有动作一律改成go doing。",
+            "lang": "cn"
+          },
+          {
+            "text": "to leave or go somewhere to take part in an activity",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bdf825aca55104e2cfaf",
+          "target_locator": "record.constructions[4]",
+          "target_label": "go + doing sth"
+        }
+      },
+      {
+        "id": "construction:019eb66548ff50fa09dd",
+        "source_locator": "record.constructions[5]",
+        "pattern": "go ahead (with sth)",
+        "lines": [
+          {
+            "text": "开始或继续进行",
+            "lang": "cn"
+          },
+          {
+            "text": "可表示获得许可后着手，也可表示活动照计划进行；go ahead with the plan为继续执行计划。",
+            "lang": "cn"
+          },
+          {
+            "text": "to start or continue with a planned activity",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:019eb66548ff50fa09dd",
+          "target_locator": "record.constructions[5]",
+          "target_label": "go ahead (with sth)"
+        }
+      },
+      {
+        "id": "construction:89c618d394e6a4ca70e8",
+        "source_locator": "record.constructions[6]",
+        "pattern": "go on",
+        "lines": [
+          {
+            "text": "发生；出现",
+            "lang": "cn"
+          },
+          {
+            "text": "What is going on?问发生了什么；与go on doing和go on to do的继续模式分开。",
+            "lang": "cn"
+          },
+          {
+            "text": "to happen or take place",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:89c618d394e6a4ca70e8",
+          "target_locator": "record.constructions[6]",
+          "target_label": "go on"
+        }
+      },
+      {
+        "id": "construction:cf0750a8319f4b21d913",
+        "source_locator": "record.constructions[7]",
+        "pattern": "go off",
+        "lines": [
+          {
+            "text": "（警报、闹钟等）响起",
+            "lang": "cn"
+          },
+          {
+            "text": "如The alarm went off表示警报突然响起。",
+            "lang": "cn"
+          },
+          {
+            "text": "to begin sounding as a signal or alarm",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cf0750a8319f4b21d913",
+          "target_locator": "record.constructions[7]",
+          "target_label": "go off"
+        }
+      },
+      {
+        "id": "construction:84bf00ddadcee211ab3f",
+        "source_locator": "record.constructions[8]",
+        "pattern": "go off",
+        "lines": [
+          {
+            "text": "（炸弹）爆炸；（枪）开火",
+            "lang": "cn"
+          },
+          {
+            "text": "主语是炸弹等爆炸物或枪，不是闹钟或停止工作的设备。",
+            "lang": "cn"
+          },
+          {
+            "text": "to explode or discharge",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:84bf00ddadcee211ab3f",
+          "target_locator": "record.constructions[8]",
+          "target_label": "go off"
+        }
+      },
+      {
+        "id": "construction:e94e50b73b86eb9d8be8",
+        "source_locator": "record.constructions[9]",
+        "pattern": "go off",
+        "lines": [
+          {
+            "text": "（灯、供电或设备等）停止工作",
+            "lang": "cn"
+          },
+          {
+            "text": "如The lights went off表示灯灭了；与警报go off开始响不同。",
+            "lang": "cn"
+          },
+          {
+            "text": "to stop operating or supplying power",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e94e50b73b86eb9d8be8",
+          "target_locator": "record.constructions[9]",
+          "target_label": "go off"
+        }
+      },
+      {
+        "id": "construction:409e79ddb39add6a4cae",
+        "source_locator": "record.constructions[10]",
+        "pattern": "go off",
+        "lines": [
+          {
+            "text": "（食物）变质",
+            "lang": "cn"
+          },
+          {
+            "text": "主要英国用法；如The milk has gone off表示牛奶变质。",
+            "lang": "cn"
+          },
+          {
+            "text": "to become spoiled or unfit to eat",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:409e79ddb39add6a4cae",
+          "target_locator": "record.constructions[10]",
+          "target_label": "go off"
+        }
+      },
+      {
+        "id": "construction:706cc7f5b25b5ec7b9a6",
+        "source_locator": "record.constructions[11]",
+        "pattern": "go off sb/sth",
+        "lines": [
+          {
+            "text": "不再喜欢某人或某物",
+            "lang": "cn"
+          },
+          {
+            "text": "主要英国非正式用法；sb/sth是原来喜欢而现在失去兴趣的对象。",
+            "lang": "cn"
+          },
+          {
+            "text": "to stop liking someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:706cc7f5b25b5ec7b9a6",
+          "target_locator": "record.constructions[11]",
+          "target_label": "go off sb/sth"
+        }
+      },
+      {
+        "id": "construction:ea4d2f08d9ada6c46058",
+        "source_locator": "record.constructions[12]",
+        "pattern": "go out",
+        "lines": [
+          {
+            "text": "（火、灯等）熄灭",
+            "lang": "cn"
+          },
+          {
+            "text": "如The candle went out表示蜡烛熄灭；不是人离开房间。",
+            "lang": "cn"
+          },
+          {
+            "text": "to stop burning or shining",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ea4d2f08d9ada6c46058",
+          "target_locator": "record.constructions[12]",
+          "target_label": "go out"
+        }
+      },
+      {
+        "id": "construction:1e936ffc265bf0d22235",
+        "source_locator": "record.constructions[13]",
+        "pattern": "go out with sb",
+        "lines": [
+          {
+            "text": "与某人约会；与某人谈恋爱",
+            "lang": "cn"
+          },
+          {
+            "text": "with后的人是交往对象；普通go out可只是外出，须看上下文。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be in a romantic dating relationship with someone",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1e936ffc265bf0d22235",
+          "target_locator": "record.constructions[13]",
+          "target_label": "go out with sb"
+        }
+      },
+      {
+        "id": "construction:c6d5824d24073a1077fc",
+        "source_locator": "record.constructions[14]",
+        "pattern": "go over sth",
+        "lines": [
+          {
+            "text": "复习；仔细检查",
+            "lang": "cn"
+          },
+          {
+            "text": "如go over the notes为复习笔记，go over the figures为检查数字。",
+            "lang": "cn"
+          },
+          {
+            "text": "to review or examine something carefully",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c6d5824d24073a1077fc",
+          "target_locator": "record.constructions[14]",
+          "target_label": "go over sth"
+        }
+      },
+      {
+        "id": "construction:e968154179dd8c0a654e",
+        "source_locator": "record.constructions[15]",
+        "pattern": "go through sth",
+        "lines": [
+          {
+            "text": "逐项检查；搜查",
+            "lang": "cn"
+          },
+          {
+            "text": "如go through the files为逐项检查文件；此处sth是检查或搜查对象。",
+            "lang": "cn"
+          },
+          {
+            "text": "to inspect or search something in detail",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e968154179dd8c0a654e",
+          "target_locator": "record.constructions[15]",
+          "target_label": "go through sth"
+        }
+      },
+      {
+        "id": "construction:5a25a0f2e58c2c366309",
+        "source_locator": "record.constructions[16]",
+        "pattern": "go through sth",
+        "lines": [
+          {
+            "text": "经历；经受",
+            "lang": "cn"
+          },
+          {
+            "text": "如go through a hard time为经历困难时期；不表示仔细检查这个时期。",
+            "lang": "cn"
+          },
+          {
+            "text": "to experience an event or difficult period",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5a25a0f2e58c2c366309",
+          "target_locator": "record.constructions[16]",
+          "target_label": "go through sth"
+        }
+      },
+      {
+        "id": "construction:3906d786be772fc59cc2",
+        "source_locator": "record.constructions[17]",
+        "pattern": "go through sth",
+        "lines": [
+          {
+            "text": "用完；耗费",
+            "lang": "cn"
+          },
+          {
+            "text": "如go through a lot of paper为用掉很多纸；宾语是被消耗的资源或数量。",
+            "lang": "cn"
+          },
+          {
+            "text": "to use or consume an amount of something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3906d786be772fc59cc2",
+          "target_locator": "record.constructions[17]",
+          "target_label": "go through sth"
+        }
+      },
+      {
+        "id": "construction:8f3f0ee0f3ed5d0d8693",
+        "source_locator": "record.constructions[18]",
+        "pattern": "go through",
+        "lines": [
+          {
+            "text": "获得批准；顺利完成",
+            "lang": "cn"
+          },
+          {
+            "text": "如The deal went through表示交易达成；本模式以计划或交易等为主语，不接被检查的对象。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be approved or successfully completed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8f3f0ee0f3ed5d0d8693",
+          "target_locator": "record.constructions[18]",
+          "target_label": "go through"
+        }
+      },
+      {
+        "id": "construction:392e42a3212af68aa0d1",
+        "source_locator": "record.constructions[19]",
+        "pattern": "go without (sth)",
+        "lines": [
+          {
+            "text": "在没有某物的情况下生活或应付",
+            "lang": "cn"
+          },
+          {
+            "text": "如go without breakfast为不吃早饭；需要的东西可明说，也可由上下文省略。",
+            "lang": "cn"
+          },
+          {
+            "text": "to manage without having something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:392e42a3212af68aa0d1",
+          "target_locator": "record.constructions[19]",
+          "target_label": "go without (sth)"
+        }
+      },
+      {
+        "id": "construction:30131d718bdf10c7269b",
+        "source_locator": "record.constructions[20]",
+        "pattern": "go up",
+        "lines": [
+          {
+            "text": "（价格、数量等）上升",
+            "lang": "cn"
+          },
+          {
+            "text": "如Prices went up表示价格上涨；同形的物理上楼按移动义理解。",
+            "lang": "cn"
+          },
+          {
+            "text": "to increase in amount or level",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:30131d718bdf10c7269b",
+          "target_locator": "record.constructions[20]",
+          "target_label": "go up"
+        }
+      },
+      {
+        "id": "construction:da9f07532709d665a354",
+        "source_locator": "record.constructions[21]",
+        "pattern": "go down",
+        "lines": [
+          {
+            "text": "（价格、数量等）下降",
+            "lang": "cn"
+          },
+          {
+            "text": "如The temperature went down表示气温下降；物理向下移动仍按场所理解。",
+            "lang": "cn"
+          },
+          {
+            "text": "to decrease in amount or level",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:da9f07532709d665a354",
+          "target_locator": "record.constructions[21]",
+          "target_label": "go down"
+        }
+      },
+      {
+        "id": "construction:62b2637e115dab12c2ca",
+        "source_locator": "record.constructions[22]",
+        "pattern": "go by",
+        "lines": [
+          {
+            "text": "（时间）流逝",
+            "lang": "cn"
+          },
+          {
+            "text": "如As the weeks go by表示随着几周过去；主语是时间。",
+            "lang": "cn"
+          },
+          {
+            "text": "to pass, when referring to time",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:62b2637e115dab12c2ca",
+          "target_locator": "record.constructions[22]",
+          "target_label": "go by"
+        }
+      },
+      {
+        "id": "construction:7e8dadc559e11e4b73dd",
+        "source_locator": "record.constructions[23]",
+        "pattern": "go by sth",
+        "lines": [
+          {
+            "text": "以某事为依据；遵循",
+            "lang": "cn"
+          },
+          {
+            "text": "如go by the rules为按规则办；这里by后的内容是依据。",
+            "lang": "cn"
+          },
+          {
+            "text": "to judge or act on the basis of something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7e8dadc559e11e4b73dd",
+          "target_locator": "record.constructions[23]",
+          "target_label": "go by sth"
+        }
+      },
+      {
+        "id": "construction:f5fcd0d081536f823613",
+        "source_locator": "record.constructions[24]",
+        "pattern": "go by a name",
+        "lines": [
+          {
+            "text": "以某个名字为人所知",
+            "lang": "cn"
+          },
+          {
+            "text": "如She goes by a different name表示她使用另一个名字；不涉及时间流逝。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be known by a particular name",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f5fcd0d081536f823613",
+          "target_locator": "record.constructions[24]",
+          "target_label": "go by a name"
+        }
+      },
+      {
+        "id": "construction:6ef7fa4ca61cd44ec35c",
+        "source_locator": "record.constructions[25]",
+        "pattern": "go for sth; go for it",
+        "lines": [
+          {
+            "text": "争取；努力取得",
+            "lang": "cn"
+          },
+          {
+            "text": "如go for the prize为争取奖项，Go for it!可鼓励对方行动；这里for后的对象是争取的目标；其他含义需按上下文判断。",
+            "lang": "cn"
+          },
+          {
+            "text": "to try to obtain or achieve something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6ef7fa4ca61cd44ec35c",
+          "target_locator": "record.constructions[25]",
+          "target_label": "go for sth; go for it"
         }
       }
     ],
@@ -7154,7 +9246,7 @@
     "ordinal": 2156,
     "word": "goal",
     "source_owner_path": "content/lexical/words/by-ordinal/o2156.json",
-    "source_fingerprint": "eff778392e4addb23bb5457cce29eafe58970c40918be8a0cb1d6dd95ca3bff9",
+    "source_fingerprint": "135e073203d1cef6efe45e422246afabb77580fdc2d4de8b396fadf3d3bfbb35",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7216,24 +9308,7 @@
         "definition_en": "the area or structure in sports where players try to score",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:19c8b94bf678326eb69f",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "score a goal",
-            "meaning_cn": "进球得分",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:49159cc706be2e7e186a",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "own goal",
-            "meaning_cn": "乌龙球",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:goal:1b60a5d2d5e85b9f",
@@ -7256,6 +9331,22 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "win by two goals",
             "meaning_cn": "以两球获胜",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:19c8b94bf678326eb69f",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "score a goal",
+            "meaning_cn": "进球得分",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:49159cc706be2e7e186a",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "own goal",
+            "meaning_cn": "乌龙球",
             "kind": "usage_example",
             "repair": null
           }
@@ -7315,13 +9406,20 @@
     "ordinal": 2157,
     "word": "goat",
     "source_owner_path": "content/lexical/words/by-ordinal/o2157.json",
-    "source_fingerprint": "c6bc19aa798fd8517466dd028fd7580f7f1f611583a0ca97081fbe4edab5365d",
+    "source_fingerprint": "08a9d37dba7beaef78566ecbb851a842a57b90e5903c1e65175150a82fdfd092",
     "sense_lineage": [
       {
         "word_id": "word:goat",
         "target_kind": "sense",
         "from_target_id": "sense:goat:3a6e0282157b5966",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:goat",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e2512d6d9de6c95c6786",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -7348,7 +9446,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "山羊",
-        "definition_en": "any of numerous agile ruminants related to sheep but having a beard and straight horns",
+        "definition_en": "an animal related to sheep, often with horns and a beard, kept for milk, meat or wool and also found wild",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7359,19 +9457,6 @@
             "meaning_cn": "石山羊",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:e2512d6d9de6c95c6786",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "separate the sheep from the goats",
-            "meaning_cn": "区分好坏；分清优劣",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e2512d6d9de6c95c6786",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "separate the sheep from the goats"
-            }
           }
         ],
         "repair": {
@@ -7415,7 +9500,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:goat:separate-sheep-goats",
+        "source_locator": "record.constructions[0]",
+        "pattern": "separate the sheep from the goats",
+        "lines": [
+          {
+            "text": "区分好坏；分清优劣",
+            "lang": "cn"
+          },
+          {
+            "text": "figurative evaluative idiom; not literal animal classification",
+            "lang": "en"
+          },
+          {
+            "text": "to distinguish the capable or good people from the others",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:goat:separate-sheep-goats",
+          "target_locator": "record.constructions[0]",
+          "target_label": "separate the sheep from the goats"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7755,8 +9866,16 @@
     "ordinal": 2159,
     "word": "gold",
     "source_owner_path": "content/lexical/words/by-ordinal/o2159.json",
-    "source_fingerprint": "495d659bde947d299b50266f12901f3f4b1cf42c14d15a99de509eae4a3e33c8",
-    "sense_lineage": [],
+    "source_fingerprint": "5bcf348908f42712f61f8d68372bb44cbdeee95c3bcc4eee492681c8b02b13d2",
+    "sense_lineage": [
+      {
+        "word_id": "word:gold",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b6acc551e4bf1d5ca60b",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
@@ -7844,16 +9963,7 @@
         "definition_en": "wealth or something very valuable",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b6acc551e4bf1d5ca60b",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a heart of gold",
-            "meaning_cn": "金子般的心",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:gold:6bc3d7be0a9c54c5",
@@ -7895,7 +10005,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:gold:heart-of-gold",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a heart of gold",
+        "lines": [
+          {
+            "text": "极其善良的心；心地非常善良",
+            "lang": "cn"
+          },
+          {
+            "text": "fixed figurative description of character",
+            "lang": "en"
+          },
+          {
+            "text": "a very kind and generous nature",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:gold:heart-of-gold",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a heart of gold"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7909,7 +10045,7 @@
     "ordinal": 2160,
     "word": "golden",
     "source_owner_path": "content/lexical/words/by-ordinal/o2160.json",
-    "source_fingerprint": "597479f6d2e7033b82ab7b93790635f27eece51a986de5085f17a28110044a3c",
+    "source_fingerprint": "af68936d6fa4015bc2b54cefd5a3ce3929caab43e9d55961b694465cb5f36476",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7918,13 +10054,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "金色的；贵重的；繁荣的",
-      "decision_cn": "",
+      "summary_cn": "金色的／金制的；极好或繁荣的",
+      "decision_cn": "金色的；贵重的；繁荣的",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "金色的；贵重的；繁荣的"
+        "target_label": "金色的／金制的；极好或繁荣的"
       }
     },
     "senses": [
@@ -7993,8 +10129,8 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "繁荣的，兴隆的",
-        "definition_en": "very successful and prosperous",
+        "definition_cn": "极好的；绝佳的；繁荣的",
+        "definition_en": "very favorable, successful or prosperous",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8029,7 +10165,7 @@
           "target_kind": "sense",
           "target_id": "sense:golden:a7d37237165a58b6",
           "target_locator": "record.senses[2]",
-          "target_label": "繁荣的，兴隆的"
+          "target_label": "极好的；绝佳的；繁荣的"
         }
       }
     ],
@@ -8067,7 +10203,7 @@
     "ordinal": 2161,
     "word": "golf",
     "source_owner_path": "content/lexical/words/by-ordinal/o2161.json",
-    "source_fingerprint": "49467873e77b3fe3d88902297bd0a710221cb6d3e0a564b22ef8dacd63511080",
+    "source_fingerprint": "977f4365456c7ca5bad0fc5c6e60f7caace91ef9c7fdc447451d7a81193d0569",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8221,23 +10357,23 @@
     "ordinal": 2162,
     "word": "good",
     "source_owner_path": "content/lexical/words/by-ordinal/o2162.json",
-    "source_fingerprint": "0b98608f11b7bb9ae7f6f50483bd902b472c6533c8f95804e33254da07063ad3",
+    "source_fingerprint": "9797d8746ff6285c89e9538b74090e95414025dee5cbeabb464ba108b2028a3d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A",
+        "5A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "好的；有益的",
-      "decision_cn": "quality → 好；benefit → 有益；noun good → 好处/善；for good → 永久地；as good as → 几乎、基本等于。",
+      "summary_cn": "优良、有益、健康、有效、善良或守规矩；善和利益；技能及数量表达",
+      "decision_cn": "good评价事物为优良，good for为有益，feel good可为身体或心情好，票good until某日为在该期限内有效。good to sb为善待某人，good with sth为擅长应对；a good hour强调足足的时长。名词good可为善或利益。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "好的；有益的"
+        "target_label": "优良、有益、健康、有效、善良或守规矩；善和利益；技能及数量表达"
       }
     },
     "senses": [
@@ -8323,7 +10459,7 @@
             "id": "collocation:af44b58215993767df26",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "do good",
-            "meaning_cn": "做好事",
+            "meaning_cn": "行善；产生益处",
             "kind": "usage_example",
             "repair": null
           },
@@ -8342,6 +10478,92 @@
           "target_locator": "record.senses[2]",
           "target_label": "善；好处；利益"
         }
+      },
+      {
+        "id": "sense:good:8f85f167276ad287",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "feel good; in good health",
+        "definition_cn": "健康的；身体状况良好的",
+        "definition_en": "healthy or in a sound physical condition",
+        "note": "feel good也可指心情好，具体含义看上下文；feel是连系动词，后接形容词。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:cb1efd6cb042727e82fe",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "I feel good this morning.",
+            "meaning_cn": "今天早上我感觉身体状态很好。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:good:8f85f167276ad287",
+          "target_locator": "record.senses[3]",
+          "target_label": "健康的；身体状况良好的"
+        }
+      },
+      {
+        "id": "sense:good:3d51e1f0193b7a01",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "a ticket/offer is good until a date",
+        "definition_cn": "有效的；可使用的",
+        "definition_en": "valid or effective for its stated purpose or period",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:6c5a7db377a10eb39a89",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "The ticket is good until Friday.",
+            "meaning_cn": "这张票有效至周五。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:good:3d51e1f0193b7a01",
+          "target_locator": "record.senses[4]",
+          "target_label": "有效的；可使用的"
+        }
+      },
+      {
+        "id": "sense:good:f4212b0066f70a0d",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "a good person; be good to sb; good of sb to do",
+        "definition_cn": "品行好的；善良的；乖的",
+        "definition_en": "morally good, kind, or well behaved",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:1d430eadf9b3efe20518",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "be good to someone",
+            "meaning_cn": "善待某人",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:38eac47be0e729917221",
+            "source_locator": "record.senses[5].collocations[1]",
+            "phrase": "It was good of you to help.",
+            "meaning_cn": "你愿意帮忙，真是好心。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:good:f4212b0066f70a0d",
+          "target_locator": "record.senses[5]",
+          "target_label": "品行好的；善良的；乖的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8355,14 +10577,75 @@
           "applicability": [
             {
               "surface": "good"
+            },
+            {
+              "surface": "good",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:good:8f85f167276ad287"
+              ],
+              "owner_sense_ids": [
+                "sense:good:8f85f167276ad287"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2162.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "feel good; in good health"
+              }
+            },
+            {
+              "surface": "good",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:good:3d51e1f0193b7a01"
+              ],
+              "owner_sense_ids": [
+                "sense:good:3d51e1f0193b7a01"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2162.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "a ticket/offer is good until a date"
+              }
+            },
+            {
+              "surface": "good",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:good:f4212b0066f70a0d"
+              ],
+              "owner_sense_ids": [
+                "sense:good:f4212b0066f70a0d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2162.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a good person; be good to sb; good of sb to do"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:good:3d51e1f0193b7a01": [
+          0
+        ],
+        "sense:good:8f85f167276ad287": [
+          0
+        ],
+        "sense:good:f4212b0066f70a0d": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -8431,6 +10714,81 @@
           "target_id": "construction:good:as-good-as",
           "target_locator": "record.constructions[2]",
           "target_label": "as good as + adjective/past participle"
+        }
+      },
+      {
+        "id": "construction:2e3568252801eb4d1996",
+        "source_locator": "record.constructions[3]",
+        "pattern": "be good with sb/sth",
+        "lines": [
+          {
+            "text": "擅长应对某人或使用某物",
+            "lang": "cn"
+          },
+          {
+            "text": "如good with children表示善于和孩子相处，good with tools表示善于使用工具；good at通常后接活动或技能。",
+            "lang": "cn"
+          },
+          {
+            "text": "to handle people or things skilfully",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:2e3568252801eb4d1996",
+          "target_locator": "record.constructions[3]",
+          "target_label": "be good with sb/sth"
+        }
+      },
+      {
+        "id": "construction:d14a21acac0e6fa68f5f",
+        "source_locator": "record.constructions[4]",
+        "pattern": "a good + 数量或时长",
+        "lines": [
+          {
+            "text": "足足；整整（强调数量或时长）",
+            "lang": "cn"
+          },
+          {
+            "text": "如a good hour为足足一小时；这里good强调数量，不是评价这一小时质量好。",
+            "lang": "cn"
+          },
+          {
+            "text": "to emphasize a full or considerable amount or duration",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d14a21acac0e6fa68f5f",
+          "target_locator": "record.constructions[4]",
+          "target_label": "a good + 数量或时长"
+        }
+      },
+      {
+        "id": "construction:f43ed5f07daf124f3aad",
+        "source_locator": "record.constructions[5]",
+        "pattern": "a good many + 复数名词",
+        "lines": [
+          {
+            "text": "很多；相当多",
+            "lang": "cn"
+          },
+          {
+            "text": "many后接可数复数，如a good many visitors；good为强调数量。",
+            "lang": "cn"
+          },
+          {
+            "text": "a considerable number of people or things",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f43ed5f07daf124f3aad",
+          "target_locator": "record.constructions[5]",
+          "target_label": "a good many + 复数名词"
         }
       }
     ],
@@ -8612,22 +10970,22 @@
     "ordinal": 2164,
     "word": "goodness",
     "source_owner_path": "content/lexical/words/by-ordinal/o2164.json",
-    "source_fingerprint": "1a5593cb2cc88979aa516e13941bb67640e97904e2ef81473a615a940c003541",
+    "source_fingerprint": "e02c4440372c8c42416dd7364f2a48880607f638bae795f4c78bc56bfc7b08f1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "善良，美德",
-      "decision_cn": "noun → 善良、美德；Goodness!/My goodness! → 表示惊讶等强烈情绪。",
+      "summary_cn": "善良、仁慈；有益成分或精华；惊讶感叹",
+      "decision_cn": "goodness可为人的善良，也可为事物中有益的成分；Goodness!等感叹表示惊讶。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "善良，美德"
+        "target_label": "善良、仁慈；有益成分或精华；惊讶感叹"
       }
     },
     "senses": [
@@ -8656,6 +11014,32 @@
           "target_locator": "record.senses[0]",
           "target_label": "仁慈，善良"
         }
+      },
+      {
+        "id": "sense:goodness:44eee85742bc28e0",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "the goodness in/of sth",
+        "definition_cn": "有益或优良的成分；精华",
+        "definition_en": "the beneficial or valuable elements contained in something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2f06a3700f99332b2bb3",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "the goodness in fresh vegetables",
+            "meaning_cn": "新鲜蔬菜中的有益成分",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:goodness:44eee85742bc28e0",
+          "target_locator": "record.senses[1]",
+          "target_label": "有益或优良的成分；精华"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8666,6 +11050,23 @@
           "applicability": [
             {
               "surface": "goodness"
+            },
+            {
+              "surface": "goodness",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:goodness:44eee85742bc28e0"
+              ],
+              "owner_sense_ids": [
+                "sense:goodness:44eee85742bc28e0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2164.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "the goodness in/of sth"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8685,8 +11086,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:goodness:44eee85742bc28e0": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -9121,7 +11526,7 @@
     "ordinal": 2167,
     "word": "gorgeous",
     "source_owner_path": "content/lexical/words/by-ordinal/o2167.json",
-    "source_fingerprint": "d200cbe3636ac084fef2ea8c08b5ce7de69c5f5d1006b0cc0a94372afbb6cfc4",
+    "source_fingerprint": "60b1246e6f318dc8040ea9381c21ce8f31cd6bc469132fa431795bf86c68518e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9130,13 +11535,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "极其美丽",
+      "summary_cn": "极美的；极好的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "极其美丽"
+        "target_label": "极美的；极好的"
       }
     },
     "senses": [
@@ -9145,8 +11550,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "华丽的；灿烂的",
-        "definition_en": "dazzlingly beautiful",
+        "definition_cn": "极美的；极好的；令人愉快的",
+        "definition_en": "very beautiful or attractive; extremely pleasant or enjoyable",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9171,7 +11576,7 @@
           "target_kind": "sense",
           "target_id": "sense:gorgeous:9c6b4f24da4152dc",
           "target_locator": "record.senses[0]",
-          "target_label": "华丽的；灿烂的"
+          "target_label": "极美的；极好的；令人愉快的"
         }
       }
     ],
@@ -9209,7 +11614,7 @@
     "ordinal": 2168,
     "word": "gossip",
     "source_owner_path": "content/lexical/words/by-ordinal/o2168.json",
-    "source_fingerprint": "db48b25cd073f002090fca580f3162ccb3833312e7643440bf24594bb304e286",
+    "source_fingerprint": "a2b8a8b7d97ae2a59b074d9a23a04c1c7e230c58a38c02f9cabffeb07f8b402b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9246,6 +11651,14 @@
             "meaning_cn": "散布流言",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:181fc4c752620b6d548e",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "a gossip columnist",
+            "meaning_cn": "八卦专栏作家",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9264,16 +11677,7 @@
         "definition_en": "a person given to gossiping and divulging personal information about others",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:181fc4c752620b6d548e",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "a gossip columnist",
-            "meaning_cn": "八卦专栏作家",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:gossip:631aefe9a81359d0",
@@ -9355,7 +11759,7 @@
     "ordinal": 2169,
     "word": "govern",
     "source_owner_path": "content/lexical/words/by-ordinal/o2169.json",
-    "source_fingerprint": "84e55a9d0c6cae026bebfc2c6909dcb6c8827ad8b04134f1c8435e831a886123",
+    "source_fingerprint": "0a4c0f22f2a0ddaa56490c8da6bebfa1384e5f9c511170f4ae8c942cab3ff909",
     "sense_lineage": [
       {
         "word_id": "word:govern",
@@ -9379,13 +11783,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "控制或影响",
-      "decision_cn": "country/institution → 统治治理；rule/factor → 支配、影响。语言学“支配格/语气”等专门义保留为 Reference。",
+      "summary_cn": "统治、治理；支配或影响",
+      "decision_cn": "govern国家为统治或治理；因素govern一个过程表示支配其运行或影响结果。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "控制或影响"
+        "target_label": "统治、治理；支配或影响"
       }
     },
     "senses": [
@@ -9393,7 +11797,7 @@
         "id": "sense:govern:143bbf67ffa753c0",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "govern (a country/region); govern effectively",
         "definition_cn": "统治；治理",
         "definition_en": "exercise authority over; as of nations",
         "note": "",
@@ -9666,7 +12070,7 @@
     "ordinal": 2171,
     "word": "governor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2171.json",
-    "source_fingerprint": "680741c9ef4e4394b2a9a119b815ecb4fcb6ea17af1d8478ed49c2bf8ffaf6df",
+    "source_fingerprint": "1f033aea21604b52fc639aed26e1c0f8e35458ee58b32dda66acbc9f8494a5e3",
     "sense_lineage": [
       {
         "word_id": "word:governor",
@@ -9818,7 +12222,7 @@
     "ordinal": 2172,
     "word": "gown",
     "source_owner_path": "content/lexical/words/by-ordinal/o2172.json",
-    "source_fingerprint": "d74f7135b6d633c2c3ab2a64bd9c8691b25f65a9e798af479978ac610106ad38",
+    "source_fingerprint": "49eb391135f54d81147a7b2f2ba2cf5ed4767ba2b38558cb100db39f20978439",
     "sense_lineage": [
       {
         "word_id": "word:gown",
@@ -9858,7 +12262,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "女式礼服；长裙",
-        "definition_en": "a woman's dress, usually with a close-fitting bodice and a long flared skirt, often worn on formal occasions",
+        "definition_en": "a long dress worn on formal or special occasions",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9883,8 +12287,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "长袍；法衣",
-        "definition_en": "outerwear consisting of a long flowing garment used for official or ceremonial occasions",
+        "definition_cn": "长袍；（职业、医疗或仪式用）罩袍",
+        "definition_en": "a loose garment worn for professional, medical or ceremonial purposes",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9901,7 +12305,7 @@
           "target_kind": "sense",
           "target_id": "sense:gown:296e477482835cbd",
           "target_locator": "record.senses[1]",
-          "target_label": "长袍；法衣"
+          "target_label": "长袍；（职业、医疗或仪式用）罩袍"
         }
       }
     ],
@@ -9981,8 +12385,16 @@
     "ordinal": 2173,
     "word": "grab",
     "source_owner_path": "content/lexical/words/by-ordinal/o2173.json",
-    "source_fingerprint": "e627f53a85d532ec00d687d107389bc32f74214e040e74ed658dde7b73e96654",
-    "sense_lineage": [],
+    "source_fingerprint": "e0082ab83a1651fe2e3e093cfa8d7914f0137e71e756eb05aa2de1c3acc0d2b4",
+    "sense_lineage": [
+      {
+        "word_id": "word:grab",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:dba07b12b31322ed222d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V",
@@ -9991,13 +12403,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "突然抓住",
+      "summary_cn": "突然抓住／迅速获取；抢占；吸引注意；一次抓取",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "突然抓住"
+        "target_label": "突然抓住／迅速获取；抢占；吸引注意；一次抓取"
       }
     },
     "senses": [
@@ -10006,23 +12418,18 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "抓取；攫取",
-        "definition_en": "to take or grasp suddenly",
+        "definition_cn": "抓住；迅速拿取或获得",
+        "definition_en": "to take hold of something suddenly, or obtain or do something quickly",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:dba07b12b31322ed222d",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "grab + sth",
-            "meaning_cn": "抓住某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:dba07b12b31322ed222d",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "grab + sth"
-            }
+            "phrase": "grab the handle",
+            "meaning_cn": "抓住把手",
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:c3a1889c1ee91441fc66",
@@ -10037,7 +12444,7 @@
           "target_kind": "sense",
           "target_id": "sense:grab:59fbea605f5e5287",
           "target_locator": "record.senses[0]",
-          "target_label": "抓取；攫取"
+          "target_label": "抓住；迅速拿取或获得"
         }
       },
       {
@@ -10164,7 +12571,7 @@
     "ordinal": 2174,
     "word": "grace",
     "source_owner_path": "content/lexical/words/by-ordinal/o2174.json",
-    "source_fingerprint": "306de836e2269178386857ddca8be5744b09166d55abfc1a22e35f52f1b26aa0",
+    "source_fingerprint": "e031188574671b394bea0b6b22adebe9ceb128cbf83cc00cd59cc15bdeb6c75b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10174,13 +12581,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "优雅；恩典；慈悲；使优美",
-      "decision_cn": "",
+      "summary_cn": "优美、礼貌善意、恩典、谢恩祷告、宽限；使增光；好感或声望表达",
+      "decision_cn": "grace可指动作优美或待人礼貌，也可指宗教恩典、餐前谢恩祷告或宽限期；grace作动词为使增光。good graces和fall from grace表示好感、认可与声望。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "优雅；恩典；慈悲；使优美"
+        "target_label": "优美、礼貌善意、恩典、谢恩祷告、宽限；使增光；好感或声望表达"
       }
     },
     "senses": [
@@ -10215,8 +12622,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "慈悲；善意",
-        "definition_en": "a disposition to kindness and compassion",
+        "definition_cn": "礼貌；体谅；善意",
+        "definition_en": "polite, considerate or kind behavior",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10238,7 +12645,7 @@
           "target_kind": "sense",
           "target_id": "sense:grace:61942c45ac0251f3",
           "target_locator": "record.senses[1]",
-          "target_label": "慈悲；善意"
+          "target_label": "礼貌；体谅；善意"
         }
       },
       {
@@ -10303,8 +12710,8 @@
         "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "宽限期",
-        "definition_en": "a period of time allowed before payment is due",
+        "definition_cn": "宽限；宽限期",
+        "definition_en": "extra time allowed to pay money, finish work or meet another requirement",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10326,7 +12733,7 @@
           "target_kind": "sense",
           "target_id": "sense:grace:96ca0ac8246b58ca",
           "target_locator": "record.senses[4]",
-          "target_label": "宽限期"
+          "target_label": "宽限；宽限期"
         }
       },
       {
@@ -10377,7 +12784,58 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:06993d68f94316d2b3a6",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in sb’s good graces",
+        "lines": [
+          {
+            "text": "得到某人的好感或赏识",
+            "lang": "cn"
+          },
+          {
+            "text": "如in the manager’s good graces表示受到经理赏识；graces在这个表达中用复数。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be liked and esteemed by someone, especially someone in authority",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:06993d68f94316d2b3a6",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in sb’s good graces"
+        }
+      },
+      {
+        "id": "construction:dc0919b024c253399021",
+        "source_locator": "record.constructions[1]",
+        "pattern": "fall from grace",
+        "lines": [
+          {
+            "text": "失宠；失去认可或好名声",
+            "lang": "cn"
+          },
+          {
+            "text": "常指言行曝光或表现变化后失去公众或他人认可；并不只限宗教语境。",
+            "lang": "cn"
+          },
+          {
+            "text": "to lose acceptance or a good reputation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dc0919b024c253399021",
+          "target_locator": "record.constructions[1]",
+          "target_label": "fall from grace"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

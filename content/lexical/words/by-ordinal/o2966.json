@@ -13,15 +13,37 @@
         "level": "L1",
         "meaning_cn": "marry sb 不用 to/with；get/be married to sb 使用 to",
         "pattern": "marry sb vs get/be married to sb"
+      },
+      {
+        "construction_id": "construction:8232f2e02da43a93f5fc",
+        "pattern": "marry sb off (to sb)",
+        "meaning_cn": "为某人安排婚姻；把某人嫁出去或为其娶妻",
+        "definition_en": "to arrange a marriage for someone",
+        "usage_note": "可分离：marry her off；常带不赞同评价，暗示由他人安排，与当事人marry into的句式分开。",
+        "boundary": "可分离：marry her off；常带不赞同评价，暗示由他人安排，与当事人marry into的句式分开。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "c77cd4ca555b27590696ba71fab18a736fb235fa2b45d2d30a098215d4500cad",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "成为某人的配偶",
-      "core_meaning_en": "to become someone's husband or wife",
-      "mental_model_cn": "成为某人的配偶",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "与人结婚/成婚；主持婚礼；融合事物；安排婚姻",
+          "label_en": "to marry a partner, officiate a wedding, combine things, or arrange a marriage",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:marry:73d7721c5d3652b2",
+            "sense:marry:35477cc29e525ab2",
+            "sense:marry:54464dfc71a450b3",
+            "sense:marry:2ab363f7b77b29d6"
+          ]
+        }
+      ],
+      "core_meaning_cn": "与人结婚/成婚；主持婚礼；融合事物；安排婚姻",
+      "core_meaning_en": "to marry a partner, officiate a wedding, combine things, or arrange a marriage",
+      "mental_model_cn": "marry sb不加with/to；be married by a priest说主持者；marry A with B可指融合；marry sb off是安排婚姻。",
+      "mental_model_en": "to marry a partner, officiate a wedding, combine things, or arrange a marriage."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -41,15 +63,6 @@
             ],
             "meaning_cn": "与某人结婚",
             "phrase": "marry sb"
-          },
-          {
-            "collocation_id": "collocation:69a78c5c23f53c4f9a65",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:marry:73d7721c5d3652b2:collocation:1"
-            ],
-            "meaning_cn": "嫁入/娶入某家庭",
-            "phrase": "marry into a family"
           }
         ],
         "confidence": "medium",
@@ -74,6 +87,15 @@
             ],
             "meaning_cn": "他们于2010年结婚",
             "phrase": "They married in 2010."
+          },
+          {
+            "collocation_id": "collocation:69a78c5c23f53c4f9a65",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:marry:73d7721c5d3652b2:collocation:1"
+            ],
+            "meaning_cn": "嫁入/娶入某家庭",
+            "phrase": "marry into a family"
           }
         ],
         "confidence": "medium",
@@ -87,6 +109,50 @@
         "sense_label_en": "to get married; to enter into marriage",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:marry:54464dfc71a450b3",
+        "pos": "verb",
+        "definition_cn": "为……主持婚礼；使两人成婚",
+        "definition_en": "to perform the ceremony that joins two people in marriage",
+        "sense_label_en": "to perform the ceremony that joins two people in marriage",
+        "governing_pattern": "marry a couple; be married by sb",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fe0e93df5fe320a31d0d",
+            "phrase": "be married by a priest",
+            "meaning_cn": "由神父主持婚礼",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:marry:2ab363f7b77b29d6",
+        "pos": "verb",
+        "definition_cn": "（正式）使两种事物成功结合",
+        "definition_en": "to combine two different things successfully",
+        "sense_label_en": "to combine two different things successfully",
+        "governing_pattern": "marry A and B; marry A with/to B",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d8709e8b337d24f04794",
+            "phrase": "marry art with commerce",
+            "meaning_cn": "将艺术与商业结合",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -126,6 +192,40 @@
           "applicability": [
             {
               "surface": "marry"
+            },
+            {
+              "surface": "marry",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:marry:54464dfc71a450b3"
+              ],
+              "owner_sense_ids": [
+                "sense:marry:54464dfc71a450b3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2966.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "marry a couple; be married by sb"
+            },
+            {
+              "surface": "marry",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:marry:2ab363f7b77b29d6"
+              ],
+              "owner_sense_ids": [
+                "sense:marry:2ab363f7b77b29d6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2966.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "marry A and B; marry A with/to B"
             }
           ],
           "sources": [
@@ -242,12 +342,30 @@
         "merged_into_sense_id": null,
         "source_row": 8263,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:marry:54464dfc71a450b3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2966.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:marry:2ab363f7b77b29d6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2966.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:1885d9314ac3db01fe9b",
       "collocation:2258ffd6512c7904d732",
-      "collocation:69a78c5c23f53c4f9a65"
+      "collocation:1885d9314ac3db01fe9b",
+      "collocation:69a78c5c23f53c4f9a65",
+      "collocation:fe0e93df5fe320a31d0d",
+      "collocation:d8709e8b337d24f04794"
     ],
     "facts": [],
     "collocations": [
@@ -259,7 +377,8 @@
       {
         "id": "collocation:69a78c5c23f53c4f9a65",
         "source_row": 8906,
-        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json",
+        "sense_id": "sense:marry:35477cc29e525ab2"
       },
       {
         "id": "collocation:f4ea5ff3b22dd5f7c077",
@@ -270,6 +389,20 @@
         "id": "collocation:1885d9314ac3db01fe9b",
         "source_row": 21481,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:fe0e93df5fe320a31d0d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2966.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:d8709e8b337d24f04794",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2966.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

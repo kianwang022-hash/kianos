@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "f5afd499cff930fcc373b87502624e8ed8784ef1b906be20a485214aef4113ce",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "假设",
-      "core_meaning_en": "a proposed explanation for something",
-      "mental_model_cn": "假设",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "假设；假说；（正式）推测；未经确定知识支持的猜想",
+          "label_en": "an idea or explanation that is based on known facts but has not yet been proven; speculation or guesses made without certain knowledge",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:hypothesis:3c485feb26de5460",
+            "sense:hypothesis:1c77eb8901b5e667"
+          ]
+        }
+      ],
+      "core_meaning_cn": "有待验证的假说；（正式）推测",
+      "core_meaning_en": "a proposed explanation not yet proved; formally, speculation",
+      "mental_model_cn": "a/test a hypothesis→一项待验证假说；不可数hypothesis→缺确定知识时的推测；hypotheses是复数词形。",
+      "mental_model_en": "a proposed explanation not yet proved; formally, speculation."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -52,9 +62,31 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:hypothesis:3c485feb26de5460",
-        "sense_label_en": "an idea or explanation that is based on known facts but has not yet been",
+        "sense_label_en": "an idea or explanation that is based on known facts but has not yet been proven",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hypothesis:1c77eb8901b5e667",
+        "pos": "noun",
+        "definition_cn": "（正式）推测；未经确定知识支持的猜想",
+        "definition_en": "speculation or guesses made without certain knowledge",
+        "sense_label_en": "speculation or guesses made without certain knowledge",
+        "governing_pattern": "engage in hypothesis (uncountable)",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0d70a50a40364c3070e4",
+            "phrase": "Without records, the discussion remains hypothesis.",
+            "meaning_cn": "没有记录，这场讨论仍停留在推测层面。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -112,6 +144,23 @@
           "applicability": [
             {
               "surface": "hypothesis"
+            },
+            {
+              "surface": "hypothesis",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hypothesis:1c77eb8901b5e667"
+              ],
+              "owner_sense_ids": [
+                "sense:hypothesis:1c77eb8901b5e667"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2421.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "engage in hypothesis (uncountable)"
             }
           ],
           "sources": [
@@ -306,11 +355,20 @@
         "merged_into_sense_id": null,
         "source_row": 6744,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
+      },
+      {
+        "sense_id": "sense:hypothesis:1c77eb8901b5e667",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2421.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
+      "collocation:e5ca44c220b5393bd309",
       "collocation:260955777075b7db18d1",
-      "collocation:e5ca44c220b5393bd309"
+      "collocation:0d70a50a40364c3070e4"
     ],
     "facts": [],
     "collocations": [
@@ -323,6 +381,13 @@
         "id": "collocation:e5ca44c220b5393bd309",
         "source_row": 19458,
         "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+      },
+      {
+        "id": "collocation:0d70a50a40364c3070e4",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2421.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

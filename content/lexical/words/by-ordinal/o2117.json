@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "c06b515434fab8f1f907471bdcc9d89bac979081960aa8c13fc619a2e17b4c26",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "慷慨的；大方的",
-      "core_meaning_en": "giving freely and abundantly",
-      "mental_model_cn": "慷慨的；大方的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "慷慨的；大方的；丰富的；充足的；宽厚的；宽宏大量的",
+          "label_en": "willing to give money, help, etc. more than usual; more than adequate; ample; kind and magnanimous in spirit or in the way one treats others",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:generous:d97fceab692c5028",
+            "sense:generous:1caf668e9ae55736",
+            "sense:generous:58050ae956f21f11"
+          ]
+        }
+      ],
+      "core_meaning_cn": "慷慨、宽厚或充裕的",
+      "core_meaning_en": "willing to give, magnanimous, or more than sufficient",
+      "mental_model_cn": "generous with time or money为乐于付出；a generous heart为宽厚，a generous portion为分量充足。",
+      "mental_model_en": "willing to give, magnanimous, or more than sufficient."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -42,6 +53,12 @@
             ],
             "meaning_cn": "慷慨的捐赠",
             "phrase": "a generous donation"
+          },
+          {
+            "collocation_id": "collocation:2718cd13540b4cc67014",
+            "phrase": "be generous with one’s time",
+            "meaning_cn": "不吝惜自己的时间",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
@@ -79,6 +96,28 @@
         "sense_label_en": "more than adequate; ample",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:generous:58050ae956f21f11",
+        "pos": "adjective",
+        "definition_cn": "宽厚的；宽宏大量的",
+        "definition_en": "kind and magnanimous in spirit or in the way one treats others",
+        "sense_label_en": "kind and magnanimous in spirit or in the way one treats others",
+        "governing_pattern": "a generous heart; a generous person",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a36806d51c08a01ef534",
+            "phrase": "a generous heart",
+            "meaning_cn": "宽厚的心",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -142,6 +181,23 @@
                   }
                 }
               ]
+            },
+            {
+              "surface": "generous",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:generous:58050ae956f21f11"
+              ],
+              "owner_sense_ids": [
+                "sense:generous:58050ae956f21f11"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2117.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "a generous heart; a generous person"
+              }
             }
           ],
           "sources": [
@@ -199,6 +255,14 @@
         "merged_into_sense_id": null,
         "source_row": 5906,
         "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json"
+      },
+      {
+        "sense_id": "sense:generous:58050ae956f21f11",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2117.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -222,6 +286,20 @@
         "id": "collocation:9cd8689108869940ad77",
         "source_row": 13356,
         "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      },
+      {
+        "id": "collocation:a36806d51c08a01ef534",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2117.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:2718cd13540b4cc67014",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2117.json",
+        "source_pointer": "/record/senses/0/collocations/2"
       }
     ],
     "exam-mappings": [],

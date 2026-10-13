@@ -9,11 +9,44 @@
     "constructions": [],
     "content_hash": "cae614aca79f31fb40d002bc8ee00805e2bfe381452d18daac541c8ddbcd52e9",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "整洁的，巧妙的",
-      "core_meaning_en": "tidy and clean; clever and simple",
-      "mental_model_cn": "整洁的，巧妙的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "整洁的、整齐的；做得工整的",
+          "label_en": "tidy, orderly or carefully arranged or done",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:neat:df82d320f9ae5fa4"
+          ]
+        },
+        {
+          "label_cn": "巧妙的，简洁的",
+          "label_en": "clever and simple in a way that is effective",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:neat:c4d2e977d0b25f07"
+          ]
+        },
+        {
+          "label_cn": "小巧、匀称、外观好看的",
+          "label_en": "small and attractively shaped or presented",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:neat:3e3840d24b0a10cc"
+          ]
+        },
+        {
+          "label_cn": "（北美非正式）很好的；很棒的",
+          "label_en": "good or excellent",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:neat:417b43d3d6968195"
+          ]
+        }
+      ],
+      "core_meaning_cn": "整洁工整、巧妙简洁、小巧美观或很棒的；饮品纯饮",
+      "core_meaning_en": "tidy or carefully done, clever and simple, attractively small, or excellent; unmixed drinks",
+      "mental_model_cn": "neat handwriting是工整，neat solution是巧妙，北美That’s neat是很棒；neat whisky按饮品语境识读。",
+      "mental_model_en": "tidy or carefully done, clever and simple, attractively small, or excellent; unmixed drinks."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,16 +78,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "整洁的，整齐的",
-        "definition_en": "tidy and clean, with everything in its place",
+        "definition_cn": "整洁的、整齐的；做得工整的",
+        "definition_en": "tidy, orderly or carefully arranged or done",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:neat:df82d320f9ae5fa4",
-        "sense_label_en": "tidy and clean, with everything in its place",
+        "sense_label_en": "tidy, orderly or carefully arranged or done",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "neat handwriting指字迹工整，不是字迹干净。"
       },
       {
         "collocations": [
@@ -111,7 +145,52 @@
         "sense_id": "sense:neat:afe52f3a5c475ab6",
         "sense_label_en": "not mixed with water or anything else; straight",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "尤其英式，用于酒等饮品表示不掺水或其他东西；straight也可这样说。"
+      },
+      {
+        "sense_id": "sense:neat:3e3840d24b0a10cc",
+        "pos": "adjective",
+        "definition_cn": "小巧、匀称、外观好看的",
+        "definition_en": "small and attractively shaped or presented",
+        "sense_label_en": "small and attractively shaped or presented",
+        "governing_pattern": "a neat figure; neat ears",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:26862624faf7e22aad70",
+            "phrase": "a neat figure",
+            "meaning_cn": "匀称好看的身材",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:neat:417b43d3d6968195",
+        "pos": "adjective",
+        "definition_cn": "（北美非正式）很好的；很棒的",
+        "definition_en": "good or excellent",
+        "sense_label_en": "good or excellent",
+        "governing_pattern": "That’s neat!（北美非正式）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d8dcfe614827dec3aa91",
+            "phrase": "That’s a neat idea.",
+            "meaning_cn": "那是个很棒的主意。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -141,6 +220,42 @@
           "applicability": [
             {
               "surface": "neat"
+            },
+            {
+              "surface": "neat",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:neat:3e3840d24b0a10cc"
+              ],
+              "owner_sense_ids": [
+                "sense:neat:3e3840d24b0a10cc"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3194.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a neat figure; neat ears",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "neat",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:neat:417b43d3d6968195"
+              ],
+              "owner_sense_ids": [
+                "sense:neat:417b43d3d6968195"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3194.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "That’s neat!（北美非正式）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -254,14 +369,32 @@
         "merged_into_sense_id": null,
         "source_row": 8889,
         "source_path": "content/lexical/canonical/senses/shards/o3169-3200.json"
+      },
+      {
+        "sense_id": "sense:neat:3e3840d24b0a10cc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3194.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:neat:417b43d3d6968195",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3194.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:13b76eeb7654f2535cd8",
       "collocation:5c55a1ebe4682e525021",
-      "collocation:868f986666ff53f07605",
+      "collocation:d0238da25eba7eaae8f9",
       "collocation:971516c89bfac3af37c3",
-      "collocation:d0238da25eba7eaae8f9"
+      "collocation:868f986666ff53f07605",
+      "collocation:26862624faf7e22aad70",
+      "collocation:d8dcfe614827dec3aa91"
     ],
     "facts": [],
     "collocations": [
@@ -289,6 +422,20 @@
         "id": "collocation:d0238da25eba7eaae8f9",
         "source_row": 17581,
         "source_path": "content/lexical/canonical/collocations/shards/o3169-3200.json"
+      },
+      {
+        "id": "collocation:26862624faf7e22aad70",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3194.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:d8dcfe614827dec3aa91",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3194.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -12,7 +12,11 @@
         "direction": "R",
         "level": "L2",
         "meaning_cn": "明白整体情况；弄清状况",
-        "pattern": "get the picture"
+        "pattern": "get the picture",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:0064d36e6eb5342971c9",
+          "reason": "The identical get-the-picture idiom survives as a fixed pattern under the mental-understanding sense; the canonical construction remains intact."
+        }
       },
       {
         "boundary": "fixed expression describing someone who appears extremely healthy",
@@ -45,6 +49,14 @@
             "sense:picture:84e8d80a75dd5dab",
             "sense:picture:931ef998db3e5ffc"
           ]
+        },
+        {
+          "pos": "noun",
+          "sense_ids": [
+            "sense:picture:637b621494ace96e"
+          ],
+          "label_cn": "电影；影片",
+          "label_en": "a film or motion picture"
         }
       ],
       "core_meaning_cn": "图像；印象；整体情况",
@@ -103,7 +115,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:0064d36e6eb5342971c9",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:picture:69b1c833f52c50fc:collocation:0"
             ],
@@ -217,6 +229,39 @@
             "source_operation_id": "operation:2080be0c94f33ef611fe",
             "source_operation_sha256": "9abe897f434b5cf56f7147244e5ee78e6d061ea4727c2c38ca02ee161d68004e",
             "verification_status": "auditor_verified"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:picture:637b621494ace96e",
+        "pos": "noun",
+        "definition_cn": "电影；影片",
+        "definition_en": "a film or motion picture",
+        "sense_label_en": "a film or motion picture",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:picture:c5fcd0cf3118e4c8",
+            "phrase": "a prize-winning picture",
+            "meaning_cn": "一部获奖影片",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/picture_1",
+                "role": "meaning support; example authored for this review, not quoted"
+              }
+            ]
+          }
+        ],
+        "usage_note": "Best Picture等电影奖项语境中指影片；不是最佳照片。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/picture_1",
+            "role": "meaning_and_pattern"
           }
         ]
       }
@@ -369,6 +414,12 @@
         "merged_into_sense_id": null,
         "source_row": 9970,
         "source_path": "content/lexical/canonical/senses/shards/o3585-3616.json"
+      },
+      {
+        "sense_id": "sense:picture:637b621494ace96e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3594.json"
       }
     ],
     "active_collocations": [
@@ -378,7 +429,8 @@
       "collocation:a6244251e1de91713d78",
       "collocation:be5651ce9869d22552a1",
       "collocation:c44020b06dfd03f4a94b",
-      "collocation:f57af8ee4951ebffdc39"
+      "collocation:f57af8ee4951ebffdc39",
+      "collocation:picture:c5fcd0cf3118e4c8"
     ],
     "facts": [
       {
@@ -432,6 +484,10 @@
         "id": "collocation:f57af8ee4951ebffdc39",
         "source_row": 20792,
         "source_path": "content/lexical/canonical/collocations/shards/o3585-3616.json"
+      },
+      {
+        "id": "collocation:picture:c5fcd0cf3118e4c8",
+        "source_path": "content/lexical/words/by-ordinal/o3594.json"
       }
     ],
     "exam-mappings": [],

@@ -6,40 +6,45 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:1b416dbc337bf626c6a5",
+        "pattern": "hike something up",
+        "meaning_cn": "提起；拉高（尤衣服）",
+        "definition_en": "to lift or pull something upwards, especially clothing",
+        "usage_note": "非正式；hike up a skirt / hike it up；不同于调高价格。",
+        "boundary": "非正式；hike up a skirt / hike it up；不同于调高价格。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "abd969bd109f1125e8bdd30b36c63153fdf5aa1b7938db7f4c8bdfb080c8491e",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "远足，徒步旅行",
-          "label_en": "a long walk, especially in the countryside for pleasure or exercise",
+          "label_cn": "远足，徒步旅行；上涨；增加",
+          "label_en": "a long walk, especially in the countryside for pleasure or exercise; an increase, especially in a price, rate, tax, salary, or other amount",
           "pos": "noun",
           "sense_ids": [
-            "sense:hike:d9f9fbf5d72c56db"
+            "sense:hike:d9f9fbf5d72c56db",
+            "sense:hike:6aec8914f2e24034"
           ]
         },
         {
-          "label_cn": "远足，徒步旅行；提高，增加（价格等）",
-          "label_en": "to walk a long distance, especially in the countryside for pleasure or exercise; to increase or raise something, especially prices or amounts",
+          "label_cn": "远足，徒步旅行；提高，增加（价格等）；徒步走过（路线或地区，北美）",
+          "label_en": "to walk a long distance, especially in the countryside for pleasure or exercise; to increase or raise something, especially prices or amounts; to walk through an area or along a route for recreation",
           "pos": "verb",
           "sense_ids": [
             "sense:hike:ba9e2f0c4eb45361",
-            "sense:hike:6b349d818e635707"
-          ]
-        },
-        {
-          "label_cn": "上涨；增加",
-          "label_en": "an increase, especially in price or rate",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:hike:6aec8914f2e24034"
+            "sense:hike:6b349d818e635707",
+            "sense:hike:fc1a3ccf11d7c0e8"
           ]
         }
       ],
-      "core_meaning_cn": "远足或增加",
-      "core_meaning_en": "a long walk or an increase",
-      "mental_model_cn": "远足或增加",
-      "mental_model_en": ""
+      "core_meaning_cn": "远足、走过路线；大幅增加；上涨",
+      "core_meaning_en": "hike or walk a route; sharply increase; a rise",
+      "mental_model_cn": "远足可无宾语，北美也可直接接路线或地区；hike up衣服表示拉高，与价格大幅增加不同。",
+      "mental_model_en": "hike or walk a route; sharply increase; a rise."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -85,7 +90,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hike:ba9e2f0c4eb45361",
-        "sense_label_en": "to walk a long distance, especially in the countryside for pleasure or e",
+        "sense_label_en": "to walk a long distance, especially in the countryside for pleasure or exercise",
         "sort_order": 1,
         "transitivity": "vi"
       },
@@ -136,6 +141,28 @@
         "sense_label_en": "an increase, especially in a price, rate, tax, salary, or other amount",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hike:fc1a3ccf11d7c0e8",
+        "pos": "verb",
+        "definition_cn": "徒步走过（路线或地区，北美）",
+        "definition_en": "to walk through an area or along a route for recreation",
+        "sense_label_en": "to walk through an area or along a route for recreation",
+        "governing_pattern": "hike a trail/region",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1d27ea218587f17cfd9e",
+            "phrase": "We hiked the coastal trail last weekend.",
+            "meaning_cn": "上周末我们走了海滨徒步路线。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -165,6 +192,23 @@
           "applicability": [
             {
               "surface": "hike"
+            },
+            {
+              "surface": "hike",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hike:fc1a3ccf11d7c0e8"
+              ],
+              "owner_sense_ids": [
+                "sense:hike:fc1a3ccf11d7c0e8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2334.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hike a trail/region"
             }
           ],
           "sources": [
@@ -652,12 +696,21 @@
         "merged_into_sense_id": null,
         "source_row": 6515,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:hike:fc1a3ccf11d7c0e8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2334.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:0e12adcb523dbe96c9db",
+      "collocation:ea036854271064f0894b",
       "collocation:4d475a71869e9815c346",
-      "collocation:ea036854271064f0894b"
+      "collocation:1d27ea218587f17cfd9e"
     ],
     "facts": [],
     "collocations": [
@@ -675,6 +728,13 @@
         "id": "collocation:ea036854271064f0894b",
         "source_row": 19826,
         "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:1d27ea218587f17cfd9e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2334.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -22,28 +22,32 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "主人；东道主；节目主持人；主机",
-          "label_en": "a person who invites guests and provides for them; a person who introduces and talks to guests on a television or radio show; a computer that provides services to other computers on a network",
+          "label_cn": "主人；东道主；主办方；节目主持人；主机；宿主（承载寄生虫、病原体或其他生物的有机体或细胞）；大量；许多",
+          "label_en": "a person, group or place that receives guests or provides for an event; a person who introduces and talks to guests on a television or radio show; a computer that provides services to other computers on a network; an organism or cell that harbors a parasite, pathogen, or other organism; a large number of people or things",
           "pos": "noun",
           "sense_ids": [
             "sense:host:b0903cec51305dcf",
             "sense:host:102c1aa20a955815",
-            "sense:host:0d1088f0a1c45113"
+            "sense:host:0d1088f0a1c45113",
+            "sense:host:d76493abc8bba88d",
+            "sense:host:ccc77fbea4afffcf"
           ]
         },
         {
-          "label_cn": "主办；主持；招待",
-          "label_en": "to act as host of an event or program",
+          "label_cn": "主办；主持；招待；（计算机）托管网站；做聚会的主人；招待来宾",
+          "label_en": "to organize an event, present a programme or receive guests; to store and serve a website; to act as host at a party",
           "pos": "verb",
           "sense_ids": [
-            "sense:host:5da60fda97ef5a2c"
+            "sense:host:5da60fda97ef5a2c",
+            "sense:host:684767a2c260d796",
+            "sense:host:a220b34c2f76bad3"
           ]
         }
       ],
-      "core_meaning_cn": "主人或主持",
-      "core_meaning_en": "a person who receives or entertains others, or to act as such",
-      "mental_model_cn": "主人或主持",
-      "mental_model_en": ""
+      "core_meaning_cn": "主人、主办方或主持人；主机或宿主；大量；主办、接待或托管",
+      "core_meaning_en": "a host, presenter, server, biological host or multitude; to host guests, events or websites",
+      "mental_model_cn": "接待或承载的主体；主机、宿主、大量以及不同动词宾语各有范围。",
+      "mental_model_en": "a host, presenter, server, biological host or multitude; to host guests, events or websites."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -69,14 +73,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "主人；东道主",
-        "definition_en": "a person who invites guests and provides for them",
+        "definition_cn": "主人；东道主；主办方",
+        "definition_en": "a person, group or place that receives guests or provides for an event",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:host:b0903cec51305dcf",
-        "sense_label_en": "a person who invites guests and provides for them",
+        "sense_label_en": "a person, group or place that receives guests or provides for an event",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -100,7 +104,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:host:102c1aa20a955815",
-        "sense_label_en": "a person who introduces and talks to guests on a television or radio sho",
+        "sense_label_en": "a person who introduces and talks to guests on a television or radio show",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -123,17 +127,23 @@
             ],
             "meaning_cn": "主持节目",
             "phrase": "host a show"
+          },
+          {
+            "collocation_id": "collocation:d585caf0cf968ec8f86a",
+            "phrase": "She hosted friends for the weekend.",
+            "meaning_cn": "她周末接待朋友在家住宿。",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
         "definition_cn": "主办；主持；招待",
-        "definition_en": "to act as host of an event or program",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to organize an event, present a programme or receive guests",
+        "governing_pattern": "host an event/show/dinner; host guests",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:host:5da60fda97ef5a2c",
-        "sense_label_en": "to act as host of an event or program",
+        "sense_label_en": "to organize an event, present a programme or receive guests",
         "sort_order": 2,
         "transitivity": "vt"
       },
@@ -188,6 +198,50 @@
         "sense_label_en": "a large number of people or things",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:host:684767a2c260d796",
+        "pos": "verb",
+        "definition_cn": "（计算机）托管网站",
+        "definition_en": "to store and serve a website",
+        "sense_label_en": "to store and serve a website",
+        "governing_pattern": "host a website/site",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a88541dadf265b8b1236",
+            "phrase": "The company hosts several websites.",
+            "meaning_cn": "这家公司托管数个网站。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:host:a220b34c2f76bad3",
+        "pos": "verb",
+        "definition_cn": "做聚会的主人；招待来宾",
+        "definition_en": "to act as host at a party",
+        "sense_label_en": "to act as host at a party",
+        "governing_pattern": "host; whose turn is it to host?",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:81aa3fdfc52055ecc8fd",
+            "phrase": "It is my turn to host.",
+            "meaning_cn": "轮到我来做东。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -230,6 +284,40 @@
           "applicability": [
             {
               "surface": "host"
+            },
+            {
+              "surface": "host",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:host:684767a2c260d796"
+              ],
+              "owner_sense_ids": [
+                "sense:host:684767a2c260d796"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2380.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "host a website/site"
+            },
+            {
+              "surface": "host",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:host:a220b34c2f76bad3"
+              ],
+              "owner_sense_ids": [
+                "sense:host:a220b34c2f76bad3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2380.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "host; whose turn is it to host?"
             }
           ],
           "sources": [
@@ -556,14 +644,33 @@
         "merged_into_sense_id": null,
         "source_row": 6697,
         "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      },
+      {
+        "sense_id": "sense:host:684767a2c260d796",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2380.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:host:a220b34c2f76bad3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2380.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:26617f67dad66149b41d",
-      "collocation:864643cf086ede966857",
       "collocation:bb87c3fc727f4403219c",
+      "collocation:f736668b332ad3d0f6e1",
       "collocation:f329ca710195c4222142",
-      "collocation:f736668b332ad3d0f6e1"
+      "collocation:864643cf086ede966857",
+      "collocation:d585caf0cf968ec8f86a",
+      "collocation:26617f67dad66149b41d",
+      "collocation:a88541dadf265b8b1236",
+      "collocation:81aa3fdfc52055ecc8fd"
     ],
     "facts": [],
     "collocations": [
@@ -591,6 +698,27 @@
         "id": "collocation:f736668b332ad3d0f6e1",
         "source_row": 20937,
         "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      },
+      {
+        "id": "collocation:d585caf0cf968ec8f86a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2380.json",
+        "source_pointer": "/record/senses/2/collocations/2"
+      },
+      {
+        "id": "collocation:a88541dadf265b8b1236",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2380.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:81aa3fdfc52055ecc8fd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2380.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

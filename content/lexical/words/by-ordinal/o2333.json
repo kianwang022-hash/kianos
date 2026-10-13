@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "劫持（飞机、车辆等）",
-          "label_en": "to take control of a vehicle or aircraft by force, especially for political aims",
+          "label_cn": "劫持（飞机、车辆等）；把会议、活动等控制来为自己服务",
+          "label_en": "to take control of a vehicle or aircraft by force, especially for political aims; to take control of an event or activity for one’s own purposes",
           "pos": "verb",
           "sense_ids": [
-            "sense:hijack:c3eb25c579f6574e"
+            "sense:hijack:c3eb25c579f6574e",
+            "sense:hijack:eb9236e0c44209c5"
           ]
         },
         {
@@ -27,10 +28,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "劫持",
-      "core_meaning_en": "to seize control of a vehicle or aircraft by force",
-      "mental_model_cn": "劫持",
-      "mental_model_en": ""
+      "core_meaning_cn": "劫持；夺取活动的控制权为己所用",
+      "core_meaning_en": "hijack a vehicle or take over an activity for one’s own aims",
+      "mental_model_cn": "实际劫持交通工具与把会议议题据为己用不同；后者通常含批评。",
+      "mental_model_en": "hijack a vehicle or take over an activity for one’s own aims."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -57,7 +58,7 @@
             "legacy_source_object_ids": [
               "sense:hijack:c3eb25c579f6574e:collocation:1"
             ],
-            "meaning_cn": "抢劫卡车",
+            "meaning_cn": "劫持卡车",
             "phrase": "hijack a truck"
           }
         ],
@@ -69,7 +70,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hijack:c3eb25c579f6574e",
-        "sense_label_en": "to take control of a vehicle or aircraft by force, especially for politi",
+        "sense_label_en": "to take control of a vehicle or aircraft by force, especially for political aims",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -96,6 +97,29 @@
         "sense_label_en": "the act of hijacking",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hijack:eb9236e0c44209c5",
+        "pos": "verb",
+        "definition_cn": "把会议、活动等控制来为自己服务",
+        "definition_en": "to take control of an event or activity for one’s own purposes",
+        "sense_label_en": "to take control of an event or activity for one’s own purposes",
+        "governing_pattern": "hijack a meeting/discussion",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7e1f34b378c9951b775c",
+            "phrase": "One speaker hijacked the discussion for his own campaign.",
+            "meaning_cn": "一个发言者把讨论变成了为自己竞选服务的场合。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "含不赞成；不需要实际使用暴力或劫持交通工具。"
       }
     ],
     "verification_summary": {
@@ -145,6 +169,23 @@
           "applicability": [
             {
               "surface": "hijack"
+            },
+            {
+              "surface": "hijack",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hijack:eb9236e0c44209c5"
+              ],
+              "owner_sense_ids": [
+                "sense:hijack:eb9236e0c44209c5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2333.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hijack a meeting/discussion"
             }
           ],
           "sources": [
@@ -236,12 +277,21 @@
         "merged_into_sense_id": null,
         "source_row": 6512,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:hijack:eb9236e0c44209c5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2333.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:208410a2b48c011303c9",
+      "collocation:a44fa5bd7e8f53db4561",
       "collocation:93fb2b3ad2cf86b7a522",
-      "collocation:a44fa5bd7e8f53db4561"
+      "collocation:7e1f34b378c9951b775c"
     ],
     "facts": [],
     "collocations": [
@@ -259,6 +309,13 @@
         "id": "collocation:a44fa5bd7e8f53db4561",
         "source_row": 13953,
         "source_path": "content/lexical/canonical/collocations/shards/o2305-2336.json"
+      },
+      {
+        "id": "collocation:7e1f34b378c9951b775c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2333.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

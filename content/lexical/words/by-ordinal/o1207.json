@@ -10,9 +10,9 @@
     "content_hash": "68a4646a5082eb490c4e423cd1a19b234a0a811ad52fad7c3be22ec407a25e3c",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "乳品生产或销售场所",
-      "core_meaning_en": "a place where milk products are made or sold",
-      "mental_model_cn": "乳品生产或销售场所",
+      "core_meaning_cn": "奶牛场或乳品企业；牛奶及乳制品；乳品相关的",
+      "core_meaning_en": "a milk-producing business; milk foods as a category; relating to milk",
+      "mental_model_cn": "a dairy是奶牛场或乳品企业；eat/avoid dairy中的dairy是牛奶及乳制品；dairy products是乳制品。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -35,6 +35,30 @@
             ],
             "meaning_cn": "奶牛场",
             "phrase": "dairy farm"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "奶牛场、乳品企业或商店；也指储奶、加工乳品的场所",
+        "definition_en": "a farm, business, shop or facility that produces, stores, processes or sells milk and milk products",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:dairy:e65ab101d0895a80",
+        "sense_label_en": "a milk-producing or milk-processing business or facility",
+        "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:5c60743a1b4625369eb0",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:dairy:6f6a1e14a1aac2bf:collocation:handoff-o1125-o1374"
+            ],
+            "meaning_cn": "乳制品/乳业",
+            "phrase": "dairy products/industry"
           },
           {
             "collocation_id": "collocation:9db17b6b5deb24f3ed90",
@@ -44,30 +68,6 @@
             ],
             "meaning_cn": "乳制品",
             "phrase": "dairy products"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "乳牛场；牛奶公司",
-        "definition_en": "a farm or business that produces milk and milk products",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:dairy:e65ab101d0895a80",
-        "sense_label_en": "a farm or business that produces milk and milk products",
-        "sort_order": 0,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:5c60743a1b4625369eb0",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:dairy:6f6a1e14a1aac2bf:collocation:handoff-o1125-o1374"
-            ],
-            "meaning_cn": "乳制品/乳业",
-            "phrase": "dairy products/industry"
           }
         ],
         "confidence": "medium",
@@ -81,6 +81,28 @@
         "sense_label_en": "relating to milk and milk products",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:dairy:c1a4a2bf97d7a7ed",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 2,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "牛奶和乳制品的统称",
+        "definition_en": "milk and foods made from milk, treated as a food category",
+        "sense_label_en": "milk and foods made from milk, treated as a food category",
+        "governing_pattern": "",
+        "collocations": [
+          {
+            "collocation_id": "collocation:3fa18af31c388b3b7db0",
+            "exam_value": "usage_example",
+            "phrase": "avoid dairy",
+            "meaning_cn": "避免食用牛奶和乳制品"
+          }
+        ],
+        "usage_note": "食品类别义通常不可数。"
       }
     ],
     "verification_summary": {
@@ -215,12 +237,19 @@
         "merged_into_sense_id": null,
         "source_row": 3430,
         "source_path": "content/lexical/canonical/senses/shards/o1185-1216.json"
+      },
+      {
+        "sense_id": "sense:dairy:c1a4a2bf97d7a7ed",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1207.json"
       }
     ],
     "active_collocations": [
-      "collocation:5c60743a1b4625369eb0",
       "collocation:9db17b6b5deb24f3ed90",
-      "collocation:dfcb5fe0d9c8c214fbb0"
+      "collocation:dfcb5fe0d9c8c214fbb0",
+      "collocation:3fa18af31c388b3b7db0"
     ],
     "facts": [],
     "collocations": [
@@ -237,7 +266,14 @@
       {
         "id": "collocation:5c60743a1b4625369eb0",
         "source_row": 21545,
-        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1185-1216.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:3fa18af31c388b3b7db0",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1207.json"
       }
     ],
     "exam-mappings": [],

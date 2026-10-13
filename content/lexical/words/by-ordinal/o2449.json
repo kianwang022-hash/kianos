@@ -6,31 +6,48 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:44ebbfac3b8f209ce857",
+        "pattern": "be the image of sb/sth",
+        "meaning_cn": "长得很像某人或某物",
+        "definition_en": "to look very like someone or something else",
+        "usage_note": "整体相似表达；不是说这个人是照片或画像。",
+        "boundary": "整体相似表达；不是说这个人是照片或画像。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:8189f2e4677d858979b8",
+        "pattern": "be created/made in the image of sb/sth",
+        "meaning_cn": "按照某人或某物的形象、样子创造",
+        "definition_en": "to be created to resemble or reflect someone or something",
+        "usage_note": "整体相似或仿照框架；常见宗教语境，也可用于比喻。",
+        "boundary": "整体相似或仿照框架；常见宗教语境，也可用于比喻。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:image:098409cea07a5fbe"
+      }
+    ],
     "content_hash": "4f9aaec145e275f41ed3e3e56e14e2323bf613457707a96228566b86b5d2446b",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "图像；图片",
-          "label_en": "a picture or visual representation of something",
+          "label_cn": "影像；图像；描绘人或物的形象、塑像；公众形象；印象；脑海中的形象；心象；想象中的样子；（文学）意象；使人联想出鲜明画面的比喻表达",
+          "label_en": "a picture or visual representation of someone or something, including a statue; the impression that a person or organization presents to the public; a picture or idea of someone or something in the mind; a figurative word or phrase that evokes a strong mental picture",
           "pos": "noun",
           "sense_ids": [
-            "sense:image:098409cea07a5fbe"
-          ]
-        },
-        {
-          "label_cn": "公众形象；印象",
-          "label_en": "the impression a person or organization presents to the public",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:image:02e5778b534f5d89"
+            "sense:image:098409cea07a5fbe",
+            "sense:image:02e5778b534f5d89",
+            "sense:image:06a23b997fed5fdc",
+            "sense:image:36fea789ec8ac145"
           ]
         }
       ],
-      "core_meaning_cn": "图像；公众形象、印象",
-      "core_meaning_en": "a visual representation; a public image or impression",
-      "mental_model_cn": "图像；公众形象、印象",
-      "mental_model_en": ""
+      "core_meaning_cn": "图像／塑像／影像；公众或脑中形象；文学意象",
+      "core_meaning_en": "a visual representation; public or mental image; literary imagery",
+      "mental_model_cn": "image可指图像或塑像、公众印象、心中画面；文学中也指比喻意象；be the image of→长得像。",
+      "mental_model_en": "a visual representation; public or mental image; literary imagery."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -43,14 +60,14 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "图像；图片",
-        "definition_en": "a picture or visual representation of something",
-        "governing_pattern": "",
+        "definition_cn": "影像；图像；描绘人或物的形象、塑像",
+        "definition_en": "a picture or visual representation of someone or something, including a statue",
+        "governing_pattern": "an image of sb/sth; digital/reflected images",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:image:098409cea07a5fbe",
-        "sense_label_en": "a picture or visual representation of something",
+        "sense_label_en": "a picture or visual representation of someone or something, including a statue",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -81,6 +98,28 @@
         "sense_label_en": "a picture or idea of someone or something in the mind",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:image:36fea789ec8ac145",
+        "pos": "noun",
+        "definition_cn": "（文学）意象；使人联想出鲜明画面的比喻表达",
+        "definition_en": "a figurative word or phrase that evokes a strong mental picture",
+        "sense_label_en": "a figurative word or phrase that evokes a strong mental picture",
+        "governing_pattern": "poetic/literary images",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:377da3bc6f5f265c9e9f",
+            "phrase": "The poem uses images of winter to suggest loneliness.",
+            "meaning_cn": "这首诗用冬天的意象暗示孤独。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -110,6 +149,23 @@
           "applicability": [
             {
               "surface": "image"
+            },
+            {
+              "surface": "image",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:image:36fea789ec8ac145"
+              ],
+              "owner_sense_ids": [
+                "sense:image:36fea789ec8ac145"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2449.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "poetic/literary images"
             }
           ],
           "sources": [
@@ -543,9 +599,19 @@
         "merged_into_sense_id": null,
         "source_row": 6815,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      },
+      {
+        "sense_id": "sense:image:36fea789ec8ac145",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2449.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:377da3bc6f5f265c9e9f"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -572,6 +638,13 @@
         "id": "collocation:d5849e2c9031db498291",
         "source_row": 18056,
         "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+      },
+      {
+        "id": "collocation:377da3bc6f5f265c9e9f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2449.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -6,13 +6,25 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:8cb5e68f116a02eaaf17",
+        "pattern": "a master’s (degree) in sth",
+        "meaning_cn": "硕士学位；master’s学位称呼",
+        "definition_en": "the degree commonly referred to as a master’s",
+        "usage_note": "普通表达用master’s或master’s degree；Master of Arts等正式称号不带这个所有格。",
+        "boundary": "普通表达用master’s或master’s degree；Master of Arts等正式称号不带这个所有格。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:master:0ecbd08b97335a7e"
+      }
+    ],
     "content_hash": "f75b5fb0c11c96cf35735e299f402870183b39ac1f07e0d6ab4592bfa1cbedeb",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "主人；大师/高手",
-          "label_en": "a person with control or a highly skilled expert",
+          "label_cn": "主人；大师",
+          "label_en": "a person with control or great skill",
           "pos": "noun",
           "sense_ids": [
             "sense:master:fb88e098d2ee5d81"
@@ -20,17 +32,26 @@
         },
         {
           "label_cn": "精通；掌握",
-          "label_en": "to become highly skilled at or gain control over something",
+          "label_en": "to become skilled at or gain control of something",
           "pos": "verb",
           "sense_ids": [
             "sense:master:7578143df39b570d"
           ]
+        },
+        {
+          "label_cn": "技艺精湛的；主要的",
+          "label_en": "skilled or principal; used before a noun",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:master:fe02c7c29468ff6e",
+            "sense:master:250ec0d8da32d5c0"
+          ]
         }
       ],
-      "core_meaning_cn": "主人/大师；精通、掌握",
-      "core_meaning_en": "a person with control/expertise; or to become skilled at something",
-      "mental_model_cn": "master of sth → 主人/大师/高手；master a skill → 掌握；Master of Arts/Science 是学位称号；船长、母带等保留在 Expansion。",
-      "mental_model_en": ""
+      "core_meaning_cn": "主人、大师；掌握；技艺精湛的或主要的",
+      "core_meaning_en": "a controller or expert; to master something; skilled or principal",
+      "mental_model_cn": "master a skill是掌握；master craftsman指技艺精湛的工匠；master switch是总开关；学位常写a master’s degree。",
+      "mental_model_en": "Master can name a controller or expert, describe skill or priority, or mean gain mastery."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -160,6 +181,52 @@
         "sense_label_en": "an original recording from which copies can be made",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:master:fe02c7c29468ff6e",
+        "pos": "adjective",
+        "definition_cn": "技艺精湛的；大师级的",
+        "definition_en": "highly skilled in the occupation named",
+        "sense_label_en": "highly skilled in the occupation named",
+        "governing_pattern": "a master craftsman/chef",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b2ca568d27fe3fd409d3",
+            "phrase": "a master craftsman",
+            "meaning_cn": "技艺精湛的工匠",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "只置于名词前，修饰职业或人员。"
+      },
+      {
+        "sense_id": "sense:master:250ec0d8da32d5c0",
+        "pos": "adjective",
+        "definition_cn": "主要的；最大的或最重要的",
+        "definition_en": "the largest or most important",
+        "sense_label_en": "the largest or most important",
+        "governing_pattern": "a master bedroom/file/switch",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9913e538a26437a3c604",
+            "phrase": "the master switch",
+            "meaning_cn": "总开关",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "只置于名词前：the master bedroom、a master file/switch。"
       }
     ],
     "verification_summary": {
@@ -202,6 +269,40 @@
           "applicability": [
             {
               "surface": "master"
+            },
+            {
+              "surface": "master",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:master:fe02c7c29468ff6e"
+              ],
+              "owner_sense_ids": [
+                "sense:master:fe02c7c29468ff6e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2974.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a master craftsman/chef"
+            },
+            {
+              "surface": "master",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:master:250ec0d8da32d5c0"
+              ],
+              "owner_sense_ids": [
+                "sense:master:250ec0d8da32d5c0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2974.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a master bedroom/file/switch"
             }
           ],
           "sources": [
@@ -372,14 +473,32 @@
         "merged_into_sense_id": null,
         "source_row": 8292,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:master:fe02c7c29468ff6e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2974.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:master:250ec0d8da32d5c0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2974.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
-      "collocation:0cddc43f25976cbdb5a3",
-      "collocation:14ff3b680583fa80097a",
       "collocation:19ffd672f95f4aca18ac",
+      "collocation:0cddc43f25976cbdb5a3",
       "collocation:8b72b2d717715e7e686b",
-      "collocation:fdf2a2bc34393062b2ad"
+      "collocation:fdf2a2bc34393062b2ad",
+      "collocation:14ff3b680583fa80097a",
+      "collocation:b2ca568d27fe3fd409d3",
+      "collocation:9913e538a26437a3c604"
     ],
     "facts": [],
     "collocations": [
@@ -407,6 +526,20 @@
         "id": "collocation:fdf2a2bc34393062b2ad",
         "source_row": 21476,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:b2ca568d27fe3fd409d3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2974.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:9913e538a26437a3c604",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2974.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -15,6 +15,21 @@
         "level": "L1",
         "meaning_cn": "继续前进；克服困难继续做",
         "pattern": "press on/ahead"
+      },
+      {
+        "construction_id": "construction:press:e9b617468ccfd713",
+        "pattern": "press charges (against sb)",
+        "meaning_cn": "（对某人）提出刑事指控",
+        "definition_en": "to formally accuse someone of a crime through the legal process",
+        "boundary": "词义层面识别固定搭配；不是催促收费，不说明具体司法程序或权限。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/press_2",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "content_hash": "7893c12105fca2460b42e021d9f9bbbcadfba14c1dd05e9bd4bda7dfd137da90",
@@ -41,7 +56,7 @@
       ],
       "core_meaning_cn": "按压；新闻界/印刷",
       "core_meaning_en": "to push firmly or the media/printing industry",
-      "mental_model_cn": "按压；新闻界/印刷",
+      "mental_model_cn": "the press指新闻界，printing press是机器，机构名的Press指出版社；动词看按钮、被催促的人或衣服，分别是按压、催促、熨烫。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -179,6 +194,72 @@
         "sense_label_en": "to urge or force someone to do something",
         "sort_order": 3,
         "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:press:a17c53c9332975da",
+        "pos": "noun",
+        "definition_cn": "出版社；出版机构",
+        "definition_en": "a publishing business",
+        "sense_label_en": "a publishing business",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:press:ef675dbf9eaf2320",
+            "phrase": "a university press",
+            "meaning_cn": "大学出版社",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/press_1",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "大学名后的Press常是出版机构，不是新闻记者集体或印刷机器。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/press_1",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:press:59291974f04bd335",
+        "pos": "verb",
+        "definition_cn": "熨平；熨烫",
+        "definition_en": "to smooth clothing or cloth with heat and pressure",
+        "sense_label_en": "to smooth clothing or cloth with heat and pressure",
+        "transitivity": "vt",
+        "governing_pattern": "vt.: press clothes",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:press:5fcffef4ad126d55",
+            "phrase": "Please press this shirt before the interview.",
+            "meaning_cn": "面试前请把这件衬衫熨平。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/press_2",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "衣服/布料作宾语时可指熨烫。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/press_2",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -385,6 +466,18 @@
         "merged_into_sense_id": null,
         "source_row": 10463,
         "source_path": "content/lexical/canonical/senses/shards/o3745-3776.json"
+      },
+      {
+        "sense_id": "sense:press:a17c53c9332975da",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3757.json"
+      },
+      {
+        "sense_id": "sense:press:59291974f04bd335",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3757.json"
       }
     ],
     "active_collocations": [
@@ -394,7 +487,9 @@
       "collocation:358a2a9b633802afa2ae",
       "collocation:36893ee8acda35b3a202",
       "collocation:8687a1e04247e8e3b858",
-      "collocation:feec28e69fe58d758e09"
+      "collocation:feec28e69fe58d758e09",
+      "collocation:press:ef675dbf9eaf2320",
+      "collocation:press:5fcffef4ad126d55"
     ],
     "facts": [
       {
@@ -448,6 +543,14 @@
         "id": "collocation:feec28e69fe58d758e09",
         "source_row": 21552,
         "source_path": "content/lexical/canonical/collocations/shards/o3745-3776.json"
+      },
+      {
+        "id": "collocation:press:ef675dbf9eaf2320",
+        "source_path": "content/lexical/words/by-ordinal/o3757.json"
+      },
+      {
+        "id": "collocation:press:5fcffef4ad126d55",
+        "source_path": "content/lexical/words/by-ordinal/o3757.json"
       }
     ],
     "exam-mappings": [],

@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "2ff0053f0e7b3c720112732813426dee4bf2e072a138a954e2bcda1506ccb764",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "光荣的；辉煌的",
-      "core_meaning_en": "having or deserving glory; splendid",
-      "mental_model_cn": "光荣的；辉煌的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "光荣的；荣耀的；壮丽的；辉煌的；极好的；令人愉快的",
+          "label_en": "having or deserving glory; famous and admired; having great beauty and splendor; very enjoyable or wonderful",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:glorious:1bcf73b965565ce2",
+            "sense:glorious:61df36877abf5cb8",
+            "sense:glorious:0820aff589e37220"
+          ]
+        }
+      ],
+      "core_meaning_cn": "光荣的、壮丽的或美妙愉快的",
+      "core_meaning_en": "deserving glory, magnificent, or wonderfully enjoyable",
+      "mental_model_cn": "glorious victory为光荣胜利，glorious scenery为壮丽景色；glorious weekend可只是非常愉快的周末。",
+      "mental_model_en": "deserving glory, magnificent, or wonderfully enjoyable."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -88,6 +99,28 @@
         "sense_label_en": "having great beauty and splendor",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:glorious:0820aff589e37220",
+        "pos": "adjective",
+        "definition_cn": "极好的；令人愉快的",
+        "definition_en": "very enjoyable or wonderful",
+        "sense_label_en": "very enjoyable or wonderful",
+        "governing_pattern": "a glorious day/weekend",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e957c51686d6d5830e80",
+            "phrase": "a glorious weekend",
+            "meaning_cn": "一个美妙的周末",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -127,6 +160,23 @@
           "applicability": [
             {
               "surface": "glorious"
+            },
+            {
+              "surface": "glorious",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:glorious:0820aff589e37220"
+              ],
+              "owner_sense_ids": [
+                "sense:glorious:0820aff589e37220"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2150.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "a glorious day/weekend"
+              }
             }
           ],
           "sources": [
@@ -237,6 +287,14 @@
         "merged_into_sense_id": null,
         "source_row": 5989,
         "source_path": "content/lexical/canonical/senses/shards/o2145-2176.json"
+      },
+      {
+        "sense_id": "sense:glorious:0820aff589e37220",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2150.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -266,6 +324,13 @@
         "id": "collocation:e7b65ac1e4f545840243",
         "source_row": 19639,
         "source_path": "content/lexical/canonical/collocations/shards/o2145-2176.json"
+      },
+      {
+        "id": "collocation:e957c51686d6d5830e80",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2150.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

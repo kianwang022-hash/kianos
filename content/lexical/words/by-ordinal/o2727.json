@@ -6,14 +6,47 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:a60eb9bcdf971dc468a6",
+        "pattern": "with/without sb's knowledge",
+        "meaning_cn": "在某人知情／不知情的情况下",
+        "definition_en": "with or without the person being aware of it",
+        "usage_note": "without her knowledge = 她不知情；knowledge 不自动包含 consent/approval（同意）。",
+        "boundary": "without her knowledge = 她不知情；knowledge 不自动包含 consent/approval（同意）。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:knowledge:f711704be9315464"
+      },
+      {
+        "construction_id": "construction:f6640e7f6d35cf44bc70",
+        "pattern": "in the knowledge that ...",
+        "meaning_cn": "知道……；在明知……的情况下",
+        "definition_en": "while knowing that the following fact or situation is true",
+        "usage_note": "They left in the knowledge that the work was finished. = 他们知道工作已经完成，便离开了。后接 that 从句，区别于 to my knowledge（据我所知）。",
+        "boundary": "They left in the knowledge that the work was finished. = 他们知道工作已经完成，便离开了。后接 that 从句，区别于 to my knowledge（据我所知）。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:knowledge:f711704be9315464"
+      }
+    ],
     "content_hash": "656ca6f7dc7d0f5fa961f7719330032e776ba4ee11fc413599e553d3fc1c0ccb",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "知识；认识",
-      "core_meaning_en": "information, understanding, or skill gained through experience or education",
-      "mental_model_cn": "知识；认识",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "知识、理解或技能；对事实或情况的知晓",
+          "label_en": "learned information, understanding or skill; awareness of facts or situations",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:knowledge:74a828b9b45d5622",
+            "sense:knowledge:f711704be9315464"
+          ]
+        }
+      ],
+      "core_meaning_cn": "知识、理解或技能；对事实或情况的知晓",
+      "core_meaning_en": "learned information, understanding or skill; awareness of facts or situations",
+      "mental_model_cn": "knowledge of a subject → 学科知识；without sb’s knowledge → 某人不知情；in the knowledge that → 知道后面的事实。to my knowledge → 据我所知；know 是“知道”的动词。",
+      "mental_model_en": "learned information, understanding or skill; awareness of facts or situations."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -48,14 +81,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "知识；学问",
-        "definition_en": "the psychological result of perception, learning, and reasoning",
+        "definition_cn": "知识；学问；所掌握的理解或技能",
+        "definition_en": "information, understanding or skill acquired through learning or experience",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:knowledge:74a828b9b45d5622",
-        "sense_label_en": "the psychological result of perception, learning, and reasoning",
+        "sense_label_en": "information, understanding or skill acquired through learning or experience",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -72,16 +105,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "认识；了解",
-        "definition_en": "awareness or familiarity gained by experience",
+        "definition_cn": "认识；了解；对某个事实或情况的知晓",
+        "definition_en": "awareness or familiarity, including knowing about a particular fact or situation",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:knowledge:f711704be9315464",
-        "sense_label_en": "awareness or familiarity gained by experience",
+        "sense_label_en": "awareness or familiarity, including knowing about a particular fact or situation",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "知晓不必来自亲身经历；with/without sb’s knowledge 表示该人知情/不知情，不自动表示同意。"
       }
     ],
     "verification_summary": {
@@ -273,8 +307,8 @@
     ],
     "active_collocations": [
       "collocation:0d918e219d76cdf28d4a",
-      "collocation:57205cc25a281c420cdd",
-      "collocation:ba291c9ae9f1fe6f7a5b"
+      "collocation:ba291c9ae9f1fe6f7a5b",
+      "collocation:57205cc25a281c420cdd"
     ],
     "facts": [
       {

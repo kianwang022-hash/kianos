@@ -13,7 +13,31 @@
         "level": "L1",
         "meaning_cn": "正在康复；正在好转",
         "pattern": "be on the mend",
-        "source_sense_id": "sense:mend:62a6975282fe54fd"
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only",
+        "definition_en": "recovering from illness or injury, or improving after difficulty",
+        "boundary": "Fixed idiom: mend is a noun here; it is not the verb pattern or the noun meaning a patched place."
+      },
+      {
+        "construction_id": "construction:93f0bfe5e2a071ed4180",
+        "pattern": "mend (your) fences (with sb)",
+        "meaning_cn": "弥合与某人的分歧；改善关系",
+        "definition_en": "resolve a disagreement with someone",
+        "usage_note": "政治新闻中的fences是比喻，mend a fence则可字面指修篱笆。",
+        "boundary": "政治新闻中的fences是比喻，mend a fence则可字面指修篱笆。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:mend:4a21b0250ed28562"
+      },
+      {
+        "construction_id": "construction:ce73a5cf728cd9f77511",
+        "pattern": "mend your ways",
+        "meaning_cn": "改正不良行为",
+        "definition_en": "stop behaving badly",
+        "usage_note": "不是修补道路。",
+        "boundary": "不是修补道路。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "00bf5c9120b98a565940025dcefea37d8d9146a4db767fe676e5c947b7421816",
@@ -96,16 +120,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "痊愈；恢复健康",
-        "definition_en": "to become healthy again; to recover from illness or injury",
-        "governing_pattern": "vi.",
+        "definition_cn": "痊愈；恢复健康；（断骨）愈合",
+        "definition_en": "to recover in health, or for a broken bone to heal",
+        "governing_pattern": "a person/bone mends",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mend:62a6975282fe54fd",
-        "sense_label_en": "to become healthy again; to recover from illness or injury",
+        "sense_label_en": "to recover in health, or for a broken bone to heal",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "人的不及物mend表示康复，较旧式；断骨mends表示愈合。be on the mend是常用的康复/好转说法。"
       },
       {
         "collocations": [
@@ -130,6 +155,28 @@
         "sense_label_en": "a repaired place in a garment or other material",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:mend:4a21b0250ed28562",
+        "pos": "verb",
+        "definition_cn": "改善关系；弥合分歧、解决问题",
+        "definition_en": "to repair a relationship or resolve a disagreement",
+        "sense_label_en": "to repair a relationship or resolve a disagreement",
+        "governing_pattern": "mend relations/differences/matters",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f1604f69b0ef5144184e",
+            "phrase": "mend relations between the countries",
+            "meaning_cn": "改善两国关系",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -179,6 +226,24 @@
           "applicability": [
             {
               "surface": "mend"
+            },
+            {
+              "surface": "mend",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mend:4a21b0250ed28562"
+              ],
+              "owner_sense_ids": [
+                "sense:mend:4a21b0250ed28562"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3020.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mend relations/differences/matters",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -275,13 +340,22 @@
         "merged_into_sense_id": null,
         "source_row": 8424,
         "source_path": "content/lexical/canonical/senses/shards/o3009-3040.json"
+      },
+      {
+        "sense_id": "sense:mend:4a21b0250ed28562",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3020.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:ae11b4da24b44e29da50",
-      "collocation:b0246fca3df209f9848b",
       "collocation:ce715c1029013a2c9254",
-      "collocation:f0a1ba2e601f0ad68bdf"
+      "collocation:b0246fca3df209f9848b",
+      "collocation:ae11b4da24b44e29da50",
+      "collocation:f0a1ba2e601f0ad68bdf",
+      "collocation:f1604f69b0ef5144184e"
     ],
     "facts": [],
     "collocations": [
@@ -304,6 +378,13 @@
         "id": "collocation:f0a1ba2e601f0ad68bdf",
         "source_row": 20386,
         "source_path": "content/lexical/canonical/collocations/shards/o3009-3040.json"
+      },
+      {
+        "id": "collocation:f1604f69b0ef5144184e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3020.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

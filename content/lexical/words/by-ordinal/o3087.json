@@ -6,7 +6,38 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:a6eedad89a4d590b5b42",
+        "pattern": "mix sth up / mix sb/sth up with sb/sth",
+        "meaning_cn": "弄乱顺序；把人或物混淆、认错",
+        "definition_en": "disorder a set of things, or confuse one person or thing with another",
+        "usage_note": "可分离，代词放中间：mix them up；with引出被误认成的对象，不等于普通混合材料。",
+        "boundary": "可分离，代词放中间：mix them up；with引出被误认成的对象，不等于普通混合材料。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:556367b16949a8d60ef1",
+        "pattern": "be/get mixed up in sth",
+        "meaning_cn": "牵涉、卷入（尤不正当的事）",
+        "definition_en": "become involved in something, especially wrongdoing",
+        "usage_note": "通常被动外形的状态构式；in后是事情，不按“物理混合”解释。",
+        "boundary": "通常被动外形的状态构式；in后是事情，不按“物理混合”解释。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:4e1ed6a4751374bec14a",
+        "pattern": "mix and match",
+        "meaning_cn": "按需要自由搭配、组合",
+        "definition_en": "combine different items in various ways to suit a purpose",
+        "usage_note": "可用于服装、课程等；按不同目的自由组合所需项目。",
+        "boundary": "可用于服装、课程等；按不同目的自由组合所需项目。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "87fcc665d137a459d0ac9d85fdb3269235ea1f2038b38f4a9d86d4dada63c7b9",
     "core_concept": {
       "core_clusters": [
@@ -26,12 +57,20 @@
           "sense_ids": [
             "sense:mix:e62d14dd45c05d5c"
           ]
+        },
+        {
+          "label_cn": "（录音）混音",
+          "label_en": "combine separate recorded voices or instruments into a single recording",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:mix:cc58db6d722d1391"
+          ]
         }
       ],
-      "core_meaning_cn": "混合",
-      "core_meaning_en": "combine or blend together",
-      "mental_model_cn": "混合",
-      "mental_model_en": ""
+      "core_meaning_cn": "混合、交往与混合物；录音混音",
+      "core_meaning_en": "combine or socialize; a mixture; combine recorded tracks",
+      "mental_model_cn": "材料和情感mix是混合，人mix with别人是交往；录音mix tracks是把不同声轨合成，mix up还可表示弄乱或认错。",
+      "mental_model_en": "combine or socialize; a mixture; combine recorded tracks."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -83,12 +122,12 @@
         "confidence": "medium",
         "definition_cn": "（使）混合；融合",
         "definition_en": "to combine things or become combined",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: mix A with B; A mixes with B; A and B mix",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mix:32f06b6edafd5047",
-        "sense_label_en": "combine or put together two or more substances, things, etc.",
+        "sense_label_en": "to combine things or become combined",
         "sort_order": 0,
         "transitivity": "I/T"
       },
@@ -157,6 +196,28 @@
         "sense_label_en": "a mixture or combination of things",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:mix:cc58db6d722d1391",
+        "pos": "verb",
+        "definition_cn": "（录音）混音",
+        "definition_en": "combine separate recorded voices or instruments into a single recording",
+        "sense_label_en": "combine separate recorded voices or instruments into a single recording",
+        "governing_pattern": "mix tracks/a recording",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e1ab4a2d52e93520c0bb",
+            "phrase": "mix the vocal and instrumental tracks",
+            "meaning_cn": "将人声与乐器声轨混音",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -186,6 +247,24 @@
           "applicability": [
             {
               "surface": "mix"
+            },
+            {
+              "surface": "mix",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mix:cc58db6d722d1391"
+              ],
+              "owner_sense_ids": [
+                "sense:mix:cc58db6d722d1391"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3087.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mix tracks/a recording",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -426,6 +505,24 @@
           "applicability": [
             {
               "surface": "mix"
+            },
+            {
+              "surface": "mix",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mix:cc58db6d722d1391"
+              ],
+              "owner_sense_ids": [
+                "sense:mix:cc58db6d722d1391"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3087.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mix tracks/a recording",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -617,17 +714,26 @@
         "merged_into_sense_id": null,
         "source_row": 8600,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:mix:cc58db6d722d1391",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3087.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:3655d2989a1c6f238b76",
-      "collocation:3854a508ab02bff3beb5",
-      "collocation:58e18257adccfb509b55",
+      "collocation:cb9db91928de4d5bb1d1",
       "collocation:9434649dee3b740fe534",
+      "collocation:c0f36bd71fba383ecdc4",
+      "collocation:3655d2989a1c6f238b76",
+      "collocation:58e18257adccfb509b55",
+      "collocation:3854a508ab02bff3beb5",
       "collocation:a51fd75073fa4e019993",
       "collocation:b7b59ae482eebda4a0ba",
-      "collocation:c0f36bd71fba383ecdc4",
-      "collocation:cb9db91928de4d5bb1d1"
+      "collocation:e1ab4a2d52e93520c0bb"
     ],
     "facts": [],
     "collocations": [
@@ -670,6 +776,13 @@
         "id": "collocation:cb9db91928de4d5bb1d1",
         "source_row": 17196,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:e1ab4a2d52e93520c0bb",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3087.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

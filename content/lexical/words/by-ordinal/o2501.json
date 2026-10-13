@@ -6,31 +6,46 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:8aa76a7bd29e46322ed5",
+        "pattern": "a person of independent means",
+        "meaning_cn": "有不靠工作取得的收入、可独立生活的人",
+        "definition_en": "a person with enough income to live without working",
+        "usage_note": "means在此为财力；不等于“意见独立”。",
+        "boundary": "means在此为财力；不等于“意见独立”。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:independent:2bc93cd76b54abc1"
+      }
+    ],
     "content_hash": "1e2c17e021f1100c02aa98d53b1f562650e2186fc984defed70b1187a3fc9221",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "独立的；不受外部控制的；无党派的",
-          "label_en": "free from external control; not controlled by a party or interest group",
+          "label_cn": "独立与自立",
+          "label_en": "independence",
           "pos": "adjective",
           "sense_ids": [
             "sense:independent:ff71371bf89d5cdc",
-            "sense:independent:995e23c8b8df55cd"
+            "sense:independent:995e23c8b8df55cd",
+            "sense:independent:212f0bc0e04855c9",
+            "sense:independent:2bc93cd76b54abc1",
+            "sense:independent:d40a8c3199fed9bd"
           ]
         },
         {
-          "label_cn": "无党派人士；独立人士",
-          "label_en": "a person not affiliated with a political party",
+          "label_cn": "无党派人士",
+          "label_en": "political independent",
           "pos": "noun",
           "sense_ids": [
             "sense:independent:3a580c84220d50d9"
           ]
         }
       ],
-      "core_meaning_cn": "独立的；不受控制的",
-      "core_meaning_en": "free from external control or influence",
-      "mental_model_cn": "独立的；不受控制的",
+      "core_meaning_cn": "能独立运作，不受外部支配或依赖",
+      "core_meaning_en": "free from outside control or reliance",
+      "mental_model_cn": "国家/组织看控制权；人看自立与经济来源；审查者看是否无利害关系；事物之间看是否相关。clause看能否独立成句；candidate等看是否属于政党。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -66,16 +81,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "独立的，不受外部控制的",
-        "definition_en": "free from external control or constraint",
-        "governing_pattern": "",
+        "definition_cn": "独立的；不受外部控制或影响的；彼此无关的",
+        "definition_en": "free from external control or influence; separate and unrelated",
+        "governing_pattern": "independent of sb/sth; independent from another country",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:independent:ff71371bf89d5cdc",
-        "sense_label_en": "free from external control or constraint",
+        "sense_label_en": "free from external control or influence; separate and unrelated",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "country：有自己的政府；independent of a factor：不受该因素左右；independent experiments：各自独立。个人自立和第三方公正判断见各自分支。"
       },
       {
         "collocations": [
@@ -145,9 +161,53 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:independent:212f0bc0e04855c9",
-        "sense_label_en": "(of a clause) capable of standing syntactically alone as a complete sent",
+        "sense_label_en": "(of a clause) capable of standing syntactically alone as a complete sentence",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:independent:2bc93cd76b54abc1",
+        "pos": "adjective",
+        "definition_cn": "自立的；不依赖他人帮助或供养的",
+        "definition_en": "able to manage without help or financial support from others",
+        "sense_label_en": "able to manage without help or financial support from others",
+        "governing_pattern": "be independent (of sb); financially independent",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:787563fffee4c8e5209b",
+            "phrase": "financially independent",
+            "meaning_cn": "经济上自立的",
+            "exam_value": "fixed_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:independent:d40a8c3199fed9bd",
+        "pos": "adjective",
+        "definition_cn": "由不涉事的第三方提供、可作公正判断的",
+        "definition_en": "provided by an uninvolved person or body able to judge fairly",
+        "sense_label_en": "provided by an uninvolved person or body able to judge fairly",
+        "governing_pattern": "an independent inquiry/review/adviser",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:860de4e6375e634ba952",
+            "phrase": "an independent review",
+            "meaning_cn": "由独立第三方进行的审查",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -177,6 +237,40 @@
           "applicability": [
             {
               "surface": "independent"
+            },
+            {
+              "surface": "independent",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:independent:2bc93cd76b54abc1"
+              ],
+              "owner_sense_ids": [
+                "sense:independent:2bc93cd76b54abc1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2501.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be independent (of sb); financially independent"
+            },
+            {
+              "surface": "independent",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:independent:d40a8c3199fed9bd"
+              ],
+              "owner_sense_ids": [
+                "sense:independent:d40a8c3199fed9bd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2501.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an independent inquiry/review/adviser"
             }
           ],
           "sources": [
@@ -672,14 +766,32 @@
         "merged_into_sense_id": null,
         "source_row": 6939,
         "source_path": "content/lexical/canonical/senses/shards/o2497-2528.json"
+      },
+      {
+        "sense_id": "sense:independent:2bc93cd76b54abc1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2501.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:independent:d40a8c3199fed9bd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2501.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:1b3947d2736b464ef4ea",
-      "collocation:24493c821499a081f2fa",
       "collocation:8d667489c113a4d8a308",
+      "collocation:24493c821499a081f2fa",
+      "collocation:e734f46a79ce8f8ca37b",
       "collocation:bc8726e68b097d4876e2",
-      "collocation:e734f46a79ce8f8ca37b"
+      "collocation:1b3947d2736b464ef4ea",
+      "collocation:787563fffee4c8e5209b",
+      "collocation:860de4e6375e634ba952"
     ],
     "facts": [
       {
@@ -713,6 +825,20 @@
         "id": "collocation:e734f46a79ce8f8ca37b",
         "source_row": 19596,
         "source_path": "content/lexical/canonical/collocations/shards/o2497-2528.json"
+      },
+      {
+        "id": "collocation:787563fffee4c8e5209b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2501.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:860de4e6375e634ba952",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2501.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

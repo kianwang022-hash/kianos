@@ -6,7 +6,36 @@
   "record": {
     "card_version": "v3",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:effect:eb781f7e811c0d15",
+        "direction": "R+P",
+        "level": "L2",
+        "pattern": "to this/that effect; to the effect that + clause",
+        "meaning_cn": "大意如此；意思是……",
+        "definition_en": "to report the general meaning of something said or written",
+        "boundary": "概述内容，不声称逐字引述；也不是法律生效的take effect。",
+        "example": {
+          "en": "She sent a message to the effect that the meeting was cancelled.",
+          "cn": "她发来消息，大意是会议取消了。"
+        },
+        "learning_note": "例：She sent a message to the effect that the meeting was cancelled. → 她发来消息，大意是会议取消了。"
+      },
+      {
+        "construction_id": "construction:effect:335b830b789c2197",
+        "direction": "R+P",
+        "level": "L2",
+        "pattern": "in effect (summarizing the actual situation)",
+        "meaning_cn": "实际意义上；事实上",
+        "definition_en": "in practical terms or as a summary of the actual situation",
+        "boundary": "概括实际情况，未必字面上完全相同。be/remain in effect 在规定、安排等语境中指生效或仍然有效，属于原有的效力义，不能在此解释为“事实上”。",
+        "example": {
+          "en": "She did all the planning; in effect, she was in charge.",
+          "cn": "所有规划都由她做；实际上，她在负责。"
+        },
+        "learning_note": "例：She did all the planning; in effect, she was in charge. → 所有规划都由她做；实际上，她在负责。对照：The rule remains in effect. → 这条规定仍然有效。"
+      }
+    ],
     "content_hash": "8f52df5eecae0e7ffee930da76a356b294262e3349cca393cdea8c1d7575c5b5",
     "core_concept": {
       "core_clusters": [
@@ -26,6 +55,14 @@
           "pos": "verb",
           "sense_ids": [
             "sense:effect:3d6d0b40068e5602"
+          ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "（复数）个人物品；随身财物",
+          "label_en": "a person's belongings, expressed as the plural effects",
+          "sense_ids": [
+            "sense:effect:e5d7f3c98fb14ea9"
           ]
         }
       ],
@@ -65,7 +102,7 @@
             "legacy_source_object_ids": [
               "sense:effect:832fe9868899563d:collocation:1"
             ],
-            "meaning_cn": "副作用",
+            "meaning_cn": "副作用；伴随主要作用出现的次生结果，常指不良影响",
             "phrase": "side effect"
           },
           {
@@ -118,7 +155,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:5fb3753849b04a0cfef1",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:effect:dcd0cfb49bb25c09:collocation:0"
             ],
@@ -127,7 +164,7 @@
           },
           {
             "collocation_id": "collocation:ccdae13b373303c77a8b",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:effect:dcd0cfb49bb25c09:collocation:1"
             ],
@@ -145,30 +182,6 @@
         "sense_id": "sense:effect:dcd0cfb49bb25c09",
         "sense_label_en": "the state of being in operation or having legal validity",
         "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:3dbf59b88737030486be",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:effect:b10e490521e55ff5:collocation:0"
-            ],
-            "meaning_cn": "副作用",
-            "phrase": "side effect"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "副作用；非预期的次生结果",
-        "definition_en": "an unintended or secondary result of an action, especially an adverse effect",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:effect:b10e490521e55ff5",
-        "sense_label_en": "an unintended or secondary result of an action, especially an adverse effect",
-        "sort_order": 3,
         "transitivity": "nonverb"
       },
       {
@@ -194,6 +207,26 @@
         "sense_label_en": "to cause something to happen or bring about",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:effect:e5d7f3c98fb14ea9",
+        "pos": "noun",
+        "definition_cn": "（复数）个人物品；随身财物",
+        "definition_en": "a person's belongings, expressed as the plural effects",
+        "sense_label_en": "a person's belongings, expressed as the plural effects",
+        "governing_pattern": "personal effects; household effects",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:effect:e5d7f3c98fb14ea9",
+            "phrase": "personal effects",
+            "meaning_cn": "个人物品；随身财物",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "正式；此财物义用复数effects，不把单数an effect解释成一件行李或物品。",
+        "number_constraint": "plural_only"
       }
     ],
     "verification_summary": {
@@ -243,6 +276,30 @@
           "applicability": [
             {
               "surface": "effect"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "effect",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:effect:e5d7f3c98fb14ea9"
+              ],
+              "sense_ids": [
+                "sense:effect:e5d7f3c98fb14ea9"
+              ],
+              "excluded_sense_ids": [
+                "sense:effect:3d6d0b40068e5602",
+                "sense:effect:832fe9868899563d",
+                "sense:effect:9b5270268798544d",
+                "sense:effect:dcd0cfb49bb25c09"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/effect",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -311,6 +368,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/effect",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "effect",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ɪˈfɛkt/",
+              "applies_to_sense_ids": [
+                "sense:effect:e5d7f3c98fb14ea9"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         }
@@ -354,6 +427,33 @@
       "source_row": 4407,
       "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3dbf59b88737030486be",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:effect:b10e490521e55ff5:collocation:0"
+          ],
+          "meaning_cn": "副作用",
+          "phrase": "side effect"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "副作用；非预期的次生结果",
+      "definition_en": "an unintended or secondary result of an action, especially an adverse effect",
+      "governing_pattern": "",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:effect:b10e490521e55ff5",
+      "sense_label_en": "an unintended or secondary result of an action, especially an adverse effect",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "reference_only": true,
+      "status": "merged",
+      "merged_into_sense_id": "sense:effect:832fe9868899563d"
     }
   ],
   "identity_refs": {
@@ -388,8 +488,8 @@
       },
       {
         "sense_id": "sense:effect:b10e490521e55ff5",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:effect:832fe9868899563d",
         "source_row": 4411,
         "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
       },
@@ -399,17 +499,25 @@
         "merged_into_sense_id": null,
         "source_row": 4412,
         "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
+      },
+      {
+        "sense_id": "sense:effect:e5d7f3c98fb14ea9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1575.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:18db738ae0dfd80ef61e",
-      "collocation:3dbf59b88737030486be",
       "collocation:5fb3753849b04a0cfef1",
       "collocation:8547a6ac58bd2f9324fe",
       "collocation:b118902e66bee06d6f02",
       "collocation:bb048fcc7dc22e74ad05",
       "collocation:c4606ddcbd51aa11b772",
-      "collocation:ccdae13b373303c77a8b"
+      "collocation:ccdae13b373303c77a8b",
+      "collocation:effect:e5d7f3c98fb14ea9"
     ],
     "facts": [
       {
@@ -437,7 +545,9 @@
       {
         "id": "collocation:3dbf59b88737030486be",
         "source_row": 5219,
-        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json",
+        "status": "merged",
+        "merged_into_id": "collocation:18db738ae0dfd80ef61e"
       },
       {
         "id": "collocation:5fb3753849b04a0cfef1",
@@ -468,6 +578,14 @@
         "id": "collocation:ccdae13b373303c77a8b",
         "source_row": 17328,
         "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+      },
+      {
+        "id": "collocation:effect:e5d7f3c98fb14ea9",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1575.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

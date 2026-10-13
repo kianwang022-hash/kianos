@@ -12,45 +12,58 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "想要；希望",
-        "pattern": "would like to do / would like sth",
-        "definition_en": "to want or wish for something, or want to do something",
-        "boundary": "polite preference/want construction",
-        "source_sense_id": "sense:like:fec4626902095eab"
+        "pattern": "would like sth / to do sth / sb to do sth",
+        "definition_en": "to politely express wanting something, to do something, or someone to do something",
+        "boundary": "polite preference/want construction；希望别人做某事用 would like sb to do sth；like 后宾语不能省去 to 而套用 let sb do。",
+        "source_sense_id": "sense:like:fec4626902095eab",
+        "usage_note": "希望别人做某事用 would like sb to do sth；like 后宾语不能省去 to 而套用 let sb do。"
       }
     ],
     "content_hash": "44740e0ecc6a129694db0b15ed6c3368b384f9a3cf49b1eacc5a6251b0694417",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "喜欢；希望；愿意",
-          "label_en": "to find enjoyable or agreeable; to wish; to prefer",
+          "label_cn": "喜欢；希望；愿意；（在网上）点赞",
+          "label_en": "to find enjoyable or agreeable; to wish; to prefer; to click a button online to express approval of content",
           "pos": "verb",
           "sense_ids": [
             "sense:like:2ad3aa2526315de2",
-            "sense:like:fec4626902095eab"
+            "sense:like:fec4626902095eab",
+            "sense:like:cd4b6ea1e555b9c3"
           ]
         },
         {
-          "label_cn": "像；如同",
-          "label_en": "similar to; in the manner of",
+          "label_cn": "像；如同；例如；诸如",
+          "label_en": "similar to; in the manner of; introducing examples from a larger category",
           "pos": "preposition",
           "sense_ids": [
-            "sense:like:be1e9b0d8cb35baa"
+            "sense:like:be1e9b0d8cb35baa",
+            "sense:like:fdc007d76a13a402"
           ]
         },
         {
-          "label_cn": "同样的人（或物）；爱好",
-          "label_en": "a similar kind; a person or thing of the same kind",
+          "label_cn": "同类的人或物；复数 likes 也可指喜好的事物；（网上的）一个赞；点赞",
+          "label_en": "a similar person or thing; in the plural, things someone enjoys or prefers; an online indication of approval made by clicking a button",
           "pos": "noun",
           "sense_ids": [
-            "sense:like:5d9720c4998c5da4"
+            "sense:like:5d9720c4998c5da4",
+            "sense:like:c0cd047e692833f6"
+          ]
+        },
+        {
+          "label_cn": "（非正式）像…一样；正如；（非正式）好像；仿佛",
+          "label_en": "connecting a clause that describes a similar way or manner; connecting a clause that describes an apparent or imagined situation",
+          "pos": "conjunction",
+          "sense_ids": [
+            "sense:like:d9b833e43636f274",
+            "sense:like:71cfdc72f752861e"
           ]
         }
       ],
-      "core_meaning_cn": "喜欢；像",
-      "core_meaning_en": "to find enjoyable; similar to",
-      "mental_model_cn": "喜欢；像",
-      "mental_model_en": ""
+      "core_meaning_cn": "喜欢或想要；像、例如；（非正式从句）正如、仿佛；同类或喜好；网上点赞",
+      "core_meaning_en": "to enjoy or want; similar to or such as; informal as or as if; a similar thing or preferences; online approval",
+      "mental_model_cn": "介词 like 后接例项或名词；非正式连词 like 接从句；likes 在社交平台为点赞，likes and dislikes 为喜好。",
+      "mental_model_en": "to enjoy or want; similar to or such as; informal as or as if; a similar thing or preferences; online approval."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -82,12 +95,21 @@
             ],
             "meaning_cn": "我喜欢阅读。",
             "phrase": "I like reading."
+          },
+          {
+            "collocation_id": "collocation:955b4f7383b74f477126",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:like:fec4626902095eab:collocation:0"
+            ],
+            "meaning_cn": "喜欢做某事",
+            "phrase": "like to do sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "喜欢",
         "definition_en": "to find enjoyable or agreeable",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "like sb/sth; like doing sth; like to do sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -130,17 +152,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:955b4f7383b74f477126",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:like:fec4626902095eab:collocation:0"
-            ],
-            "meaning_cn": "喜欢做某事",
-            "phrase": "like to do sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "希望；愿意",
         "definition_en": "to wish; to prefer",
@@ -166,16 +178,128 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "同样的人（或物）；爱好",
-        "definition_en": "a similar kind; a person or thing of the same kind",
-        "governing_pattern": "",
+        "definition_cn": "同类的人或物；复数 likes 也可指喜好的事物",
+        "definition_en": "a similar person or thing; in the plural, things someone enjoys or prefers",
+        "governing_pattern": "the like / the likes of; one's likes and dislikes",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:like:5d9720c4998c5da4",
-        "sense_label_en": "a similar kind; a person or thing of the same kind",
+        "sense_label_en": "a similar person or thing; in the plural, things someone enjoys or prefers",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:like:fdc007d76a13a402",
+        "pos": "preposition",
+        "definition_cn": "例如；诸如",
+        "definition_en": "introducing examples from a larger category",
+        "sense_label_en": "introducing examples from a larger category",
+        "governing_pattern": "category + like + examples",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e6ba6b0fc0442209268e",
+            "phrase": "languages like French and Spanish",
+            "meaning_cn": "诸如法语和西班牙语的语言",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:like:d9b833e43636f274",
+        "pos": "conjunction",
+        "definition_cn": "（非正式）像…一样；正如",
+        "definition_en": "connecting a clause that describes a similar way or manner",
+        "sense_label_en": "connecting a clause that describes a similar way or manner",
+        "governing_pattern": "like + subject + verb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:85c3e7f7c2bed073446e",
+            "phrase": "like I said",
+            "meaning_cn": "正如我之前所说",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "非正式常见；正式书面表达同样方式通常用 as。"
+      },
+      {
+        "sense_id": "sense:like:71cfdc72f752861e",
+        "pos": "conjunction",
+        "definition_cn": "（非正式）好像；仿佛",
+        "definition_en": "connecting a clause that describes an apparent or imagined situation",
+        "sense_label_en": "connecting a clause that describes an apparent or imagined situation",
+        "governing_pattern": "act/look/sound + like + subject + verb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ea9bfc243b6e6fffd09b",
+            "phrase": "act like you own the place",
+            "meaning_cn": "表现得仿佛这里由你做主",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "此处接完整从句；正式书面表达通常用 as if/as though。"
+      },
+      {
+        "sense_id": "sense:like:cd4b6ea1e555b9c3",
+        "pos": "verb",
+        "definition_cn": "（在网上）点赞",
+        "definition_en": "to click a button online to express approval of content",
+        "sense_label_en": "to click a button online to express approval of content",
+        "governing_pattern": "like a post/photo",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2ee531fbb3c0dc4f8d68",
+            "phrase": "like a post",
+            "meaning_cn": "给帖子点赞",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:like:c0cd047e692833f6",
+        "pos": "noun",
+        "definition_cn": "（网上的）一个赞；点赞",
+        "definition_en": "an online indication of approval made by clicking a button",
+        "sense_label_en": "an online indication of approval made by clicking a button",
+        "governing_pattern": "a like; receive/get likes",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2154596f5c5117fa881e",
+            "phrase": "receive hundreds of likes",
+            "meaning_cn": "获得数百个赞",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -205,6 +329,91 @@
           "applicability": [
             {
               "surface": "like"
+            },
+            {
+              "surface": "like",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:like:fdc007d76a13a402"
+              ],
+              "owner_sense_ids": [
+                "sense:like:fdc007d76a13a402"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2829.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "category + like + examples"
+            },
+            {
+              "surface": "like",
+              "pos": [
+                "conjunction"
+              ],
+              "sense_ids": [
+                "sense:like:d9b833e43636f274"
+              ],
+              "owner_sense_ids": [
+                "sense:like:d9b833e43636f274"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2829.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "like + subject + verb"
+            },
+            {
+              "surface": "like",
+              "pos": [
+                "conjunction"
+              ],
+              "sense_ids": [
+                "sense:like:71cfdc72f752861e"
+              ],
+              "owner_sense_ids": [
+                "sense:like:71cfdc72f752861e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2829.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "act/look/sound + like + subject + verb"
+            },
+            {
+              "surface": "like",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:like:cd4b6ea1e555b9c3"
+              ],
+              "owner_sense_ids": [
+                "sense:like:cd4b6ea1e555b9c3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2829.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "like a post/photo"
+            },
+            {
+              "surface": "like",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:like:c0cd047e692833f6"
+              ],
+              "owner_sense_ids": [
+                "sense:like:c0cd047e692833f6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2829.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a like; receive/get likes"
             }
           ],
           "sources": [
@@ -595,15 +804,60 @@
         "merged_into_sense_id": null,
         "source_row": 7859,
         "source_path": "content/lexical/canonical/senses/shards/o2817-2848.json"
+      },
+      {
+        "sense_id": "sense:like:fdc007d76a13a402",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2829.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:like:d9b833e43636f274",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2829.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:like:71cfdc72f752861e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2829.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:like:cd4b6ea1e555b9c3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2829.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:like:c0cd047e692833f6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2829.json",
+        "source_pointer": "/record/senses/8"
       }
     ],
     "active_collocations": [
-      "collocation:03e4a5811d0b7b7e7761",
-      "collocation:22b6f2df9eb4bed0ae7e",
-      "collocation:955b4f7383b74f477126",
+      "collocation:fd4c10c5f4d6f7d59afa",
       "collocation:e6f999dcedc4cf1328a2",
+      "collocation:955b4f7383b74f477126",
+      "collocation:22b6f2df9eb4bed0ae7e",
+      "collocation:03e4a5811d0b7b7e7761",
       "collocation:f0326e5189417948c724",
-      "collocation:fd4c10c5f4d6f7d59afa"
+      "collocation:e6ba6b0fc0442209268e",
+      "collocation:85c3e7f7c2bed073446e",
+      "collocation:ea9bfc243b6e6fffd09b",
+      "collocation:2ee531fbb3c0dc4f8d68",
+      "collocation:2154596f5c5117fa881e"
     ],
     "facts": [],
     "collocations": [
@@ -620,7 +874,8 @@
       {
         "id": "collocation:955b4f7383b74f477126",
         "source_row": 12702,
-        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json",
+        "sense_id": "sense:like:2ad3aa2526315de2"
       },
       {
         "id": "collocation:e6f999dcedc4cf1328a2",
@@ -636,6 +891,41 @@
         "id": "collocation:fd4c10c5f4d6f7d59afa",
         "source_row": 21430,
         "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+      },
+      {
+        "id": "collocation:e6ba6b0fc0442209268e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2829.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:85c3e7f7c2bed073446e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2829.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:ea9bfc243b6e6fffd09b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2829.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:2ee531fbb3c0dc4f8d68",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2829.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:2154596f5c5117fa881e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2829.json",
+        "source_pointer": "/record/senses/8/collocations/0"
       }
     ],
     "exam-mappings": [],

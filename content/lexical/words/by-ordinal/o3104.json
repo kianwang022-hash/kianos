@@ -9,11 +9,60 @@
     "constructions": [],
     "content_hash": "c59058dfe1d15e4e6d12c7c71ad9cd7af0d3ddca284770647f2df59a37ac52ff",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "形状或形成；模具；霉菌",
-      "core_meaning_en": "shape or form; a container for shaping; a fungus",
-      "mental_model_cn": "形状或形成；模具；霉菌",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "霉；霉菌",
+          "label_en": "a soft green, grey, or black substance that grows on old food or damp walls",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mold:29d5afb722265474"
+          ]
+        },
+        {
+          "label_cn": "模子；铸模",
+          "label_en": "a hollow container used to give a particular shape to a material",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mold:4fbc9666d5ab57ef"
+          ]
+        },
+        {
+          "label_cn": "塑造；使成形",
+          "label_en": "to shape a soft substance into a particular form",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:mold:3cde933c4e9851dc"
+          ]
+        },
+        {
+          "label_cn": "类型；典型风格、性格或行为模式",
+          "label_en": "a characteristic type or style of character, attitudes or behaviour",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mold:abd3f677b6a49858"
+          ]
+        },
+        {
+          "label_cn": "塑造、影响（性格、观点、团队等）",
+          "label_en": "strongly influence how a character, opinion or group develops",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:mold:d6776b6d6681e97e"
+          ]
+        },
+        {
+          "label_cn": "（使）紧贴、适合某物的形状",
+          "label_en": "fit closely around a shape, or make something fit in this way",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:mold:7f733f952da3e0bb"
+          ]
+        }
+      ],
+      "core_meaning_cn": "霉菌、成形模具与典型模式；塑形、塑造或贴合",
+      "core_meaning_en": "fungus, a shaping container or a characteristic type; shape, influence or fit closely",
+      "mental_model_cn": "mold为常见美式拼写，英式常写mould。名词按霉菌、模具或典型模式选；动词可塑造材料，也可影响性格或贴合形状。",
+      "mental_model_en": "fungus, a shaping container or a characteristic type; shape, influence or fit closely."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -59,7 +108,7 @@
         "confidence": "medium",
         "definition_cn": "塑造；使成形",
         "definition_en": "to shape a soft substance into a particular form",
-        "governing_pattern": "",
+        "governing_pattern": "mold A into B; mold B from/out of A",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -67,6 +116,72 @@
         "sense_label_en": "to shape a soft substance into a particular form",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:mold:abd3f677b6a49858",
+        "pos": "noun",
+        "definition_cn": "类型；典型风格、性格或行为模式",
+        "definition_en": "a characteristic type or style of character, attitudes or behaviour",
+        "sense_label_en": "a characteristic type or style of character, attitudes or behaviour",
+        "governing_pattern": "in the mold of sb; fit the traditional mold",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:162276122557bbf44044",
+            "phrase": "in the mold of a traditional leader",
+            "meaning_cn": "具有传统领导者的典型风格",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mold:d6776b6d6681e97e",
+        "pos": "verb",
+        "definition_cn": "塑造、影响（性格、观点、团队等）",
+        "definition_en": "strongly influence how a character, opinion or group develops",
+        "sense_label_en": "strongly influence how a character, opinion or group develops",
+        "governing_pattern": "mold sb/sth; mold sb/sth into sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:72c7275b2ff3516ce887",
+            "phrase": "mold a group into a team",
+            "meaning_cn": "把一群人塑造成一个团队",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mold:7f733f952da3e0bb",
+        "pos": "verb",
+        "definition_cn": "（使）紧贴、适合某物的形状",
+        "definition_en": "fit closely around a shape, or make something fit in this way",
+        "sense_label_en": "fit closely around a shape, or make something fit in this way",
+        "governing_pattern": "sth molds to sth; mold sth to sth",
+        "transitivity": "I/T",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8ca95d9dc4a861cdd217",
+            "phrase": "fabric that molds to the body",
+            "meaning_cn": "贴合身体轮廓的布料",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -114,6 +229,60 @@
           "applicability": [
             {
               "surface": "mold"
+            },
+            {
+              "surface": "mold",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mold:abd3f677b6a49858"
+              ],
+              "owner_sense_ids": [
+                "sense:mold:abd3f677b6a49858"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3104.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in the mold of sb; fit the traditional mold",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mold",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mold:d6776b6d6681e97e"
+              ],
+              "owner_sense_ids": [
+                "sense:mold:d6776b6d6681e97e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3104.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mold sb/sth; mold sb/sth into sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mold",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mold:7f733f952da3e0bb"
+              ],
+              "owner_sense_ids": [
+                "sense:mold:7f733f952da3e0bb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3104.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sth molds to sth; mold sth to sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -420,6 +589,60 @@
           "applicability": [
             {
               "surface": "mold"
+            },
+            {
+              "surface": "mold",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mold:abd3f677b6a49858"
+              ],
+              "owner_sense_ids": [
+                "sense:mold:abd3f677b6a49858"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3104.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in the mold of sb; fit the traditional mold",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mold",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mold:d6776b6d6681e97e"
+              ],
+              "owner_sense_ids": [
+                "sense:mold:d6776b6d6681e97e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3104.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mold sb/sth; mold sb/sth into sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mold",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mold:7f733f952da3e0bb"
+              ],
+              "owner_sense_ids": [
+                "sense:mold:7f733f952da3e0bb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3104.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sth molds to sth; mold sth to sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -636,6 +859,60 @@
           "applicability": [
             {
               "surface": "mold"
+            },
+            {
+              "surface": "mold",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mold:abd3f677b6a49858"
+              ],
+              "owner_sense_ids": [
+                "sense:mold:abd3f677b6a49858"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3104.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in the mold of sb; fit the traditional mold",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mold",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mold:d6776b6d6681e97e"
+              ],
+              "owner_sense_ids": [
+                "sense:mold:d6776b6d6681e97e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3104.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mold sb/sth; mold sb/sth into sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mold",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mold:7f733f952da3e0bb"
+              ],
+              "owner_sense_ids": [
+                "sense:mold:7f733f952da3e0bb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3104.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sth molds to sth; mold sth to sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -980,9 +1257,37 @@
         "merged_into_sense_id": null,
         "source_row": 8648,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:mold:abd3f677b6a49858",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3104.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:mold:d6776b6d6681e97e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3104.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:mold:7f733f952da3e0bb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3104.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:162276122557bbf44044",
+      "collocation:72c7275b2ff3516ce887",
+      "collocation:8ca95d9dc4a861cdd217"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -1004,6 +1309,27 @@
         "id": "collocation:84c3657287f4073854c2",
         "source_row": 11265,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:162276122557bbf44044",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3104.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:72c7275b2ff3516ce887",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3104.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:8ca95d9dc4a861cdd217",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3104.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -62,27 +62,93 @@
         "level": "L1",
         "meaning_cn": "意味着/需要做某事；作为结果或要求会涉及做某事",
         "pattern": "mean doing sth"
+      },
+      {
+        "construction_id": "construction:ad5aa9ca6249ebca2c87",
+        "pattern": "mean business",
+        "meaning_cn": "当真的；认真要做的",
+        "definition_en": "to be serious about an intention",
+        "usage_note": "不是商业本身的词义。",
+        "boundary": "不是商业本身的词义。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:mean:ae19ae892e5f5180"
+      },
+      {
+        "construction_id": "construction:ceb7279983ee97a3aacf",
+        "pattern": "mean well",
+        "meaning_cn": "出于好意",
+        "definition_en": "to have good intentions",
+        "usage_note": "好意不保证实际结果好。",
+        "boundary": "好意不保证实际结果好。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:mean:ae19ae892e5f5180"
+      },
+      {
+        "construction_id": "construction:a8b511025a60fb60c6f6",
+        "pattern": "be meant for sb/sth",
+        "meaning_cn": "为……准备、设计；适合于……",
+        "definition_en": "intended or suitable for someone or something",
+        "usage_note": "用途或适任由语境决定；不表示已实际送到。",
+        "boundary": "用途或适任由语境决定；不表示已实际送到。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:0b47b3506c2ded0458c8",
+        "pattern": "be meant to do sth",
+        "meaning_cn": "应该、预期要做某事",
+        "definition_en": "to be supposed or expected to do something",
+        "usage_note": "不同于主动mean to do表示当事人的打算。",
+        "boundary": "不同于主动mean to do表示当事人的打算。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:4d793f187dea1b01fb79",
+        "pattern": "mean it",
+        "meaning_cn": "是认真的；说话算数",
+        "definition_en": "to sincerely intend what one says",
+        "usage_note": "it回指所说内容，如I mean it；不是解释代词it的词义。",
+        "boundary": "it回指所说内容，如I mean it；不是解释代词it的词义。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:mean:ae19ae892e5f5180"
+      },
+      {
+        "construction_id": "construction:303da74e683ff7dc46fe",
+        "pattern": "be no mean + role",
+        "meaning_cn": "相当出色；技艺不凡",
+        "definition_en": "used to praise considerable skill",
+        "usage_note": "褒义的低调说法；no mean artist不指不刻薄的画家。",
+        "boundary": "褒义的低调说法；no mean artist不指不刻薄的画家。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "c0b0b0e452f3afba31fb579ed5d7a7a64a09178ad4cc92b955fd0360b648f62f",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "意思是，意味着；表示……的意思；有意义，重要",
-          "label_en": "mean or intend to express or convey; denote or connote; have a specified degree of importance",
+          "label_cn": "意思是，意味着；表示……的意思；有意义，重要；打算；意欲",
+          "label_en": "to intend a particular meaning by what one says or does; denote or connote; have a specified degree of importance; to intend or plan to do something",
           "pos": "verb",
           "sense_ids": [
             "sense:mean:63d9f8463f1b5a1c",
             "sense:mean:d65dc91078395439",
-            "sense:mean:19da749e06c2567b"
+            "sense:mean:19da749e06c2567b",
+            "sense:mean:ae19ae892e5f5180"
           ]
         },
         {
-          "label_cn": "低劣的，吝啬的；平均的，中间的",
-          "label_en": "having a low or unkind character; stingy; being the average or middle value",
+          "label_cn": "平均的；中间的；刻薄的、不友善的；吝啬的；低劣的；（非正式，褒义）很厉害的；技艺高超的",
+          "label_en": "being the average or middle value; having a low or unkind character; stingy; very good and skilful",
           "pos": "adjective",
           "sense_ids": [
-            "sense:mean:1c02859d9e385818"
+            "sense:mean:950e964b21775a76",
+            "sense:mean:1c02859d9e385818",
+            "sense:mean:123d322c547824b4"
           ]
         },
         {
@@ -94,10 +160,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "意思是，意味着；平均的",
-      "core_meaning_en": "to intend or signify; average",
-      "mental_model_cn": "意思是，意味着；平均的",
-      "mental_model_en": ""
+      "core_meaning_cn": "表示、打算、重要；刻薄吝啬或技艺高超；平均",
+      "core_meaning_en": "to signify, intend or have importance; unkind, stingy or skilful; average",
+      "mental_model_cn": "mean to do是打算；mean doing是意味着需做；mean business是当真；a mean player可褒义；mean temperature/the mean是平均。",
+      "mental_model_en": "to signify, intend or have importance; unkind, stingy or skilful; average."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -112,7 +178,7 @@
       {
         "boundary": "be mean to sb 表对某人刻薄",
         "codex_reviewed": false,
-        "definition_cn": "低劣的，吝啬的",
+        "definition_cn": "刻薄的、不友善的；吝啬的；低劣的",
         "definition_en": "having a low or unkind character; stingy",
         "dimensions": {},
         "direction": "R+P",
@@ -163,13 +229,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "意思是，意味着",
-        "definition_en": "mean or intend to express or convey",
+        "definition_en": "to intend a particular meaning by what one says or does",
         "governing_pattern": "vt. + object",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mean:63d9f8463f1b5a1c",
-        "sense_label_en": "mean or intend to express or convey",
+        "sense_label_en": "to intend a particular meaning by what one says or does",
         "sort_order": 0,
         "transitivity": "vt"
       },
@@ -195,7 +261,8 @@
         "sense_id": "sense:mean:d65dc91078395439",
         "sense_label_en": "denote or connote",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "这个表示词义/代表的用法通常不用进行时；I’ve been meaning to call中的meaning则属于打算义。"
       },
       {
         "collocations": [],
@@ -216,14 +283,15 @@
         "confidence": "medium",
         "definition_cn": "有意义，重要",
         "definition_en": "have a specified degree of importance",
-        "governing_pattern": "",
+        "governing_pattern": "mean much/a lot/nothing to sb",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mean:19da749e06c2567b",
         "sense_label_en": "have a specified degree of importance",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vt",
+        "usage_note": "表示重要性时通常不用于被动：Your friendship means a lot to me。"
       },
       {
         "collocations": [
@@ -238,7 +306,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "低劣的，吝啬的",
+        "definition_cn": "刻薄的、不友善的；吝啬的；低劣的",
         "definition_en": "having a low or unkind character; stingy",
         "governing_pattern": "",
         "level": "L2",
@@ -247,7 +315,8 @@
         "sense_id": "sense:mean:1c02859d9e385818",
         "sense_label_en": "having a low or unkind character; stingy",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "mean to sb指刻薄；mean with money尤英式指吝啬；不能因此把a mean player的褒义解释为坏人。"
       },
       {
         "collocations": [
@@ -305,6 +374,28 @@
         "sense_label_en": "to intend or plan to do something",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:mean:123d322c547824b4",
+        "pos": "adjective",
+        "definition_cn": "（非正式，褒义）很厉害的；技艺高超的",
+        "definition_en": "very good and skilful",
+        "sense_label_en": "very good and skilful",
+        "governing_pattern": "a mean player; play a mean game",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c6b2ceb10d66cea1f035",
+            "phrase": "play a mean game of chess",
+            "meaning_cn": "棋下得很厉害",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -347,6 +438,23 @@
           "applicability": [
             {
               "surface": "mean"
+            },
+            {
+              "surface": "mean",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mean:123d322c547824b4"
+              ],
+              "owner_sense_ids": [
+                "sense:mean:123d322c547824b4"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2991.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a mean player; play a mean game"
             }
           ],
           "sources": [
@@ -812,15 +920,24 @@
         "merged_into_sense_id": null,
         "source_row": 8392,
         "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
+      },
+      {
+        "sense_id": "sense:mean:123d322c547824b4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2991.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:0f8aad7e49d17735e399",
-      "collocation:164db9fcb110a6c742b8",
-      "collocation:35a206144e9ddad3a0ea",
-      "collocation:6d16af33bbd9f38b19b9",
       "collocation:b076747683f42ca9d862",
-      "collocation:c3cc4c559a74c4de5fb6"
+      "collocation:6d16af33bbd9f38b19b9",
+      "collocation:164db9fcb110a6c742b8",
+      "collocation:0f8aad7e49d17735e399",
+      "collocation:35a206144e9ddad3a0ea",
+      "collocation:c3cc4c559a74c4de5fb6",
+      "collocation:c6b2ceb10d66cea1f035"
     ],
     "facts": [
       {
@@ -869,6 +986,13 @@
         "id": "collocation:c3cc4c559a74c4de5fb6",
         "source_row": 21297,
         "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:c6b2ceb10d66cea1f035",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2991.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

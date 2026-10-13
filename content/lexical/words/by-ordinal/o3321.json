@@ -17,6 +17,16 @@
         "pattern": "be better/worse off",
         "priority": "S",
         "source_sense_id": "sense:off:01ebe9e35d6f56c7"
+      },
+      {
+        "construction_id": "construction:5e13c1ef3e8cabc054f5",
+        "pattern": "on and off / off and on",
+        "meaning_cn": "时断时续；间歇地",
+        "definition_en": "at intervals, with breaks",
+        "usage_note": "如It rained on and off说下雨时断时续，不是电源开关的字面操作。",
+        "boundary": "如It rained on and off说下雨时断时续，不是电源开关的字面操作。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "b48781f4f2371f487828d81bec4dae0ff57ebf57fbca5183390df7c8a12482b3",
@@ -24,7 +34,7 @@
       "core_clusters": [],
       "core_meaning_cn": "离开；关闭；停止",
       "core_meaning_en": "away from a place or position; not operating or functioning",
-      "mental_model_cn": "离开；关闭；停止",
+      "mental_model_cn": "先判断脱离什么：位置/接触、运行、值勤或原定安排；食物 off 指失去新鲜状态，价格 off 指减去。better/worse off 另读作处境好坏。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -38,16 +48,23 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:ecdadbe9028e2aa89131",
+            "phrase": "an island off the coast",
+            "meaning_cn": "靠近海岸的一座岛",
+            "exam_value": "usage_example"
+          }
+        ],
         "confidence": "medium",
-        "definition_cn": "离开；不再附着或处于……上",
-        "definition_en": "away from or no longer on something",
-        "governing_pattern": "",
+        "definition_cn": "离开、脱离某处；在某处附近或离开一定距离",
+        "definition_en": "away from a place or attachment, or at a distance from a place",
+        "governing_pattern": "off a surface/place; off the coast; distance + off sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "preposition",
         "sense_id": "sense:off:dae3754b20615e51",
-        "sense_label_en": "away from or no longer on something",
+        "sense_label_en": "away from a place or attachment, or at a distance from a place",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -810,7 +827,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o3297-3328.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:ecdadbe9028e2aa89131"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -892,6 +911,13 @@
         "id": "collocation:e464a82a77d5b62d37ab",
         "source_row": 19333,
         "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      },
+      {
+        "id": "collocation:ecdadbe9028e2aa89131",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3321.json",
+        "source_pointer": "/record/senses/0/collocations/0"
       }
     ],
     "exam-mappings": [

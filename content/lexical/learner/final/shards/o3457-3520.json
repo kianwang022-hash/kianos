@@ -146,7 +146,7 @@
     "ordinal": 3458,
     "word": "panel",
     "source_owner_path": "content/lexical/words/by-ordinal/o3458.json",
-    "source_fingerprint": "27428dbb6f27e0862f5fba7e58f5c33153a4657f81d1a04ae57edf314c9247df",
+    "source_fingerprint": "6756f8feaac27d911753a5f4ceb09cacfeca11ed85b40e91f8eb0c38642f9bb6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -305,7 +305,7 @@
     "ordinal": 3459,
     "word": "panic",
     "source_owner_path": "content/lexical/words/by-ordinal/o3459.json",
-    "source_fingerprint": "dd1f5a9ed836e823815583fc300f7d979e00ae6ade31685efde031bc27ea6147",
+    "source_fingerprint": "9525025dd1c733b17e61bf344147d3068e999e360439afb652ef58eeb6083f0c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -372,7 +372,7 @@
         "governing_pattern": "",
         "definition_cn": "惊慌；感到恐慌",
         "definition_en": "to be overcome by sudden fear",
-        "note": "",
+        "note": "在 c 后加 k 再接 -ed/-ing：panicked / panicking。",
         "identity_overlay": null,
         "usage": [
           {
@@ -427,16 +427,16 @@
         "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "惊慌的；没有理由的",
-        "definition_en": "feeling or showing panic; irrational",
-        "note": "",
+        "definition_cn": "由惊慌引起的；恐慌性的（多置于名词前）",
+        "definition_en": "caused by or showing sudden intense fear, especially before a noun",
+        "note": "panic reaction / panic buying 指恐慌驱动；不等于该恐惧一定毫无原因。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:2e4bf7396e8f33b5c11f",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "panic fear",
-            "meaning_cn": "无端的恐惧",
+            "meaning_cn": "惊慌性的恐惧",
             "kind": "usage_example",
             "repair": null
           }
@@ -445,7 +445,7 @@
           "target_kind": "sense",
           "target_id": "sense:panic:509882e544095860",
           "target_locator": "record.senses[3]",
-          "target_label": "惊慌的；没有理由的"
+          "target_label": "由惊慌引起的；恐慌性的（多置于名词前）"
         }
       }
     ],
@@ -463,10 +463,44 @@
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
+        },
+        {
+          "ipa": "/ˈpæn.ɪk/",
+          "locales": [
+            "en-GB",
+            "en-US"
+          ],
+          "applicability": [
+            {
+              "surface": "panic",
+              "sense_ids": [
+                "sense:panic:ee540e4e64d55734",
+                "sense:panic:490de62ed9465c0d",
+                "sense:panic:9ea0eaa041a257ba",
+                "sense:panic:509882e544095860"
+              ],
+              "scope_note": "Modern fear noun, fear verbs and attributive fear-result use; no unrelated historical etymology claim."
+            }
+          ],
+          "evidence_basis": "source_ipa",
+          "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:panic:490de62ed9465c0d": [
+          1
+        ],
+        "sense:panic:509882e544095860": [
+          1
+        ],
+        "sense:panic:9ea0eaa041a257ba": [
+          1
+        ],
+        "sense:panic:ee540e4e64d55734": [
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -934,15 +968,7 @@
         "definition_cn": "内裤；衬裤（英式常用）",
         "definition_en": "underpants or underwear, especially the common British-English sense",
         "note": "Common British-English clothing sense; compare AmE pants = trousers.",
-        "identity_overlay": {
-          "text": "The clothing noun pants is plural in form and normally takes plural agreement (These pants are ...); count garments with a pair/two pairs of pants. Surface pants can also be 3sg of the verb pant, which belongs to the pant lexeme.",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "The clothing noun pants is plural in form and normally takes plural agreement (These pants are ...); count garments with a pair/two pairs of pants. Surface pants can also be 3sg of the verb pant, which belongs to the pant lexeme."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:2206156010d07b6aa104",
@@ -1099,7 +1125,7 @@
     "ordinal": 3463,
     "word": "paper",
     "source_owner_path": "content/lexical/words/by-ordinal/o3463.json",
-    "source_fingerprint": "e2e861fb32e917d658dd152e69eafb2ddb151c1c2a98f7259ee120212d7c0804",
+    "source_fingerprint": "ae61a0edeb4cd9921237b18b8005e374c2696e8d255460a0420768ea3b18b78d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1127,7 +1153,7 @@
         "governing_pattern": "",
         "definition_cn": "纸",
         "definition_en": "thin material made from wood pulp, used for writing, printing, or wrapping",
-        "note": "",
+        "note": "材料义通常不可数：paper / a sheet of paper。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1161,7 +1187,7 @@
         "governing_pattern": "",
         "definition_cn": "文件；报纸；文章；论文",
         "definition_en": "a written or printed document, such as a newspaper, article, or academic work",
-        "note": "",
+        "note": "a paper 可指一篇论文或一份报纸；papers 可指文件，凭上下文选义，不总译作多张纸。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1351,6 +1377,31 @@
           "target_locator": "record.constructions[1]",
           "target_label": "on paper"
         }
+      },
+      {
+        "id": "construction:paper:13e5b3d5cdb1f655",
+        "source_locator": "record.constructions[2]",
+        "pattern": "paper over sth / paper over the cracks",
+        "lines": [
+          {
+            "text": "掩盖问题或分歧；作表面补救而未真正解决",
+            "lang": "cn"
+          },
+          {
+            "text": "宾语是问题、分歧或裂痕时常为比喻；解决表象不等于解决根源。",
+            "lang": "cn"
+          },
+          {
+            "text": "to hide a problem or disagreement with a superficial or temporary solution",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:paper:13e5b3d5cdb1f655",
+          "target_locator": "record.constructions[2]",
+          "target_label": "paper over sth / paper over the cracks"
+        }
       }
     ],
     "reference": {
@@ -1486,7 +1537,7 @@
     "ordinal": 3465,
     "word": "parachute",
     "source_owner_path": "content/lexical/words/by-ordinal/o3465.json",
-    "source_fingerprint": "212b9116de86b6351beffe4aa929b1a4ebf417ef4804c4cd27cb3bfd08dabf49",
+    "source_fingerprint": "b4be20b5f18d9070e64334248924323b298f5f2e82596d0048557b9ab1a89a74",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1511,8 +1562,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "降落伞（救援设备，充气减缓下落）",
-        "definition_en": "rescue equipment consisting of a device that fills with air and retards your fall",
+        "definition_cn": "降落伞（使人或载荷减速下降）",
+        "definition_en": "a device that opens in the air to slow the descent of a person or load",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1529,16 +1580,16 @@
           "target_kind": "sense",
           "target_id": "sense:parachute:544739e8fb5d5419",
           "target_locator": "record.senses[0]",
-          "target_label": "降落伞（救援设备，充气减缓下落）"
+          "target_label": "降落伞（使人或载荷减速下降）"
         }
       },
       {
         "id": "sense:parachute:fe0fab64f8405ce1",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + from/into",
-        "definition_cn": "跳伞",
-        "definition_en": "to descend by parachute",
+        "governing_pattern": "vi. + into/down; vt. + person/load + into/to",
+        "definition_cn": "跳伞下降；用降落伞空投",
+        "definition_en": "to descend by parachute, or send a person or load down by parachute",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1573,7 +1624,7 @@
           "target_kind": "sense",
           "target_id": "sense:parachute:fe0fab64f8405ce1",
           "target_locator": "record.senses[1]",
-          "target_label": "跳伞"
+          "target_label": "跳伞下降；用降落伞空投"
         }
       }
     ],
@@ -1611,7 +1662,7 @@
     "ordinal": 3466,
     "word": "parade",
     "source_owner_path": "content/lexical/words/by-ordinal/o3466.json",
-    "source_fingerprint": "8c493c41d9c1f02a1f8f9ae45f0f6a4ae028ab243abea5eb3949e9cff89ffe80",
+    "source_fingerprint": "19712e9d248346fe5e4c080fb8e614b48603fe3d52236e483bf792efbd3730cc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1669,10 +1720,10 @@
         "id": "sense:parade:e5b1f10ff3d45c30",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "炫耀地行走",
-        "definition_en": "walk ostentatiously",
-        "note": "",
+        "governing_pattern": "vi. + along/down/through; vt. + person/thing",
+        "definition_cn": "游行；列队行进；公开展示或炫耀",
+        "definition_en": "to walk or march in a public procession, or publicly display or show off someone or something",
+        "note": "parade down the street 可只是列队游行；parade one's wealth 才突出炫耀。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1688,7 +1739,7 @@
           "target_kind": "sense",
           "target_id": "sense:parade:e5b1f10ff3d45c30",
           "target_locator": "record.senses[1]",
-          "target_label": "炫耀地行走"
+          "target_label": "游行；列队行进；公开展示或炫耀"
         }
       },
       {
@@ -1824,22 +1875,37 @@
     "ordinal": 3467,
     "word": "paradigm",
     "source_owner_path": "content/lexical/words/by-ordinal/o3467.json",
-    "source_fingerprint": "bacafe206bd3e6223a50cb0b6ebf465ee05272d343b376892e2c6b2729715caa",
-    "sense_lineage": [],
+    "source_fingerprint": "1e7bebf91f2ab21183d69ba582344f9cd60b8054c09e43e45219782de2b2594a",
+    "sense_lineage": [
+      {
+        "word_id": "word:paradigm",
+        "target_kind": "sense",
+        "from_target_id": "sense:paradigm:d7b009bdad025f1e",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:paradigm",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:464a231d0911a7ebbf68",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "范例，范式",
-      "decision_cn": "",
+      "summary_cn": "典范/范例；理解问题的范式/框架",
+      "decision_cn": "paradigm of：典型范例；paradigm shift：解释框架的转变。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "范例，范式"
+        "target_label": "典范/范例；理解问题的范式/框架"
       }
     },
     "senses": [
@@ -1854,28 +1920,15 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:22c7ae578b6d0a013767",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a paradigm shift",
-            "meaning_cn": "范式转变",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:22c7ae578b6d0a013767",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "a paradigm shift"
-            }
-          },
-          {
             "id": "collocation:24d443e9a155e0170eff",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "paradigm of + sth",
             "meaning_cn": "某物的范例",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:24d443e9a155e0170eff",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "paradigm of + sth"
             }
           }
@@ -1888,45 +1941,33 @@
         }
       },
       {
-        "id": "sense:paradigm:d7b009bdad025f1e",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "词形变化表",
-        "definition_en": "a set of all forms of a word in grammar",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:464a231d0911a7ebbf68",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "verb paradigm",
-            "meaning_cn": "动词词形变化表",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:paradigm:d7b009bdad025f1e",
-          "target_locator": "record.senses[1]",
-          "target_label": "词形变化表"
-        }
-      },
-      {
         "id": "sense:paradigm:00df1e0de1ae51e0",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "范式；理解某领域的一套主导框架/理论体系",
         "definition_en": "a generally accepted framework, model, or set of theories for understanding a subject at a particular time",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:22c7ae578b6d0a013767",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a paradigm shift",
+            "meaning_cn": "范式转变",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:22c7ae578b6d0a013767",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "a paradigm shift"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:paradigm:00df1e0de1ae51e0",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "范式；理解某领域的一套主导框架/理论体系"
         }
       }
@@ -1982,7 +2023,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:464a231d0911a7ebbf68",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:paradigm:d7b009bdad025f1e:collocation:0"
+              ],
+              "meaning_cn": "动词词形变化表",
+              "phrase": "verb paradigm"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "词形变化表",
+          "definition_en": "a set of all forms of a word in grammar",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:paradigm:d7b009bdad025f1e",
+          "sense_label_en": "a set of all forms of a word in grammar",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:paradigm:d7b009bdad025f1e",
+          "status": "reference",
+          "reference_only": true,
+          "reference_reason": "A specialist inflection-table sense is retained for consultation; ordinary paradigm-of and paradigm-shift reading is served by the existing exemplar/framework senses."
+        }
+      ]
     }
   },
   {
@@ -1991,7 +2062,7 @@
     "ordinal": 3468,
     "word": "paradise",
     "source_owner_path": "content/lexical/words/by-ordinal/o3468.json",
-    "source_fingerprint": "df0392e4facff89fb9e56ffe8ac1423b4c013831abb2af7d1a2546ec4efb1bf6",
+    "source_fingerprint": "44721e4df3d0940c95468e6668bc7c7d780b74a38da6a0776559d14b44005a32",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2019,16 +2090,7 @@
         "definition_en": "in some religions, the place where good people go after death",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ec8fa81929c4d8a4fdc7",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a paradise on earth",
-            "meaning_cn": "人间天堂",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:paradise:104640dedb1b5751",
@@ -2051,6 +2113,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a shopper's paradise",
             "meaning_cn": "购物天堂",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:ec8fa81929c4d8a4fdc7",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a paradise on earth",
+            "meaning_cn": "人间天堂",
             "kind": "usage_example",
             "repair": null
           }
@@ -2329,7 +2399,7 @@
     "ordinal": 3471,
     "word": "parallel",
     "source_owner_path": "content/lexical/words/by-ordinal/o3471.json",
-    "source_fingerprint": "c37438645273921b224b91d04a2ec911a95f0574acc2e300b7950be36b5d3946",
+    "source_fingerprint": "c3175cc6759c1082853331c8024651ee08df7ff2f46a8a7e3a837465a1555a0c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2355,9 +2425,9 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "平行的",
-        "definition_en": "being everywhere equidistant and not intersecting",
-        "note": "",
+        "definition_cn": "平行的；相似/对应的；并行发展的",
+        "definition_en": "running side by side without meeting; also similar, corresponding, or developing alongside each other",
+        "note": "parallel lines 指几何平行；parallel developments 指相似或并行的发展，不要求物理距离相等。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2386,7 +2456,7 @@
           "target_kind": "sense",
           "target_id": "sense:parallel:10f2e791a9bd5b23",
           "target_locator": "record.senses[0]",
-          "target_label": "平行的"
+          "target_label": "平行的；相似/对应的；并行发展的"
         }
       },
       {
@@ -2394,9 +2464,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "对比，比较",
-        "definition_en": "a comparison that shows similarity",
-        "note": "",
+        "definition_cn": "相似之处；对应的人或事物；类比",
+        "definition_en": "a similarity or corresponding person or thing; also a comparison showing similarities",
+        "note": "draw a parallel 是作类比；without parallel 可指没有相似之处或对应例子，表示卓绝时才是无可比拟，不能一律理解成优劣评价。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2417,7 +2487,7 @@
           "target_kind": "sense",
           "target_id": "sense:parallel:4d3bedf509345cab",
           "target_locator": "record.senses[1]",
-          "target_label": "对比，比较"
+          "target_label": "相似之处；对应的人或事物；类比"
         }
       },
       {
@@ -2517,7 +2587,7 @@
     "ordinal": 3472,
     "word": "paralyse",
     "source_owner_path": "content/lexical/words/by-ordinal/o3472.json",
-    "source_fingerprint": "e279b57950baf2c844a4da9cbd126571badfd005dcc8a91067bbd1bc7a347fc2",
+    "source_fingerprint": "07d56b2b838b1c32ffd808208906f74156acdbf8a6c5f7aa1f9d3c9e08fa0943",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2543,35 +2613,19 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "使瘫痪，使麻痹",
         "definition_en": "cause (a person or part of the body) to become unable to move or feel",
-        "note": "",
-        "identity_overlay": {
-          "text": "paralyse is the common BrE spelling; paralyze is the common AmE spelling; same verb identity",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "paralyse is the common BrE spelling; paralyze is the common AmE spelling; same verb identity"
-          }
-        },
+        "note": "身体失去活动能力；paralysed with fear 可比喻害怕得动不了。经济/交通等停止运作归系统瘫痪义。",
+        "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:6a6e414c65dce29152be",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "paralyse the economy",
-            "meaning_cn": "使经济瘫痪",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:2d6ab5011b0790f24814",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "be paralysed with fear",
             "meaning_cn": "吓得动弹不得",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:2d6ab5011b0790f24814",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "be paralysed with fear"
             }
           }
@@ -2591,21 +2645,21 @@
         "definition_cn": "使（系统、组织等）陷入瘫痪",
         "definition_en": "make (a system, organization, etc.) unable to operate",
         "note": "",
-        "identity_overlay": {
-          "text": "paralyse is the common BrE spelling; paralyze is the common AmE spelling; same verb identity",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "paralyse is the common BrE spelling; paralyze is the common AmE spelling; same verb identity"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:609e969b20495fbd4e91",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "paralyse the transport system",
             "meaning_cn": "使交通系统瘫痪",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:6a6e414c65dce29152be",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "paralyse the economy",
+            "meaning_cn": "使经济瘫痪",
             "kind": "usage_example",
             "repair": null
           }
@@ -2650,7 +2704,7 @@
     "ordinal": 3473,
     "word": "parameter",
     "source_owner_path": "content/lexical/words/by-ordinal/o3473.json",
-    "source_fingerprint": "9b753ce8ae8c4e949a310a5047d719d4b63f3a703d36e5de2821b445ebfa6724",
+    "source_fingerprint": "bdc0552b90c0d5b755b94e22fa12517e1a4f6095d59158fb93044e0a333f3359",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2659,13 +2713,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "参数",
-      "decision_cn": "",
+      "summary_cn": "参数；界定范围的条件/限制",
+      "decision_cn": "数字模型中看参数；计划/讨论中看允许的范围和条件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "参数"
+        "target_label": "参数；界定范围的条件/限制"
       }
     },
     "senses": [
@@ -2700,9 +2754,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "参数；限制因素",
-        "definition_en": "any factor that defines a system and determines (or limits) its performance",
-        "note": "",
+        "definition_cn": "参数；限定活动或计划的范围/条件",
+        "definition_en": "a factor, limit, or condition that defines how a system, activity, or plan can operate",
+        "note": "set / work within the parameters：设定或在既定范围、条件内做事；不必涉及曲线方程。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2718,7 +2772,7 @@
           "target_kind": "sense",
           "target_id": "sense:parameter:f4f8ecb99ed0549e",
           "target_locator": "record.senses[1]",
-          "target_label": "参数；限制因素"
+          "target_label": "参数；限定活动或计划的范围/条件"
         }
       },
       {
@@ -2808,7 +2862,7 @@
     "ordinal": 3474,
     "word": "parasite",
     "source_owner_path": "content/lexical/words/by-ordinal/o3474.json",
-    "source_fingerprint": "2e6b9daa66db42fe32da8b71283ecb9c5569d77dae28757d2372e6f5d63216b5",
+    "source_fingerprint": "1f294855f090f9684b1529b1484372084d113b79248f8bb3f7b688da2f7c3660",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2832,8 +2886,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "寄生生物；寄生虫",
-        "definition_en": "an animal or plant that lives in or on a host (another animal or plant); it obtains nourishment from the host without benefiting or killing the host",
+        "definition_cn": "寄生生物；依靠宿主获取资源、常对宿主有害的生物",
+        "definition_en": "an organism that lives on or in a host and obtains resources at the host's expense, often causing harm",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2863,7 +2917,7 @@
           "target_kind": "sense",
           "target_id": "sense:parasite:3e2c15258b7759d3",
           "target_locator": "record.senses[0]",
-          "target_label": "寄生生物；寄生虫"
+          "target_label": "寄生生物；依靠宿主获取资源、常对宿主有害的生物"
         }
       },
       {
@@ -2871,9 +2925,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "食客；寄生虫（比喻）",
-        "definition_en": "a person who lives off others and gives nothing in return",
-        "note": "",
+        "definition_cn": "靠他人供养而不作相应贡献的人（贬义）",
+        "definition_en": "a person who habitually lives at others' expense without contributing fairly",
+        "note": "贬义比喻；不是中性的客人或普通食客。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2889,7 +2943,7 @@
           "target_kind": "sense",
           "target_id": "sense:parasite:da6049051ca15222",
           "target_locator": "record.senses[1]",
-          "target_label": "食客；寄生虫（比喻）"
+          "target_label": "靠他人供养而不作相应贡献的人（贬义）"
         }
       }
     ],
@@ -2941,7 +2995,7 @@
     "ordinal": 3475,
     "word": "parcel",
     "source_owner_path": "content/lexical/words/by-ordinal/o3475.json",
-    "source_fingerprint": "eeb1706810c0a85d7118a3b50eb1e49e29a7da7ade1632ab20c36717492ba1bb",
+    "source_fingerprint": "07873403bb6e3079162434e56f21dee571591744e24e93c45e6b5b1f9d4787e0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3109,7 +3163,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:parcel:110c1d9120a49dac",
+        "sense_id": "sense:parcel:285c5e33986c5760",
+        "source_locator": "record.constructions[0]",
+        "pattern": "part and parcel of sth",
+        "lines": [
+          {
+            "text": "某事不可分割或必然包含的部分",
+            "lang": "cn"
+          },
+          {
+            "text": "固定短语整体表示不可分割的组成，不按包裹义逐字理解。",
+            "lang": "cn"
+          },
+          {
+            "text": "an integral or unavoidable part of something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:parcel:110c1d9120a49dac",
+          "target_locator": "record.constructions[0]",
+          "target_label": "part and parcel of sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3320,7 +3401,7 @@
     "ordinal": 3477,
     "word": "parent",
     "source_owner_path": "content/lexical/words/by-ordinal/o3477.json",
-    "source_fingerprint": "2896848070e36a285ced167f7e52deb5a2b7044f1865a563afd8181753c41843",
+    "source_fingerprint": "1031cd7a66bae3a7337fef970a1ccb90326d35072c796100d5f54cc057ebe4a5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3366,7 +3447,7 @@
             "id": "collocation:662b6cb8aa774b4eaa3c",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "a parent of two children",
-            "meaning_cn": "两个孩子的父母",
+            "meaning_cn": "两个孩子的父亲或母亲",
             "kind": "usage_example",
             "repair": null
           }
@@ -3431,7 +3512,7 @@
             "id": "collocation:20efba1f4556791764fe",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "parent language",
-            "meaning_cn": "母语（语言学术语）",
+            "meaning_cn": "祖语；其他语言由之衍生的母体语言（不是个人的母语）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -3504,18 +3585,18 @@
     "ordinal": 3478,
     "word": "park",
     "source_owner_path": "content/lexical/words/by-ordinal/o3478.json",
-    "source_fingerprint": "9af5f911bbc89c8f3b17eb27f1d77b2ce184a9d80b0bec49619ad228fdd3e373",
+    "source_fingerprint": "6f207f214ff8535bcbde1ab49802c76952a092f26bd326f82373da865df7310c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "公园/园区；停车",
-      "decision_cn": "",
+      "decision_cn": "名词指公园/用途园区；车辆作动词宾语是停放，议题或想法作宾语是暂搁待议；in park 可指自动挡停车挡。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3633,8 +3714,8 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "停车挡",
-        "definition_en": "a gear position that acts as a parking brake",
+        "definition_cn": "（自动挡车辆的）停车挡",
+        "definition_en": "the transmission selector position used to keep a parked vehicle from moving",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3651,7 +3732,24 @@
           "target_kind": "sense",
           "target_id": "sense:park:ff0bd7966d67522e",
           "target_locator": "record.senses[3]",
-          "target_label": "停车挡"
+          "target_label": "（自动挡车辆的）停车挡"
+        }
+      },
+      {
+        "id": "sense:park:4c49e5648095a4c9",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "park an issue/idea (for now)",
+        "definition_cn": "暂时搁置（问题、想法等），留待以后处理",
+        "definition_en": "to set an issue or idea aside for later consideration",
+        "note": "非正式会议用法：宾语为议题/想法时指暂搁，通常仍打算稍后再处理；不是已解决。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:park:4c49e5648095a4c9",
+          "target_locator": "record.senses[4]",
+          "target_label": "暂时搁置（问题、想法等），留待以后处理"
         }
       }
     ],
@@ -3825,7 +3923,7 @@
     "ordinal": 3480,
     "word": "part",
     "source_owner_path": "content/lexical/words/by-ordinal/o3480.json",
-    "source_fingerprint": "e4aea64e34bed2338cf8261973443879d23a4a372997567b05dccfa02c1039ed",
+    "source_fingerprint": "1b4f00efce32b452ed960ba5b5fff6b270167f010f69941fc5afe838ddf48269",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3924,10 +4022,10 @@
         "id": "sense:part:68820942739f5b26",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "分开；分离",
-        "definition_en": "to separate or divide",
-        "note": "",
+        "governing_pattern": "vt. + object; vi.",
+        "definition_cn": "使分开；分开",
+        "definition_en": "to move things apart or for things to move apart",
+        "note": "part the curtains：拉开窗帘；the curtains part：窗帘分开。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3943,7 +4041,7 @@
           "target_kind": "sense",
           "target_id": "sense:part:68820942739f5b26",
           "target_locator": "record.senses[2]",
-          "target_label": "分开；分离"
+          "target_label": "使分开；分开"
         }
       },
       {
@@ -4011,7 +4109,84 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:part:5c82219933591402",
+        "source_locator": "record.constructions[0]",
+        "pattern": "part with sth",
+        "lines": [
+          {
+            "text": "割舍；放弃或交出拥有的东西（常带不舍）",
+            "lang": "cn"
+          },
+          {
+            "text": "with + 所拥有之物；区别 part from sb 离开某人。",
+            "lang": "cn"
+          },
+          {
+            "text": "to give up or let go of something one possesses, often reluctantly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:part:5c82219933591402",
+          "target_locator": "record.constructions[0]",
+          "target_label": "part with sth"
+        }
+      },
+      {
+        "id": "construction:part:f7fab291ac64c2f4",
+        "source_locator": "record.constructions[1]",
+        "pattern": "in part",
+        "lines": [
+          {
+            "text": "部分地；在一定程度上",
+            "lang": "cn"
+          },
+          {
+            "text": "副词性短语，限定原因或程度；不等于完整地。",
+            "lang": "cn"
+          },
+          {
+            "text": "partly, but not wholly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:part:f7fab291ac64c2f4",
+          "target_locator": "record.constructions[1]",
+          "target_label": "in part"
+        }
+      },
+      {
+        "id": "construction:part:f50b9896d025432a",
+        "sense_id": "sense:part:277a2bf3d8dd50f9",
+        "source_locator": "record.constructions[2]",
+        "pattern": "take part in sth",
+        "lines": [
+          {
+            "text": "参加；参与某项活动",
+            "lang": "cn"
+          },
+          {
+            "text": "in 后接活动；take part 强调参加，既有 play a part in 还可指非人的因素发挥作用。",
+            "lang": "cn"
+          },
+          {
+            "text": "to participate in an activity with others",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:part:f50b9896d025432a",
+          "target_locator": "record.constructions[2]",
+          "target_label": "take part in sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -4043,8 +4218,16 @@
     "ordinal": 3481,
     "word": "partial",
     "source_owner_path": "content/lexical/words/by-ordinal/o3481.json",
-    "source_fingerprint": "405c11396afd51f013ab1ed03e99c10a63e8f0b8b5be9812da4ab0ae03f06905",
-    "sense_lineage": [],
+    "source_fingerprint": "74c1db6aa27ed436c7a517e446d841d230163ef5e587d97211fc0451ae8a7248",
+    "sense_lineage": [
+      {
+        "word_id": "word:partial",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:badf45330437d0e9061d",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3A"
@@ -4052,13 +4235,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "部分的；偏袒的",
-      "decision_cn": "",
+      "summary_cn": "部分的；偏袒的；偏爱的",
+      "decision_cn": "partial result 看完成程度；partial judgment 看公平；be partial to chocolate 看个人喜好。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "部分的；偏袒的"
+        "target_label": "部分的；偏袒的；偏爱的"
       }
     },
     "senses": [
@@ -4151,21 +4334,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:badf45330437d0e9061d",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "be partial to + sth",
-            "meaning_cn": "特别喜欢某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:badf45330437d0e9061d",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "be partial to + sth"
-            }
-          },
-          {
             "id": "collocation:247f4b70097d758cd62e",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "She is partial to chocolate.",
             "meaning_cn": "她偏爱巧克力。",
             "kind": "usage_example",
@@ -4663,7 +4833,7 @@
     "ordinal": 3485,
     "word": "particular",
     "source_owner_path": "content/lexical/words/by-ordinal/o3485.json",
-    "source_fingerprint": "2b485dfa2c2c0f9ed12ec32ed379674f72bd90601d3f54af379bae81ac3bb16e",
+    "source_fingerprint": "f275f37bde6dc5e6623b68ef4fbdf3d63e1b8ec03fec18e6a532c061e4c2a68c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4674,7 +4844,7 @@
     },
     "word_feel": {
       "summary_cn": "特定的或个别的",
-      "decision_cn": "",
+      "decision_cn": "a particular case：某个特定案例；particular about：对…讲究/挑剔；particulars：具体详情。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4773,7 +4943,7 @@
         "governing_pattern": "",
         "definition_cn": "细节；项目",
         "definition_en": "a detail or individual item",
-        "note": "",
+        "note": "具体资料/详情常用复数 particulars；不是形容词 particular about（对…挑剔）。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4973,7 +5143,7 @@
     "ordinal": 3487,
     "word": "partner",
     "source_owner_path": "content/lexical/words/by-ordinal/o3487.json",
-    "source_fingerprint": "c156a38243ed79b9dcaf2bdec57843d9d4bd13db94c27bf68e14502df236d9a1",
+    "source_fingerprint": "c4f951cfd27f24c65a231b3a00eb6577997264966d1315b69406a4d4f75828d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4998,7 +5168,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "合伙人；股东",
+        "definition_cn": "合伙人",
         "definition_en": "a person who is a member of a partnership",
         "note": "",
         "identity_overlay": null,
@@ -5016,7 +5186,7 @@
           "target_kind": "sense",
           "target_id": "sense:partner:7e2575a0cb345787",
           "target_locator": "record.senses[0]",
-          "target_label": "合伙人；股东"
+          "target_label": "合伙人"
         }
       },
       {
@@ -5081,7 +5251,7 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi. + with",
-        "definition_cn": "做伙伴；当助手",
+        "definition_cn": "合作；结为伙伴",
         "definition_en": "act as a partner",
         "note": "",
         "identity_overlay": null,
@@ -5104,7 +5274,7 @@
           "target_kind": "sense",
           "target_id": "sense:partner:b3a747cf5df3515d",
           "target_locator": "record.senses[3]",
-          "target_label": "做伙伴；当助手"
+          "target_label": "合作；结为伙伴"
         }
       }
     ],
@@ -5142,7 +5312,7 @@
     "ordinal": 3488,
     "word": "party",
     "source_owner_path": "content/lexical/words/by-ordinal/o3488.json",
-    "source_fingerprint": "c3768988b00b21ee5708bee7db3ca1112b40b6fbfdc2b26ee439696761050e07",
+    "source_fingerprint": "a7bb65900c29475728db7311240d74355e1faf6424327998823b0abb5fce1c0e",
     "sense_lineage": [
       {
         "word_id": "word:party",
@@ -5161,7 +5331,7 @@
     },
     "word_feel": {
       "summary_cn": "政党；聚会",
-      "decision_cn": "",
+      "decision_cn": "party member 看政党；go to a party 看聚会；a party of tourists 看同行一群人；a party to a contract 看合同一方。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5401,18 +5571,18 @@
     "ordinal": 3489,
     "word": "pass",
     "source_owner_path": "content/lexical/words/by-ordinal/o3489.json",
-    "source_fingerprint": "c8a840265fcf9271a70f8404158730acabe253b58c2430182abe04fc740e6f39",
+    "source_fingerprint": "21884e928bf42f571332956736c1adea68e839205549b809f620aac6545844b5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "6V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "通过；传递；通行证",
-      "decision_cn": "",
+      "decision_cn": "地点宾语选经过，物品/信息选传递，exam 选考试通过，bill/law 选批准，time 作主语选流逝；名词凭 ticket、exam 或 mountain 语境分别选通行证、及格、山口。短语另看 on / away / out / off as。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5464,9 +5634,9 @@
         "id": "sense:pass:c146f98a0e2e5621",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "传递，递给",
-        "definition_en": "to give something to someone by hand",
+        "governing_pattern": "pass sb sth / pass sth to sb",
+        "definition_cn": "递给；传递物品或信息",
+        "definition_en": "to give or transfer something to another person, including handing over an object or conveying information",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5496,7 +5666,7 @@
           "target_kind": "sense",
           "target_id": "sense:pass:c146f98a0e2e5621",
           "target_locator": "record.senses[1]",
-          "target_label": "传递，递给"
+          "target_label": "递给；传递物品或信息"
         }
       },
       {
@@ -5547,7 +5717,7 @@
         "id": "sense:pass:041480d1311e5a5c",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "pass an exam/test; pass",
         "definition_cn": "通过（考试）",
         "definition_en": "to succeed in an examination or test",
         "note": "",
@@ -5695,9 +5865,9 @@
         "id": "sense:pass:1c282e1796743623",
         "source_locator": "record.senses[7]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "通过；批准（法律、法案、议案等）",
-        "definition_en": "to approve or enact a law, bill, motion, or similar measure",
+        "governing_pattern": "pass a bill; the bill passes",
+        "definition_cn": "通过/批准法案或议案；（法案等）获通过",
+        "definition_en": "to approve a law, bill or motion, or for it to receive approval",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5719,7 +5889,24 @@
           "target_kind": "sense",
           "target_id": "sense:pass:1c282e1796743623",
           "target_locator": "record.senses[7]",
-          "target_label": "通过；批准（法律、法案、议案等）"
+          "target_label": "通过/批准法案或议案；（法案等）获通过"
+        }
+      },
+      {
+        "id": "sense:pass:8bc310c717f475ec",
+        "source_locator": "record.senses[8]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "山口；山间可通行的低处",
+        "definition_en": "a low route through or over a range of mountains",
+        "note": "a mountain pass 指山地通道，不是通行证或考试及格。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pass:8bc310c717f475ec",
+          "target_locator": "record.senses[8]",
+          "target_label": "山口；山间可通行的低处"
         }
       }
     ],
@@ -5778,7 +5965,108 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:pass:5ca475977cf9a392",
+        "source_locator": "record.constructions[0]",
+        "pattern": "pass sth on (to sb) / pass on sth (to sb)",
+        "lines": [
+          {
+            "text": "把物品、信息或知识传给他人",
+            "lang": "cn"
+          },
+          {
+            "text": "宾语是代词时放 on 前：pass it on；此处只收传递义。",
+            "lang": "cn"
+          },
+          {
+            "text": "to give or communicate something to another person",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pass:5ca475977cf9a392",
+          "target_locator": "record.constructions[0]",
+          "target_label": "pass sth on (to sb) / pass on sth (to sb)"
+        }
+      },
+      {
+        "id": "construction:pass:5a7abc6edd7fea8e",
+        "source_locator": "record.constructions[1]",
+        "pattern": "pass away",
+        "lines": [
+          {
+            "text": "去世，逝世（委婉语）",
+            "lang": "cn"
+          },
+          {
+            "text": "人作主语、不带宾语；用于委婉谈及死亡，不是经过某处。",
+            "lang": "cn"
+          },
+          {
+            "text": "to die, expressed in a gentler or more indirect way",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pass:5a7abc6edd7fea8e",
+          "target_locator": "record.constructions[1]",
+          "target_label": "pass away"
+        }
+      },
+      {
+        "id": "construction:pass:690ad983d479eaf9",
+        "source_locator": "record.constructions[2]",
+        "pattern": "pass out / pass sth out (to sb)",
+        "lines": [
+          {
+            "text": "昏倒，失去知觉；分发某物",
+            "lang": "cn"
+          },
+          {
+            "text": "日常身体不适等语境中，人直接 pass out 常指昏倒；pass out leaflets / pass them out 是分发，代词放 out 前；此处不涵盖英式军校结业等专门用法，也不把昏倒等同死亡。",
+            "lang": "cn"
+          },
+          {
+            "text": "to faint; with a direct object, to distribute something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pass:690ad983d479eaf9",
+          "target_locator": "record.constructions[2]",
+          "target_label": "pass out / pass sth out (to sb)"
+        }
+      },
+      {
+        "id": "construction:pass:894df44cd726605a",
+        "source_locator": "record.constructions[3]",
+        "pattern": "pass sb/sth off as sb/sth",
+        "lines": [
+          {
+            "text": "把人或物冒充为另一身份或性质",
+            "lang": "cn"
+          },
+          {
+            "text": "as 后是冒充的身份/性质；可用反身代词 pass oneself off as；不是普通传递。",
+            "lang": "cn"
+          },
+          {
+            "text": "to make a person or thing appear to have a false identity or quality",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pass:894df44cd726605a",
+          "target_locator": "record.constructions[3]",
+          "target_label": "pass sb/sth off as sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5792,7 +6080,7 @@
     "ordinal": 3490,
     "word": "passage",
     "source_owner_path": "content/lexical/words/by-ordinal/o3490.json",
-    "source_fingerprint": "0b782d3b1165de7436c6c3f04464f9937b890ba3d7685506e04bff58e2a79f6c",
+    "source_fingerprint": "709d9fce3d60466df4137c3853fa5418c8184480d076a4b294c061d8941fad9b",
     "sense_lineage": [
       {
         "word_id": "word:passage",
@@ -5804,7 +6092,7 @@
     ],
     "recall_map": {
       "parts": [
-        "(4+1)N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -5876,9 +6164,9 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "通过；经过",
-        "definition_en": "the act of moving from one place or state to another",
-        "note": "",
+        "definition_cn": "通过；经过；（时间的）流逝",
+        "definition_en": "movement through a place or from one state to another; also the elapsing of time",
+        "note": "passage of time：时间流逝；passage through/across：穿行；法案批准用既有法律通过义。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5920,7 +6208,7 @@
           "target_kind": "sense",
           "target_id": "sense:passage:a37f496d5c0b55a6",
           "target_locator": "record.senses[2]",
-          "target_label": "通过；经过"
+          "target_label": "通过；经过；（时间的）流逝"
         }
       },
       {
@@ -5998,22 +6286,7 @@
       },
       "has_scope": true
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:passage:2c33c7a2bc798181",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "通过；经过",
-        "definition_en": "the act of moving from one place or state to another",
-        "pattern": "时间的流逝",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:passage:2c33c7a2bc798181",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "通过；经过"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -6053,7 +6326,7 @@
     "ordinal": 3491,
     "word": "passenger",
     "source_owner_path": "content/lexical/words/by-ordinal/o3491.json",
-    "source_fingerprint": "000a3d93a5e01c0239298bedf6a263ba4bbc5fe98b84f050b4ac4ff7bacc9a9e",
+    "source_fingerprint": "270b530d0cc1a6ae8b35971edf965e52dedd1b1e10854c9da6ac924e94b42d82",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6086,7 +6359,7 @@
             "id": "collocation:036dc870a7a8391875cc",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "passenger seat",
-            "meaning_cn": "副驾驶座",
+            "meaning_cn": "乘客座位（汽车中常指副驾驶座）",
             "kind": "usage_example",
             "repair": null
           },
@@ -6446,7 +6719,7 @@
     "ordinal": 3494,
     "word": "passive",
     "source_owner_path": "content/lexical/words/by-ordinal/o3494.json",
-    "source_fingerprint": "3a78661de8d17c4c3e350883620504e4a0efbca19bfe13209f13750f2089451e",
+    "source_fingerprint": "1af1d1178abe0203e6af82d0237fd36c322be7cd8eb299ca0bca474021794208",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6470,8 +6743,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "消极的，被动的，缺乏活力的",
-        "definition_en": "lacking in energy or will; not active",
+        "definition_cn": "被动的；不主动参与或采取行动的",
+        "definition_en": "not taking an active part or initiating action, but accepting or being affected by what others do",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6496,7 +6769,7 @@
           "target_kind": "sense",
           "target_id": "sense:passive:f996a8945c6651ab",
           "target_locator": "record.senses[0]",
-          "target_label": "消极的，被动的，缺乏活力的"
+          "target_label": "被动的；不主动参与或采取行动的"
         }
       },
       {
@@ -6711,7 +6984,7 @@
     "ordinal": 3496,
     "word": "past",
     "source_owner_path": "content/lexical/words/by-ordinal/o3496.json",
-    "source_fingerprint": "5a5d8bea4fcc4d1c456005c0d4b13d4e91cc094931cc4072639948205b6e513b",
+    "source_fingerprint": "3556c2967e7cfb4a4dca409247dc4b73fa399e7d5feffe01b9b1ee5c5c35e3c0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6738,9 +7011,9 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "过去的；以前的",
-        "definition_en": "gone by in time; no longer current",
-        "note": "",
+        "definition_cn": "过去的；此前的；刚过去一段时间的",
+        "definition_en": "belonging to an earlier time, or referring to a period leading up to now",
+        "note": "over/in the past five years 可指延续到现在的这五年，不一律是与现在断开的遥远过去。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6756,7 +7029,7 @@
           "target_kind": "sense",
           "target_id": "sense:past:a7e67e7094225c5c",
           "target_locator": "record.senses[0]",
-          "target_label": "过去的；以前的"
+          "target_label": "过去的；此前的；刚过去一段时间的"
         }
       },
       {
@@ -6795,9 +7068,9 @@
         "source_locator": "record.senses[2]",
         "pos": "preposition",
         "governing_pattern": "",
-        "definition_cn": "越过；经过",
-        "definition_en": "beyond in position; further than",
-        "note": "",
+        "definition_cn": "经过/越过；晚于某时；超过某界限",
+        "definition_en": "beyond a place or point, later than a time, or beyond a limit",
+        "note": "walk past the shop 是空间；half past five / past midnight 是时间；past a limit 是超过界限。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6813,7 +7086,7 @@
           "target_kind": "sense",
           "target_id": "sense:past:bb5c2a30f3335d00",
           "target_locator": "record.senses[2]",
-          "target_label": "越过；经过"
+          "target_label": "经过/越过；晚于某时；超过某界限"
         }
       },
       {
@@ -6821,8 +7094,8 @@
         "source_locator": "record.senses[3]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "经过；越过；从旁边过去",
-        "definition_en": "past or beyond a person, place, or point, without taking an object in the adverb use",
+        "definition_cn": "经过；越过；（时间）过去（后不直接接宾语）",
+        "definition_en": "by or beyond a place or point, including a point in time, used without a following object",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6844,7 +7117,7 @@
           "target_kind": "sense",
           "target_id": "sense:past:fc69b3a01a576918",
           "target_locator": "record.senses[3]",
-          "target_label": "经过；越过；从旁边过去"
+          "target_label": "经过；越过；（时间）过去（后不直接接宾语）"
         }
       }
     ],
@@ -6882,7 +7155,7 @@
     "ordinal": 3497,
     "word": "paste",
     "source_owner_path": "content/lexical/words/by-ordinal/o3497.json",
-    "source_fingerprint": "fda8ddb33c30d5a7eae365df09888eaf3efdcc378e43791983bc8a4e8312c452",
+    "source_fingerprint": "7d28b216310658473d0f18ee5a417f63f993d1c0a045424d319eef59d8c2a536",
     "sense_lineage": [
       {
         "word_id": "word:paste",
@@ -6894,14 +7167,14 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "糊状物/浆糊；粘贴",
-      "decision_cn": "",
+      "decision_cn": "糊状材料/浆糊；用胶粘贴；电脑中插入已复制或剪切的内容。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6970,6 +7243,23 @@
           "target_id": "sense:paste:d1b26e74903b5f18",
           "target_locator": "record.senses[1]",
           "target_label": "粘贴；用浆糊/胶粘上"
+        }
+      },
+      {
+        "id": "sense:paste:04223d483b1944b3",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "paste sth into a document; copy and paste",
+        "definition_cn": "（计算机中）粘贴复制或剪切的文字、图片等",
+        "definition_en": "to insert previously copied or cut text, images, or other data into a document or location",
+        "note": "电脑中的粘贴操作，不要求浆糊或胶。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:paste:04223d483b1944b3",
+          "target_locator": "record.senses[2]",
+          "target_label": "（计算机中）粘贴复制或剪切的文字、图片等"
         }
       }
     ],
@@ -7174,7 +7464,7 @@
     "ordinal": 3499,
     "word": "pasture",
     "source_owner_path": "content/lexical/words/by-ordinal/o3499.json",
-    "source_fingerprint": "b99e2c4a3af8164020d5a5befa32a671f28e7216609b450304c261627b2d0cb0",
+    "source_fingerprint": "31928da0a4ddede563b39fffe34e93d38b8dafe61fd2e2d036a4ac6d98a49572",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7306,7 +7596,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:pasture:21eaf579d4987b36",
+        "sense_id": "sense:pasture:e8ef794ce98a526d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "greener pastures",
+        "lines": [
+          {
+            "text": "更好的处境、机会或工作",
+            "lang": "cn"
+          },
+          {
+            "text": "leave/move on to greener pastures 常说转往更好的工作或生活环境；比较级 greener 提示隐喻，不必涉及真实牧场。",
+            "lang": "cn"
+          },
+          {
+            "text": "a new situation offering better opportunities than the present one",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pasture:21eaf579d4987b36",
+          "target_locator": "record.constructions[0]",
+          "target_label": "greener pastures"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7510,7 +7827,7 @@
     "ordinal": 3501,
     "word": "patch",
     "source_owner_path": "content/lexical/words/by-ordinal/o3501.json",
-    "source_fingerprint": "f75b3d4fa48ce4af105c5a58b44c9888a0ccac698eda14b18bdbe843df71759b",
+    "source_fingerprint": "7b46dfa0562d390966ddc427726f1415a0c5699eb14f7089f0975902fe55303c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7733,6 +8050,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "a rough/bad patch"
         }
+      },
+      {
+        "id": "construction:patch:7e4cd27eaebf12bd",
+        "source_locator": "record.constructions[1]",
+        "pattern": "patch sth up / patch things up (with sb)",
+        "lines": [
+          {
+            "text": "临时修补；修复关系，和好",
+            "lang": "cn"
+          },
+          {
+            "text": "物品作宾语常指简易修补；relationship/things或with sb语境指弥合分歧，不是给人贴实体补丁。",
+            "lang": "cn"
+          },
+          {
+            "text": "to make a temporary repair or mend a damaged relationship",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:patch:7e4cd27eaebf12bd",
+          "target_locator": "record.constructions[1]",
+          "target_label": "patch sth up / patch things up (with sb)"
+        }
       }
     ],
     "reference": {
@@ -7748,7 +8090,7 @@
     "ordinal": 3502,
     "word": "patent",
     "source_owner_path": "content/lexical/words/by-ordinal/o3502.json",
-    "source_fingerprint": "fc9ece146a5d42642934dfa8a017fa0ebf8b0bccd3d368de725ef639f252c6e4",
+    "source_fingerprint": "ab5ade6567967de288d13d62bd2c53611e7ad0e8853b79d8721b782f620dce1f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7760,7 +8102,7 @@
     },
     "word_feel": {
       "summary_cn": "专利权",
-      "decision_cn": "",
+      "decision_cn": "发明/权利语境看专利；patent lie/error 中的形容词是明显的，不表示取得专利；专利动词表示获专利保护，不只是递交申请。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7810,7 +8152,7 @@
         "governing_pattern": "",
         "definition_cn": "专利的；受专利保护的",
         "definition_en": "protected by a patent; relating to patents",
-        "note": "",
+        "note": "patent medicine 是固定称呼，尤在美国可指以商标销售的成药，不必据此断定其受专利保护。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7825,7 +8167,7 @@
             "id": "collocation:1c848d281ccafcd268f5",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "patent medicine",
-            "meaning_cn": "专利药品",
+            "meaning_cn": "（商标）成药；专利药品（须依语境）",
             "kind": "usage_example",
             "repair": null
           }
@@ -7877,7 +8219,7 @@
             "id": "collocation:3fb89f8e1d3487e9d359",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "patent an invention",
-            "meaning_cn": "为发明申请专利",
+            "meaning_cn": "为发明取得专利权",
             "kind": "usage_example",
             "repair": null
           }
@@ -8788,7 +9130,7 @@
     "ordinal": 3508,
     "word": "patrol",
     "source_owner_path": "content/lexical/words/by-ordinal/o3508.json",
-    "source_fingerprint": "ea5a9db135d523c1ebf7511e6cc2a97cc771941f6a849693a7f457a44ca7c2f5",
+    "source_fingerprint": "c94c835c72603a2bab759c679e2f1aab2467590c679bd10bab403acb504d5b2e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8812,7 +9154,7 @@
         "id": "sense:patrol:aaa01b2c5f885748",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: patrol an area; patrol along/around an area",
         "definition_cn": "巡逻，巡视",
         "definition_en": "to move around an area to maintain security",
         "note": "",
@@ -8888,7 +9230,7 @@
         "governing_pattern": "",
         "definition_cn": "巡逻队",
         "definition_en": "a group of people or vehicles that patrol",
-        "note": "",
+        "note": "patrol 可指巡逻人员或车辆组成的队伍；patrol car 是执行巡逻的车辆，本身不等于整支巡逻队。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8955,7 +9297,7 @@
     "ordinal": 3509,
     "word": "patron",
     "source_owner_path": "content/lexical/words/by-ordinal/o3509.json",
-    "source_fingerprint": "943795f436cf4480679a96b503a22ac5220ad8b8c4676faabdfdbe5177578e62",
+    "source_fingerprint": "b75c21e27718a9e830e9430d381ad5110f55b54bc0b0ef6ddf1e5039006577e5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9012,7 +9354,7 @@
         "governing_pattern": "",
         "definition_cn": "旅馆老板",
         "definition_en": "the proprietor of an inn",
-        "note": "",
+        "note": "旅馆/餐馆老板是法语借用语境的用法；一般英语中的 restaurant patrons 指顾客，不据此解释为店主。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9095,12 +9437,12 @@
     "ordinal": 3510,
     "word": "pattern",
     "source_owner_path": "content/lexical/words/by-ordinal/o3510.json",
-    "source_fingerprint": "d53488700af93d5eec287a2cafeb9d3c2eb99a794f99528bcd9ca09b8be6b9d0",
+    "source_fingerprint": "9cf39d4c3c00526f296b0a6f786a7cc73950029e9f2477d3af1c1bfe9e1e1c3b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -9235,6 +9577,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "仿照；使按某种模式形成；以图案装饰"
         }
+      },
+      {
+        "id": "sense:pattern:1689428d7236911f",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（制作或裁剪用的）样板，纸样",
+        "definition_en": "a template or set of shapes used as a guide for making something",
+        "note": "a sewing/dress pattern 指用来制作或裁剪的样板，不是衣服表面的花纹。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:pattern:5730a833f62b201d",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a sewing pattern",
+            "meaning_cn": "裁缝纸样",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pattern:1689428d7236911f",
+          "target_locator": "record.senses[4]",
+          "target_label": "（制作或裁剪用的）样板，纸样"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9271,7 +9639,7 @@
     "ordinal": 3511,
     "word": "pause",
     "source_owner_path": "content/lexical/words/by-ordinal/o3511.json",
-    "source_fingerprint": "e69231d41a7847fb1d872414d5b1932399b9547c04861c046edc94c893b572a4",
+    "source_fingerprint": "9e1d115b8207461c99bacc2182ae3d2972746fa198531dd15474fe10ed9847b7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9334,10 +9702,10 @@
         "id": "sense:pause:4dd0ab13cceb59bb",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi.; pause for + noun; pause to do sth",
-        "definition_cn": "暂停；中止",
-        "definition_en": "cease an action temporarily",
-        "note": "",
+        "governing_pattern": "I/T: pause; pause for + noun; pause to do sth; pause a video/recording",
+        "definition_cn": "暂停；使暂时停止",
+        "definition_en": "to stop briefly or make something stop briefly",
+        "note": "人 pause 可独立使用，pause a video/recording 则为及物使暂停；暂时停顿，不等于永久终止。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9366,7 +9734,7 @@
           "target_kind": "sense",
           "target_id": "sense:pause:4dd0ab13cceb59bb",
           "target_locator": "record.senses[1]",
-          "target_label": "暂停；中止"
+          "target_label": "暂停；使暂时停止"
         }
       }
     ],
@@ -9426,7 +9794,7 @@
     "ordinal": 3512,
     "word": "pave",
     "source_owner_path": "content/lexical/words/by-ordinal/o3512.json",
-    "source_fingerprint": "9c64f3b3b9fb40f46b9cc336883ce31280fdda7471ac1781c32b5571a0cf7ab1",
+    "source_fingerprint": "15d664f5d0b37e8199ebdd9513cadead5e370ad95be1a46f6e10546c710f7838",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9449,10 +9817,10 @@
         "id": "sense:pave:a3206ccd43745e61",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用石头或混凝土等材料铺设，使其适合车辆通行",
-        "definition_en": "cover with a material such as stone or concrete to make suitable for vehicle traffic",
-        "note": "",
+        "governing_pattern": "vt.: pave a surface/path/road (with sth)",
+        "definition_cn": "用石块、砖、混凝土等铺设地面或道路，形成坚硬平整的表面",
+        "definition_en": "to lay a hard, level surface on ground or a road using stone, concrete, bricks, or similar material",
+        "note": "也可铺设人行小路或庭院，不限定为车辆通行。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9468,7 +9836,7 @@
           "target_kind": "sense",
           "target_id": "sense:pave:a3206ccd43745e61",
           "target_locator": "record.senses[0]",
-          "target_label": "用石头或混凝土等材料铺设，使其适合车辆通行"
+          "target_label": "用石块、砖、混凝土等铺设地面或道路，形成坚硬平整的表面"
         }
       }
     ],
@@ -9531,8 +9899,8 @@
           "target_word": "pavement",
           "lines": [
             {
-              "text": "pavement",
-              "lang": "en"
+              "text": "pave（铺设硬质地面）→ pavement（铺筑路面；英式常指人行道）；-ment构成相关名词。",
+              "lang": "cn"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -9801,7 +10169,7 @@
     "ordinal": 3515,
     "word": "pay",
     "source_owner_path": "content/lexical/words/by-ordinal/o3515.json",
-    "source_fingerprint": "cd270b6959018f80de6a8f94095a71d1e23ef8884c81bf1e123a4bd89826cef3",
+    "source_fingerprint": "f52a1d2757dc6a6e9a72715665bcf901b33d572ba46307ee8a27c8acbc3b07d8",
     "sense_lineage": [
       {
         "word_id": "word:pay",
@@ -10055,6 +10423,31 @@
           "target_id": "construction:067aa20a74aaf2c4cabe",
           "target_locator": "record.constructions[1]",
           "target_label": "pay off a debt/loan"
+        }
+      },
+      {
+        "id": "construction:pay:b4fadc811753ceda",
+        "source_locator": "record.constructions[2]",
+        "pattern": "pay for sth (a mistake or wrongdoing)",
+        "lines": [
+          {
+            "text": "因错误或不当行为付出代价，受惩罚",
+            "lang": "cn"
+          },
+          {
+            "text": "for后接mistake/wrongdoing等原因时，代价不一定是金钱；商品/服务语境的pay for仍按付款义。",
+            "lang": "cn"
+          },
+          {
+            "text": "to suffer adverse consequences because of a mistake or wrongdoing",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pay:b4fadc811753ceda",
+          "target_locator": "record.constructions[2]",
+          "target_label": "pay for sth (a mistake or wrongdoing)"
         }
       }
     ],
@@ -10596,7 +10989,7 @@
     "ordinal": 3519,
     "word": "peaceful",
     "source_owner_path": "content/lexical/words/by-ordinal/o3519.json",
-    "source_fingerprint": "9d2cdcc8b2543cf91a558c89aa3b2d4ad740a82e8765b32c7d20005028909054",
+    "source_fingerprint": "c44852791beebd879c08090340b07d28096e636ae1b48cd2297af398c907d66f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10712,7 +11105,7 @@
           "target_word": "peace",
           "lines": [
             {
-              "text": "peaceful 形容词，peace 名词/动词",
+              "text": "peace（名词，和平）→ peaceful（形容词，和平的；平静的；非暴力的）；-ful构成相关形容词。",
               "lang": "cn"
             }
           ],
@@ -10727,7 +11120,7 @@
     "ordinal": 3520,
     "word": "peach",
     "source_owner_path": "content/lexical/words/by-ordinal/o3520.json",
-    "source_fingerprint": "5880edf62ced375dcf0c13ced19fa599357994667c320821f1034b75f11af977",
+    "source_fingerprint": "6ba1aec37261755e482dfc65127ac5e159ec618fb9855850feb14d687d341ad4",
     "sense_lineage": [
       {
         "word_id": "word:peach",
@@ -10739,7 +11132,7 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -10786,6 +11179,32 @@
           "target_id": "sense:peach:205952871a225ed8",
           "target_locator": "record.senses[0]",
           "target_label": "桃子"
+        }
+      },
+      {
+        "id": "sense:peach:6afa86ee455d64fc",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "桃色；浅粉橙色",
+        "definition_en": "a pale pink-orange colour",
+        "note": "作为颜色词也可修饰名词；peach curtains 描述窗帘的颜色，并不表示桃子图案。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:peach:7bb2f7cfcd5af3d0",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "curtains in peach",
+            "meaning_cn": "桃色窗帘",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:peach:6afa86ee455d64fc",
+          "target_locator": "record.senses[1]",
+          "target_label": "桃色；浅粉橙色"
         }
       }
     ],

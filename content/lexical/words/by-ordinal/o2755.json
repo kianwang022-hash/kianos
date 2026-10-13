@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "迟的；最近的；时期后段的",
-          "label_en": "late in time, recent, or toward the end of a period/stage",
+          "label_cn": "迟的；晚的；最近的；近来的；已故的；晚期的；后期的；接近末期的",
+          "label_en": "after the expected or usual time; of the immediate past or just previous to the present time; no longer living; used before a person's name or title; toward or near the end of a period, stage, or time",
           "pos": "adjective",
           "sense_ids": [
             "sense:late:e76bc22653aa59de",
@@ -22,18 +22,19 @@
           ]
         },
         {
-          "label_cn": "迟；晚",
-          "label_en": "after the expected or usual time",
+          "label_cn": "迟；晚；在一段时期的后段；接近末尾",
+          "label_en": "after the expected or usual time; near the end of a period or of the day",
           "pos": "adverb",
           "sense_ids": [
-            "sense:late:f0adc91fa0ab5d36"
+            "sense:late:f0adc91fa0ab5d36",
+            "sense:late:4301505aa861e739"
           ]
         }
       ],
-      "core_meaning_cn": "迟；晚；最近；已故",
-      "core_meaning_en": "after the expected or usual time; recent; deceased",
-      "mental_model_cn": "time → 迟/晚；recent → 最近的；the late sb → 已故的；late stage → 后期/晚期。死语言特定时期义（Late Latin）保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "迟；晚；最近的；已故的；时期后段的／在后段",
+      "core_meaning_en": "after the usual time or near a period’s end; recent; deceased",
+      "mental_model_cn": "迟到是超过预期时间；late in life 是人生后期而非必然迟到；the late + 人名表示已故。形容词late还可表示最近的、晚期的。",
+      "mental_model_en": "after the usual time or near a period’s end; recent; deceased."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -143,13 +144,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "已故的",
-        "definition_en": "having died recently",
-        "governing_pattern": "",
+        "definition_en": "no longer living; used before a person's name or title",
+        "governing_pattern": "the late + name/title; one's late + relative",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:late:c20b0bb2561158cc",
-        "sense_label_en": "having died recently",
+        "sense_label_en": "no longer living; used before a person's name or title",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -179,6 +180,34 @@
             "source_operation_id": "operation:5eeb6291addeb1aa1a4d",
             "source_operation_sha256": "d8d19c59286a86a52e7ced7f9449fe4e5b586d7c961087eaebebc06dfcaef560",
             "verification_status": "auditor_verified"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:late:4301505aa861e739",
+        "pos": "adverb",
+        "definition_cn": "在一段时期的后段；接近末尾",
+        "definition_en": "near the end of a period or of the day",
+        "sense_label_en": "near the end of a period or of the day",
+        "governing_pattern": "late in + period; late + time expression",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8f12cf480564e6c31442",
+            "phrase": "late in life",
+            "meaning_cn": "在人生后期",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:ad6c87242ca38a7064e2",
+            "phrase": "late in March",
+            "meaning_cn": "在三月下旬",
+            "exam_value": "usage_example"
           }
         ]
       }
@@ -315,6 +344,23 @@
           "applicability": [
             {
               "surface": "late"
+            },
+            {
+              "surface": "late",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:late:4301505aa861e739"
+              ],
+              "owner_sense_ids": [
+                "sense:late:4301505aa861e739"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2755.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "late in + period; late + time expression"
             }
           ],
           "sources": [
@@ -496,14 +542,24 @@
         "merged_into_sense_id": null,
         "source_row": 7631,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
+      },
+      {
+        "sense_id": "sense:late:4301505aa861e739",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2755.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
+      "collocation:e04490821b789a74ef1b",
+      "collocation:f6de63e26a83190b26a6",
       "collocation:8bee9c00b09fe9e684b9",
       "collocation:9e40c2fe01a270b481b2",
       "collocation:c2981ec0bdcdaa91864d",
-      "collocation:e04490821b789a74ef1b",
-      "collocation:f6de63e26a83190b26a6"
+      "collocation:8f12cf480564e6c31442",
+      "collocation:ad6c87242ca38a7064e2"
     ],
     "facts": [
       {
@@ -554,6 +610,20 @@
         "id": "collocation:f6de63e26a83190b26a6",
         "source_row": 20911,
         "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+      },
+      {
+        "id": "collocation:8f12cf480564e6c31442",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2755.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:ad6c87242ca38a7064e2",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2755.json",
+        "source_pointer": "/record/senses/5/collocations/1"
       }
     ],
     "exam-mappings": [],

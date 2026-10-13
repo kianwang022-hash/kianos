@@ -6,22 +6,44 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:idle:idle-away",
+        "pattern": "idle away time / idle time away",
+        "meaning_cn": "虚度时间；把时间闲混过去",
+        "definition_en": "to spend time doing little or nothing useful",
+        "direction": "R+P",
+        "level": "L2",
+        "boundary": "separable transitive phrasal construction; bare idle may be intransitive",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:e0a2b6a1fd1cc20ef798",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:idle:c8878fdac1705203:collocation:0"
+            ],
+            "meaning_cn": "虚度光阴",
+            "phrase": "idle away + time"
+          }
+        ]
+      }
+    ],
     "content_hash": "55939b2b7c7c448509ec85bdfa731458408e7a32365a2aa3f3bc5167950a4a45",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "空闲的，闲散的；懒惰的",
-          "label_en": "not working or active; doing nothing; lazy or not willing to work",
+          "label_cn": "空闲的，闲散的；懒惰的；无目的或无效果的；空洞的、不认真的",
+          "label_en": "not working or active; doing nothing; lazy or not willing to work; having no real purpose or effect, or not being serious",
           "pos": "adjective",
           "sense_ids": [
             "sense:idle:8b2e865dcb035aa8",
-            "sense:idle:3ec857cfb52e5097"
+            "sense:idle:3ec857cfb52e5097",
+            "sense:idle:3b4f902ba1b9bb06"
           ]
         },
         {
-          "label_cn": "无所事事，闲混；（发动机）空转",
-          "label_en": "to spend time doing nothing; to be idle; (of an engine) to run slowly without doing work",
+          "label_cn": "无所事事，闲混；（使发动机）空转",
+          "label_en": "to spend time doing nothing; to be idle; for an engine to run while not driving a load, or to make an engine do this",
           "pos": "verb",
           "sense_ids": [
             "sense:idle:c8878fdac1705203",
@@ -29,10 +51,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "不活动，空闲；虚度",
-      "core_meaning_en": "not working or active; to spend time doing nothing",
-      "mental_model_cn": "不活动，空闲；虚度",
-      "mental_model_en": ""
+      "core_meaning_cn": "闲置／懒散；无目的或空洞的；闲混；发动机空转",
+      "core_meaning_en": "inactive or lazy; purposeless or ineffective; do nothing; idle an engine",
+      "mental_model_cn": "idle机器→闲置；idle人→无事或懒惰；idle threat→空洞威胁；idle发动机→空转；idle away仍是虚度时间。",
+      "mental_model_en": "inactive or lazy; purposeless or ineffective; do nothing; idle an engine."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -76,21 +98,11 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:e0a2b6a1fd1cc20ef798",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:idle:c8878fdac1705203:collocation:0"
-            ],
-            "meaning_cn": "虚度光阴",
-            "phrase": "idle away + time"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "无所事事，闲混",
         "definition_en": "to spend time doing nothing; to be idle",
-        "governing_pattern": "vi.",
+        "governing_pattern": "idle; idle about/around",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -112,16 +124,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（发动机）空转",
-        "definition_en": "(of an engine) to run slowly without doing work",
-        "governing_pattern": "vi.",
+        "definition_cn": "（使发动机）空转",
+        "definition_en": "for an engine to run while not driving a load, or to make an engine do this",
+        "governing_pattern": "an engine idles; idle an engine",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:idle:ed994425629f5903",
-        "sense_label_en": "(of an engine) to run slowly without doing work",
+        "sense_label_en": "for an engine to run while not driving a load, or to make an engine do this",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -146,6 +158,28 @@
         "sense_label_en": "lazy or not willing to work",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:idle:3b4f902ba1b9bb06",
+        "pos": "adjective",
+        "definition_cn": "无目的或无效果的；空洞的、不认真的",
+        "definition_en": "having no real purpose or effect, or not being serious",
+        "sense_label_en": "having no real purpose or effect, or not being serious",
+        "governing_pattern": "idle chatter/curiosity/threats; it is idle to do sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b7db67f8c33f1de5cf73",
+            "phrase": "Her warning was not an idle threat.",
+            "meaning_cn": "她的警告并非空洞的威胁。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -393,6 +427,47 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ˈaɪdl/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "idle",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:idle:3b4f902ba1b9bb06"
+              ],
+              "owner_sense_ids": [
+                "sense:idle:3b4f902ba1b9bb06"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/idle_1",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "idle",
+                "pos": "adjective",
+                "sense_indices_1based": [
+                  4
+                ]
+              },
+              "original_ipa": "/ˈaɪdl/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -428,14 +503,22 @@
         "merged_into_sense_id": null,
         "source_row": 6783,
         "source_path": "content/lexical/canonical/senses/shards/o2433-2464.json"
+      },
+      {
+        "sense_id": "sense:idle:3b4f902ba1b9bb06",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2435.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
+      "collocation:a76a7b723f285f24c754",
       "collocation:003118061cb92828ff5c",
       "collocation:39e5aaa504e310274690",
       "collocation:8cd421be42e21c2aea95",
-      "collocation:a76a7b723f285f24c754",
-      "collocation:e0a2b6a1fd1cc20ef798"
+      "collocation:b7db67f8c33f1de5cf73"
     ],
     "facts": [],
     "collocations": [
@@ -462,7 +545,16 @@
       {
         "id": "collocation:e0a2b6a1fd1cc20ef798",
         "source_row": 18996,
-        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2433-2464.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:b7db67f8c33f1de5cf73",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2435.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -11,12 +11,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "毕业；授予学位、准予毕业",
-          "label_en": "to graduate; to confer an academic degree",
+          "label_cn": "毕业；准予毕业；授予学位或文凭；逐步进展；升级到更高阶段",
+          "label_en": "to complete a course of study and receive the relevant qualification; to award a degree or diploma to someone who has completed a course; to advance by stages to a different or more advanced activity",
           "pos": "verb",
           "sense_ids": [
             "sense:graduate:c488ab16153d52c0",
-            "sense:graduate:7e5ff946afe05cea"
+            "sense:graduate:7e5ff946afe05cea",
+            "sense:graduate:00fe7e129e5f6cec"
           ]
         },
         {
@@ -36,10 +37,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "毕业；毕业生；研究生的",
-      "core_meaning_en": "to complete a course of study; a graduate; relating to postgraduate study",
-      "mental_model_cn": "education verb/noun → 毕业/毕业生；graduate + noun → 研究生层级。旧式/专业“刻度量器”名词义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "毕业；毕业生或研究生的；授予学位；逐步进展",
+      "core_meaning_en": "complete a course, a graduate, graduate-level, confer a degree, or advance by stages",
+      "mental_model_cn": "graduate可为完成学业，也可为毕业生、研究生阶段的或授予学位；graduate from one activity to another为逐步升级，不一定真的毕业。",
+      "mental_model_en": "complete a course, a graduate, graduate-level, confer a degree, or advance by stages."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -63,13 +64,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "毕业",
-        "definition_en": "to receive an academic degree upon completion of one's studies",
+        "definition_en": "to complete a course of study and receive the relevant qualification",
         "governing_pattern": "vi. + from",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:graduate:c488ab16153d52c0",
-        "sense_label_en": "to receive an academic degree upon completion of one's studies",
+        "sense_label_en": "to complete a course of study and receive the relevant qualification",
         "sort_order": 0,
         "transitivity": "vi"
       },
@@ -138,21 +139,43 @@
             "legacy_source_object_ids": [
               "sense:graduate:7e5ff946afe05cea:collocation:0"
             ],
-            "meaning_cn": "授予学生优等学位",
-            "phrase": "graduate students with honors"
+            "meaning_cn": "这所学院每年有数百名学生毕业。",
+            "phrase": "The college graduates hundreds of students each year."
           }
         ],
         "confidence": "medium",
-        "definition_cn": "授予...学位，准予...毕业",
-        "definition_en": "to confer an academic degree upon",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "准予毕业；授予学位或文凭",
+        "definition_en": "to award a degree or diploma to someone who has completed a course",
+        "governing_pattern": "especially AmE: an institution graduates students",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:graduate:7e5ff946afe05cea",
-        "sense_label_en": "to confer an academic degree upon",
+        "sense_label_en": "to award a degree or diploma to someone who has completed a course",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:graduate:00fe7e129e5f6cec",
+        "pos": "verb",
+        "definition_cn": "逐步进展；升级到更高阶段",
+        "definition_en": "to advance by stages to a different or more advanced activity",
+        "sense_label_en": "to advance by stages to a different or more advanced activity",
+        "governing_pattern": "graduate from sth to sth",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:288a6df4dc78292a529e",
+            "phrase": "graduate from short stories to novels",
+            "meaning_cn": "从写短篇小说逐步发展到写长篇小说",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -396,6 +419,23 @@
                 "sense:graduate:6c6f513341cd510c"
               ],
               "scope_note": "Exact current owner meaning is matched to the cited source glosses; each sound is confined to this explicit identity subset. Source yod-coalescence and non-yod-coalescence notes retained; existing reduced-noun versus /eɪt/ verb boundary preserved."
+            },
+            {
+              "surface": "graduate",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:graduate:00fe7e129e5f6cec"
+              ],
+              "owner_sense_ids": [
+                "sense:graduate:00fe7e129e5f6cec"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2179.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "graduate from sth to sth"
+              }
             }
           ],
           "sources": [
@@ -793,6 +833,14 @@
         "merged_into_sense_id": null,
         "source_row": 6078,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      },
+      {
+        "sense_id": "sense:graduate:00fe7e129e5f6cec",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2179.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -840,6 +888,13 @@
         "id": "collocation:f966be87c740a731ecfa",
         "source_row": 21130,
         "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:288a6df4dc78292a529e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2179.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

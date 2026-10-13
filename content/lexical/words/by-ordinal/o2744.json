@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "819188dd7d98ab5dc12f96277533f8fd7f7fe36fabf612cbedc4c478088bebf5",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "狭窄的道路或标出的交通路径",
-      "core_meaning_en": "a narrow road or a marked path for traffic",
-      "mental_model_cn": "狭窄的道路或标出的交通路径",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "小路或巷；车道；跑道或泳道",
+          "label_en": "a narrow road, traffic lane, or marked strip for an athlete",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:lane:c6a59f60ea36549a",
+            "sense:lane:79fbbe11b7b05cb9",
+            "sense:lane:29fc393516c687d2"
+          ]
+        }
+      ],
+      "core_meaning_cn": "小路或巷；车道；跑道或泳道",
+      "core_meaning_en": "a narrow road, traffic lane, or marked strip for an athlete",
+      "mental_model_cn": "道路 → 小路/巷；车辆 → 车道；田径/游泳 → 独立跑道/泳道。",
+      "mental_model_en": "a narrow road, traffic lane, or marked strip for an athlete."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -79,6 +90,28 @@
         "sense_label_en": "a marked section of a road for a single line of traffic",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:lane:29fc393516c687d2",
+        "pos": "noun",
+        "definition_cn": "跑道；泳道（划给单个运动员的通道）",
+        "definition_en": "a marked strip of a track or pool assigned to an individual athlete",
+        "sense_label_en": "a marked strip of a track or pool assigned to an individual athlete",
+        "governing_pattern": "in lane ...; a swimming lane",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:45255a5ae1c2849f6b50",
+            "phrase": "swim in lane four",
+            "meaning_cn": "在第四泳道游泳",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -126,6 +159,23 @@
           "applicability": [
             {
               "surface": "lane"
+            },
+            {
+              "surface": "lane",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:lane:29fc393516c687d2"
+              ],
+              "owner_sense_ids": [
+                "sense:lane:29fc393516c687d2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2744.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "in lane ...; a swimming lane"
             }
           ],
           "sources": [
@@ -222,12 +272,21 @@
         "merged_into_sense_id": null,
         "source_row": 7592,
         "source_path": "content/lexical/canonical/senses/shards/o2721-2752.json"
+      },
+      {
+        "sense_id": "sense:lane:29fc393516c687d2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2744.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:7325d12a0c41ed772b2c",
       "collocation:973b84d5945dfe575c2e",
-      "collocation:fad83e55287a7cf924d6"
+      "collocation:fad83e55287a7cf924d6",
+      "collocation:7325d12a0c41ed772b2c",
+      "collocation:45255a5ae1c2849f6b50"
     ],
     "facts": [],
     "collocations": [
@@ -245,6 +304,13 @@
         "id": "collocation:fad83e55287a7cf924d6",
         "source_row": 21228,
         "source_path": "content/lexical/canonical/collocations/shards/o2721-2752.json"
+      },
+      {
+        "id": "collocation:45255a5ae1c2849f6b50",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2744.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

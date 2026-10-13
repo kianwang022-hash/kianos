@@ -20,28 +20,29 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "爱；爱情；爱好；喜爱；（网球）零分",
-          "label_en": "a strong feeling of affection; a strong interest in an activity; a score of zero in tennis",
+          "label_cn": "爱；爱情；爱好；喜爱；（网球）零分；所爱的人、事物或活动",
+          "label_en": "a strong feeling of affection; a strong interest in an activity; a score of zero in tennis; a person, thing or activity that someone loves",
           "pos": "noun",
           "sense_ids": [
             "sense:love:4e70251591735698",
             "sense:love:9d98768b761159a0",
-            "sense:love:41c9fc2895155c3a"
+            "sense:love:41c9fc2895155c3a",
+            "sense:love:a3028abd1488d73b"
           ]
         },
         {
-          "label_cn": "爱；热爱",
-          "label_en": "to feel deep affection for someone",
+          "label_cn": "爱；热爱；非常喜欢（人、事物或活动）",
+          "label_en": "to feel deep affection for someone, or to like or enjoy a person, thing, or activity very much",
           "pos": "verb",
           "sense_ids": [
             "sense:love:aadabd57a5ca546b"
           ]
         }
       ],
-      "core_meaning_cn": "爱；热爱",
-      "core_meaning_en": "deep affection or to feel deep affection",
-      "mental_model_cn": "爱；热爱",
-      "mental_model_en": ""
+      "core_meaning_cn": "爱与喜爱；所爱之人或事物；网球零分",
+      "core_meaning_en": "affection and enjoyment; a beloved person or thing; zero in tennis",
+      "mental_model_cn": "名词的感情、喜爱对象与动词的喜爱需分清；网球计分 love 表示零分。",
+      "mental_model_en": "affection and enjoyment; a beloved person or thing; zero in tennis."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -108,7 +109,7 @@
         "confidence": "medium",
         "definition_cn": "爱；热爱；非常喜欢（人、事物或活动）",
         "definition_en": "to feel deep affection for someone, or to like or enjoy a person, thing, or activity very much",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "love sb/sth; love doing sth; love to do sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -164,6 +165,29 @@
         "sense_label_en": "a score of zero in tennis",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:love:a3028abd1488d73b",
+        "pos": "noun",
+        "definition_cn": "所爱的人、事物或活动",
+        "definition_en": "a person, thing or activity that someone loves",
+        "sense_label_en": "a person, thing or activity that someone loves",
+        "governing_pattern": "the love of sb’s life; sb’s first love",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:737ca99784f0443525c0",
+            "phrase": "music is her first love",
+            "meaning_cn": "音乐是她最钟爱的事物",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "本义可数，可指人也可指喜爱的事物/活动；不可数的爱情及爱好另有含义。"
       }
     ],
     "verification_summary": {
@@ -217,6 +241,23 @@
           "applicability": [
             {
               "surface": "love"
+            },
+            {
+              "surface": "love",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:love:a3028abd1488d73b"
+              ],
+              "owner_sense_ids": [
+                "sense:love:a3028abd1488d73b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2894.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the love of sb’s life; sb’s first love"
             }
           ],
           "sources": [
@@ -388,15 +429,24 @@
         "merged_into_sense_id": null,
         "source_row": 8068,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
+      },
+      {
+        "sense_id": "sense:love:a3028abd1488d73b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2894.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:2c9f6cd6c7d8a7201099",
-      "collocation:5e3cb8da9b0066d2e085",
-      "collocation:808e8060e16aaf967c10",
-      "collocation:a962dd2a8da4a2f690fb",
       "collocation:c0bb974a296b8c21999e",
-      "collocation:c3bfc0f9bb407d2c0a0a"
+      "collocation:a962dd2a8da4a2f690fb",
+      "collocation:c3bfc0f9bb407d2c0a0a",
+      "collocation:2c9f6cd6c7d8a7201099",
+      "collocation:808e8060e16aaf967c10",
+      "collocation:5e3cb8da9b0066d2e085",
+      "collocation:737ca99784f0443525c0"
     ],
     "facts": [],
     "collocations": [
@@ -429,6 +479,13 @@
         "id": "collocation:c3bfc0f9bb407d2c0a0a",
         "source_row": 16568,
         "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+      },
+      {
+        "id": "collocation:737ca99784f0443525c0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2894.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

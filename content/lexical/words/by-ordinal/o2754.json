@@ -6,13 +6,24 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:a92318b913ab58c3acbf",
+        "pattern": "the last person / thing ... (to do sth)",
+        "meaning_cn": "最不可能／最不愿意做某事的人或事物",
+        "definition_en": "the person or thing least likely or least wanted in the stated situation",
+        "usage_note": "the last person I would ask = 我最不愿去求助的人；the last thing I expected = 我最没想到的事。依据语境表达极不可能或不愿，不表示时间顺序。",
+        "boundary": "the last person I would ask = 我最不愿去求助的人；the last thing I expected = 我最没想到的事。依据语境表达极不可能或不愿，不表示时间顺序。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "a723450dd972fa3c81b4cef30c41180e562f2321576c393b6c6ecdf194c71de4",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "最后的；上一个/最近的",
-          "label_en": "final in order/time; most recent or immediately previous",
+          "label_cn": "最后的，末尾的；最近的；上一个的",
+          "label_en": "coming after all others in time or order; most recent or immediately previous",
           "pos": "adjective",
           "sense_ids": [
             "sense:last:7cfc09a9d7b05349",
@@ -29,11 +40,12 @@
           ]
         },
         {
-          "label_cn": "最后，后来",
-          "label_en": "after everything else; at the end",
+          "label_cn": "最后，后来；上次；最近一次",
+          "label_en": "after everything else; at the end; on the most recent occasion",
           "pos": "adverb",
           "sense_ids": [
-            "sense:last:9c389c9d8f2d54fe"
+            "sense:last:9c389c9d8f2d54fe",
+            "sense:last:ea40f5bf22c12fef"
           ]
         },
         {
@@ -45,10 +57,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "最后的；持续",
-      "core_meaning_en": "final in order or time; to continue or endure",
-      "mental_model_cn": "最后的；持续",
-      "mental_model_en": ""
+      "core_meaning_cn": "最后的；上一个的；最后／上次；持续；够用",
+      "core_meaning_en": "final or previous; at the end or most recently; continue or remain sufficient",
+      "mental_model_cn": "last week 是上周；spoke last 是最后发言；last saw 是上次见到；last two hours 是持续两小时；last us a week 是够我们用一周。",
+      "mental_model_en": "final or previous; at the end or most recently; continue or remain sufficient."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -108,7 +120,7 @@
         "confidence": "medium",
         "definition_cn": "持续，延续",
         "definition_en": "to continue for a period of time",
-        "governing_pattern": "vi. + for / vi. + until",
+        "governing_pattern": "last (for) a period; last until a time",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -141,14 +153,14 @@
         "confidence": "medium",
         "definition_cn": "够...用，使维持",
         "definition_en": "to be enough for someone or something for a period of time",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "last (sb) a period; last until a time",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:last:30ea305115b35de6",
         "sense_label_en": "to be enough for someone or something for a period of time",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -245,6 +257,28 @@
             "verification_status": "auditor_verified"
           }
         ]
+      },
+      {
+        "sense_id": "sense:last:ea40f5bf22c12fef",
+        "pos": "adverb",
+        "definition_cn": "上次；最近一次",
+        "definition_en": "on the most recent occasion",
+        "sense_label_en": "on the most recent occasion",
+        "governing_pattern": "when ... last + verb; last + past-tense verb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8b2e90e62113219aa4cc",
+            "phrase": "When did you last see her?",
+            "meaning_cn": "你上次见到她是什么时候？",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -290,6 +324,23 @@
           "applicability": [
             {
               "surface": "last"
+            },
+            {
+              "surface": "last",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:last:ea40f5bf22c12fef"
+              ],
+              "owner_sense_ids": [
+                "sense:last:ea40f5bf22c12fef"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2754.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "when ... last + verb; last + past-tense verb"
             }
           ],
           "sources": [
@@ -805,18 +856,27 @@
         "merged_into_sense_id": null,
         "source_row": 7625,
         "source_path": "content/lexical/canonical/senses/shards/o2753-2784.json"
+      },
+      {
+        "sense_id": "sense:last:ea40f5bf22c12fef",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2754.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
-      "collocation:457fb86d38ccdd3b61fc",
+      "collocation:d2ca6f4b8d0505d8f3e7",
+      "collocation:9f91c35ac1ee3c44d13b",
       "collocation:5671d6105767d69c2fbf",
+      "collocation:d898396b07dfded3702d",
+      "collocation:457fb86d38ccdd3b61fc",
+      "collocation:ab95980cd51dec20e9d1",
+      "collocation:7ee8d9fcecded2f72c42",
       "collocation:576f8da8eef448dde4f7",
       "collocation:62d8c4d10f0c78a68cbb",
-      "collocation:7ee8d9fcecded2f72c42",
-      "collocation:9f91c35ac1ee3c44d13b",
-      "collocation:ab95980cd51dec20e9d1",
-      "collocation:d2ca6f4b8d0505d8f3e7",
-      "collocation:d898396b07dfded3702d"
+      "collocation:8b2e90e62113219aa4cc"
     ],
     "facts": [],
     "collocations": [
@@ -864,6 +924,13 @@
         "id": "collocation:d898396b07dfded3702d",
         "source_row": 18313,
         "source_path": "content/lexical/canonical/collocations/shards/o2753-2784.json"
+      },
+      {
+        "id": "collocation:8b2e90e62113219aa4cc",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2754.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

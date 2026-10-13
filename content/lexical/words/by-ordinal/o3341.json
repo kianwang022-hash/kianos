@@ -24,11 +24,21 @@
     ],
     "content_hash": "543a37b8267b24bd04c506ddd2eb0d5dfe0800e3441547ffd9064af516ac19a0",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "到...上面",
-      "core_meaning_en": "to a position on top of",
-      "mental_model_cn": "到...上面",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "到某处；朝向某处",
+          "label_en": "movement to a position; facing towards it",
+          "pos": "preposition",
+          "sense_ids": [
+            "sense:onto:3908e8b43df55007",
+            "sense:onto:fed8002479087249"
+          ]
+        }
+      ],
+      "core_meaning_cn": "移动到某处；朝向某处",
+      "core_meaning_en": "movement to or into a position, or facing towards a place",
+      "mental_model_cn": "jump onto表示移动到某处；a window looking onto the garden表示朝向，无移动含义。be onto sb说察觉某人的不当行为，be onto sth说发现有用信息、好主意或机会。",
+      "mental_model_en": "movement to or into a position, or facing towards a place."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -70,6 +80,28 @@
         "sense_label_en": "used to show movement into or on a particular place",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:onto:fed8002479087249",
+        "pos": "preposition",
+        "definition_cn": "朝向；面向某处",
+        "definition_en": "towards a place which something faces",
+        "sense_label_en": "towards a place which something faces",
+        "governing_pattern": "look/open onto a place",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0822695d6c34535118a8",
+            "phrase": "The window looks onto the garden.",
+            "meaning_cn": "窗户朝向花园。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -110,6 +142,24 @@
           "applicability": [
             {
               "surface": "onto"
+            },
+            {
+              "surface": "onto",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:onto:fed8002479087249"
+              ],
+              "owner_sense_ids": [
+                "sense:onto:fed8002479087249"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3341.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "look/open onto a place",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -195,6 +245,24 @@
           "applicability": [
             {
               "surface": "onto"
+            },
+            {
+              "surface": "onto",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:onto:fed8002479087249"
+              ],
+              "owner_sense_ids": [
+                "sense:onto:fed8002479087249"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3341.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "look/open onto a place",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -280,6 +348,24 @@
           "applicability": [
             {
               "surface": "onto"
+            },
+            {
+              "surface": "onto",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:onto:fed8002479087249"
+              ],
+              "owner_sense_ids": [
+                "sense:onto:fed8002479087249"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3341.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "look/open onto a place",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -360,11 +446,20 @@
         "merged_into_sense_id": null,
         "source_row": 9274,
         "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
+      },
+      {
+        "sense_id": "sense:onto:fed8002479087249",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3341.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
+      "collocation:1f41164ab1e0e8fec93d",
       "collocation:1e7352c566e3c3eaaec7",
-      "collocation:1f41164ab1e0e8fec93d"
+      "collocation:0822695d6c34535118a8"
     ],
     "facts": [],
     "collocations": [
@@ -377,6 +472,13 @@
         "id": "collocation:1f41164ab1e0e8fec93d",
         "source_row": 2587,
         "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:0822695d6c34535118a8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3341.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

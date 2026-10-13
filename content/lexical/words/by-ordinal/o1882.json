@@ -11,25 +11,26 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "最喜欢的；最受偏爱的",
-          "label_en": "preferred or liked most",
+          "label_cn": "最喜欢的",
+          "label_en": "best liked",
           "pos": "adjective",
           "sense_ids": [
             "sense:favorite:2c8e257bd7065487"
           ]
         },
         {
-          "label_cn": "特别喜爱的人或事物",
-          "label_en": "a person or thing regarded with special favor or liking",
+          "label_cn": "喜爱对象；夺冠热门",
+          "label_en": "a liked object or likely winner",
           "pos": "noun",
           "sense_ids": [
-            "sense:favorite:ad512f8c823a5877"
+            "sense:favorite:ad512f8c823a5877",
+            "sense:favorite:487be4c9153a8b89"
           ]
         }
       ],
-      "core_meaning_cn": "最喜欢的；特别喜爱的人或事物",
-      "core_meaning_en": "preferred or liked most; a specially liked person or thing",
-      "mental_model_cn": "最喜欢的；特别喜爱的人或事物",
+      "core_meaning_cn": "最喜欢的；特别喜爱的对象；夺冠热门",
+      "core_meaning_en": "best liked; a specially liked person or thing; a likely winner",
+      "mental_model_cn": "favorite作adj是最喜欢的，作noun可为特别喜爱的对象；比赛语境the favorite是被看好会获胜者，不保证最受喜爱或实际获胜。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -89,6 +90,28 @@
         "sense_label_en": "something regarded with special favor or liking",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:favorite:487be4c9153a8b89",
+        "pos": "noun",
+        "definition_cn": "（比赛等）最有希望获胜的人或队；热门",
+        "definition_en": "a competitor or team considered likely to win",
+        "sense_label_en": "a competitor or team considered likely to win",
+        "governing_pattern": "countable: the favorite; a favorite to win",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:18ed4db582a1c14931ca",
+            "phrase": "the favorite to win the tournament",
+            "meaning_cn": "最有希望赢得锦标赛的人或队",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -139,6 +162,23 @@
           "applicability": [
             {
               "surface": "favorite"
+            },
+            {
+              "surface": "favorite",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:favorite:487be4c9153a8b89"
+              ],
+              "owner_sense_ids": [
+                "sense:favorite:487be4c9153a8b89"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1882.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "countable: the favorite; a favorite to win"
+              }
             }
           ],
           "sources": [
@@ -311,6 +351,14 @@
         "merged_into_sense_id": null,
         "source_row": 5169,
         "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json"
+      },
+      {
+        "sense_id": "sense:favorite:487be4c9153a8b89",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1882.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -328,6 +376,13 @@
         "id": "collocation:ad9816e477035df0404d",
         "source_row": 14700,
         "source_path": "content/lexical/canonical/collocations/shards/o1857-1888.json"
+      },
+      {
+        "id": "collocation:18ed4db582a1c14931ca",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1882.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

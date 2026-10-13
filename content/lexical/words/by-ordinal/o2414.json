@@ -6,25 +6,66 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:8b87516658d87b872c86",
+        "pattern": "it won’t/wouldn’t hurt (sb) to do sth",
+        "meaning_cn": "做某事无妨；建议某人这样做",
+        "definition_en": "used to suggest that doing something would be sensible or helpful",
+        "usage_note": "常是建议而非关于身体疼痛的陈述；It wouldn’t hurt to check. 表示不妨核查。",
+        "boundary": "常是建议而非关于身体疼痛的陈述；It wouldn’t hurt to check. 表示不妨核查。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:50ae5177337a0e993450",
+        "pattern": "be hurting for sth",
+        "meaning_cn": "（北美）因缺乏某物而处境困难",
+        "definition_en": "in North American English, to be in difficulty because you lack something",
+        "usage_note": "常缺资金等；for后接缺的东西，例如 be hurting for money。",
+        "boundary": "常缺资金等；for后接缺的东西，例如 be hurting for money。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:9b81035b86db46548abb",
+        "pattern": "hit sb where it hurts",
+        "meaning_cn": "打击某人的痛处或要害",
+        "definition_en": "to affect someone in the place or aspect they care about most",
+        "usage_note": "整体比喻；可以是金钱、名誉等痛处，不一定指身体。",
+        "boundary": "整体比喻；可以是金钱、名誉等痛处，不一定指身体。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "46c47c167a02a4a7db4872cdee51f1c9cfb16d6bd984a7975582b50666cbca98",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "伤害；使受伤；疼痛；使伤心；伤害感情",
-          "label_en": "to cause physical pain or injury; to feel pain; to upset someone emotionally",
+          "label_cn": "伤害；使受伤；疼痛；使伤心；伤害感情；损害；对……产生不良影响；感到难过；令人伤心",
+          "label_en": "to cause physical pain or injury to someone; to feel pain; to upset someone emotionally; to have an adverse effect on someone or something; to cause or experience emotional pain without a direct object",
           "pos": "verb",
           "sense_ids": [
             "sense:hurt:59b62aa79c885941",
             "sense:hurt:9b15137461b6504c",
-            "sense:hurt:a4b6011b43b75a32"
+            "sense:hurt:a4b6011b43b75a32",
+            "sense:hurt:51d5240989a056cf",
+            "sense:hurt:f526c2275eea165c"
+          ]
+        },
+        {
+          "label_cn": "伤害；创伤",
+          "label_en": "physical or emotional pain",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:hurt:d20845136bad5f12"
           ]
         }
       ],
-      "core_meaning_cn": "伤害；疼痛；使伤心",
-      "core_meaning_en": "to cause or feel pain; to upset emotionally",
-      "mental_model_cn": "伤害；疼痛；使伤心",
-      "mental_model_en": ""
+      "core_meaning_cn": "使受伤／疼痛；使伤心或感到难过；损害；伤害、创伤",
+      "core_meaning_en": "injure or feel pain; cause or feel emotional pain; damage; a hurt",
+      "mental_model_cn": "hurt 背/人→使受伤；my back hurts→疼；that hurts→伤心；hurt profits→损害；名词hurt→伤害或创伤。",
+      "mental_model_en": "injure or feel pain; cause or feel emotional pain; damage; a hurt."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -38,7 +79,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:481ab93f63f543a7913e",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:hurt:59b62aa79c885941:collocation:0"
             ],
@@ -129,6 +170,50 @@
         "sense_label_en": "physical or emotional pain",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hurt:51d5240989a056cf",
+        "pos": "verb",
+        "definition_cn": "损害；对……产生不良影响",
+        "definition_en": "to have an adverse effect on someone or something",
+        "sense_label_en": "to have an adverse effect on someone or something",
+        "governing_pattern": "hurt sb/sth; hurt profits/chances/interests",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:485ec505355694f4ce1f",
+            "phrase": "The delays hurt the company’s reputation.",
+            "meaning_cn": "这些延误损害了公司的声誉。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:hurt:f526c2275eea165c",
+        "pos": "verb",
+        "definition_cn": "感到难过；令人伤心",
+        "definition_en": "to cause or experience emotional pain without a direct object",
+        "sense_label_en": "to cause or experience emotional pain without a direct object",
+        "governing_pattern": "that hurts; it hurts to do sth; be hurting",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c0ab168719d55a2266cc",
+            "phrase": "It hurts to be left out of every discussion.",
+            "meaning_cn": "每次讨论都被排除在外让人难过。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -194,6 +279,40 @@
           "applicability": [
             {
               "surface": "hurt"
+            },
+            {
+              "surface": "hurt",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hurt:51d5240989a056cf"
+              ],
+              "owner_sense_ids": [
+                "sense:hurt:51d5240989a056cf"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2414.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hurt sb/sth; hurt profits/chances/interests"
+            },
+            {
+              "surface": "hurt",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hurt:f526c2275eea165c"
+              ],
+              "owner_sense_ids": [
+                "sense:hurt:f526c2275eea165c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2414.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "that hurts; it hurts to do sth; be hurting"
             }
           ],
           "sources": [
@@ -506,13 +625,31 @@
         "merged_into_sense_id": null,
         "source_row": 6731,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
+      },
+      {
+        "sense_id": "sense:hurt:51d5240989a056cf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2414.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:hurt:f526c2275eea165c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2414.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:327d2f735625f05b40db",
       "collocation:481ab93f63f543a7913e",
+      "collocation:327d2f735625f05b40db",
       "collocation:48467e301b67e1153c9d",
-      "collocation:b095e6865a6c97d635f0"
+      "collocation:b095e6865a6c97d635f0",
+      "collocation:485ec505355694f4ce1f",
+      "collocation:c0ab168719d55a2266cc"
     ],
     "facts": [],
     "collocations": [
@@ -524,7 +661,9 @@
       {
         "id": "collocation:481ab93f63f543a7913e",
         "source_row": 6074,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:48467e301b67e1153c9d",
@@ -535,6 +674,20 @@
         "id": "collocation:b095e6865a6c97d635f0",
         "source_row": 14952,
         "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+      },
+      {
+        "id": "collocation:485ec505355694f4ce1f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2414.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:c0ab168719d55a2266cc",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2414.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

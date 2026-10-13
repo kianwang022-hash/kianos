@@ -6,17 +6,31 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:e141712d7106c8876d53",
+        "pattern": "hybrid working",
+        "meaning_cn": "混合办公；部分在家、部分在办公室的工作安排",
+        "definition_en": "a working arrangement combining work at home and in the office",
+        "usage_note": "指居家与办公室办公相结合的安排；这里的hybrid体现混合方式。",
+        "boundary": "指居家与办公室办公相结合的安排；这里的hybrid体现混合方式。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:hybrid:e12ce6d65fed5d1c"
+      }
+    ],
     "content_hash": "6a25778852b8e1d6b1548bc56c8570d4ad553c209543e69455dbde28428a1000",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "杂种；杂交生物；混合物；合成物",
-          "label_en": "an organism produced by crossing different varieties or species; a thing made by combining two different elements; a mixture",
+          "label_cn": "杂种；杂交生物；混合物；合成物；混合动力汽车或车辆；混合型自行车；适合公路和较崎岖路面的自行车",
+          "label_en": "an organism produced by crossing different varieties or species; a thing made by combining two different elements; a mixture; a vehicle using two types of power, especially a combustion engine and electricity; a bicycle designed for use both on roads and on rough ground",
           "pos": "noun",
           "sense_ids": [
             "sense:hybrid:d65ed7b0fc355199",
-            "sense:hybrid:b1070978c71e5640"
+            "sense:hybrid:b1070978c71e5640",
+            "sense:hybrid:02a0238d6684f1c5",
+            "sense:hybrid:450e294d9d1a47d1"
           ]
         },
         {
@@ -28,10 +42,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "混合；杂种",
-      "core_meaning_en": "something made by combining two different elements",
-      "mental_model_cn": "混合；杂种",
-      "mental_model_en": ""
+      "core_meaning_cn": "杂交生物／混合物；混合的；混合动力车辆或混合型自行车",
+      "core_meaning_en": "a biological cross or a mixture; mixed; a hybrid vehicle or bicycle",
+      "mental_model_cn": "hybrid 生物→杂交；制度/语言→混合；a hybrid 在交通语境可指混合动力车辆，在骑行语境也可指混合型自行车。",
+      "mental_model_en": "a biological cross or a mixture; mixed; a hybrid vehicle or bicycle."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -66,26 +80,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:52d04bf0716b35861108",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:hybrid:b1070978c71e5640:collocation:0"
-            ],
-            "meaning_cn": "混合动力汽车",
-            "phrase": "hybrid car"
-          },
-          {
-            "collocation_id": "collocation:eb0f392ec8b48c4b569f",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:hybrid:b1070978c71e5640:collocation:1"
-            ],
-            "meaning_cn": "混合方法",
-            "phrase": "hybrid approach"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "混合物；合成物",
         "definition_en": "a thing made by combining two different elements; a mixture",
@@ -108,6 +103,24 @@
             ],
             "meaning_cn": "混合动力车",
             "phrase": "hybrid vehicle"
+          },
+          {
+            "collocation_id": "collocation:52d04bf0716b35861108",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:hybrid:b1070978c71e5640:collocation:0"
+            ],
+            "meaning_cn": "混合动力汽车",
+            "phrase": "hybrid car"
+          },
+          {
+            "collocation_id": "collocation:eb0f392ec8b48c4b569f",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:hybrid:b1070978c71e5640:collocation:1"
+            ],
+            "meaning_cn": "混合方法",
+            "phrase": "hybrid approach"
           }
         ],
         "confidence": "medium",
@@ -120,7 +133,52 @@
         "sense_id": "sense:hybrid:e12ce6d65fed5d1c",
         "sense_label_en": "composed of mixed origin or different elements",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "hybrid car/vehicle 指使用两类动力；hybrid working 指结合现场与远程工作的安排。这些修饰用法属于混合的形容词范围。"
+      },
+      {
+        "sense_id": "sense:hybrid:02a0238d6684f1c5",
+        "pos": "noun",
+        "definition_cn": "混合动力汽车或车辆",
+        "definition_en": "a vehicle using two types of power, especially a combustion engine and electricity",
+        "sense_label_en": "a vehicle using two types of power, especially a combustion engine and electricity",
+        "governing_pattern": "a hybrid; plug-in hybrids",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1d950e3e35299dc537a0",
+            "phrase": "She replaced her petrol car with a hybrid.",
+            "meaning_cn": "她把汽油车换成了混合动力汽车。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:hybrid:450e294d9d1a47d1",
+        "pos": "noun",
+        "definition_cn": "混合型自行车；适合公路和较崎岖路面的自行车",
+        "definition_en": "a bicycle designed for use both on roads and on rough ground",
+        "sense_label_en": "a bicycle designed for use both on roads and on rough ground",
+        "governing_pattern": "ride/buy a hybrid",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:cf40522af9fefe833975",
+            "phrase": "A hybrid suited his commute and weekend trails.",
+            "meaning_cn": "混合型自行车适合他的通勤和周末小径骑行。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -150,6 +208,40 @@
           "applicability": [
             {
               "surface": "hybrid"
+            },
+            {
+              "surface": "hybrid",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hybrid:02a0238d6684f1c5"
+              ],
+              "owner_sense_ids": [
+                "sense:hybrid:02a0238d6684f1c5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2417.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a hybrid; plug-in hybrids"
+            },
+            {
+              "surface": "hybrid",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hybrid:450e294d9d1a47d1"
+              ],
+              "owner_sense_ids": [
+                "sense:hybrid:450e294d9d1a47d1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2417.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "ride/buy a hybrid"
             }
           ],
           "sources": [
@@ -406,20 +498,39 @@
         "merged_into_sense_id": null,
         "source_row": 6739,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
+      },
+      {
+        "sense_id": "sense:hybrid:02a0238d6684f1c5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2417.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:hybrid:450e294d9d1a47d1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2417.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:52d04bf0716b35861108",
-      "collocation:6580bc32fabb1ae60585",
       "collocation:7ffed16c5fdf12dee3dc",
-      "collocation:eb0f392ec8b48c4b569f"
+      "collocation:6580bc32fabb1ae60585",
+      "collocation:52d04bf0716b35861108",
+      "collocation:eb0f392ec8b48c4b569f",
+      "collocation:1d950e3e35299dc537a0",
+      "collocation:cf40522af9fefe833975"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:52d04bf0716b35861108",
         "source_row": 6977,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "sense_id": "sense:hybrid:e12ce6d65fed5d1c"
       },
       {
         "id": "collocation:6580bc32fabb1ae60585",
@@ -434,7 +545,22 @@
       {
         "id": "collocation:eb0f392ec8b48c4b569f",
         "source_row": 19915,
-        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json",
+        "sense_id": "sense:hybrid:e12ce6d65fed5d1c"
+      },
+      {
+        "id": "collocation:1d950e3e35299dc537a0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2417.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:cf40522af9fefe833975",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2417.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

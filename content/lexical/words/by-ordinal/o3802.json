@@ -6,13 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:productive:9f5d41779cda5fed",
+        "pattern": "productive of sth",
+        "meaning_cn": "产生；导致",
+        "definition_en": "causing a particular result",
+        "boundary": "正式，结果不必有利，如造成麻烦；不能与effective一概等同。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/productive",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      }
+    ],
     "content_hash": "6e2ea51dc4c1822a228858677818a711a15a74017b26beda971f0871a71e408f",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "多产的；有成效的",
-      "core_meaning_en": "producing or able to produce something, especially in large quantities or with good results",
-      "mental_model_cn": "多产的；有成效的",
+      "core_meaning_cn": "能产出东西或结果的",
+      "core_meaning_en": "capable of producing things or results",
+      "mental_model_cn": "land/worker→产出能力；meeting→有成效；productive of→产生某结果，未必有利；cough→有痰；suffix→能构造新词。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,6 +104,72 @@
         "sense_label_en": "yielding positive results; effective",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:productive:8ffc9cef28ec7e15",
+        "pos": "adjective",
+        "definition_cn": "（咳嗽）有痰的",
+        "definition_en": "bringing up mucus or sputum when coughing",
+        "sense_label_en": "bringing up mucus or sputum when coughing",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:productive:c66abfdce5c0faa0",
+            "phrase": "a productive cough",
+            "meaning_cn": "有痰咳嗽",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.collinsdictionary.com/dictionary/english/productive",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "医学阅读用语，productive cough不是咳嗽很有效。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/productive",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:productive:9096892c3a5f25bd",
+        "pos": "adjective",
+        "definition_cn": "（词缀或构词方式）能产的",
+        "definition_en": "able to be used to form new words",
+        "sense_label_en": "able to be used to form new words",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:productive:cedafdf37d58bc69",
+            "phrase": "a productive suffix",
+            "meaning_cn": "能产后缀",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.collinsdictionary.com/dictionary/english/productive",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "语言学中指可用于构造新词，而不只是现有词很多。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/productive",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -364,13 +446,27 @@
         "merged_into_sense_id": null,
         "source_row": 10586,
         "source_path": "content/lexical/canonical/senses/shards/o3777-3808.json"
+      },
+      {
+        "sense_id": "sense:productive:8ffc9cef28ec7e15",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3802.json"
+      },
+      {
+        "sense_id": "sense:productive:9096892c3a5f25bd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3802.json"
       }
     ],
     "active_collocations": [
       "collocation:047a3bc08759b90aef7e",
       "collocation:21a59e8cbf8b272bc428",
       "collocation:36d1f367c048c09194d3",
-      "collocation:c10401c293fc3cc75492"
+      "collocation:c10401c293fc3cc75492",
+      "collocation:productive:c66abfdce5c0faa0",
+      "collocation:productive:cedafdf37d58bc69"
     ],
     "facts": [],
     "collocations": [
@@ -393,6 +489,14 @@
         "id": "collocation:c10401c293fc3cc75492",
         "source_row": 16313,
         "source_path": "content/lexical/canonical/collocations/shards/o3777-3808.json"
+      },
+      {
+        "id": "collocation:productive:c66abfdce5c0faa0",
+        "source_path": "content/lexical/words/by-ordinal/o3802.json"
+      },
+      {
+        "id": "collocation:productive:cedafdf37d58bc69",
+        "source_path": "content/lexical/words/by-ordinal/o3802.json"
       }
     ],
     "exam-mappings": [],

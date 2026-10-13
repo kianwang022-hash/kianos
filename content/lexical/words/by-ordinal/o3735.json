@@ -11,7 +11,7 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "最常见的；占多数的",
+          "label_cn": "最常见的；数量或比例最大的",
           "label_en": "most common or frequent",
           "pos": "adjective",
           "sense_ids": [
@@ -19,8 +19,8 @@
           ]
         },
         {
-          "label_cn": "占主导的；最重要/最有影响力的",
-          "label_en": "dominant, main, or most influential",
+          "label_cn": "最显著的；占主导、最重要或最有影响力的",
+          "label_en": "most prominent, important, or influential",
           "pos": "adjective",
           "sense_ids": [
             "sense:predominant:09a78806d81c5797"
@@ -29,7 +29,7 @@
       ],
       "core_meaning_cn": "占主导地位的；主要的",
       "core_meaning_en": "most common or dominant/most important",
-      "mental_model_cn": "占主导地位的；主要的",
+      "mental_model_cn": "语言、颜色等的分布语境常比较数量或常见程度；feature、role、influence 等语境常看显著性、重要性或支配力。“占主导”不自动等于数量超过一半。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,13 +45,10 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:ee921584684190862490",
+            "collocation_id": "collocation:ec32df126344d9822d6d",
             "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:predominant:f5d03bef5c305a25:collocation:0"
-            ],
-            "meaning_cn": "主要特征",
-            "phrase": "the predominant feature"
+            "phrase": "the predominant language in the region",
+            "meaning_cn": "当地使用最普遍的语言"
           }
         ],
         "confidence": "medium",
@@ -76,17 +73,26 @@
             ],
             "meaning_cn": "主导影响/主要作用",
             "phrase": "predominant influence/role"
+          },
+          {
+            "collocation_id": "collocation:ee921584684190862490",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:predominant:f5d03bef5c305a25:collocation:0"
+            ],
+            "meaning_cn": "主要特征",
+            "phrase": "the predominant feature"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "占主导地位的；最重要的；最有影响力的",
-        "definition_en": "main, most important, dominant, or having superior power and influence",
+        "definition_cn": "最显著的；占主导地位的；最重要或最有影响力的",
+        "definition_en": "most prominent, important, or influential",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:predominant:09a78806d81c5797",
-        "sense_label_en": "main, most important, dominant, or having superior power and influence",
+        "sense_label_en": "most prominent, important, or influential",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -247,7 +253,8 @@
     ],
     "active_collocations": [
       "collocation:8da4a67e83732a11e96f",
-      "collocation:ee921584684190862490"
+      "collocation:ee921584684190862490",
+      "collocation:ec32df126344d9822d6d"
     ],
     "facts": [],
     "collocations": [
@@ -264,7 +271,24 @@
       {
         "id": "collocation:ee921584684190862490",
         "source_row": 20216,
-        "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json",
+        "status": "active",
+        "sense_id": "sense:predominant:09a78806d81c5797",
+        "parent_lineage": [
+          {
+            "from_sense_id": "sense:predominant:f5d03bef5c305a25",
+            "to_sense_id": "sense:predominant:09a78806d81c5797",
+            "reason": "correct semantic parent of unchanged main-feature child",
+            "date": "2026-10-12"
+          }
+        ]
+      },
+      {
+        "id": "collocation:ec32df126344d9822d6d",
+        "status": "active",
+        "sense_id": "sense:predominant:f5d03bef5c305a25",
+        "source_path": "content/lexical/words/by-ordinal/o3735.json",
+        "creation_basis": "bounded P1 semantic proposal 2026-10-12; new phrase identity"
       }
     ],
     "exam-mappings": [],

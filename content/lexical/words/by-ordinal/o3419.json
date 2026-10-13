@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "与…重叠；部分覆盖；（时间或空间上）部分重叠",
-          "label_en": "to extend over and cover a part of something; to coincide partially in time or space",
+          "label_cn": "部分覆盖；时间、空间或内容职责有交集",
+          "label_en": "partly cover; coincide or share a common area of time, space, content or responsibility",
           "pos": "verb",
           "sense_ids": [
             "sense:overlap:b1983baae0155f13",
@@ -58,14 +58,14 @@
         "confidence": "medium",
         "definition_cn": "与…重叠；部分覆盖",
         "definition_en": "to extend over and cover a part of something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "A overlaps B; A and B overlap（物理覆盖）",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:overlap:b1983baae0155f13",
         "sense_label_en": "to extend over and cover a part of something",
         "sort_order": 0,
-        "transitivity": "vt",
+        "transitivity": "I/T",
         "lexical_identity_overlay": {
           "case_sensitive": false,
           "identity_type": "stress_pos_boundary",
@@ -87,23 +87,24 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（时间或空间上）部分重叠",
-        "definition_en": "to coincide partially in time or space",
-        "governing_pattern": "vi. + with",
+        "definition_cn": "部分重叠；（职责、内容等）部分相同",
+        "definition_en": "to coincide partly in time or space, or share some features, duties, or subject matter",
+        "governing_pattern": "A overlaps (with) B; A and B overlap（时间/职责/内容）",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:overlap:883c131bddb75573",
-        "sense_label_en": "to coincide partially in time or space",
+        "sense_label_en": "to coincide partly in time or space, or share some features, duties, or subject matter",
         "sort_order": 1,
-        "transitivity": "vi",
+        "transitivity": "I/T",
         "lexical_identity_overlay": {
           "case_sensitive": false,
           "identity_type": "stress_pos_boundary",
           "surface_lemma": "overlap",
           "paired_form": "verb / noun",
           "note": "Verb overlap normally has main stress on the second element; noun overlap normally has main stress on the first element."
-        }
+        },
+        "usage_note": "抽象或时间重叠也可直接接另一事件/内容作宾语，不只是不及物overlap with。"
       },
       {
         "collocations": [
@@ -120,7 +121,7 @@
         "confidence": "medium",
         "definition_cn": "重叠；重合部分",
         "definition_en": "a situation in which two things partly cover or coincide",
-        "governing_pattern": "",
+        "governing_pattern": "an overlap of time/space; overlap between A and B",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
@@ -242,6 +243,49 @@
                   ]
                 }
               ]
+            }
+          ]
+        },
+        {
+          "ipa": "/ˈəʊvəlæp/",
+          "locales": [],
+          "applicability": [
+            {
+              "surface": "overlap",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:overlap:c0c9d4cb0ce45259"
+              ],
+              "owner_sense_ids": [
+                "sense:overlap:c0c9d4cb0ce45259"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Independently actually read complete headed observation and current semantic scope; no expansion of any previous bounded observation.",
+              "source_path": "content/lexical/words/by-ordinal/o3419.json",
+              "source_pointers": [
+                "/record/senses/2"
+              ]
+            }
+          ],
+          "sources": [
+            {
+              "type": "authoritative_dictionary_head",
+              "role": "pronunciation",
+              "source_name": "Oxford Learners Dictionaries",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/overlap_2",
+              "entry_context": {
+                "word": "overlap",
+                "pos": "noun",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈəʊvəlæp/",
+              "accessed_date": "2026-10-12",
+              "actual_complete_selected_head_read": true,
+              "sound_qualifiers": {},
+              "head_note": "Whole noun head, only the already active noun; no new stress-overlay or pronunciation card."
             }
           ]
         }

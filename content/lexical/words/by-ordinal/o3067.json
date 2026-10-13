@@ -41,12 +41,20 @@
           "sense_ids": [
             "sense:minor:5e0c66a6880bdb74"
           ]
+        },
+        {
+          "label_cn": "（音乐）小调的",
+          "label_en": "based on a minor musical scale, with a semitone between its second and third notes",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:minor:3e167c30d7ed174d"
+          ]
         }
       ],
-      "core_meaning_cn": "较小的，次要的",
-      "core_meaning_en": "small or less important",
-      "mental_model_cn": "较小的，次要的",
-      "mental_model_en": ""
+      "core_meaning_cn": "次要的；未成年人及副修；音乐小调的",
+      "core_meaning_en": "small or secondary; a person below adulthood or a secondary study subject; musically minor",
+      "mental_model_cn": "minor injuries谈程度小，a minor谈未成年，minor in谈副修；C minor是音乐小调，不把小调都说成悲伤音乐。",
+      "mental_model_en": "small or secondary; a person below adulthood or a secondary study subject; musically minor."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -163,6 +171,28 @@
         "sort_order": 3,
         "transitivity": "nonverb",
         "usage_note": "mainly North American/AmE academic use; compare major"
+      },
+      {
+        "sense_id": "sense:minor:3e167c30d7ed174d",
+        "pos": "adjective",
+        "definition_cn": "（音乐）小调的",
+        "definition_en": "based on a minor musical scale, with a semitone between its second and third notes",
+        "sense_label_en": "based on a minor musical scale, with a semitone between its second and third notes",
+        "governing_pattern": "a minor key; in C minor",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:074537767239b1ebccc3",
+            "phrase": "in C minor",
+            "meaning_cn": "以C小调",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -204,6 +234,24 @@
           "applicability": [
             {
               "surface": "minor"
+            },
+            {
+              "surface": "minor",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:minor:3e167c30d7ed174d"
+              ],
+              "owner_sense_ids": [
+                "sense:minor:3e167c30d7ed174d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3067.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a minor key; in C minor",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -321,6 +369,24 @@
           "applicability": [
             {
               "surface": "minor"
+            },
+            {
+              "surface": "minor",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:minor:3e167c30d7ed174d"
+              ],
+              "owner_sense_ids": [
+                "sense:minor:3e167c30d7ed174d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3067.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a minor key; in C minor",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -453,14 +519,23 @@
         "merged_into_sense_id": null,
         "source_row": 8545,
         "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json"
+      },
+      {
+        "sense_id": "sense:minor:3e167c30d7ed174d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3067.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:16edf10fb9ef1f5dc3f4",
-      "collocation:2987139faf33fe5b7fc1",
       "collocation:2a1f7de4dd3ae034eeb3",
       "collocation:2f9f4c189ce896b27f62",
-      "collocation:ed6f9695473b37855a9f"
+      "collocation:2987139faf33fe5b7fc1",
+      "collocation:ed6f9695473b37855a9f",
+      "collocation:074537767239b1ebccc3"
     ],
     "facts": [],
     "collocations": [
@@ -488,6 +563,13 @@
         "id": "collocation:ed6f9695473b37855a9f",
         "source_row": 21361,
         "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
+      },
+      {
+        "id": "collocation:074537767239b1ebccc3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3067.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

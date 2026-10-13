@@ -9,7 +9,16 @@
     "constructions": [],
     "content_hash": "eedac1e65d130678f254ea379c7adf66a37c0db372c331c4fd3208fea6aba4e3",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "pos": "noun",
+          "label_cn": "（the elements）风雨等自然天气力量",
+          "label_en": "the forces of the weather, especially wind and rain, expressed as the elements",
+          "sense_ids": [
+            "sense:element:eee7ee5642b78a03"
+          ]
+        }
+      ],
       "core_meaning_cn": "基本组成部分",
       "core_meaning_en": "a basic part or component",
       "mental_model_cn": "基本组成部分",
@@ -70,13 +79,13 @@
         ],
         "confidence": "medium",
         "definition_cn": "化学元素",
-        "definition_en": "a chemical element",
+        "definition_en": "a substance consisting of one type of atom that cannot be chemically broken into simpler substances",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:element:3029fb53f5e55e1f",
-        "sense_label_en": "a chemical element",
+        "sense_label_en": "a substance made of one type of atom",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -103,6 +112,26 @@
         "sense_label_en": "a favorable environment or situation",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:element:eee7ee5642b78a03",
+        "pos": "noun",
+        "definition_cn": "（the elements）风雨等自然天气力量",
+        "definition_en": "the forces of the weather, especially wind and rain, expressed as the elements",
+        "sense_label_en": "the forces of the weather, especially wind and rain, expressed as the elements",
+        "governing_pattern": "the elements; exposed to the elements",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:element:eee7ee5642b78a03",
+            "phrase": "exposed to the elements",
+            "meaning_cn": "暴露在风雨中；没有遮挡风雨",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "此天气义用复数the elements；不把单数an element或普通组成部分义机械替换为天气。",
+        "number_constraint": "plural_only"
       }
     ],
     "verification_summary": {
@@ -196,6 +225,29 @@
           "applicability": [
             {
               "surface": "element"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "element",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:element:eee7ee5642b78a03"
+              ],
+              "sense_ids": [
+                "sense:element:eee7ee5642b78a03"
+              ],
+              "excluded_sense_ids": [
+                "sense:element:3029fb53f5e55e1f",
+                "sense:element:4a05430772f65a72",
+                "sense:element:a05a4555af565cd6"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/element",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -229,6 +281,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/element",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "element",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ˈɛlɪmənt/",
+              "applies_to_sense_ids": [
+                "sense:element:eee7ee5642b78a03"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         }
@@ -259,13 +327,22 @@
         "merged_into_sense_id": null,
         "source_row": 4470,
         "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
+      },
+      {
+        "sense_id": "sense:element:eee7ee5642b78a03",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1600.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:0350c0585cefbcbf9205",
       "collocation:090dc5238d55b5af2093",
       "collocation:5a95ec80ef3056ebcc10",
-      "collocation:5e1246cd4c8f46bb6bac"
+      "collocation:5e1246cd4c8f46bb6bac",
+      "collocation:element:eee7ee5642b78a03"
     ],
     "facts": [],
     "collocations": [
@@ -288,6 +365,14 @@
         "id": "collocation:5e1246cd4c8f46bb6bac",
         "source_row": 7916,
         "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+      },
+      {
+        "id": "collocation:element:eee7ee5642b78a03",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1600.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

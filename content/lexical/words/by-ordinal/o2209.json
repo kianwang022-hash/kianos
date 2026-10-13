@@ -22,34 +22,29 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "紧握；控制",
-          "label_en": "a firm hold or control",
+          "label_cn": "紧握；控制；理解掌握",
+          "label_en": "a firm hold, control over something, or understanding of it",
           "pos": "noun",
           "sense_ids": [
             "sense:grip:a4e6998d28c058e2"
           ]
         },
         {
-          "label_cn": "紧紧抓住；牢牢握住",
-          "label_en": "to hold something firmly",
+          "label_cn": "紧紧抓住；牢牢握住；抓住注意力或兴趣；（情绪或局势）强烈影响；笼罩；紧贴表面而不打滑；在表面上抓牢",
+          "label_en": "to hold something firmly; to hold someone's attention or interest; to affect somebody or a place powerfully; to hold against a surface without slipping",
           "pos": "verb",
           "sense_ids": [
-            "sense:grip:7c9bcec3c7035433"
-          ]
-        },
-        {
-          "label_cn": "抓住注意力或兴趣",
-          "label_en": "to hold someone's attention or interest",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:grip:37291525af65560b"
+            "sense:grip:7c9bcec3c7035433",
+            "sense:grip:37291525af65560b",
+            "sense:grip:202cdff41d842a59",
+            "sense:grip:b690df09aa89165c"
           ]
         }
       ],
-      "core_meaning_cn": "紧握、控制；牢牢抓住；吸引注意力",
-      "core_meaning_en": "a firm hold/control; to hold firmly; to capture attention or interest",
-      "mental_model_cn": "physical → 紧握；control → 掌控；attention → 吸引；come/get to grips with sth → 努力理解并处理问题。",
-      "mental_model_en": ""
+      "core_meaning_cn": "紧握、控制或掌握；吸引注意、情绪笼罩或抓地",
+      "core_meaning_en": "hold firmly, control or understand; engage attention, affect strongly, or maintain traction",
+      "mental_model_cn": "grip可为握持和掌控，也可表示情绪强烈影响，或轮胎抓地而不滑动。",
+      "mental_model_en": "hold firmly, control or understand; engage attention, affect strongly, or maintain traction."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -83,14 +78,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "紧握，控制",
-        "definition_en": "a firm hold or control",
+        "definition_cn": "紧握；控制；理解掌握",
+        "definition_en": "a firm hold, control over something, or understanding of it",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:grip:a4e6998d28c058e2",
-        "sense_label_en": "a firm hold or control",
+        "sense_label_en": "a firm hold, control over something, or understanding of it",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -121,6 +116,50 @@
         "sense_label_en": "to hold someone's attention or interest",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:grip:202cdff41d842a59",
+        "pos": "verb",
+        "definition_cn": "（情绪或局势）强烈影响；笼罩",
+        "definition_en": "to affect somebody or a place powerfully",
+        "sense_label_en": "to affect somebody or a place powerfully",
+        "governing_pattern": "fear/a crisis grips somebody/a place",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a5cedae8cb229021d1ae",
+            "phrase": "Fear gripped the crowd.",
+            "meaning_cn": "人群陷入强烈的恐惧。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:grip:b690df09aa89165c",
+        "pos": "verb",
+        "definition_cn": "紧贴表面而不打滑；在表面上抓牢",
+        "definition_en": "to hold against a surface without slipping",
+        "sense_label_en": "to hold against a surface without slipping",
+        "governing_pattern": "tyres grip the road; grip well",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6700d35d55fcb69e16a0",
+            "phrase": "These tyres grip well in rain.",
+            "meaning_cn": "这些轮胎在雨天抓地性能很好。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -150,6 +189,40 @@
           "applicability": [
             {
               "surface": "grip"
+            },
+            {
+              "surface": "grip",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:grip:202cdff41d842a59"
+              ],
+              "owner_sense_ids": [
+                "sense:grip:202cdff41d842a59"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2209.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "fear/a crisis grips somebody/a place"
+              }
+            },
+            {
+              "surface": "grip",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:grip:b690df09aa89165c"
+              ],
+              "owner_sense_ids": [
+                "sense:grip:b690df09aa89165c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2209.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "tyres grip the road; grip well"
+              }
             }
           ],
           "sources": [
@@ -596,8 +669,8 @@
   "reference_senses": [
     {
       "stable_sense_id": "sense:grip:6914ecd3dda55791",
-      "status": "merged",
-      "merged_into_sense_id": "sense:grip:a4e6998d28c058e2",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
       "pos": "verb",
       "definition_cn": "握牢；有吸引力",
       "definition_en": "to hold firmly or have a strong effect",
@@ -646,8 +719,8 @@
     },
     {
       "stable_sense_id": "sense:grip:ca739618c0ac57e0",
-      "status": "merged",
-      "merged_into_sense_id": "sense:grip:a4e6998d28c058e2",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
       "pos": "noun",
       "definition_cn": "把手；手提包",
       "definition_en": "a handle or a small bag",
@@ -681,8 +754,8 @@
       },
       {
         "sense_id": "sense:grip:6914ecd3dda55791",
-        "status": "merged",
-        "merged_into_sense_id": "sense:grip:a4e6998d28c058e2",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
         "source_row": 6162,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
       },
@@ -709,15 +782,33 @@
       },
       {
         "sense_id": "sense:grip:ca739618c0ac57e0",
-        "status": "merged",
-        "merged_into_sense_id": "sense:grip:a4e6998d28c058e2",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
         "source_row": 6166,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:grip:202cdff41d842a59",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2209.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:grip:b690df09aa89165c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2209.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:96b725d6c0029e3e2988",
-      "collocation:f3b069b915c4d1f6a8d0"
+      "collocation:f3b069b915c4d1f6a8d0",
+      "collocation:a5cedae8cb229021d1ae",
+      "collocation:6700d35d55fcb69e16a0"
     ],
     "facts": [],
     "collocations": [
@@ -760,6 +851,20 @@
         "id": "collocation:f3b069b915c4d1f6a8d0",
         "source_row": 20637,
         "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+      },
+      {
+        "id": "collocation:a5cedae8cb229021d1ae",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2209.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:6700d35d55fcb69e16a0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2209.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

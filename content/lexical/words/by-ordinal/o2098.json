@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "9d7a93c5e7738550258c7100bb40883beeabcdda3075d6d370e431792d179932",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "废弃物或丢弃的物品",
-      "core_meaning_en": "waste material or discarded items",
-      "mental_model_cn": "废弃物或丢弃的物品",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "垃圾，废物；无价值的东西；胡说八道",
+          "label_en": "waste material, especially from a kitchen or household; something worthless or useless, especially foolish or untrue statements",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:garbage:2f065ab70dfc5d34",
+            "sense:garbage:7c5fdcbd9dce147b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "垃圾、废物；无价值的东西或胡说",
+      "core_meaning_en": "waste; worthless material or nonsense",
+      "mental_model_cn": "garbage可为要丢弃的垃圾，也可评价内容无价值、说法荒唐，如a bunch of garbage。",
+      "mental_model_en": "waste; worthless material or nonsense."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -55,6 +65,28 @@
         "sense_label_en": "waste material, especially from a kitchen or household",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:garbage:7c5fdcbd9dce147b",
+        "pos": "noun",
+        "definition_cn": "无价值的东西；胡说八道",
+        "definition_en": "something worthless or useless, especially foolish or untrue statements",
+        "sense_label_en": "something worthless or useless, especially foolish or untrue statements",
+        "governing_pattern": "a load/bunch of garbage; say sth is garbage",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f8e679dbaae6dd3f4b8b",
+            "phrase": "That claim is garbage.",
+            "meaning_cn": "那个说法是胡说八道。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -95,6 +127,23 @@
           "applicability": [
             {
               "surface": "garbage"
+            },
+            {
+              "surface": "garbage",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:garbage:7c5fdcbd9dce147b"
+              ],
+              "owner_sense_ids": [
+                "sense:garbage:7c5fdcbd9dce147b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2098.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "a load/bunch of garbage; say sth is garbage"
+              }
             }
           ],
           "sources": [
@@ -295,6 +344,14 @@
         "merged_into_sense_id": null,
         "source_row": 5849,
         "source_path": "content/lexical/canonical/senses/shards/o2081-2112.json"
+      },
+      {
+        "sense_id": "sense:garbage:7c5fdcbd9dce147b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2098.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -317,6 +374,13 @@
         "id": "collocation:8d123d87835363d4115c",
         "source_row": 11969,
         "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+      },
+      {
+        "id": "collocation:f8e679dbaae6dd3f4b8b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2098.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

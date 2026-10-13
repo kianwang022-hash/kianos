@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "07f2430af497a31a294c407fc07b764903e339225a3f6b1d5c29643ccb960c56",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "看不见的；无形的",
-      "core_meaning_en": "impossible or nearly impossible to see",
-      "mental_model_cn": "看不见的；无形的",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "看不见的；被忽视的",
+          "label_en": "not visible, or treated as if unseen",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:invisible:0da6fb564b705f4b",
+            "sense:invisible:0bc57850599387ae"
+          ]
+        }
+      ],
+      "core_meaning_cn": "看不见的；被忽视的",
+      "core_meaning_en": "not visible, or treated as if unseen",
+      "mental_model_cn": "physical → 看不见；person/group → 被忽视、不获承认。",
+      "mental_model_en": "not visible, or treated as if unseen."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -55,6 +65,28 @@
         "sense_label_en": "impossible to see; not visible",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:invisible:0bc57850599387ae",
+        "pos": "adjective",
+        "definition_cn": "被忽视的；不被注意或承认的",
+        "definition_en": "treated as if absent, without receiving attention or recognition",
+        "sense_label_en": "treated as if absent, without receiving attention or recognition",
+        "governing_pattern": "feel/remain/be rendered invisible (to sb)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d96abde484ca20cb19cf",
+            "phrase": "feel invisible at work",
+            "meaning_cn": "在工作中感到自己被忽视",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -85,6 +117,29 @@
           "applicability": [
             {
               "surface": "invisible",
+              "conditions": [
+                {
+                  "kind": "original_optional_notation",
+                  "text": "Optional material is retained verbatim; no expansion, deletion, or accent inference."
+                }
+              ]
+            },
+            {
+              "surface": "invisible",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:invisible:0bc57850599387ae"
+              ],
+              "owner_sense_ids": [
+                "sense:invisible:0bc57850599387ae"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2638.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "feel/remain/be rendered invisible (to sb)",
               "conditions": [
                 {
                   "kind": "original_optional_notation",
@@ -163,11 +218,20 @@
         "merged_into_sense_id": null,
         "source_row": 7271,
         "source_path": "content/lexical/canonical/senses/shards/o2625-2656.json"
+      },
+      {
+        "sense_id": "sense:invisible:0bc57850599387ae",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2638.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
+      "collocation:6c56081d35e6fa5e4110",
       "collocation:04b6102da8614a4bfacf",
-      "collocation:6c56081d35e6fa5e4110"
+      "collocation:d96abde484ca20cb19cf"
     ],
     "facts": [],
     "collocations": [
@@ -180,6 +244,13 @@
         "id": "collocation:6c56081d35e6fa5e4110",
         "source_row": 9130,
         "source_path": "content/lexical/canonical/collocations/shards/o2625-2656.json"
+      },
+      {
+        "id": "collocation:d96abde484ca20cb19cf",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2638.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

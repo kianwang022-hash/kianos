@@ -9,10 +9,30 @@
     "constructions": [],
     "content_hash": "11b09c9379a77ec0f69b47a0098087d4cf3f656f3d7b6a5034a28641410a1322",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "极好的或奇异的",
-      "core_meaning_en": "extraordinarily good or imaginative",
-      "mental_model_cn": "极好的或奇异的",
+      "core_clusters": [
+        {
+          "label_cn": "极好；数量惊人",
+          "label_en": "excellent or extremely large",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:fantastic:c2a5b469405b542f",
+            "sense:fantastic:8e1764000369c455"
+          ]
+        },
+        {
+          "label_cn": "奇异、幻想或不切实际",
+          "label_en": "strange, imaginary, or unrealistic",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:fantastic:3cb4ef4117675260",
+            "sense:fantastic:a0f367bf8da85a82",
+            "sense:fantastic:40853268b474509d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "极好；数量惊人；奇异、幻想或不切实际",
+      "core_meaning_en": "excellent; extremely large; strange, imaginary, or unrealistic",
+      "mental_model_cn": "赞美人事时fantastic是极好；修饰金额、数量等可指惊人地大。原奇异、想象或不切实际的分支保留，不能全套套用wonderful的褒义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -103,6 +123,28 @@
         "sense_label_en": "extravagantly fanciful in design, construction, appearance",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:fantastic:8e1764000369c455",
+        "pos": "adjective",
+        "definition_cn": "（数量、程度等）极大的；惊人的",
+        "definition_en": "extremely large in amount or degree",
+        "sense_label_en": "extremely large in amount or degree",
+        "governing_pattern": "a fantastic amount/sum; fantastic prices",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:7c5133b1d8dab6ca9adf",
+            "phrase": "a fantastic sum of money",
+            "meaning_cn": "一笔惊人的巨款",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -132,6 +174,23 @@
           "applicability": [
             {
               "surface": "fantastic"
+            },
+            {
+              "surface": "fantastic",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:fantastic:8e1764000369c455"
+              ],
+              "owner_sense_ids": [
+                "sense:fantastic:8e1764000369c455"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1860.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "a fantastic amount/sum; fantastic prices"
+              }
             }
           ],
           "sources": [
@@ -482,6 +541,14 @@
         "merged_into_sense_id": null,
         "source_row": 5102,
         "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json"
+      },
+      {
+        "sense_id": "sense:fantastic:8e1764000369c455",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1860.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -510,6 +577,13 @@
         "id": "collocation:3d9e379f2c035d55a4a3",
         "source_row": 5210,
         "source_path": "content/lexical/canonical/collocations/shards/o1857-1888.json"
+      },
+      {
+        "id": "collocation:7c5133b1d8dab6ca9adf",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1860.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

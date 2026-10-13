@@ -13,7 +13,8 @@
         "level": "L1",
         "meaning_cn": "为了…的利益；为实现/保障…",
         "pattern": "in the interest(s) of sth",
-        "source_sense_key": "word:interest|sense|advantage_welfare"
+        "source_sense_key": "word:interest|sense|advantage_welfare",
+        "source_sense_id": "sense:interest:e432353b04c55659"
       },
       {
         "construction_id": "construction:interest:take-an-interest-in",
@@ -24,33 +25,99 @@
         "pattern": "take an interest in sb/sth",
         "source_sense_id": "sense:interest:fca3513a40d054e9",
         "boundary": "curiosity/attention pattern; distinct from financial interest or vested interests"
+      },
+      {
+        "construction_id": "construction:188ddc24644e1740310b",
+        "pattern": "be of (great/no) interest to sb",
+        "meaning_cn": "对某人有（很大／没有）吸引力或研究价值",
+        "definition_en": "to be worth attention or study for someone",
+        "usage_note": "主语是值得关注的对象；不把它译成主语有兴趣。",
+        "boundary": "主语是值得关注的对象；不把它译成主语有兴趣。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:interest:12ac110bcebb72d7"
+      },
+      {
+        "construction_id": "construction:42a4d984f670365aae4a",
+        "pattern": "in sb’s (best) interests",
+        "meaning_cn": "对某人有利；符合某人的最大利益",
+        "definition_en": "for the benefit or welfare of someone",
+        "usage_note": "sb’s指定受益人；in the interests of efficiency表示为了提高效率。",
+        "boundary": "sb’s指定受益人；in the interests of efficiency表示为了提高效率。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:interest:e432353b04c55659"
+      },
+      {
+        "construction_id": "construction:4422901076f35e3d54d6",
+        "pattern": "a conflict of interest(s)",
+        "meaning_cn": "利益冲突；不同职责或目标妨碍公平处理的情况",
+        "definition_en": "a conflict between roles or aims that prevents impartial treatment",
+        "usage_note": "不限金钱权益；宾语是利益/责任冲突，非个人兴趣爱好不一致。",
+        "boundary": "不限金钱权益；宾语是利益/责任冲突，非个人兴趣爱好不一致。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:interest:e432353b04c55659"
+      },
+      {
+        "construction_id": "construction:442b3f8688105618040d",
+        "pattern": "have sb’s interests at heart",
+        "meaning_cn": "真心关心某人的福祉",
+        "definition_en": "to sincerely want someone to do well",
+        "usage_note": "即使某次行为看起来严格，仍可能关心对方福祉。",
+        "boundary": "即使某次行为看起来严格，仍可能关心对方福祉。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:interest:e432353b04c55659"
+      },
+      {
+        "construction_id": "construction:29b3ea8a7f7cd4a5aa24",
+        "pattern": "do sth (back) with interest",
+        "meaning_cn": "以更强力度回敬或回报",
+        "definition_en": "to return an action with greater force or enthusiasm",
+        "usage_note": "比喻借利息加码；不实际要求金融利息。",
+        "boundary": "比喻借利息加码；不实际要求金融利息。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:interest:003829fecf1a5367"
       }
     ],
     "content_hash": "1f68bf286bd16e336c00b637e28316b6b8eff3610834238866ab46ada1c17120",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "兴趣，好奇心；利息；利益；权益；股份",
-          "label_en": "a feeling of curiosity or concern about something; a charge for borrowing money, usually a percentage of the amount borrowed; a right or legal share in something; a financial involvement",
+          "label_cn": "兴趣与吸引力",
+          "label_en": "curiosity and attraction",
           "pos": "noun",
           "sense_ids": [
             "sense:interest:fca3513a40d054e9",
+            "sense:interest:12ac110bcebb72d7",
+            "sense:interest:38ba95539c5e6549"
+          ]
+        },
+        {
+          "label_cn": "金融与利害",
+          "label_en": "money and stakes",
+          "pos": "noun",
+          "sense_ids": [
             "sense:interest:003829fecf1a5367",
-            "sense:interest:ccb05516e1835cb5"
+            "sense:interest:ccb05516e1835cb5",
+            "sense:interest:e432353b04c55659",
+            "sense:interest:fe218302e99dd96b"
           ]
         },
         {
           "label_cn": "使感兴趣",
-          "label_en": "to cause someone to feel curiosity or concern",
+          "label_en": "arouse interest",
           "pos": "verb",
           "sense_ids": [
             "sense:interest:c9ea04172c145e79"
           ]
         }
       ],
-      "core_meaning_cn": "兴趣或利益",
-      "core_meaning_en": "a feeling of curiosity or concern; a financial charge or share",
-      "mental_model_cn": "curiosity → 兴趣；money → 利息；stake/benefit → 利益/权益；take an interest in → 对…产生兴趣/关心。",
+      "core_meaning_cn": "兴趣、爱好、吸引力；利息；权益、福祉、利益集团",
+      "core_meaning_en": "interest, attraction, money, or stakes",
+      "mental_model_cn": "inquiry看好奇心；interests可爱好也可集团，依主谓宾判；of interest看吸引力；on money看利息；in sb’s interests看福祉。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -120,29 +187,19 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "利息",
-        "definition_en": "a charge for borrowing money, usually a percentage of the amount borrowed",
+        "definition_cn": "利息（借款支付或存款、投资获得）",
+        "definition_en": "money paid for borrowing or received on savings and investments",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:interest:003829fecf1a5367",
-        "sense_label_en": "a charge for borrowing money, usually a percentage of the amount borrowe",
+        "sense_label_en": "money paid for borrowing or received on savings and investments",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:ee33095eff41705eee30",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:interest:ccb05516e1835cb5:collocation:1"
-            ],
-            "meaning_cn": "在……中有既得利益",
-            "phrase": "have a vested interest in + sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "利益；权益；股份",
         "definition_en": "a right or legal share in something; a financial involvement",
@@ -189,7 +246,17 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:ee33095eff41705eee30",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:interest:ccb05516e1835cb5:collocation:1"
+            ],
+            "meaning_cn": "对某种安排或结果有切身利益（不局限于金钱或法律权益）",
+            "phrase": "have a vested interest in + sth"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "利益；利害；福祉",
         "definition_en": "an advantage, benefit, welfare, or stake that matters to a person or group, often plural",
@@ -209,6 +276,74 @@
             "source_operation_id": "operation:d749f255995964ef3913",
             "source_operation_sha256": "357312e625de78494e62ad77a44dfb8c94b3bf6c32aa333f192d19afddd937dd",
             "verification_status": "auditor_verified"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:interest:12ac110bcebb72d7",
+        "pos": "noun",
+        "definition_cn": "吸引力；令人关注或有研究价值的特点",
+        "definition_en": "the quality of attracting attention or being worth studying",
+        "sense_label_en": "the quality of attracting attention or being worth studying",
+        "governing_pattern": "be of interest to sb; places of interest",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8d294070358a9c65b003",
+            "phrase": "places of interest",
+            "meaning_cn": "值得游览的名胜",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "通常不可数；of interest说明对象值得关注，不是“对象有兴趣”。"
+      },
+      {
+        "sense_id": "sense:interest:38ba95539c5e6549",
+        "pos": "noun",
+        "definition_cn": "感兴趣的活动或研究主题；爱好",
+        "definition_en": "an activity or subject that someone enjoys or studies",
+        "sense_label_en": "an activity or subject that someone enjoys or studies",
+        "governing_pattern": "have/share/pursue interests",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a2876406a41736826ee3",
+            "phrase": "research interests",
+            "meaning_cn": "研究兴趣方向",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "可数，常用复数；可包括阅读了解的主题，不必须亲自参与活动。"
+      },
+      {
+        "sense_id": "sense:interest:fe218302e99dd96b",
+        "pos": "noun",
+        "definition_cn": "（常用复数）共同维护某种商业或其他利益的人或集团",
+        "definition_en": "people or groups sharing business activities or aims they seek to protect",
+        "sense_label_en": "people or groups sharing business activities or aims they seek to protect",
+        "governing_pattern": "business/farming interests",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4be78f7f9ff4a48d64a7",
+            "phrase": "business interests",
+            "meaning_cn": "工商界利益集团",
+            "exam_value": "usage_example"
           }
         ]
       }
@@ -251,6 +386,57 @@
           "applicability": [
             {
               "surface": "interest"
+            },
+            {
+              "surface": "interest",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:interest:12ac110bcebb72d7"
+              ],
+              "owner_sense_ids": [
+                "sense:interest:12ac110bcebb72d7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2598.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be of interest to sb; places of interest"
+            },
+            {
+              "surface": "interest",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:interest:38ba95539c5e6549"
+              ],
+              "owner_sense_ids": [
+                "sense:interest:38ba95539c5e6549"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2598.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "have/share/pursue interests"
+            },
+            {
+              "surface": "interest",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:interest:fe218302e99dd96b"
+              ],
+              "owner_sense_ids": [
+                "sense:interest:fe218302e99dd96b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2598.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "business/farming interests"
             }
           ],
           "sources": [
@@ -780,16 +966,43 @@
         "merged_into_sense_id": null,
         "source_row": 7170,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:interest:12ac110bcebb72d7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2598.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:interest:38ba95539c5e6549",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2598.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:interest:fe218302e99dd96b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2598.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:2ab62991f26abf529f1b",
       "collocation:7a2013b1f596cf647aaa",
-      "collocation:91ad01d6ca740f26b7f9",
+      "collocation:cb39da679f913bef468f",
       "collocation:99dbdc7fe568fd6e50a7",
       "collocation:be7337ab7a6d5b34e8ad",
-      "collocation:cb39da679f913bef468f",
-      "collocation:ee33095eff41705eee30"
+      "collocation:91ad01d6ca740f26b7f9",
+      "collocation:2ab62991f26abf529f1b",
+      "collocation:ee33095eff41705eee30",
+      "collocation:8d294070358a9c65b003",
+      "collocation:a2876406a41736826ee3",
+      "collocation:4be78f7f9ff4a48d64a7"
     ],
     "facts": [
       {
@@ -837,7 +1050,29 @@
       {
         "id": "collocation:ee33095eff41705eee30",
         "source_row": 20183,
-        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json",
+        "sense_id": "sense:interest:e432353b04c55659"
+      },
+      {
+        "id": "collocation:8d294070358a9c65b003",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2598.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:a2876406a41736826ee3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2598.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:4be78f7f9ff4a48d64a7",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2598.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

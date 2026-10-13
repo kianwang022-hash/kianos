@@ -5,7 +5,7 @@
     "ordinal": 2049,
     "word": "friction",
     "source_owner_path": "content/lexical/words/by-ordinal/o2049.json",
-    "source_fingerprint": "4acf016ca4623c5235d819f5c56d2bacb4cb1222ed02b1c2b7e13e37c5e48f49",
+    "source_fingerprint": "d1698b58ea46bc25e2f1e468ab9ccfe096dcc8ffeb4cc4da8707788022420f69",
     "sense_lineage": [
       {
         "word_id": "word:friction",
@@ -159,7 +159,7 @@
     "ordinal": 2050,
     "word": "Friday",
     "source_owner_path": "content/lexical/words/by-ordinal/o2050.json",
-    "source_fingerprint": "9340b9232940f0b9f7b06d8ece0ba349b237168b83888a2a8917490ddcd500b6",
+    "source_fingerprint": "6b3642d9af58a041fbdd44441fdff045d3f20fee23a68de1584cc7b02541c98c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -184,7 +184,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "星期五",
-        "definition_en": "the sixth day of the week; the fifth working day",
+        "definition_en": "the day of the week after Thursday and before Saturday",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -253,7 +253,7 @@
     "ordinal": 2051,
     "word": "friend",
     "source_owner_path": "content/lexical/words/by-ordinal/o2051.json",
-    "source_fingerprint": "7ac078672bf44a1c29f2c810224d61a98c69d0e0ec0e7ddb0c1e865954b2a99c",
+    "source_fingerprint": "9ecae8593d92da8a3070917c9a891cd5dfb052f1f1d8b732e1a3be155791cfdc",
     "sense_lineage": [
       {
         "word_id": "word:friend",
@@ -265,18 +265,19 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "1V",
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "朋友",
-      "decision_cn": "ordinary friend → 朋友。宗教名称 Friend（贵格会教徒）保留为 Reference。",
+      "summary_cn": "朋友、支持者或网上好友；加为好友",
+      "decision_cn": "熟人friend指朋友，机构的friend可指支持者；社交媒体friend为好友联系人，不一定在现实中熟识。动词friend为加某人为好友。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "朋友"
+        "target_label": "朋友、支持者或网上好友；加为好友"
       }
     },
     "senses": [
@@ -318,6 +319,84 @@
           "target_locator": "record.senses[0]",
           "target_label": "朋友"
         }
+      },
+      {
+        "id": "sense:friend:0f6eabc811de7f05",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a friend of an organization/cause",
+        "definition_cn": "支持者；赞助者",
+        "definition_en": "a person who supports a cause, organization, or activity",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4aa573b4c880c4dc2767",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a friend of the museum",
+            "meaning_cn": "博物馆的支持者",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:friend:0f6eabc811de7f05",
+          "target_locator": "record.senses[1]",
+          "target_label": "支持者；赞助者"
+        }
+      },
+      {
+        "id": "sense:friend:aaee6935ca578ecf",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "an online/social-media friend",
+        "definition_cn": "（社交媒体上的）好友；联系人",
+        "definition_en": "a person connected to you as a contact on social media",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:166fedf17ba01e604c4f",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "an online friend",
+            "meaning_cn": "网上好友",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:friend:aaee6935ca578ecf",
+          "target_locator": "record.senses[2]",
+          "target_label": "（社交媒体上的）好友；联系人"
+        }
+      },
+      {
+        "id": "sense:friend:4a43636cf7b1dbab",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "friend sb on social media",
+        "definition_cn": "（在社交媒体上）加为好友",
+        "definition_en": "to add someone to your social-media contacts",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7b50b4805653234667b6",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "She friended me online.",
+            "meaning_cn": "她在网上加我为好友。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:friend:4a43636cf7b1dbab",
+          "target_locator": "record.senses[3]",
+          "target_label": "（在社交媒体上）加为好友"
+        }
       }
     ],
     "pronunciation_support": {
@@ -331,14 +410,75 @@
           "applicability": [
             {
               "surface": "friend"
+            },
+            {
+              "surface": "friend",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:friend:0f6eabc811de7f05"
+              ],
+              "owner_sense_ids": [
+                "sense:friend:0f6eabc811de7f05"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2051.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "a friend of an organization/cause"
+              }
+            },
+            {
+              "surface": "friend",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:friend:aaee6935ca578ecf"
+              ],
+              "owner_sense_ids": [
+                "sense:friend:aaee6935ca578ecf"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2051.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "an online/social-media friend"
+              }
+            },
+            {
+              "surface": "friend",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:friend:4a43636cf7b1dbab"
+              ],
+              "owner_sense_ids": [
+                "sense:friend:4a43636cf7b1dbab"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2051.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "friend sb on social media"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:friend:0f6eabc811de7f05": [
+          0
+        ],
+        "sense:friend:4a43636cf7b1dbab": [
+          0
+        ],
+        "sense:friend:aaee6935ca578ecf": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -382,7 +522,7 @@
     "ordinal": 2052,
     "word": "friendly",
     "source_owner_path": "content/lexical/words/by-ordinal/o2052.json",
-    "source_fingerprint": "451ffdd1943327c9b41b08156714d4eb6aaa8693c0e5710790060c58246cd8fb",
+    "source_fingerprint": "641d3b76b21ac581deab7797a985804a7523a925aebcce5df983e89135d5b53f",
     "sense_lineage": [
       {
         "word_id": "word:friendly",
@@ -394,18 +534,19 @@
     ],
     "recall_map": {
       "parts": [
-        "2A"
+        "2A",
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "友善的；友好的",
-      "decision_cn": "",
+      "summary_cn": "友善、友方或适用无害的；友谊赛",
+      "decision_cn": "人的friendly为友善，friendly fire为己方误击；user-friendly为易用，environmentally friendly为环保。名词friendly在主要英式体育语境指友谊赛。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "友善的；友好的"
+        "target_label": "友善、友方或适用无害的；友谊赛"
       }
     },
     "senses": [
@@ -461,8 +602,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "互助的；支持的；不敌对的",
-        "definition_en": "inclined to help or support; not hostile",
+        "definition_cn": "友方的；不敌对的；（复合词中）适用、易用、有利或无害的",
+        "definition_en": "supportive or not hostile; in compounds, suited to someone’s needs, easy to use, helpful, or not harmful",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -470,7 +611,7 @@
             "id": "collocation:d51a2fe9d7e11acfc85c",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "friendly fire",
-            "meaning_cn": "友军火力",
+            "meaning_cn": "己方火力误击／误伤己方人员",
             "kind": "usage_example",
             "repair": null
           },
@@ -481,13 +622,47 @@
             "meaning_cn": "环保的",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:3832319a04ee70bb8dcb",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "user-friendly",
+            "meaning_cn": "易用的；对用户友好的",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:friendly:530aa5914a735a3b",
           "target_locator": "record.senses[1]",
-          "target_label": "互助的；支持的；不敌对的"
+          "target_label": "友方的；不敌对的；（复合词中）适用、易用、有利或无害的"
+        }
+      },
+      {
+        "id": "sense:friendly:960462daac44893a",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "play a friendly; plural friendlies",
+        "definition_cn": "（主要英式）友谊赛",
+        "definition_en": "chiefly British: a sports match outside league or championship competition",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2907b03646466c95265d",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "play a friendly",
+            "meaning_cn": "打一场友谊赛",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:friendly:960462daac44893a",
+          "target_locator": "record.senses[2]",
+          "target_label": "（主要英式）友谊赛"
         }
       }
     ],
@@ -499,6 +674,23 @@
           "applicability": [
             {
               "surface": "friendly"
+            },
+            {
+              "surface": "friendly",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:friendly:960462daac44893a"
+              ],
+              "owner_sense_ids": [
+                "sense:friendly:960462daac44893a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2052.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "play a friendly; plural friendlies"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -553,8 +745,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:friendly:960462daac44893a": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -709,7 +905,7 @@
     "ordinal": 2054,
     "word": "fright",
     "source_owner_path": "content/lexical/words/by-ordinal/o2054.json",
-    "source_fingerprint": "0ca1bb165b62decd41b3bb98d19146dfe388c5cab9fa97cb6577f0563997c299",
+    "source_fingerprint": "30e636a2e3bc1f5bb277881d7c5b9e76be77a146e86f8f084a1457cd821d6ea8",
     "sense_lineage": [
       {
         "word_id": "word:fright",
@@ -723,16 +919,16 @@
       "parts": [
         "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "惊吓；使惊吓",
-      "decision_cn": "",
+      "summary_cn": "惊吓；突然的恐惧",
+      "decision_cn": "名词：惊吓、突然的恐惧；使人害怕通常用 frighten。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "惊吓；使惊吓"
+        "target_label": "惊吓；突然的恐惧"
       }
     },
     "senses": [
@@ -745,7 +941,21 @@
         "definition_en": "a sudden feeling of fear",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:e240add0e88757c966d8",
+            "source_locator": "record.senses[0].collocations[0]",
+            "phrase": "give sb a fright",
+            "meaning_cn": "吓某人一跳",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e240add0e88757c966d8",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "give sb a fright"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fright:70501ca1e3eb5d0b",
@@ -827,7 +1037,7 @@
     "ordinal": 2055,
     "word": "frighten",
     "source_owner_path": "content/lexical/words/by-ordinal/o2055.json",
-    "source_fingerprint": "942bc2a38219bd2a4a3d9035019b5e1f8b0f25bd6109999a5ac21038ff18622e",
+    "source_fingerprint": "e07494e272f73a83256b44768d187433b4467514169debf3e8adff9fb0fb6f17",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -836,13 +1046,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使害怕",
-      "decision_cn": "",
+      "summary_cn": "使害怕；受惊",
+      "decision_cn": "frighten某人为使其害怕，frighten sb away/off为吓跑；horses frighten easily中是马容易受惊。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使害怕"
+        "target_label": "使害怕；受惊"
       }
     },
     "senses": [
@@ -903,8 +1113,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vi.",
-        "definition_cn": "容易受惊",
-        "definition_en": "to become frightened easily",
+        "definition_cn": "受惊；害怕",
+        "definition_en": "to become frightened",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -921,7 +1131,7 @@
           "target_kind": "sense",
           "target_id": "sense:frighten:4d77935384085d01",
           "target_locator": "record.senses[1]",
-          "target_label": "容易受惊"
+          "target_label": "受惊；害怕"
         }
       }
     ],
@@ -981,7 +1191,7 @@
     "ordinal": 2056,
     "word": "fringe",
     "source_owner_path": "content/lexical/words/by-ordinal/o2056.json",
-    "source_fingerprint": "5d803e5b6f6b6e7850d3cd8f84104331f6364583cdf8bbf2282b2a810f30ddb0",
+    "source_fingerprint": "664f3341c4a06e01a093fbcab620bf07dbc9b801da714d498d9ac8c5a970be68",
     "sense_lineage": [
       {
         "word_id": "word:fringe",
@@ -1007,13 +1217,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "边缘；流苏；边缘群体",
-      "decision_cn": "edge/border → 边缘；threads/hair → 流苏/刘海；people/views → 边缘群体；be fringed with → 周围有…、以…为边。物理“干涉条纹”保留为 Reference。",
+      "summary_cn": "刘海、流苏或边缘；边缘或附加的；形成或加饰边",
+      "decision_cn": "fringe可为刘海、流苏、外围或边缘群体；fringe benefits为附加福利。动词fringe表示形成边缘或装饰边，be fringed with指周围有……。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "边缘；流苏；边缘群体"
+        "target_label": "刘海、流苏或边缘；边缘或附加的；形成或加饰边"
       }
     },
     "senses": [
@@ -1086,6 +1296,19 @@
             "meaning_cn": "社会的边缘",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:d0b4ba00f78f55cec8ce",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "the fringe of politics",
+            "meaning_cn": "政治的边缘",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:d0b4ba00f78f55cec8ce",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "the fringe of politics"
+            }
           }
         ],
         "repair": {
@@ -1104,21 +1327,7 @@
         "definition_en": "a social group holding marginal or extreme views",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d0b4ba00f78f55cec8ce",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "the fringe of politics",
-            "meaning_cn": "政治的边缘",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d0b4ba00f78f55cec8ce",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "the fringe of politics"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fringe:aaa9aabe33355a90",
@@ -1277,7 +1486,7 @@
     "ordinal": 2057,
     "word": "frog",
     "source_owner_path": "content/lexical/words/by-ordinal/o2057.json",
-    "source_fingerprint": "d098accc3b52d18b0e1340535c73d7ec204c2e9ce99628333e51c5e7df2bad48",
+    "source_fingerprint": "37299445f3d8fd5ca4c4456ab6ffbd32da00b169261537d99a46efa7b1d5f8ff",
     "sense_lineage": [
       {
         "word_id": "word:frog",
@@ -1315,13 +1524,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "青蛙",
-      "decision_cn": "ordinary animal noun → 青蛙。对法国人的冒犯性旧称与“捕蛙”动词保留为 Reference。",
+      "summary_cn": "青蛙；嗓音沙哑的表达",
+      "decision_cn": "frog为青蛙；have a frog in one’s throat整体表示嗓音沙哑。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "青蛙"
+        "target_label": "青蛙；嗓音沙哑的表达"
       }
     },
     "senses": [
@@ -1385,7 +1594,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:40ae12bee6ae1db77c9f",
+        "source_locator": "record.constructions[0]",
+        "pattern": "have a frog in one’s throat",
+        "lines": [
+          {
+            "text": "声音沙哑；嗓子发哑",
+            "lang": "cn"
+          },
+          {
+            "text": "比喻说话时声音沙哑，并非喉咙里真的有青蛙。",
+            "lang": "cn"
+          },
+          {
+            "text": "to have a hoarse voice",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:40ae12bee6ae1db77c9f",
+          "target_locator": "record.constructions[0]",
+          "target_label": "have a frog in one’s throat"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1465,22 +1700,37 @@
     "ordinal": 2058,
     "word": "from",
     "source_owner_path": "content/lexical/words/by-ordinal/o2058.json",
-    "source_fingerprint": "68ffa3945700ffe554a0644c94f700bb43a1fa2c21b1c4810caa8d5a4f379f04",
-    "sense_lineage": [],
+    "source_fingerprint": "73a858fbb1d46e9fcbfab96d0e2efcbc50dc699508b0ed1e1d7c735ca526fd70",
+    "sense_lineage": [
+      {
+        "word_id": "word:from",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:db442911fbaccd94fb04",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:from",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f34501f21e5eb4996536",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3PREP"
+        "5PREP"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "表示起点、来源或原因",
-      "decision_cn": "",
+      "summary_cn": "从起点、来源或原因；分离、防护或区别的对象",
+      "decision_cn": "from地点、时间、价格为起点，from某人为来源，from某原因表示由于。protect from标防护对象，different from标区别对象；这些框架仍按各主词的义项理解。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "表示起点、来源或原因"
+        "target_label": "从起点、来源或原因；分离、防护或区别的对象"
       }
     },
     "senses": [
@@ -1489,8 +1739,8 @@
         "source_locator": "record.senses[0]",
         "pos": "preposition",
         "governing_pattern": "",
-        "definition_cn": "从（表示起点）",
-        "definition_en": "used to show the starting point of a movement or action",
+        "definition_cn": "从（表示地点、时间或数量的起点）",
+        "definition_en": "used to show a starting place, time, or amount",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1508,24 +1758,27 @@
             }
           },
           {
-            "id": "collocation:5cfc53f441493b5307e2",
+            "id": "collocation:d4990aecbaf56ea0888f",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "come from + place",
-            "meaning_cn": "来自某地",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5cfc53f441493b5307e2",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "come from + place"
-            }
+            "phrase": "from Monday",
+            "meaning_cn": "从星期一开始",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:118eaa05b93bd2aaeee4",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "prices from ten pounds",
+            "meaning_cn": "价格十英镑起",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:from:5f18715c6fb252e8",
           "target_locator": "record.senses[0]",
-          "target_label": "从（表示起点）"
+          "target_label": "从（表示地点、时间或数量的起点）"
         }
       },
       {
@@ -1556,12 +1809,20 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "from + source",
             "meaning_cn": "从某来源",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:5cfc53f441493b5307e2",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "come from + place",
+            "meaning_cn": "来自某地",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:f34501f21e5eb4996536",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "from + source"
+              "target_id": "collocation:5cfc53f441493b5307e2",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "come from + place"
             }
           }
         ],
@@ -1600,13 +1861,8 @@
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "from + cause",
             "meaning_cn": "由于……",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:db442911fbaccd94fb04",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "from + cause"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1614,6 +1870,58 @@
           "target_id": "sense:from:5812e318252e5753",
           "target_locator": "record.senses[2]",
           "target_label": "由于，因为"
+        }
+      },
+      {
+        "id": "sense:from:82bf740af070c8f3",
+        "source_locator": "record.senses[3]",
+        "pos": "preposition",
+        "governing_pattern": "away from sth; remove A from B; protect sb from sth",
+        "definition_cn": "离开、免于或防止（表示分离、移除或防护的对象）",
+        "definition_en": "used to mark what someone or something is separated, removed, or protected from",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:6c49eaeed0c2069fe6e7",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "protect the plants from frost",
+            "meaning_cn": "保护植物免受霜冻",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:from:82bf740af070c8f3",
+          "target_locator": "record.senses[3]",
+          "target_label": "离开、免于或防止（表示分离、移除或防护的对象）"
+        }
+      },
+      {
+        "id": "sense:from:f695a4691d0edbe9",
+        "source_locator": "record.senses[4]",
+        "pos": "preposition",
+        "governing_pattern": "different from sth; distinguish A from B",
+        "definition_cn": "与……相比或相区别",
+        "definition_en": "used to mark what something differs from or is distinguished from",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:15da0fc9c1f16d7e163c",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "different from the original",
+            "meaning_cn": "与原来的不同",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:from:f695a4691d0edbe9",
+          "target_locator": "record.senses[4]",
+          "target_label": "与……相比或相区别"
         }
       }
     ],
@@ -1627,6 +1935,40 @@
           "applicability": [
             {
               "surface": "from"
+            },
+            {
+              "surface": "from",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:from:82bf740af070c8f3"
+              ],
+              "owner_sense_ids": [
+                "sense:from:82bf740af070c8f3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2058.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "away from sth; remove A from B; protect sb from sth"
+              }
+            },
+            {
+              "surface": "from",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:from:f695a4691d0edbe9"
+              ],
+              "owner_sense_ids": [
+                "sense:from:f695a4691d0edbe9"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2058.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "different from sth; distinguish A from B"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -1646,8 +1988,15 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:from:82bf740af070c8f3": [
+          0
+        ],
+        "sense:from:f695a4691d0edbe9": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -1664,7 +2013,7 @@
     "ordinal": 2059,
     "word": "front",
     "source_owner_path": "content/lexical/words/by-ordinal/o2059.json",
-    "source_fingerprint": "d8623e6e5f43f7faaed477c5bdd50deddb180ad791611ecacca9926813b82f6e",
+    "source_fingerprint": "ee0302fb441fe9bbd4705c8b2d2f504151573cdbabaf202b23e48317df7c4d31",
     "sense_lineage": [
       {
         "word_id": "word:front",
@@ -1672,23 +2021,37 @@
         "from_target_id": "sense:front:054ed48fe8975f07",
         "status": "merged",
         "to_target_id": "sense:front:eae7eb25066e5cb4"
+      },
+      {
+        "word_id": "word:front",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1ab9dda51364f4c7c701",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:front",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c5da52dd6620e6dabe7d",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1V",
-        "4N"
+        "2V",
+        "6N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "前面；面对",
-      "decision_cn": "",
+      "summary_cn": "正面、前线、领域或表面形象；幌子、锋面；朝向或领衔乐队",
+      "decision_cn": "front可指物体前部、战线、活动领域或表现出的形象；a front for活动为幌子，cold front为冷锋。动词可表示朝向，也可表示领衔乐队；united front为联合阵线。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "前面；面对"
+        "target_label": "正面、前线、领域或表面形象；幌子、锋面；朝向或领衔乐队"
       }
     },
     "senses": [
@@ -1752,19 +2115,6 @@
               "target_id": "collocation:ec50df2f634d8c9135a4",
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "on the front"
-            }
-          },
-          {
-            "id": "collocation:c5da52dd6620e6dabe7d",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "united front",
-            "meaning_cn": "统一战线",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c5da52dd6620e6dabe7d",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "united front"
             }
           }
         ],
@@ -1836,7 +2186,7 @@
         "id": "sense:front:eae7eb25066e5cb4",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "front sth; front onto sth",
         "definition_cn": "面对，朝向",
         "definition_en": "to face or look out on",
         "note": "",
@@ -1847,13 +2197,8 @@
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "front + sth",
             "meaning_cn": "面向某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1ab9dda51364f4c7c701",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "front + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:a3f06f7f82d96910994f",
@@ -1883,6 +2228,84 @@
           "target_locator": "record.senses[4]",
           "target_label": "面对，朝向"
         }
+      },
+      {
+        "id": "sense:front:7770f9153c82cf4e",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "a front for sth",
+        "definition_cn": "掩护；幌子；掩饰真实活动的表面身份",
+        "definition_en": "a person, organization, or activity used to conceal the real activity or controller",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:8258156943f0bfe8fc37",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a front for illegal activity",
+            "meaning_cn": "掩护非法活动的幌子",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:front:7770f9153c82cf4e",
+          "target_locator": "record.senses[5]",
+          "target_label": "掩护；幌子；掩饰真实活动的表面身份"
+        }
+      },
+      {
+        "id": "sense:front:a864805bf39f4f41",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "a cold/warm front",
+        "definition_cn": "（气象）锋；锋面",
+        "definition_en": "a boundary between air masses with different properties",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:81fb69c57db04c697431",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "a cold front",
+            "meaning_cn": "冷锋",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:front:a864805bf39f4f41",
+          "target_locator": "record.senses[6]",
+          "target_label": "（气象）锋；锋面"
+        }
+      },
+      {
+        "id": "sense:front:4d1456652a0eca2e",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "front a band",
+        "definition_cn": "（作为领队或主唱）领衔乐队",
+        "definition_en": "to lead a musical group as its front person",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c0202237a53d3eb7b1ae",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "front a band",
+            "meaning_cn": "领衔一个乐队",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:front:4d1456652a0eca2e",
+          "target_locator": "record.senses[7]",
+          "target_label": "（作为领队或主唱）领衔乐队"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1896,17 +2319,100 @@
           "applicability": [
             {
               "surface": "front"
+            },
+            {
+              "surface": "front",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:front:7770f9153c82cf4e"
+              ],
+              "owner_sense_ids": [
+                "sense:front:7770f9153c82cf4e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2059.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a front for sth"
+              }
+            },
+            {
+              "surface": "front",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:front:a864805bf39f4f41"
+              ],
+              "owner_sense_ids": [
+                "sense:front:a864805bf39f4f41"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2059.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "a cold/warm front"
+              }
+            },
+            {
+              "surface": "front",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:front:4d1456652a0eca2e"
+              ],
+              "owner_sense_ids": [
+                "sense:front:4d1456652a0eca2e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2059.json",
+              "source_pointer": "/record/senses/7",
+              "conditions": {
+                "current_owner_usage": "front a band"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:front:4d1456652a0eca2e": [
+          0
+        ],
+        "sense:front:7770f9153c82cf4e": [
+          0
+        ],
+        "sense:front:a864805bf39f4f41": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:7be3904c21a1f8dc7eee",
+        "source_locator": "record.constructions[0]",
+        "pattern": "present/form a united front",
+        "lines": [
+          {
+            "text": "表现出一致立场；形成统一阵线",
+            "lang": "cn"
+          },
+          {
+            "text": "to show agreement and act together",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7be3904c21a1f8dc7eee",
+          "target_locator": "record.constructions[0]",
+          "target_label": "present/form a united front"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1945,7 +2451,7 @@
     "ordinal": 2060,
     "word": "frontier",
     "source_owner_path": "content/lexical/words/by-ordinal/o2060.json",
-    "source_fingerprint": "f05685d4bd3629ac2fccb06e27bc27d7a21ef9adcf15e518b05a49a353513f74",
+    "source_fingerprint": "b7ffbdb175192f6bba9fb603a8f6fb7d47cf7bfa6877aa653e2a0509ec1d74fc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2021,8 +2527,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "未开发的研究领域；有待探索的课题",
-        "definition_en": "an undeveloped field of study; a topic inviting research and development",
+        "definition_cn": "知识或研究的前沿；有待探索的领域",
+        "definition_en": "the limit of present knowledge or achievement, beyond which further discovery or development is possible",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2039,7 +2545,7 @@
           "target_kind": "sense",
           "target_id": "sense:frontier:78bc5fc8417c5866",
           "target_locator": "record.senses[2]",
-          "target_label": "未开发的研究领域；有待探索的课题"
+          "target_label": "知识或研究的前沿；有待探索的领域"
         }
       }
     ],
@@ -2168,13 +2674,20 @@
     "ordinal": 2061,
     "word": "frost",
     "source_owner_path": "content/lexical/words/by-ordinal/o2061.json",
-    "source_fingerprint": "78ebc222ab5d23ffa3402b2af183d8dcd20e72a860ec55340ba4acacf8763523",
+    "source_fingerprint": "7e2e0b954626cad8cdbc91ba49fcb4771ff06511704f3e6a2e9d20b4dd500d93",
     "sense_lineage": [
       {
         "word_id": "word:frost",
         "target_kind": "sense",
         "from_target_id": "sense:frost:498aa372023357cf",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:frost",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:dd4d87d2d02001c99313",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -2186,13 +2699,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "霜；霜冻",
-      "decision_cn": "",
+      "summary_cn": "霜、霜冻或结霜；覆霜、涂糖霜或结霜",
+      "decision_cn": "frost作名词为霜或结霜现象；frost a cake为涂糖霜，窗面frost over为结霜。frosted glass指经过处理而半透明的毛玻璃。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "霜；霜冻"
+        "target_label": "霜、霜冻或结霜；覆霜、涂糖霜或结霜"
       }
     },
     "senses": [
@@ -2279,7 +2792,7 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "给…覆上霜；给（蛋糕）撒糖霜",
+        "definition_cn": "给…覆上霜；给（蛋糕）涂糖霜",
         "definition_en": "to cover with frost or icing",
         "note": "",
         "identity_overlay": null,
@@ -2288,29 +2801,16 @@
             "id": "collocation:031a0aa0f54a530720ad",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "frost a cake",
-            "meaning_cn": "给蛋糕撒糖霜",
+            "meaning_cn": "给蛋糕涂糖霜",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:dd4d87d2d02001c99313",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "frosted glass",
-            "meaning_cn": "磨砂玻璃",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:dd4d87d2d02001c99313",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "frosted glass"
-            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:frost:466452af8ded5d0f",
           "target_locator": "record.senses[2]",
-          "target_label": "给…覆上霜；给（蛋糕）撒糖霜"
+          "target_label": "给…覆上霜；给（蛋糕）涂糖霜"
         }
       },
       {
@@ -2373,7 +2873,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:0b689467bd837c7233af",
+        "source_locator": "record.constructions[0]",
+        "pattern": "frosted glass",
+        "lines": [
+          {
+            "text": "磨砂玻璃（经处理而半透明，不是表面结冰）",
+            "lang": "cn"
+          },
+          {
+            "text": "glass treated to have a rough, translucent surface",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0b689467bd837c7233af",
+          "target_locator": "record.constructions[0]",
+          "target_label": "frosted glass"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2414,7 +2936,7 @@
     "ordinal": 2062,
     "word": "frown",
     "source_owner_path": "content/lexical/words/by-ordinal/o2062.json",
-    "source_fingerprint": "b0f5afccbd35128a6adbe01716c5f9d708676b6cc15f65d57d083b6ca05642de",
+    "source_fingerprint": "cffbd89a8501fa38a1ecb491db3bd459e2d814d03f5b3933d84e56399b2955e8",
     "sense_lineage": [
       {
         "word_id": "word:frown",
@@ -2422,6 +2944,13 @@
         "from_target_id": "sense:frown:c9129ac9dec55ea7",
         "status": "merged",
         "to_target_id": "sense:frown:9139299a4ca55ccc"
+      },
+      {
+        "word_id": "word:frown",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:285f6fd48962eea992b5",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -2432,13 +2961,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "因不赞成或不悦而皱眉",
-      "decision_cn": "",
+      "summary_cn": "皱眉；皱眉的表情",
+      "decision_cn": "可因不悦、担心或思考而皱眉；frown on/upon 是“不赞成”的固定表达。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "因不赞成或不悦而皱眉"
+        "target_label": "皱眉；皱眉的表情"
       }
     },
     "senses": [
@@ -2447,8 +2976,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vi. + at",
-        "definition_cn": "皱眉表示不赞成或不悦",
-        "definition_en": "to wrinkle one's forehead as a sign of disapproval or displeasure",
+        "definition_cn": "皱眉（可因不悦、担忧或专注等）",
+        "definition_en": "to draw the eyebrows together, often showing displeasure, worry or concentration",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2464,26 +2993,13 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "frown at + sb/sth"
             }
-          },
-          {
-            "id": "collocation:285f6fd48962eea992b5",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "frown on + sth",
-            "meaning_cn": "不赞成某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:285f6fd48962eea992b5",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "frown on + sth"
-            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:frown:9139299a4ca55ccc",
           "target_locator": "record.senses[0]",
-          "target_label": "皱眉表示不赞成或不悦"
+          "target_label": "皱眉（可因不悦、担忧或专注等）"
         }
       },
       {
@@ -2491,8 +3007,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "不悦或不赞成的面部表情",
-        "definition_en": "a facial expression of dislike or displeasure",
+        "definition_cn": "皱眉的表情",
+        "definition_en": "a facial expression with the eyebrows drawn together, as in displeasure, worry or concentration",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2509,7 +3025,7 @@
           "target_kind": "sense",
           "target_id": "sense:frown:7151516d8c28537e",
           "target_locator": "record.senses[1]",
-          "target_label": "不悦或不赞成的面部表情"
+          "target_label": "皱眉的表情"
         }
       }
     ],
@@ -2601,7 +3117,7 @@
     "ordinal": 2063,
     "word": "fruit",
     "source_owner_path": "content/lexical/words/by-ordinal/o2063.json",
-    "source_fingerprint": "3a45d9253fd50dfa7f6fd5a215f8ab8a6fe92d4b0effa215bb7abb5c28f4ef41",
+    "source_fingerprint": "1d3bbab70110da5198f04ff388b5da053b679509c7cb985c60185640fccde44b",
     "sense_lineage": [
       {
         "word_id": "word:fruit",
@@ -2640,8 +3156,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "种子植物成熟的繁殖体，即果实",
-        "definition_en": "the ripened reproductive body of a seed plant",
+        "definition_cn": "水果；果实",
+        "definition_en": "a part of a plant that usually contains seeds, especially the sweet or fleshy kinds eaten as food",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2666,7 +3182,7 @@
           "target_kind": "sense",
           "target_id": "sense:fruit:f9eb942d94b6514d",
           "target_locator": "record.senses[0]",
-          "target_label": "种子植物成熟的繁殖体，即果实"
+          "target_label": "水果；果实"
         }
       },
       {
@@ -2953,8 +3469,16 @@
     "ordinal": 2065,
     "word": "frustrate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2065.json",
-    "source_fingerprint": "7e078b043582ade59666ac9ada63ae043d055e46508a0bbb26e4c7c6326e2594",
-    "sense_lineage": [],
+    "source_fingerprint": "6a8e56553c2ff471fc1598b6872a79c6123b3e1481c82adc371667048090f3e8",
+    "sense_lineage": [
+      {
+        "word_id": "word:frustrate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:1c23d2492cade3cea41a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -3016,8 +3540,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使沮丧；使灰心",
-        "definition_en": "to cause someone to feel discouraged or dissatisfied",
+        "definition_cn": "使受挫；使烦恼或沮丧",
+        "definition_en": "to make someone feel annoyed, disappointed or discouraged because they cannot achieve what they want",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3026,13 +3550,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "frustrate sb",
             "meaning_cn": "使某人沮丧",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1c23d2492cade3cea41a",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "frustrate sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:8c773fea0f899bc4d03a",
@@ -3047,7 +3566,7 @@
           "target_kind": "sense",
           "target_id": "sense:frustrate:7cd64d5ae5045328",
           "target_locator": "record.senses[1]",
-          "target_label": "使沮丧；使灰心"
+          "target_label": "使受挫；使烦恼或沮丧"
         }
       }
     ],
@@ -3127,7 +3646,7 @@
     "ordinal": 2066,
     "word": "fry",
     "source_owner_path": "content/lexical/words/by-ordinal/o2066.json",
-    "source_fingerprint": "1f03f7ec7a44f7d6ee8275fc3264da67c7f162ab0139fb1a7e1e1fea4d312d4f",
+    "source_fingerprint": "1d60060c7032914bc241385e92c1d8647412ff0e31664f6cf4586bb571eabf30",
     "sense_lineage": [
       {
         "word_id": "word:fry",
@@ -3135,23 +3654,30 @@
         "from_target_id": "sense:fry:af04059d923c54b5",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:fry",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:48f64bfaaf4d57d94971",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "用热油烹饪",
-      "decision_cn": "",
+      "summary_cn": "煎、炸或被煎炸；薯条或鱼苗",
+      "decision_cn": "动词fry表示煎炸；名词薯条通常写fries，鱼苗的集合用法仍写fry。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "用热油烹饪"
+        "target_label": "煎、炸或被煎炸；薯条或鱼苗"
       }
     },
     "senses": [
@@ -3159,9 +3685,9 @@
         "id": "sense:fry:776712040ac9586e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "油炸，煎",
-        "definition_en": "cook on a hot surface using fat",
+        "governing_pattern": "fry (food); fry sth in oil",
+        "definition_cn": "煎；炸；被煎炸",
+        "definition_en": "to cook food in hot fat or oil, or be cooked in this way",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3178,20 +3704,15 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "fry + sth",
             "meaning_cn": "油炸某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:48f64bfaaf4d57d94971",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "fry + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fry:776712040ac9586e",
           "target_locator": "record.senses[0]",
-          "target_label": "油炸，煎"
+          "target_label": "煎；炸；被煎炸"
         }
       },
       {
@@ -3199,16 +3720,42 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "鱼苗",
-        "definition_en": "a young fish",
-        "note": "",
+        "definition_cn": "鱼苗；幼鱼（通常作复数／集合用）",
+        "definition_en": "very small young fish, referred to collectively",
+        "note": "此义通常作复数或集合用，不按 a fry 表示一条鱼苗。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fry:bcf5fd3d60b955cc",
           "target_locator": "record.senses[1]",
-          "target_label": "鱼苗"
+          "target_label": "鱼苗；幼鱼（通常作复数／集合用）"
+        }
+      },
+      {
+        "id": "sense:fry:258d292c46f59399",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a fry; fries",
+        "definition_cn": "炸薯条（通常用复数fries）",
+        "definition_en": "a fried strip of potato, usually referred to in the plural as fries",
+        "note": "薯条通常用复数fries；鱼苗义的集合复数为fry。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e6d3f3088d6ca7395fb1",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a burger and fries",
+            "meaning_cn": "一个汉堡和薯条",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fry:258d292c46f59399",
+          "target_locator": "record.senses[2]",
+          "target_label": "炸薯条（通常用复数fries）"
         }
       }
     ],
@@ -3220,6 +3767,23 @@
           "applicability": [
             {
               "surface": "fry"
+            },
+            {
+              "surface": "fry",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:fry:258d292c46f59399"
+              ],
+              "owner_sense_ids": [
+                "sense:fry:258d292c46f59399"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2066.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "a fry; fries"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -3250,8 +3814,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:fry:258d292c46f59399": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -3295,12 +3863,19 @@
     "ordinal": 2067,
     "word": "fuel",
     "source_owner_path": "content/lexical/words/by-ordinal/o2067.json",
-    "source_fingerprint": "9235ac3861141dcd72e972f5b36253879e5f1a0f2ba26647202106a74d5421f2",
+    "source_fingerprint": "06748f0949f3b4e6007449d5873a2ce158fce62d71dcaf5c8d70d54f96935284",
     "sense_lineage": [
       {
         "word_id": "word:fuel",
         "target_kind": "sense",
         "from_target_id": "sense:fuel:9418e091fa6658d9",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fuel",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:349b66bf23814d7d8667",
         "status": "reference",
         "to_target_id": null
       },
@@ -3387,13 +3962,8 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "fuel + sth",
             "meaning_cn": "给某物加燃料",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:349b66bf23814d7d8667",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "fuel + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -3689,7 +4259,7 @@
     "ordinal": 2069,
     "word": "full",
     "source_owner_path": "content/lexical/words/by-ordinal/o2069.json",
-    "source_fingerprint": "8252123946fdce78705c96f157c3f549079d95f71ae8eadd7c7b8779555c9fac",
+    "source_fingerprint": "996195ae41113ae601956ef1f0fb6e5f8cdfbd9bcc514f008cff78d014133757",
     "sense_lineage": [
       {
         "word_id": "word:full",
@@ -3711,6 +4281,13 @@
         "from_target_id": "sense:full:62b2edb3de375fc8",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:full",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6834bb4eb9c53251cf43",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -3721,13 +4298,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "满的；完全的",
-      "decision_cn": "",
+      "summary_cn": "满、完整、吃饱或浓郁的；直接或完全地；自负的表达",
+      "decision_cn": "杯子full为满，full report为完整报告，吃完be full为饱，full flavour或voice为浓郁或浑厚。full well为完全明白；full of oneself为自负，in full为完整地或全额。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "满的；完全的"
+        "target_label": "满、完整、吃饱或浓郁的；直接或完全地；自负的表达"
       }
     },
     "senses": [
@@ -3781,21 +4358,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:6834bb4eb9c53251cf43",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "in full",
-            "meaning_cn": "全部地；完整地",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6834bb4eb9c53251cf43",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "in full"
-            }
-          },
-          {
             "id": "collocation:a76c2ec0eba76e57dd08",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "full details",
             "meaning_cn": "全部细节",
             "kind": "usage_example",
@@ -3823,7 +4387,7 @@
             "id": "collocation:50f5ae0c5f32b43da699",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "feel full",
-            "meaning_cn": "",
+            "meaning_cn": "感到饱了",
             "kind": "usage_example",
             "repair": null
           },
@@ -3831,7 +4395,7 @@
             "id": "collocation:e1b249a8b26a0f1b12e5",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "on a full stomach",
-            "meaning_cn": "",
+            "meaning_cn": "在吃饱的状态下；饭后",
             "kind": "usage_example",
             "repair": null
           }
@@ -3989,6 +4553,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "in full"
         }
+      },
+      {
+        "id": "construction:52de7f986b7b8e1f62d9",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be full of oneself",
+        "lines": [
+          {
+            "text": "自负；自以为是",
+            "lang": "cn"
+          },
+          {
+            "text": "oneself随主语改变，如full of himself；常带批评意味。",
+            "lang": "cn"
+          },
+          {
+            "text": "to have an exaggerated opinion of your own importance",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:52de7f986b7b8e1f62d9",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be full of oneself"
+        }
       }
     ],
     "reference": {
@@ -3999,7 +4588,7 @@
           "target_word": "total",
           "lines": [
             {
-              "text": "total 指全部，full 指充满，语义侧重不同",
+              "text": "此处 full 和 total 都可表示完整、全部；total 常用于汇总数量或整体程度，full 常强调无缺漏或足额，具体搭配须分别掌握。full 另有“装满”的义项，不能拿它替代这里的 complete 义作比较。",
               "lang": "cn"
             },
             {
@@ -4097,7 +4686,7 @@
     "ordinal": 2070,
     "word": "fume",
     "source_owner_path": "content/lexical/words/by-ordinal/o2070.json",
-    "source_fingerprint": "e073e0f8b87770cbb631d24b6ac1d8c03bf2085c453f2a3c859e5079de7a1809",
+    "source_fingerprint": "3d081c172e1026909c3447ce4ff663cdc51654a789a41d0e14a90ba0662626d0",
     "sense_lineage": [
       {
         "word_id": "word:fume",
@@ -4181,8 +4770,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vi.",
-        "definition_cn": "冒烟，冒气",
-        "definition_en": "emit a cloud of fine particles",
+        "definition_cn": "冒烟；散发气体或蒸气",
+        "definition_en": "to give off smoke, gas or vapour",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4212,7 +4801,7 @@
           "target_kind": "sense",
           "target_id": "sense:fume:1690404b23e75caf",
           "target_locator": "record.senses[1]",
-          "target_label": "冒烟，冒气"
+          "target_label": "冒烟；散发气体或蒸气"
         }
       },
       {
@@ -4302,7 +4891,7 @@
     "ordinal": 2071,
     "word": "fun",
     "source_owner_path": "content/lexical/words/by-ordinal/o2071.json",
-    "source_fingerprint": "5c032d89a4bf94de825b0af6e536af175164f2014804dc73e76aed5d0dc3c7ed",
+    "source_fingerprint": "0600f2a47f4756feaac26c0b9f625f70e4eb975743a3b512d35de34d83ad940a",
     "sense_lineage": [
       {
         "word_id": "word:fun",
@@ -4320,13 +4909,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "乐趣，娱乐",
-      "decision_cn": "",
+      "summary_cn": "乐趣；有趣、令人愉快的",
+      "decision_cn": "fun作名词为乐趣、娱乐，作形容词为有趣、令人愉快；make fun of为嘲弄某人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "乐趣，娱乐"
+        "target_label": "乐趣；有趣、令人愉快的"
       }
     },
     "senses": [
@@ -4483,23 +5072,23 @@
     "ordinal": 2072,
     "word": "function",
     "source_owner_path": "content/lexical/words/by-ordinal/o2072.json",
-    "source_fingerprint": "e83db08afea7f8ba0686a74d478deccae400ffa84910958a3a703f2bfaf2615d",
+    "source_fingerprint": "bf44ea751ab7912dd7ca0926dc53506a841604f001e4a3ef1adda251abff7d64",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "功能；起作用",
-      "decision_cn": "",
+      "summary_cn": "功能、函数、职责或正式活动；运行或起作用；取决于的表达",
+      "decision_cn": "function可指物体用途、数学函数、职责或正式社交活动；动词为运行或担当某种作用。be a function of说明取决于某因素或由它产生。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "功能；起作用"
+        "target_label": "功能、函数、职责或正式活动；运行或起作用；取决于的表达"
       }
     },
     "senses": [
@@ -4632,6 +5221,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "职务；职责"
         }
+      },
+      {
+        "id": "sense:function:7900c89ca5d81d11",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "attend a social/official function",
+        "definition_cn": "（正式的）社交活动；典礼",
+        "definition_en": "a formal or official social gathering or ceremony",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:88fddb99552e9d4319fb",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "attend an official function",
+            "meaning_cn": "参加一个正式活动",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:function:7900c89ca5d81d11",
+          "target_locator": "record.senses[4]",
+          "target_label": "（正式的）社交活动；典礼"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4644,17 +5259,64 @@
           "applicability": [
             {
               "surface": "function"
+            },
+            {
+              "surface": "function",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:function:7900c89ca5d81d11"
+              ],
+              "owner_sense_ids": [
+                "sense:function:7900c89ca5d81d11"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2072.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "attend a social/official function"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:function:7900c89ca5d81d11": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:130673ee2a7af80e997c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be a function of sth",
+        "lines": [
+          {
+            "text": "取决于……；是……的结果",
+            "lang": "cn"
+          },
+          {
+            "text": "可用于说明一事随另一因素变化，如cost is a function of duration；这里不是某物的用途。",
+            "lang": "cn"
+          },
+          {
+            "text": "to depend on something or result from it",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:130673ee2a7af80e997c",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be a function of sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4668,23 +5330,23 @@
     "ordinal": 2073,
     "word": "fund",
     "source_owner_path": "content/lexical/words/by-ordinal/o2073.json",
-    "source_fingerprint": "b627a6f264222cde4a9edfb0433edd0af6ad7df2e1b0a7288b00c92b5bddece6",
+    "source_fingerprint": "f74b6ef9125e4908d6e31c24ac1c038442a57abf8aa49fb53d8fde61f1a22e49",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "资金；资助",
-      "decision_cn": "",
+      "summary_cn": "基金、资金或资源储备；资助",
+      "decision_cn": "fund名词为专用资金，也可指知识、经验等积累；fund a project为给项目提供资金。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "资金；资助"
+        "target_label": "基金、资金或资源储备；资助"
       }
     },
     "senses": [
@@ -4760,6 +5422,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "资助，为…提供资金"
         }
+      },
+      {
+        "id": "sense:fund:ba988689d3324d0e",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a fund of knowledge/experience",
+        "definition_cn": "（知识、经验等的）储备；积累",
+        "definition_en": "a supply of material or intangible resources available for use",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:86bc36b8378221ef9c17",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a fund of knowledge",
+            "meaning_cn": "丰富的知识储备",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fund:ba988689d3324d0e",
+          "target_locator": "record.senses[2]",
+          "target_label": "（知识、经验等的）储备；积累"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4770,6 +5458,23 @@
           "applicability": [
             {
               "surface": "fund"
+            },
+            {
+              "surface": "fund",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:fund:ba988689d3324d0e"
+              ],
+              "owner_sense_ids": [
+                "sense:fund:ba988689d3324d0e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2073.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "a fund of knowledge/experience"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -4800,8 +5505,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:fund:ba988689d3324d0e": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -4947,7 +5656,7 @@
     "ordinal": 2075,
     "word": "funeral",
     "source_owner_path": "content/lexical/words/by-ordinal/o2075.json",
-    "source_fingerprint": "7dbfd5d56dffdb05c5bb14b09d6825bc30922a456cbba0fcebeff09361ab2228",
+    "source_fingerprint": "02fb0d472c5c934bf5cd1ba0f0eb527ef0175ca3b38fec7a578d573c6fad2683",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4971,8 +5680,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "葬礼，出殡",
-        "definition_en": "a ceremony at which a dead person is buried or cremated",
+        "definition_cn": "葬礼；丧葬仪式",
+        "definition_en": "a ceremony for a person who has died, usually connected with burial or cremation",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4997,7 +5706,7 @@
           "target_kind": "sense",
           "target_id": "sense:funeral:04869442474953db",
           "target_locator": "record.senses[0]",
-          "target_label": "葬礼，出殡"
+          "target_label": "葬礼；丧葬仪式"
         }
       }
     ],
@@ -5061,8 +5770,16 @@
     "ordinal": 2076,
     "word": "funny",
     "source_owner_path": "content/lexical/words/by-ordinal/o2076.json",
-    "source_fingerprint": "f62b557800b11cc4266e1b2dea4e0355d50db7efd3f0efbcc0df2168908ccba0",
-    "sense_lineage": [],
+    "source_fingerprint": "e1ab8300acf41e0ffb192f34cf558b8690b984a620ada7210187ef447486cd3e",
+    "sense_lineage": [
+      {
+        "word_id": "word:funny",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:377e2f2c6ace226ff499",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2A"
@@ -5070,13 +5787,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有趣的，滑稽的",
-      "decision_cn": "",
+      "summary_cn": "好笑的；奇怪的；感觉不对劲的",
+      "decision_cn": "funny 可表示“好笑”或“奇怪”；不能把所有“做起来有趣”都译成 funny。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有趣的，滑稽的"
+        "target_label": "好笑的；奇怪的；感觉不对劲的"
       }
     },
     "senses": [
@@ -5101,15 +5818,10 @@
           {
             "id": "collocation:377e2f2c6ace226ff499",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "funny + to do",
-            "meaning_cn": "做某事有趣",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:377e2f2c6ace226ff499",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "funny + to do"
-            }
+            "phrase": "It was funny to watch.",
+            "meaning_cn": "看着很好笑。",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5194,7 +5906,7 @@
     "ordinal": 2077,
     "word": "fur",
     "source_owner_path": "content/lexical/words/by-ordinal/o2077.json",
-    "source_fingerprint": "ef515166b427a5bcabd5b1c2d45ff3257bf3b7226962a7a7a4055e54fda35d9f",
+    "source_fingerprint": "055c361e2e661e207a55925f49b25da22ea1adf36fe011dc7984fc18fcc51e82",
     "sense_lineage": [
       {
         "word_id": "word:fur",
@@ -5212,13 +5924,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "哺乳动物的毛皮",
-      "decision_cn": "",
+      "summary_cn": "动物毛、毛皮或毛皮衣服；积水垢",
+      "decision_cn": "fur可为动物软毛、毛皮或毛皮衣服；主要英式fur up用于水管、水壶等内部积水垢或附着层。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "哺乳动物的毛皮"
+        "target_label": "动物毛、毛皮或毛皮衣服；积水垢"
       }
     },
     "senses": [
@@ -5286,9 +5998,9 @@
         "id": "sense:fur:96ffef8a92e55e34",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "生苔；积水垢",
-        "definition_en": "to become covered with fur or scale",
+        "governing_pattern": "fur up",
+        "definition_cn": "积水垢；形成附着层（尤英式，常用 fur up）",
+        "definition_en": "to become covered or blocked with a deposit, especially inside a pipe or kettle",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5296,7 +6008,7 @@
           "target_kind": "sense",
           "target_id": "sense:fur:96ffef8a92e55e34",
           "target_locator": "record.senses[2]",
-          "target_label": "生苔；积水垢"
+          "target_label": "积水垢；形成附着层（尤英式，常用 fur up）"
         }
       }
     ],
@@ -5469,7 +6181,7 @@
     "ordinal": 2078,
     "word": "furious",
     "source_owner_path": "content/lexical/words/by-ordinal/o2078.json",
-    "source_fingerprint": "af4d884afca12134b3da0776fa5f8be070cbff82a2ef225746d2a9d45c70b5a8",
+    "source_fingerprint": "38bda4573fd4fce100d6d33184bdc8444ebbbc737ad6815f1aa53277bf9e10e6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5668,7 +6380,7 @@
           "target_word": "fierce",
           "lines": [
             {
-              "text": "在强烈猛烈义接近；furious常带愤怒，fierce常指攻击性",
+              "text": "此处比较强烈、猛烈的含义，两者有重叠；furious 可形容迅猛的速度或激烈活动，不必含愤怒；fierce 可强调竞争、反对或攻击的强度。furious 的“极其愤怒”是另一个义项。",
               "lang": "cn"
             },
             {
@@ -5695,7 +6407,7 @@
     "ordinal": 2079,
     "word": "furnace",
     "source_owner_path": "content/lexical/words/by-ordinal/o2079.json",
-    "source_fingerprint": "d67e170580ebec01fc60ef2e0d9c85c118e0f819c7f0d4cbe295e0170bf8936e",
+    "source_fingerprint": "ef2b35008cef04344b1508677b31314a79e2c4da64b5d2edf7754dc63d85d9c2",
     "sense_lineage": [
       {
         "word_id": "word:furnace",
@@ -5712,13 +6424,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "产生热量的封闭室",
-      "decision_cn": "",
+      "summary_cn": "火炉；熔炉",
+      "decision_cn": "furnace为封闭炉室，可用于建筑供暖或工业高温处理；blast furnace为高炉、鼓风冶炼炉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "产生热量的封闭室"
+        "target_label": "火炉；熔炉"
       }
     },
     "senses": [
@@ -5736,7 +6448,7 @@
             "id": "collocation:4edf96816b3e25a197c1",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "blast furnace",
-            "meaning_cn": "鼓风炉",
+            "meaning_cn": "高炉；鼓风冶炼炉",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -5828,7 +6540,7 @@
     "ordinal": 2080,
     "word": "furnish",
     "source_owner_path": "content/lexical/words/by-ordinal/o2080.json",
-    "source_fingerprint": "c1c49100722314e825b8dbb7d6cf084252258d06a1a902f368db0c2c430add87",
+    "source_fingerprint": "47a6eef4ade59004baa7cee8a12f3ef016f2ec57e222493bb1d7d3e72ad547ab",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5837,13 +6549,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "提供，供应",
-      "decision_cn": "",
+      "summary_cn": "给…配家具；提供、供应",
+      "decision_cn": "房间/住宅 → 配置家具；信息、证据等 → 提供。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "提供，供应"
+        "target_label": "给…配家具；提供、供应"
       }
     },
     "senses": [
@@ -6003,7 +6715,7 @@
     "ordinal": 2081,
     "word": "furniture",
     "source_owner_path": "content/lexical/words/by-ordinal/o2081.json",
-    "source_fingerprint": "2d5d34e5c4239cc2eeffa650722edcde01f5936383035c0340eea752ae75580a",
+    "source_fingerprint": "e64c3e9420c2dcc69a0efc3cae6d9817ac0bf2efa1252b6217ff8cd1c6443a16",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6029,7 +6741,7 @@
         "governing_pattern": "",
         "definition_cn": "家具；室内设备",
         "definition_en": "furnishings that make a room or other area ready for occupancy",
-        "note": "",
+        "note": "家具义通常不可数；一件家具用a piece of furniture，多件用pieces of furniture。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6130,8 +6842,16 @@
     "ordinal": 2082,
     "word": "further",
     "source_owner_path": "content/lexical/words/by-ordinal/o2082.json",
-    "source_fingerprint": "ec8bd9e93b54421feecb9b168cf560862d167349ab371d5ba629e4236b74d341",
-    "sense_lineage": [],
+    "source_fingerprint": "9032eb796870963e2a958ecc318d863d80727997831c373b7aeefee13ed6d9e9",
+    "sense_lineage": [
+      {
+        "word_id": "word:further",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ef0ca70f081fd2c6e53a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -6141,13 +6861,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "进一步，促进",
-      "decision_cn": "",
+      "summary_cn": "更多、进一步或更远的；此外或更远地；促进",
+      "decision_cn": "further information为更多信息，further discussion为进一步的讨论，go further为走得更远；further a cause为促进事业，until further notice为直至另行通知。物理距离中farther与further都可用。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "进一步，促进"
+        "target_label": "更多、进一步或更远的；此外或更远地；促进"
       }
     },
     "senses": [
@@ -6156,8 +6876,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "更远的，进一步的",
-        "definition_en": "more distant in especially degree",
+        "definition_cn": "进一步的；更多的；更远的",
+        "definition_en": "additional, or more distant or advanced",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6174,7 +6894,7 @@
           "target_kind": "sense",
           "target_id": "sense:further:9dac2a667cde5387",
           "target_locator": "record.senses[0]",
-          "target_label": "更远的，进一步的"
+          "target_label": "进一步的；更多的；更远的"
         }
       },
       {
@@ -6182,8 +6902,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "进一步地，更远地",
-        "definition_en": "to or at a greater extent or degree or a more advanced stage",
+        "definition_cn": "更远地；进一步地；此外",
+        "definition_en": "to a greater distance, extent or stage; additionally",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6200,7 +6920,7 @@
           "target_kind": "sense",
           "target_id": "sense:further:b7ec89d22c3854d1",
           "target_locator": "record.senses[1]",
-          "target_label": "进一步地，更远地"
+          "target_label": "更远地；进一步地；此外"
         }
       },
       {
@@ -6218,13 +6938,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "further + sth",
             "meaning_cn": "促进某事物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ef0ca70f081fd2c6e53a",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "further + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6255,7 +6970,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:9ffed6da64652be9468d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "until further notice",
+        "lines": [
+          {
+            "text": "直至另行通知",
+            "lang": "cn"
+          },
+          {
+            "text": "目前安排持续有效，结束时间由后续通知确定；不等于已经给出具体截止日期。",
+            "lang": "cn"
+          },
+          {
+            "text": "until a later announcement changes the current arrangement",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:9ffed6da64652be9468d",
+          "target_locator": "record.constructions[0]",
+          "target_label": "until further notice"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -6287,7 +7028,7 @@
     "ordinal": 2083,
     "word": "fuse",
     "source_owner_path": "content/lexical/words/by-ordinal/o2083.json",
-    "source_fingerprint": "2a9783426f8e06688ad571ef976daead162aa7f0562393aeb0794392f0b128b2",
+    "source_fingerprint": "a350babbb272bc45bc4c4a47ed71bba95bf5984b9691e676dc92760adb221d9d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6297,13 +7038,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "保险丝；熔化，融合",
-      "decision_cn": "",
+      "summary_cn": "保险丝或引信；熔化、融合或装引信；发怒的表达",
+      "decision_cn": "名词fuse可为保险丝或引信，动词为熔化、融合或装引信；抽象融合不一定涉及加热。blow a fuse可比喻大发脾气，have a short fuse表示容易发火。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "保险丝；熔化，融合"
+        "target_label": "保险丝或引信；熔化、融合或装引信；发怒的表达"
       }
     },
     "senses": [
@@ -6350,9 +7091,9 @@
         "id": "sense:fuse:c48bfbe67b055eb0",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
-        "definition_cn": "熔化；融合",
-        "definition_en": "to melt or join together due to heat",
+        "governing_pattern": "fuse (together); fuse with sth; fuse A and B (into sth)",
+        "definition_cn": "（使）熔化；（使）融合",
+        "definition_en": "to melt or combine into one, or cause things to do so; joining can be literal or figurative and need not involve heat",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6387,7 +7128,7 @@
           "target_kind": "sense",
           "target_id": "sense:fuse:c48bfbe67b055eb0",
           "target_locator": "record.senses[1]",
-          "target_label": "熔化；融合"
+          "target_label": "（使）熔化；（使）融合"
         }
       },
       {
@@ -6461,7 +7202,58 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:6496cceebfffadb5eea8",
+        "source_locator": "record.constructions[0]",
+        "pattern": "blow a fuse",
+        "lines": [
+          {
+            "text": "勃然大怒；大发脾气",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式比喻用法，描述人的情绪爆发；原保险丝义的blow a fuse仍指保险丝烧断。",
+            "lang": "cn"
+          },
+          {
+            "text": "to become very angry or upset",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6496cceebfffadb5eea8",
+          "target_locator": "record.constructions[0]",
+          "target_label": "blow a fuse"
+        }
+      },
+      {
+        "id": "construction:0f1350ce5bc26b972721",
+        "source_locator": "record.constructions[1]",
+        "pattern": "have a short fuse",
+        "lines": [
+          {
+            "text": "容易发火；脾气急躁",
+            "lang": "cn"
+          },
+          {
+            "text": "比喻容易被激怒的性情，区别一次大发脾气的blow a fuse。",
+            "lang": "cn"
+          },
+          {
+            "text": "to have a tendency to become angry quickly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0f1350ce5bc26b972721",
+          "target_locator": "record.constructions[1]",
+          "target_label": "have a short fuse"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6778,7 +7570,7 @@
     "ordinal": 2086,
     "word": "future",
     "source_owner_path": "content/lexical/words/by-ordinal/o2086.json",
-    "source_fingerprint": "74d10fe55ce7ba69109b29a12b3da39ac8f51bc56a1fd7457bb102564b77d39d",
+    "source_fingerprint": "35ce0c7ab591e36fd9308c85d8055d2c8cfad34c8b01d7922b24aceec1876a2a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6855,8 +7647,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "期货",
-        "definition_en": "bulk commodities bought or sold at an agreed price for delivery at a specified future date",
+        "definition_cn": "期货（通常用复数 futures）",
+        "definition_en": "contracts to buy or sell commodities or financial assets at an agreed price on a specified future date",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6873,7 +7665,7 @@
           "target_kind": "sense",
           "target_id": "sense:future:1ca9ef1b171c5282",
           "target_locator": "record.senses[2]",
-          "target_label": "期货"
+          "target_label": "期货（通常用复数 futures）"
         }
       }
     ],
@@ -7039,23 +7831,23 @@
     "ordinal": 2088,
     "word": "gain",
     "source_owner_path": "content/lexical/words/by-ordinal/o2088.json",
-    "source_fingerprint": "7f977d59ba9b33093c39cdae5dd8e2ca60d5d9e86d5f87c9faa7610a11ea7591",
+    "source_fingerprint": "cb6b942de62c1c4fbd217275b9d1c017f126fd2f2ceea27e7b60d1d88528e27e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "4V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "获得；增加",
-      "decision_cn": "",
+      "summary_cn": "获得、增长或获利；钟表走快；收益或增量；追近或取得进展",
+      "decision_cn": "gain经验或权利为获得，gain体重或力量为增长；钟表gain为走快，可说每天快几分钟。gain on为逐渐追上，gain ground为取得进展或逐渐得到认可；名词gain可为增量或收益。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "获得；增加"
+        "target_label": "获得、增长或获利；钟表走快；收益或增量；追近或取得进展"
       }
     },
     "senses": [
@@ -7172,9 +7964,9 @@
         "id": "sense:gain:5b5d9c86b4b95a3e",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "gain (in value/strength); gain weight/speed",
         "definition_cn": "增加；增长",
-        "definition_en": "to increase in amount or value",
+        "definition_en": "to increase, or increase by a particular amount",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7229,6 +8021,32 @@
           "target_locator": "record.senses[4]",
           "target_label": "利润；收获"
         }
+      },
+      {
+        "id": "sense:gain:c0c766ca2149da02",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "a clock gains; gain a minute a day",
+        "definition_cn": "（钟表）走快；快出（一段时间）",
+        "definition_en": "of a clock or watch: to run fast, sometimes by a stated amount",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2f56cc39b0fc361282d6",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "The clock gains two minutes a day.",
+            "meaning_cn": "这钟每天快两分钟。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:gain:c0c766ca2149da02",
+          "target_locator": "record.senses[5]",
+          "target_label": "（钟表）走快；快出（一段时间）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7239,6 +8057,23 @@
           "applicability": [
             {
               "surface": "gain"
+            },
+            {
+              "surface": "gain",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:gain:c0c766ca2149da02"
+              ],
+              "owner_sense_ids": [
+                "sense:gain:c0c766ca2149da02"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2088.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a clock gains; gain a minute a day"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7282,11 +8117,66 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:gain:c0c766ca2149da02": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:aa1a7bb1885b48687dd1",
+        "source_locator": "record.constructions[0]",
+        "pattern": "gain on sb/sth",
+        "lines": [
+          {
+            "text": "逐渐追上；缩小与……的距离",
+            "lang": "cn"
+          },
+          {
+            "text": "on后的对象是前方被追赶的人或物，如后面的赛跑者逐渐赶上前面的选手。",
+            "lang": "cn"
+          },
+          {
+            "text": "to get closer to someone or something being pursued",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:aa1a7bb1885b48687dd1",
+          "target_locator": "record.constructions[0]",
+          "target_label": "gain on sb/sth"
+        }
+      },
+      {
+        "id": "construction:12366f029a1d04203a3c",
+        "source_locator": "record.constructions[1]",
+        "pattern": "gain ground",
+        "lines": [
+          {
+            "text": "取得进展；变得更有影响力或更受认可",
+            "lang": "cn"
+          },
+          {
+            "text": "可描述行动进展，也可描述某观点逐渐得到认可；不必指占领实际土地。",
+            "lang": "cn"
+          },
+          {
+            "text": "to make progress or become stronger or more widely accepted",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:12366f029a1d04203a3c",
+          "target_locator": "record.constructions[1]",
+          "target_label": "gain ground"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7300,7 +8190,7 @@
     "ordinal": 2089,
     "word": "galaxy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2089.json",
-    "source_fingerprint": "e0784eeea492281e027ea33affc0a4a4c66a742360c5d3f8d950a1f9aab1ef17",
+    "source_fingerprint": "d750f9286c5165b0186749247c8598a981e04ec5161891842a826f4c5553caa1",
     "sense_lineage": [
       {
         "word_id": "word:galaxy",
@@ -7620,7 +8510,7 @@
     "ordinal": 2091,
     "word": "gallon",
     "source_owner_path": "content/lexical/words/by-ordinal/o2091.json",
-    "source_fingerprint": "ef30786e91c98c5be51e553a7a01605970694f960764d17a1dc38c062113452d",
+    "source_fingerprint": "b58a489ac6346800e63c15d98efb686e880c48f2163ab5c0f494ab6568365a05",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7737,7 +8627,7 @@
     "ordinal": 2092,
     "word": "gamble",
     "source_owner_path": "content/lexical/words/by-ordinal/o2092.json",
-    "source_fingerprint": "66b7d8db1e0574780f4ab34a975dadcbb123ce90c171bfa80f129c31bded8bf1",
+    "source_fingerprint": "cf0595259ed8a5d03df11585335c8ed8e6154338be5b1bd74067a3cb9d0412db",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7761,7 +8651,7 @@
         "id": "sense:gamble:58ce569a582d52e0",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "gamble (money) on sth; gamble with sth; gamble sth away",
         "definition_cn": "赌博；冒险",
         "definition_en": "to play games for money or take a risk in the hope of a favorable outcome",
         "note": "",
@@ -7814,8 +8704,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "赌博；冒险；赌注",
-        "definition_en": "a risky act or venture; money risked for possible gain",
+        "definition_cn": "赌博；冒险行为",
+        "definition_en": "an action or venture taken despite uncertainty in the hope of a favourable outcome",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7840,7 +8730,7 @@
           "target_kind": "sense",
           "target_id": "sense:gamble:fde2460b967950f4",
           "target_locator": "record.senses[1]",
-          "target_label": "赌博；冒险；赌注"
+          "target_label": "赌博；冒险行为"
         }
       }
     ],
@@ -7874,7 +8764,7 @@
           "target_word": "hazard",
           "lines": [
             {
-              "text": "gamble侧重赌钱冒险，hazard侧重使遭危险",
+              "text": "gamble 可指赌钱，也可指为期望结果而承担其他风险；hazard 作动词较正式，可指冒险提出猜测或使…遭风险。hazard a guess 是“冒昧猜测”，不能机械替换为 gamble a guess。",
               "lang": "cn"
             },
             {
@@ -7901,7 +8791,7 @@
     "ordinal": 2093,
     "word": "game",
     "source_owner_path": "content/lexical/words/by-ordinal/o2093.json",
-    "source_fingerprint": "27b31f1049be4b610146e18c329426eafb38ec74ee52744567210ebc650f105f",
+    "source_fingerprint": "fa97bd59fe87d3a1fce4aa6b379f37b45162b1dfd8e72f511c9de5845a3927c4",
     "sense_lineage": [
       {
         "word_id": "word:game",
@@ -8028,8 +8918,8 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "一局，一场",
-        "definition_en": "a single play of a sport or other contest",
+        "definition_cn": "一局；一场",
+        "definition_en": "a single contest, or a unit within a match in some sports",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8037,7 +8927,7 @@
             "id": "collocation:0bc89c4911e84ccb6bf8",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "game point",
-            "meaning_cn": "赛点",
+            "meaning_cn": "局点（如网球中，赢下该分即可赢下一局；不同于赛点）",
             "kind": "usage_example",
             "repair": null
           }
@@ -8046,7 +8936,7 @@
           "target_kind": "sense",
           "target_id": "sense:game:a309101bed2656f2",
           "target_locator": "record.senses[3]",
-          "target_label": "一局，一场"
+          "target_label": "一局；一场"
         }
       },
       {
@@ -8054,7 +8944,7 @@
         "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "勇敢的，有胆量的",
+        "definition_cn": "愿意尝试的；有胆量的",
         "definition_en": "brave, willing to do something",
         "note": "",
         "identity_overlay": null,
@@ -8077,7 +8967,7 @@
           "target_kind": "sense",
           "target_id": "sense:game:289f755f083553a6",
           "target_locator": "record.senses[4]",
-          "target_label": "勇敢的，有胆量的"
+          "target_label": "愿意尝试的；有胆量的"
         }
       }
     ],
@@ -8155,7 +9045,7 @@
     "ordinal": 2094,
     "word": "gang",
     "source_owner_path": "content/lexical/words/by-ordinal/o2094.json",
-    "source_fingerprint": "ac12d98d5798aadef91fa190b9ca305fa9cbc30ddab5942b7997a4779f000453",
+    "source_fingerprint": "6a123a8fe03f303754ad1fe395bf53c239c77c101ef079783d7fd81c8559ad6b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8165,13 +9055,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "帮派；一群",
-      "decision_cn": "",
+      "summary_cn": "犯罪团伙、伙伴群体或工作班组；结成一伙",
+      "decision_cn": "gang可为犯罪团伙，也可为熟识伙伴或工作班组；the whole gang不一定是罪犯。gang up on为联合起来对付某人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "帮派；一群"
+        "target_label": "犯罪团伙、伙伴群体或工作班组；结成一伙"
       }
     },
     "senses": [
@@ -8219,8 +9109,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "一队；一组",
-        "definition_en": "a group of people working together",
+        "definition_cn": "一群伙伴；班组；共同活动或工作的一群人",
+        "definition_en": "a group of people who spend time together or work together",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8244,20 +9134,28 @@
             "meaning_cn": "一群工人",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:0cd1d2feeee557718de4",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "the whole gang",
+            "meaning_cn": "所有伙伴；一帮人",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:gang:687c1a0de33b5ae7",
           "target_locator": "record.senses[1]",
-          "target_label": "一队；一组"
+          "target_label": "一群伙伴；班组；共同活动或工作的一群人"
         }
       },
       {
         "id": "sense:gang:ed0be5d369da555a",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + together",
+        "governing_pattern": "gang together; gang up on sb",
         "definition_cn": "成群结队；结成一伙",
         "definition_en": "to act together as a group",
         "note": "",
@@ -8520,7 +9418,7 @@
     "ordinal": 2096,
     "word": "gap",
     "source_owner_path": "content/lexical/words/by-ordinal/o2096.json",
-    "source_fingerprint": "e8b6a3a2360a57f5eafbbe3e4fa87022f4f781aff446e19d70f49cabaedbdd0e",
+    "source_fingerprint": "189001a4d76d0da9f84bc41f9260dcf672111e113a948a003318802ff60b975b",
     "sense_lineage": [
       {
         "word_id": "word:gap",
@@ -8552,8 +9450,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "缝隙；缺口",
-        "definition_en": "a narrow opening or hole",
+        "definition_cn": "空隙；缺口；间隔；空缺",
+        "definition_en": "an opening, empty space or break between objects, events or parts of something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8569,21 +9467,13 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "gap in + sth"
             }
-          },
-          {
-            "id": "collocation:7f60f3c5fa03072de89d",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "bridge a gap",
-            "meaning_cn": "弥合差距",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:gap:67cf483b018853e5",
           "target_locator": "record.senses[0]",
-          "target_label": "缝隙；缺口"
+          "target_label": "空隙；缺口；间隔；空缺"
         }
       },
       {
@@ -8609,6 +9499,14 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "gap between A and B",
             "meaning_cn": "A和B之间的差距",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:7f60f3c5fa03072de89d",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "bridge a gap",
+            "meaning_cn": "弥合差距",
             "kind": "usage_example",
             "repair": null
           }
@@ -8685,7 +9583,7 @@
     "ordinal": 2097,
     "word": "garage",
     "source_owner_path": "content/lexical/words/by-ordinal/o2097.json",
-    "source_fingerprint": "cb779fb8fec857479144e9552cc49e2aba877f1a03f8986c29443806649cfbdc",
+    "source_fingerprint": "e16f5170b3a90daac9452aa0abcefdf51865bee4a02735536962f311c04db663",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8695,13 +9593,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "车库；修车厂",
-      "decision_cn": "",
+      "summary_cn": "车库、修理厂或汽车服务站；存放车辆；家庭旧物出售的表达",
+      "decision_cn": "garage可指私人车库或汽车修理服务商，英式语境也可在该商家加油；动词为把车存放在车库。garage sale为在自家场地出售旧物。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "车库；修车厂"
+        "target_label": "车库、修理厂或汽车服务站；存放车辆；家庭旧物出售的表达"
       }
     },
     "senses": [
@@ -8736,9 +9634,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "汽车修理厂",
-        "definition_en": "a repair shop for cars and trucks",
-        "note": "",
+        "definition_cn": "汽车修理厂；汽车服务站（英式也可出售燃油）",
+        "definition_en": "a business that repairs or services cars; in Britain, it may also sell fuel or cars",
+        "note": "英式语境可用于提供汽车燃油或其他汽车服务的商家；不是每个私人车库都出售燃油。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8748,13 +9646,21 @@
             "meaning_cn": "把车送到修理厂",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:fb841653fcf10a0846e7",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "stop at a garage for petrol",
+            "meaning_cn": "在汽车服务站停下加油",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:garage:bd9054dfbc76528f",
           "target_locator": "record.senses[1]",
-          "target_label": "汽车修理厂"
+          "target_label": "汽车修理厂；汽车服务站（英式也可出售燃油）"
         }
       },
       {
@@ -8762,7 +9668,7 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "把（车）送入车库或修车厂",
+        "definition_cn": "把（车辆）停放或存放在车库",
         "definition_en": "to put or store a vehicle in a garage",
         "note": "",
         "identity_overlay": null,
@@ -8780,7 +9686,7 @@
           "target_kind": "sense",
           "target_id": "sense:garage:ef5c34d556f250ff",
           "target_locator": "record.senses[2]",
-          "target_label": "把（车）送入车库或修车厂"
+          "target_label": "把（车辆）停放或存放在车库"
         }
       }
     ],
@@ -8830,7 +9736,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:a14fc768bb04186abcff",
+        "source_locator": "record.constructions[0]",
+        "pattern": "garage sale",
+        "lines": [
+          {
+            "text": "（在自家场地举行的）旧物出售",
+            "lang": "cn"
+          },
+          {
+            "text": "通常出售家具、衣物等个人旧物，地点可在自家院子或其他场地，不必在车库内。",
+            "lang": "cn"
+          },
+          {
+            "text": "a sale of used household or personal belongings at the seller’s home",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a14fc768bb04186abcff",
+          "target_locator": "record.constructions[0]",
+          "target_label": "garage sale"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8844,7 +9776,7 @@
     "ordinal": 2098,
     "word": "garbage",
     "source_owner_path": "content/lexical/words/by-ordinal/o2098.json",
-    "source_fingerprint": "80ba2bb31e0fffeef3572abc005ce33bd370d4b224b77a12fface6ae5f53fce7",
+    "source_fingerprint": "dbf1858afe399a4f756058f47af32ac27bf3bee48458cf1b7c10e4ed26ea1c61",
     "sense_lineage": [
       {
         "word_id": "word:garbage",
@@ -8856,18 +9788,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "废弃物或丢弃的物品",
-      "decision_cn": "",
+      "summary_cn": "垃圾、废物；无价值的东西或胡说",
+      "decision_cn": "garbage可为要丢弃的垃圾，也可评价内容无价值、说法荒唐，如a bunch of garbage。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "废弃物或丢弃的物品"
+        "target_label": "垃圾、废物；无价值的东西或胡说"
       }
     },
     "senses": [
@@ -8904,6 +9836,32 @@
           "target_locator": "record.senses[0]",
           "target_label": "垃圾，废物"
         }
+      },
+      {
+        "id": "sense:garbage:7c5fdcbd9dce147b",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a load/bunch of garbage; say sth is garbage",
+        "definition_cn": "无价值的东西；胡说八道",
+        "definition_en": "something worthless or useless, especially foolish or untrue statements",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:f8e679dbaae6dd3f4b8b",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "That claim is garbage.",
+            "meaning_cn": "那个说法是胡说八道。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:garbage:7c5fdcbd9dce147b",
+          "target_locator": "record.senses[1]",
+          "target_label": "无价值的东西；胡说八道"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8916,6 +9874,23 @@
           "applicability": [
             {
               "surface": "garbage"
+            },
+            {
+              "surface": "garbage",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:garbage:7c5fdcbd9dce147b"
+              ],
+              "owner_sense_ids": [
+                "sense:garbage:7c5fdcbd9dce147b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2098.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "a load/bunch of garbage; say sth is garbage"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8935,8 +9910,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:garbage:7c5fdcbd9dce147b": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -9328,23 +10307,23 @@
     "ordinal": 2102,
     "word": "gas",
     "source_owner_path": "content/lexical/words/by-ordinal/o2102.json",
-    "source_fingerprint": "d6b47f35a841a516366e0f966176e2f8594ed370d37373a89d9af73a9e8229d0",
+    "source_fingerprint": "0cfe792c3bbbd471c8716ebad40004f5f1134ef35b4bf47f29490b608a601f7f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "可自由膨胀的物质状态，或气态燃料",
-      "decision_cn": "",
+      "summary_cn": "气体、燃气、汽油、毒气或肠胃气体；用毒气伤害；加油的表达",
+      "decision_cn": "gas可为气体或燃气，北美汽车语境为汽油；gas attack涉及毒气。have gas为胀气，gas up为给车辆加汽油。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "可自由膨胀的物质状态，或气态燃料"
+        "target_label": "气体、燃气、汽油、毒气或肠胃气体；用毒气伤害；加油的表达"
       }
     },
     "senses": [
@@ -9455,8 +10434,8 @@
         "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "战争中使用的毒气",
-        "definition_en": "a poisonous gas used in warfare",
+        "definition_cn": "有毒或有害气体（如毒气、催泪瓦斯）",
+        "definition_en": "poisonous or harmful gas, including gas used to attack, incapacitate or disperse people",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9473,7 +10452,7 @@
           "target_kind": "sense",
           "target_id": "sense:gas:d7fb3861648d5726",
           "target_locator": "record.senses[3]",
-          "target_label": "战争中使用的毒气"
+          "target_label": "有毒或有害气体（如毒气、催泪瓦斯）"
         }
       },
       {
@@ -9501,6 +10480,32 @@
           "target_locator": "record.senses[4]",
           "target_label": "用毒气攻击或杀害，或使暴露于毒气中"
         }
+      },
+      {
+        "id": "sense:gas:89fa7240301231a5",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "have gas",
+        "definition_cn": "肠胃气体；胀气",
+        "definition_en": "gas in the digestive system, or the discomfort caused by it",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7b82dde6c9fcdc8423a1",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "The beans gave me gas.",
+            "meaning_cn": "吃了这些豆子，我胀气了。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:gas:89fa7240301231a5",
+          "target_locator": "record.senses[5]",
+          "target_label": "肠胃气体；胀气"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9514,17 +10519,64 @@
           "applicability": [
             {
               "surface": "gas"
+            },
+            {
+              "surface": "gas",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:gas:89fa7240301231a5"
+              ],
+              "owner_sense_ids": [
+                "sense:gas:89fa7240301231a5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2102.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "have gas"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:gas:89fa7240301231a5": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:80d112ccff2d99bd96db",
+        "source_locator": "record.constructions[0]",
+        "pattern": "gas up (a vehicle)",
+        "lines": [
+          {
+            "text": "给车辆加油",
+            "lang": "cn"
+          },
+          {
+            "text": "主要北美用法；可说gas up the car或先省略车辆。",
+            "lang": "cn"
+          },
+          {
+            "text": "to put gasoline into a vehicle’s fuel tank",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:80d112ccff2d99bd96db",
+          "target_locator": "record.constructions[0]",
+          "target_label": "gas up (a vehicle)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9538,7 +10590,7 @@
     "ordinal": 2103,
     "word": "gasp",
     "source_owner_path": "content/lexical/words/by-ordinal/o2103.json",
-    "source_fingerprint": "b9cfc175f59699713d09aec26cafd8ee865087ba5f086e85d342235d0568ac09",
+    "source_fingerprint": "3230a4a7af02c484df415925be8420ad303a0bb07216cefb54f69162ab5be98c",
     "sense_lineage": [
       {
         "word_id": "word:gasp",
@@ -9556,13 +10608,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "喘气",
-      "decision_cn": "",
+      "summary_cn": "喘气、倒吸一口气；喘着说；一声急促吸气",
+      "decision_cn": "gasp可因惊讶或疼痛倒吸气，也可艰难喘气；gasp out words为喘着说，a gasp为一次急促吸气。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "喘气"
+        "target_label": "喘气、倒吸一口气；喘着说；一声急促吸气"
       }
     },
     "senses": [
@@ -9738,7 +10790,7 @@
     "ordinal": 2104,
     "word": "gate",
     "source_owner_path": "content/lexical/words/by-ordinal/o2104.json",
-    "source_fingerprint": "0f8e310bda7df7fddd50523988281e82bd8f1876521e3e768718d1e3a19f317e",
+    "source_fingerprint": "1eb3e14e33044a0b8564ea26edae40aaf714a36054094d37003594b6a717e6d0",
     "sense_lineage": [
       {
         "word_id": "word:gate",
@@ -9760,6 +10812,20 @@
         "from_target_id": "collocation:573c5f089383f65931be",
         "status": "reference",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:gate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:865c9f5afaf4db7a721d",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:gate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f0b20b52ec3193d6f51b",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -9769,13 +10835,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "门，入口",
-      "decision_cn": "entrance/barrier → 大门；airport → 登机口；event finance → gate receipts 门票收入。低价值动词“装门于”保留为 Reference。",
+      "summary_cn": "门、闸门、登机口或门票收入",
+      "decision_cn": "gate可为实体门或闸门，在机场为登机口；体育活动中的gate可指门票收入。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "门，入口"
+        "target_label": "门、闸门、登机口或门票收入"
       }
     },
     "senses": [
@@ -9800,15 +10866,10 @@
           {
             "id": "collocation:f0b20b52ec3193d6f51b",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "gate + (location)",
-            "meaning_cn": "某处的大门",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:f0b20b52ec3193d6f51b",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "gate + (location)"
-            }
+            "phrase": "the garden gate",
+            "meaning_cn": "花园的门",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9839,15 +10900,10 @@
           {
             "id": "collocation:865c9f5afaf4db7a721d",
             "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "gate + (number)",
-            "meaning_cn": "某号门",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:865c9f5afaf4db7a721d",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "gate + (number)"
-            }
+            "phrase": "Gate 12",
+            "meaning_cn": "12号登机口／出入口",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9975,12 +11031,19 @@
     "ordinal": 2105,
     "word": "gather",
     "source_owner_path": "content/lexical/words/by-ordinal/o2105.json",
-    "source_fingerprint": "48aa64eaa7d48b48475e05837b9eb670f467384b92d442b04e89140b274647a8",
+    "source_fingerprint": "cc284b6b55eb88339d920b5f6eb64c0b5d1e9ce9883b2ec99567d4fd78273132",
     "sense_lineage": [
       {
         "word_id": "word:gather",
         "target_kind": "sense",
         "from_target_id": "sense:gather:8552f3b03be958cc",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:gather",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:21e8de339c60b36829db",
         "status": "reference",
         "to_target_id": null
       },
@@ -9994,18 +11057,18 @@
     ],
     "recall_map": {
       "parts": [
-        "3V"
+        "4V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "聚集；收集",
-      "decision_cn": "things/info → 收集；people → 聚集；I gather / gather that → 据我了解、推断。服装缝纫名词 gathers（衣褶）保留为 Reference。",
+      "summary_cn": "收集、聚集、推知或积聚力量；镇定下来的表达",
+      "decision_cn": "gather物品为收集，人们gather为聚集；I gather that…为从信息推知。gather speed为逐渐加速，gather oneself为镇定并集中精神。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "聚集；收集"
+        "target_label": "收集、聚集、推知或积聚力量；镇定下来的表达"
       }
     },
     "senses": [
@@ -10032,13 +11095,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "gather + sth",
             "meaning_cn": "收集某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:21e8de339c60b36829db",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "gather + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -10095,6 +11153,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "推断；了解到；得知"
         }
+      },
+      {
+        "id": "sense:gather:9806865bfe05937a",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "gather strength/courage/speed",
+        "definition_cn": "积聚、增强（力量、勇气或速度等）",
+        "definition_en": "to build up or gain strength, courage, speed, or a similar quality",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a9ae54653430318dba52",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The train gathered speed.",
+            "meaning_cn": "火车的速度逐渐加快。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:gather:9806865bfe05937a",
+          "target_locator": "record.senses[3]",
+          "target_label": "积聚、增强（力量、勇气或速度等）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -10107,6 +11191,23 @@
           "applicability": [
             {
               "surface": "gather"
+            },
+            {
+              "surface": "gather",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:gather:9806865bfe05937a"
+              ],
+              "owner_sense_ids": [
+                "sense:gather:9806865bfe05937a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2105.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "gather strength/courage/speed"
+              }
             }
           ],
           "evidence_basis": "source_ipa",
@@ -10126,11 +11227,41 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:gather:9806865bfe05937a": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:f37986d9255bab2a5746",
+        "source_locator": "record.constructions[0]",
+        "pattern": "gather oneself",
+        "lines": [
+          {
+            "text": "镇定下来；集中精神",
+            "lang": "cn"
+          },
+          {
+            "text": "oneself随主语变化，如gather herself；强调恢复镇定或准备行动。",
+            "lang": "cn"
+          },
+          {
+            "text": "to regain composure or collect one’s strength for action",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f37986d9255bab2a5746",
+          "target_locator": "record.constructions[0]",
+          "target_label": "gather oneself"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -10170,7 +11301,7 @@
     "ordinal": 2106,
     "word": "gauge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2106.json",
-    "source_fingerprint": "1d9809b89c39c818b977ec58cecd0acd2af408dd6d8c85ee5a324461895593b3",
+    "source_fingerprint": "70aada32072e8bba7f8d0f33dc82a955cdd1504a960f696757a5abd7af7d1b68",
     "sense_lineage": [
       {
         "word_id": "word:gauge",
@@ -10278,8 +11409,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "标准；尺度",
-        "definition_en": "accepted or approved instance or example of a quantity or quality against which others are judged or measured or compared",
+        "definition_cn": "衡量标准；判断依据；指标",
+        "definition_en": "a means of judging or an indication of the amount, level or quality of something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10296,7 +11427,7 @@
           "target_kind": "sense",
           "target_id": "sense:gauge:1c5a091cb11758e9",
           "target_locator": "record.senses[2]",
-          "target_label": "标准；尺度"
+          "target_label": "衡量标准；判断依据；指标"
         }
       },
       {
@@ -10387,7 +11518,7 @@
     "ordinal": 2107,
     "word": "gay",
     "source_owner_path": "content/lexical/words/by-ordinal/o2107.json",
-    "source_fingerprint": "f11956fc8da35c61e70ce7538f03ddb3c23cd749d52a9bcd359193c954b547bb",
+    "source_fingerprint": "35638905a344b7fe74899054d6743c954196a5a1a088390a308e8296f5dab08a",
     "sense_lineage": [
       {
         "word_id": "word:gay",
@@ -10454,8 +11585,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "同性恋的",
-        "definition_en": "homosexual or arousing homosexual desires",
+        "definition_cn": "同性恋的；与同性恋者有关的",
+        "definition_en": "sexually or romantically attracted to people of the same sex; relating to gay people",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10485,7 +11616,7 @@
           "target_kind": "sense",
           "target_id": "sense:gay:27ad2aa220475468",
           "target_locator": "record.senses[0]",
-          "target_label": "同性恋的"
+          "target_label": "同性恋的；与同性恋者有关的"
         }
       }
     ],
@@ -10737,7 +11868,7 @@
     "ordinal": 2109,
     "word": "gear",
     "source_owner_path": "content/lexical/words/by-ordinal/o2109.json",
-    "source_fingerprint": "59168b3c8574483e2de72dc74a17dcb666d1d168d3f474f212aa11e4ef03bf37",
+    "source_fingerprint": "a2acc4d1c503f6758ebb55fd3d6dcce3d0224adcb0584c0b1754d32bead2ec74",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10747,13 +11878,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "齿轮或装备；调整适应",
+      "summary_cn": "齿轮、传动挡位或装备；调整适应",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "齿轮或装备；调整适应"
+        "target_label": "齿轮、传动挡位或装备；调整适应"
       }
     },
     "senses": [
@@ -10761,9 +11892,9 @@
         "id": "sense:gear:0f44b460d6685f17",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "齿轮",
-        "definition_en": "a toothed wheel that engages another toothed mechanism to change speed or direction",
+        "governing_pattern": "in/out of gear; in first/fourth gear; change gears",
+        "definition_cn": "齿轮；传动装置；挡位",
+        "definition_en": "a toothed wheel or connected mechanism that transmits motion, or a vehicle's transmission setting controlling speed and power",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10798,7 +11929,7 @@
           "target_kind": "sense",
           "target_id": "sense:gear:0f44b460d6685f17",
           "target_locator": "record.senses[0]",
-          "target_label": "齿轮"
+          "target_label": "齿轮；传动装置；挡位"
         }
       },
       {
@@ -10927,7 +12058,7 @@
     "ordinal": 2110,
     "word": "gender",
     "source_owner_path": "content/lexical/words/by-ordinal/o2110.json",
-    "source_fingerprint": "995d7553e8ff74086741a6d60993e1dd92739116e5b00760f2eedf9573d65973",
+    "source_fingerprint": "80039f6eb35e720a369e73e5dd4eabc45ba5d9cc6c6ff2d1622db16c811aefb0",
     "sense_lineage": [
       {
         "word_id": "word:gender",
@@ -11139,7 +12270,7 @@
     "ordinal": 2111,
     "word": "gene",
     "source_owner_path": "content/lexical/words/by-ordinal/o2111.json",
-    "source_fingerprint": "00b0facf301c714c925eeb05d78c5ad65e4acf4245c34714d2598f14415965cc",
+    "source_fingerprint": "e7fd2168e7b5f4516e7f9f97c80bdfc99fb4b6eaf59ea22c76b1e84c34fd85c3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11163,8 +12294,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "基因",
-        "definition_en": "a segment of DNA that determines a trait and is passed from parents to offspring",
+        "definition_cn": "基因；遗传信息的基本单位",
+        "definition_en": "a unit of hereditary information in DNA that contributes to characteristics or biological functions",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11189,7 +12320,7 @@
           "target_kind": "sense",
           "target_id": "sense:gene:86bd563a8f775ccf",
           "target_locator": "record.senses[0]",
-          "target_label": "基因"
+          "target_label": "基因；遗传信息的基本单位"
         }
       }
     ],
@@ -11247,7 +12378,7 @@
     "ordinal": 2112,
     "word": "general",
     "source_owner_path": "content/lexical/words/by-ordinal/o2112.json",
-    "source_fingerprint": "8a034548287a37b6841d024a77c0c64294c0eaab06456f83acfb81cd2b91da0e",
+    "source_fingerprint": "4cc87a009d5cf181b6d608a35cfb555e6e1c423a67cb232a1701dd956d646b6f",
     "sense_lineage": [
       {
         "word_id": "word:general",
@@ -11319,8 +12450,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "将军",
-        "definition_en": "a general officer of the highest rank",
+        "definition_cn": "将军；将官",
+        "definition_en": "a high-ranking military officer",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11328,7 +12459,7 @@
             "id": "collocation:68d8bcaa31b75f0fef9b",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "army general",
-            "meaning_cn": "陆军上将",
+            "meaning_cn": "陆军将军；陆军将官",
             "kind": "usage_example",
             "repair": null
           }
@@ -11337,7 +12468,7 @@
           "target_kind": "sense",
           "target_id": "sense:general:4bd0e791eca25b05",
           "target_locator": "record.senses[1]",
-          "target_label": "将军"
+          "target_label": "将军；将官"
         }
       }
     ],

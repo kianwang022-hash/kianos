@@ -11,18 +11,20 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "构成整体所必需的；不可或缺的",
-          "label_en": "necessary and important as a part of a whole",
+          "label_cn": "不可或缺；内置；完整",
+          "label_en": "essential, built-in, or complete",
           "pos": "adjective",
           "sense_ids": [
-            "sense:integral:dc328ce34b19578d"
+            "sense:integral:dc328ce34b19578d",
+            "sense:integral:5763f64d85398a17",
+            "sense:integral:782f3679334cbfa4"
           ]
         }
       ],
-      "core_meaning_cn": "不可或缺的；构成整体所必需的",
-      "core_meaning_en": "necessary and important as a part of a whole",
-      "mental_model_cn": "be integral to / an integral part of → 对整体不可或缺。微积分“积分”和数学“整数的”义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "不可或缺；内置；完整",
+      "core_meaning_en": "essential, built-in, or complete",
+      "mental_model_cn": "integral to看不可或缺；integral pump看内置非另购；integral system看完整；数学义保留Reference。",
+      "mental_model_en": "essential, built-in, or complete."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -49,7 +51,7 @@
             "legacy_source_object_ids": [
               "sense:integral:dc328ce34b19578d:collocation:1"
             ],
-            "meaning_cn": "……的组成部分",
+            "meaning_cn": "……不可或缺的组成部分",
             "phrase": "an integral part of + sth"
           }
         ],
@@ -64,6 +66,43 @@
         "sense_label_en": "necessary and important as a part of a whole",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:integral:5763f64d85398a17",
+        "pos": "adjective",
+        "definition_cn": "内置的；作为整体部分随附的",
+        "definition_en": "built into or supplied as part of something",
+        "sense_label_en": "built into or supplied as part of something",
+        "governing_pattern": "an integral pump/heater; usually before a noun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1281336b1b792ef3f2d6",
+            "phrase": "an integral pump",
+            "meaning_cn": "内置水泵",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:integral:782f3679334cbfa4",
+        "pos": "adjective",
+        "definition_cn": "完整的；具有全部必要组成部分的",
+        "definition_en": "complete with all necessary parts",
+        "sense_label_en": "complete with all necessary parts",
+        "governing_pattern": "an integral system; usually before a noun",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -703,6 +742,50 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ˈɪntɪɡrəl/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "integral",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:integral:5763f64d85398a17",
+                "sense:integral:782f3679334cbfa4"
+              ],
+              "owner_sense_ids": [
+                "sense:integral:5763f64d85398a17",
+                "sense:integral:782f3679334cbfa4"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/integral",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "integral",
+                "pos": "adjective",
+                "sense_indices_1based": [
+                  2,
+                  3
+                ]
+              },
+              "original_ipa": "/ˈɪntɪɡrəl/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -789,11 +872,28 @@
         "merged_into_sense_id": null,
         "source_row": 7138,
         "source_path": "content/lexical/canonical/senses/shards/o2561-2592.json"
+      },
+      {
+        "sense_id": "sense:integral:5763f64d85398a17",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2584.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:integral:782f3679334cbfa4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2584.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:8a9608b7dc4ef871b17c",
-      "collocation:aac384c075a143a1f570"
+      "collocation:aac384c075a143a1f570",
+      "collocation:1281336b1b792ef3f2d6"
     ],
     "facts": [],
     "collocations": [
@@ -827,6 +927,13 @@
         "source_path": "content/lexical/canonical/collocations/shards/o2561-2592.json",
         "status": "reference",
         "merged_into_id": null
+      },
+      {
+        "id": "collocation:1281336b1b792ef3f2d6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2584.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

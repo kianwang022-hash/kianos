@@ -33,11 +33,19 @@
           "sense_ids": [
             "sense:protocol:772a748c60d25636"
           ]
+        },
+        {
+          "label_cn": "国际协议文本",
+          "label_en": "an international agreement document",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:protocol:8d4a1ec24b0d242c"
+          ]
         }
       ],
-      "core_meaning_cn": "规程/协议；计算机协议；外交礼仪",
-      "core_meaning_en": "formal procedures/rules; computing protocol; diplomatic protocol",
-      "mental_model_cn": "规程/协议；计算机协议；外交礼仪",
+      "core_meaning_cn": "正式约定的规则、程序或协议文本",
+      "core_meaning_en": "formal procedures, etiquette, or an agreement; rarely, to prepare or issue a protocol",
+      "mental_model_cn": "safety/study→规程；network→通信规则；diplomatic protocol→礼仪；sign a protocol to a treaty→签署议定书；动词罕见，不等于通用起草。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -82,21 +90,28 @@
             "legacy_source_object_ids": [
               "sense:protocol:e7853be80998563f:collocation:0"
             ],
-            "meaning_cn": "拟定条约草案",
+            "meaning_cn": "将条约以议定书形式发布（罕见用法）",
             "phrase": "protocol a treaty"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "拟定（草案或协议）",
-        "definition_en": "draw up a protocol or formal document",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "（罕见）拟定议定书；将……以议定书形式发布",
+        "definition_en": "to prepare a protocol, or to issue something in the form of a protocol",
+        "governing_pattern": "vi.: protocol; vt.: protocol sth",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:protocol:e7853be80998563f",
-        "sense_label_en": "draw up a protocol or formal document",
+        "sense_label_en": "to prepare a protocol, or to issue something in the form of a protocol",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "usage_note": "这是罕见的正式动词：不及物可指拟定议定书，及物指将某事载入或以议定书形式发布。一般表达“起草条约”优先用draft a treaty，不把protocol当通用draft。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/protocol",
+            "role": "meaning_and_pattern"
+          }
+        ]
       },
       {
         "collocations": [
@@ -145,6 +160,39 @@
         "sense_label_en": "formal ceremony, etiquette, and rules observed in diplomacy or official occasions",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:protocol:8d4a1ec24b0d242c",
+        "pos": "noun",
+        "definition_cn": "（国际）议定书；协定",
+        "definition_en": "an international agreement or a document adding to or modifying a treaty",
+        "sense_label_en": "an international agreement or a document adding to or modifying a treaty",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:protocol:b8200c11f97a7760",
+            "phrase": "sign a protocol to the treaty",
+            "meaning_cn": "签署该条约的议定书",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/protocol",
+                "role": "meaning support; example/pattern authored for this review"
+              }
+            ]
+          }
+        ],
+        "usage_note": "外交文本中的protocol可指协定文件，而diplomatic protocol通常指礼仪。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/protocol",
+            "role": "meaning_and_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -449,13 +497,20 @@
         "merged_into_sense_id": null,
         "source_row": 10708,
         "source_path": "content/lexical/canonical/senses/shards/o3841-3872.json"
+      },
+      {
+        "sense_id": "sense:protocol:8d4a1ec24b0d242c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3849.json"
       }
     ],
     "active_collocations": [
       "collocation:318d248e00b8859d068d",
       "collocation:5215bf5d8c0b680810d8",
       "collocation:bffdf3e0d22ebf721956",
-      "collocation:fbf39f71c23c973f7079"
+      "collocation:fbf39f71c23c973f7079",
+      "collocation:protocol:b8200c11f97a7760"
     ],
     "facts": [],
     "collocations": [
@@ -488,6 +543,10 @@
         "id": "collocation:fbf39f71c23c973f7079",
         "source_row": 21317,
         "source_path": "content/lexical/canonical/collocations/shards/o3841-3872.json"
+      },
+      {
+        "id": "collocation:protocol:b8200c11f97a7760",
+        "source_path": "content/lexical/words/by-ordinal/o3849.json"
       }
     ],
     "exam-mappings": [],

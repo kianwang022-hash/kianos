@@ -19,8 +19,8 @@
           ]
         },
         {
-          "label_cn": "用汽车运送；驾车旅行",
-          "label_en": "to drive or transport by motor vehicle; to travel by car",
+          "label_cn": "用汽车运送；（英式旧式用语）驾车旅行",
+          "label_en": "to drive or transport by motor vehicle; (British, old-fashioned) to travel by car",
           "pos": "verb",
           "sense_ids": [
             "sense:motor:84d6b63d88c750f1",
@@ -28,18 +28,26 @@
           ]
         },
         {
-          "label_cn": "马达；发动机",
-          "label_en": "a motor or engine converting energy into mechanical motion",
+          "label_cn": "发动机；电动机",
+          "label_en": "a machine that converts energy into mechanical motion",
           "pos": "noun",
           "sense_ids": [
             "sense:motor:e7bab220d7315f90"
           ]
+        },
+        {
+          "label_cn": "（生理）身体运动的；控制肌肉运动的",
+          "label_en": "relating to muscular body movement or the nerves controlling it",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:motor:e7e197895dd72983"
+          ]
         }
       ],
-      "core_meaning_cn": "马达，发动机；马达的",
-      "core_meaning_en": "a machine that produces motion or power; relating to such a machine",
-      "mental_model_cn": "马达，发动机；马达的",
-      "mental_model_en": ""
+      "core_meaning_cn": "发动机及机动车的；身体运动的；旧式驾车",
+      "core_meaning_en": "an engine or motor-related; bodily movement; old uses of travelling by car",
+      "mental_model_cn": "motor vehicle谈发动机驱动车辆，motor skills谈肌肉控制的身体动作；汽车旧式verb与神经运动adj分别识别。",
+      "mental_model_en": "an engine or motor-related; bodily movement; old uses of travelling by car."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -133,16 +141,39 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "驾车旅行",
-        "definition_en": "to travel by car",
+        "definition_cn": "（英式旧式用语）驾车旅行",
+        "definition_en": "(British, old-fashioned) to travel by car",
         "governing_pattern": "vi. + to/along",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:motor:3294320c215f5193",
-        "sense_label_en": "to travel by car",
+        "sense_label_en": "(British, old-fashioned) to travel by car",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "register": "British, old-fashioned"
+      },
+      {
+        "sense_id": "sense:motor:e7e197895dd72983",
+        "pos": "adjective",
+        "definition_cn": "（生理）身体运动的；控制肌肉运动的",
+        "definition_en": "relating to muscular body movement or the nerves controlling it",
+        "sense_label_en": "relating to muscular body movement or the nerves controlling it",
+        "governing_pattern": "motor skills/activity/nerves（名词前）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f368e0d62dedf9a5a02d",
+            "phrase": "fine motor skills",
+            "meaning_cn": "精细动作技能",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -184,6 +215,24 @@
           "applicability": [
             {
               "surface": "motor"
+            },
+            {
+              "surface": "motor",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:motor:e7e197895dd72983"
+              ],
+              "owner_sense_ids": [
+                "sense:motor:e7e197895dd72983"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3137.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "motor skills/activity/nerves（名词前）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -304,6 +353,24 @@
           "applicability": [
             {
               "surface": "motor"
+            },
+            {
+              "surface": "motor",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:motor:e7e197895dd72983"
+              ],
+              "owner_sense_ids": [
+                "sense:motor:e7e197895dd72983"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3137.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "motor skills/activity/nerves（名词前）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -469,13 +536,22 @@
         "merged_into_sense_id": null,
         "source_row": 8731,
         "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      },
+      {
+        "sense_id": "sense:motor:e7e197895dd72983",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3137.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:56c97d8cc5bd02c723da",
       "collocation:800f3b688092072b0c2a",
+      "collocation:da8d51d72f83538fc486",
+      "collocation:56c97d8cc5bd02c723da",
       "collocation:c7b2845b66d8efaa26be",
-      "collocation:da8d51d72f83538fc486"
+      "collocation:f368e0d62dedf9a5a02d"
     ],
     "facts": [],
     "collocations": [
@@ -503,6 +579,13 @@
         "id": "collocation:da8d51d72f83538fc486",
         "source_row": 18488,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:f368e0d62dedf9a5a02d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3137.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

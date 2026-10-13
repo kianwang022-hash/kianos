@@ -22,16 +22,18 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "法官",
-          "label_en": "a public official authorized to decide questions brought before a court of justice",
+          "label_cn": "法官；评委；鉴赏者",
+          "label_en": "legal or competition official; assessor",
           "pos": "noun",
           "sense_ids": [
-            "sense:judge:512fe4e6f0d859c1"
+            "sense:judge:512fe4e6f0d859c1",
+            "sense:judge:1a311612b4fa6323",
+            "sense:judge:56f66839fab505a3"
           ]
         },
         {
-          "label_cn": "判断；评判；审判/裁判",
-          "label_en": "to form an opinion or assess; also to act as a legal or competition judge",
+          "label_cn": "判断；评判；审理",
+          "label_en": "to evaluate, judge a contest, or hear a case",
           "pos": "verb",
           "sense_ids": [
             "sense:judge:3a5b6f1c058e5910",
@@ -40,9 +42,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "判断；审判",
-      "core_meaning_en": "to form an opinion or decide a case",
-      "mental_model_cn": "person → 法官；contest/case → 评判/审理；general evaluation → 判断；judge by/from → 根据证据判断。",
+      "core_meaning_cn": "法官、裁判、评判者；判断、评判、审理",
+      "core_meaning_en": "a legal or competition judge, or someone assessing a subject; to judge",
+      "mental_model_cn": "person → 法官/比赛评委/鉴赏者；verb → 比赛评判、审理、一般判断；a judge of character 是名词角色。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -130,14 +132,58 @@
         "confidence": "medium",
         "definition_cn": "判断；评价；形成看法",
         "definition_en": "to form an opinion about or assess someone or something",
-        "governing_pattern": "",
+        "governing_pattern": "judge sb/sth; judge by/from sth; judge that ...",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:judge:02a05531df82358d",
         "sense_label_en": "to form an opinion about or assess someone or something",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
+      },
+      {
+        "sense_id": "sense:judge:1a311612b4fa6323",
+        "pos": "noun",
+        "definition_cn": "（比赛的）裁判；评委",
+        "definition_en": "a person appointed to decide results or assess performances in a competition",
+        "sense_label_en": "a person appointed to decide results or assess performances in a competition",
+        "governing_pattern": "a competition judge; the judges",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1c7169dca1909406797e",
+            "phrase": "a judge in the singing contest",
+            "meaning_cn": "歌唱比赛的评委",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:judge:56f66839fab505a3",
+        "pos": "noun",
+        "definition_cn": "（某方面的）判断者；鉴赏者",
+        "definition_en": "a person considered in terms of their ability to assess a particular subject",
+        "sense_label_en": "a person considered in terms of their ability to assess a particular subject",
+        "governing_pattern": "a good/poor judge of sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b4f13a41d9fe31739d18",
+            "phrase": "a good judge of character",
+            "meaning_cn": "善于判断人的品性的人",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -167,6 +213,40 @@
           "applicability": [
             {
               "surface": "judge"
+            },
+            {
+              "surface": "judge",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:judge:1a311612b4fa6323"
+              ],
+              "owner_sense_ids": [
+                "sense:judge:1a311612b4fa6323"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2679.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a competition judge; the judges"
+            },
+            {
+              "surface": "judge",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:judge:56f66839fab505a3"
+              ],
+              "owner_sense_ids": [
+                "sense:judge:56f66839fab505a3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2679.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a good/poor judge of sth"
             }
           ],
           "sources": [
@@ -578,12 +658,30 @@
         "merged_into_sense_id": null,
         "source_row": 7424,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
+      },
+      {
+        "sense_id": "sense:judge:1a311612b4fa6323",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2679.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:judge:56f66839fab505a3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2679.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
+      "collocation:d6eaa13244528876eda9",
       "collocation:4007735108f028443777",
       "collocation:bf5f1f7317a3fe9d4820",
-      "collocation:d6eaa13244528876eda9"
+      "collocation:1c7169dca1909406797e",
+      "collocation:b4f13a41d9fe31739d18"
     ],
     "facts": [],
     "collocations": [
@@ -601,6 +699,20 @@
         "id": "collocation:d6eaa13244528876eda9",
         "source_row": 18178,
         "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+      },
+      {
+        "id": "collocation:1c7169dca1909406797e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2679.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:b4f13a41d9fe31739d18",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2679.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

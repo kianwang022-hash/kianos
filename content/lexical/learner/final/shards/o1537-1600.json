@@ -190,8 +190,16 @@
     "ordinal": 1538,
     "word": "dwell",
     "source_owner_path": "content/lexical/words/by-ordinal/o1538.json",
-    "source_fingerprint": "bc477a36959146c6d93f2dcdb06845bd82e8ef7d61eab67310bb9f746cee49ac",
-    "sense_lineage": [],
+    "source_fingerprint": "4f762d2799705b9119180b9b5e3e29394396cec728fbbc994e898ceb10749b21",
+    "sense_lineage": [
+      {
+        "word_id": "word:dwell",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6b2f911f0ea6665a46ad",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -215,7 +223,7 @@
         "pos": "verb",
         "governing_pattern": "vi. + in/at/among",
         "definition_cn": "居住；栖身",
-        "definition_en": "to live or stay in a place",
+        "definition_en": "(formal or literary) to live in a place",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -237,13 +245,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "dwell among + people",
             "meaning_cn": "生活在（某人群）中",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6b2f911f0ea6665a46ad",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "dwell among + people"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -677,7 +680,7 @@
     "ordinal": 1541,
     "word": "dynamic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1541.json",
-    "source_fingerprint": "08bdc4011015983b6a11b441bbb4bf5e2376752380b9908732a53d0da70ff906",
+    "source_fingerprint": "d81186aaffa6267dfdd6aeddd1ef6ef3d844a13a6617ccbf4560a72822dd8d47",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -702,8 +705,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "以行动、力量或个性力量为特征的",
-        "definition_en": "characterized by action or forcefulness or force of personality",
+        "definition_cn": "有活力的；积极有力的；不断变化发展的",
+        "definition_en": "energetic and effective, or continually changing and developing",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -728,7 +731,7 @@
           "target_kind": "sense",
           "target_id": "sense:dynamic:06a9984e3a5750f5",
           "target_locator": "record.senses[0]",
-          "target_label": "以行动、力量或个性力量为特征的"
+          "target_label": "有活力的；积极有力的；不断变化发展的"
         }
       },
       {
@@ -937,7 +940,7 @@
     "ordinal": 1543,
     "word": "each",
     "source_owner_path": "content/lexical/words/by-ordinal/o1543.json",
-    "source_fingerprint": "ff3da46ce0568b7105fb38fa266e36f621789c55dd825a07b2700cca33396883",
+    "source_fingerprint": "3bc6878a82fbed768cf4de3b012a4acb81eb8abf61e3d297b62bc5777a7c9bac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -962,10 +965,10 @@
         "id": "sense:each:2c060855c933565c",
         "source_locator": "record.senses[0]",
         "pos": "determiner",
-        "governing_pattern": "",
+        "governing_pattern": "each + singular count noun",
         "definition_cn": "每个；每一",
         "definition_en": "every one of two or more people or things, considered separately",
-        "note": "",
+        "note": "直接限定名词时用单数，如 each student；不写 each students。",
         "identity_overlay": null,
         "usage": [
           {
@@ -988,10 +991,10 @@
         "id": "sense:each:ce2733c700fc5afd",
         "source_locator": "record.senses[1]",
         "pos": "pronoun",
-        "governing_pattern": "",
+        "governing_pattern": "each of + plural noun/pronoun",
         "definition_cn": "每个；各自",
         "definition_en": "every individual member of a group",
-        "note": "",
+        "note": "each of the students 作主语时，正式写作通常用单数谓语。复数主语后插入 each，谓语仍跟复数主语，如 They each have a book。实际英语 each of 后也出现复数谓语；不据此禁止 singular they。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1195,7 +1198,7 @@
     "ordinal": 1545,
     "word": "eagle",
     "source_owner_path": "content/lexical/words/by-ordinal/o1545.json",
-    "source_fingerprint": "611e0662f7b4fe76d9d5a59cd5eed9f2d374ab34594d61ad742e3749ea5f08b2",
+    "source_fingerprint": "5ea0050686f964c4249c306ea75544f0e61cfa70ce420e6f92303a6d6f96da21",
     "sense_lineage": [
       {
         "word_id": "word:eagle",
@@ -1203,11 +1206,25 @@
         "from_target_id": "sense:eagle:7be9e13383205c63",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:eagle",
+        "target_kind": "sense",
+        "from_target_id": "sense:eagle:a7b110a742c15cb8",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:eagle",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e4e927473acf468650ac",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -1246,32 +1263,6 @@
           "target_id": "sense:eagle:75335e0310df5fb7",
           "target_locator": "record.senses[0]",
           "target_label": "鹰"
-        }
-      },
-      {
-        "id": "sense:eagle:a7b110a742c15cb8",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "高尔夫球中的“老鹰球”（低于标准杆两杆）",
-        "definition_en": "in golf, a score of two strokes under par",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e4e927473acf468650ac",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "score an eagle",
-            "meaning_cn": "打出老鹰球",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:eagle:a7b110a742c15cb8",
-          "target_locator": "record.senses[1]",
-          "target_label": "高尔夫球中的“老鹰球”（低于标准杆两杆）"
         }
       }
     ],
@@ -1324,6 +1315,33 @@
           "source_row": 4320,
           "source_path": "content/lexical/canonical/senses/shards/o1537-1568.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e4e927473acf468650ac",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:eagle:a7b110a742c15cb8:collocation:0"
+              ],
+              "meaning_cn": "打出老鹰球",
+              "phrase": "score an eagle"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "高尔夫球中的“老鹰球”（低于标准杆两杆）",
+          "definition_en": "in golf, a score of two strokes under par",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:eagle:a7b110a742c15cb8",
+          "sense_label_en": "in golf, a score of two strokes under par",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "status": "deprecated",
+          "merged_into_sense_id": null
         }
       ]
     }
@@ -1334,7 +1352,7 @@
     "ordinal": 1546,
     "word": "ear",
     "source_owner_path": "content/lexical/words/by-ordinal/o1546.json",
-    "source_fingerprint": "1656c72734a4c4ef5c8216479d242c7a553f95838d1aaa89fba5e53482fd7577",
+    "source_fingerprint": "33e719d32a563aad32e8c401e0b41c020769ee8fc126ecad58bed681ee040be3",
     "sense_lineage": [
       {
         "word_id": "word:ear",
@@ -1349,31 +1367,17 @@
         "from_target_id": "sense:ear:9b2bbb21297d5f44",
         "status": "deprecated",
         "to_target_id": null
-      },
-      {
-        "word_id": "word:ear",
-        "target_kind": "sense",
-        "from_target_id": "sense:ear:ce8d924e98f15e6c",
-        "status": "deprecated",
-        "to_target_id": null
-      },
-      {
-        "word_id": "word:ear",
-        "target_kind": "sense",
-        "from_target_id": "sense:ear:d5f8de59655c5b71",
-        "status": "deprecated",
-        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "耳朵；听觉器官",
-      "decision_cn": "默认学习身体器官“耳朵”；倾听、谷穗等保留为短语或 Reference。",
+      "decision_cn": "身体耳朵与听音能力有联系；谷穗是独立词源的同形词，使用 an ear of corn/wheat。lend an ear 保留倾听构式；ear/year SOURCE_ONLY 辨音材料不升级。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1398,6 +1402,68 @@
           "target_locator": "record.senses[0]",
           "target_label": "耳朵、听觉器官"
         }
+      },
+      {
+        "id": "sense:ear:d5f8de59655c5b71",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "have an ear for music/languages",
+        "definition_cn": "辨音力；欣赏或辨别声音的能力",
+        "definition_en": "an ability to recognize, distinguish, or appreciate sounds",
+        "note": "an ear for music/languages 讲辨别或欣赏能力，不只是生理听觉器官。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:ear:898533fee3ab52ba",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "have an ear for music",
+            "meaning_cn": "对音乐有敏锐的辨音能力",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:ear:898533fee3ab52ba",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "have an ear for music"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ear:d5f8de59655c5b71",
+          "target_locator": "record.senses[1]",
+          "target_label": "辨音力；欣赏或辨别声音的能力"
+        }
+      },
+      {
+        "id": "sense:ear:ce8d924e98f15e6c",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "an ear of corn/wheat",
+        "definition_cn": "（谷物等的）穗",
+        "definition_en": "the fruiting spike of a cereal plant, especially corn",
+        "note": "谷穗是另一个词源分支，不把它硬解释成身体耳朵的抽象引申。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:ear:98c592353809af40",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "an ear of corn",
+            "meaning_cn": "一个玉米穗",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:ear:98c592353809af40",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "an ear of corn"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ear:ce8d924e98f15e6c",
+          "target_locator": "record.senses[2]",
+          "target_label": "（谷物等的）穗"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1410,14 +1476,43 @@
           "applicability": [
             {
               "surface": "ear"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "ear",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:ear:ce8d924e98f15e6c",
+                "sense:ear:d5f8de59655c5b71"
+              ],
+              "sense_ids": [
+                "sense:ear:ce8d924e98f15e6c",
+                "sense:ear:d5f8de59655c5b71"
+              ],
+              "excluded_sense_ids": [
+                "sense:ear:0c3e9429f58a5d1c"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/ear",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:ear:ce8d924e98f15e6c": [
+          0
+        ],
+        "sense:ear:d5f8de59655c5b71": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -1512,56 +1607,6 @@
           "source_row": 4324,
           "source_path": "content/lexical/canonical/senses/shards/o1537-1568.json",
           "reference_only": true
-        },
-        {
-          "stable_sense_id": "sense:ear:ce8d924e98f15e6c",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "noun",
-          "definition_cn": "（谷物等的）穗",
-          "definition_en": "the fruiting spike of a cereal plant, especially corn",
-          "semantic_key": "5562329cbb5c77ee9c3d6df3b47c9f7f46722d0500acf518efe52ab0598e53b0",
-          "semantic_key_history": [
-            "7100019815787529129733b8681f41c1fc504461637af96f27907c8a003417f9"
-          ],
-          "legacy_aliases": [
-            "ear:l2:4"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "ear:l2:4",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 4325,
-          "source_path": "content/lexical/canonical/senses/shards/o1537-1568.json",
-          "reference_only": true
-        },
-        {
-          "stable_sense_id": "sense:ear:d5f8de59655c5b71",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "noun",
-          "definition_cn": "听觉；辨音力",
-          "definition_en": "good hearing or sensitivity to sound",
-          "semantic_key": "b511ea7e31a4d4bbb268218b55dd331145a31b547abf2f4aaf8463626f34233e",
-          "semantic_key_history": [
-            "dc78bac6bcd10b5c8ea17d9c85532a39eecc9cd05a3342b57962b674a5d861da"
-          ],
-          "legacy_aliases": [
-            "ear:l1:2"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "ear:l1:2",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 4326,
-          "source_path": "content/lexical/canonical/senses/shards/o1537-1568.json",
-          "reference_only": true
         }
       ]
     }
@@ -1572,7 +1617,7 @@
     "ordinal": 1547,
     "word": "early",
     "source_owner_path": "content/lexical/words/by-ordinal/o1547.json",
-    "source_fingerprint": "62d68ee22fd82f0d5871a3fa05a40a494d656748f3fbaf4ecf7115ed2cc02fdd",
+    "source_fingerprint": "279890de325d91767b5d82398717595dd75c13e313632dedc15231284c29dc3a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1603,16 +1648,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:378daf0ad1df559f06d6",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "early morning",
-            "meaning_cn": "清晨",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:ab6cae13252870739fa4",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "early arrival",
             "meaning_cn": "早到",
             "kind": "usage_example",
@@ -1671,8 +1708,16 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:89af91982fce843b6237",
+            "id": "collocation:378daf0ad1df559f06d6",
             "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "early morning",
+            "meaning_cn": "清晨",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:89af91982fce843b6237",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "early stage",
             "meaning_cn": "早期阶段",
             "kind": "usage_example",
@@ -1680,7 +1725,7 @@
           },
           {
             "id": "collocation:bb0378b8e0953197bc50",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[2].collocations[2]",
             "phrase": "early development",
             "meaning_cn": "早期发展",
             "kind": "usage_example",
@@ -1781,7 +1826,7 @@
     "ordinal": 1548,
     "word": "earn",
     "source_owner_path": "content/lexical/words/by-ordinal/o1548.json",
-    "source_fingerprint": "b793e49fe80e192cbeab1788fc6adceb0fa4536f633a9b7c1e6f2ec918aa9175",
+    "source_fingerprint": "9d1b0665d9c05f206e04eccaae808de458983f0f297d95cff445b9320c4e983d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1790,13 +1835,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "获得",
-      "decision_cn": "",
+      "summary_cn": "挣得收入或产生收益；因行动而得到某结果",
+      "decision_cn": "劳动与投资都能 earn 收入；行动也会 earn 评价，结果可能是尊重，也可能是批评。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "获得"
+        "target_label": "挣得收入或产生收益；因行动而得到某结果"
       }
     },
     "senses": [
@@ -1804,9 +1849,9 @@
         "id": "sense:earn:5b59a58ad71c5234",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "赚得，挣得",
-        "definition_en": "to receive money for work done",
+        "governing_pattern": "earn money/a living; earn (for a living); an investment earns interest",
+        "definition_cn": "赚得；挣得；产生（收入或收益）",
+        "definition_en": "to receive income from work, or produce income or returns from an investment",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1825,13 +1870,26 @@
             "meaning_cn": "谋生",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:earn:4be1d2a229792153",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "earn interest",
+            "meaning_cn": "获得或产生利息收入",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:earn:4be1d2a229792153",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "earn interest"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:earn:5b59a58ad71c5234",
           "target_locator": "record.senses[0]",
-          "target_label": "赚得，挣得"
+          "target_label": "赚得；挣得；产生（收入或收益）"
         }
       },
       {
@@ -1839,9 +1897,9 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "博得，赢得",
-        "definition_en": "to deserve something because of your efforts",
-        "note": "",
+        "definition_cn": "赢得；因行动或表现而得到（评价、结果等）",
+        "definition_en": "to gain or deserve something as a result of actions or behaviour",
+        "note": "结果未必正面，也可 earn criticism/a rebuke；不限定为努力后得到奖励。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1857,7 +1915,7 @@
           "target_kind": "sense",
           "target_id": "sense:earn:e903bd04194658b4",
           "target_locator": "record.senses[1]",
-          "target_label": "博得，赢得"
+          "target_label": "赢得；因行动或表现而得到（评价、结果等）"
         }
       }
     ],
@@ -1937,23 +1995,37 @@
     "ordinal": 1549,
     "word": "earnest",
     "source_owner_path": "content/lexical/words/by-ordinal/o1549.json",
-    "source_fingerprint": "06144a2984173d4cf88bab5416caaf2a7bfe35670252d01b41db15c692f87fdb",
-    "sense_lineage": [],
+    "source_fingerprint": "97b12a463ec66b240a9b89302c4b2413c10569f921d85bd6503ef2217b1a07e7",
+    "sense_lineage": [
+      {
+        "word_id": "word:earnest",
+        "target_kind": "sense",
+        "from_target_id": "sense:earnest:85ffa92467ab5ba9",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:earnest",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b352c1b37eb84a4b1d36",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1A",
-        "1N"
+        "1A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "认真诚挚，或承诺的象征",
-      "decision_cn": "",
+      "summary_cn": "认真、真诚而投入的",
+      "decision_cn": "主干是认真、真诚投入；合同定金的专门名词用法保留查阅。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "认真诚挚，或承诺的象征"
+        "target_label": "认真、真诚而投入的"
       }
     },
     "senses": [
@@ -1971,7 +2043,7 @@
             "id": "collocation:717ec20ea5a25a955728",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "in earnest",
-            "meaning_cn": "认真地；正式地",
+            "meaning_cn": "认真地；真正投入地（开始比此前更认真、更充分地进行）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -1994,37 +2066,6 @@
           "target_id": "sense:earnest:dd4c86b9ce825896",
           "target_locator": "record.senses[0]",
           "target_label": "认真、严肃、真诚而投入的"
-        }
-      },
-      {
-        "id": "sense:earnest:85ffa92467ab5ba9",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "定金，保证金",
-        "definition_en": "something of value given by one person to another to bind a contract",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b352c1b37eb84a4b1d36",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "earnest money",
-            "meaning_cn": "定金",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b352c1b37eb84a4b1d36",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "earnest money"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:earnest:85ffa92467ab5ba9",
-          "target_locator": "record.senses[1]",
-          "target_label": "定金，保证金"
         }
       }
     ],
@@ -2066,7 +2107,36 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:b352c1b37eb84a4b1d36",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:earnest:85ffa92467ab5ba9:collocation:0"
+              ],
+              "meaning_cn": "定金",
+              "phrase": "earnest money"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "定金，保证金",
+          "definition_en": "something of value given by one person to another to bind a contract",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:earnest:85ffa92467ab5ba9",
+          "sense_label_en": "something of value given by one person to another to bind a contract",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "status": "deprecated",
+          "merged_into_sense_id": null
+        }
+      ]
     }
   },
   {
@@ -2075,7 +2145,7 @@
     "ordinal": 1550,
     "word": "earth",
     "source_owner_path": "content/lexical/words/by-ordinal/o1550.json",
-    "source_fingerprint": "2d2fc8d879f7a6bc1ee2209fcc3453e5f0fee6580b239849d72292c98bea3fae",
+    "source_fingerprint": "b824d6865c642f48f94ca4230d5be6f87d46e6aec75779d873d2fb6b507fbfd1",
     "sense_lineage": [
       {
         "word_id": "word:earth",
@@ -2191,7 +2261,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:earth:4993e78dea0510d8",
+        "source_locator": "record.constructions[0]",
+        "pattern": "what/how/why/where on earth ...?",
+        "lines": [
+          {
+            "text": "到底；究竟（强调惊讶或不解）",
+            "lang": "cn"
+          },
+          {
+            "text": "疑问强化；where on earth并不必然在询问地理位置。",
+            "lang": "cn"
+          },
+          {
+            "text": "used after a question word to stress surprise, confusion, or difficulty understanding",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:earth:4993e78dea0510d8",
+          "target_locator": "record.constructions[0]",
+          "target_label": "what/how/why/where on earth ...?"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2392,7 +2488,7 @@
     "ordinal": 1552,
     "word": "ease",
     "source_owner_path": "content/lexical/words/by-ordinal/o1552.json",
-    "source_fingerprint": "e4f109be2749d9387a46e609de60b0eedc74397609f72005dc3d5cd6fb9e0013",
+    "source_fingerprint": "3e9a50f11dd84abb7a36cf768594c448f4db04e5b18b34a8d2e97edc297cbb24",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2434,19 +2530,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "with ease"
             }
-          },
-          {
-            "id": "collocation:2accf529d0eb68502524",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "at ease",
-            "meaning_cn": "自在；安心",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2accf529d0eb68502524",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "at ease"
-            }
           }
         ],
         "repair": {
@@ -2460,9 +2543,9 @@
         "id": "sense:ease:b9f2f0f5fd9858ba",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "ease sth; pain/tension eases",
         "definition_cn": "减轻；缓解",
-        "definition_en": "to make something less severe or painful",
+        "definition_en": "to make or become less severe, difficult, or painful",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2494,9 +2577,9 @@
         "id": "sense:ease:455e2d5ff8ed5562",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + into",
+        "governing_pattern": "ease into sth; ease sb/sth/oneself + direction",
         "definition_cn": "缓慢移动；小心移动",
-        "definition_en": "to move slowly and carefully",
+        "definition_en": "to move slowly and carefully, or move someone or something in this way",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2532,8 +2615,21 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:c02fb013f3ee20dd4fd2",
+            "id": "collocation:2accf529d0eb68502524",
             "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "at ease",
+            "meaning_cn": "自在；安心",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:2accf529d0eb68502524",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "at ease"
+            }
+          },
+          {
+            "id": "collocation:c02fb013f3ee20dd4fd2",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "a life of ease",
             "meaning_cn": "安逸的生活",
             "kind": "usage_example",
@@ -2592,25 +2688,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:ecc9c9dff93f3296f957",
-        "source_locator": "record.constructions[0]",
-        "pattern": "ease pain/tension; ease into sth",
-        "lines": [
-          {
-            "text": "make less severe; move gradually and carefully",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:ecc9c9dff93f3296f957",
-          "target_locator": "record.constructions[0]",
-          "target_label": "ease pain/tension; ease into sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2767,7 +2845,7 @@
     "ordinal": 1554,
     "word": "Easter",
     "source_owner_path": "content/lexical/words/by-ordinal/o1554.json",
-    "source_fingerprint": "051ad89a71fa413d953536ce2a87f1c9ab71c885254a3d522d55c49e19196dc4",
+    "source_fingerprint": "750ec80a665ee63e902670a49ced102b0a8e31f44ce94764f6de37567af61539",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2792,7 +2870,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "复活节",
-        "definition_en": "a Christian festival celebrating the resurrection of Christ, observed on the Sunday after the first full moon following the vernal equinox",
+        "definition_en": "a Christian festival commemorating the resurrection of Jesus Christ",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2878,7 +2956,7 @@
     "ordinal": 1555,
     "word": "eastern",
     "source_owner_path": "content/lexical/words/by-ordinal/o1555.json",
-    "source_fingerprint": "99d124c8fdc7bd4e50f589f48a9a48c2a4ca28cf12b80ec82595200353d8695f",
+    "source_fingerprint": "b524c438b2d39926e12b5be5eea797fd3e7f73851383e7a7cd707071724156de",
     "sense_lineage": [
       {
         "word_id": "word:eastern",
@@ -2895,13 +2973,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "东方的；东部的；来自东方的",
+      "summary_cn": "东方的；东部的；来自东方或向东的",
       "decision_cn": "place/region → 东方的、东部的；wind/direction → 来自东方或向东。低价值的人群/宗派名词义保留为 Reference。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "东方的；东部的；来自东方的"
+        "target_label": "东方的；东部的；来自东方或向东的"
       }
     },
     "senses": [
@@ -2945,8 +3023,8 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "自东的；向东的",
-        "definition_en": "coming from the east",
-        "note": "",
+        "definition_en": "coming from, facing, or moving toward the east",
+        "note": "方向由所修饰的事物确定：an eastern wind 从东边吹来；路线或朝向语境可指向东，不把两种方向强行统一。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3054,7 +3132,7 @@
     "ordinal": 1556,
     "word": "easy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1556.json",
-    "source_fingerprint": "133d391044b32f56b1fb25ccfad982ecde68ca532211c52139b3b8c2a3977a23",
+    "source_fingerprint": "b13b8c7a8d9c2b9a191d42c7db844be2f5d5dff776acd8506ace2318ec518add",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3169,9 +3247,9 @@
         "id": "sense:easy:2fd9866b4df4576e",
         "source_locator": "record.senses[3]",
         "pos": "adverb",
-        "governing_pattern": "",
+        "governing_pattern": "phrase-dependent adverb; ordinary formal adverb: easily",
         "definition_cn": "容易地；轻松地",
-        "definition_en": "without difficulty or effort",
+        "definition_en": "(informal, especially in established phrases) without difficulty or strain",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3241,6 +3319,64 @@
           "target_locator": "record.constructions[0]",
           "target_label": "take it easy"
         }
+      },
+      {
+        "id": "construction:easy:520520d01c01de09",
+        "source_locator": "record.constructions[1]",
+        "pattern": "go/be easy on sb",
+        "lines": [
+          {
+            "text": "对某人宽容些；别过于严厉",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式；宾语是被对待或评价的人。",
+            "lang": "cn"
+          },
+          {
+            "text": "例：Go easy on the new student. → 对那个新同学宽容些。",
+            "lang": "cn"
+          },
+          {
+            "text": "to treat or judge someone less severely",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:easy:520520d01c01de09",
+          "target_locator": "record.constructions[1]",
+          "target_label": "go/be easy on sb"
+        }
+      },
+      {
+        "id": "construction:easy:46ffe757ac3ad782",
+        "source_locator": "record.constructions[2]",
+        "pattern": "go easy on sth",
+        "lines": [
+          {
+            "text": "少用或少摄取某物",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式；用量或摄取量语境，不按容易做某事理解。",
+            "lang": "cn"
+          },
+          {
+            "text": "例：Go easy on the sugar. → 糖少放一些。",
+            "lang": "cn"
+          },
+          {
+            "text": "to use or consume only a limited amount of something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:easy:46ffe757ac3ad782",
+          "target_locator": "record.constructions[2]",
+          "target_label": "go easy on sth"
+        }
       }
     ],
     "reference": {
@@ -3256,8 +3392,16 @@
     "ordinal": 1557,
     "word": "eat",
     "source_owner_path": "content/lexical/words/by-ordinal/o1557.json",
-    "source_fingerprint": "cf13cd085131c8c9e3d254c3e26939df4ea90dfbefa362cfdd06fa1f94a64c88",
-    "sense_lineage": [],
+    "source_fingerprint": "421f7cf23a68cf7127c236340f57a7739c2d54bca4b29cd63d5bd34027ab6faa",
+    "sense_lineage": [
+      {
+        "word_id": "word:eat",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fd90c275f916f90146d5",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -3279,7 +3423,7 @@
         "id": "sense:eat:86cabeb192c452fb",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "eat; eat food/a meal",
         "definition_cn": "吃，进食",
         "definition_en": "to take in solid food through the mouth and swallow it",
         "note": "",
@@ -3290,13 +3434,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "eat + sth",
             "meaning_cn": "吃某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:fd90c275f916f90146d5",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "eat + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:bbf4237357a037a65920",
@@ -3318,7 +3457,7 @@
         "id": "sense:eat:bf7f848f3112577b",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "eat; eat food/a meal",
         "definition_cn": "吃饭，用餐",
         "definition_en": "to have a meal",
         "note": "",
@@ -3429,6 +3568,35 @@
           "target_id": "construction:e0624e4a144531fc7b92",
           "target_locator": "record.constructions[0]",
           "target_label": "eat out"
+        }
+      },
+      {
+        "id": "construction:eat:fa343182a66a1077",
+        "source_locator": "record.constructions[1]",
+        "pattern": "eat into time/savings/profits",
+        "lines": [
+          {
+            "text": "占用时间；消耗或侵蚀资源、收益",
+            "lang": "cn"
+          },
+          {
+            "text": "资源语境；into不可按普通吃东西省略。腐蚀表面的另一个用法不混在此定义。",
+            "lang": "cn"
+          },
+          {
+            "text": "例：Repair costs ate into our savings. → 维修费用消耗了我们的积蓄。",
+            "lang": "cn"
+          },
+          {
+            "text": "to use up or reduce time, money, or other resources",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:eat:fa343182a66a1077",
+          "target_locator": "record.constructions[1]",
+          "target_label": "eat into time/savings/profits"
         }
       }
     ],
@@ -3839,12 +4007,20 @@
     "ordinal": 1560,
     "word": "echo",
     "source_owner_path": "content/lexical/words/by-ordinal/o1560.json",
-    "source_fingerprint": "1f321a812f9bfe41eb41286850c75b614e374ee052f31ad6ceeda63b7b0468e6",
-    "sense_lineage": [],
+    "source_fingerprint": "032fa83765d5d470b31ae760a2c95646b755ada87b5f601f9b78bf4a651db024",
+    "sense_lineage": [
+      {
+        "word_id": "word:echo",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:90589415a84409c8a68a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -3978,13 +4154,8 @@
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "echo + sb/sth",
             "meaning_cn": "重复某人/某物的话或行为",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:90589415a84409c8a68a",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "echo + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:cdf430c4f9d8944d385e",
@@ -4001,6 +4172,37 @@
           "target_locator": "record.senses[3]",
           "target_label": "重复，模仿，随声附和"
         }
+      },
+      {
+        "id": "sense:echo:5cb02bc4b2ed064c",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "an echo of sth; echoes of the past",
+        "definition_cn": "呼应；相似之处；使人想起旧事的迹象",
+        "definition_en": "a resemblance, repetition, or reminder of something said, done, or experienced before",
+        "note": "可指风格、事件或话语的呼应，不要求真的听到反射声。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:echo:5cb02bc4b2ed064c",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "echoes of the past",
+            "meaning_cn": "使人想起往事的迹象",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:echo:5cb02bc4b2ed064c",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "echoes of the past"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:echo:5cb02bc4b2ed064c",
+          "target_locator": "record.senses[4]",
+          "target_label": "呼应；相似之处；使人想起旧事的迹象"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4013,14 +4215,42 @@
           "applicability": [
             {
               "surface": "echo"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "echo",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:echo:5cb02bc4b2ed064c"
+              ],
+              "sense_ids": [
+                "sense:echo:5cb02bc4b2ed064c"
+              ],
+              "excluded_sense_ids": [
+                "sense:echo:3217c4b9e01251e5",
+                "sense:echo:5d94d509a1f15610",
+                "sense:echo:6f2049b62d9f58f3",
+                "sense:echo:c6c27f8f74e350f1"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/echo",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:echo:5cb02bc4b2ed064c": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -4037,8 +4267,16 @@
     "ordinal": 1561,
     "word": "eclipse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1561.json",
-    "source_fingerprint": "adeb994939c36566750ec76b06507489072120b9b7ae67de1f7822791cab8c38",
-    "sense_lineage": [],
+    "source_fingerprint": "5b1b53783d84bbd2376e139fc10ac86d68a930e107e6c62d593929ac38f06d2f",
+    "sense_lineage": [
+      {
+        "word_id": "word:eclipse",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:45f7a3f7035f60f90fd5",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -4063,8 +4301,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "日食或月食",
-        "definition_en": "an occasion when one celestial body obscures another",
-        "note": "",
+        "definition_en": "a partial or complete obscuring of a celestial body when another body blocks it from view or casts a shadow on it",
+        "note": "日食是月球遮住太阳的视线；月食是月球进入地球的影子。两者都可用eclipse，不把月食误记为地球直接挡住看月球的视线。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4132,13 +4370,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "eclipse + sb/sth",
             "meaning_cn": "使某人/某物黯然失色",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:45f7a3f7035f60f90fd5",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "eclipse + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4260,7 +4493,7 @@
     "ordinal": 1562,
     "word": "ecology",
     "source_owner_path": "content/lexical/words/by-ordinal/o1562.json",
-    "source_fingerprint": "b6439f623a787f6049e56580aca457f0a3452c3cd32bbb8de091fe90d1ea16c9",
+    "source_fingerprint": "09b82abe4a65bd666790f913c691dc09d6aa599c61ac67383727a10a6f1d2ae2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4296,14 +4529,6 @@
             "meaning_cn": "动物生态学",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:d4b5236a78cd827ceb34",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "ecology of the region",
-            "meaning_cn": "该地区的生态环境",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -4317,15 +4542,23 @@
         "id": "sense:ecology:72d76bc9ef77525c",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "生态环境",
-        "definition_en": "the environment as it relates to living organisms",
-        "note": "",
+        "governing_pattern": "the ecology of a place/region",
+        "definition_cn": "生态；生物及其与环境的相互关系",
+        "definition_en": "the pattern of relationships between living organisms and their environment in a place",
+        "note": "the ecology of a region 指实际生态关系；第一义ecology指研究这些关系的学科。不把ecology当成任何物理环境的普通同义词。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:9cac8df92b0433a1c0b1",
+            "id": "collocation:d4b5236a78cd827ceb34",
             "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "ecology of the region",
+            "meaning_cn": "该地区的生态环境",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:9cac8df92b0433a1c0b1",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "natural ecology",
             "meaning_cn": "自然生态",
             "kind": "usage_example",
@@ -4336,7 +4569,7 @@
           "target_kind": "sense",
           "target_id": "sense:ecology:72d76bc9ef77525c",
           "target_locator": "record.senses[1]",
-          "target_label": "生态环境"
+          "target_label": "生态；生物及其与环境的相互关系"
         }
       }
     ],
@@ -4374,17 +4607,25 @@
     "ordinal": 1563,
     "word": "economic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1563.json",
-    "source_fingerprint": "b563173743834f946489017cf695c514af5ad7faa5e104d0c29df62edf69336f",
-    "sense_lineage": [],
+    "source_fingerprint": "0757be8b52ec5d3893107b2102fc0e730a49210526dcb9b105e5f378ad03d44f",
+    "sense_lineage": [
+      {
+        "word_id": "word:economic",
+        "target_kind": "sense",
+        "from_target_id": "sense:economic:aa7c4dba5d7558df",
+        "status": "merged",
+        "to_target_id": "sense:economic:e003c4a4aa5b51ab"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "与资源、生产和货币如何组织有关",
-      "decision_cn": "economic 讲经济系统；economical 讲节省资源。",
+      "decision_cn": "economic 通常讲经济系统，也可表示划算、有经济可行性；economical 侧重节省资源。成本语境可能重叠。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4407,7 +4648,7 @@
             "id": "collocation:b4e67d55572431553319",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "economic growth",
-            "meaning_cn": "经济的；经济学的",
+            "meaning_cn": "经济增长",
             "kind": "usage_example",
             "repair": null
           },
@@ -4415,7 +4656,7 @@
             "id": "collocation:895b62707d12f3de9a6d",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "economic inequality",
-            "meaning_cn": "经济的；经济学的",
+            "meaning_cn": "经济不平等",
             "kind": "usage_example",
             "repair": null
           },
@@ -4423,7 +4664,15 @@
             "id": "collocation:ac93baef859318dce86f",
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "economic policy",
-            "meaning_cn": "经济的；经济学的",
+            "meaning_cn": "经济政策",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:04feb678cd13f91d9d58",
+            "source_locator": "record.senses[0].collocations[3]",
+            "phrase": "economic choice",
+            "meaning_cn": "资源配置方面的选择",
             "kind": "usage_example",
             "repair": null
           }
@@ -4449,7 +4698,7 @@
             "id": "collocation:23715ff8ea08745a2a62",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "economic to operate",
-            "meaning_cn": "有经济效益的；划算可行的",
+            "meaning_cn": "运营起来有经济效益／划算",
             "kind": "usage_example",
             "repair": null
           },
@@ -4457,7 +4706,7 @@
             "id": "collocation:37c3c78da0030ff1bd92",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "economic viability",
-            "meaning_cn": "有经济效益的；划算可行的",
+            "meaning_cn": "经济可行性",
             "kind": "usage_example",
             "repair": null
           }
@@ -4467,32 +4716,6 @@
           "target_id": "sense:economic:3e8cb124bb105857",
           "target_locator": "record.senses[1]",
           "target_label": "有经济效益的；划算可行的"
-        }
-      },
-      {
-        "id": "sense:economic:aa7c4dba5d7558df",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "资源配置方面的",
-        "definition_en": "relating broadly to choices under limited resources",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:04feb678cd13f91d9d58",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "economic choice",
-            "meaning_cn": "资源配置方面的",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:economic:aa7c4dba5d7558df",
-          "target_locator": "record.senses[2]",
-          "target_label": "资源配置方面的"
         }
       }
     ],
@@ -4529,7 +4752,7 @@
               "lang": "en"
             },
             {
-              "text": "using the minimum of time or resources necessary for effectiveness",
+              "text": "cost or resource-use considerations, with only partial overlap",
               "lang": "en"
             }
           ],
@@ -4543,7 +4766,56 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:04feb678cd13f91d9d58",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:economic:aa7c4dba5d7558df:collocation:0"
+              ],
+              "meaning_cn": "资源配置方面的选择",
+              "meaning_en": "relating broadly to choices under limited resources",
+              "phrase": "economic choice"
+            }
+          ],
+          "confidence": "high",
+          "definition_cn": "资源配置方面的",
+          "definition_en": "relating broadly to choices under limited resources",
+          "depth": "recognition_only",
+          "domain_tag": "economics",
+          "frequency_tag": "specialized",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:economic:aa7c4dba5d7558df",
+          "sense_label_en": "resource allocation",
+          "sort_order": 2,
+          "source_evidence": [
+            {
+              "role": "local_evidence",
+              "source": "kaoyan"
+            },
+            {
+              "role": "local_evidence",
+              "source": "local_ecdict"
+            },
+            {
+              "role": "local_evidence",
+              "source": "local_oewn"
+            },
+            {
+              "role": "local_evidence",
+              "source": "ai_curated_mvp_v1"
+            }
+          ],
+          "reference_only": true,
+          "status": "merged",
+          "merged_into_sense_id": "sense:economic:e003c4a4aa5b51ab"
+        }
+      ]
     }
   },
   {
@@ -4552,7 +4824,7 @@
     "ordinal": 1564,
     "word": "economical",
     "source_owner_path": "content/lexical/words/by-ordinal/o1564.json",
-    "source_fingerprint": "48d57e4983238b4f5b3d68a210ff0f4c11a917729b386826da666fe8fac8eae3",
+    "source_fingerprint": "ba3f5f3533865e7c43220eec280b514d53970a6db4815940ed5ac7d79fb28f05",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4670,7 +4942,37 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:economical:76f50a47b50a1884",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be economical with the truth",
+        "lines": [
+          {
+            "text": "隐瞒部分真相；没有把实情全说出来",
+            "lang": "cn"
+          },
+          {
+            "text": "委婉地批评不诚实；此固定说法不是称赞节俭。",
+            "lang": "cn"
+          },
+          {
+            "text": "例：The report was economical with the truth. → 报告没有把实情全说出来。",
+            "lang": "cn"
+          },
+          {
+            "text": "to withhold parts of the truth so that others are misled",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:economical:76f50a47b50a1884",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be economical with the truth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -4683,7 +4985,7 @@
               "lang": "en"
             },
             {
-              "text": "using the minimum of time or resources necessary for effectiveness",
+              "text": "cost or resource-use considerations, with only partial overlap",
               "lang": "en"
             }
           ],
@@ -4706,7 +5008,7 @@
     "ordinal": 1565,
     "word": "economics",
     "source_owner_path": "content/lexical/words/by-ordinal/o1565.json",
-    "source_fingerprint": "d78e6e41e39f65fd97813b63c28f5b23c54efb398a96fea01a8bcd8a8d721111",
+    "source_fingerprint": "ef77ab6aa0e34b03e0f155464fcf18e42432b7d32632e402852127bb9cb52168",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4739,7 +5041,7 @@
             "id": "collocation:41a86d00b4875c67d9b6",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "economics of + sth",
-            "meaning_cn": "某事物的经济学（如经济学原理）",
+            "meaning_cn": "某事物的经济原理；在项目或行业语境也指其成本、收益等经济状况／运作方式",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -4812,7 +5114,7 @@
     "ordinal": 1566,
     "word": "economy",
     "source_owner_path": "content/lexical/words/by-ordinal/o1566.json",
-    "source_fingerprint": "77da6a4496f53c34fc626a56e8018b5fe88ebcccac425bafa3ca600ba392ae64",
+    "source_fingerprint": "f47bcfb6940a9ee8494c0354d3d09badff8f3eb382314bd84d1723d56014ceaa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4960,6 +5262,35 @@
           "target_locator": "record.constructions[0]",
           "target_label": "economy/economies of scale"
         }
+      },
+      {
+        "id": "construction:economy:5b5faa142ec99536",
+        "source_locator": "record.constructions[1]",
+        "pattern": "economy class; fly/travel economy",
+        "lines": [
+          {
+            "text": "经济舱；乘经济舱旅行",
+            "lang": "cn"
+          },
+          {
+            "text": "旅行服务等级，具体指航空经济舱或以该等级旅行；不按国家经济体系理解。",
+            "lang": "cn"
+          },
+          {
+            "text": "例：We flew economy on the return trip. → 回程我们乘了经济舱。",
+            "lang": "cn"
+          },
+          {
+            "text": "the standard lower-priced class of air travel, or travelling in that class",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:economy:5b5faa142ec99536",
+          "target_locator": "record.constructions[1]",
+          "target_label": "economy class; fly/travel economy"
+        }
       }
     ],
     "reference": {
@@ -4975,7 +5306,7 @@
     "ordinal": 1567,
     "word": "edge",
     "source_owner_path": "content/lexical/words/by-ordinal/o1567.json",
-    "source_fingerprint": "d8346d8439af909e40e16e664cfb756fab2e331ca7527a407dd07bc829309f82",
+    "source_fingerprint": "5f7572aca161994a560a4fc43978835550803e4a66ff6688d543193b1442389f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5082,9 +5413,9 @@
         "id": "sense:edge:f4bdc4731eed5a12",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + forward/away",
+        "governing_pattern": "edge forward/away; edge sth toward/into sth",
         "definition_cn": "缓缓移动",
-        "definition_en": "move gradually or cautiously",
+        "definition_en": "to move gradually or cautiously, or move something in this way",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5131,7 +5462,66 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:edge:62a4ba6e2fa74632",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be/feel on edge",
+        "lines": [
+          {
+            "text": "紧张不安；难以放松",
+            "lang": "cn"
+          },
+          {
+            "text": "状态构式，不表示站在某物的物理边缘。",
+            "lang": "cn"
+          },
+          {
+            "text": "例：I felt on edge before the interview. → 面试前我很紧张。",
+            "lang": "cn"
+          },
+          {
+            "text": "to feel nervous or tense and unable to relax",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:edge:62a4ba6e2fa74632",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be/feel on edge"
+        }
+      },
+      {
+        "id": "construction:edge:f495a28035144f50",
+        "source_locator": "record.constructions[1]",
+        "pattern": "edge sb out; edge out sb",
+        "lines": [
+          {
+            "text": "以微弱优势击败对手",
+            "lang": "cn"
+          },
+          {
+            "text": "竞赛语境；代词宾语放在edge和out之间，如edge her out。",
+            "lang": "cn"
+          },
+          {
+            "text": "例：Our team edged them out in the final. → 我们队在决赛中以微弱优势击败了他们。",
+            "lang": "cn"
+          },
+          {
+            "text": "to defeat a competitor by a small margin",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:edge:f495a28035144f50",
+          "target_locator": "record.constructions[1]",
+          "target_label": "edge sb out; edge out sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5273,8 +5663,16 @@
     "ordinal": 1569,
     "word": "edit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1569.json",
-    "source_fingerprint": "0ee167fad618367f6f4de75c05e1ce7f8840180b15b8bd114ca49e7f7b9e3141",
-    "sense_lineage": [],
+    "source_fingerprint": "55169bf1cda5e78344d5ab33217e4bd0907202f4171d91a301ace3df20572785",
+    "sense_lineage": [
+      {
+        "word_id": "word:edit",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:89881c6ba295e75b7351",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V"
@@ -5315,13 +5713,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "edit + sth",
             "meaning_cn": "编辑某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:89881c6ba295e75b7351",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "edit + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5450,7 +5843,7 @@
     "ordinal": 1570,
     "word": "edition",
     "source_owner_path": "content/lexical/words/by-ordinal/o1570.json",
-    "source_fingerprint": "88a39a6cec14be34519f474a80ad85c8efa822c80831f6467c402ebbceea81cb",
+    "source_fingerprint": "3ac08f5fed14fa5653cc06336e8050ccaf30ad87cfea86b1d278358a4180c2b0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5460,7 +5853,7 @@
     },
     "word_feel": {
       "summary_cn": "出版物的特定形式或版本",
-      "decision_cn": "",
+      "decision_cn": "edition可指出版物的某版本，也可指报纸或定期广播、电视节目的一期；按载体判断，不把节目的一期误读成书籍修订版。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5533,9 +5926,9 @@
         "id": "sense:edition:6a2c5281fe7356f1",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（报纸的）一期",
-        "definition_en": "an issue of a newspaper",
+        "governing_pattern": "an edition of a newspaper/programme",
+        "definition_cn": "（报纸、系列广播或电视节目等的）一期",
+        "definition_en": "a particular issue of a newspaper or instalment of a regular broadcast programme",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5546,13 +5939,26 @@
             "meaning_cn": "早报版",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:edition:c189932952c8cd33",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "this evening's edition of the programme",
+            "meaning_cn": "该节目的今晚一期",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:edition:c189932952c8cd33",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "this evening's edition of the programme"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:edition:6a2c5281fe7356f1",
           "target_locator": "record.senses[2]",
-          "target_label": "（报纸的）一期"
+          "target_label": "（报纸、系列广播或电视节目等的）一期"
         }
       }
     ],
@@ -5726,7 +6132,7 @@
     "ordinal": 1572,
     "word": "editorial",
     "source_owner_path": "content/lexical/words/by-ordinal/o1572.json",
-    "source_fingerprint": "5ccdb38498554036c36e79ddd58f37c496559eb85312c95493f51a34ebc40eaf",
+    "source_fingerprint": "4321fe976cf95bde6e1d0e97de5849f318d80e92bf98e00e747ae752676fbc50",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5785,9 +6191,9 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "社论的；评论性的",
-        "definition_en": "of or relating to an article stating opinions or giving perspectives",
-        "note": "",
+        "definition_cn": "社论的；评论性的；涉及媒体立场与内容方针的",
+        "definition_en": "relating to a publication's or broadcaster's opinions, perspective, or choice of content, including opinion articles",
+        "note": "editorial policy 可谈媒体立场与内容选择，不只某篇社论。editorial staff 的人员/编辑业务义仍归另一既有形容词。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5803,7 +6209,7 @@
           "target_kind": "sense",
           "target_id": "sense:editorial:0692d25a87bc52fa",
           "target_locator": "record.senses[1]",
-          "target_label": "社论的；评论性的"
+          "target_label": "社论的；评论性的；涉及媒体立场与内容方针的"
         }
       },
       {
@@ -6029,7 +6435,7 @@
     "ordinal": 1574,
     "word": "education",
     "source_owner_path": "content/lexical/words/by-ordinal/o1574.json",
-    "source_fingerprint": "db4137441630acaf8fd39dde8cec84809bb492a2122e4a1109c4e3cd569f546a",
+    "source_fingerprint": "0de6e9ca377e90855fb6196526079febca92d29f5de9791f457a02aef3d5114b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6119,7 +6525,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "教育学，教育行业",
-        "definition_en": "the profession of teaching",
+        "definition_en": "the field of teaching and learning, as a profession or subject of study",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6200,7 +6606,7 @@
     "ordinal": 1575,
     "word": "effect",
     "source_owner_path": "content/lexical/words/by-ordinal/o1575.json",
-    "source_fingerprint": "8b025ea39d2d795d75b3079ed27f0181d68fe89a82649bfd1b644a4e9378624e",
+    "source_fingerprint": "4a4a1f95f9724e76bd792362231fc0fb95fed6d9b917e2f3316298db4596de1c",
     "sense_lineage": [
       {
         "word_id": "word:effect",
@@ -6208,6 +6614,20 @@
         "from_target_id": "sense:effect:0a4077b4ec985e46",
         "status": "merged",
         "to_target_id": "sense:effect:832fe9868899563d"
+      },
+      {
+        "word_id": "word:effect",
+        "target_kind": "sense",
+        "from_target_id": "sense:effect:b10e490521e55ff5",
+        "status": "merged",
+        "to_target_id": "sense:effect:832fe9868899563d"
+      },
+      {
+        "word_id": "word:effect",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:3dbf59b88737030486be",
+        "status": "merged",
+        "to_target_id": "collocation:18db738ae0dfd80ef61e"
       }
     ],
     "recall_map": {
@@ -6255,7 +6675,7 @@
             "id": "collocation:18db738ae0dfd80ef61e",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "side effect",
-            "meaning_cn": "副作用",
+            "meaning_cn": "副作用；伴随主要作用出现的次生结果，常指不良影响",
             "kind": "usage_example",
             "repair": null
           },
@@ -6316,16 +6736,26 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "come into effect",
             "meaning_cn": "生效",
-            "kind": "usage_example",
-            "repair": null
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5fb3753849b04a0cfef1",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "come into effect"
+            }
           },
           {
             "id": "collocation:ccdae13b373303c77a8b",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "take effect",
             "meaning_cn": "生效；起作用",
-            "kind": "usage_example",
-            "repair": null
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:ccdae13b373303c77a8b",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "take effect"
+            }
           }
         ],
         "repair": {
@@ -6336,34 +6766,8 @@
         }
       },
       {
-        "id": "sense:effect:b10e490521e55ff5",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "副作用；非预期的次生结果",
-        "definition_en": "an unintended or secondary result of an action, especially an adverse effect",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:3dbf59b88737030486be",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "side effect",
-            "meaning_cn": "副作用",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:effect:b10e490521e55ff5",
-          "target_locator": "record.senses[3]",
-          "target_label": "副作用；非预期的次生结果"
-        }
-      },
-      {
         "id": "sense:effect:3d6d0b40068e5602",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "引起；使发生",
@@ -6373,7 +6777,7 @@
         "usage": [
           {
             "id": "collocation:c4606ddcbd51aa11b772",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "effect a change",
             "meaning_cn": "引起变化",
             "kind": "usage_example",
@@ -6383,8 +6787,39 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:effect:3d6d0b40068e5602",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "引起；使发生"
+        }
+      },
+      {
+        "id": "sense:effect:e5d7f3c98fb14ea9",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "personal effects; household effects",
+        "definition_cn": "（复数）个人物品；随身财物",
+        "definition_en": "a person's belongings, expressed as the plural effects",
+        "note": "正式；此财物义用复数effects，不把单数an effect解释成一件行李或物品。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:effect:e5d7f3c98fb14ea9",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "personal effects",
+            "meaning_cn": "个人物品；随身财物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:effect:e5d7f3c98fb14ea9",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "personal effects"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:effect:e5d7f3c98fb14ea9",
+          "target_locator": "record.senses[4]",
+          "target_label": "（复数）个人物品；随身财物"
         }
       }
     ],
@@ -6399,17 +6834,104 @@
           "applicability": [
             {
               "surface": "effect"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "effect",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:effect:e5d7f3c98fb14ea9"
+              ],
+              "sense_ids": [
+                "sense:effect:e5d7f3c98fb14ea9"
+              ],
+              "excluded_sense_ids": [
+                "sense:effect:3d6d0b40068e5602",
+                "sense:effect:832fe9868899563d",
+                "sense:effect:9b5270268798544d",
+                "sense:effect:dcd0cfb49bb25c09"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/effect",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:effect:e5d7f3c98fb14ea9": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:effect:eb781f7e811c0d15",
+        "source_locator": "record.constructions[0]",
+        "pattern": "to this/that effect; to the effect that + clause",
+        "lines": [
+          {
+            "text": "大意如此；意思是……",
+            "lang": "cn"
+          },
+          {
+            "text": "概述内容，不声称逐字引述；也不是法律生效的take effect。",
+            "lang": "cn"
+          },
+          {
+            "text": "例：She sent a message to the effect that the meeting was cancelled. → 她发来消息，大意是会议取消了。",
+            "lang": "cn"
+          },
+          {
+            "text": "to report the general meaning of something said or written",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:effect:eb781f7e811c0d15",
+          "target_locator": "record.constructions[0]",
+          "target_label": "to this/that effect; to the effect that + clause"
+        }
+      },
+      {
+        "id": "construction:effect:335b830b789c2197",
+        "source_locator": "record.constructions[1]",
+        "pattern": "in effect (summarizing the actual situation)",
+        "lines": [
+          {
+            "text": "实际意义上；事实上",
+            "lang": "cn"
+          },
+          {
+            "text": "概括实际情况，未必字面上完全相同。be/remain in effect 在规定、安排等语境中指生效或仍然有效，属于原有的效力义，不能在此解释为“事实上”。",
+            "lang": "cn"
+          },
+          {
+            "text": "例：She did all the planning; in effect, she was in charge. → 所有规划都由她做；实际上，她在负责。对照：The rule remains in effect. → 这条规定仍然有效。",
+            "lang": "cn"
+          },
+          {
+            "text": "in practical terms or as a summary of the actual situation",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:effect:335b830b789c2197",
+          "target_locator": "record.constructions[1]",
+          "target_label": "in effect (summarizing the actual situation)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -6478,6 +7000,33 @@
           "source_row": 4407,
           "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3dbf59b88737030486be",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:effect:b10e490521e55ff5:collocation:0"
+              ],
+              "meaning_cn": "副作用",
+              "phrase": "side effect"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "副作用；非预期的次生结果",
+          "definition_en": "an unintended or secondary result of an action, especially an adverse effect",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:effect:b10e490521e55ff5",
+          "sense_label_en": "an unintended or secondary result of an action, especially an adverse effect",
+          "sort_order": 3,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "status": "merged",
+          "merged_into_sense_id": "sense:effect:832fe9868899563d"
         }
       ]
     }
@@ -6488,7 +7037,7 @@
     "ordinal": 1576,
     "word": "effective",
     "source_owner_path": "content/lexical/words/by-ordinal/o1576.json",
-    "source_fingerprint": "47b218b68370166131849b5029a008662ddd3cb089c4415ce912fc3ae20c29bc",
+    "source_fingerprint": "36044716b1e96dd4a71c2f1382fdaa8bb3051c791cf5b37a5afa3faeefd8dfd5",
     "sense_lineage": [
       {
         "word_id": "word:effective",
@@ -6500,21 +7049,21 @@
       {
         "word_id": "word:effective",
         "target_kind": "sense",
-        "from_target_id": "sense:effective:739d137683365a08",
+        "from_target_id": "sense:effective:a9859134392a5bd8",
         "status": "deprecated",
         "to_target_id": null
       },
       {
         "word_id": "word:effective",
-        "target_kind": "sense",
-        "from_target_id": "sense:effective:a9859134392a5bd8",
-        "status": "deprecated",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:20383a78c51fbb2a2504",
+        "status": "reference",
         "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
       "density": "rich"
     },
@@ -6544,13 +7093,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "effective method/measure",
             "meaning_cn": "有效的方法或措施",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:20383a78c51fbb2a2504",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "effective method/measure"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6558,6 +7102,37 @@
           "target_id": "sense:effective:27790f7b5f6a5932",
           "target_locator": "record.senses[0]",
           "target_label": "有效的；产生预期结果的"
+        }
+      },
+      {
+        "id": "sense:effective:739d137683365a08",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "effective income/control",
+        "definition_cn": "实际的，事实上的",
+        "definition_en": "actual; real, as opposed to nominal",
+        "note": "这里对比名义数值或名义身份；不只是说方法能达到预期结果。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:effective:fd7f4c37c369972d",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "effective income after deductions",
+            "meaning_cn": "扣除相关项目后的实际收入",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:effective:fd7f4c37c369972d",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "effective income after deductions"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:effective:739d137683365a08",
+          "target_locator": "record.senses[1]",
+          "target_label": "实际的，事实上的"
         }
       }
     ],
@@ -6569,6 +7144,27 @@
           "applicability": [
             {
               "surface": "effective"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "effective",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:effective:739d137683365a08"
+              ],
+              "sense_ids": [
+                "sense:effective:739d137683365a08"
+              ],
+              "excluded_sense_ids": [
+                "sense:effective:27790f7b5f6a5932"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/effective",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6588,8 +7184,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:effective:739d137683365a08": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -6638,8 +7238,8 @@
           "target_word": "effect",
           "lines": [
             {
-              "text": "effect",
-              "lang": "en"
+              "text": "effect（名词：结果、效果）→ effective（形容词：能产生预期效果的）；词性与句法不同，不能直接互换。",
+              "lang": "cn"
             }
           ],
           "source_locator": "record.word_family[0]"
@@ -6668,31 +7268,6 @@
           ],
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 4414,
-          "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json",
-          "reference_only": true
-        },
-        {
-          "stable_sense_id": "sense:effective:739d137683365a08",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "adjective",
-          "definition_cn": "实际的，事实上的",
-          "definition_en": "actual; real, as opposed to nominal",
-          "semantic_key": "3bb8dc71e0c03435ae99e7842663d52b423e17dbc678f10344550494a19cfffa",
-          "semantic_key_history": [
-            "4f30a3384f2f7fbc1eba4279be1f32570aa2728c51a20bb12447d94da22c0305"
-          ],
-          "legacy_aliases": [
-            "effective:l3:3"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "effective:l3:3",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 4415,
           "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json",
           "reference_only": true
         },
@@ -7000,13 +7575,20 @@
     "ordinal": 1579,
     "word": "effort",
     "source_owner_path": "content/lexical/words/by-ordinal/o1579.json",
-    "source_fingerprint": "d2137e5c42f34fa8d5e101894fdc6834985056fbac0dede705268b10e4adb4c6",
+    "source_fingerprint": "5d37204998db3bd2caa807350ca73eaf335206a69842fddd8bd5b608413ff441",
     "sense_lineage": [
       {
         "word_id": "word:effort",
         "target_kind": "sense",
         "from_target_id": "sense:effort:01c3f6a5c1de559f",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:effort",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:feed960834d21265353e",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -7068,13 +7650,8 @@
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "campaign/search/rescue effort",
             "meaning_cn": "运动、搜寻或救援行动",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:feed960834d21265353e",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "campaign/search/rescue effort"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7125,8 +7702,8 @@
         "pattern": "an effort to do sth",
         "lines": [
           {
-            "text": "an attempt to do something",
-            "lang": "en"
+            "text": "为做成某事作出的努力或尝试",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -7145,7 +7722,7 @@
           "target_word": "campaign",
           "lines": [
             {
-              "text": "effort is the broader expenditure of work or energy; a campaign is an organized, sustained series of actions directed toward a goal.",
+              "text": "effort can mean work or energy, or an attempt/action; campaign is a coordinated, sustained series of actions toward a goal.",
               "lang": "en"
             }
           ],
@@ -7195,7 +7772,7 @@
     "ordinal": 1580,
     "word": "egg",
     "source_owner_path": "content/lexical/words/by-ordinal/o1580.json",
-    "source_fingerprint": "2c0599d4ed11f03907ea10063d951fc16cd875d8363bb9d1c539d4b3d4a4e9b3",
+    "source_fingerprint": "dced47b44205cb66b65bdd68879a46a3e493ae5256cbd361f690e51e2223fc3d",
     "sense_lineage": [
       {
         "word_id": "word:egg",
@@ -7214,18 +7791,18 @@
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "蛋；卵",
-      "decision_cn": "",
+      "summary_cn": "蛋；卵；卵细胞",
+      "decision_cn": "食物、产出的卵与生殖细胞按语境区分；人类egg不要求像鸟蛋那样产到体外。egg on仍是原独立构式。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "蛋；卵"
+        "target_label": "蛋；卵；卵细胞"
       }
     },
     "senses": [
@@ -7235,7 +7812,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "蛋，卵",
-        "definition_en": "a round object laid by a bird, usually with a shell, which contains a baby bird",
+        "definition_en": "an oval or rounded reproductive structure produced by a bird or other egg-laying animal, from which a young animal may develop",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7244,14 +7821,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "lay an egg",
             "meaning_cn": "下蛋",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:e8140859a1fab6666c72",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "boiled egg",
-            "meaning_cn": "煮鸡蛋",
             "kind": "usage_example",
             "repair": null
           }
@@ -7274,8 +7843,16 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:6f8e76f010e668626daa",
+            "id": "collocation:e8140859a1fab6666c72",
             "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "boiled egg",
+            "meaning_cn": "煮鸡蛋",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:6f8e76f010e668626daa",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "fried egg",
             "meaning_cn": "煎蛋",
             "kind": "usage_example",
@@ -7283,7 +7860,7 @@
           },
           {
             "id": "collocation:55c6c0196fd64f4038cf",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[2]",
             "phrase": "egg white",
             "meaning_cn": "蛋白",
             "kind": "usage_example",
@@ -7296,6 +7873,37 @@
           "target_locator": "record.senses[1]",
           "target_label": "鸡蛋（食物）"
         }
+      },
+      {
+        "id": "sense:egg:452c301901fd8ee2",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "an egg cell; a fertilized egg",
+        "definition_cn": "卵细胞；雌性生殖细胞",
+        "definition_en": "a female reproductive cell in an animal or plant",
+        "note": "可指人及其他动物、植物的雌性生殖细胞；不要求已经产到体外，也不是食用鸡蛋。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:egg:452c301901fd8ee2",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "egg cell",
+            "meaning_cn": "卵细胞",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:egg:452c301901fd8ee2",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "egg cell"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:egg:452c301901fd8ee2",
+          "target_locator": "record.senses[2]",
+          "target_label": "卵细胞；雌性生殖细胞"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7306,6 +7914,28 @@
           "applicability": [
             {
               "surface": "egg"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "egg",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:egg:452c301901fd8ee2"
+              ],
+              "sense_ids": [
+                "sense:egg:452c301901fd8ee2"
+              ],
+              "excluded_sense_ids": [
+                "sense:egg:a273e1ee8a635cc9",
+                "sense:egg:fd98e4259eb65c6a"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/egg",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7325,8 +7955,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:egg:452c301901fd8ee2": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -7336,8 +7970,8 @@
         "pattern": "egg sb on (to do sth)",
         "lines": [
           {
-            "text": "encourage or provoke someone to act",
-            "lang": "en"
+            "text": "怂恿、煽动某人去做某事",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -7413,7 +8047,7 @@
     "ordinal": 1581,
     "word": "ego",
     "source_owner_path": "content/lexical/words/by-ordinal/o1581.json",
-    "source_fingerprint": "41f2e3a388046da1ba53a231af0e0d9ba30c34337373ca7e9bab101df5d5f3fc",
+    "source_fingerprint": "fe115f54f996c8bb17d96efc543ff08a76b2b9988c5be5761985883cd3ad280d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7441,34 +8075,7 @@
         "definition_en": "the self, especially as a conscious thinking subject",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6f6cbb31988cd035753c",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "ego trip",
-            "meaning_cn": "自我表现",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6f6cbb31988cd035753c",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "ego trip"
-            }
-          },
-          {
-            "id": "collocation:634ee3d6e2bab1a78810",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "boost one's ego",
-            "meaning_cn": "增强自尊心",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:634ee3d6e2bab1a78810",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "boost one's ego"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:ego:4addeeafe9985f43",
@@ -7482,7 +8089,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "自负；自尊心",
-        "definition_en": "an inflated feeling of pride in oneself",
+        "definition_en": "a person's sense of self-worth or importance, sometimes exaggerated",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7493,6 +8100,32 @@
             "meaning_cn": "自负",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:6f6cbb31988cd035753c",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "ego trip",
+            "meaning_cn": "旨在满足自尊或显示自我重要性的行为",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:6f6cbb31988cd035753c",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "ego trip"
+            }
+          },
+          {
+            "id": "collocation:634ee3d6e2bab1a78810",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "boost one's ego",
+            "meaning_cn": "增强自尊心",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:634ee3d6e2bab1a78810",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "boost one's ego"
+            }
           }
         ],
         "repair": {
@@ -7830,7 +8463,7 @@
     "ordinal": 1585,
     "word": "either",
     "source_owner_path": "content/lexical/words/by-ordinal/o1585.json",
-    "source_fingerprint": "760d30b2d8fa0734c48d8d9bdaf233e54017bfdb5ab35ad564ccb9c71ba21d35",
+    "source_fingerprint": "6f0e4100126617556175a708e8a7109bdae90f70f486b532caf7d5db36ba5428",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7842,13 +8475,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "两者之一",
-      "decision_cn": "",
+      "summary_cn": "两者任一；也可指两边各一；否定句中表示“也不”",
+      "decision_cn": "选择：park on either side 表示两边任一边。分布：offices on either side 表示两边各有办公室。not...either 表示也不。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "两者之一"
+        "target_label": "两者任一；也可指两边各一；否定句中表示“也不”"
       }
     },
     "senses": [
@@ -7896,14 +8529,14 @@
           {
             "id": "collocation:762e7bbda04f9dd30c14",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "either of + plural noun",
+            "phrase": "either of the/these/those/my... + plural noun; either of us/you/them",
             "meaning_cn": "两者中的任何一个",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:762e7bbda04f9dd30c14",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "either of + plural noun"
+              "target_label": "either of the/these/those/my... + plural noun; either of us/you/them"
             }
           }
         ],
@@ -8211,7 +8844,7 @@
     "ordinal": 1587,
     "word": "elaborate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1587.json",
-    "source_fingerprint": "b0b11fafec1bd241a1ba243d5b3e319f812cac771e8020dbce020b87ba11c7a8",
+    "source_fingerprint": "e6caae44b152964ca94468be4df2ccc0491366ce13ee31cb2e971a1bfa106a86",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8269,7 +8902,7 @@
         "id": "sense:elaborate:ec4fb825407c57d0",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + on/upon",
+        "governing_pattern": "elaborate (on/upon sth); elaborate sth",
         "definition_cn": "详细说明；进一步阐述",
         "definition_en": "to explain something more fully or in greater detail",
         "note": "",
@@ -8552,7 +9185,7 @@
     "ordinal": 1589,
     "word": "elastic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1589.json",
-    "source_fingerprint": "7957d443483937229c7a6997c720eaab004adb43b67f46ed31b885cf1dfec6d9",
+    "source_fingerprint": "3349b09a3176d67023a5d206e933a1d6df2d1797cd83a4a67d661ceb6482f31a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8620,7 +9253,7 @@
             "id": "collocation:3a4384bfc20746c8460c",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "elastic demand/supply",
-            "meaning_cn": "有弹性的需求或供给",
+            "meaning_cn": "对价格变化反应较大的需求／供给（经济学语境，不只是规则可通融）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -8696,8 +9329,16 @@
     "ordinal": 1590,
     "word": "elbow",
     "source_owner_path": "content/lexical/words/by-ordinal/o1590.json",
-    "source_fingerprint": "a6608d7f9f0baf52bf2a856d341ee12cbf109c0bc781876c6f477dace70391c1",
-    "sense_lineage": [],
+    "source_fingerprint": "f6dda4e5ac10aa768dc1c55e8471183c8379b87ade624ede45083d1275bd12c9",
+    "sense_lineage": [
+      {
+        "word_id": "word:elbow",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b33ce7439dd83e905fa0",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -8739,13 +9380,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "rest one's elbows on the table",
             "meaning_cn": "把肘部搁在桌上",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b33ce7439dd83e905fa0",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "rest one's elbows on the table"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8873,7 +9509,7 @@
     "ordinal": 1591,
     "word": "elder",
     "source_owner_path": "content/lexical/words/by-ordinal/o1591.json",
-    "source_fingerprint": "e618363a171032631ff7a0736cc52799a68329cf2772cb8de650980a97623881",
+    "source_fingerprint": "f0ed1ede70b5b06b33e8dd1b05b01ba18100e809191b6e3d6376264965c0e730",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9056,8 +9692,8 @@
         "pattern": "elder vs older",
         "lines": [
           {
-            "text": "elder/older usage boundary",
-            "lang": "en"
+            "text": "elder 多用于亲属或人之间的年长关系，通常在名词前；older 使用更广，可用于人或物，也用于 older than。",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -9081,7 +9717,7 @@
     "ordinal": 1592,
     "word": "elect",
     "source_owner_path": "content/lexical/words/by-ordinal/o1592.json",
-    "source_fingerprint": "1fb8a03dcb92446ddeb50963eaec34a1db2d4f5232a7871985b6acd408520607",
+    "source_fingerprint": "87edec766a82ec38057223cbf715c4ecb949538441761ecffb190055d4ee5315",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9114,14 +9750,14 @@
           {
             "id": "collocation:97c343aa0ffcecc3c895",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "elect + sb + as + sth",
+            "phrase": "elect sb (as) + office/title",
             "meaning_cn": "选举某人为某职位",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:97c343aa0ffcecc3c895",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "elect + sb + as + sth"
+              "target_label": "elect sb (as) + office/title"
             }
           },
           {
@@ -9146,7 +9782,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + to do",
         "definition_cn": "选择，决定",
-        "definition_en": "to choose to do something",
+        "definition_en": "(formal) to choose or decide to do something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9239,8 +9875,8 @@
         "pattern": "elect sb to office / elect a president",
         "lines": [
           {
-            "text": "choose someone for office by voting",
-            "lang": "en"
+            "text": "投票选某人担任公职；选举总统",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -9248,23 +9884,6 @@
           "target_id": "construction:039521913b8de13037b1",
           "target_locator": "record.constructions[0]",
           "target_label": "elect sb to office / elect a president"
-        }
-      },
-      {
-        "id": "construction:d4d82152e020e90cb20d",
-        "source_locator": "record.constructions[1]",
-        "pattern": "elect to do sth",
-        "lines": [
-          {
-            "text": "formally choose to do something",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:d4d82152e020e90cb20d",
-          "target_locator": "record.constructions[1]",
-          "target_label": "elect to do sth"
         }
       }
     ],
@@ -9281,7 +9900,7 @@
     "ordinal": 1593,
     "word": "electric",
     "source_owner_path": "content/lexical/words/by-ordinal/o1593.json",
-    "source_fingerprint": "1ab047dd63a134fd11f02081176362aa357a58bfba1514150110e45e6d9fcdbe",
+    "source_fingerprint": "9c3b00b73199379b47e4d0ef0903f4bcc41016e618e3dcec1813e32f6f9afa0f",
     "sense_lineage": [
       {
         "word_id": "word:electric",
@@ -9328,7 +9947,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "电的；用电驱动的",
-        "definition_en": "powered by or producing electricity",
+        "definition_en": "connected with or directly involving electricity, including being powered by or producing it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9773,7 +10392,7 @@
     "ordinal": 1596,
     "word": "electricity",
     "source_owner_path": "content/lexical/words/by-ordinal/o1596.json",
-    "source_fingerprint": "17d143f40008131fd8abedf8a46dd6bf2fe337291b33ad68ca6f771e5e6ee250",
+    "source_fingerprint": "497f224ac9d1a8a59b2139186d356b5c916f1c4584137735ed1ea779022ae11c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9797,8 +10416,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "电；电流",
-        "definition_en": "a form of energy resulting from the flow of electric charge",
+        "definition_cn": "电；电能；与电荷有关的现象",
+        "definition_en": "electric energy used for power, and phenomena associated with the presence or movement of electric charge",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9828,7 +10447,7 @@
           "target_kind": "sense",
           "target_id": "sense:electricity:8dda6aafb2415d1a",
           "target_locator": "record.senses[0]",
-          "target_label": "电；电流"
+          "target_label": "电；电能；与电荷有关的现象"
         }
       },
       {
@@ -10086,7 +10705,7 @@
     "ordinal": 1598,
     "word": "electronic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1598.json",
-    "source_fingerprint": "7dad9b4dcbe586bc14b525b1c0ef9730738abddd3aab7ae659ef8138b95ffc21",
+    "source_fingerprint": "704114be58feb600d327aa3bd088e1dfa0c69796413205c4fc681a40b7575145",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10367,11 +10986,11 @@
     "ordinal": 1600,
     "word": "element",
     "source_owner_path": "content/lexical/words/by-ordinal/o1600.json",
-    "source_fingerprint": "af394e57429f698ff7305e2869eb9b769f6b68a3e4b31528bcde5d21c706a328",
+    "source_fingerprint": "eb54f41903b5ac8eaa2b44ccef86df19d1882c1f268421df654ee3c856c82fc3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -10426,7 +11045,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "化学元素",
-        "definition_en": "a chemical element",
+        "definition_en": "a substance consisting of one type of atom that cannot be chemically broken into simpler substances",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10476,6 +11095,37 @@
           "target_locator": "record.senses[2]",
           "target_label": "适宜的环境"
         }
+      },
+      {
+        "id": "sense:element:eee7ee5642b78a03",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "the elements; exposed to the elements",
+        "definition_cn": "（the elements）风雨等自然天气力量",
+        "definition_en": "the forces of the weather, especially wind and rain, expressed as the elements",
+        "note": "此天气义用复数the elements；不把单数an element或普通组成部分义机械替换为天气。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:element:eee7ee5642b78a03",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "exposed to the elements",
+            "meaning_cn": "暴露在风雨中；没有遮挡风雨",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:element:eee7ee5642b78a03",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "exposed to the elements"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:element:eee7ee5642b78a03",
+          "target_locator": "record.senses[3]",
+          "target_label": "（the elements）风雨等自然天气力量"
+        }
       }
     ],
     "pronunciation_support": {
@@ -10501,14 +11151,41 @@
           "applicability": [
             {
               "surface": "element"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "element",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:element:eee7ee5642b78a03"
+              ],
+              "sense_ids": [
+                "sense:element:eee7ee5642b78a03"
+              ],
+              "excluded_sense_ids": [
+                "sense:element:3029fb53f5e55e1f",
+                "sense:element:4a05430772f65a72",
+                "sense:element:a05a4555af565cd6"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/element",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:element:eee7ee5642b78a03": [
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],

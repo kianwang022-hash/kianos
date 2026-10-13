@@ -9,11 +9,29 @@
     "constructions": [],
     "content_hash": "1c90566121873d9f076ca5da6f27bfebcbb3e76672c8423f41c071a983dd9d84",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "被邀请或暂住的人",
-      "core_meaning_en": "a person who is invited or stays at a place",
-      "mental_model_cn": "被邀请或暂住的人",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "客人；宾客；旅客；顾客",
+          "label_en": "a person who is invited to visit someone's home or to attend an event; a person who is staying at a hotel or eating at a restaurant",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:guest:1d032332756c51de",
+            "sense:guest:e38b9926ecdf59e1"
+          ]
+        },
+        {
+          "label_cn": "客串；临时受邀参加演出或比赛",
+          "label_en": "to appear temporarily as a visiting performer or player",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:guest:fd6179f7aeb49e20"
+          ]
+        }
+      ],
+      "core_meaning_cn": "客人、旅馆或餐馆顾客；客串参与",
+      "core_meaning_en": "a guest or paying customer; appear as a visiting performer",
+      "mental_model_cn": "guest名词保留访客及付费顾客；动词guest on/for表示临时受邀客串。",
+      "mental_model_en": "a guest or paying customer; appear as a visiting performer."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -88,6 +106,28 @@
         "sense_label_en": "a person who is staying at a hotel or eating at a restaurant",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:guest:fd6179f7aeb49e20",
+        "pos": "verb",
+        "definition_cn": "客串；临时受邀参加演出或比赛",
+        "definition_en": "to appear temporarily as a visiting performer or player",
+        "sense_label_en": "to appear temporarily as a visiting performer or player",
+        "governing_pattern": "guest on a show; guest for a team",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8b8a8b515ae0daa18b79",
+            "phrase": "She guested on the programme.",
+            "meaning_cn": "她在该节目中客串。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -117,6 +157,23 @@
           "applicability": [
             {
               "surface": "guest"
+            },
+            {
+              "surface": "guest",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:guest:fd6179f7aeb49e20"
+              ],
+              "owner_sense_ids": [
+                "sense:guest:fd6179f7aeb49e20"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2222.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "guest on a show; guest for a team"
+              }
             }
           ],
           "sources": [
@@ -497,13 +554,22 @@
         "merged_into_sense_id": null,
         "source_row": 6208,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:guest:fd6179f7aeb49e20",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2222.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
+      "collocation:99a7663a7f8ec18703e3",
+      "collocation:4010ee22aab86ae04a17",
       "collocation:12f41a3d5dca2fd626c6",
       "collocation:1470efe5922092c18cfe",
-      "collocation:4010ee22aab86ae04a17",
-      "collocation:99a7663a7f8ec18703e3"
+      "collocation:8b8a8b515ae0daa18b79"
     ],
     "facts": [],
     "collocations": [
@@ -526,6 +592,13 @@
         "id": "collocation:99a7663a7f8ec18703e3",
         "source_row": 13089,
         "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+      },
+      {
+        "id": "collocation:8b8a8b515ae0daa18b79",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2222.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

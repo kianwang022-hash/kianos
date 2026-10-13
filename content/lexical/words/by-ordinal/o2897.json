@@ -6,17 +6,29 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:c53f0a2585913ebd5ede",
+        "pattern": "be/run low on sth",
+        "meaning_cn": "某种资源所剩不多；快用完",
+        "definition_en": "have little of a resource left",
+        "usage_note": "on 后接钱、燃料等；run low 可无on短语；不同于 low in fat 所含脂肪少。",
+        "boundary": "on 后接钱、燃料等；run low 可无on短语；不同于 low in fat 所含脂肪少。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "602776398c6c33a2b1cad432697eeec7180a818cf7f10531d56e44ccf2156eb7",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "低的；矮的；消沉的，情绪低落的",
-          "label_en": "not high; below the usual level; sad or depressed",
+          "label_cn": "低的；矮的；消沉的，情绪低落的；（人）品行卑劣的；不诚实的",
+          "label_en": "not high; below the usual level; sad or depressed; dishonest or morally disreputable",
           "pos": "adjective",
           "sense_ids": [
             "sense:low:cf5841dc109b5b06",
-            "sense:low:4ffea93e05ae5eb6"
+            "sense:low:4ffea93e05ae5eb6",
+            "sense:low:9e3de77db35183ee"
           ]
         },
         {
@@ -36,10 +48,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "低的/低水平的；情绪低落；低点",
-      "core_meaning_en": "low in height, level, amount, or mood; as a noun, a low point",
-      "mental_model_cn": "position/amount → 低；mood → 情绪低落；noun a low → 低点；literary low = 牛发出低沉叫声保留在 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "位置、程度低；情绪低落或品行卑劣；低点、低处",
+      "core_meaning_en": "low height or level; depressed or dishonest; a low point or position",
+      "mental_model_cn": "位置程度、情绪及品行是不同形容词用法；名词为低点，副词为在低处；另有牛叫的动词见Reference。",
+      "mental_model_en": "low height or level; depressed or dishonest; a low point or position."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -165,6 +177,28 @@
         "sense_label_en": "in or to a low position or level",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:low:9e3de77db35183ee",
+        "pos": "adjective",
+        "definition_cn": "（人）品行卑劣的；不诚实的",
+        "definition_en": "dishonest or morally disreputable",
+        "sense_label_en": "dishonest or morally disreputable",
+        "governing_pattern": "a low person/type",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c98c92ae317676424e13",
+            "phrase": "a low type",
+            "meaning_cn": "品行卑劣的人",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -782,6 +816,47 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ləʊ/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "low",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:low:9e3de77db35183ee"
+              ],
+              "owner_sense_ids": [
+                "sense:low:9e3de77db35183ee"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/low_1",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "low",
+                "pos": "adjective",
+                "sense_indices_1based": [
+                  12
+                ]
+              },
+              "original_ipa": "/ləʊ/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -839,14 +914,23 @@
         "merged_into_sense_id": null,
         "source_row": 8076,
         "source_path": "content/lexical/canonical/senses/shards/o2881-2912.json"
+      },
+      {
+        "sense_id": "sense:low:9e3de77db35183ee",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2897.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:0e823953164709b59cbe",
       "collocation:1d804f1de359d4dfcab2",
+      "collocation:0e823953164709b59cbe",
+      "collocation:719dd62e0810048465d7",
       "collocation:41ce8523eaebf969dd45",
       "collocation:4d42183cb409c6821b5a",
-      "collocation:719dd62e0810048465d7"
+      "collocation:c98c92ae317676424e13"
     ],
     "facts": [],
     "collocations": [
@@ -874,6 +958,13 @@
         "id": "collocation:719dd62e0810048465d7",
         "source_row": 9598,
         "source_path": "content/lexical/canonical/collocations/shards/o2881-2912.json"
+      },
+      {
+        "id": "collocation:c98c92ae317676424e13",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2897.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

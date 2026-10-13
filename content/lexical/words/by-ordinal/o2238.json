@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "冰雹；一阵（如弹雨、质问等）",
-          "label_en": "small balls of ice that fall like rain; a large number of things thrown forcefully",
+          "label_cn": "冰雹；一阵密集的……（如子弹、批评、问题）",
+          "label_en": "small balls of ice that fall like rain; many things arriving or being directed at someone in quick succession",
           "pos": "noun",
           "sense_ids": [
             "sense:hail:cd77ee8061ee50dd",
@@ -20,19 +20,20 @@
           ]
         },
         {
-          "label_cn": "向……欢呼、致敬；招呼、叫停；来自",
-          "label_en": "to greet/acclaim or call out to stop/attract attention; to come from",
+          "label_cn": "向……欢呼、致敬；招呼、叫停；来自；下冰雹",
+          "label_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop; to come from or originate from; for hailstones to fall from the sky",
           "pos": "verb",
           "sense_ids": [
             "sense:hail:ce1775e9726d54d1",
-            "sense:hail:acccdbbafeef55f3"
+            "sense:hail:acccdbbafeef55f3",
+            "sense:hail:b857c718739a1de6"
           ]
         }
       ],
-      "core_meaning_cn": "冰雹；欢呼；招呼、叫停；来自",
-      "core_meaning_en": "frozen rain; to greet/acclaim or hail/call; to come from",
-      "mental_model_cn": "冰雹；欢呼；招呼、叫停；来自",
-      "mental_model_en": ""
+      "core_meaning_cn": "冰雹或密集袭来的一阵；下冰雹、招呼称赞或来自",
+      "core_meaning_en": "hail or a barrage; hail as weather, call or acclaim, or come from",
+      "mental_model_cn": "天气动词用it is hailing；hail a taxi与hail somebody as a hero保留原vt；hail from为来自。",
+      "mental_model_en": "hail or a barrage; hail as weather, call or acclaim, or come from."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -43,17 +44,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:6e0f2ec80041dd164094",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:hail:cd77ee8061ee50dd:collocation:0"
-            ],
-            "meaning_cn": "一阵弹雨",
-            "phrase": "a hail of bullets"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "冰雹",
         "definition_en": "small balls of ice that fall like rain",
@@ -95,7 +86,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hail:ce1775e9726d54d1",
-        "sense_label_en": "to greet or acclaim enthusiastically",
+        "sense_label_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop",
         "sort_order": 1,
         "transitivity": "vt"
       },
@@ -133,19 +124,50 @@
             ],
             "meaning_cn": "一阵批评",
             "phrase": "a hail of criticism"
+          },
+          {
+            "collocation_id": "collocation:6e0f2ec80041dd164094",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:hail:cd77ee8061ee50dd:collocation:0"
+            ],
+            "meaning_cn": "一阵弹雨",
+            "phrase": "a hail of bullets"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "一阵（如弹雨、质问等）",
-        "definition_en": "a large number of things thrown forcefully",
+        "definition_cn": "一阵密集的……（如子弹、批评、问题）",
+        "definition_en": "many things arriving or being directed at someone in quick succession",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:hail:23ff22bfcfd753ca",
-        "sense_label_en": "a large number of things thrown forcefully",
+        "sense_label_en": "many things arriving or being directed at someone in quick succession",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hail:b857c718739a1de6",
+        "pos": "verb",
+        "definition_cn": "下冰雹",
+        "definition_en": "for hailstones to fall from the sky",
+        "sense_label_en": "for hailstones to fall from the sky",
+        "governing_pattern": "it hails; it is hailing",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:adc1617748ac3e0718f4",
+            "phrase": "It was hailing outside.",
+            "meaning_cn": "外面正在下冰雹。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -175,6 +197,23 @@
           "applicability": [
             {
               "surface": "hail"
+            },
+            {
+              "surface": "hail",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hail:b857c718739a1de6"
+              ],
+              "owner_sense_ids": [
+                "sense:hail:b857c718739a1de6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2238.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "it hails; it is hailing"
+              }
             }
           ],
           "sources": [
@@ -662,14 +701,23 @@
         "merged_into_sense_id": null,
         "source_row": 6249,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:hail:b857c718739a1de6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2238.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:547c647f4de24aefe5cb",
-      "collocation:6e0f2ec80041dd164094",
+      "collocation:ef45ac45a86766441c10",
       "collocation:9557ac6d516a9b4ab873",
       "collocation:b5572e17596ec603bdfd",
-      "collocation:ef45ac45a86766441c10"
+      "collocation:547c647f4de24aefe5cb",
+      "collocation:6e0f2ec80041dd164094",
+      "collocation:adc1617748ac3e0718f4"
     ],
     "facts": [],
     "collocations": [
@@ -681,7 +729,8 @@
       {
         "id": "collocation:6e0f2ec80041dd164094",
         "source_row": 9275,
-        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json",
+        "sense_id": "sense:hail:23ff22bfcfd753ca"
       },
       {
         "id": "collocation:9557ac6d516a9b4ab873",
@@ -697,6 +746,13 @@
         "id": "collocation:ef45ac45a86766441c10",
         "source_row": 20274,
         "source_path": "content/lexical/canonical/collocations/shards/o2209-2240.json"
+      },
+      {
+        "id": "collocation:adc1617748ac3e0718f4",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2238.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

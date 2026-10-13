@@ -7000,7 +7000,7 @@
     "ordinal": 1001,
     "word": "conform",
     "source_owner_path": "content/lexical/words/by-ordinal/o1001.json",
-    "source_fingerprint": "409dab654b497fda2e331963f27fc8855361693e751cac307e64f81f01dc214b",
+    "source_fingerprint": "4a26a69d00fad2a4d665cd7d3d42a68af66418035dfd81a912ee4762bbf87a5f",
     "sense_lineage": [
       {
         "word_id": "word:conform",
@@ -7017,13 +7017,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "让行为、形式或结果与某个规则/标准一致",
-      "decision_cn": "最稳定结构是 conform to + standard/rule/pattern。不要让历史重复 Construction 把同一规则学两遍。",
+      "summary_cn": "行为、形式或结果符合某个规则、标准或模式",
+      "decision_cn": "标准、规则或模式前常用 conform to/with；谈一个人顺从群体习惯时，也可单用 conform。符合标准与从众共用“趋于一致”的核心。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "让行为、形式或结果与某个规则/标准一致"
+        "target_label": "行为、形式或结果符合某个规则、标准或模式"
       }
     },
     "senses": [
@@ -7031,7 +7031,7 @@
         "id": "sense:conform:e9dce6937b545516",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to/with + sth",
+        "governing_pattern": "vi.; conform; conform to/with sth",
         "definition_cn": "遵守、符合",
         "definition_en": "to comply with or match a rule, standard, or pattern",
         "note": "",
@@ -7155,8 +7155,23 @@
     "ordinal": 1002,
     "word": "confront",
     "source_owner_path": "content/lexical/words/by-ordinal/o1002.json",
-    "source_fingerprint": "7ffe48789bb44d11d6e60c2f6e8d9537585e4076f56a1d391ca71ad2f91b75f7",
-    "sense_lineage": [],
+    "source_fingerprint": "2f020b82639abdb9cd1de2273f9dce15b39bb6925010d6cbf0c2729f8c3f2c85",
+    "sense_lineage": [
+      {
+        "word_id": "word:confront",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:2741146d8ae22a7e8c19",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:confront",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:da2557eeab1fe4e05872",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V"
@@ -7165,7 +7180,7 @@
     },
     "word_feel": {
       "summary_cn": "直接面对或对抗",
-      "decision_cn": "",
+      "decision_cn": "先看谁面对谁：人 confront 难题是正视处理；人 confront 人是直接面对或对峙；confront sb with sth 让对方直面事实或难题；be confronted with/by 表示自己面临。遇到问题作主语时，不能倒读施受方向。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7179,8 +7194,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "对抗；面对（敌意或挑战）",
-        "definition_en": "to face someone or something in a hostile or challenging way",
+        "definition_cn": "直接面对；对峙（常处于紧张或危险情境）",
+        "definition_en": "to face a person directly, especially in a tense encounter",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7189,13 +7204,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "confront + sb/sth",
             "meaning_cn": "面对某人/某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:da2557eeab1fe4e05872",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "confront + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:fb7ced94a3dc10531caa",
@@ -7210,7 +7220,7 @@
           "target_kind": "sense",
           "target_id": "sense:confront:c55adc8c31cf5300",
           "target_locator": "record.senses[0]",
-          "target_label": "对抗；面对（敌意或挑战）"
+          "target_label": "直接面对；对峙（常处于紧张或危险情境）"
         }
       },
       {
@@ -7236,13 +7246,8 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "confront + sth",
             "meaning_cn": "面对某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2741146d8ae22a7e8c19",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "confront + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7257,8 +7262,8 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + sb + with + sth",
-        "definition_cn": "使对质；使面对（证据等）",
-        "definition_en": "to present someone with something, usually to accuse or criticize",
+        "definition_cn": "使直面（事实、人或难题）；可用于当面对质",
+        "definition_en": "to make someone face an unwelcome fact, person or situation",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7266,7 +7271,7 @@
             "id": "collocation:cafc7dc6357403c9d567",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "confront sb with + sth",
-            "meaning_cn": "使某人对质某事",
+            "meaning_cn": "让某人直面某事，或拿事实、证据与其对质",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -7288,30 +7293,30 @@
           "target_kind": "sense",
           "target_id": "sense:confront:8b8a03d7de7c5cac",
           "target_locator": "record.senses[2]",
-          "target_label": "使对质；使面对（证据等）"
+          "target_label": "使直面（事实、人或难题）；可用于当面对质"
         }
       },
       {
         "id": "sense:confront:e738d391c0185db5",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "面临；遭遇",
-        "definition_en": "to be face to face with someone or something",
+        "governing_pattern": "sth confronts sb; sb is confronted with/by sth",
+        "definition_cn": "（困难等）摆在某人面前；被动：面临、遭遇",
+        "definition_en": "to present a problem or demand requiring someone's response; often passive",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:9d3c1fb782e1d12b0af9",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "be confronted with + sth",
+            "phrase": "be confronted with/by + sth",
             "meaning_cn": "面临某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:9d3c1fb782e1d12b0af9",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "be confronted with + sth"
+              "target_label": "be confronted with/by + sth"
             }
           },
           {
@@ -7327,7 +7332,7 @@
           "target_kind": "sense",
           "target_id": "sense:confront:e738d391c0185db5",
           "target_locator": "record.senses[3]",
-          "target_label": "面临；遭遇"
+          "target_label": "（困难等）摆在某人面前；被动：面临、遭遇"
         }
       }
     ],
@@ -7366,7 +7371,7 @@
     "ordinal": 1003,
     "word": "confuse",
     "source_owner_path": "content/lexical/words/by-ordinal/o1003.json",
-    "source_fingerprint": "68954975afeae8f436a8598ab5be29cc6a83d5efb65a48116c54b691e966e413",
+    "source_fingerprint": "51da5e9c1a71d9d1555aef0e913382e1974f4ba7340ca9fbecb340e0cf1de5a6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7376,7 +7381,7 @@
     },
     "word_feel": {
       "summary_cn": "使困惑，混淆",
-      "decision_cn": "",
+      "decision_cn": "confuse sb 是使人困惑；confuse an issue 是把问题弄得更难懂。confuse A with B 是把两者认混；with 后若是造成困惑的信息，则说明困惑的原因。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7389,9 +7394,9 @@
         "id": "sense:confuse:64d5e09f89885268",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使困惑，使混乱",
-        "definition_en": "to make someone unable to think clearly or to cause confusion",
+        "governing_pattern": "vt. + person/issue; confuse sb with confusing information",
+        "definition_cn": "使人困惑；把问题弄混、使其难以理解",
+        "definition_en": "to leave someone uncertain or make an issue harder to understand",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7413,7 +7418,7 @@
           "target_kind": "sense",
           "target_id": "sense:confuse:64d5e09f89885268",
           "target_locator": "record.senses[0]",
-          "target_label": "使困惑，使混乱"
+          "target_label": "使人困惑；把问题弄混、使其难以理解"
         }
       },
       {
@@ -7495,7 +7500,7 @@
     "ordinal": 1004,
     "word": "confusion",
     "source_owner_path": "content/lexical/words/by-ordinal/o1004.json",
-    "source_fingerprint": "b609da0eb4abe06a13138b4e4900d98ba5839530d99bd802c1b2ab95dc644b98",
+    "source_fingerprint": "ea3a53bfb84e7c3fa11c14be10bb2f05c9431c5f77bb3ebb9464b8c00a186e26",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7504,13 +7509,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "混乱；困惑",
-      "decision_cn": "",
+      "summary_cn": "混乱；困惑；把不同事物混淆",
+      "decision_cn": "混乱；困惑",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "混乱；困惑"
+        "target_label": "混乱；困惑；把不同事物混淆"
       }
     },
     "senses": [
@@ -7651,8 +7656,16 @@
     "ordinal": 1005,
     "word": "congratulate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1005.json",
-    "source_fingerprint": "3004ae770eb8fe7c82fec2271dedf90e2076399ba4011a50dc37d2a27748c8f3",
-    "sense_lineage": [],
+    "source_fingerprint": "01fda6a213ac0cd28a8b59a62c86a8584538ce10e6b63638358753112725a512",
+    "sense_lineage": [
+      {
+        "word_id": "word:congratulate",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ee0678605ca84b063314",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -7685,13 +7698,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "congratulate sb on sth",
             "meaning_cn": "就某事祝贺某人",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ee0678605ca84b063314",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "congratulate sb on sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -7890,7 +7898,7 @@
     "ordinal": 1007,
     "word": "congress",
     "source_owner_path": "content/lexical/words/by-ordinal/o1007.json",
-    "source_fingerprint": "9fc6a45ca92f98499682a9d64da166bfcf9b19fe58b8c42f15a33a689a132f5a",
+    "source_fingerprint": "1d0c5454a6fcef4a61126b9efdd57a8ed3586215231432917cb078c639ccd14f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7948,8 +7956,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "代表大会",
-        "definition_en": "a meeting of elected or appointed representatives",
+        "definition_cn": "（国家、组织或专业团体的）大会；代表大会",
+        "definition_en": "a formal gathering of representatives or members of countries, organizations or professional groups",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7966,7 +7974,7 @@
           "target_kind": "sense",
           "target_id": "sense:congress:763febc1db395a54",
           "target_locator": "record.senses[1]",
-          "target_label": "代表大会"
+          "target_label": "（国家、组织或专业团体的）大会；代表大会"
         }
       }
     ],
@@ -8166,7 +8174,7 @@
     "ordinal": 1008,
     "word": "conjunction",
     "source_owner_path": "content/lexical/words/by-ordinal/o1008.json",
-    "source_fingerprint": "c69e0b8d4d230608fbb61a7c4872add60dede26ef06deaaed71a7d19d4d410bf",
+    "source_fingerprint": "baa2c40c3417d03d3cc34322bba6cb5e1968f4ee388515ef4404b7c10b0b0a35",
     "sense_lineage": [
       {
         "word_id": "word:conjunction",
@@ -8184,7 +8192,7 @@
     },
     "word_feel": {
       "summary_cn": "连词；结合；联合",
-      "decision_cn": "grammar → 连词；in conjunction with / joining → 结合、联合。天文学会合义保留为 Reference。",
+      "decision_cn": "grammar → 连接词句的连词；in conjunction with → 与…一起、结合使用。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8345,7 +8353,7 @@
     "ordinal": 1009,
     "word": "connect",
     "source_owner_path": "content/lexical/words/by-ordinal/o1009.json",
-    "source_fingerprint": "3e1b0de61edd45579f38f75f91c2d0615fc0959e1ccb2bdc0198c11b9e3c8d98",
+    "source_fingerprint": "0189444ac727a65255499b408a31ea508f92757e4e95757e4d304b132da08cc0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8355,7 +8363,7 @@
     },
     "word_feel": {
       "summary_cn": "连接；联系",
-      "decision_cn": "",
+      "decision_cn": "接设备或物体看 connect A to/with B；把线索联系起来看抽象关系；connect with sb 看人与人的理解。物体相通或设备联网也可不带宾语，不能只按及物动作读。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8369,8 +8377,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "连接；接通",
-        "definition_en": "to join two or more things together",
+        "definition_cn": "连接；接通；把事物联系起来",
+        "definition_en": "to link things physically, or associate them in thought",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8400,14 +8408,14 @@
           "target_kind": "sense",
           "target_id": "sense:connect:ca276608b5515420",
           "target_locator": "record.senses[0]",
-          "target_label": "连接；接通"
+          "target_label": "连接；接通；把事物联系起来"
         }
       },
       {
         "id": "sense:connect:0df940c537d6572a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "vi.; connect; connect to/with sth",
         "definition_cn": "连接；相通",
         "definition_en": "to be joined or linked to something else",
         "note": "",
@@ -8416,14 +8424,14 @@
           {
             "id": "collocation:23ce5d6b2c1fb2ddf23e",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "connect with + sth",
+            "phrase": "connect (to/with + sth)",
             "meaning_cn": "与…连接；与…相通",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:23ce5d6b2c1fb2ddf23e",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "connect with + sth"
+              "target_label": "connect (to/with + sth)"
             }
           }
         ],
@@ -8511,22 +8519,22 @@
     "ordinal": 1010,
     "word": "connection",
     "source_owner_path": "content/lexical/words/by-ordinal/o1010.json",
-    "source_fingerprint": "bf20fd68c18f4c8016c8c0fa82f7c57542778878c6169bbc28e31edc7f2a33ac",
+    "source_fingerprint": "b00308314ae30bcc0e8f041d9bdbdc5458bef532c80782c07143debdeddbdf8b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "连接，联系",
-      "decision_cn": "",
+      "summary_cn": "连接；关联；（复数）人脉",
+      "decision_cn": "连接或关系；connections 可指人脉。旅途中 connection 指转乘班次，miss 是错过、make 是赶上；谈想法时 make a connection 则是看出联系。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "连接，联系"
+        "target_label": "连接；关联；（复数）人脉"
       }
     },
     "senses": [
@@ -8574,8 +8582,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "连接状态",
-        "definition_en": "the state of being connected",
+        "definition_cn": "连接；接通；连接部位或连接装置",
+        "definition_en": "a joining or link, including the part that joins things",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8592,7 +8600,7 @@
           "target_kind": "sense",
           "target_id": "sense:connection:54f6e27dc8035295",
           "target_locator": "record.senses[1]",
-          "target_label": "连接状态"
+          "target_label": "连接；接通；连接部位或连接装置"
         }
       },
       {
@@ -8601,7 +8609,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "人脉，关系",
-        "definition_en": "a person who is influential and with whom one has a relationship (usually plural)",
+        "definition_en": "a person or organization one knows and can turn to for help or advice, especially in social or professional life (usually plural)",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8619,6 +8627,32 @@
           "target_id": "sense:connection:9cb1800444da5703",
           "target_locator": "record.senses[2]",
           "target_label": "人脉，关系"
+        }
+      },
+      {
+        "id": "sense:connection:469a1c83f2ff9fc7",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "countable noun",
+        "definition_cn": "转乘的车次或航班",
+        "definition_en": "a train, bus or flight taken after another service to continue a journey",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c67f136a206e47d08d58",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "miss a connection",
+            "meaning_cn": "错过转乘班次",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:connection:469a1c83f2ff9fc7",
+          "target_locator": "record.senses[3]",
+          "target_label": "转乘的车次或航班"
         }
       }
     ],
@@ -8662,11 +8696,11 @@
           "target_word": "link",
           "lines": [
             {
-              "text": "在连接关系义接近；link强调连接环节，connection更泛",
+              "text": "在事物、事件或人之间的“联系/关联”义上常可互换，两者都能表达抽象关系。link还可强调连接纽带，但不能硬分成connection抽象、link具体；两词都可用between、with或to，须看具体语境。",
               "lang": "cn"
             },
             {
-              "text": "a connecting shape",
+              "text": "a relationship between people, things or events",
               "lang": "en"
             }
           ],
@@ -8870,8 +8904,16 @@
     "ordinal": 1012,
     "word": "conquest",
     "source_owner_path": "content/lexical/words/by-ordinal/o1012.json",
-    "source_fingerprint": "93d6bbc47e9e45bbf7af22fbcde03e0a0e0d317ae40cad00048e9cbe9ca2d060",
-    "sense_lineage": [],
+    "source_fingerprint": "618c5f213998febb744791c033c824c47f79dd1112520cb5b80f1d3462c6513f",
+    "sense_lineage": [
+      {
+        "word_id": "word:conquest",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9af9228d2388190def4f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2N"
@@ -8928,8 +8970,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "征服所得；战利品；赢得的人或事物",
-        "definition_en": "something gained or won by conquest, such as territory or figuratively a person’s affection",
+        "definition_cn": "征服所得的领土等；（诙谐）被赢得爱情的人",
+        "definition_en": "land or something else won by conquest; humorously, a person whose love someone has won",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8938,20 +8980,15 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a territorial conquest",
             "meaning_cn": "征服所得的领土",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9af9228d2388190def4f",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "a territorial conquest"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:conquest:9b388a75283d587e",
           "target_locator": "record.senses[1]",
-          "target_label": "征服所得；战利品；赢得的人或事物"
+          "target_label": "征服所得的领土等；（诙谐）被赢得爱情的人"
         }
       }
     ],
@@ -9028,7 +9065,7 @@
     "ordinal": 1013,
     "word": "conscience",
     "source_owner_path": "content/lexical/words/by-ordinal/o1013.json",
-    "source_fingerprint": "abfa5bb8294d422aa8a1ab2656ad7df1c596012e495972c24d0a7e2b6f3f6341",
+    "source_fingerprint": "33167c166506e12d39bfa258cc2ac9ceb8ec6a91411f46273c155092ef889450",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9038,7 +9075,7 @@
     },
     "word_feel": {
       "summary_cn": "内在的是非感",
-      "decision_cn": "",
+      "decision_cn": "先看对自己行为的是非判断；guilty conscience表示良心不安，clear conscience表示问心无愧。内疚来自这种评判，不是另一套无关的情绪词。 something on your conscience指某事使你内疚。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9061,7 +9098,7 @@
             "id": "collocation:7ff29a24fab6bea3ede1",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a guilty conscience",
-            "meaning_cn": "内疚的良心",
+            "meaning_cn": "良心不安；内疚",
             "kind": "usage_example",
             "repair": null
           },
@@ -9092,7 +9129,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "内疚，愧疚",
-        "definition_en": "a feeling of shame when you do something immoral",
+        "definition_en": "a feeling of guilt about something one has done or neglected to do",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9208,7 +9245,7 @@
     "ordinal": 1014,
     "word": "conscientious",
     "source_owner_path": "content/lexical/words/by-ordinal/o1014.json",
-    "source_fingerprint": "00519c17cb57ee01af90009da52b55493038fdb95454e5ed2f570288cf02a5d7",
+    "source_fingerprint": "3fe66447b67c1c3c2b18e122c051886d21951456dd2944b0138549c07f2e952b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9275,7 +9312,7 @@
             "id": "collocation:e04446941aaf25e9dda8",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "conscientious objection",
-            "meaning_cn": "（基于道德或宗教原因的）拒服兵役",
+            "meaning_cn": "出于道德或宗教信念的拒绝（如拒服兵役或拒绝某类工作）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -9362,7 +9399,7 @@
     "ordinal": 1015,
     "word": "conscious",
     "source_owner_path": "content/lexical/words/by-ordinal/o1015.json",
-    "source_fingerprint": "2413046ea87468162649aaeebaa806b72784b3ddbc1005da087194224adc38f7",
+    "source_fingerprint": "8534ff1b29746eab86523fe1c12429cc8b498d71a5e3ee4de04e08edb99e392d",
     "sense_lineage": [
       {
         "word_id": "word:conscious",
@@ -9379,13 +9416,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有意识的；觉察的",
-      "decision_cn": "",
+      "summary_cn": "清醒；意识到；有意做出的",
+      "decision_cn": "说病人状态时看是否清醒；conscious of/that看察觉到什么；修饰decision、effort时看是否有意作出，不能把刻意决定理解成清醒程度。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有意识的；觉察的"
+        "target_label": "清醒；意识到；有意做出的"
       }
     },
     "senses": [
@@ -9393,9 +9430,9 @@
         "id": "sense:conscious:59b223833ff3579c",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "有意识的；清醒的",
-        "definition_en": "knowing and perceiving; having awareness of surroundings and sensations and thoughts",
+        "governing_pattern": "清醒状态：be/remain conscious；察觉：be conscious of sth/doing sth，或be conscious that + clause",
+        "definition_cn": "清醒的；意识到、察觉到的",
+        "definition_en": "awake and responsive, or aware of a particular fact or feeling",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9413,16 +9450,8 @@
             }
           },
           {
-            "id": "collocation:c45a6af89e683edc3daa",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "conscious decision",
-            "meaning_cn": "有意识的决定",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:74c71e4991e57b15ae3a",
-            "source_locator": "record.senses[0].collocations[2]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "be conscious of the danger",
             "meaning_cn": "意识到危险",
             "kind": "usage_example",
@@ -9433,7 +9462,7 @@
           "target_kind": "sense",
           "target_id": "sense:conscious:59b223833ff3579c",
           "target_locator": "record.senses[0]",
-          "target_label": "有意识的；清醒的"
+          "target_label": "清醒的；意识到、察觉到的"
         }
       },
       {
@@ -9451,6 +9480,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a conscious effort",
             "meaning_cn": "刻意的努力",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:c45a6af89e683edc3daa",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "conscious decision",
+            "meaning_cn": "有意识的决定",
             "kind": "usage_example",
             "repair": null
           }
@@ -9659,7 +9696,7 @@
     "ordinal": 1017,
     "word": "consensus",
     "source_owner_path": "content/lexical/words/by-ordinal/o1017.json",
-    "source_fingerprint": "6ef43ce1f55235675259b26b0efd16c588db8baa69d4b389effc1c5fcef616cb",
+    "source_fingerprint": "31e703ea6920656f567fabfab79d68a1b563cbf2fc9b601021ffb48da40af34a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9669,7 +9706,7 @@
     },
     "word_feel": {
       "summary_cn": "共识",
-      "decision_cn": "",
+      "decision_cn": "群体对某事形成的总体共识；通常不是逐个成员毫无异议的保证。reach a consensus看达成共识，consensus on看共识的事项。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9684,7 +9721,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "共识；一致意见",
-        "definition_en": "agreement in the judgment or opinion reached by a group as a whole",
+        "definition_en": "a broadly shared opinion or agreement within a group",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9768,8 +9805,23 @@
     "ordinal": 1018,
     "word": "consent",
     "source_owner_path": "content/lexical/words/by-ordinal/o1018.json",
-    "source_fingerprint": "12de1a884a8f50d3e17abc273e187d0498844987756ac6866909199384045bc2",
-    "sense_lineage": [],
+    "source_fingerprint": "15afe83a71678871ce9d5d2930dc222072568991137209cbdad5e1f810201ca5",
+    "sense_lineage": [
+      {
+        "word_id": "word:consent",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6b19987c44938809c894",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:consent",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cb6ffb3f56f76e61114f",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -9836,7 +9888,7 @@
         "id": "sense:consent:46be74af41f3517d",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "vi.; consent to sth/doing sth（to为介词）；consent to do sth（不定式）",
         "definition_cn": "同意，赞同",
         "definition_en": "to agree to something or give permission",
         "note": "",
@@ -9847,26 +9899,16 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "consent to + sth",
             "meaning_cn": "同意某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6b19987c44938809c894",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "consent to + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:cb6ffb3f56f76e61114f",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "consent to do + sth",
             "meaning_cn": "同意做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cb6ffb3f56f76e61114f",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "consent to do + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9902,18 +9944,18 @@
       {
         "id": "construction:fd62e202215137a86c19",
         "source_locator": "record.constructions[0]",
-        "pattern": "consent to do sth / consent to sth",
+        "pattern": "consent to sth / consent to doing sth / consent to do sth",
         "lines": [
           {
-            "text": "agree to or give permission; do not insert an extra + sth",
-            "lang": "en"
+            "text": "同意某事或做某事；to可接名词/动名词，也可构成不定式，不混用后接形式",
+            "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:fd62e202215137a86c19",
           "target_locator": "record.constructions[0]",
-          "target_label": "consent to do sth / consent to sth"
+          "target_label": "consent to sth / consent to doing sth / consent to do sth"
         }
       }
     ],
@@ -9930,22 +9972,30 @@
     "ordinal": 1019,
     "word": "consequence",
     "source_owner_path": "content/lexical/words/by-ordinal/o1019.json",
-    "source_fingerprint": "ef1043d21c1286a656c52e335b2d87a566d488e26d8e974516707e8f0671ba6b",
-    "sense_lineage": [],
+    "source_fingerprint": "af5a582f95dbc02d3a1b4f6293d3c4995c69a870da403ec022fe0a0dc469f913",
+    "sense_lineage": [
+      {
+        "word_id": "word:consequence",
+        "target_kind": "sense",
+        "from_target_id": "sense:consequence:95734d82b8e657c6",
+        "status": "merged",
+        "to_target_id": "sense:consequence:919a192512645a1d"
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "结果；后果",
-      "decision_cn": "",
+      "summary_cn": "结果、后果；（of consequence）重要性",
+      "decision_cn": "多数语境追“某事带来的结果”；of consequence / of little or no consequence看重要性。后者不能逐字译成有后果或没有后果。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "结果；后果"
+        "target_label": "结果、后果；（of consequence）重要性"
       }
     },
     "senses": [
@@ -9955,7 +10005,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "结果；后果",
-        "definition_en": "a phenomenon that follows and is caused by some previous phenomenon",
+        "definition_en": "a result or effect of an event or action, often an unwelcome one",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9974,6 +10024,22 @@
             "meaning_cn": "承担后果",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:a867e7766388297fc1a1",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "serious consequences",
+            "meaning_cn": "严重后果",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:357a463e5e6f30cdf561",
+            "source_locator": "record.senses[0].collocations[3]",
+            "phrase": "suffer the consequences",
+            "meaning_cn": "承受后果",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -9984,52 +10050,18 @@
         }
       },
       {
-        "id": "sense:consequence:95734d82b8e657c6",
+        "id": "sense:consequence:21680be72e4f589a",
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（对个人的）影响；后果",
-        "definition_en": "the outcome of an event especially as relative to an individual",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:a867e7766388297fc1a1",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "serious consequences",
-            "meaning_cn": "严重后果",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:357a463e5e6f30cdf561",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "suffer the consequences",
-            "meaning_cn": "承受后果",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:consequence:95734d82b8e657c6",
-          "target_locator": "record.senses[1]",
-          "target_label": "（对个人的）影响；后果"
-        }
-      },
-      {
-        "id": "sense:consequence:21680be72e4f589a",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
         "definition_cn": "重要性",
-        "definition_en": "having important effects or influence",
+        "definition_en": "importance or significance",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:e3a43af503794930bb58",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "of consequence",
             "meaning_cn": "重要的",
             "kind": "usage_example",
@@ -10037,7 +10069,7 @@
           },
           {
             "id": "collocation:1fa405a57eed91c4b4a4",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "a person of consequence",
             "meaning_cn": "重要人物",
             "kind": "usage_example",
@@ -10047,7 +10079,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:consequence:21680be72e4f589a",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "重要性"
         }
       }
@@ -10077,7 +10109,45 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:a867e7766388297fc1a1",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:consequence:95734d82b8e657c6:collocation:0"
+              ],
+              "meaning_cn": "严重后果",
+              "phrase": "serious consequences"
+            },
+            {
+              "collocation_id": "collocation:357a463e5e6f30cdf561",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:consequence:95734d82b8e657c6:collocation:1"
+              ],
+              "meaning_cn": "承受后果",
+              "phrase": "suffer the consequences"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（对个人的）影响；后果",
+          "definition_en": "the outcome of an event especially as relative to an individual",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:consequence:95734d82b8e657c6",
+          "sense_label_en": "the outcome of an event especially as relative to an individual",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "status": "merged",
+          "merged_into_sense_id": "sense:consequence:919a192512645a1d",
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -10086,8 +10156,16 @@
     "ordinal": 1020,
     "word": "consequently",
     "source_owner_path": "content/lexical/words/by-ordinal/o1020.json",
-    "source_fingerprint": "1b23fbb211fddf417d118c7c71b116808692e2bc0ec4a7ea98800821674440d8",
-    "sense_lineage": [],
+    "source_fingerprint": "67d721faa3675ec7e0eab634b31ee9d5984dc3c4c1f51dabd8c6f8b3e026d93b",
+    "sense_lineage": [
+      {
+        "word_id": "word:consequently",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5d76257bcb94d356ff4c",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1ADV"
@@ -10120,13 +10198,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "and consequently",
             "meaning_cn": "因此",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5d76257bcb94d356ff4c",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "and consequently"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -10166,7 +10239,7 @@
           "target_word": "therefore",
           "lines": [
             {
-              "text": "均引出结果；consequently因果色彩更显著且较正式",
+              "text": "均可表示因此、所以，很多结果语境可以互换；两者均常见于书面论述，不把正式程度或因果强弱当成固定排序。",
               "lang": "cn"
             },
             {
@@ -10193,7 +10266,7 @@
     "ordinal": 1021,
     "word": "conservation",
     "source_owner_path": "content/lexical/words/by-ordinal/o1021.json",
-    "source_fingerprint": "545a4a921b4e95dceb5b6c5cc1b0e75ec8f6d7e5d7a19960be3f24fe50ec083e",
+    "source_fingerprint": "8108e1a219ca4c69a82fbec816f93161ae6dda109b705878936114b4a2f8aa9a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10202,13 +10275,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "保护，保存",
-      "decision_cn": "",
+      "summary_cn": "保护、保存和节约；物理学中的守恒",
+      "decision_cn": "看保护什么：环境与野生生物是保护；资源是节约、防损耗；物理定律中的conservation是量守恒。energy conservation在用能语境指节能，conservation of energy在物理语境指能量守恒。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "保护，保存"
+        "target_label": "保护、保存和节约；物理学中的守恒"
       }
     },
     "senses": [
@@ -10217,8 +10290,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "环境保护；自然资源保护",
-        "definition_en": "the preservation and careful management of the environment and of natural resources",
+        "definition_cn": "环境、自然资源保护及节约",
+        "definition_en": "protecting the environment and using natural resources carefully to avoid waste",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10243,7 +10316,7 @@
           "target_kind": "sense",
           "target_id": "sense:conservation:bb328450c68b5cca",
           "target_locator": "record.senses[0]",
-          "target_label": "环境保护；自然资源保护"
+          "target_label": "环境、自然资源保护及节约"
         }
       },
       {
@@ -10251,8 +10324,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "防止损失或变化；保存",
-        "definition_en": "an occurrence of improvement by virtue of preventing loss or injury or other change",
+        "definition_cn": "保存；节约；防止损失、浪费或损坏",
+        "definition_en": "the careful preservation of something against loss, waste or damage",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10269,7 +10342,7 @@
           "target_kind": "sense",
           "target_id": "sense:conservation:737b292ebf0a547e",
           "target_locator": "record.senses[1]",
-          "target_label": "防止损失或变化；保存"
+          "target_label": "保存；节约；防止损失、浪费或损坏"
         }
       },
       {
@@ -10345,8 +10418,16 @@
     "ordinal": 1022,
     "word": "conservative",
     "source_owner_path": "content/lexical/words/by-ordinal/o1022.json",
-    "source_fingerprint": "6a9d3e6cf76bc1da672938eedc2ff4d7712d48a86d0b9eb6a7cb4952e7c22d13",
-    "sense_lineage": [],
+    "source_fingerprint": "960fd1a2119405f4aa7b4dce543abce7226ff8c702f0ca6f907a4c0edbafa767",
+    "sense_lineage": [
+      {
+        "word_id": "word:conservative",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:4166a30e8f15fce84769",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1A",
@@ -10370,8 +10451,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "保守的，守旧的",
-        "definition_en": "resistant to change; having social or political views favoring conservatism",
+        "definition_cn": "保守、守旧的；谨慎的（如不过高估计）",
+        "definition_en": "favouring established practices or cautious choices; of estimates, avoiding an exaggerated amount",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10396,20 +10477,15 @@
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "conservative estimate/forecast",
             "meaning_cn": "谨慎而不过分夸大的估计/预测",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:4166a30e8f15fce84769",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "conservative estimate/forecast"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:conservative:e6132f0f74175b1f",
           "target_locator": "record.senses[0]",
-          "target_label": "保守的，守旧的"
+          "target_label": "保守、守旧的；谨慎的（如不过高估计）"
         }
       },
       {
@@ -10531,8 +10607,30 @@
     "ordinal": 1023,
     "word": "consider",
     "source_owner_path": "content/lexical/words/by-ordinal/o1023.json",
-    "source_fingerprint": "515be1828e5481f3d720f648de9d7a47dc7866dd611f1055535cc9602b7c5181",
-    "sense_lineage": [],
+    "source_fingerprint": "7ec4f7f91b141205546afacc45552dbe53a5e37efda739ee036495580a6cb1c6",
+    "sense_lineage": [
+      {
+        "word_id": "word:consider",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5d4c861d887cda5ee4c4",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:consider",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5e99c038b298ea29c285",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:consider",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:deeab10489cb4ef7f4b7",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3V"
@@ -10541,7 +10639,7 @@
     },
     "word_feel": {
       "summary_cn": "思考；认为",
-      "decision_cn": "consider options/doing → 审慎考虑；consider A (as) B → 认为/看作；consider someone's feelings → 顾及、体谅。现有 consider/regard/believe 对比继续作为跨词边界。",
+      "decision_cn": "consider options/doing看审慎考虑；consider A +名词/形容词或to be补足语看认为；as +名词也是可见用法，不能机械在所有形容词前加as。consider someone's feelings看顾及感受。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10554,7 +10652,7 @@
         "id": "sense:consider:1a670b3a0d215073",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt./vi.; consider (sth); consider doing sth; consider whether/how…",
         "definition_cn": "考虑，思考",
         "definition_en": "to think about something carefully, especially before making a decision",
         "note": "",
@@ -10565,13 +10663,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "consider + sth",
             "meaning_cn": "考虑某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:deeab10489cb4ef7f4b7",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "consider + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:7b3b4ba9b4345feefe3f",
@@ -10606,7 +10699,7 @@
         "id": "sense:consider:5219fade4f9258b4",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object + (as) + complement",
+        "governing_pattern": "consider sb/sth + noun/adjective; consider sb/sth to be + noun/adjective; consider sb/sth as + noun",
         "definition_cn": "认为，把…看作",
         "definition_en": "to have a particular opinion about someone or something",
         "note": "",
@@ -10615,14 +10708,14 @@
           {
             "id": "collocation:f510fefa0dcdccb84ab2",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "consider sb/sth (as) + n/adj",
-            "meaning_cn": "认为某人/某物是…",
+            "phrase": "consider sb/sth + n/adj; consider sb/sth (to be) + n/adj; consider sb/sth as + n",
+            "meaning_cn": "认为某人或某物是…；如 consider it necessary；as 可接名词框架，不泛化为 as + 任意形容词",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:f510fefa0dcdccb84ab2",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "consider sb/sth (as) + n/adj"
+              "target_label": "consider sb/sth + n/adj; consider sb/sth (to be) + n/adj; consider sb/sth as + n"
             }
           },
           {
@@ -10656,26 +10749,16 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "consider + sb/sth",
             "meaning_cn": "体谅某人/某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5d4c861d887cda5ee4c4",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "consider + sb/sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:5e99c038b298ea29c285",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "consider + sb's feelings",
             "meaning_cn": "顾及某人的感受",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5e99c038b298ea29c285",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "consider + sb's feelings"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -10728,7 +10811,7 @@
           "target_word": "believe",
           "lines": [
             {
-              "text": "consider 可表审慎判断；believe 更直接表示相信为真",
+              "text": "此处consider是对人或事作评价、看作某种情况；believe侧重接受某说法为真。两者都可表达判断，不能固定按确信程度排高低；consider doing的“考虑做”另属一义。",
               "lang": "cn"
             },
             {
@@ -10749,7 +10832,7 @@
           "target_word": "regard",
           "lines": [
             {
-              "text": "regard can mean consider/view or respect; consider is the broader verb for thinking about or judging.",
+              "text": "For the shared judgment meaning, regard uses an as-complement; consider allows a direct complement or a to-be construction, and also as with a noun. Consider doing belongs to its separate deliberation meaning.",
               "lang": "en"
             },
             {
@@ -10795,7 +10878,7 @@
     "ordinal": 1024,
     "word": "considerable",
     "source_owner_path": "content/lexical/words/by-ordinal/o1024.json",
-    "source_fingerprint": "4eff21daf1cd741229346df3c21a0c42fabb1cca8ed54a5a0cf16ed2d4df9ec4",
+    "source_fingerprint": "11503940d1c735017adeb92958ff25faab87f10c07ad56877305855761070ff3",
     "sense_lineage": [
       {
         "word_id": "word:considerable",
@@ -10819,13 +10902,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "大到需要认真考虑的程度",
-      "decision_cn": "considerable 不是“值得体谅”，而是数量或影响“大到不可忽视”。",
+      "summary_cn": "相当大的；可观的；程度显著的",
+      "decision_cn": "看数量、程度或影响相当大：evidence是量多，time是时间多，variation是差异明显。不能按consider字形推成“需要认真考虑的”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "大到需要认真考虑的程度"
+        "target_label": "相当大的；可观的；程度显著的"
       }
     },
     "senses": [
@@ -10843,7 +10926,7 @@
             "id": "collocation:dd1770f651c02576402c",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "considerable evidence",
-            "meaning_cn": "相当大的；重要的",
+            "meaning_cn": "大量证据",
             "kind": "usage_example",
             "repair": null
           },
@@ -10851,7 +10934,7 @@
             "id": "collocation:a1aa4ab7968601bbd1af",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "considerable time",
-            "meaning_cn": "相当大的；重要的",
+            "meaning_cn": "相当多的时间",
             "kind": "usage_example",
             "repair": null
           },
@@ -10859,7 +10942,7 @@
             "id": "collocation:5d121abdc7e3279289b0",
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "considerable variation",
-            "meaning_cn": "相当大的；重要的",
+            "meaning_cn": "显著差异或变化",
             "kind": "usage_example",
             "repair": null
           }

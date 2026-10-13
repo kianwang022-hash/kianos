@@ -26,40 +26,79 @@
         "pattern": "have (got) to + verb",
         "source_sense_id": "sense:have:f5675038e8f4587f",
         "boundary": "grammaticalized obligation/necessity; not possession"
+      },
+      {
+        "construction_id": "construction:660e1c4f17e7b141e8a2",
+        "pattern": "have somebody do something",
+        "meaning_cn": "让或安排某人做某事",
+        "definition_en": "to tell or arrange for somebody to act",
+        "usage_note": "宾语后接不带to的动词原形；I had the assistant check the figures。",
+        "boundary": "宾语后接不带to的动词原形；I had the assistant check the figures。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:11ea863bce8023432f5e",
+        "pattern": "have somebody/something doing something",
+        "meaning_cn": "使某人或某物处于某种持续活动状态",
+        "definition_en": "to cause somebody or something to be doing an activity",
+        "usage_note": "The joke had everyone laughing；doing表示正在进行的状态。",
+        "boundary": "The joke had everyone laughing；doing表示正在进行的状态。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:483e82a32c98cd62bbf2",
+        "pattern": "have somebody/something + adjective",
+        "meaning_cn": "使某人或某物处于某种状态",
+        "definition_en": "to cause or keep a person or thing in a specified state",
+        "usage_note": "We had everything ready by noon；区别于完成时have+过去分词。",
+        "boundary": "We had everything ready by noon；区别于完成时have+过去分词。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:5a88c013e5f43b288f12",
+        "pattern": "have somebody over/to dinner",
+        "meaning_cn": "在家招待某人来访或吃饭",
+        "definition_en": "to entertain guests in your home",
+        "usage_note": "We had friends over yesterday；此招待义不用于被动。",
+        "boundary": "We had friends over yesterday；此招待义不用于被动。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "978e6302609f00578462bf3c930b25be927d5b95a17ffe2e296dc56198da4555",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "有，拥有",
-          "label_en": "to possess or own",
+          "label_cn": "有，拥有；经历；遭遇；患有（问题、疾病、状态等）；吃、喝或吸（食物、饮料、烟等）；进行、做（某种活动）；组织、举行（活动）；生下（婴儿或动物幼崽）；产生（某种影响或效果）；收到；接受（东西或服务）",
+          "label_en": "to possess or own; to experience, undergo, or be affected by something, including a problem, event, feeling, illness, or condition; to eat, drink or smoke something; to perform an activity; to organize or hold an event; to give birth to a baby or young animal; to produce a particular effect; to receive something or have a service provided to you",
           "pos": "verb",
           "sense_ids": [
-            "sense:have:f5675038e8f4587f"
+            "sense:have:f5675038e8f4587f",
+            "sense:have:12c6c0a104865777",
+            "sense:have:5aca53dbad08a9f7",
+            "sense:have:4897ad949a65c55e",
+            "sense:have:7c84c174bfc763a7",
+            "sense:have:dd4a6eb1adbf5a4f",
+            "sense:have:48c4e09c8b22b300",
+            "sense:have:8b1887a213da6bd6"
           ]
         },
         {
-          "label_cn": "已经（构成完成时）",
-          "label_en": "used with past participle to form perfect tenses",
+          "label_cn": "（与过去分词构成完成时，不固定译为“已经”）",
+          "label_en": "an auxiliary used before a past participle to form a perfect tense",
           "pos": "auxiliary",
           "sense_ids": [
             "sense:have:d86272a0a3dd54a1"
           ]
-        },
-        {
-          "label_cn": "经历；遭遇；患有",
-          "label_en": "to experience, undergo, or be affected by an event, feeling, illness, or condition",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:have:12c6c0a104865777"
-          ]
         }
       ],
-      "core_meaning_cn": "有、拥有；经历；构成完成时",
-      "core_meaning_en": "to possess or experience; auxiliary for perfect tenses",
-      "mental_model_cn": "有、拥有；经历；构成完成时",
-      "mental_model_en": ""
+      "core_meaning_cn": "拥有或经历；吃喝、活动、举办、生育、产生影响或收到；完成时助动词",
+      "core_meaning_en": "possess or experience; consume, act, host, give birth, produce effects or receive; perfect auxiliary",
+      "mental_model_cn": "拥有及经历之外，have还可表示吃喝和做活动；have sb do/doing使役与have sth done服务或遭遇、完成时助动词各有框架。",
+      "mental_model_en": "possess or experience; consume, act, host, give birth, produce effects or receive; perfect auxiliary."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -106,19 +145,19 @@
             "legacy_source_object_ids": [
               "sense:have:d86272a0a3dd54a1:collocation:0"
             ],
-            "meaning_cn": "已经做了",
+            "meaning_cn": "have + 过去分词，构成完成时",
             "phrase": "have done"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "已经（构成完成时）",
-        "definition_en": "used with past participle to form perfect tenses",
-        "governing_pattern": "",
+        "definition_cn": "（与过去分词构成完成时，不固定译为“已经”）",
+        "definition_en": "an auxiliary used before a past participle to form a perfect tense",
+        "governing_pattern": "have/has/had + past participle",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "auxiliary",
         "sense_id": "sense:have:d86272a0a3dd54a1",
-        "sense_label_en": "used with past participle to form perfect tenses",
+        "sense_label_en": "an auxiliary used before a past participle to form a perfect tense",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -153,6 +192,140 @@
             "source_operation_id": "operation:4aa14822c8a354787c93",
             "source_operation_sha256": "86c5e76640e9ac4f786de06eabce8f7b347baf844925d3468ec0b1f20e0c2ebb",
             "verification_status": "auditor_verified"
+          }
+        ],
+        "transitivity": "vt",
+        "governing_pattern": "have + experience/event/condition"
+      },
+      {
+        "sense_id": "sense:have:5aca53dbad08a9f7",
+        "pos": "verb",
+        "definition_cn": "吃、喝或吸（食物、饮料、烟等）",
+        "definition_en": "to eat, drink or smoke something",
+        "sense_label_en": "to eat, drink or smoke something",
+        "governing_pattern": "have a meal/drink",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:543d5eee2111359a510c",
+            "phrase": "We had lunch at noon.",
+            "meaning_cn": "我们中午吃了午饭。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:have:4897ad949a65c55e",
+        "pos": "verb",
+        "definition_cn": "进行、做（某种活动）",
+        "definition_en": "to perform an activity",
+        "sense_label_en": "to perform an activity",
+        "governing_pattern": "have a swim/shower/discussion",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d1f6271111719e57e8e9",
+            "phrase": "I had a swim after work.",
+            "meaning_cn": "我下班后游了泳。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:have:7c84c174bfc763a7",
+        "pos": "verb",
+        "definition_cn": "组织、举行（活动）",
+        "definition_en": "to organize or hold an event",
+        "sense_label_en": "to organize or hold an event",
+        "governing_pattern": "have a party/meeting",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a5d540e83bb4f87c2253",
+            "phrase": "We are having a party on Friday.",
+            "meaning_cn": "我们周五要办一个聚会。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:have:dd4a6eb1adbf5a4f",
+        "pos": "verb",
+        "definition_cn": "生下（婴儿或动物幼崽）",
+        "definition_en": "to give birth to a baby or young animal",
+        "sense_label_en": "to give birth to a baby or young animal",
+        "governing_pattern": "have a baby/kittens",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:44aabc2645a8e77d38c3",
+            "phrase": "Their cat has just had kittens.",
+            "meaning_cn": "他们的猫刚生了小猫。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:have:48c4e09c8b22b300",
+        "pos": "verb",
+        "definition_cn": "产生（某种影响或效果）",
+        "definition_en": "to produce a particular effect",
+        "sense_label_en": "to produce a particular effect",
+        "governing_pattern": "have an effect/influence",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:68e8eecf8596bc1ebb14",
+            "phrase": "The change had little effect.",
+            "meaning_cn": "这个变化几乎没产生影响。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:have:8b1887a213da6bd6",
+        "pos": "verb",
+        "definition_cn": "收到；接受（东西或服务）",
+        "definition_en": "to receive something or have a service provided to you",
+        "sense_label_en": "to receive something or have a service provided to you",
+        "governing_pattern": "have a letter/treatment/lesson",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fa55d54d0797b43fb825",
+            "phrase": "We had a letter from our uncle.",
+            "meaning_cn": "我们收到了叔叔的一封信。",
+            "exam_value": "usage_example"
           }
         ]
       }
@@ -231,6 +404,126 @@
           "applicability": [
             {
               "surface": "have",
+              "conditions": [
+                "stressed / strong form"
+              ]
+            },
+            {
+              "surface": "have",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:have:5aca53dbad08a9f7"
+              ],
+              "owner_sense_ids": [
+                "sense:have:5aca53dbad08a9f7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2278.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "have a meal/drink",
+              "conditions": [
+                "stressed / strong form"
+              ]
+            },
+            {
+              "surface": "have",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:have:4897ad949a65c55e"
+              ],
+              "owner_sense_ids": [
+                "sense:have:4897ad949a65c55e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2278.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "have a swim/shower/discussion",
+              "conditions": [
+                "stressed / strong form"
+              ]
+            },
+            {
+              "surface": "have",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:have:7c84c174bfc763a7"
+              ],
+              "owner_sense_ids": [
+                "sense:have:7c84c174bfc763a7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2278.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "have a party/meeting",
+              "conditions": [
+                "stressed / strong form"
+              ]
+            },
+            {
+              "surface": "have",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:have:dd4a6eb1adbf5a4f"
+              ],
+              "owner_sense_ids": [
+                "sense:have:dd4a6eb1adbf5a4f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2278.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "have a baby/kittens",
+              "conditions": [
+                "stressed / strong form"
+              ]
+            },
+            {
+              "surface": "have",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:have:48c4e09c8b22b300"
+              ],
+              "owner_sense_ids": [
+                "sense:have:48c4e09c8b22b300"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2278.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "have an effect/influence",
+              "conditions": [
+                "stressed / strong form"
+              ]
+            },
+            {
+              "surface": "have",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:have:8b1887a213da6bd6"
+              ],
+              "owner_sense_ids": [
+                "sense:have:8b1887a213da6bd6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2278.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "have a letter/treatment/lesson",
               "conditions": [
                 "stressed / strong form"
               ]
@@ -473,11 +766,65 @@
         "merged_into_sense_id": null,
         "source_row": 6359,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
+      },
+      {
+        "sense_id": "sense:have:5aca53dbad08a9f7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:have:4897ad949a65c55e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:have:7c84c174bfc763a7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:have:dd4a6eb1adbf5a4f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:have:48c4e09c8b22b300",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:have:8b1887a213da6bd6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/8"
       }
     ],
     "active_collocations": [
+      "collocation:57a1f564a448a2b8bfc0",
       "collocation:0c3ac0800773ca8c0e83",
-      "collocation:57a1f564a448a2b8bfc0"
+      "collocation:543d5eee2111359a510c",
+      "collocation:d1f6271111719e57e8e9",
+      "collocation:a5d540e83bb4f87c2253",
+      "collocation:44aabc2645a8e77d38c3",
+      "collocation:68e8eecf8596bc1ebb14",
+      "collocation:fa55d54d0797b43fb825"
     ],
     "facts": [],
     "collocations": [
@@ -495,6 +842,48 @@
         "id": "collocation:a318f8e1e59e08a9c1af",
         "source_row": 13850,
         "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+      },
+      {
+        "id": "collocation:543d5eee2111359a510c",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:d1f6271111719e57e8e9",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:a5d540e83bb4f87c2253",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:44aabc2645a8e77d38c3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:68e8eecf8596bc1ebb14",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:fa55d54d0797b43fb825",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2278.json",
+        "source_pointer": "/record/senses/8/collocations/0"
       }
     ],
     "exam-mappings": [],

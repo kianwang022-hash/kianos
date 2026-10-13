@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "前提；假定",
-          "label_en": "a statement/idea used as a basis for reasoning",
+          "label_cn": "论证前提或故事的基本设定",
+          "label_en": "a starting assumption for reasoning or a basic idea for a story",
           "pos": "noun",
           "sense_ids": [
-            "sense:premise:605a4d9ea28953b6"
+            "sense:premise:605a4d9ea28953b6",
+            "sense:premise:054f83637cfb9226"
           ]
         },
         {
@@ -35,9 +36,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "前提；premises=场所",
-      "core_meaning_en": "premise = assumption; premises = buildings/property",
-      "mental_model_cn": "前提；premises=场所",
+      "core_meaning_cn": "论证或故事的出发点；场所义通常用 premises",
+      "core_meaning_en": "a starting assumption or story idea; premises can also mean property",
+      "mental_model_cn": "argument/reasoning 中 premise/premises 是一个或多个前提；film/story 中是情节设定；on the premises、business premises 中指场所。不能仅凭词尾 -s 判断成房屋。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -150,6 +151,28 @@
         "sense_label_en": "to base an argument or theory on an idea or assumption",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:premise:054f83637cfb9226",
+        "pos": "noun",
+        "definition_cn": "（故事、电影等的）基本设定；情节出发点",
+        "definition_en": "the basic situation or idea from which a story develops",
+        "sense_label_en": "the basic situation or idea from which a story develops",
+        "governing_pattern": "the premise of + story/film/show",
+        "level": "L2",
+        "sort_order": 3,
+        "transitivity": "nonverb",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c9bbc0cc23e550f26a16",
+            "exam_value": "usage_example",
+            "phrase": "the premise of the film",
+            "meaning_cn": "这部电影的基本设定"
+          }
+        ],
+        "usage_note": "作品语境看叙事从什么设定出发，不是在说房屋，也不必是用来证明结论的逻辑前提。"
       }
     ],
     "verification_summary": {
@@ -174,7 +197,7 @@
       "form_type": "lexicalized_plural_boundary",
       "spelling": "premise",
       "identity_rule": "same_word_owner_plural_lexicalization",
-      "boundary": "the reasoning noun is singular premise; the buildings/property meaning is normally the lexicalized plural premises",
+      "boundary": "The reasoning noun is countable: singular premise, plural premises. The property/buildings meaning is normally the lexicalized plural premises; context, not -s alone, selects the meaning.",
       "variants": [
         {
           "variant_id": "form:premise:reasoning",
@@ -182,8 +205,8 @@
           "pos": [
             "noun"
           ],
-          "number": "singular/countable",
-          "role": "assumption/basis for reasoning"
+          "number": "countable: singular premise, plural premises",
+          "role": "assumption/basis for reasoning; its regular plural premises retains this meaning"
         },
         {
           "variant_id": "form:premises:property",
@@ -295,6 +318,14 @@
             }
           ]
         }
+      ],
+      "evidence": [
+        {
+          "source_type": "dictionary",
+          "source_url": "https://www.merriam-webster.com/dictionary/premise",
+          "accessed_date": "2026-10-12",
+          "evidence_basis": "Entry explicitly exemplifies logical premises and separately labels the property meaning plural."
+        }
       ]
     }
   },
@@ -329,6 +360,13 @@
         "merged_into_sense_id": null,
         "source_row": 10423,
         "source_path": "content/lexical/canonical/senses/shards/o3713-3744.json"
+      },
+      {
+        "sense_id": "sense:premise:054f83637cfb9226",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3744.json",
+        "creation_basis": "bounded P1 semantic proposal 2026-10-12; distinct useful current meaning"
       }
     ],
     "active_collocations": [
@@ -337,7 +375,8 @@
       "collocation:85536c03b584070b1d01",
       "collocation:904d1913c1076b9eb79b",
       "collocation:bd05cd2697323187f18f",
-      "collocation:df7fa448d62536515d96"
+      "collocation:df7fa448d62536515d96",
+      "collocation:c9bbc0cc23e550f26a16"
     ],
     "facts": [
       {
@@ -376,6 +415,13 @@
         "id": "collocation:df7fa448d62536515d96",
         "source_row": 18920,
         "source_path": "content/lexical/canonical/collocations/shards/o3713-3744.json"
+      },
+      {
+        "id": "collocation:c9bbc0cc23e550f26a16",
+        "status": "active",
+        "sense_id": "sense:premise:054f83637cfb9226",
+        "source_path": "content/lexical/words/by-ordinal/o3744.json",
+        "creation_basis": "bounded P1 semantic proposal 2026-10-12; new phrase identity"
       }
     ],
     "exam-mappings": [],

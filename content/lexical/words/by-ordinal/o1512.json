@@ -26,6 +26,14 @@
             "sense:drip:e3171e8755e857fe",
             "sense:drip:17f1a6864f7e5c13"
           ]
+        },
+        {
+          "pos": "noun",
+          "label_cn": "静脉点滴；输液装置",
+          "label_en": "equipment that slowly delivers liquid into a vein through a tube",
+          "sense_ids": [
+            "sense:drip:fdc46be3c5cf4c80"
+          ]
         }
       ],
       "core_meaning_cn": "滴下",
@@ -45,7 +53,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:ffc6e242b9b45f34cb3a",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:drip:de693484803552b7:collocation:0"
             ],
@@ -63,16 +71,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "滴下",
-        "definition_en": "to fall in drops",
-        "governing_pattern": "vi. + down/from",
+        "definition_cn": "滴下；滴出；使液体滴落",
+        "definition_en": "to fall in drops, produce drops, or let liquid fall in drops",
+        "governing_pattern": "liquid drips from/down sth; drip liquid onto sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:drip:de693484803552b7",
-        "sense_label_en": "to fall in drops",
+        "sense_label_en": "to fall in drops, produce drops, or let liquid fall in drops",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -121,6 +129,25 @@
         "sense_label_en": "the sound of liquid falling drop by drop",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:drip:fdc46be3c5cf4c80",
+        "pos": "noun",
+        "definition_cn": "静脉点滴；输液装置",
+        "definition_en": "equipment that slowly delivers liquid into a vein through a tube",
+        "sense_label_en": "equipment that slowly delivers liquid into a vein through a tube",
+        "governing_pattern": "be on a drip; put sb on a drip",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:drip:fdc46be3c5cf4c80",
+            "phrase": "be on a drip",
+            "meaning_cn": "在输液；正在打点滴",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "尤其常见于英式英语；不是单个水滴或滴落的声音。这里只解释词汇，不提供治疗操作。"
       }
     ],
     "verification_summary": {
@@ -243,6 +270,28 @@
           "applicability": [
             {
               "surface": "drip"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drip",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:drip:fdc46be3c5cf4c80"
+              ],
+              "sense_ids": [
+                "sense:drip:fdc46be3c5cf4c80"
+              ],
+              "excluded_sense_ids": [
+                "sense:drip:17f1a6864f7e5c13",
+                "sense:drip:de693484803552b7",
+                "sense:drip:e3171e8755e857fe"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drip",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -299,6 +348,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/drip",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "drip",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/drɪp/",
+              "applies_to_sense_ids": [
+                "sense:drip:fdc46be3c5cf4c80"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         },
@@ -536,13 +601,21 @@
         "merged_into_sense_id": null,
         "source_row": 4213,
         "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json"
+      },
+      {
+        "sense_id": "sense:drip:fdc46be3c5cf4c80",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1512.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:05d6558677f160ac67a5",
       "collocation:3faf422e61fb0c98ea51",
       "collocation:812c5f80daf93e812b9a",
-      "collocation:ffc6e242b9b45f34cb3a"
+      "collocation:drip:fdc46be3c5cf4c80"
     ],
     "facts": [],
     "collocations": [
@@ -564,7 +637,17 @@
       {
         "id": "collocation:ffc6e242b9b45f34cb3a",
         "source_row": 21611,
-        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1505-1536.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:drip:fdc46be3c5cf4c80",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1512.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -9,10 +9,20 @@
     "constructions": [],
     "content_hash": "559abe6cfb9be6bf1a6b294d7ca657ec4aecdce5332d9c1bdd36438ced75a59e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "欺骗，欺诈",
-      "core_meaning_en": "deception for personal gain",
-      "mental_model_cn": "欺骗，欺诈",
+      "core_clusters": [
+        {
+          "label_cn": "欺诈，诈骗（罪行）；骗子；冒牌货；虚假的人或事物",
+          "label_en": "the crime of deceiving someone in order to get money or goods illegally; a person or thing presented as genuine but not what it claims or appears to be",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:fraud:02106a5b5657523c",
+            "sense:fraud:3ff44748d26b5b05"
+          ]
+        }
+      ],
+      "core_meaning_cn": "欺诈；骗子或冒牌货",
+      "core_meaning_en": "fraudulent deception; an impostor or fake",
+      "mental_model_cn": "fraud可为欺骗取利的行为；a fraud也可为冒充者或被当作真的假东西，不能所有场景都译成行为。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -60,23 +70,29 @@
         "collocations": [
           {
             "collocation_id": "collocation:aa9bbc63737a953f1111",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:fraud:3ff44748d26b5b05:collocation:0"
             ],
-            "meaning_cn": "对某人的欺骗",
-            "phrase": "a fraud on + sb"
+            "meaning_cn": "他原来是个冒牌货／骗子。",
+            "phrase": "He turned out to be a fraud."
+          },
+          {
+            "collocation_id": "collocation:2e6ddd26bec1332faf28",
+            "phrase": "The document was exposed as a fraud.",
+            "meaning_cn": "那份文件被揭穿是伪造的。",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "骗子",
-        "definition_en": "a person who deceives others by pretending to be someone or something they are not",
+        "definition_cn": "骗子；冒牌货；虚假的人或事物",
+        "definition_en": "a person or thing presented as genuine but not what it claims or appears to be",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:fraud:3ff44748d26b5b05",
-        "sense_label_en": "a person who deceives others by pretending to be someone or something th",
+        "sense_label_en": "a person or thing presented as genuine but not what it claims or appears to be",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -178,8 +194,7 @@
     ],
     "active_collocations": [
       "collocation:41bc56bed11c423561d4",
-      "collocation:911fec44d0f2b97b7c9c",
-      "collocation:aa9bbc63737a953f1111"
+      "collocation:911fec44d0f2b97b7c9c"
     ],
     "facts": [],
     "collocations": [
@@ -196,7 +211,16 @@
       {
         "id": "collocation:aa9bbc63737a953f1111",
         "source_row": 14459,
-        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2017-2048.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:2e6ddd26bec1332faf28",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2040.json",
+        "source_pointer": "/record/senses/1/collocations/1"
       }
     ],
     "exam-mappings": [],

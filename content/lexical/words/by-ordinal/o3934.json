@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "举起；抬起；提高；增加；筹集；抚养；养育；提出",
-          "label_en": "to lift something to a higher position; to increase the amount or level of something; to collect money for a purpose; to bring up a child; to mention a subject for discussion",
+          "label_cn": "举起；抬起；提高；增加；筹集；抚养；养育；饲养；种植；提出",
+          "label_en": "to lift something to a higher position; to increase the amount or level of something; to collect money for a purpose; to care for children or animals as they grow, or to grow crops; to mention a subject for discussion",
           "pos": "verb",
           "sense_ids": [
             "sense:raise:5818416e92005be3",
@@ -31,9 +31,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "举起或增加",
+      "core_meaning_cn": "使升高、增加、成长或出现",
       "core_meaning_en": "lift or increase",
-      "mental_model_cn": "举起或增加",
+      "mental_model_cn": "按宾语判断：hand 举起，price 提高，funds 筹集，child/cattle/crops 养育或种植，question 提出，doubts 引起。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -135,21 +135,28 @@
             "legacy_source_object_ids": [
               "sense:raise:3ae39809d44a559f:collocation:0"
             ],
-            "meaning_cn": "养家",
+            "meaning_cn": "养育子女；抚养孩子长大",
             "phrase": "raise a family"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "抚养；养育",
-        "definition_en": "to bring up a child",
+        "definition_cn": "抚养；养育；饲养；种植",
+        "definition_en": "to care for children or animals as they grow, or to grow crops",
         "governing_pattern": "vt. + object",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:raise:3ae39809d44a559f",
-        "sense_label_en": "to bring up a child",
+        "sense_label_en": "to care for children or animals as they grow, or to grow crops",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "raise children 是养育；raise cattle/crops 是饲养或种植，不是把它们举高。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/raise_1",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
       },
       {
         "collocations": [
@@ -198,6 +205,39 @@
         "sense_label_en": "an increase in salary",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:raise:990e7849cb33f406",
+        "pos": "verb",
+        "definition_cn": "引起；使出现（情绪、反应或现象）",
+        "definition_en": "to cause a feeling, reaction or phenomenon to arise",
+        "sense_label_en": "to cause a feeling, reaction or phenomenon to arise",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "raise doubts/fears; raise a smile; raise dust",
+        "transitivity": "vt",
+        "usage_note": "",
+        "collocations": [
+          {
+            "collocation_id": "collocation:raise:f1c1ea104ce3d84c",
+            "phrase": "raise doubts about the plan",
+            "meaning_cn": "引起对计划的怀疑",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/raise_1",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
+          }
+        ],
+        "sort_order": 6,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/raise_1",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -641,6 +681,12 @@
         "merged_into_sense_id": null,
         "source_row": 10968,
         "source_path": "content/lexical/canonical/senses/shards/o3905-3936.json"
+      },
+      {
+        "sense_id": "sense:raise:990e7849cb33f406",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3934.json"
       }
     ],
     "active_collocations": [
@@ -650,7 +696,8 @@
       "collocation:e88920254e0fa075fa39",
       "collocation:ecab3cf32e2e17a98664",
       "collocation:fb5eba9b3b78b035fe36",
-      "collocation:fe64906b49abd43280f4"
+      "collocation:fe64906b49abd43280f4",
+      "collocation:raise:f1c1ea104ce3d84c"
     ],
     "facts": [
       {
@@ -694,6 +741,10 @@
         "id": "collocation:fe64906b49abd43280f4",
         "source_row": 21510,
         "source_path": "content/lexical/canonical/collocations/shards/o3905-3936.json"
+      },
+      {
+        "id": "collocation:raise:f1c1ea104ce3d84c",
+        "source_path": "content/lexical/words/by-ordinal/o3934.json"
       }
     ],
     "exam-mappings": [],

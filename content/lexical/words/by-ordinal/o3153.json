@@ -6,33 +6,70 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:92bb16e4c4d95a752fa0",
+        "pattern": "I could murder a + food/drink",
+        "meaning_cn": "我真想吃/喝……",
+        "definition_en": "express a strong wish to eat or drink something",
+        "usage_note": "尤其英式非正式夸张，不表达杀人意图。",
+        "boundary": "尤其英式非正式夸张，不表达杀人意图。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:7a41abeeac76c6583ac0",
+        "pattern": "sb will/is going to murder sb",
+        "meaning_cn": "某人会非常生某人的气",
+        "definition_en": "predict or warn that somebody will be very angry with another person",
+        "usage_note": "非正式夸张语境；实际威胁时仍需按字面语境理解。",
+        "boundary": "非正式夸张语境；实际威胁时仍需按字面语境理解。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "ad5221e52b7ab8e9869815f1b47c2b55edaeb2c6c23e6f01d331477508cd5f97",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "谋杀；谋杀罪",
-          "label_en": "unlawful intentional killing of a human being by a human being",
+          "label_cn": "谋杀；故意非法杀人",
+          "label_en": "the intentional unlawful killing of a person",
           "pos": "noun",
           "sense_ids": [
             "sense:murder:78423f31cc15528c"
           ]
         },
         {
-          "label_cn": "谋杀；杀害；损毁；破坏；犯杀人罪",
-          "label_en": "kill intentionally and with premeditation; spoil or ruin something by poor performance; commit murder",
+          "label_cn": "谋杀；故意非法杀死；（因表现很差）糟蹋、毁掉作品或表演；犯杀人罪",
+          "label_en": "to kill a person intentionally and unlawfully; spoil or ruin something by poor performance; commit murder",
           "pos": "verb",
           "sense_ids": [
             "sense:murder:d739778d4c3a5342",
             "sense:murder:cf02cd40e20e5c37",
             "sense:murder:5d751a8acf5f5ba4"
           ]
+        },
+        {
+          "label_cn": "（非正式）极困难、难受的事情或情况",
+          "label_en": "a situation or activity that is extremely difficult or unpleasant",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:murder:78943d141056da04"
+          ]
+        },
+        {
+          "label_cn": "（非正式）彻底击败；大胜",
+          "label_en": "defeat somebody very decisively, especially in sport",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:murder:d2053fa6272e694f"
+          ]
         }
       ],
-      "core_meaning_cn": "谋杀",
-      "core_meaning_en": "the unlawful killing of a human being with intent",
-      "mental_model_cn": "谋杀",
-      "mental_model_en": ""
+      "core_meaning_cn": "谋杀；糟蹋作品、彻底击败；极难受的情况",
+      "core_meaning_en": "intentional unlawful killing; spoil a performance, defeat decisively; a very unpleasant situation",
+      "mental_model_cn": "先按语境识别字面谋杀与非正式夸张：murder a song唱糟，murder a team大胜，be murder说非常难受。",
+      "mental_model_en": "intentional unlawful killing; spoil a performance, defeat decisively; a very unpleasant situation."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -112,7 +149,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "损毁；破坏",
+        "definition_cn": "（因表现很差）糟蹋、毁掉作品或表演",
         "definition_en": "spoil or ruin something by poor performance",
         "governing_pattern": "vt. + object",
         "level": "L2",
@@ -136,6 +173,50 @@
         "sense_label_en": "commit murder",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:murder:78943d141056da04",
+        "pos": "noun",
+        "definition_cn": "（非正式）极困难、难受的事情或情况",
+        "definition_en": "a situation or activity that is extremely difficult or unpleasant",
+        "sense_label_en": "a situation or activity that is extremely difficult or unpleasant",
+        "governing_pattern": "be murder; It is murder doing sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e2b6f18a0e634cc1adda",
+            "phrase": "It’s murder getting home in this traffic.",
+            "meaning_cn": "这样的交通下回家真遭罪。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:murder:d2053fa6272e694f",
+        "pos": "verb",
+        "definition_cn": "（非正式）彻底击败；大胜",
+        "definition_en": "defeat somebody very decisively, especially in sport",
+        "sense_label_en": "defeat somebody very decisively, especially in sport",
+        "governing_pattern": "murder sb/a team（非正式）",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:dad642adcfe2be6a179a",
+            "phrase": "Our team got murdered in the final.",
+            "meaning_cn": "我们队在决赛中惨败。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -176,6 +257,42 @@
           "applicability": [
             {
               "surface": "murder"
+            },
+            {
+              "surface": "murder",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:murder:78943d141056da04"
+              ],
+              "owner_sense_ids": [
+                "sense:murder:78943d141056da04"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3153.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be murder; It is murder doing sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "murder",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:murder:d2053fa6272e694f"
+              ],
+              "owner_sense_ids": [
+                "sense:murder:d2053fa6272e694f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3153.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "murder sb/a team（非正式）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -277,13 +394,31 @@
         "merged_into_sense_id": null,
         "source_row": 8781,
         "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      },
+      {
+        "sense_id": "sense:murder:78943d141056da04",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3153.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:murder:d2053fa6272e694f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3153.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:1361b1ee6ddcca279b5a",
-      "collocation:1ef175293772b0cdf7af",
       "collocation:6aa5d510ac3a014f3208",
-      "collocation:c7e408c13e44e39f0b83"
+      "collocation:1361b1ee6ddcca279b5a",
+      "collocation:c7e408c13e44e39f0b83",
+      "collocation:1ef175293772b0cdf7af",
+      "collocation:e2b6f18a0e634cc1adda",
+      "collocation:dad642adcfe2be6a179a"
     ],
     "facts": [],
     "collocations": [
@@ -306,6 +441,20 @@
         "id": "collocation:c7e408c13e44e39f0b83",
         "source_row": 16902,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:e2b6f18a0e634cc1adda",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3153.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:dad642adcfe2be6a179a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3153.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

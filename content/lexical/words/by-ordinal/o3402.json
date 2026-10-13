@@ -27,10 +27,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "产量/产出结果；输出/生产",
-      "core_meaning_en": "an amount or result produced; to output/produce",
-      "mental_model_cn": "产量/产出结果；输出/生产",
-      "mental_model_en": ""
+      "core_meaning_cn": "产出量或输出结果；输出数据等结果；设备输出端",
+      "core_meaning_en": "an amount or result produced; produce or send out results; an output connection",
+      "mental_model_cn": "industrial output说产出，computer/power output说计算机结果或设备输出；output a file用作动词。connect a cable to an output时，output是设备的输出端。",
+      "mental_model_en": "an amount or result produced; produce or send out results; an output connection."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -50,7 +50,7 @@
             "legacy_source_object_ids": [
               "sense:output:515af6923e36536a:collocation:0"
             ],
-            "meaning_cn": "输出数据",
+            "meaning_cn": "输出的数据（此处 output 修饰 data）",
             "phrase": "output data"
           },
           {
@@ -73,7 +73,8 @@
         "sense_id": "sense:output:515af6923e36536a",
         "sense_label_en": "the amount, result, material, or information that is produced",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "产出可以是货物、作品、数据或设备产生的功率/能量；an output of 100 watts说输出功率。接线语境的输出端另有专门noun义。"
       },
       {
         "collocations": [
@@ -97,7 +98,36 @@
         "sense_id": "sense:output:f24fe9646f305f0b",
         "sense_label_en": "to produce or create something, especially data or goods",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "动词表示产生或提供输出，尤常见于计算机输出数据/结果；较一般的技术性产出用法也有效，不把它当日常produce的通用替代。"
+      },
+      {
+        "sense_id": "sense:output:fd6066ec24d35531",
+        "pos": "noun",
+        "definition_cn": "（设备的）输出端；输出接口",
+        "definition_en": "a connection or point through which a device sends out a signal, power or information",
+        "sense_label_en": "a connection or point through which a device sends out a signal, power or information",
+        "governing_pattern": "an audio/video output; connect sth to an output",
+        "transitivity": "nonverb",
+        "direction": "R",
+        "level": "L2",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3710f0c70887c5b50fa0",
+            "phrase": "Connect the speaker to the audio output.",
+            "meaning_cn": "把扬声器接到音频输出端。",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ],
+        "usage_note": "接线或设备接口语境指输出端口，不是产量、数值或已经产生的信息本身。"
       }
     ],
     "verification_summary": {
@@ -147,6 +177,23 @@
           "applicability": [
             {
               "surface": "output"
+            },
+            {
+              "surface": "output",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:output:fd6066ec24d35531"
+              ],
+              "owner_sense_ids": [
+                "sense:output:fd6066ec24d35531"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3402.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; original applicability, Source roles/Etym/sound qualifiers and locale evidence retained."
             }
           ],
           "sources": [
@@ -236,12 +283,21 @@
         "merged_into_sense_id": null,
         "source_row": 9438,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
+      },
+      {
+        "sense_id": "sense:output:fd6066ec24d35531",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3402.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:420392f075519146e525",
+      "collocation:f11285bda558297af28f",
       "collocation:e1a5b2e9003babe44554",
-      "collocation:f11285bda558297af28f"
+      "collocation:3710f0c70887c5b50fa0"
     ],
     "facts": [],
     "collocations": [
@@ -259,6 +315,13 @@
         "id": "collocation:f11285bda558297af28f",
         "source_row": 20418,
         "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      },
+      {
+        "id": "collocation:3710f0c70887c5b50fa0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3402.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

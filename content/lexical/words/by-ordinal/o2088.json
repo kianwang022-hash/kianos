@@ -6,18 +6,40 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:aa1a7bb1885b48687dd1",
+        "pattern": "gain on sb/sth",
+        "meaning_cn": "逐渐追上；缩小与……的距离",
+        "definition_en": "to get closer to someone or something being pursued",
+        "usage_note": "on后的对象是前方被追赶的人或物，如后面的赛跑者逐渐赶上前面的选手。",
+        "boundary": "on后的对象是前方被追赶的人或物，如后面的赛跑者逐渐赶上前面的选手。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:12366f029a1d04203a3c",
+        "pattern": "gain ground",
+        "meaning_cn": "取得进展；变得更有影响力或更受认可",
+        "definition_en": "to make progress or become stronger or more widely accepted",
+        "usage_note": "可描述行动进展，也可描述某观点逐渐得到认可；不必指占领实际土地。",
+        "boundary": "可描述行动进展，也可描述某观点逐渐得到认可；不必指占领实际土地。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "d03dff0d2c41b341defde950aae9d73f15e6f9bedfb9baebb66c10b6a7da0a80",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "获得；赢得；赚到；获利；增加；增长",
-          "label_en": "to obtain or win something, especially something useful or wanted; to earn money or profit; to increase in amount or value",
+          "label_cn": "获得；赢得；赚到；获利；增加；增长；（钟表）走快；快出（一段时间）",
+          "label_en": "to obtain or win something, especially something useful or wanted; to earn money or profit; to increase, or increase by a particular amount; of a clock or watch: to run fast, sometimes by a stated amount",
           "pos": "verb",
           "sense_ids": [
             "sense:gain:11326227fc6e52d6",
             "sense:gain:8f2e48b6e9f75054",
-            "sense:gain:5b5d9c86b4b95a3e"
+            "sense:gain:5b5d9c86b4b95a3e",
+            "sense:gain:c0c766ca2149da02"
           ]
         },
         {
@@ -30,10 +52,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "获得；增加",
-      "core_meaning_en": "to obtain or increase something, or a profit or increase",
-      "mental_model_cn": "获得；增加",
-      "mental_model_en": ""
+      "core_meaning_cn": "获得、增长或获利；钟表走快；收益或增量；追近或取得进展",
+      "core_meaning_en": "obtain, increase, profit, or run fast; a gain; catch up or make progress",
+      "mental_model_cn": "gain经验或权利为获得，gain体重或力量为增长；钟表gain为走快，可说每天快几分钟。gain on为逐渐追上，gain ground为取得进展或逐渐得到认可；名词gain可为增量或收益。",
+      "mental_model_en": "obtain, increase, profit, or run fast; a gain; catch up or make progress."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -147,15 +169,15 @@
         ],
         "confidence": "medium",
         "definition_cn": "增加；增长",
-        "definition_en": "to increase in amount or value",
-        "governing_pattern": "",
+        "definition_en": "to increase, or increase by a particular amount",
+        "governing_pattern": "gain (in value/strength); gain weight/speed",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:gain:5b5d9c86b4b95a3e",
-        "sense_label_en": "to increase in amount or value",
+        "sense_label_en": "to increase, or increase by a particular amount",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -180,6 +202,28 @@
         "sense_label_en": "a profit or advantage",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:gain:c0c766ca2149da02",
+        "pos": "verb",
+        "definition_cn": "（钟表）走快；快出（一段时间）",
+        "definition_en": "of a clock or watch: to run fast, sometimes by a stated amount",
+        "sense_label_en": "of a clock or watch: to run fast, sometimes by a stated amount",
+        "governing_pattern": "a clock gains; gain a minute a day",
+        "transitivity": "I/T",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2f56cc39b0fc361282d6",
+            "phrase": "The clock gains two minutes a day.",
+            "meaning_cn": "这钟每天快两分钟。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -209,6 +253,23 @@
           "applicability": [
             {
               "surface": "gain"
+            },
+            {
+              "surface": "gain",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:gain:c0c766ca2149da02"
+              ],
+              "owner_sense_ids": [
+                "sense:gain:c0c766ca2149da02"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2088.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "a clock gains; gain a minute a day"
+              }
             }
           ],
           "sources": [
@@ -925,6 +986,14 @@
         "merged_into_sense_id": null,
         "source_row": 5820,
         "source_path": "content/lexical/canonical/senses/shards/o2081-2112.json"
+      },
+      {
+        "sense_id": "sense:gain:c0c766ca2149da02",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2088.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
@@ -972,6 +1041,13 @@
         "id": "collocation:e8c3645e2586c066037b",
         "source_row": 19722,
         "source_path": "content/lexical/canonical/collocations/shards/o2081-2112.json"
+      },
+      {
+        "id": "collocation:2f56cc39b0fc361282d6",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2088.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

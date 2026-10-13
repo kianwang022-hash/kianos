@@ -17,9 +17,18 @@
     ],
     "content_hash": "51f7e792f43097860a749d71452387f92c3ad2d7bae4b3ba123f686503220425",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "pos": "adjective",
+          "label_cn": "实际的，事实上的",
+          "label_en": "actual; real, as opposed to nominal",
+          "sense_ids": [
+            "sense:effective:739d137683365a08"
+          ]
+        }
+      ],
       "core_meaning_cn": "有效的；生效的",
-      "core_meaning_en": "producing the intended result; in operation; actual",
+      "core_meaning_en": "producing an intended result; being in operation, as in effective from a date",
       "mental_model_cn": "有效的；生效的",
       "mental_model_en": ""
     },
@@ -38,7 +47,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:20383a78c51fbb2a2504",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:effective:27790f7b5f6a5932:collocation:handoff-o1375-o1624"
             ],
@@ -57,6 +66,25 @@
         "sense_label_en": "producing the intended result",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:effective:739d137683365a08",
+        "pos": "adjective",
+        "definition_cn": "实际的，事实上的",
+        "definition_en": "actual; real, as opposed to nominal",
+        "sense_label_en": "actual; real, as opposed to nominal",
+        "governing_pattern": "effective income/control",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:effective:fd7f4c37c369972d",
+            "phrase": "effective income after deductions",
+            "meaning_cn": "扣除相关项目后的实际收入",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "这里对比名义数值或名义身份；不只是说方法能达到预期结果。"
       }
     ],
     "verification_summary": {
@@ -77,7 +105,7 @@
     "word": "effective",
     "word_family": [
       {
-        "boundary": "effect",
+        "boundary": "effect（名词：结果、效果）→ effective（形容词：能产生预期效果的）；词性与句法不同，不能直接互换。",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -126,6 +154,27 @@
           "applicability": [
             {
               "surface": "effective"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "effective",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:effective:739d137683365a08"
+              ],
+              "sense_ids": [
+                "sense:effective:739d137683365a08"
+              ],
+              "excluded_sense_ids": [
+                "sense:effective:27790f7b5f6a5932"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/effective",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -242,6 +291,22 @@
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               },
               "scope_relation": "Original source occurrence only; not transferred to an independent reading."
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/effective",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "effective",
+                "pos": "adjective"
+              },
+              "existing_observed_ipa_unchanged": "/ɪˈfɛktɪv/",
+              "applies_to_sense_ids": [
+                "sense:effective:739d137683365a08"
+              ],
+              "evidence_note": "Same publisher headword pronunciation accompanies relevant current meaning. Existing source observation and locale conditions unchanged; this adds identity support only, never a new IPA variant or regional default."
             }
           ]
         },
@@ -517,31 +582,6 @@
       "reference_only": true
     },
     {
-      "stable_sense_id": "sense:effective:739d137683365a08",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "adjective",
-      "definition_cn": "实际的，事实上的",
-      "definition_en": "actual; real, as opposed to nominal",
-      "semantic_key": "3bb8dc71e0c03435ae99e7842663d52b423e17dbc678f10344550494a19cfffa",
-      "semantic_key_history": [
-        "4f30a3384f2f7fbc1eba4279be1f32570aa2728c51a20bb12447d94da22c0305"
-      ],
-      "legacy_aliases": [
-        "effective:l3:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "effective:l3:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 4415,
-      "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:effective:a9859134392a5bd8",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -585,10 +625,18 @@
       },
       {
         "sense_id": "sense:effective:739d137683365a08",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
-        "source_row": 4415,
-        "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1576.json",
+        "source_pointer": "/record/senses/1",
+        "historical_source_locator": {
+          "sense_id": "sense:effective:739d137683365a08",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "source_row": 4415,
+          "source_path": "content/lexical/canonical/senses/shards/o1569-1600.json"
+        }
       },
       {
         "sense_id": "sense:effective:a9859134392a5bd8",
@@ -599,7 +647,7 @@
       }
     ],
     "active_collocations": [
-      "collocation:20383a78c51fbb2a2504"
+      "collocation:effective:fd7f4c37c369972d"
     ],
     "facts": [
       {
@@ -637,7 +685,17 @@
       {
         "id": "collocation:20383a78c51fbb2a2504",
         "source_row": 21278,
-        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1569-1600.json",
+        "status": "reference",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:effective:fd7f4c37c369972d",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1576.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

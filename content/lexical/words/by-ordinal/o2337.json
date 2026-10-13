@@ -6,14 +6,75 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:1cf11eaaa8a6e191f62e",
+        "pattern": "(all) by himself",
+        "meaning_cn": "独自；没有别人陪伴",
+        "definition_en": "alone, without other people",
+        "usage_note": "描述身边没有别人，与是否获得帮助是不同含义。",
+        "boundary": "描述身边没有别人，与是否获得帮助是不同含义。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:a096a86c92c7b924a3d9",
+        "pattern": "(all) by himself",
+        "meaning_cn": "独立完成；没有帮助",
+        "definition_en": "without assistance",
+        "usage_note": "He repaired it by himself；即使别人就在旁边也可表示未帮忙。",
+        "boundary": "He repaired it by himself；即使别人就在旁边也可表示未帮忙。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:6628b056c999ed401156",
+        "pattern": "(all) to himself",
+        "meaning_cn": "独享；不与别人共用",
+        "definition_en": "for only that person to have or use",
+        "usage_note": "have the room to himself；与by himself不同。",
+        "boundary": "have the room to himself；与by himself不同。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:5565907a33a5e9f046fd",
+        "pattern": "be himself",
+        "meaning_cn": "不受别人左右；做真实的自己",
+        "definition_en": "to behave naturally without being influenced by others",
+        "usage_note": "需要自由表现真实个性，区别于恢复正常健康状态。",
+        "boundary": "需要自由表现真实个性，区别于恢复正常健康状态。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:b54a716eded22be9e416",
+        "pattern": "be/seem/feel himself",
+        "meaning_cn": "处于正常的健康或精神状态",
+        "definition_en": "to be in his usual state of health or happiness",
+        "usage_note": "He doesn’t seem himself today；不是只强调他亲自。",
+        "boundary": "He doesn’t seem himself today；不是只强调他亲自。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "b94b60f8d4394216e7e19290355e11767f4808c24176612e884fb26272a416d5",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "他自己",
-      "core_meaning_en": "reflexive or emphatic form of 'he'",
-      "mental_model_cn": "他自己",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "他自己；他亲自",
+          "label_en": "used as the object of a verb or preposition when the subject is 'he'; used to emphasize the subject or object",
+          "pos": "pronoun",
+          "sense_ids": [
+            "sense:himself:5d0b25edfcaf55d0",
+            "sense:himself:d79a84925f2f5269"
+          ]
+        }
+      ],
+      "core_meaning_cn": "他自己或他亲自；正常状态及真实个性",
+      "core_meaning_en": "himself as object or for emphasis; his usual or natural self",
+      "mental_model_cn": "himself可作反身宾语或强调；be himself还可表示正常状态或真实个性；by himself与to himself按完整框架区分。",
+      "mental_model_en": "himself as object or for emphasis; his usual or natural self."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -24,17 +85,7 @@
     "semantic_neighbors": [],
     "senses": [
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:7ea5891c68b7f7a65a54",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:himself:5d0b25edfcaf55d0:collocation:0"
-            ],
-            "meaning_cn": "他本人",
-            "phrase": "he himself"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "他自己",
         "definition_en": "used as the object of a verb or preposition when the subject is 'he'",
@@ -57,6 +108,15 @@
             ],
             "meaning_cn": "他亲自做的",
             "phrase": "he did it himself"
+          },
+          {
+            "collocation_id": "collocation:7ea5891c68b7f7a65a54",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:himself:5d0b25edfcaf55d0:collocation:0"
+            ],
+            "meaning_cn": "他本人",
+            "phrase": "he himself"
           }
         ],
         "confidence": "medium",
@@ -403,7 +463,8 @@
       {
         "id": "collocation:7ea5891c68b7f7a65a54",
         "source_row": 10710,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "sense_id": "sense:himself:d79a84925f2f5269"
       }
     ],
     "exam-mappings": [],

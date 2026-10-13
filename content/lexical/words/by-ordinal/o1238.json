@@ -10,9 +10,9 @@
     "content_hash": "39232b8fa0d872d0e63bd4de1c1810c7da3b7490f4646915632e3a369317fce5",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "债务",
-      "core_meaning_en": "money or obligation owed to another",
-      "mental_model_cn": "债务",
+      "core_meaning_cn": "债务；负债；恩情、人情债",
+      "core_meaning_en": "an amount owed; indebtedness; an obligation of gratitude",
+      "mental_model_cn": "in debt是负债；pay off a debt是还清；owe a debt of gratitude或be in sb’s debt也可表达感激，不一定欠钱。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -36,16 +36,37 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "债务，欠款",
-        "definition_en": "money or goods or services that one person owes to another",
+        "definition_cn": "债务、欠款；负债状态",
+        "definition_en": "money or other obligations owed, or the state of owing them",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:debt:d6c6f1833a335dbd",
-        "sense_label_en": "money or goods or services that one person owes to another",
+        "sense_label_en": "an amount owed or a state of indebtedness",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:debt:354b5e35d9f95539",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 1,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "恩情；因受到帮助而觉得欠下的人情",
+        "definition_en": "an obligation of gratitude for help received",
+        "sense_label_en": "an obligation of gratitude for help received",
+        "governing_pattern": "owe sb a debt of gratitude; be in sb’s debt",
+        "collocations": [
+          {
+            "collocation_id": "collocation:3777305775485a637204",
+            "exam_value": "fixed_pattern",
+            "phrase": "owe sb a debt of gratitude",
+            "meaning_cn": "欠某人的恩情；非常感激某人"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -182,45 +203,6 @@
           ]
         },
         {
-          "ipa": "/ˈdɛbt/",
-          "locales": [],
-          "locale_evidence": [],
-          "applicability": [
-            {
-              "surface": "debt"
-            }
-          ],
-          "sources": [
-            {
-              "type": "dataset_record",
-              "role": "pronunciation",
-              "dataset": "kaikki-en-20261003",
-              "snapshot_url": "https://kaikki.org/dictionary/English/kaikki.org-dictionary-English.jsonl.gz",
-              "snapshot_sha256": "6d40e0067718aeb3321db30297761ca803838390627111a29a5426fee4557faf",
-              "snapshot_date": "2026-10-03",
-              "extracted_at_utc": "2026-10-05T07:46:15.874546+00:00",
-              "page_revision_id": null,
-              "entry_line": 1069,
-              "entry_sha256": "a919033fc0c4c0aac34bf9262d0134c8b9e86ce51ae0a5db64f5b322cc1b59ff",
-              "sound_index": 4,
-              "page": "https://en.wiktionary.org/wiki/debt#English",
-              "entry_context": {
-                "word": "debt",
-                "pos": "noun",
-                "etymology_number": null
-              },
-              "original_ipa": "/ˈdɛbt/",
-              "sound_qualifiers": {},
-              "license": {
-                "id": "CC-BY-SA-4.0",
-                "url": "https://creativecommons.org/licenses/by-sa/4.0/",
-                "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
-                "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
-              }
-            }
-          ]
-        },
-        {
           "ipa": "/ˈdɛt/",
           "locales": [],
           "locale_evidence": [],
@@ -344,10 +326,18 @@
         "merged_into_sense_id": null,
         "source_row": 3490,
         "source_path": "content/lexical/canonical/senses/shards/o1217-1248.json"
+      },
+      {
+        "sense_id": "sense:debt:354b5e35d9f95539",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1238.json"
       }
     ],
     "active_collocations": [
-      "collocation:832a42dfff1da82f107c"
+      "collocation:832a42dfff1da82f107c",
+      "collocation:3777305775485a637204"
     ],
     "facts": [],
     "collocations": [
@@ -360,6 +350,11 @@
         "id": "collocation:832a42dfff1da82f107c",
         "source_row": 11114,
         "source_path": "content/lexical/canonical/collocations/shards/o1217-1248.json"
+      },
+      {
+        "id": "collocation:3777305775485a637204",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1238.json"
       }
     ],
     "exam-mappings": [],

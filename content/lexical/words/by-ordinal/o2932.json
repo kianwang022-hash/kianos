@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "aa292e82e558b5a758f1c1c2ab12b842cff952639ae996b25ff1273f8330e726",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "保持良好状态或提供经济支持的行为",
-      "core_meaning_en": "the act of keeping something in good condition or providing financial support",
-      "mental_model_cn": "保持良好状态或提供经济支持的行为",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "维修保养；维持状态；生活与抚养费用",
+          "label_en": "upkeep and repair; keeping a state continuing; financial support for living",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:maintenance:7f4eec1f3b8f52c9",
+            "sense:maintenance:6232eeafe8c75b32",
+            "sense:maintenance:121830488a1321a1"
+          ]
+        }
+      ],
+      "core_meaning_cn": "维修保养；维持状态；生活与抚养费用",
+      "core_meaning_en": "upkeep and repair; keeping a state continuing; financial support for living",
+      "mental_model_cn": "设备maintenance是保养；maintenance of peace是维持和平；maintenance and tuition区分生活费和学费。",
+      "mental_model_en": "upkeep and repair; keeping a state continuing; financial support for living."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -40,16 +51,39 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "生活费；抚养费",
-        "definition_en": "money paid regularly to support a family or former spouse",
+        "definition_cn": "生活费；供养、抚养费用",
+        "definition_en": "money or financial support provided for someone’s living expenses",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:maintenance:6232eeafe8c75b32",
-        "sense_label_en": "money paid regularly to support a family or former spouse",
+        "sense_label_en": "money or financial support provided for someone’s living expenses",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "可指一般生活费，包括学生生活费用；在英式家庭语境也可指给前伴侣或子女的抚养费，不能一律等同学费。"
+      },
+      {
+        "sense_id": "sense:maintenance:121830488a1321a1",
+        "pos": "noun",
+        "definition_cn": "维持；使某状态持续",
+        "definition_en": "the act of keeping a state or situation in existence",
+        "sense_label_en": "the act of keeping a state or situation in existence",
+        "governing_pattern": "the maintenance of peace/standards",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e323bd69282f911d4a4b",
+            "phrase": "the maintenance of peace",
+            "meaning_cn": "维持和平",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -79,6 +113,23 @@
           "applicability": [
             {
               "surface": "maintenance"
+            },
+            {
+              "surface": "maintenance",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:maintenance:121830488a1321a1"
+              ],
+              "owner_sense_ids": [
+                "sense:maintenance:121830488a1321a1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2932.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the maintenance of peace/standards"
             }
           ],
           "sources": [
@@ -279,9 +330,19 @@
         "merged_into_sense_id": null,
         "source_row": 8163,
         "source_path": "content/lexical/canonical/senses/shards/o2913-2944.json"
+      },
+      {
+        "sense_id": "sense:maintenance:121830488a1321a1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2932.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:e323bd69282f911d4a4b"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -303,6 +364,13 @@
         "id": "collocation:f66c0989485fcb2f9385",
         "source_row": 20884,
         "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+      },
+      {
+        "id": "collocation:e323bd69282f911d4a4b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2932.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

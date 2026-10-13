@@ -5,8 +5,16 @@
     "ordinal": 1473,
     "word": "domain",
     "source_owner_path": "content/lexical/words/by-ordinal/o1473.json",
-    "source_fingerprint": "2710ba1ecf133f712183bda4edfe1f488e08d8596a6cefcbeea484e119cdd254",
-    "sense_lineage": [],
+    "source_fingerprint": "7917ce40f5573d62868fcec35c0c7334cadbdab41aa031f446d4ae1f7e7e93f4",
+    "sense_lineage": [
+      {
+        "word_id": "word:domain",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c0f2b3943ea8591b3563",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3N"
@@ -51,7 +59,7 @@
             "id": "collocation:fff0fb5b7afb47db8148",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "public domain",
-            "meaning_cn": "公有领域；不受版权限制",
+            "meaning_cn": "公开可知、可获得的信息范围；版权语境指公有领域。公开可见不等于无版权保护。",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -96,13 +104,8 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "internet/web domain",
             "meaning_cn": "互联网/网站域",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c0f2b3943ea8591b3563",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "internet/web domain"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -200,7 +203,7 @@
     "ordinal": 1474,
     "word": "dome",
     "source_owner_path": "content/lexical/words/by-ordinal/o1474.json",
-    "source_fingerprint": "b6033f2daf98902ecac73e64c592a9909b04763fa7ecea4aada8c377a6422839",
+    "source_fingerprint": "c6d471b54bcdb84950d2a66c7e8815392d945ac95a7cd2db8f9509ec73d9ce4d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -226,7 +229,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "圆顶；穹顶",
-        "definition_en": "a hemispherical roof or structure",
+        "definition_en": "a rounded roof or structure, often shaped like part of a sphere",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -506,7 +509,7 @@
     "ordinal": 1476,
     "word": "dominant",
     "source_owner_path": "content/lexical/words/by-ordinal/o1476.json",
-    "source_fingerprint": "6d698afa6c759e4cb13f3d2f403bc9af1879a1f719c06e3f1d510f9899e923e4",
+    "source_fingerprint": "614ed30f9fdb506f011002bfc276f3b703f62d57881ee4225d5851f0920bbbcd",
     "sense_lineage": [
       {
         "word_id": "word:dominant",
@@ -572,9 +575,9 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "显性的",
-        "definition_en": "(of genes) producing the same phenotype whether its allele is identical or dissimilar",
-        "note": "",
+        "definition_cn": "（等位基因或性状）显性的",
+        "definition_en": "of an allele or trait: expressed when a dominant allele is paired with a recessive allele",
+        "note": "显性描述等位基因的表达关系，不表示在人群中更常见或更优良。dominant gene 是常见简写说法，精确讨论时可用 dominant allele。",
         "identity_overlay": null,
         "usage": [
           {
@@ -590,7 +593,7 @@
           "target_kind": "sense",
           "target_id": "sense:dominant:2b81c43281d254e5",
           "target_locator": "record.senses[1]",
-          "target_label": "显性的"
+          "target_label": "（等位基因或性状）显性的"
         }
       }
     ],
@@ -904,7 +907,7 @@
     "ordinal": 1478,
     "word": "donate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1478.json",
-    "source_fingerprint": "e080c65cd730e760b1d3dfa9890a6d84c52bca777fa89ba1d055c3d57962ebff",
+    "source_fingerprint": "c6fe50b8d1dc802b21299566e8380ba7b37451b7fd4475cd1de7300b808f60ff",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -927,9 +930,9 @@
         "id": "sense:donate:0c293a00677158f3",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "捐赠（钱、物品或时间）给慈善机构或公益事业",
-        "definition_en": "give money, goods, or time to a charity or good cause",
+        "governing_pattern": "donate sth (to sb/sth); donate (to a cause)",
+        "definition_cn": "捐赠钱、物、时间等；捐献血液或器官",
+        "definition_en": "to give money, goods, time, blood, or organs to help others without payment",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -959,7 +962,7 @@
           "target_kind": "sense",
           "target_id": "sense:donate:0c293a00677158f3",
           "target_locator": "record.senses[0]",
-          "target_label": "捐赠（钱、物品或时间）给慈善机构或公益事业"
+          "target_label": "捐赠钱、物、时间等；捐献血液或器官"
         }
       }
     ],
@@ -1021,13 +1024,20 @@
     "ordinal": 1479,
     "word": "donkey",
     "source_owner_path": "content/lexical/words/by-ordinal/o1479.json",
-    "source_fingerprint": "c4957801846a2ebb6d3491058c1397d1a6a9ba0b1365fe47a421c097aa94ed7a",
+    "source_fingerprint": "72c5d83e050b18c39feb02d2b38726c03e57072765eea2b9f6dd96ad00fea10c",
     "sense_lineage": [
       {
         "word_id": "word:donkey",
         "target_kind": "sense",
         "from_target_id": "sense:donkey:ad25022c8734540e",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:donkey",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:458a26249c783a082077",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -1063,13 +1073,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "as stubborn as a donkey",
             "meaning_cn": "非常顽固",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:458a26249c783a082077",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "as stubborn as a donkey"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -1440,7 +1445,7 @@
     "ordinal": 1482,
     "word": "doorway",
     "source_owner_path": "content/lexical/words/by-ordinal/o1482.json",
-    "source_fingerprint": "07b75f3f7b65b94933ba404a85595a103214d17a7ca215d4e7547402d52d3b54",
+    "source_fingerprint": "7dd49823ec62f42806aa4a36102593fca255eb3dd523fc364c261fdeaec39c8d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1678,7 +1683,7 @@
     "ordinal": 1484,
     "word": "dose",
     "source_owner_path": "content/lexical/words/by-ordinal/o1484.json",
-    "source_fingerprint": "c3eb5680dd16901ebab62d174a8de0f23ad7cd810ae60642623c2564d069b415",
+    "source_fingerprint": "e05894189f98c10db9e4af5c4a6f222777733863ecf8c9b96f4f0f6ec0bcb707",
     "sense_lineage": [
       {
         "word_id": "word:dose",
@@ -1696,13 +1701,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "（药物或物质的）剂量；一剂",
-      "decision_cn": "药物或药剂的量",
+      "summary_cn": "剂量；某种经历或品质的一份、一定量",
+      "decision_cn": "药物语境读作剂量；抽象事物语境按“一份或一定量”理解，如一番现实提醒或一份自信。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "（药物或物质的）剂量；一剂"
+        "target_label": "剂量；某种经历或品质的一份、一定量"
       }
     },
     "senses": [
@@ -1710,10 +1715,10 @@
         "id": "sense:dose:b7e83a8c502306d8",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（药物或物质的）一定剂量",
-        "definition_en": "a measured amount of medicine or another substance",
-        "note": "",
+        "governing_pattern": "a dose of medicine/reality/humour/self-confidence",
+        "definition_cn": "（药物或物质的）剂量；（经历、品质等的）一份或一定量",
+        "definition_en": "a measured amount of medicine or another substance; by extension, an amount of something such as an experience or quality",
+        "note": "保留“一定量”的数量模型：medicine 等是剂量；reality、humour、self-confidence 等是比喻的一份或一定量，可正面也可负面，不自动理解成吃药。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1728,20 +1733,28 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "a dose of medicine"
             }
+          },
+          {
+            "id": "collocation:dose:cea0aef8dc3cebb2",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "a dose of reality",
+            "meaning_cn": "一番让人认清现实的体验",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dose:b7e83a8c502306d8",
           "target_locator": "record.senses[0]",
-          "target_label": "（药物或物质的）一定剂量"
+          "target_label": "（药物或物质的）剂量；（经历、品质等的）一份或一定量"
         }
       },
       {
         "id": "sense:dose:81c7dcd43f235d26",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "dose sb/oneself with medicine",
         "definition_cn": "给...服药",
         "definition_en": "to give a dose of medicine to someone",
         "note": "",
@@ -1759,6 +1772,19 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "dose sb with + medicine"
             }
+          },
+          {
+            "id": "collocation:28fed8d59e752d1e488d",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "dose oneself with medicine",
+            "meaning_cn": "给自己服某种药",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:28fed8d59e752d1e488d",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "dose oneself with medicine"
+            }
           }
         ],
         "repair": {
@@ -1772,26 +1798,12 @@
         "id": "sense:dose:a755828905c45f7a",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "dose (take a dose of medicine)",
         "definition_cn": "服药",
         "definition_en": "to take a dose of medicine",
-        "note": "",
+        "note": "不及物用法指服药；dose oneself with medicine 含反身宾语，归给药的及物义项。",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:28fed8d59e752d1e488d",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "dose with + medicine",
-            "meaning_cn": "服用某药",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:28fed8d59e752d1e488d",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "dose with + medicine"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dose:a755828905c45f7a",
@@ -1900,11 +1912,11 @@
     "ordinal": 1485,
     "word": "dot",
     "source_owner_path": "content/lexical/words/by-ordinal/o1485.json",
-    "source_fingerprint": "5a428667f3b4cdbe6479d0273ef5b46e376c3a4c4a1fcdcbe4bece11a28150f8",
+    "source_fingerprint": "60d1f0f9b2c187a3687ee7336a938ae869263f24f10cd24288ce93df142f4f1d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "1N"
       ],
       "density": "rich"
@@ -1951,7 +1963,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "打点于，点缀",
+        "definition_cn": "给…打点；以点作标记",
         "definition_en": "to mark with a dot or dots",
         "note": "",
         "identity_overlay": null,
@@ -1969,7 +1981,7 @@
           "target_kind": "sense",
           "target_id": "sense:dot:88b5eca709ed5233",
           "target_locator": "record.senses[1]",
-          "target_label": "打点于，点缀"
+          "target_label": "给…打点；以点作标记"
         }
       },
       {
@@ -1987,6 +1999,40 @@
           "target_id": "sense:dot:cbfc89059bd85c70",
           "target_locator": "record.senses[2]",
           "target_label": "打点"
+        }
+      },
+      {
+        "id": "sense:dot:3649959578e165c0",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "things dot a place; a place is dotted with things",
+        "definition_cn": "散布于；星罗棋布于",
+        "definition_en": "of things: to be scattered over a place",
+        "note": "主动句主语是散布的事物，宾语是地点；被动句地点作主语，with 后接事物。区别于人为在表面打点。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dot:f04b23e01de77a13",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "Small houses dot the valley.",
+            "meaning_cn": "小房子散布在山谷中。",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:dot:8480e619a4cc3b37",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "The valley is dotted with small houses.",
+            "meaning_cn": "山谷中散布着小房子。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dot:3649959578e165c0",
+          "target_locator": "record.senses[3]",
+          "target_label": "散布于；星罗棋布于"
         }
       }
     ],
@@ -2022,7 +2068,7 @@
     "ordinal": 1486,
     "word": "double",
     "source_owner_path": "content/lexical/words/by-ordinal/o1486.json",
-    "source_fingerprint": "b4cdeea7b16f0969317fba4cb8c1eae738e079edb4c9f8cac3d80720fecf30e1",
+    "source_fingerprint": "5d40203c313364c0e7a90f64c0cbae0ad03131b0ab7a8192beda4cbb7921a630",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2048,8 +2094,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "两倍的；双倍的",
-        "definition_en": "twice as much or as many",
+        "definition_cn": "两倍的；双份的；由两个组成或供两人使用的",
+        "definition_en": "twice as much or many; consisting of two, or intended for two people",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2066,16 +2112,16 @@
           "target_kind": "sense",
           "target_id": "sense:double:8b0a95ca84b95fa6",
           "target_locator": "record.senses[0]",
-          "target_label": "两倍的；双倍的"
+          "target_label": "两倍的；双份的；由两个组成或供两人使用的"
         }
       },
       {
         "id": "sense:double:4ab5459b68615dfa",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使加倍",
-        "definition_en": "to make something twice as much or as many",
+        "governing_pattern": "double sth; sth doubles (in size/number)",
+        "definition_cn": "（使）加倍",
+        "definition_en": "to become twice as much or many, or to make something twice as much or many",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2092,7 +2138,7 @@
           "target_kind": "sense",
           "target_id": "sense:double:4ab5459b68615dfa",
           "target_locator": "record.senses[1]",
-          "target_label": "使加倍"
+          "target_label": "（使）加倍"
         }
       },
       {
@@ -2151,8 +2197,8 @@
         "id": "sense:double:787b96be1a4a5485",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi. + as",
-        "definition_cn": "代替；充当",
+        "governing_pattern": "double for sb",
+        "definition_cn": "为某人充当替身",
         "definition_en": "to act as a substitute for someone",
         "note": "",
         "identity_overlay": null,
@@ -2175,7 +2221,7 @@
           "target_kind": "sense",
           "target_id": "sense:double:787b96be1a4a5485",
           "target_locator": "record.senses[4]",
-          "target_label": "代替；充当"
+          "target_label": "为某人充当替身"
         }
       }
     ],
@@ -2232,7 +2278,7 @@
     "ordinal": 1487,
     "word": "doubt",
     "source_owner_path": "content/lexical/words/by-ordinal/o1487.json",
-    "source_fingerprint": "d142c7af7a8553889a02bb1d3e3b8be7733176e6f137a7179e0c26b30353d5bc",
+    "source_fingerprint": "7fdac448acbf269c172d637cb165993f22076d0667b8a8984acffaa03d0d2b66",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2266,9 +2312,14 @@
             "id": "collocation:7343c71d5f7074e214a9",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "no doubt",
-            "meaning_cn": "毫无疑问",
-            "kind": "usage_example",
-            "repair": null
+            "meaning_cn": "想必；很可能；说话者认为确实如此（不总等于绝无疑问）",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:7343c71d5f7074e214a9",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "no doubt"
+            }
           },
           {
             "id": "collocation:1af4a4ef7eda7225be01",
@@ -2306,7 +2357,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "怀疑，不信",
         "definition_en": "to be uncertain about something or not believe it",
-        "note": "",
+        "note": "I doubt that ... 通常倾向认为从句内容不是真的；I do not doubt that ... 表示相信。doubt whether/if ... 也可倾向认为不会成立，不把 whether/if 机械解释为完全中立。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2576,7 +2627,7 @@
     "ordinal": 1489,
     "word": "down",
     "source_owner_path": "content/lexical/words/by-ordinal/o1489.json",
-    "source_fingerprint": "f8b7d1dbc2519d8422f4061f62b9b4987d6aac5a32840dbea9f66af82d74bda4",
+    "source_fingerprint": "1449e05ae04a4903c07868bfe57bfbb6b0e8b85b14d21e012d81aee555ec2ce8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2590,7 +2641,7 @@
     },
     "word_feel": {
       "summary_cn": "向下",
-      "decision_cn": "",
+      "decision_cn": "主干是向下或处于较低状态；系统或网络 down 指停机、不工作。既有羽绒、喝下等分支另按语境辨认。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3047,7 +3098,7 @@
     "ordinal": 1491,
     "word": "downtown",
     "source_owner_path": "content/lexical/words/by-ordinal/o1491.json",
-    "source_fingerprint": "76fa726501e7627f924992ea0df23123fe2de6d27b0a0671813d5ce500f5b5cf",
+    "source_fingerprint": "91438e23c3eb39e97f238c0fdddd1593a43ed9d3e143fabe9e8f9a456ca4bea8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3081,8 +3132,8 @@
           {
             "id": "collocation:ab08b92f925425b7c4e1",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in downtown",
-            "meaning_cn": "在市中心",
+            "phrase": "the heart of downtown",
+            "meaning_cn": "市中心的核心地带",
             "kind": "usage_example",
             "repair": null
           }
@@ -3177,6 +3228,10 @@
           {
             "text": "去/住在市中心",
             "lang": "cn"
+          },
+          {
+            "text": "go/live/work downtown: downtown is an adverb, without to/in. go to/live in the downtown area: use the preposition required by the verb with this noun phrase.",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -3184,23 +3239,6 @@
           "target_id": "construction:99eb8d4c42445cef9a92",
           "target_locator": "record.constructions[0]",
           "target_label": "go/live downtown"
-        }
-      },
-      {
-        "id": "construction:5f6beaf8e7c5bc8378d8",
-        "source_locator": "record.constructions[1]",
-        "pattern": "downtown / the downtown area",
-        "lines": [
-          {
-            "text": "市中心的副词、名词或定语用法",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:5f6beaf8e7c5bc8378d8",
-          "target_locator": "record.constructions[1]",
-          "target_label": "downtown / the downtown area"
         }
       }
     ],
@@ -3217,7 +3255,7 @@
     "ordinal": 1492,
     "word": "downward",
     "source_owner_path": "content/lexical/words/by-ordinal/o1492.json",
-    "source_fingerprint": "db2ba02665924d1a39a095bf4c278e957dd7147964e46bb00d71dc5f10feb84c",
+    "source_fingerprint": "fe7b0e0d91deee779cec10fde6860b3153fa4381b690fde862a1d55712641c90",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3243,7 +3281,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "向下的；下降的",
-        "definition_en": "on or toward a surface regarded as a base",
+        "definition_en": "moving or pointing toward a lower position, or decreasing in level or amount",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3345,7 +3383,7 @@
     "ordinal": 1493,
     "word": "doze",
     "source_owner_path": "content/lexical/words/by-ordinal/o1493.json",
-    "source_fingerprint": "d149748c51b1fbae132f6cb9a8bba8ec31b58c66f28d16cf6e73e6225698eb7f",
+    "source_fingerprint": "9c8684cba1ef43b5f5ad549be18249dee633056cf60fad57635083e7f8285128",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3369,7 +3407,7 @@
         "id": "sense:doze:15a5abba4f7a5969",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + off",
+        "governing_pattern": "doze; doze off",
         "definition_cn": "打瞌睡，小睡",
         "definition_en": "to sleep lightly or briefly",
         "note": "",
@@ -3379,7 +3417,7 @@
             "id": "collocation:561b629531e948e65135",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "doze off",
-            "meaning_cn": "打瞌睡，打盹",
+            "meaning_cn": "打起盹来；不知不觉睡着",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -3413,10 +3451,10 @@
         "id": "sense:doze:fd1ba3b9709755bc",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "doze away time; doze time away",
         "definition_cn": "打瞌睡度过（时间）",
         "definition_en": "to spend (time) dozing",
-        "note": "",
+        "note": "表示打盹消磨一段时间时需要 away，可说 doze the afternoon away；不教裸 doze time。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3512,7 +3550,7 @@
     "ordinal": 1494,
     "word": "dozen",
     "source_owner_path": "content/lexical/words/by-ordinal/o1494.json",
-    "source_fingerprint": "cc46120a2d24cbe3a3123629fffead426e072e4b99ceec4b463008280a6c2d46",
+    "source_fingerprint": "0d48adc4d8d34b22d32f2f4e920f716aba4321711a4c881cee390fa18c26d89a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3536,10 +3574,10 @@
         "id": "sense:dozen:3697c13813ad5151",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "a/two/three dozen + plural noun; dozens of + plural noun",
         "definition_cn": "一打；十二个",
         "definition_en": "a group of twelve things or people",
-        "note": "",
+        "note": "普通数量表达用 a/two/three dozen + 复数名词，如 two dozen eggs；此时 dozen 不加 s。概数用 dozens of + 复数名词，表示许多或几十个。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3633,7 +3671,7 @@
     "ordinal": 1495,
     "word": "draft",
     "source_owner_path": "content/lexical/words/by-ordinal/o1495.json",
-    "source_fingerprint": "af5cfc75eefc2c8ecc853c496a023208fe2940116d79ffee7db01ec21ac0442a",
+    "source_fingerprint": "380083e85ebdd925ca09205a2ea930cf36194ac500b35a8d6df98bc02fb7e583",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3659,7 +3697,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "草稿；草图",
-        "definition_en": "a preliminary sketch of a design or picture",
+        "definition_en": "a preliminary version of a written document, plan, or drawing",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3904,12 +3942,12 @@
     "ordinal": 1496,
     "word": "drag",
     "source_owner_path": "content/lexical/words/by-ordinal/o1496.json",
-    "source_fingerprint": "4273614be112adbcecfdbecff4ba23affa9b573f2767945144f102c887718651",
+    "source_fingerprint": "aa20289661d23a0f5a10e73ee416935b154eb2924accc5f66cee00cbcb8e6973",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -3931,7 +3969,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "拖，拉",
         "definition_en": "pull something along with effort",
-        "note": "",
+        "note": "计算机操作中也可表示拖动屏幕对象，如 drag an icon to a folder；沿用拖动某物的及物配置。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4024,6 +4062,58 @@
           "target_locator": "record.senses[2]",
           "target_label": "拖累，阻碍"
         }
+      },
+      {
+        "id": "sense:drag:56884f70a08a5e8e",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "be a drag",
+        "definition_cn": "令人厌烦的人或事；麻烦事",
+        "definition_en": "an annoying, unpleasant, or boring person or thing",
+        "note": "非正式说法，表达厌烦；不同于 a drag on progress 的拖累或阻碍。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:drag:f139c0c61e0e30c2",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "Waiting all afternoon is a drag.",
+            "meaning_cn": "等一下午真烦人。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drag:56884f70a08a5e8e",
+          "target_locator": "record.senses[3]",
+          "target_label": "令人厌烦的人或事；麻烦事"
+        }
+      },
+      {
+        "id": "sense:drag:77622bc7f420cf38",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "air/aerodynamic drag; reduce drag",
+        "definition_cn": "（空气或液体造成的）阻力",
+        "definition_en": "resistance to movement through air or a liquid",
+        "note": "技术语境指运动阻力；不是令人厌烦或妨碍进展的评价。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:drag:3348bea7f7a0c576",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "reduce air drag",
+            "meaning_cn": "减小空气阻力",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drag:77622bc7f420cf38",
+          "target_locator": "record.senses[4]",
+          "target_label": "（空气或液体造成的）阻力"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4061,8 +4151,15 @@
     "ordinal": 1497,
     "word": "dragon",
     "source_owner_path": "content/lexical/words/by-ordinal/o1497.json",
-    "source_fingerprint": "81cdbc49d52199940a370bd7a3634aeed06178c993afaa91d6bab7ea0d3dd95e",
+    "source_fingerprint": "ee48cf534b9a9e96722ebbad96360c31738ab845c119f4a979c8aa1c386f1489",
     "sense_lineage": [
+      {
+        "word_id": "word:dragon",
+        "target_kind": "sense",
+        "from_target_id": "sense:dragon:50cd546d1948525b",
+        "status": "deprecated",
+        "to_target_id": null
+      },
       {
         "word_id": "word:dragon",
         "target_kind": "sense",
@@ -4080,9 +4177,9 @@
     ],
     "recall_map": {
       "parts": [
-        "2N"
+        "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "龙；神话中的大型爬行动物",
@@ -4110,23 +4207,6 @@
           "target_id": "sense:dragon:f75e4777f721d078",
           "target_locator": "record.senses[0]",
           "target_label": "龙；神话中的大型爬行动物"
-        }
-      },
-      {
-        "id": "sense:dragon:50cd546d1948525b",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "飞蜥",
-        "definition_en": "a small tropical Asian lizard that can glide by spreading winglike membranes",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dragon:50cd546d1948525b",
-          "target_locator": "record.senses[1]",
-          "target_label": "飞蜥"
         }
       }
     ],
@@ -4228,6 +4308,23 @@
           "source_row": 4158,
           "source_path": "content/lexical/canonical/senses/shards/o1473-1504.json",
           "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "飞蜥",
+          "definition_en": "a small tropical Asian lizard that can glide by spreading winglike membranes",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:dragon:50cd546d1948525b",
+          "sense_label_en": "a tropical Asian gliding lizard",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "status": "deprecated",
+          "merged_into_sense_id": null
         }
       ]
     }
@@ -4238,8 +4335,16 @@
     "ordinal": 1498,
     "word": "drain",
     "source_owner_path": "content/lexical/words/by-ordinal/o1498.json",
-    "source_fingerprint": "425a65c35ed9ea25397ceb8ca14f5f905929149f554b4c1d495e15b9fb5e7348",
-    "sense_lineage": [],
+    "source_fingerprint": "a6d5808702d0b2dbfb76cfb0475a8b37b75e3cef6bccfa9a15c83c1f4012c0f6",
+    "sense_lineage": [
+      {
+        "word_id": "word:drain",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:01f8bdf3e430ad0b51d3",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -4248,13 +4353,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "排出液体，或用于排液的管道或渠道",
-      "decision_cn": "",
+      "summary_cn": "排水；耗费资源或精力；排水设施或消耗负担",
+      "decision_cn": "液体排出去，精力、钱或资源不断流失；名词既可指排水设施，也可指造成资源持续消耗的负担。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "排出液体，或用于排液的管道或渠道"
+        "target_label": "排水；耗费资源或精力；排水设施或消耗负担"
       }
     },
     "senses": [
@@ -4262,9 +4367,9 @@
         "id": "sense:drain:412111725f7359a5",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "排出，使流干",
-        "definition_en": "to cause liquid to flow out from something; to empty",
+        "governing_pattern": "drain sth; liquid drains from/into sth; sth drains",
+        "definition_cn": "排出液体；（使）排空或流干",
+        "definition_en": "to remove liquid, or for liquid to flow away and leave something empty or dry",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4273,13 +4378,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "drain + sth",
             "meaning_cn": "排干某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:01f8bdf3e430ad0b51d3",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "drain + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:fbb936a2eee8a1f0d721",
@@ -4299,16 +4399,16 @@
           "target_kind": "sense",
           "target_id": "sense:drain:412111725f7359a5",
           "target_locator": "record.senses[0]",
-          "target_label": "排出，使流干"
+          "target_label": "排出液体；（使）排空或流干"
         }
       },
       {
         "id": "sense:drain:a83a3a6f932a5096",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "耗尽（资源、精力等）",
-        "definition_en": "to consume or exhaust resources, energy, or strength",
+        "governing_pattern": "drain sb's energy/resources; energy drains away/from sb",
+        "definition_cn": "耗尽；逐渐消耗或流失（资源、精力等）",
+        "definition_en": "to use up energy or resources, or for them to gradually be lost",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4338,7 +4438,7 @@
           "target_kind": "sense",
           "target_id": "sense:drain:a83a3a6f932a5096",
           "target_locator": "record.senses[1]",
-          "target_label": "耗尽（资源、精力等）"
+          "target_label": "耗尽；逐渐消耗或流失（资源、精力等）"
         }
       },
       {
@@ -4371,10 +4471,10 @@
         "id": "sense:drain:8faab9b9ba41500b",
         "source_locator": "record.senses[3]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "消耗，耗损",
-        "definition_en": "a gradual depletion of something, such as energy or resources",
-        "note": "",
+        "governing_pattern": "a drain on energy/money/resources",
+        "definition_cn": "持续消耗（资源、精力等）；造成这种消耗的人、事或负担",
+        "definition_en": "a continuing loss of energy or resources, or a person, thing, or activity that causes such a loss",
+        "note": "a drain on resources 可指不断耗费资源的事或负担；on 后接被消耗的资源，不是消耗的原因。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4395,7 +4495,7 @@
           "target_kind": "sense",
           "target_id": "sense:drain:8faab9b9ba41500b",
           "target_locator": "record.senses[3]",
-          "target_label": "消耗，耗损"
+          "target_label": "持续消耗（资源、精力等）；造成这种消耗的人、事或负担"
         }
       }
     ],
@@ -4611,7 +4711,7 @@
     "ordinal": 1500,
     "word": "dramatic",
     "source_owner_path": "content/lexical/words/by-ordinal/o1500.json",
-    "source_fingerprint": "2d4f3ba44a7977262ea13c111f7dcafdd2fd436ecb1bbdf692760290de91e09c",
+    "source_fingerprint": "067b116c1b19e92ae05d0a7af124fc0e4158416ae7edf305ff8e2de10c47542c",
     "sense_lineage": [
       {
         "word_id": "word:dramatic",
@@ -4659,7 +4759,7 @@
             "id": "collocation:7bc57dd4f7941519d026",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a dramatic change",
-            "meaning_cn": "戏剧性的变化",
+            "meaning_cn": "显著的、幅度很大的变化",
             "kind": "usage_example",
             "repair": null
           },
@@ -4898,8 +4998,16 @@
     "ordinal": 1502,
     "word": "draw",
     "source_owner_path": "content/lexical/words/by-ordinal/o1502.json",
-    "source_fingerprint": "c3f6959309a3a9f26c96c0bebe48890e74bb9654593b1fdf376e780cf60a65d1",
-    "sense_lineage": [],
+    "source_fingerprint": "3e49a7f3ea714d429301db71d06a605201ef8fe2323a27eee850c8e2fbb062c0",
+    "sense_lineage": [
+      {
+        "word_id": "word:draw",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:90f827b38432db568c99",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "5V",
@@ -4922,7 +5030,7 @@
         "id": "sense:draw:cf65a17e49e85b44",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "draw; draw sth",
         "definition_cn": "画，描绘",
         "definition_en": "to make a picture with a pen or pencil",
         "note": "",
@@ -4941,13 +5049,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "draw + sth + for + sb",
             "meaning_cn": "为某人画某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:90f827b38432db568c99",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "draw + sth + for + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4962,16 +5065,16 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "拉，拖",
-        "definition_en": "to pull something or someone toward you",
-        "note": "",
+        "definition_cn": "拉；拖；牵引",
+        "definition_en": "to pull something or someone in a particular direction",
+        "note": "拉动不限定朝自己移动；draw a cart 是拉车，draw the curtains 可指拉开或合拢，具体方向看语境。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ce6da2b35761c26f613e",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "draw the curtains",
-            "meaning_cn": "拉上窗帘",
+            "meaning_cn": "拉上或拉开窗帘，依语境而定",
             "kind": "usage_example",
             "repair": null
           },
@@ -4993,7 +5096,7 @@
           "target_kind": "sense",
           "target_id": "sense:draw:f4959ceebe4b506a",
           "target_locator": "record.senses[1]",
-          "target_label": "拉，拖"
+          "target_label": "拉；拖；牵引"
         }
       },
       {
@@ -5070,7 +5173,7 @@
         "id": "sense:draw:50905bede0e358e4",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "draw a card/name; draw (for sth)",
         "definition_cn": "抽签",
         "definition_en": "to choose something by chance, as in a lottery",
         "note": "",
@@ -5182,18 +5285,22 @@
       {
         "id": "construction:453d0a68c9eb0f355136",
         "source_locator": "record.constructions[2]",
-        "pattern": "draw from evidence/source",
+        "pattern": "draw sth from sth",
         "lines": [
           {
-            "text": "从证据或来源得出",
+            "text": "从某来源获得或得出某物（如结论、灵感、安慰）",
             "lang": "cn"
+          },
+          {
+            "text": "to obtain or derive something from a source",
+            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:453d0a68c9eb0f355136",
           "target_locator": "record.constructions[2]",
-          "target_label": "draw from evidence/source"
+          "target_label": "draw sth from sth"
         }
       }
     ],
@@ -5236,7 +5343,7 @@
     "ordinal": 1503,
     "word": "drawback",
     "source_owner_path": "content/lexical/words/by-ordinal/o1503.json",
-    "source_fingerprint": "74bd9d08f660750a498e5a3950d1a788ff50495ff83fe879ba27cc1d84fc6b48",
+    "source_fingerprint": "55fc0abfca65f6069dd69f38f5dee6fe94a24915778cb04eb7e256429daff7c4",
     "sense_lineage": [
       {
         "word_id": "word:drawback",
@@ -5276,7 +5383,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "缺点；障碍",
-        "definition_en": "the quality of being a hindrance",
+        "definition_en": "a disadvantage or problem that makes something less attractive or effective",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5511,7 +5618,7 @@
     "ordinal": 1505,
     "word": "drawing",
     "source_owner_path": "content/lexical/words/by-ordinal/o1505.json",
-    "source_fingerprint": "f8940b1aba414cf13aaf863853169698e8770c17c64086db9aa19bc4512f12b5",
+    "source_fingerprint": "1d0a0eb79c601f40c8bfdfddb1e40e71a672636f851d0d52484e5630210f5949",
     "sense_lineage": [
       {
         "word_id": "word:drawing",
@@ -5525,6 +5632,13 @@
         "target_kind": "sense",
         "from_target_id": "sense:drawing:96476a09f7fb5480",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:drawing",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:13ad8db69d73386a0b37",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -5591,13 +5705,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "drawing as an art/activity",
             "meaning_cn": "绘画作为艺术或活动",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:13ad8db69d73386a0b37",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "drawing as an art/activity"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5870,7 +5979,7 @@
     "ordinal": 1507,
     "word": "dream",
     "source_owner_path": "content/lexical/words/by-ordinal/o1507.json",
-    "source_fingerprint": "864e76b0c521bdff7d8b03fd4939790d00ac178d69cccedf47f2d18a494fc4b6",
+    "source_fingerprint": "3a294ff590cf81d020429952751456e1992b34d06340913c7a792e4b1aae5e59",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6006,7 +6115,7 @@
         "id": "sense:dream:37808b21861b5b3a",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "dream of/about sth or doing sth; dream that...",
         "definition_cn": "梦想；想象",
         "definition_en": "to imagine or hope for something",
         "note": "",
@@ -6067,7 +6176,7 @@
             "id": "collocation:f88f2d243fba4b6452aa",
             "source_locator": "record.senses[5].collocations[1]",
             "phrase": "dream come true",
-            "meaning_cn": "梦想成真",
+            "meaning_cn": "梦想成真（dream 在此指想实现的目标，见既有梦想/愿望说明）",
             "kind": "usage_example",
             "repair": null
           }
@@ -6163,23 +6272,23 @@
     "ordinal": 1508,
     "word": "dress",
     "source_owner_path": "content/lexical/words/by-ordinal/o1508.json",
-    "source_fingerprint": "828620c781d62e3a18994302b5f07b7f37630de78a35f0b33814e02b7b9534c3",
+    "source_fingerprint": "3284ba00457f42ff34f196da7edf0b0707d66a9b549d415456d02e7b0c0b0d55",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
-        "1N"
+        "4V",
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "穿衣；连衣裙",
-      "decision_cn": "",
+      "summary_cn": "穿衣；连衣裙或某种衣着；布置展示与包扎伤口",
+      "decision_cn": "衣着语境区分可数的连衣裙与通常不可数的服装总称；伤口处理与展示布置依宾语各自归属，不靠一个混合定义硬记。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "穿衣；连衣裙"
+        "target_label": "穿衣；连衣裙或某种衣着；布置展示与包扎伤口"
       }
     },
     "senses": [
@@ -6265,23 +6374,15 @@
         "id": "sense:dress:0ce2e7a8db665fbf",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "装饰；整理；包扎",
-        "definition_en": "to decorate or arrange something, especially a display or a wound",
+        "governing_pattern": "dress a shop window/display",
+        "definition_cn": "装饰；布置（橱窗等展示空间）",
+        "definition_en": "to arrange or decorate a display",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:d5d582b66f651cfb32d2",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "dress a wound",
-            "meaning_cn": "包扎伤口",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:b40ae473d545ea907f0c",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "dress a shop window",
             "meaning_cn": "布置商店橱窗",
             "kind": "usage_example",
@@ -6292,7 +6393,64 @@
           "target_kind": "sense",
           "target_id": "sense:dress:0ce2e7a8db665fbf",
           "target_locator": "record.senses[3]",
-          "target_label": "装饰；整理；包扎"
+          "target_label": "装饰；布置（橱窗等展示空间）"
+        }
+      },
+      {
+        "id": "sense:dress:6a34d3af4b4fc670",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "dress a wound",
+        "definition_cn": "清理并包扎（伤口）",
+        "definition_en": "to clean a wound and apply a protective covering",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:d5d582b66f651cfb32d2",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "dress a wound",
+            "meaning_cn": "包扎伤口",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dress:6a34d3af4b4fc670",
+          "target_locator": "record.senses[4]",
+          "target_label": "清理并包扎（伤口）"
+        }
+      },
+      {
+        "id": "sense:dress:e362d702ace11a45",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "formal/traditional/national dress",
+        "definition_cn": "服装；衣着（总称或某种风格）",
+        "definition_en": "clothing considered as a whole or in a particular style",
+        "note": "此义通常不可数，不限于女性连衣裙；a dress / two dresses 的可数名词仍是连衣裙。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dress:e362d702ace11a45",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "traditional dress",
+            "meaning_cn": "传统服装",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:dress:e362d702ace11a45",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "traditional dress"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dress:e362d702ace11a45",
+          "target_locator": "record.senses[5]",
+          "target_label": "服装；衣着（总称或某种风格）"
         }
       }
     ],
@@ -6306,14 +6464,69 @@
           "applicability": [
             {
               "surface": "dress"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dress",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:dress:e362d702ace11a45"
+              ],
+              "sense_ids": [
+                "sense:dress:e362d702ace11a45"
+              ],
+              "excluded_sense_ids": [
+                "sense:dress:0ce2e7a8db665fbf",
+                "sense:dress:18063fc3b9a653d5",
+                "sense:dress:249144971fee5953",
+                "sense:dress:51dfb19595bd509e",
+                "sense:dress:6a34d3af4b4fc670"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dress",
+              "source_checked_date": "2026-10-11"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dress",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:dress:6a34d3af4b4fc670"
+              ],
+              "sense_ids": [
+                "sense:dress:6a34d3af4b4fc670"
+              ],
+              "excluded_sense_ids": [
+                "sense:dress:0ce2e7a8db665fbf",
+                "sense:dress:18063fc3b9a653d5",
+                "sense:dress:249144971fee5953",
+                "sense:dress:51dfb19595bd509e",
+                "sense:dress:e362d702ace11a45"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dress",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:dress:6a34d3af4b4fc670": [
+          0
+        ],
+        "sense:dress:e362d702ace11a45": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -6352,7 +6565,7 @@
     "ordinal": 1509,
     "word": "drift",
     "source_owner_path": "content/lexical/words/by-ordinal/o1509.json",
-    "source_fingerprint": "a8e9760a73f657b9b35f6b6c1e99ef5a33a9244eae81966f16ea7cf11b3225f3",
+    "source_fingerprint": "8ed9b3b6f631cf45dfc551a62cd18bafc1fa602a354719245b0b9f9bf001dab4",
     "sense_lineage": [
       {
         "word_id": "word:drift",
@@ -6365,7 +6578,7 @@
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -6480,6 +6693,37 @@
           "target_locator": "record.senses[2]",
           "target_label": "（风吹成的）堆积物"
         }
+      },
+      {
+        "id": "sense:drift:e32800acd1964ee7",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "get/catch/follow the drift (of sth)",
+        "definition_cn": "大意；要旨",
+        "definition_en": "the general meaning or main point of what someone says",
+        "note": "这里不是风水漂移或政策逐渐偏移，而是话语的总体意思。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:drift:e32800acd1964ee7",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "Do you get my drift?",
+            "meaning_cn": "你明白我的意思吗？",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:drift:e32800acd1964ee7",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "Do you get my drift?"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drift:e32800acd1964ee7",
+          "target_locator": "record.senses[3]",
+          "target_label": "大意；要旨"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6490,6 +6734,28 @@
           "applicability": [
             {
               "surface": "drift"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drift",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:drift:e32800acd1964ee7"
+              ],
+              "sense_ids": [
+                "sense:drift:e32800acd1964ee7"
+              ],
+              "excluded_sense_ids": [
+                "sense:drift:02d489f6851058c6",
+                "sense:drift:37703025fbaa5c34",
+                "sense:drift:8ac0ffbf6fbb5024"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drift",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -6509,8 +6775,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:drift:e32800acd1964ee7": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -6554,12 +6824,27 @@
     "ordinal": 1510,
     "word": "drill",
     "source_owner_path": "content/lexical/words/by-ordinal/o1510.json",
-    "source_fingerprint": "f0f06c5659e8a7d54d958a2dbc66036536ca8c7378cced776db0a268b64e30a4",
-    "sense_lineage": [],
+    "source_fingerprint": "32962f1aa856a685455442d68e6973e418e791d2b71fa388b41cf75f04a01c91",
+    "sense_lineage": [
+      {
+        "word_id": "word:drill",
+        "target_kind": "sense",
+        "from_target_id": "sense:drill:8117f2f480b956a8",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:drill",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cc575460c7587ac39eac",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -6578,7 +6863,7 @@
         "id": "sense:drill:227dd2bc6e755cc2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "drill a hole; drill into/through sth",
         "definition_cn": "钻孔",
         "definition_en": "to make a hole with a drill",
         "note": "",
@@ -6633,13 +6918,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a drill/drill bit",
             "meaning_cn": "钻机/钻头",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:cc575460c7587ac39eac",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "a drill/drill bit"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6721,23 +7001,6 @@
           "target_locator": "record.senses[3]",
           "target_label": "训练，操练"
         }
-      },
-      {
-        "id": "sense:drill:8117f2f480b956a8",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "条播机",
-        "definition_en": "a machine for sowing seeds in rows",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:drill:8117f2f480b956a8",
-          "target_locator": "record.senses[4]",
-          "target_label": "条播机"
-        }
       }
     ],
     "pronunciation_support": {
@@ -6809,7 +7072,26 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "条播机",
+          "definition_en": "a machine for sowing seeds in rows",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:drill:8117f2f480b956a8",
+          "sense_label_en": "a machine for sowing seeds in rows",
+          "sort_order": 4,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "status": "deprecated",
+          "merged_into_sense_id": null
+        }
+      ]
     }
   },
   {
@@ -6818,13 +7100,20 @@
     "ordinal": 1511,
     "word": "drink",
     "source_owner_path": "content/lexical/words/by-ordinal/o1511.json",
-    "source_fingerprint": "2bba6443d1e508fc44e7a3b49a78e5692e5a64c78d70c390a53200504c91b3a2",
+    "source_fingerprint": "ec244806cf9fb625b7bec1c79058e49493c80f819085fe23892fec634cbc4526",
     "sense_lineage": [
       {
         "word_id": "word:drink",
         "target_kind": "sense",
         "from_target_id": "sense:drink:f160c8c72e3c5941",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:drink",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c27dae78c10e3de47a4e",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -6850,7 +7139,7 @@
         "id": "sense:drink:459810cdddeb53a8",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "drink; drink sth",
         "definition_cn": "喝，饮",
         "definition_en": "to take a liquid into the mouth and swallow it",
         "note": "",
@@ -6869,13 +7158,8 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "drink + sth",
             "meaning_cn": "喝某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c27dae78c10e3de47a4e",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "drink + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6946,7 +7230,7 @@
             "id": "collocation:44bd8cfd56295b4f0f74",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "a drink of water",
-            "meaning_cn": "一杯水",
+            "meaning_cn": "喝的一点水；一份水（不限定一整杯）",
             "kind": "usage_example",
             "repair": null
           }
@@ -7116,12 +7400,20 @@
     "ordinal": 1512,
     "word": "drip",
     "source_owner_path": "content/lexical/words/by-ordinal/o1512.json",
-    "source_fingerprint": "f5fb2b586319505e11b422ec4d896d73f91eb8225fc49926fb98aab5a1db76e1",
-    "sense_lineage": [],
+    "source_fingerprint": "707bb190a878e8cec26cf2e97531f686827197aed228e3649c7bca0f63b5aa48",
+    "sense_lineage": [
+      {
+        "word_id": "word:drip",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:ffc6e242b9b45f34cb3a",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -7140,9 +7432,9 @@
         "id": "sense:drip:de693484803552b7",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + down/from",
-        "definition_cn": "滴下",
-        "definition_en": "to fall in drops",
+        "governing_pattern": "liquid drips from/down sth; drip liquid onto sth",
+        "definition_cn": "滴下；滴出；使液体滴落",
+        "definition_en": "to fall in drops, produce drops, or let liquid fall in drops",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7151,13 +7443,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "drip down",
             "meaning_cn": "滴下",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ffc6e242b9b45f34cb3a",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "drip down"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:3faf422e61fb0c98ea51",
@@ -7172,7 +7459,7 @@
           "target_kind": "sense",
           "target_id": "sense:drip:de693484803552b7",
           "target_locator": "record.senses[0]",
-          "target_label": "滴下"
+          "target_label": "滴下；滴出；使液体滴落"
         }
       },
       {
@@ -7226,6 +7513,37 @@
           "target_locator": "record.senses[2]",
           "target_label": "滴落声"
         }
+      },
+      {
+        "id": "sense:drip:fdc46be3c5cf4c80",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "be on a drip; put sb on a drip",
+        "definition_cn": "静脉点滴；输液装置",
+        "definition_en": "equipment that slowly delivers liquid into a vein through a tube",
+        "note": "尤其常见于英式英语；不是单个水滴或滴落的声音。这里只解释词汇，不提供治疗操作。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:drip:fdc46be3c5cf4c80",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "be on a drip",
+            "meaning_cn": "在输液；正在打点滴",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:drip:fdc46be3c5cf4c80",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "be on a drip"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drip:fdc46be3c5cf4c80",
+          "target_locator": "record.senses[3]",
+          "target_label": "静脉点滴；输液装置"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7247,6 +7565,28 @@
           "applicability": [
             {
               "surface": "drip"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drip",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:drip:fdc46be3c5cf4c80"
+              ],
+              "sense_ids": [
+                "sense:drip:fdc46be3c5cf4c80"
+              ],
+              "excluded_sense_ids": [
+                "sense:drip:17f1a6864f7e5c13",
+                "sense:drip:de693484803552b7",
+                "sense:drip:e3171e8755e857fe"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drip",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -7266,8 +7606,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:drip:fdc46be3c5cf4c80": [
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -7284,7 +7628,7 @@
     "ordinal": 1513,
     "word": "drive",
     "source_owner_path": "content/lexical/words/by-ordinal/o1513.json",
-    "source_fingerprint": "37c27bfea6935ccc0a429d3fe2f20e1c7e45213a1a35573c095d77d1813169aa",
+    "source_fingerprint": "ece785b8e7a26cc61e3665ffc4e5054a85bfbaf845980b673da9c42df8a22ade",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7308,7 +7652,7 @@
         "id": "sense:drive:29efbf8d122956e0",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "drive; drive a vehicle; drive sb to a place",
         "definition_cn": "驾驶（车辆）",
         "definition_en": "to operate and control a vehicle",
         "note": "",
@@ -7449,7 +7793,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "驱动器；传动装置",
-        "definition_en": "a mechanism that transmits power in a machine",
+        "definition_en": "a mechanism transmitting power, or a computer device used to store or read data",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7534,9 +7878,9 @@
         "id": "sense:drive:3aaa8889be8e531b",
         "source_locator": "record.senses[7]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "drive a ball/nail; drive forward",
         "definition_cn": "猛击；猛冲",
-        "definition_en": "to hit or strike forcefully",
+        "definition_en": "to hit or push something forcefully, or move forward with force",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -7578,7 +7922,7 @@
           "target_word": "force",
           "lines": [
             {
-              "text": "drive 作“驱使”时与 force 同义，但 force 更强调强迫",
+              "text": "drive sb to do/sth 常突出压力、需要等促使或迫使；force sb to do 明确强迫。两者有重叠，不能按固定强弱等级机械替换；drive sb + adjective 另需保留句法。",
               "lang": "cn"
             },
             {
@@ -7642,11 +7986,26 @@
     "ordinal": 1514,
     "word": "driver",
     "source_owner_path": "content/lexical/words/by-ordinal/o1514.json",
-    "source_fingerprint": "fa1782df13047bc8d424ccbd2b71c353b88044508977dfd459b00ffccd8d9029",
-    "sense_lineage": [],
+    "source_fingerprint": "f5799ae3f9a775de69d0bfb0d1bad5e8d5308c9e9e3744dcf73dceb6f4730d2a",
+    "sense_lineage": [
+      {
+        "word_id": "word:driver",
+        "target_kind": "sense",
+        "from_target_id": "sense:driver:bc5631b195625e85",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:driver",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f3a9838c21462504f4db",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -7729,32 +8088,6 @@
           "target_locator": "record.senses[2]",
           "target_label": "驱动程序"
         }
-      },
-      {
-        "id": "sense:driver:bc5631b195625e85",
-        "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "高尔夫球杆（一号木杆）",
-        "definition_en": "a golf club used for long shots",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:f3a9838c21462504f4db",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "hit with a driver",
-            "meaning_cn": "用一号木杆击球",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:driver:bc5631b195625e85",
-          "target_locator": "record.senses[3]",
-          "target_label": "高尔夫球杆（一号木杆）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -7793,6 +8126,35 @@
           ],
           "source_locator": "record.word_family[0]"
         }
+      ],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f3a9838c21462504f4db",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:driver:bc5631b195625e85:collocation:0"
+              ],
+              "meaning_cn": "用一号木杆击球",
+              "phrase": "hit with a driver"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "高尔夫球杆（一号木杆）",
+          "definition_en": "a golf club used for long shots",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:driver:bc5631b195625e85",
+          "sense_label_en": "a golf club used for long shots",
+          "sort_order": 3,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "status": "deprecated",
+          "merged_into_sense_id": null
+        }
       ]
     }
   },
@@ -7802,7 +8164,7 @@
     "ordinal": 1515,
     "word": "drone",
     "source_owner_path": "content/lexical/words/by-ordinal/o1515.json",
-    "source_fingerprint": "3aea5618506be5fc6709fb8acce62848b6477a54c0d411d3755bd0fc11032717",
+    "source_fingerprint": "c354655c4740fe1a07b2dc80bad10c9151f773390aee0e4fe235acc273dfca04",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7895,26 +8257,12 @@
         "id": "sense:drone:6c3270219af65484",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "drone",
         "definition_cn": "发出嗡嗡声",
         "definition_en": "to make a continuous low sound",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:2a779e42b9fe8e27a890",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "drone on",
-            "meaning_cn": "唠叨不停",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:2a779e42b9fe8e27a890",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "drone on"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:drone:6c3270219af65484",
@@ -7933,15 +8281,28 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:c687b1d634a354e17f48",
+            "id": "collocation:2a779e42b9fe8e27a890",
             "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "drone on",
+            "meaning_cn": "唠叨不停",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:2a779e42b9fe8e27a890",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "drone on"
+            }
+          },
+          {
+            "id": "collocation:c687b1d634a354e17f48",
+            "source_locator": "record.senses[4].collocations[1]",
             "phrase": "drone on about sth",
             "meaning_cn": "单调地谈论某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:c687b1d634a354e17f48",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[4].collocations[1]",
               "target_label": "drone on about sth"
             }
           }
@@ -8001,12 +8362,41 @@
     "ordinal": 1516,
     "word": "drop",
     "source_owner_path": "content/lexical/words/by-ordinal/o1516.json",
-    "source_fingerprint": "7ce079ae3daab64bed88864d0cf7ec59bd9a7aafa468eeb376ee15554cffd2a0",
-    "sense_lineage": [],
+    "source_fingerprint": "0cbd42317799a8c79cbe310c11a9a032eb9d9df7592d21a6c3630acc584d47a2",
+    "sense_lineage": [
+      {
+        "word_id": "word:drop",
+        "target_kind": "sense",
+        "from_target_id": "sense:drop:b19b032ddd2c557b",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:drop",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:02f6d57fbd2eb284e9d3",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:drop",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:5df34855bc60580859df",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:drop",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:fbf15e4f1f71cfd4fe27",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2V",
-        "3N"
+        "4V",
+        "2N"
       ],
       "density": "rich"
     },
@@ -8025,9 +8415,9 @@
         "id": "sense:drop:febc46c0c89657b1",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使落下；放下",
-        "definition_en": "to let something fall",
+        "governing_pattern": "sth drops; drop sth",
+        "definition_cn": "落下；使落下；放下",
+        "definition_en": "to fall to a lower position, or let something fall",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8036,13 +8426,8 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "drop + sth",
             "meaning_cn": "使某物落下",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5df34855bc60580859df",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "drop + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:cb16c593b147ff69e265",
@@ -8057,17 +8442,17 @@
           "target_kind": "sense",
           "target_id": "sense:drop:febc46c0c89657b1",
           "target_locator": "record.senses[0]",
-          "target_label": "使落下；放下"
+          "target_label": "落下；使落下；放下"
         }
       },
       {
         "id": "sense:drop:55368f684b715a6c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "下降；减少（价格、水平、温度等）",
-        "definition_en": "to fall or decrease in price, level, amount, or temperature",
-        "note": "",
+        "governing_pattern": "prices/levels/temperature drop; drop a price/level/amount",
+        "definition_cn": "下降；降低或减少（价格、水平、数量等）",
+        "definition_en": "to decrease, or cause something to decrease, in price, level, or amount",
+        "note": "事物作主语时是自行下降；drop the price 是降低价格，含宾语。与 fall 的重合限于前者，fall 不这样直接接价格宾语。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8075,20 +8460,15 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "prices/levels/temperature drop",
             "meaning_cn": "价格、水平或温度下降",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:02f6d57fbd2eb284e9d3",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "prices/levels/temperature drop"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:drop:55368f684b715a6c",
           "target_locator": "record.senses[1]",
-          "target_label": "下降；减少（价格、水平、温度等）"
+          "target_label": "下降；降低或减少（价格、水平、数量等）"
         }
       },
       {
@@ -8123,7 +8503,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "下降",
-        "definition_en": "a sudden decrease",
+        "definition_en": "a decrease in an amount, level, or value",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8144,29 +8524,65 @@
         }
       },
       {
-        "id": "sense:drop:b19b032ddd2c557b",
+        "id": "sense:drop:6686d8ad2a4a9792",
         "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "投递点（秘密）",
-        "definition_en": "a secret place for leaving or collecting something",
+        "pos": "verb",
+        "governing_pattern": "drop an idea/plan/course/case",
+        "definition_cn": "放弃；停止；不再继续",
+        "definition_en": "to stop doing, considering, or pursuing something",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:fbf15e4f1f71cfd4fe27",
+            "id": "collocation:drop:6686d8ad2a4a9792",
             "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "a drop point",
-            "meaning_cn": "秘密投递点",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "drop the plan",
+            "meaning_cn": "放弃计划",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:drop:6686d8ad2a4a9792",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "drop the plan"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:drop:b19b032ddd2c557b",
+          "target_id": "sense:drop:6686d8ad2a4a9792",
           "target_locator": "record.senses[4]",
-          "target_label": "投递点（秘密）"
+          "target_label": "放弃；停止；不再继续"
+        }
+      },
+      {
+        "id": "sense:drop:ef169d0b9b96cf7d",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "drop sb off (at a place)",
+        "definition_cn": "顺路送到；让人在某处下车",
+        "definition_en": "to take someone somewhere in a vehicle and leave them there",
+        "note": "此交通用法通常用 drop sb off；不表示把人摔下。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:drop:ef169d0b9b96cf7d",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "drop me off at the station",
+            "meaning_cn": "让我在车站下车；送我到车站",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:drop:ef169d0b9b96cf7d",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "drop me off at the station"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drop:ef169d0b9b96cf7d",
+          "target_locator": "record.senses[5]",
+          "target_label": "顺路送到；让人在某处下车"
         }
       }
     ],
@@ -8193,14 +8609,46 @@
           "applicability": [
             {
               "surface": "drop"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drop",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:drop:6686d8ad2a4a9792",
+                "sense:drop:ef169d0b9b96cf7d"
+              ],
+              "sense_ids": [
+                "sense:drop:6686d8ad2a4a9792",
+                "sense:drop:ef169d0b9b96cf7d"
+              ],
+              "excluded_sense_ids": [
+                "sense:drop:55368f684b715a6c",
+                "sense:drop:77afb0e5cae25875",
+                "sense:drop:c38fa086ebd8509f",
+                "sense:drop:febc46c0c89657b1"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drop",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:drop:6686d8ad2a4a9792": [
+          1
+        ],
+        "sense:drop:ef169d0b9b96cf7d": [
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -8216,7 +8664,7 @@
               "lang": "en"
             },
             {
-              "text": "a sudden sharp decrease in some quantity",
+              "text": "to decrease in amount, level, or value",
               "lang": "en"
             }
           ],
@@ -8230,7 +8678,36 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:fbf15e4f1f71cfd4fe27",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:drop:b19b032ddd2c557b:collocation:0"
+              ],
+              "meaning_cn": "秘密投递点",
+              "phrase": "a drop point"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "投递点（秘密）",
+          "definition_en": "a secret place for leaving or collecting something",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:drop:b19b032ddd2c557b",
+          "sense_label_en": "a secret place for leaving or collecting something",
+          "sort_order": 4,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "status": "deprecated",
+          "merged_into_sense_id": null
+        }
+      ]
     }
   },
   {
@@ -8362,7 +8839,7 @@
     "ordinal": 1518,
     "word": "drown",
     "source_owner_path": "content/lexical/words/by-ordinal/o1518.json",
-    "source_fingerprint": "1b4c6a17c54a6ecc4b1f241a7ffe3487a20aaf1391d0e8ffbdf7ed87f07e5a50",
+    "source_fingerprint": "5adc51933a75576a604d44534b7ae8f3c4bd594df927abd06a3fa1d38a6a8d44",
     "sense_lineage": [
       {
         "word_id": "word:drown",
@@ -8374,7 +8851,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -8487,6 +8964,37 @@
           "target_locator": "record.senses[1]",
           "target_label": "淹没"
         }
+      },
+      {
+        "id": "sense:drown:a2e2f9af489637be",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "sound drowns (out) another sound",
+        "definition_cn": "（声音）盖过；淹没（另一声音）",
+        "definition_en": "of a sound: to make another sound difficult or impossible to hear",
+        "note": "常用 drown out，也可省 out；不把声音语境解释成死亡。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:drown:a2e2f9af489637be",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "The music drowned out her voice.",
+            "meaning_cn": "音乐声盖过了她的声音。",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:drown:a2e2f9af489637be",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "The music drowned out her voice."
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drown:a2e2f9af489637be",
+          "target_locator": "record.senses[2]",
+          "target_label": "（声音）盖过；淹没（另一声音）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8508,6 +9016,27 @@
           "applicability": [
             {
               "surface": "drown"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drown",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:drown:a2e2f9af489637be"
+              ],
+              "sense_ids": [
+                "sense:drown:a2e2f9af489637be"
+              ],
+              "excluded_sense_ids": [
+                "sense:drown:49a3bfc6ab9b5390",
+                "sense:drown:56ab09d4b1695363"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drown",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8527,8 +9056,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:drown:a2e2f9af489637be": [
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -8570,13 +9103,20 @@
     "ordinal": 1519,
     "word": "drug",
     "source_owner_path": "content/lexical/words/by-ordinal/o1519.json",
-    "source_fingerprint": "c8a03eb7bcd27f4d73d0fef1954c48274748a3b922549924202d45fe28c6abb0",
+    "source_fingerprint": "a9cc02da72a4c925096fe8c27575f59cd7cba730bdee91206ae6eb3f52886f1c",
     "sense_lineage": [
       {
         "word_id": "word:drug",
         "target_kind": "sense",
         "from_target_id": "sense:drug:f524ba9b1ccd57f4",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:drug",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:42f555bfc19d4239afdc",
+        "status": "reference",
         "to_target_id": null
       }
     ],
@@ -8673,13 +9213,8 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "drug + sb",
             "meaning_cn": "给某人下药",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:42f555bfc19d4239afdc",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "drug + sb"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -8752,15 +9287,8 @@
     "ordinal": 1520,
     "word": "drum",
     "source_owner_path": "content/lexical/words/by-ordinal/o1520.json",
-    "source_fingerprint": "82070d5db7f42997ce2e823e5115171ea3f5ad5b438d8c029ea3accb01aac6a4",
+    "source_fingerprint": "04e0b7738e858077e406dcf7b295877a1e5d99e1a651fca011237717a9067b8c",
     "sense_lineage": [
-      {
-        "word_id": "word:drum",
-        "target_kind": "sense",
-        "from_target_id": "sense:drum:200075a9ebb85e67",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:drum",
         "target_kind": "sense",
@@ -8786,13 +9314,13 @@
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "打击乐器或其声音",
-      "decision_cn": "",
+      "decision_cn": "乐器与敲击沿用原主干；圆桶是普通储存运输用法，按原身份恢复到Depth，不限定只有鼓的声音。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8836,9 +9364,9 @@
         "id": "sense:drum:62b670dbfca253a9",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "打鼓奏出",
-        "definition_en": "play (a tune) on a drum",
+        "governing_pattern": "drum; drum on sth; drum a rhythm",
+        "definition_cn": "打鼓；有节奏地敲击或敲出",
+        "definition_en": "to play a drum or tap rhythmically, or make a rhythm by tapping",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8855,7 +9383,38 @@
           "target_kind": "sense",
           "target_id": "sense:drum:62b670dbfca253a9",
           "target_locator": "record.senses[1]",
-          "target_label": "打鼓奏出"
+          "target_label": "打鼓；有节奏地敲击或敲出"
+        }
+      },
+      {
+        "id": "sense:drum:200075a9ebb85e67",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "an oil/fuel/storage drum",
+        "definition_cn": "圆桶",
+        "definition_en": "a cylindrical metal container used for shipping or storage of liquids",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:drum:fd89161e182905d1",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "an oil drum",
+            "meaning_cn": "一个油桶",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:drum:fd89161e182905d1",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "an oil drum"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drum:200075a9ebb85e67",
+          "target_locator": "record.senses[2]",
+          "target_label": "圆桶"
         }
       }
     ],
@@ -8867,6 +9426,27 @@
           "applicability": [
             {
               "surface": "drum"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drum",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:drum:200075a9ebb85e67"
+              ],
+              "sense_ids": [
+                "sense:drum:200075a9ebb85e67"
+              ],
+              "excluded_sense_ids": [
+                "sense:drum:62b670dbfca253a9",
+                "sense:drum:7978f4d5afc05559"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drum",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8886,8 +9466,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:drum:200075a9ebb85e67": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -8915,31 +9499,6 @@
       "form": null,
       "family": [],
       "senses": [
-        {
-          "stable_sense_id": "sense:drum:200075a9ebb85e67",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "noun",
-          "definition_cn": "圆桶",
-          "definition_en": "a cylindrical metal container used for shipping or storage of liquids",
-          "semantic_key": "eb487f5b5515f6f715cc5f0e6293e0c49b03d9d89ed6be3201959f50259cd25e",
-          "semantic_key_history": [
-            "f7076d2f91ae7010422ba27cf653701be0378cf499e8de46de1b1c58e4dbb718"
-          ],
-          "legacy_aliases": [
-            "drum:l3:3"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "drum:l3:3",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 4244,
-          "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-          "reference_only": true
-        },
         {
           "stable_sense_id": "sense:drum:80c8496ecb985e99",
           "status": "deprecated",
@@ -9024,15 +9583,8 @@
     "ordinal": 1521,
     "word": "drunk",
     "source_owner_path": "content/lexical/words/by-ordinal/o1521.json",
-    "source_fingerprint": "2229f6aabb8e8f1d7afd214d6d19cd74170b40c926772f24e6ce85d2ee1c7fc5",
+    "source_fingerprint": "bcc5843a2139bd1fa2b111f5e39ea68b1255e6936f058fad0b5f6646dd21a0ff",
     "sense_lineage": [
-      {
-        "word_id": "word:drunk",
-        "target_kind": "sense",
-        "from_target_id": "sense:drunk:2ec4ededdfb85f41",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:drunk",
         "target_kind": "sense",
@@ -9043,9 +9595,10 @@
     ],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A",
+        "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "醉的",
@@ -9074,6 +9627,68 @@
           "target_locator": "record.senses[0]",
           "target_label": "醉的、醉酒的"
         }
+      },
+      {
+        "id": "sense:drunk:2ec4ededdfb85f41",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a drunk; drunks",
+        "definition_cn": "醉酒的人；常喝醉的人",
+        "definition_en": "a person who is drunk or often gets drunk",
+        "note": "可数名词，可带贬意；形容词 be drunk 与名词 a drunk 的词类不同。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:drunk:396446634224bf20",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a drunk",
+            "meaning_cn": "一个喝醉的人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:drunk:396446634224bf20",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "a drunk"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drunk:2ec4ededdfb85f41",
+          "target_locator": "record.senses[1]",
+          "target_label": "醉酒的人；常喝醉的人"
+        }
+      },
+      {
+        "id": "sense:drunk:daa0b51c8beba2b3",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "be drunk with power/success/joy",
+        "definition_cn": "陶醉于；被强烈情绪冲昏头脑的",
+        "definition_en": "overwhelmed by a strong feeling or influence",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:drunk:daa0b51c8beba2b3",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "drunk with power",
+            "meaning_cn": "被权力冲昏头脑的",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:drunk:daa0b51c8beba2b3",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "drunk with power"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:drunk:daa0b51c8beba2b3",
+          "target_locator": "record.senses[2]",
+          "target_label": "陶醉于；被强烈情绪冲昏头脑的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9095,6 +9710,48 @@
           "applicability": [
             {
               "surface": "drunk"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drunk",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:drunk:daa0b51c8beba2b3"
+              ],
+              "sense_ids": [
+                "sense:drunk:daa0b51c8beba2b3"
+              ],
+              "excluded_sense_ids": [
+                "sense:drunk:2ec4ededdfb85f41",
+                "sense:drunk:f4a08b85dddec78c"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drunk",
+              "source_checked_date": "2026-10-11"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "drunk",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:drunk:2ec4ededdfb85f41"
+              ],
+              "sense_ids": [
+                "sense:drunk:2ec4ededdfb85f41"
+              ],
+              "excluded_sense_ids": [
+                "sense:drunk:daa0b51c8beba2b3",
+                "sense:drunk:f4a08b85dddec78c"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/drunk",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -9114,8 +9771,15 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:drunk:2ec4ededdfb85f41": [
+          1
+        ],
+        "sense:drunk:daa0b51c8beba2b3": [
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -9146,31 +9810,6 @@
       },
       "family": [],
       "senses": [
-        {
-          "stable_sense_id": "sense:drunk:2ec4ededdfb85f41",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "noun",
-          "definition_cn": "醉汉",
-          "definition_en": "a person who is drunk",
-          "semantic_key": "24206579d47e4c4ee88d810b00812815238939990bb19a09555e6eca16b8e6cb",
-          "semantic_key_history": [
-            "647b21139e34cb817d7a88ab8d9bcc2335bb4d92f069a472601d35946e15abbc"
-          ],
-          "legacy_aliases": [
-            "drunk:l2:2"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "drunk:l2:2",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 4250,
-          "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
-          "reference_only": true
-        },
         {
           "stable_sense_id": "sense:drunk:50257d2750745491",
           "status": "deprecated",
@@ -9205,7 +9844,7 @@
     "ordinal": 1522,
     "word": "dry",
     "source_owner_path": "content/lexical/words/by-ordinal/o1522.json",
-    "source_fingerprint": "eb7059a67507946df5154983c7d2cc47d24ba9e2852989b8a5712bae5cc92493",
+    "source_fingerprint": "f93b656a2a4c2de777a3ee1622039c212cafa867fc0fe1b31195950a45c44601",
     "sense_lineage": [
       {
         "word_id": "word:dry",
@@ -9225,7 +9864,7 @@
     "recall_map": {
       "parts": [
         "2V",
-        "1A"
+        "4A"
       ],
       "density": "rich"
     },
@@ -9329,6 +9968,94 @@
           "target_locator": "record.senses[2]",
           "target_label": "变干"
         }
+      },
+      {
+        "id": "sense:dry:98d8ffe22ed61f97",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "dry humour; a dry sense of humour",
+        "definition_cn": "（幽默）冷面的；不动声色而机智的",
+        "definition_en": "of humour: subtly amusing and expressed in a serious manner",
+        "note": "dry humour 是幽默风格，不是说笑话无聊或缺水。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dry:98d8ffe22ed61f97",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a dry sense of humour",
+            "meaning_cn": "不动声色的幽默感",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:dry:98d8ffe22ed61f97",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "a dry sense of humour"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dry:98d8ffe22ed61f97",
+          "target_locator": "record.senses[3]",
+          "target_label": "（幽默）冷面的；不动声色而机智的"
+        }
+      },
+      {
+        "id": "sense:dry:d97f435dfc56a53f",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "dry wine",
+        "definition_cn": "（葡萄酒等）不甜的；干型的",
+        "definition_en": "of wine: not sweet",
+        "note": "干型指甜度，不表示酒里没有液体。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dry:d97f435dfc56a53f",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "dry white wine",
+            "meaning_cn": "干白葡萄酒",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:dry:d97f435dfc56a53f",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "dry white wine"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dry:d97f435dfc56a53f",
+          "target_locator": "record.senses[4]",
+          "target_label": "（葡萄酒等）不甜的；干型的"
+        }
+      },
+      {
+        "id": "sense:dry:b0649452604db4f4",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "a dry book/report/lecture",
+        "definition_cn": "（书、报告、讲座等）枯燥的；乏味的",
+        "definition_en": "of a book, report, lecture, or similar material: dull and uninteresting",
+        "note": "这里是内容乏味；dry humour 的冷面幽默是另一已有身份，不等于笑话无趣。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dry:b0649452604db4f4",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "The report is accurate but dry.",
+            "meaning_cn": "这份报告准确，但读起来很枯燥。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dry:b0649452604db4f4",
+          "target_locator": "record.senses[5]",
+          "target_label": "（书、报告、讲座等）枯燥的；乏味的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9342,14 +10069,72 @@
           "applicability": [
             {
               "surface": "dry"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dry",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:dry:98d8ffe22ed61f97",
+                "sense:dry:d97f435dfc56a53f"
+              ],
+              "sense_ids": [
+                "sense:dry:98d8ffe22ed61f97",
+                "sense:dry:d97f435dfc56a53f"
+              ],
+              "excluded_sense_ids": [
+                "sense:dry:12e9356b77415c84",
+                "sense:dry:5a48b5915a3e5db4",
+                "sense:dry:916461d952d654c3"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dry",
+              "source_checked_date": "2026-10-11"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dry",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:dry:b0649452604db4f4"
+              ],
+              "sense_ids": [
+                "sense:dry:b0649452604db4f4"
+              ],
+              "excluded_sense_ids": [
+                "sense:dry:12e9356b77415c84",
+                "sense:dry:5a48b5915a3e5db4",
+                "sense:dry:916461d952d654c3",
+                "sense:dry:98d8ffe22ed61f97",
+                "sense:dry:d97f435dfc56a53f"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "parent P2 bounded identity support; existing headword observation retained",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dry",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:dry:98d8ffe22ed61f97": [
+          0
+        ],
+        "sense:dry:b0649452604db4f4": [
+          0
+        ],
+        "sense:dry:d97f435dfc56a53f": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -9418,12 +10203,26 @@
     "ordinal": 1523,
     "word": "dual",
     "source_owner_path": "content/lexical/words/by-ordinal/o1523.json",
-    "source_fingerprint": "cb5fec1fe61dc3a5c9f9a40c5ca127c296416229d107f7126e1d303157821181",
-    "sense_lineage": [],
+    "source_fingerprint": "bac2855aeb684af857b35886203f7246ee8cc0f14cd9cfcd1a4a7e74dd9352d5",
+    "sense_lineage": [
+      {
+        "word_id": "word:dual",
+        "target_kind": "sense",
+        "from_target_id": "sense:dual:aef06761ab145b75",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:dual",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:cca9bcc8e0f2a7c09594",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1A",
-        "1N"
+        "1A"
       ],
       "density": "rich"
     },
@@ -9471,32 +10270,6 @@
           "target_locator": "record.senses[0]",
           "target_label": "双重的，双的"
         }
-      },
-      {
-        "id": "sense:dual:aef06761ab145b75",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "双数（语法范畴）",
-        "definition_en": "a grammatical number category referring to two items or units",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:cca9bcc8e0f2a7c09594",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "the dual",
-            "meaning_cn": "双数（形式）",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dual:aef06761ab145b75",
-          "target_locator": "record.senses[1]",
-          "target_label": "双数（语法范畴）"
-        }
       }
     ],
     "pronunciation_support": {
@@ -9524,7 +10297,36 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:cca9bcc8e0f2a7c09594",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:dual:aef06761ab145b75:collocation:0"
+              ],
+              "meaning_cn": "双数（形式）",
+              "phrase": "the dual"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "双数（语法范畴）",
+          "definition_en": "a grammatical number category referring to two items or units",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:dual:aef06761ab145b75",
+          "sense_label_en": "a grammatical number category referring to two items or units",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "status": "deprecated",
+          "merged_into_sense_id": null
+        }
+      ]
     }
   },
   {
@@ -9533,7 +10335,7 @@
     "ordinal": 1524,
     "word": "dubious",
     "source_owner_path": "content/lexical/words/by-ordinal/o1524.json",
-    "source_fingerprint": "ef24a54cb1f67c004421748abe261f2545f8388d67a642d6405a7216aad70728",
+    "source_fingerprint": "6a08ded60ac8324fc5d511344657cb4d639480eac91e3f9e620e0bac3c411913",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9542,13 +10344,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "怀疑的",
+      "summary_cn": "感到怀疑的；本身可疑或不可靠的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "怀疑的"
+        "target_label": "感到怀疑的；本身可疑或不可靠的"
       }
     },
     "senses": [
@@ -9691,7 +10493,7 @@
     "ordinal": 1525,
     "word": "duck",
     "source_owner_path": "content/lexical/words/by-ordinal/o1525.json",
-    "source_fingerprint": "1225d0e86a8802dce53006087c0596a4d78746695a8a26dc742207d6ee5f1905",
+    "source_fingerprint": "cd7b3401c23dbb5f30445de4e0b1e907bdd062fdc94eb6ac1029acb0ae3de84e",
     "sense_lineage": [
       {
         "word_id": "word:duck",
@@ -9699,12 +10501,40 @@
         "from_target_id": "sense:duck:e06c68a16ca05258",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:duck",
+        "target_kind": "sense",
+        "from_target_id": "sense:duck:e4da9a8e062d5a93",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:duck",
+        "target_kind": "sense",
+        "from_target_id": "sense:duck:f195bb13a8a15db4",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:duck",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:6eae11dd4baa3d9fb32c",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:duck",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:e27d31c4335e8fd2dc22",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V",
-        "3N"
+        "3V",
+        "1N"
       ],
       "density": "rich"
     },
@@ -9757,10 +10587,10 @@
         "id": "sense:duck:5a0b9ce333f57447",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. / duck down/behind/under",
+        "governing_pattern": "duck (down/behind/under sth); duck one's head; duck a blow",
         "definition_cn": "迅速低头或弯身躲避",
         "definition_en": "to lower the head or body quickly to avoid being seen or hit",
-        "note": "",
+        "note": "duck a blow 的宾语是要闪避的打击，不是被压低的头；两者都涉及身体躲闪。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -9802,60 +10632,34 @@
         }
       },
       {
-        "id": "sense:duck:e4da9a8e062d5a93",
+        "id": "sense:duck:44a8d42658bf22c4",
         "source_locator": "record.senses[3]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（板球）零分",
-        "definition_en": "a score of zero by a batsman in cricket",
-        "note": "",
+        "pos": "verb",
+        "governing_pattern": "duck a question/issue/responsibility; duck out of doing sth",
+        "definition_cn": "逃避；回避（责任、问题等）",
+        "definition_en": "to avoid a duty, question, or other unwelcome matter",
+        "note": "非正式说法，常带对逃避的批评；这里不需要实际低头。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:e27d31c4335e8fd2dc22",
+            "id": "collocation:duck:44a8d42658bf22c4",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "out for a duck",
-            "meaning_cn": "得零分出局",
+            "phrase": "duck the question",
+            "meaning_cn": "回避这个问题",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:e27d31c4335e8fd2dc22",
+              "target_id": "collocation:duck:44a8d42658bf22c4",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "out for a duck"
+              "target_label": "duck the question"
             }
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:duck:e4da9a8e062d5a93",
+          "target_id": "sense:duck:44a8d42658bf22c4",
           "target_locator": "record.senses[3]",
-          "target_label": "（板球）零分"
-        }
-      },
-      {
-        "id": "sense:duck:f195bb13a8a15db4",
-        "source_locator": "record.senses[4]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "粗帆布",
-        "definition_en": "a heavy cotton fabric used for clothing and tents",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6eae11dd4baa3d9fb32c",
-            "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "duck canvas",
-            "meaning_cn": "帆布",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:duck:f195bb13a8a15db4",
-          "target_locator": "record.senses[4]",
-          "target_label": "粗帆布"
+          "target_label": "逃避；回避（责任、问题等）"
         }
       }
     ],
@@ -9867,6 +10671,28 @@
           "applicability": [
             {
               "surface": "duck"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "duck",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:duck:44a8d42658bf22c4"
+              ],
+              "sense_ids": [
+                "sense:duck:44a8d42658bf22c4"
+              ],
+              "excluded_sense_ids": [
+                "sense:duck:5a0b9ce333f57447",
+                "sense:duck:baaed94c34e45aad",
+                "sense:duck:c58d928bf0cf55ef"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/duck",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -9886,8 +10712,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:duck:44a8d42658bf22c4": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -9921,6 +10751,60 @@
           "source_row": 4263,
           "source_path": "content/lexical/canonical/senses/shards/o1505-1536.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6eae11dd4baa3d9fb32c",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:duck:f195bb13a8a15db4:collocation:0"
+              ],
+              "meaning_cn": "帆布",
+              "phrase": "duck canvas"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "粗帆布",
+          "definition_en": "a heavy cotton fabric used for clothing and tents",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:duck:f195bb13a8a15db4",
+          "sense_label_en": "a heavy cotton fabric used for clothing and tents",
+          "sort_order": 4,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "status": "deprecated",
+          "merged_into_sense_id": null
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e27d31c4335e8fd2dc22",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:duck:e4da9a8e062d5a93:collocation:0"
+              ],
+              "meaning_cn": "得零分出局",
+              "phrase": "out for a duck"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（板球）零分",
+          "definition_en": "a score of zero by a batsman in cricket",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:duck:e4da9a8e062d5a93",
+          "sense_label_en": "a score of zero by a batsman in cricket",
+          "sort_order": 3,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "status": "deprecated",
+          "merged_into_sense_id": null
         }
       ]
     }
@@ -9931,12 +10815,13 @@
     "ordinal": 1526,
     "word": "due",
     "source_owner_path": "content/lexical/words/by-ordinal/o1526.json",
-    "source_fingerprint": "f31e9112b48d9453b8f0e8f2f02d82dee809c5c3cc2aeedbfb699c918f12a2ca",
+    "source_fingerprint": "51a6cbc787274badd12cc1669bfbd994916696846f8d3e71d639a305f78b3992",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3A",
-        "1N"
+        "1N",
+        "1ADV"
       ],
       "density": "rich"
     },
@@ -9957,7 +10842,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "到期的；应付的",
-        "definition_en": "owed and payable immediately or on demand",
+        "definition_en": "owed and required to be paid at an agreed time",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9981,9 +10866,9 @@
         "id": "sense:due:960b2f786f09578e",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "预定到达的",
-        "definition_en": "scheduled to arrive",
+        "governing_pattern": "be due (at/on/in a time); be due to + base verb",
+        "definition_cn": "预计或安排在某时发生、到达的",
+        "definition_en": "expected or scheduled to happen or arrive at a particular time",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10000,7 +10885,7 @@
           "target_kind": "sense",
           "target_id": "sense:due:960b2f786f09578e",
           "target_locator": "record.senses[1]",
-          "target_label": "预定到达的"
+          "target_label": "预计或安排在某时发生、到达的"
         }
       },
       {
@@ -10009,24 +10894,10 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "应得的",
-        "definition_en": "that which is deserved or owed",
+        "definition_en": "deserved or owed to someone",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:45c54fefc2f693e7acbb",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "give sb their due",
-            "meaning_cn": "给某人应有的评价",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:45c54fefc2f693e7acbb",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "give sb their due"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:due:5c06130dd0d65945",
@@ -10038,22 +10909,35 @@
         "id": "sense:due:c091f353d7065601",
         "source_locator": "record.senses[3]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "应付款；会费",
-        "definition_en": "a payment that is due (e.g., as the price of membership)",
+        "governing_pattern": "one's due; dues (plural, membership fees)",
+        "definition_cn": "应得之物或评价；应付款；（复数 dues）会费",
+        "definition_en": "something deserved or owed; in the plural, payments owed for membership",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:dc1efca635f571d5d867",
+            "id": "collocation:45c54fefc2f693e7acbb",
             "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "give sb their due",
+            "meaning_cn": "给某人应有的评价",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:45c54fefc2f693e7acbb",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "give sb their due"
+            }
+          },
+          {
+            "id": "collocation:dc1efca635f571d5d867",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "pay one's dues",
-            "meaning_cn": "缴纳会费；经历磨难",
+            "meaning_cn": "缴纳会费；也指通过艰苦工作、积累经验赢得资格、成功或尊重",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:dc1efca635f571d5d867",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[3].collocations[1]",
               "target_label": "pay one's dues"
             }
           }
@@ -10062,7 +10946,33 @@
           "target_kind": "sense",
           "target_id": "sense:due:c091f353d7065601",
           "target_locator": "record.senses[3]",
-          "target_label": "应付款；会费"
+          "target_label": "应得之物或评价；应付款；（复数 dues）会费"
+        }
+      },
+      {
+        "id": "sense:due:0d61b2597f0419ab",
+        "source_locator": "record.senses[4]",
+        "pos": "adverb",
+        "governing_pattern": "due north/south/east/west",
+        "definition_cn": "正；朝正方向",
+        "definition_en": "exactly or directly in the named compass direction",
+        "note": "方向词前的副词；不指到期，也不是due to + 名词所表达的原因。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:due:0d61b2597f0419ab",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "The village lies due west of the station.",
+            "meaning_cn": "村子在车站的正西方。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:due:0d61b2597f0419ab",
+          "target_locator": "record.senses[4]",
+          "target_label": "正；朝正方向"
         }
       }
     ],
@@ -10089,14 +10999,41 @@
           "applicability": [
             {
               "surface": "due"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "due",
+              "pos": "adverb",
+              "owner_sense_ids": [
+                "sense:due:0d61b2597f0419ab"
+              ],
+              "sense_ids": [
+                "sense:due:0d61b2597f0419ab"
+              ],
+              "excluded_sense_ids": [
+                "sense:due:5c06130dd0d65945",
+                "sense:due:8308e7dcc5035590",
+                "sense:due:960b2f786f09578e",
+                "sense:due:c091f353d7065601"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "parent P2 bounded identity support; existing headword observation retained",
+              "source_url": "https://dictionary.cambridge.org/dictionary/english/due?topic=connecting-words-which-introduce-a-cause-or-reason",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:due:0d61b2597f0419ab": [
+          1
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -10108,6 +11045,10 @@
           {
             "text": "由于；因为",
             "lang": "cn"
+          },
+          {
+            "text": "due to + noun phrase gives a cause; be due to + base verb gives an expected or planned event.",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -10131,12 +11072,12 @@
     "ordinal": 1527,
     "word": "dull",
     "source_owner_path": "content/lexical/words/by-ordinal/o1527.json",
-    "source_fingerprint": "ee0cab29963fa762d8fa28b99007ca043396851486eda5c4cb171b3055f6b4c9",
+    "source_fingerprint": "5c2ef86a8b7ef00a05f05011bf8444c067345f0f8f5d07c5c945e02619733f90",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "4A"
+        "5A"
       ],
       "density": "rich"
     },
@@ -10208,9 +11149,9 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使变钝；使变暗；使迟钝",
-        "definition_en": "make something less sharp, bright, or lively",
-        "note": "",
+        "definition_cn": "使变钝、变暗或迟钝；减弱（感觉、疼痛等）",
+        "definition_en": "to make something less sharp, bright, active, or intense",
+        "note": "dull the pain 是减弱疼痛或感觉，不是把疼痛变成一件枯燥的事。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10234,7 +11175,7 @@
           "target_kind": "sense",
           "target_id": "sense:dull:df1ca886eccc5a7f",
           "target_locator": "record.senses[2]",
-          "target_label": "使变钝；使变暗；使迟钝"
+          "target_label": "使变钝、变暗或迟钝；减弱（感觉、疼痛等）"
         }
       },
       {
@@ -10269,7 +11210,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "呆滞的，不活跃的",
-        "definition_en": "not active or sluggish",
+        "definition_en": "inactive or sluggish",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10314,6 +11255,37 @@
           "target_locator": "record.senses[5]",
           "target_label": "变钝；变暗；变迟钝"
         }
+      },
+      {
+        "id": "sense:dull:5ae009ed34a92dfa",
+        "source_locator": "record.senses[6]",
+        "pos": "adjective",
+        "governing_pattern": "a dull pain/ache",
+        "definition_cn": "（疼痛）隐隐的；不尖锐的",
+        "definition_en": "of pain: not sharp or acute",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dull:5ae009ed34a92dfa",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "a dull ache",
+            "meaning_cn": "隐隐的疼痛",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:dull:5ae009ed34a92dfa",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "a dull ache"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dull:5ae009ed34a92dfa",
+          "target_locator": "record.senses[6]",
+          "target_label": "（疼痛）隐隐的；不尖锐的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -10327,14 +11299,43 @@
           "applicability": [
             {
               "surface": "dull"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dull",
+              "pos": "adjective",
+              "owner_sense_ids": [
+                "sense:dull:5ae009ed34a92dfa"
+              ],
+              "sense_ids": [
+                "sense:dull:5ae009ed34a92dfa"
+              ],
+              "excluded_sense_ids": [
+                "sense:dull:25dc3bef5da05464",
+                "sense:dull:6260ab4e194d5e89",
+                "sense:dull:991afc9761865990",
+                "sense:dull:df1ca886eccc5a7f",
+                "sense:dull:e97990c0e0c053cb",
+                "sense:dull:f9226d9117fe562a"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; publisher same headword noun/verb/adjective meaning corroboration",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dull",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:dull:5ae009ed34a92dfa": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -10351,7 +11352,7 @@
     "ordinal": 1528,
     "word": "dumb",
     "source_owner_path": "content/lexical/words/by-ordinal/o1528.json",
-    "source_fingerprint": "e90d7f80e5428db7a0c434392944c2e9976b26e2da22dc500ad802081eb56f38",
+    "source_fingerprint": "cfe08565ece16e4ac8430b0b6ef50445c1761be4cc492743cef03d3b721aef05",
     "sense_lineage": [
       {
         "word_id": "word:dumb",
@@ -10415,14 +11416,14 @@
           {
             "id": "collocation:fe5a2c58f4ca2b023222",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "strike dumb",
+            "phrase": "strike sb dumb / be struck dumb",
             "meaning_cn": "使说不出话",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:fe5a2c58f4ca2b023222",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "strike dumb"
+              "target_label": "strike sb dumb / be struck dumb"
             }
           }
         ],
@@ -10506,7 +11507,7 @@
     "ordinal": 1529,
     "word": "dump",
     "source_owner_path": "content/lexical/words/by-ordinal/o1529.json",
-    "source_fingerprint": "d6eb0423d663a40cc4542057fc778a9fa893b7846d4b724847400ff3393a096c",
+    "source_fingerprint": "dc883e39297d251f7ed177967dcc7505ab82822d6573949db89cc4f02e6945b7",
     "sense_lineage": [
       {
         "word_id": "word:dump",
@@ -10518,7 +11519,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "2N"
       ],
       "density": "rich"
@@ -10549,14 +11550,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "garbage dump",
             "meaning_cn": "垃圾场",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:f63f76a7ce1307d7b97e",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "dump truck",
-            "meaning_cn": "自卸卡车",
             "kind": "usage_example",
             "repair": null
           }
@@ -10621,6 +11614,14 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "dump waste/rubbish"
             }
+          },
+          {
+            "id": "collocation:f63f76a7ce1307d7b97e",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "dump truck",
+            "meaning_cn": "自卸卡车",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -10660,6 +11661,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "低价倾销；大量抛售"
         }
+      },
+      {
+        "id": "sense:dump:483467811cefa409",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "dump a boyfriend/girlfriend/partner; be dumped",
+        "definition_cn": "（非正式）与恋爱伴侣分手；甩掉",
+        "definition_en": "to end a romantic relationship with someone",
+        "note": "非正式；本义限于恋爱关系语境，宾语是伴侣。其他dump sb语境也可指把人丢在某处等，不一律解释为恋爱分手。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:dump:483467811cefa409",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "He dumped his girlfriend.",
+            "meaning_cn": "他甩了他的女朋友。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dump:483467811cefa409",
+          "target_locator": "record.senses[4]",
+          "target_label": "（非正式）与恋爱伴侣分手；甩掉"
+        }
       }
     ],
     "pronunciation_support": {
@@ -10670,6 +11697,29 @@
           "applicability": [
             {
               "surface": "dump"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "dump",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:dump:483467811cefa409"
+              ],
+              "sense_ids": [
+                "sense:dump:483467811cefa409"
+              ],
+              "excluded_sense_ids": [
+                "sense:dump:1e840e8c455a5156",
+                "sense:dump:4beec072f4da5c19",
+                "sense:dump:71bffd06340452e2",
+                "sense:dump:809b79cf86e6565f"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "parent P2 bounded identity support; existing headword observation retained",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/dump",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "evidence_basis": "source_ipa",
@@ -10689,8 +11739,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:dump:483467811cefa409": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -10734,7 +11788,7 @@
     "ordinal": 1530,
     "word": "duplicate",
     "source_owner_path": "content/lexical/words/by-ordinal/o1530.json",
-    "source_fingerprint": "3750a5551e180e3fae0f1b9d57dd4fcd7ead44667ccedeff0e34821e35ea3e71",
+    "source_fingerprint": "61ed34a5d6897eb15018529bd6634a54d28759c8ace2e6a00ff016a6f4ecc288",
     "sense_lineage": [
       {
         "word_id": "word:duplicate",
@@ -10951,7 +12005,7 @@
       "confusables": [],
       "relations": [],
       "form": {
-        "boundary": "duplicate as a noun/adjective has initial stress and final /-kət/; as a verb it has final /-keɪt/ with the verbal stress pattern.",
+        "boundary": "duplicate has initial primary stress as a noun, adjective, and verb; noun/adjective ends in /-kət/, verb in /-keɪt/.",
         "boundaries": [
           {
             "surface": "duplicate",
@@ -10961,7 +12015,7 @@
           {
             "surface": "duplicate",
             "condition": "verb",
-            "note": "verbal stress pattern; final /-keɪt/"
+            "note": "initial primary stress; final /-keɪt/"
           }
         ],
         "variants": [],
@@ -10969,7 +12023,7 @@
           "target_kind": "form_identity",
           "target_id": null,
           "target_locator": "record.form_identity",
-          "target_label": "duplicate as a noun/adjective has initial stress and final /-kət/; as a verb it has final /-keɪt/ with the verbal stress pattern."
+          "target_label": "duplicate has initial primary stress as a noun, adjective, and verb; noun/adjective ends in /-kət/, verb in /-keɪt/."
         }
       },
       "family": [],
@@ -11255,7 +12309,7 @@
     "ordinal": 1533,
     "word": "during",
     "source_owner_path": "content/lexical/words/by-ordinal/o1533.json",
-    "source_fingerprint": "c9786d29116be8c4d0e05e2ec68a8453f0833e0f04837ba445ee22d1dbd68d17",
+    "source_fingerprint": "bb1a683b61594b0c9a31e46cb676a2cccf060b7e23c1b55b066209161eda0c97",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11280,7 +12334,7 @@
         "pos": "preposition",
         "governing_pattern": "",
         "definition_cn": "在……期间",
-        "definition_en": "throughout the course or duration of (a period of time)",
+        "definition_en": "at some time within, or throughout, a stated period",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11361,7 +12415,7 @@
     "ordinal": 1534,
     "word": "dusk",
     "source_owner_path": "content/lexical/words/by-ordinal/o1534.json",
-    "source_fingerprint": "c47d948d7140c12a899286a8b1095cf49d48063bb1c3a2395ab8b5bac736b9d4",
+    "source_fingerprint": "a9b56281d1ad9a43bfaa6a1dcd7b41ed4844185e328d42c4ab6a5a878e7c7b37",
     "sense_lineage": [
       {
         "word_id": "word:dusk",
@@ -11393,7 +12447,7 @@
     },
     "word_feel": {
       "summary_cn": "薄暮；黄昏",
-      "decision_cn": "at dusk / from dawn to dusk → 黄昏时分。形容词/动词派生义保留为 Reference。",
+      "decision_cn": "at dusk 指黄昏时；from dawn to dusk 指从黎明到黄昏。低价值形容词/动词派生义保留查阅。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -11522,23 +12576,45 @@
     "ordinal": 1535,
     "word": "dust",
     "source_owner_path": "content/lexical/words/by-ordinal/o1535.json",
-    "source_fingerprint": "308b756b833c8bf98b39e9ae7171f519064ad1717a21aae1cfc668da2854536c",
-    "sense_lineage": [],
+    "source_fingerprint": "d210bb919c6020592b503e07cfd08f235c4b4d2ffaa271bc578f64740e4812e8",
+    "sense_lineage": [
+      {
+        "word_id": "word:dust",
+        "target_kind": "sense",
+        "from_target_id": "sense:dust:f6e4c4bd25615eff",
+        "status": "merged",
+        "to_target_id": "sense:dust:452190ccbdcd6b3c"
+      },
+      {
+        "word_id": "word:dust",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:20b4ca726496069ce4d0",
+        "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:dust",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:c6af45b352ffcc3ebc83",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "灰尘或拂去灰尘",
-      "decision_cn": "",
+      "summary_cn": "灰尘；拂去灰尘，或撒上薄层粉末",
+      "decision_cn": "动词有相反方向：dust furniture 是去灰；dust a cake with sugar 是撒上糖粉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "灰尘或拂去灰尘"
+        "target_label": "灰尘；拂去灰尘，或撒上薄层粉末"
       }
     },
     "senses": [
@@ -11572,7 +12648,7 @@
         "id": "sense:dust:a0338eb47be155d8",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "dust; dust sth",
         "definition_cn": "拂去灰尘",
         "definition_en": "remove the dust from",
         "note": "",
@@ -11583,13 +12659,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "dust + sth",
             "meaning_cn": "拂去某物上的灰尘",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:20b4ca726496069ce4d0",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "dust + sth"
-            }
+            "kind": "usage_example",
+            "repair": null
           },
           {
             "id": "collocation:07b723b65dc34686a418",
@@ -11612,9 +12683,9 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "微粒，粉末",
-        "definition_en": "free microscopic particles of solid material",
-        "note": "",
+        "definition_cn": "细小颗粒；粉末",
+        "definition_en": "fine particles or powder of a substance",
+        "note": "如 coal dust / gold dust；不要求肉眼完全不可见。",
         "identity_overlay": null,
         "usage": [
           {
@@ -11630,51 +12701,12 @@
           "target_kind": "sense",
           "target_id": "sense:dust:46379f3950475bab",
           "target_locator": "record.senses[2]",
-          "target_label": "微粒，粉末"
-        }
-      },
-      {
-        "id": "sense:dust:f6e4c4bd25615eff",
-        "source_locator": "record.senses[3]",
-        "pos": "verb",
-        "governing_pattern": "vt. + object + with/over + sth",
-        "definition_cn": "撒（粉末）于",
-        "definition_en": "rub the dust over a surface so as to blur the outlines of a shape",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:e9ca6ae9c1c9f366fdff",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "dust + sth + with + sth",
-            "meaning_cn": "在某物上撒某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e9ca6ae9c1c9f366fdff",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "dust + sth + with + sth"
-            }
-          },
-          {
-            "id": "collocation:a28e3995d8f23d8d6105",
-            "source_locator": "record.senses[3].collocations[1]",
-            "phrase": "dust the cake with sugar",
-            "meaning_cn": "在蛋糕上撒糖",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:dust:f6e4c4bd25615eff",
-          "target_locator": "record.senses[3]",
-          "target_label": "撒（粉末）于"
+          "target_label": "细小颗粒；粉末"
         }
       },
       {
         "id": "sense:dust:452190ccbdcd6b3c",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "dust sth with sth",
         "definition_cn": "撒粉或薄薄覆盖粉末",
@@ -11684,22 +12716,38 @@
         "usage": [
           {
             "id": "collocation:c6af45b352ffcc3ebc83",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "dust a cake with sugar",
             "meaning_cn": "在蛋糕上撒糖粉",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:e9ca6ae9c1c9f366fdff",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "dust + sth + with + sth",
+            "meaning_cn": "在某物上撒某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
-              "target_id": "collocation:c6af45b352ffcc3ebc83",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "dust a cake with sugar"
+              "target_id": "collocation:e9ca6ae9c1c9f366fdff",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "dust + sth + with + sth"
             }
+          },
+          {
+            "id": "collocation:a28e3995d8f23d8d6105",
+            "source_locator": "record.senses[3].collocations[2]",
+            "phrase": "dust the cake with sugar",
+            "meaning_cn": "在蛋糕上撒糖",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:dust:452190ccbdcd6b3c",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "撒粉或薄薄覆盖粉末"
         }
       }
@@ -11740,7 +12788,45 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e9ca6ae9c1c9f366fdff",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:dust:f6e4c4bd25615eff:collocation:0"
+              ],
+              "meaning_cn": "在某物上撒某物",
+              "phrase": "dust + sth + with + sth"
+            },
+            {
+              "collocation_id": "collocation:a28e3995d8f23d8d6105",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:dust:f6e4c4bd25615eff:collocation:1"
+              ],
+              "meaning_cn": "在蛋糕上撒糖",
+              "phrase": "dust the cake with sugar"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "撒（粉末）于",
+          "definition_en": "to sprinkle or lightly cover something with powder",
+          "governing_pattern": "vt. + object + with/over + sth",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:dust:f6e4c4bd25615eff",
+          "sense_label_en": "to sprinkle or lightly cover something with powder",
+          "sort_order": 3,
+          "transitivity": "vt",
+          "reference_only": true,
+          "status": "merged",
+          "merged_into_sense_id": "sense:dust:452190ccbdcd6b3c"
+        }
+      ]
     }
   },
   {
@@ -11749,7 +12835,7 @@
     "ordinal": 1536,
     "word": "duty",
     "source_owner_path": "content/lexical/words/by-ordinal/o1536.json",
-    "source_fingerprint": "4472e00a23fdf9ad7e0473a7abbac60b4c55fc6fbb14550e29dc444ab912cf48",
+    "source_fingerprint": "c66523d712a1869787097dedf210e5375c91b8776a0a8d3a1117c0ec7c9f20a7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11773,8 +12859,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "责任，义务",
-        "definition_en": "a moral or legal obligation",
+        "definition_cn": "责任；义务；工作职责；值勤",
+        "definition_en": "an obligation, a responsibility belonging to a job, or time spent performing one's work",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11809,7 +12895,7 @@
           "target_kind": "sense",
           "target_id": "sense:duty:5d7124f4156c5370",
           "target_locator": "record.senses[0]",
-          "target_label": "责任，义务"
+          "target_label": "责任；义务；工作职责；值勤"
         }
       },
       {
@@ -11817,8 +12903,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "关税",
-        "definition_en": "a government tax on imports or exports",
+        "definition_cn": "税；尤指关税",
+        "definition_en": "a tax paid to the government, especially on goods brought into a country",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11843,7 +12929,7 @@
           "target_kind": "sense",
           "target_id": "sense:duty:147e474855f15605",
           "target_locator": "record.senses[1]",
-          "target_label": "关税"
+          "target_label": "税；尤指关税"
         }
       }
     ],

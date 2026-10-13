@@ -11,16 +11,25 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "表达；表示",
-          "label_en": "give expression to",
+          "label_cn": "表达",
+          "label_en": "convey thoughts or feelings",
           "pos": "verb",
           "sense_ids": [
             "sense:express:a6f6dfa5cb0e5f56"
           ]
         },
         {
-          "label_cn": "快车；直达车；快递；快件",
-          "label_en": "public transport consisting of a fast train or bus that makes only a few scheduled stops; mail that is distributed by a rapid and efficient system",
+          "label_cn": "明确说明；快速服务",
+          "label_en": "explicitly stated or fast/direct",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:express:ec11929dccdc5a15",
+            "sense:express:7acdc57d8fcbe9a7"
+          ]
+        },
+        {
+          "label_cn": "快车、快件",
+          "label_en": "fast transport or mail",
           "pos": "noun",
           "sense_ids": [
             "sense:express:682a385e64c25955",
@@ -28,9 +37,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "传达或表明；快速或直达",
-      "core_meaning_en": "to convey or make known; fast or direct",
-      "mental_model_cn": "传达或表明；快速或直达",
+      "core_meaning_cn": "表达或明确说明；快速、直达服务",
+      "core_meaning_en": "convey or state clearly; fast or direct services",
+      "mental_model_cn": "动词表达思想感受；express orders等形容词指明确说明。运输递送语境中形容词是快速或少停靠，名词an express可指快车或快件。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,7 +54,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:5ec46f9015d4491c004e",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:express:a6f6dfa5cb0e5f56:collocation:0"
             ],
@@ -94,7 +103,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:express:682a385e64c25955",
-        "sense_label_en": "public transport consisting of a fast train or bus that makes only a few",
+        "sense_label_en": "a fast train or bus with few stops",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -130,7 +139,7 @@
             "legacy_source_object_ids": [
               "sense:express:ec11929dccdc5a15:collocation:0"
             ],
-            "meaning_cn": "明确的目的",
+            "meaning_cn": "明确、特定的目的（for/with the express purpose of doing sth）",
             "phrase": "express purpose"
           }
         ],
@@ -145,6 +154,28 @@
         "sense_label_en": "clearly stated; explicit",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:express:7acdc57d8fcbe9a7",
+        "pos": "adjective",
+        "definition_cn": "快速的；直达的",
+        "definition_en": "of transport or delivery: faster than usual or with few intermediate stops",
+        "sense_label_en": "of transport or delivery: faster than usual or with few intermediate stops",
+        "governing_pattern": "express service/mail/delivery/train",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4be628f86cb833bda18b",
+            "phrase": "express delivery",
+            "meaning_cn": "快速递送",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -294,6 +325,23 @@
           "applicability": [
             {
               "surface": "express"
+            },
+            {
+              "surface": "express",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:express:7acdc57d8fcbe9a7"
+              ],
+              "owner_sense_ids": [
+                "sense:express:7acdc57d8fcbe9a7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1810.json",
+              "source_pointer": "/record/senses/4",
+              "conditions": {
+                "current_owner_usage": "express service/mail/delivery/train"
+              }
             }
           ],
           "sources": [
@@ -441,11 +489,18 @@
         "merged_into_sense_id": null,
         "source_row": 4956,
         "source_path": "content/lexical/canonical/senses/shards/o1793-1824.json"
+      },
+      {
+        "sense_id": "sense:express:7acdc57d8fcbe9a7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1810.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:01743cff0430072022b9",
-      "collocation:5ec46f9015d4491c004e",
       "collocation:74316d5dce53d9fce147",
       "collocation:b4abd8414e38033fcbda",
       "collocation:c486f70958810eec1c1a"
@@ -460,7 +515,9 @@
       {
         "id": "collocation:5ec46f9015d4491c004e",
         "source_row": 7977,
-        "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:74316d5dce53d9fce147",
@@ -476,6 +533,13 @@
         "id": "collocation:c486f70958810eec1c1a",
         "source_row": 16642,
         "source_path": "content/lexical/canonical/collocations/shards/o1793-1824.json"
+      },
+      {
+        "id": "collocation:4be628f86cb833bda18b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1810.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

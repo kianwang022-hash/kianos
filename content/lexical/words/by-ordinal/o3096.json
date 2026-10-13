@@ -36,12 +36,20 @@
           "sense_ids": [
             "sense:moderate:81f911fdaee05fa4"
           ]
+        },
+        {
+          "label_cn": "审核、管理（网站内容、留言）",
+          "label_en": "review online material and prevent or remove unsuitable content",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:moderate:4d73df74490d6c36"
+          ]
         }
       ],
-      "core_meaning_cn": "适度的；缓和",
-      "core_meaning_en": "average in amount or degree; to make less extreme",
-      "mental_model_cn": "适度的；缓和",
-      "mental_model_en": ""
+      "core_meaning_cn": "适度或温和的、温和派；缓和、主持与审核",
+      "core_meaning_en": "moderate in degree or views, or a moderate person; lessen, chair or review",
+      "mental_model_cn": "adj/noun与verb读音末尾不同；主持讨论强调公平，moderate comments审核内容，moderate marks复核评分。moderate the tone是减轻，风力moderates是自行变缓和。",
+      "mental_model_en": "moderate in degree or views, or a moderate person; lessen, chair or review."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -165,7 +173,7 @@
         "confidence": "medium",
         "definition_cn": "主持（会议、讨论）",
         "definition_en": "to preside over a meeting or discussion",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "moderate (a discussion/debate)",
         "level": "L3",
         "lexical_identity_overlay": {
           "identity_type": "pronunciation_by_part_of_speech",
@@ -178,7 +186,7 @@
         "sense_id": "sense:moderate:a9185c676f0e5dca",
         "sense_label_en": "to preside over a meeting or discussion",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [],
@@ -229,6 +237,50 @@
         "sense_label_en": "a person whose political or social views are not extreme",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:moderate:4d73df74490d6c36",
+        "pos": "verb",
+        "definition_cn": "审核、管理（网站内容、留言）",
+        "definition_en": "review online material and prevent or remove unsuitable content",
+        "sense_label_en": "review online material and prevent or remove unsuitable content",
+        "governing_pattern": "moderate comments/a forum",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:28d50d67cb3b14e4eeac",
+            "phrase": "moderate reader comments",
+            "meaning_cn": "审核读者留言",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:moderate:034633e3c9b055fb",
+        "pos": "verb",
+        "definition_cn": "（英式）复核评分，确保不同阅卷者标准一致",
+        "definition_en": "check that examinations have been marked fairly and consistently",
+        "sense_label_en": "check that examinations have been marked fairly and consistently",
+        "governing_pattern": "moderate (an exam/marks)",
+        "transitivity": "I/T",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:24b1edbf04fc9e12423b",
+            "phrase": "moderate exam marks",
+            "meaning_cn": "复核考试评分标准",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -902,6 +954,65 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ˈmɒdəreɪt/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "moderate",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:moderate:4d73df74490d6c36"
+              ],
+              "owner_sense_ids": [
+                "sense:moderate:4d73df74490d6c36"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3096.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "moderate comments/a forum",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            },
+            {
+              "surface": "moderate",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:moderate:034633e3c9b055fb"
+              ],
+              "owner_sense_ids": [
+                "sense:moderate:034633e3c9b055fb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3096.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "moderate (an exam/marks)",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/moderate_2",
+              "entry_context": {
+                "word": "moderate",
+                "pos": "verb",
+                "etymology_number": null
+              },
+              "original_ipa": "/ˈmɒdəreɪt/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-11",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
@@ -951,15 +1062,33 @@
         "merged_into_sense_id": null,
         "source_row": 8653,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:moderate:4d73df74490d6c36",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3096.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:moderate:034633e3c9b055fb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3096.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:31cfa1035844ac0fe5b5",
+      "collocation:6715d34b257c8e82c708",
       "collocation:56440178d3b9f338150b",
       "collocation:5648d0b596f66a073629",
-      "collocation:6715d34b257c8e82c708",
+      "collocation:99b868292c99c64ada62",
       "collocation:6e69f88ce49af317d541",
-      "collocation:99b868292c99c64ada62"
+      "collocation:31cfa1035844ac0fe5b5",
+      "collocation:28d50d67cb3b14e4eeac",
+      "collocation:24b1edbf04fc9e12423b"
     ],
     "facts": [],
     "collocations": [
@@ -992,6 +1121,20 @@
         "id": "collocation:31cfa1035844ac0fe5b5",
         "source_row": 21142,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:28d50d67cb3b14e4eeac",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3096.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:24b1edbf04fc9e12423b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3096.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

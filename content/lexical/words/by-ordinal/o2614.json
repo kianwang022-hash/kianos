@@ -9,11 +9,23 @@
     "constructions": [],
     "content_hash": "1ca91a0159ca84cd2b1d3231f63d765759258269a8f3285e097ebb374d7d377b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "介入，干预",
-      "core_meaning_en": "to come between or become involved",
-      "mental_model_cn": "介入，干预",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "介入；插话；发生而阻碍",
+          "label_en": "to step in, interject, or occur so as to obstruct",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:intervene:0d3d6b489bdd5e29",
+            "sense:intervene:972adbc7b15853bf",
+            "sense:intervene:041123484ad3e946",
+            "sense:intervene:72f1b906b32fa644"
+          ]
+        }
+      ],
+      "core_meaning_cn": "介入；插话；发生而阻碍",
+      "core_meaning_en": "to step in, interject, or occur so as to obstruct",
+      "mental_model_cn": "person → 介入/插话；unexpected event → 阻碍计划；time/space → 介于其间。",
+      "mental_model_en": "to step in, interject, or occur so as to obstruct."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -88,6 +100,50 @@
         "sense_label_en": "to be located or occur between things or events",
         "sort_order": 1,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:intervene:041123484ad3e946",
+        "pos": "verb",
+        "definition_cn": "（事件）发生而阻碍、推迟原计划",
+        "definition_en": "of an event, to occur and delay or prevent a planned action",
+        "sense_label_en": "of an event, to occur and delay or prevent a planned action",
+        "governing_pattern": "an event intervenes",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0ba023fe6a4ee587a598",
+            "phrase": "Unforeseen events intervened.",
+            "meaning_cn": "意外事件发生，阻碍了原计划。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:intervene:72f1b906b32fa644",
+        "pos": "verb",
+        "definition_cn": "插话；发言打断",
+        "definition_en": "to interrupt a speaker with a remark of your own",
+        "sense_label_en": "to interrupt a speaker with a remark of your own",
+        "governing_pattern": "intervene; intervene + direct speech",
+        "transitivity": "vt/vi",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4b1c1ac80e151fab9424",
+            "phrase": "“Wait,” he intervened.",
+            "meaning_cn": "“等等，”他插话说。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -127,6 +183,40 @@
           "applicability": [
             {
               "surface": "intervene"
+            },
+            {
+              "surface": "intervene",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:intervene:041123484ad3e946"
+              ],
+              "owner_sense_ids": [
+                "sense:intervene:041123484ad3e946"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2614.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an event intervenes"
+            },
+            {
+              "surface": "intervene",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:intervene:72f1b906b32fa644"
+              ],
+              "owner_sense_ids": [
+                "sense:intervene:72f1b906b32fa644"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2614.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "intervene; intervene + direct speech"
             }
           ],
           "sources": [
@@ -237,13 +327,31 @@
         "merged_into_sense_id": null,
         "source_row": 7208,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:intervene:041123484ad3e946",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2614.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:intervene:72f1b906b32fa644",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2614.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:52787e7212d1d39dd6ad",
-      "collocation:56e109e56376c2cb1736",
       "collocation:a5d6091b027ccbf3f3c8",
-      "collocation:b56185969b1889adea37"
+      "collocation:56e109e56376c2cb1736",
+      "collocation:b56185969b1889adea37",
+      "collocation:52787e7212d1d39dd6ad",
+      "collocation:0ba023fe6a4ee587a598",
+      "collocation:4b1c1ac80e151fab9424"
     ],
     "facts": [],
     "collocations": [
@@ -266,6 +374,20 @@
         "id": "collocation:b56185969b1889adea37",
         "source_row": 15372,
         "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:0ba023fe6a4ee587a598",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2614.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:4b1c1ac80e151fab9424",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2614.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

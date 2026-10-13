@@ -13,35 +13,50 @@
         "level": "L2",
         "meaning_cn": "年龄高于通常大学入学年龄的大学/学院学生（尤英式）",
         "pattern": "mature student"
+      },
+      {
+        "construction_id": "construction:3c93475fe4839f8518c1",
+        "pattern": "on mature reflection/consideration",
+        "meaning_cn": "经认真、充分考虑后",
+        "definition_en": "after careful thought over some time",
+        "usage_note": "正式；不是在某个成熟年龄反思。",
+        "boundary": "正式；不是在某个成熟年龄反思。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:mature:f771b01810318ebd"
       }
     ],
     "content_hash": "d8ffe2b5499960169c6be4e31b8dc980aa056d0fdbd7cd46c0846dd70d6bc884",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "成熟的；到期的",
-          "label_en": "fully grown or developed; due for repayment",
+          "label_cn": "成熟的；到期的；懂事的；稳重、理智的；（酒、奶酪等）熟成的；风味醇厚的；（委婉或诙谐）不再年轻的；较年长的",
+          "label_en": "fully grown or developed; due for repayment; behaving sensibly and responsibly like an adult; developed over time to have a strong, rich flavour; no longer young, said politely or humorously",
           "pos": "adjective",
           "sense_ids": [
             "sense:mature:333a5180334d5da9",
-            "sense:mature:10d9fd5245fc5b2b"
+            "sense:mature:10d9fd5245fc5b2b",
+            "sense:mature:f771b01810318ebd",
+            "sense:mature:5ddd96eaae0b721e",
+            "sense:mature:e2ef1f53ee40af5d"
           ]
         },
         {
-          "label_cn": "成熟；使成熟；到期",
-          "label_en": "to become fully grown or developed; to cause to become mature; to become due for repayment",
+          "label_cn": "成熟；使成熟；到期；（使酒、奶酪等）熟成、风味变醇厚",
+          "label_en": "to become fully grown or developed; to cause to become mature; to become due for repayment; to develop, or cause to develop, a rich flavour over time",
           "pos": "verb",
           "sense_ids": [
             "sense:mature:94f42a76073f5295",
             "sense:mature:ab362defeaf85b8b",
-            "sense:mature:55f3270222f95c9f"
+            "sense:mature:55f3270222f95c9f",
+            "sense:mature:12fa9101a0ff357d"
           ]
         }
       ],
-      "core_meaning_cn": "充分发展或到期",
-      "core_meaning_en": "fully developed or due",
-      "mental_model_cn": "充分发展或到期",
-      "mental_model_en": ""
+      "core_meaning_cn": "充分发育、理智稳重、熟成或较年长；发展成熟、熟成及到期",
+      "core_meaning_en": "fully developed, sensible, aged or older; to develop, age flavours or become payable",
+      "mental_model_cn": "a mature attitude说理智；a mature tree充分长成；mature cheese已熟成；mature years委婉说年纪大；投资matures说到期。",
+      "mental_model_en": "fully developed, sensible, aged or older; to develop, age flavours or become payable."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -77,7 +92,8 @@
         "sense_id": "sense:mature:94f42a76073f5295",
         "sense_label_en": "to become fully grown or developed",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "包括身体或情感发展、技术发展及才能逐渐充分发挥；mature into ...。"
       },
       {
         "collocations": [
@@ -142,7 +158,7 @@
         "confidence": "medium",
         "definition_cn": "到期",
         "definition_en": "to become due for repayment",
-        "governing_pattern": "vi. + (无固定搭配)",
+        "governing_pattern": "an investment/policy/loan matures",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
@@ -150,6 +166,94 @@
         "sense_label_en": "to become due for repayment",
         "sort_order": 4,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:mature:f771b01810318ebd",
+        "pos": "adjective",
+        "definition_cn": "懂事的；稳重、理智的",
+        "definition_en": "behaving sensibly and responsibly like an adult",
+        "sense_label_en": "behaving sensibly and responsibly like an adult",
+        "governing_pattern": "mature for your age; a mature attitude",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f7ef4afd84c924acd7ba",
+            "phrase": "a mature attitude",
+            "meaning_cn": "成熟稳重的态度",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mature:5ddd96eaae0b721e",
+        "pos": "adjective",
+        "definition_cn": "（酒、奶酪等）熟成的；风味醇厚的",
+        "definition_en": "developed over time to have a strong, rich flavour",
+        "sense_label_en": "developed over time to have a strong, rich flavour",
+        "governing_pattern": "mature cheese/wine",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e76e4d3112bdc0745bed",
+            "phrase": "mature cheese",
+            "meaning_cn": "熟成奶酪",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mature:e2ef1f53ee40af5d",
+        "pos": "adjective",
+        "definition_cn": "（委婉或诙谐）不再年轻的；较年长的",
+        "definition_en": "no longer young, said politely or humorously",
+        "sense_label_en": "no longer young, said politely or humorously",
+        "governing_pattern": "a mature woman/person; mature years",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:382f147f911b20efb3ce",
+            "phrase": "a person of mature years",
+            "meaning_cn": "一位年纪较大的人",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mature:12fa9101a0ff357d",
+        "pos": "verb",
+        "definition_cn": "（使酒、奶酪等）熟成、风味变醇厚",
+        "definition_en": "to develop, or cause to develop, a rich flavour over time",
+        "sense_label_en": "to develop, or cause to develop, a rich flavour over time",
+        "governing_pattern": "mature (wine/cheese)",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:964419ad81cedf4f361d",
+            "phrase": "leave cheese to mature",
+            "meaning_cn": "让奶酪熟成",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -190,6 +294,74 @@
           "applicability": [
             {
               "surface": "mature"
+            },
+            {
+              "surface": "mature",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mature:f771b01810318ebd"
+              ],
+              "owner_sense_ids": [
+                "sense:mature:f771b01810318ebd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2983.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mature for your age; a mature attitude"
+            },
+            {
+              "surface": "mature",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mature:5ddd96eaae0b721e"
+              ],
+              "owner_sense_ids": [
+                "sense:mature:5ddd96eaae0b721e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2983.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mature cheese/wine"
+            },
+            {
+              "surface": "mature",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:mature:e2ef1f53ee40af5d"
+              ],
+              "owner_sense_ids": [
+                "sense:mature:e2ef1f53ee40af5d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2983.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a mature woman/person; mature years"
+            },
+            {
+              "surface": "mature",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mature:12fa9101a0ff357d"
+              ],
+              "owner_sense_ids": [
+                "sense:mature:12fa9101a0ff357d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2983.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mature (wine/cheese)"
             }
           ],
           "sources": [
@@ -383,12 +555,48 @@
         "merged_into_sense_id": null,
         "source_row": 8329,
         "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
+      },
+      {
+        "sense_id": "sense:mature:f771b01810318ebd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2983.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:mature:5ddd96eaae0b721e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2983.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:mature:e2ef1f53ee40af5d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2983.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:mature:12fa9101a0ff357d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2983.json",
+        "source_pointer": "/record/senses/8"
       }
     ],
     "active_collocations": [
-      "collocation:551ed4efc41ab2ae9d4a",
       "collocation:cda99c8d977fb9c35601",
-      "collocation:dbc9172090c3ac200d04"
+      "collocation:dbc9172090c3ac200d04",
+      "collocation:551ed4efc41ab2ae9d4a",
+      "collocation:f7ef4afd84c924acd7ba",
+      "collocation:e76e4d3112bdc0745bed",
+      "collocation:382f147f911b20efb3ce",
+      "collocation:964419ad81cedf4f361d"
     ],
     "facts": [],
     "collocations": [
@@ -411,6 +619,34 @@
         "id": "collocation:dbc9172090c3ac200d04",
         "source_row": 18602,
         "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:f7ef4afd84c924acd7ba",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2983.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:e76e4d3112bdc0745bed",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2983.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:382f147f911b20efb3ce",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2983.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:964419ad81cedf4f361d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2983.json",
+        "source_pointer": "/record/senses/8/collocations/0"
       }
     ],
     "exam-mappings": [],

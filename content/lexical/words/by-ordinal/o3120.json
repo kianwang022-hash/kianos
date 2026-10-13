@@ -6,7 +6,28 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:386938310c069c43ee8e",
+        "pattern": "be over the moon (about sth)",
+        "meaning_cn": "开心极了；兴奋不已",
+        "definition_en": "be extremely pleased and excited",
+        "usage_note": "尤其英式非正式；不是空间位置。",
+        "boundary": "尤其英式非正式；不是空间位置。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:8d7228223e74b61f3fd7",
+        "pattern": "moon over sb",
+        "meaning_cn": "痴想、念念不忘所爱的人",
+        "definition_en": "spend time dreamily thinking about somebody you love",
+        "usage_note": "非正式；常带旁人觉得傻或烦的意味。",
+        "boundary": "非正式；常带旁人觉得傻或烦的意味。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "4de0974d4e16fdfe2cdbdac6854ccbb8123c95640a395e7d90b2e5c0796c3a67",
     "core_concept": {
       "core_clusters": [
@@ -21,7 +42,7 @@
         },
         {
           "label_cn": "闲荡；闲混；虚度（时光）",
-          "label_en": "to spend time doing nothing or moving slowly without purpose; to waste time or money",
+          "label_en": "to idle or move aimlessly; to spend time dreamily",
           "pos": "verb",
           "sense_ids": [
             "sense:moon:bf342f6a933a56a8",
@@ -145,16 +166,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "虚度（时光）",
-        "definition_en": "to waste time or money",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "虚度（时光）；出神地消磨（时间）",
+        "definition_en": "to spend time idly or dreamily",
+        "governing_pattern": "moon time/the hours away; moon away the hours",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:moon:88d2750e87a45bf6",
-        "sense_label_en": "to waste time or money",
+        "sense_label_en": "to spend time idly or dreamily",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:moon:2301093c5ae49f50",
+        "pos": "verb",
+        "definition_cn": "（非正式）露出臀部以开玩笑或冒犯人",
+        "definition_en": "display your bare buttocks publicly as a joke or an insult",
+        "sense_label_en": "display your bare buttocks publicly as a joke or an insult",
+        "governing_pattern": "moon (at sb); moon sb",
+        "transitivity": "I/T",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:101d47ea0b13a6774c88",
+            "phrase": "moon at the crowd",
+            "meaning_cn": "对着人群露臀作恶作剧",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -196,6 +239,24 @@
           "applicability": [
             {
               "surface": "moon"
+            },
+            {
+              "surface": "moon",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:moon:2301093c5ae49f50"
+              ],
+              "owner_sense_ids": [
+                "sense:moon:2301093c5ae49f50"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3120.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "moon (at sb); moon sb",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -313,6 +374,24 @@
           "applicability": [
             {
               "surface": "moon"
+            },
+            {
+              "surface": "moon",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:moon:2301093c5ae49f50"
+              ],
+              "owner_sense_ids": [
+                "sense:moon:2301093c5ae49f50"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3120.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "moon (at sb); moon sb",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -445,15 +524,24 @@
         "merged_into_sense_id": null,
         "source_row": 8686,
         "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json"
+      },
+      {
+        "sense_id": "sense:moon:2301093c5ae49f50",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3120.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:0d400ff8f2aa0371835e",
       "collocation:2ac5f6b02645cd1ede3b",
-      "collocation:2ff90c8d01d9d493c377",
-      "collocation:d2412f2633d83c7c65a0",
       "collocation:d251fde2680022deb66c",
-      "collocation:d9df9f527a1ede58b722"
+      "collocation:2ff90c8d01d9d493c377",
+      "collocation:d9df9f527a1ede58b722",
+      "collocation:d2412f2633d83c7c65a0",
+      "collocation:101d47ea0b13a6774c88"
     ],
     "facts": [],
     "collocations": [
@@ -486,6 +574,13 @@
         "id": "collocation:d9df9f527a1ede58b722",
         "source_row": 18428,
         "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      },
+      {
+        "id": "collocation:101d47ea0b13a6774c88",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3120.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

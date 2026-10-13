@@ -16,24 +16,37 @@
         "pattern": "jump to conclusions / jump to a conclusion",
         "source_sense_id": "sense:jump:1b7c25484e9e5c6c",
         "boundary": "figurative rapid-inference idiom; distinct from physical jumping or a numerical increase"
+      },
+      {
+        "construction_id": "construction:6e56485bda30fe6e69ab",
+        "pattern": "jump at an offer/opportunity/chance",
+        "meaning_cn": "欣然接受、迫不及待地抓住（机会等）",
+        "definition_en": "accept an offer or opportunity eagerly",
+        "usage_note": "at 后是 offer/chance 等机会；jump at a noise 的受惊反应属另一动词义，不按“跳向机会”字面解释。",
+        "boundary": "at 后是 offer/chance 等机会；jump at a noise 的受惊反应属另一动词义，不按“跳向机会”字面解释。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "41c8ba870863aa014680dfcbf78f4136c3a09d9a8b151bbe397897695e584510",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "跳；猛增/突然上升",
-          "label_en": "to jump physically or increase suddenly/sharply",
+          "label_cn": "跳，跳跃；跃过，跳过；猛增；突然上升；（因吃惊或害怕）猛地一动；突然转换（话题、思路等）；跳过（阶段等）",
+          "label_en": "to push yourself off the ground into the air using your legs; to move over or across something by jumping; to increase suddenly or sharply; to make a sudden movement because of surprise or fear; to change abruptly from one subject or point to another; to leave out stages or steps rather than follow them in order",
           "pos": "verb",
           "sense_ids": [
             "sense:jump:1b7c25484e9e5c6c",
             "sense:jump:b3721b899f3356e7",
-            "sense:jump:fae54dc345b37bc9"
+            "sense:jump:fae54dc345b37bc9",
+            "sense:jump:b32512e961d2ea62",
+            "sense:jump:68cf967172a350bf",
+            "sense:jump:af788213cf1e50c2"
           ]
         },
         {
-          "label_cn": "暴涨；激增；跳跃；跳伞",
-          "label_en": "a sudden rise in a quantity; an act of jumping; a parachute jump",
+          "label_cn": "暴涨，激增；跳跃；跳伞",
+          "label_en": "a sudden increase in amount, price, etc.; an act of jumping; a descent from an aircraft using a parachute",
           "pos": "noun",
           "sense_ids": [
             "sense:jump:15d5c7b7662656c2",
@@ -42,10 +55,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "跳跃；突然上升",
-      "core_meaning_en": "to move quickly off the ground or to increase suddenly",
-      "mental_model_cn": "physical → 跳跃；numbers/prices → 猛增；jump to conclusions → 草率下结论。电影“跳切”专门义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "跳跃；猛增；受惊一动；跳转、跳过",
+      "core_meaning_en": "physical jumping or sudden growth; a startled movement; abrupt change or skipping",
+      "mental_model_cn": "physical → 跳跃；numbers → 猛增；surprise → 猛地一动；topic → 突然转移；stages → 跳过；jump at an offer → 欣然接受。跳切仍在 Reference。",
+      "mental_model_en": "physical jumping or sudden growth; a startled movement; abrupt change or skipping."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -215,7 +228,73 @@
         "sense_id": "sense:jump:fae54dc345b37bc9",
         "sense_label_en": "to increase suddenly or sharply",
         "sort_order": 6,
-        "transitivity": "vt"
+        "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:jump:b32512e961d2ea62",
+        "pos": "verb",
+        "definition_cn": "（因吃惊或害怕）猛地一动",
+        "definition_en": "to make a sudden movement because of surprise or fear",
+        "sense_label_en": "to make a sudden movement because of surprise or fear",
+        "governing_pattern": "jump at a sudden sound; make sb jump",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:f94353dfa554aae456cf",
+            "phrase": "The sudden noise made me jump.",
+            "meaning_cn": "突如其来的声音吓得我猛地一动。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:jump:68cf967172a350bf",
+        "pos": "verb",
+        "definition_cn": "突然转换（话题、思路等）",
+        "definition_en": "to change abruptly from one subject or point to another",
+        "sense_label_en": "to change abruptly from one subject or point to another",
+        "governing_pattern": "jump from one topic to another",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c878c59e0487dedd9d88",
+            "phrase": "jump from topic to topic",
+            "meaning_cn": "话题突然跳来跳去",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:jump:af788213cf1e50c2",
+        "pos": "verb",
+        "definition_cn": "跳过（阶段等）",
+        "definition_en": "to leave out stages or steps rather than follow them in order",
+        "sense_label_en": "to leave out stages or steps rather than follow them in order",
+        "governing_pattern": "jump a stage/step",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 8,
+        "collocations": [
+          {
+            "collocation_id": "collocation:49bae70e515ddbdc5aae",
+            "phrase": "jump several stages",
+            "meaning_cn": "跳过几个阶段",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -245,6 +324,57 @@
           "applicability": [
             {
               "surface": "jump"
+            },
+            {
+              "surface": "jump",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:jump:b32512e961d2ea62"
+              ],
+              "owner_sense_ids": [
+                "sense:jump:b32512e961d2ea62"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2685.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "jump at a sudden sound; make sb jump"
+            },
+            {
+              "surface": "jump",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:jump:68cf967172a350bf"
+              ],
+              "owner_sense_ids": [
+                "sense:jump:68cf967172a350bf"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2685.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "jump from one topic to another"
+            },
+            {
+              "surface": "jump",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:jump:af788213cf1e50c2"
+              ],
+              "owner_sense_ids": [
+                "sense:jump:af788213cf1e50c2"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2685.json",
+              "source_pointer": "/record/senses/8",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "jump a stage/step"
             }
           ],
           "sources": [
@@ -851,17 +981,44 @@
         "merged_into_sense_id": null,
         "source_row": 7427,
         "source_path": "content/lexical/canonical/senses/shards/o2657-2688.json"
+      },
+      {
+        "sense_id": "sense:jump:b32512e961d2ea62",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2685.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:jump:68cf967172a350bf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2685.json",
+        "source_pointer": "/record/senses/7"
+      },
+      {
+        "sense_id": "sense:jump:af788213cf1e50c2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2685.json",
+        "source_pointer": "/record/senses/8"
       }
     ],
     "active_collocations": [
-      "collocation:01d8ade53cb8fd07e74b",
-      "collocation:2ad6271f8e8b8a57ba59",
-      "collocation:328ce390af139423afed",
-      "collocation:5258d3c8b4a8c300edcc",
       "collocation:741f47b6fae8fa9045ab",
-      "collocation:74ffb60d1ecf3cc49a7a",
       "collocation:ec917a6dad1784e232f1",
-      "collocation:f54b95f3e4bc9e8aee1d"
+      "collocation:328ce390af139423afed",
+      "collocation:2ad6271f8e8b8a57ba59",
+      "collocation:74ffb60d1ecf3cc49a7a",
+      "collocation:f54b95f3e4bc9e8aee1d",
+      "collocation:01d8ade53cb8fd07e74b",
+      "collocation:5258d3c8b4a8c300edcc",
+      "collocation:f94353dfa554aae456cf",
+      "collocation:c878c59e0487dedd9d88",
+      "collocation:49bae70e515ddbdc5aae"
     ],
     "facts": [],
     "collocations": [
@@ -911,6 +1068,27 @@
         "id": "collocation:5258d3c8b4a8c300edcc",
         "source_row": 21327,
         "source_path": "content/lexical/canonical/collocations/shards/o2657-2688.json"
+      },
+      {
+        "id": "collocation:f94353dfa554aae456cf",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2685.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:c878c59e0487dedd9d88",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2685.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:49bae70e515ddbdc5aae",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2685.json",
+        "source_pointer": "/record/senses/8/collocations/0"
       }
     ],
     "exam-mappings": [],

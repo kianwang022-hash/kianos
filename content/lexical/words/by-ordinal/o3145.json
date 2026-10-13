@@ -9,11 +9,28 @@
     "constructions": [],
     "content_hash": "4cb190512d2e3ee30da0e4ed09886c65c520813e53e3bec2f9e87a52c2a98b63",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "电影",
-      "core_meaning_en": "a motion picture",
-      "mental_model_cn": "电影",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "电影",
+          "label_en": "a work of recorded moving images, usually with sound and often telling a story",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:movie:369e3213ecc458f3"
+          ]
+        },
+        {
+          "label_cn": "（the movies）电影院、看电影活动；电影艺术或电影业",
+          "label_en": "the cinema or cinema-going, or movies collectively as an art or industry",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:movie:80b90596f79a76c6"
+          ]
+        }
+      ],
+      "core_meaning_cn": "一部电影；the movies所指的电影娱乐、电影院或电影业",
+      "core_meaning_en": "a movie work; cinema-going or the film art and industry",
+      "mental_model_cn": "a movie是作品；go to the movies指去电影院看电影，work in the movies是从事电影业。",
+      "mental_model_en": "a movie work; cinema-going or the film art and industry."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -48,15 +65,43 @@
         ],
         "confidence": "medium",
         "definition_cn": "电影",
-        "definition_en": "a form of entertainment that tells a story through moving images and sound",
+        "definition_en": "a work of recorded moving images, usually with sound and often telling a story",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:movie:369e3213ecc458f3",
-        "sense_label_en": "a form of entertainment that tells a story through moving images and sou",
+        "sense_label_en": "a work of recorded moving images, usually with sound and often telling a story",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:movie:80b90596f79a76c6",
+        "pos": "noun",
+        "definition_cn": "（the movies）电影院、看电影活动；电影艺术或电影业",
+        "definition_en": "the cinema or cinema-going, or movies collectively as an art or industry",
+        "sense_label_en": "the cinema or cinema-going, or movies collectively as an art or industry",
+        "governing_pattern": "the movies; go to the movies; work in the movies",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:50eda89a68b12a2bc5b4",
+            "phrase": "go to the movies",
+            "meaning_cn": "去电影院看电影",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:b998cadd746a3dbff82a",
+            "phrase": "work in the movies",
+            "meaning_cn": "在电影业工作",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -86,6 +131,24 @@
           "applicability": [
             {
               "surface": "movie"
+            },
+            {
+              "surface": "movie",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:movie:80b90596f79a76c6"
+              ],
+              "owner_sense_ids": [
+                "sense:movie:80b90596f79a76c6"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3145.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the movies; go to the movies; work in the movies",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -165,11 +228,21 @@
         "merged_into_sense_id": null,
         "source_row": 8760,
         "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      },
+      {
+        "sense_id": "sense:movie:80b90596f79a76c6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3145.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
       "collocation:3dee7f90e674d2145db8",
-      "collocation:eabe2a9c016d9ddc77bb"
+      "collocation:eabe2a9c016d9ddc77bb",
+      "collocation:50eda89a68b12a2bc5b4",
+      "collocation:b998cadd746a3dbff82a"
     ],
     "facts": [],
     "collocations": [
@@ -182,6 +255,20 @@
         "id": "collocation:eabe2a9c016d9ddc77bb",
         "source_row": 19885,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:50eda89a68b12a2bc5b4",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3145.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:b998cadd746a3dbff82a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3145.json",
+        "source_pointer": "/record/senses/1/collocations/1"
       }
     ],
     "exam-mappings": [],

@@ -6,13 +6,36 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:effae11d91a993de88e4",
+        "pattern": "hunt sb down / hunt down sb",
+        "meaning_cn": "搜捕到；追查并找到某人",
+        "definition_en": "to search for a person until finding or catching them",
+        "usage_note": "及物可分短语；代词放中间 hunt them down；常为追捕，但不保证一定伤害对方。",
+        "boundary": "及物可分短语；代词放中间 hunt them down；常为追捕，但不保证一定伤害对方。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:hunt:f6362c8dd1675008"
+      },
+      {
+        "construction_id": "construction:6fb8be36b0fc46126925",
+        "pattern": "hunt sth down/out / hunt down/out sth",
+        "meaning_cn": "经过搜寻找到某物",
+        "definition_en": "to search until finding something",
+        "usage_note": "及物可分短语；代词放中间 hunt it out/down。",
+        "boundary": "及物可分短语；代词放中间 hunt it out/down。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:hunt:f6362c8dd1675008"
+      }
+    ],
     "content_hash": "257127795376cd0896e340ad1f8ec62a3997ffe909bb6d012789cdf8cf0d7560",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "狩猎；打猎；搜寻；寻找",
-          "label_en": "to chase and kill wild animals for food or sport; to search for something or someone",
+          "label_cn": "打猎；猎捕；搜寻；寻找",
+          "label_en": "to pursue wild animals in order to catch or kill them; to search for something or someone",
           "pos": "verb",
           "sense_ids": [
             "sense:hunt:444c68634f6953ce",
@@ -20,18 +43,19 @@
           ]
         },
         {
-          "label_cn": "狩猎；搜寻",
-          "label_en": "the act of hunting",
+          "label_cn": "狩猎；搜寻；（英国）定期集体猎狐的狩猎团体",
+          "label_en": "an act of pursuing wild animals or searching for someone or something; in Britain, a group that meets regularly for fox hunting",
           "pos": "noun",
           "sense_ids": [
-            "sense:hunt:efe52457f6905e0d"
+            "sense:hunt:efe52457f6905e0d",
+            "sense:hunt:bf79d6b028668229"
           ]
         }
       ],
-      "core_meaning_cn": "追捕或搜寻",
-      "core_meaning_en": "to chase or search for",
-      "mental_model_cn": "追捕或搜寻",
-      "mental_model_en": ""
+      "core_meaning_cn": "猎捕；搜寻；一次狩猎或搜寻／狩猎团体",
+      "core_meaning_en": "hunt animals or search; a hunt or a hunting group",
+      "mental_model_cn": "hunt 动物→猎捕；hunt for/through→搜寻；a hunt→一次行动；英国the hunt还可指狩猎团体。",
+      "mental_model_en": "hunt animals or search; a hunt or a hunting group."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -54,16 +78,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "狩猎；打猎",
-        "definition_en": "to chase and kill wild animals for food or sport",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "打猎；猎捕",
+        "definition_en": "to pursue wild animals in order to catch or kill them",
+        "governing_pattern": "hunt; hunt animals; go hunting",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hunt:444c68634f6953ce",
-        "sense_label_en": "to chase and kill wild animals for food or sport",
+        "sense_label_en": "to pursue wild animals in order to catch or kill them",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -89,14 +113,14 @@
         "confidence": "medium",
         "definition_cn": "搜寻；寻找",
         "definition_en": "to search for something or someone",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "hunt for sb/sth; hunt sb/sth; hunt a place for sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hunt:f6362c8dd1675008",
         "sense_label_en": "to search for something or someone",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -112,15 +136,38 @@
         ],
         "confidence": "medium",
         "definition_cn": "狩猎；搜寻",
-        "definition_en": "the act of hunting",
-        "governing_pattern": "",
+        "definition_en": "an act of pursuing wild animals or searching for someone or something",
+        "governing_pattern": "a hunt (for sb/sth); on the hunt for sb/sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:hunt:efe52457f6905e0d",
-        "sense_label_en": "the act of hunting",
+        "sense_label_en": "an act of pursuing wild animals or searching for someone or something",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hunt:bf79d6b028668229",
+        "pos": "noun",
+        "definition_cn": "（英国）定期集体猎狐的狩猎团体",
+        "definition_en": "in Britain, a group that meets regularly for fox hunting",
+        "sense_label_en": "in Britain, a group that meets regularly for fox hunting",
+        "governing_pattern": "a local hunt; the hunt is/are ...",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:150084626ec65986ecb3",
+            "phrase": "Members of the local hunt met outside the village.",
+            "meaning_cn": "当地狩猎团体的成员在村外集合。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "英国狩猎报道中的团体名词；不等同于一次搜寻或一头猎物。"
       }
     ],
     "verification_summary": {
@@ -150,6 +197,23 @@
           "applicability": [
             {
               "surface": "hunt"
+            },
+            {
+              "surface": "hunt",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hunt:bf79d6b028668229"
+              ],
+              "owner_sense_ids": [
+                "sense:hunt:bf79d6b028668229"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2410.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a local hunt; the hunt is/are ..."
             }
           ],
           "sources": [
@@ -558,13 +622,22 @@
         "merged_into_sense_id": null,
         "source_row": 6720,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
+      },
+      {
+        "sense_id": "sense:hunt:bf79d6b028668229",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2410.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:25de9ffa8b1c3f7980dd",
-      "collocation:4f94a5511fa10f0ec181",
       "collocation:c51696017486d5033309",
-      "collocation:df776bfc0b1b63096d56"
+      "collocation:4f94a5511fa10f0ec181",
+      "collocation:df776bfc0b1b63096d56",
+      "collocation:25de9ffa8b1c3f7980dd",
+      "collocation:150084626ec65986ecb3"
     ],
     "facts": [],
     "collocations": [
@@ -587,6 +660,13 @@
         "id": "collocation:df776bfc0b1b63096d56",
         "source_row": 18913,
         "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+      },
+      {
+        "id": "collocation:150084626ec65986ecb3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2410.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

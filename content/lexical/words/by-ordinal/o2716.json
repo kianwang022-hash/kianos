@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "cb953a59a5cae995a969cf3ee74b019e9011c90674e32a986064ab183dbfa938",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "成套工具或装备",
-      "core_meaning_en": "a set of items or tools for a specific purpose",
-      "mental_model_cn": "first-aid kit / tool kit → 一套专门用途的用品或装备。可透明推断的容器义及动物幼崽专门义保留为 Reference。",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "成套工具；组装套件；活动服装与装备",
+          "label_en": "a tool set, assembly kit, or clothes and equipment for an activity",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:kit:ee037ce69409565a",
+            "sense:kit:056dd7022a96780c",
+            "sense:kit:769c4248a70a977d"
+          ]
+        }
+      ],
+      "core_meaning_cn": "成套工具；组装套件；活动服装与装备",
+      "core_meaning_en": "a tool set, assembly kit, or clothes and equipment for an activity",
+      "mental_model_cn": "工具 → first-aid kit；零件 → 用套件组装；BrE football kit → 足球服及装备。",
+      "mental_model_en": "a tool set, assembly kit, or clothes and equipment for an activity."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -64,6 +75,51 @@
         "sense_label_en": "a set of articles or tools for a specific purpose",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:kit:056dd7022a96780c",
+        "pos": "noun",
+        "definition_cn": "成套的组装零件；组装套件",
+        "definition_en": "a set of prepared parts for assembling a particular object",
+        "sense_label_en": "a set of prepared parts for assembling a particular object",
+        "governing_pattern": "a kit for sth; build sth from a kit",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fd75394fee1516756c83",
+            "phrase": "build a model from a kit",
+            "meaning_cn": "用套件组装模型",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:kit:769c4248a70a977d",
+        "pos": "noun",
+        "definition_cn": "（某项活动用的）服装及装备；运动服",
+        "definition_en": "clothes and equipment used for a particular activity",
+        "sense_label_en": "clothes and equipment used for a particular activity",
+        "governing_pattern": "sports/football kit; wear your kit",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:c80a0900d8f63a23ceea",
+            "phrase": "football kit",
+            "meaning_cn": "足球服及装备",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "英国英语，通常不可数；football kit 可指球衣等整套服装，不只是工具。"
       }
     ],
     "verification_summary": {
@@ -93,6 +149,40 @@
           "applicability": [
             {
               "surface": "kit"
+            },
+            {
+              "surface": "kit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:kit:056dd7022a96780c"
+              ],
+              "owner_sense_ids": [
+                "sense:kit:056dd7022a96780c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2716.json",
+              "source_pointer": "/record/senses/1",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a kit for sth; build sth from a kit"
+            },
+            {
+              "surface": "kit",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:kit:769c4248a70a977d"
+              ],
+              "owner_sense_ids": [
+                "sense:kit:769c4248a70a977d"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2716.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sports/football kit; wear your kit"
             }
           ],
           "sources": [
@@ -732,12 +822,30 @@
         "merged_into_sense_id": null,
         "source_row": 7504,
         "source_path": "content/lexical/canonical/senses/shards/o2689-2720.json"
+      },
+      {
+        "sense_id": "sense:kit:056dd7022a96780c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2716.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:kit:769c4248a70a977d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2716.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:508cf4dd95108190f6f3",
       "collocation:72ca470fcd4590df401c",
-      "collocation:db4be863f9df0961c89a"
+      "collocation:db4be863f9df0961c89a",
+      "collocation:fd75394fee1516756c83",
+      "collocation:c80a0900d8f63a23ceea"
     ],
     "facts": [],
     "collocations": [
@@ -755,6 +863,20 @@
         "id": "collocation:db4be863f9df0961c89a",
         "source_row": 18558,
         "source_path": "content/lexical/canonical/collocations/shards/o2689-2720.json"
+      },
+      {
+        "id": "collocation:fd75394fee1516756c83",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2716.json",
+        "source_pointer": "/record/senses/1/collocations/0"
+      },
+      {
+        "id": "collocation:c80a0900d8f63a23ceea",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2716.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

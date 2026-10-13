@@ -6,7 +6,16 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:de307bd7ca5992d3a7e7",
+        "direction": "R+P",
+        "level": "L2",
+        "pattern": "deal sb/sth a blow / deal a blow to sb/sth",
+        "meaning_cn": "给予实际或比喻性的打击",
+        "boundary": "这里deal是施加、给予，不能译成交易或处理。"
+      }
+    ],
     "content_hash": "20ccfb1272dfb933d1eaac9f79a504b1853571343ff843adaafdc3441abe750e",
     "core_concept": {
       "core_clusters": [
@@ -20,18 +29,19 @@
           ]
         },
         {
-          "label_cn": "处理、应对；发牌",
-          "label_en": "to handle a problem or situation; to distribute cards",
+          "label_cn": "处理或论及；发牌；经营买卖",
+          "label_en": "handle or discuss; distribute cards; trade in goods",
           "pos": "verb",
           "sense_ids": [
             "sense:deal:9dad879330265856",
-            "sense:deal:f0f846f77b8857c8"
+            "sense:deal:f0f846f77b8857c8",
+            "sense:deal:8d1a7aabff08cf38"
           ]
         }
       ],
       "core_meaning_cn": "交易；处理/应对；a great deal (of) 大量",
       "core_meaning_en": "an agreement or transaction; to deal with = handle; a great deal (of) = a large amount",
-      "mental_model_cn": "deal with sb/sth = 处理、应对；make a deal = 达成交易；a great deal (of) = 大量；deal cards = 发牌。木材名词义保留为 Reference。",
+      "mental_model_cn": "deal with是处理或论及，deal in是经营；make a deal是达成交易；a great deal of是大量；deal cards发牌；deal a blow是给予打击。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -61,7 +71,7 @@
             "legacy_source_object_ids": [
               "sense:deal:dff082f2c91e581a:collocation:1"
             ],
-            "meaning_cn": "很多；划算的交易",
+            "meaning_cn": "划算的交易（a good deal 表示很多时属数量用法）",
             "phrase": "a good deal"
           }
         ],
@@ -104,30 +114,52 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "处理、应对问题或情况",
-        "definition_en": "to take action to solve a problem or handle a situation",
+        "definition_cn": "处理、应对问题或人；（书、文章等）论及、涉及某主题",
+        "definition_en": "handle a person or situation; discuss or concern a subject",
         "governing_pattern": "deal with sth/sb",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:deal:9dad879330265856",
-        "sense_label_en": "to take action to solve a problem or handle a situation",
+        "sense_label_en": "handle something or discuss a subject",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "vi"
       },
       {
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "大量、许多",
         "definition_en": "a large amount or degree",
-        "governing_pattern": "a great deal (of)",
+        "governing_pattern": "a great/good deal (of sth)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:deal:d961db26c0e5522c",
         "sense_label_en": "a large amount or degree",
         "sort_order": 999,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "a great/good deal of通常接不可数名词；不接of时可表示程度或修饰比较级，如a great deal better。"
+      },
+      {
+        "sense_id": "sense:deal:8d1a7aabff08cf38",
+        "pos": "verb",
+        "transitivity": "vi",
+        "level": "L2",
+        "sort_order": 4,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "definition_cn": "经营、买卖某类商品",
+        "definition_en": "trade in a type of goods",
+        "sense_label_en": "trade in a type of goods",
+        "governing_pattern": "deal in sth",
+        "collocations": [
+          {
+            "collocation_id": "collocation:fed8c05be3b1ee73ef5e",
+            "exam_value": "fixed_pattern",
+            "phrase": "deal in antiques",
+            "meaning_cn": "经营古董"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -419,12 +451,20 @@
         "merged_into_sense_id": null,
         "source_row": 3472,
         "source_path": "content/lexical/canonical/senses/shards/o1217-1248.json"
+      },
+      {
+        "sense_id": "sense:deal:8d1a7aabff08cf38",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1232.json"
       }
     ],
     "active_collocations": [
       "collocation:16b681d10ab6ba666cd9",
       "collocation:88f181b9fff8c4c00aeb",
-      "collocation:97219bd53255bd1e0cf7"
+      "collocation:97219bd53255bd1e0cf7",
+      "collocation:fed8c05be3b1ee73ef5e"
     ],
     "facts": [
       {
@@ -463,6 +503,11 @@
         "id": "collocation:f03380456f4aa45efd16",
         "source_row": 20348,
         "source_path": "content/lexical/canonical/collocations/shards/o1217-1248.json"
+      },
+      {
+        "id": "collocation:fed8c05be3b1ee73ef5e",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1232.json"
       }
     ],
     "exam-mappings": [],

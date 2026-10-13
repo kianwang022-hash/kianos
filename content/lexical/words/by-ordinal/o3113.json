@@ -6,13 +6,24 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:c3a23d548a08c6efdf9b",
+        "pattern": "get a monkey off your back",
+        "meaning_cn": "摆脱持续困扰、压力或难题",
+        "definition_en": "free yourself from a persistent burden or difficulty",
+        "usage_note": "非正式比喻；不必专指成瘾，也不是实际背着猴子。",
+        "boundary": "非正式比喻；不必专指成瘾，也不是实际背着猴子。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "3fc6fd220e23e5573220f23f310706d7add0acdef61df9f05ba77b8d8162b350",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "胡闹；捣鼓；嘲弄；戏弄",
-          "label_en": "to play or fiddle with something in a careless way; to make fun of someone in a playful way",
+          "label_cn": "胡闹；捣鼓、瞎弄；嘲弄；戏弄",
+          "label_en": "behave foolishly or fiddle with something carelessly; to make fun of someone in a playful way",
           "pos": "verb",
           "sense_ids": [
             "sense:monkey:4258c50f49985eb5",
@@ -21,17 +32,25 @@
         },
         {
           "label_cn": "猴子；猴类",
-          "label_en": "a monkey or monkey-kind primate",
+          "label_en": "a monkey; a primate of the monkey groups, typically with a tail",
           "pos": "noun",
           "sense_ids": [
             "sense:monkey:fc110889a6e75522"
           ]
+        },
+        {
+          "label_cn": "（非正式）淘气、爱捣蛋的孩子",
+          "label_en": "an energetic child who plays tricks or behaves mischievously",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:monkey:7090e44527bed3c5"
+          ]
         }
       ],
-      "core_meaning_cn": "猴子；胡闹",
-      "core_meaning_en": "a primate with a long tail; to play or fiddle with something",
-      "mental_model_cn": "猴子；胡闹",
-      "mental_model_en": ""
+      "core_meaning_cn": "猴子；淘气孩子；胡闹、瞎弄",
+      "core_meaning_en": "a monkey or mischievous child; behave foolishly or fiddle carelessly",
+      "mental_model_cn": "猴类通常有尾巴，但不以“所有都有尾巴”为条件；little monkey可亲昵地叫淘气孩子，monkey around是胡闹。",
+      "mental_model_en": "a monkey or mischievous child; behave foolishly or fiddle carelessly."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -51,17 +70,23 @@
             ],
             "meaning_cn": "乱动；瞎弄",
             "phrase": "monkey with + sth"
+          },
+          {
+            "collocation_id": "collocation:c362b19441c5de25fb70",
+            "phrase": "Stop monkeying around.",
+            "meaning_cn": "别胡闹了。",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "胡闹；捣鼓",
-        "definition_en": "to play or fiddle with something in a careless way",
-        "governing_pattern": "vi. + with",
+        "definition_cn": "胡闹；捣鼓、瞎弄",
+        "definition_en": "behave foolishly or fiddle with something carelessly",
+        "governing_pattern": "monkey around; monkey with sth; monkey around with sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:monkey:4258c50f49985eb5",
-        "sense_label_en": "to play or fiddle with something in a careless way",
+        "sense_label_en": "behave foolishly or fiddle with something carelessly",
         "sort_order": 0,
         "transitivity": "vi"
       },
@@ -102,6 +127,28 @@
         "sense_label_en": "to make fun of someone in a playful way",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:monkey:7090e44527bed3c5",
+        "pos": "noun",
+        "definition_cn": "（非正式）淘气、爱捣蛋的孩子",
+        "definition_en": "an energetic child who plays tricks or behaves mischievously",
+        "sense_label_en": "an energetic child who plays tricks or behaves mischievously",
+        "governing_pattern": "a cheeky little monkey（非正式）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:e558601b0c2789f6a2cc",
+            "phrase": "a cheeky little monkey",
+            "meaning_cn": "淘气的小家伙",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -151,6 +198,24 @@
           "applicability": [
             {
               "surface": "monkey"
+            },
+            {
+              "surface": "monkey",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:monkey:7090e44527bed3c5"
+              ],
+              "owner_sense_ids": [
+                "sense:monkey:7090e44527bed3c5"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3113.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a cheeky little monkey（非正式）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -247,11 +312,21 @@
         "merged_into_sense_id": null,
         "source_row": 8669,
         "source_path": "content/lexical/canonical/senses/shards/o3105-3136.json"
+      },
+      {
+        "sense_id": "sense:monkey:7090e44527bed3c5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3113.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:160a2803564cfacfb3f0",
-      "collocation:6a3b1f90b329724df947"
+      "collocation:c362b19441c5de25fb70",
+      "collocation:6a3b1f90b329724df947",
+      "collocation:e558601b0c2789f6a2cc"
     ],
     "facts": [],
     "collocations": [
@@ -269,6 +344,20 @@
         "id": "collocation:6a3b1f90b329724df947",
         "source_row": 8944,
         "source_path": "content/lexical/canonical/collocations/shards/o3105-3136.json"
+      },
+      {
+        "id": "collocation:c362b19441c5de25fb70",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3113.json",
+        "source_pointer": "/record/senses/0/collocations/1"
+      },
+      {
+        "id": "collocation:e558601b0c2789f6a2cc",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3113.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

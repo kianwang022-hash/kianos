@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:c5cb402bbc6f3f37f476",
+        "pattern": "in a flash",
+        "meaning_cn": "转瞬间；很快",
+        "definition_en": "in a very short time",
+        "usage_note": "整体表示很短的时间，不能每处都译成闪光里。",
+        "boundary": "整体表示很短的时间，不能每处都译成闪光里。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "cc2cf6edd981ab32085499fbf7ff0cd28cd60a91f2a495bd859f5b94f01fbb9f",
     "core_concept": {
       "core_clusters": [
@@ -21,18 +32,20 @@
           ]
         },
         {
-          "label_cn": "短暂而明亮地闪耀；使某物短暂发光",
-          "label_en": "to shine briefly and brightly; to cause something to shine briefly",
+          "label_cn": "短暂而明亮地闪耀；使某物短暂发光；短暂亮出、展示（证件、笑容等）；突然出现；迅速掠过",
+          "label_en": "to shine briefly and brightly; to cause something to shine briefly; to show something suddenly and briefly; to appear suddenly or move past very quickly",
           "pos": "verb",
           "sense_ids": [
             "sense:flash:bbab0d0497cb5524",
-            "sense:flash:500a3536a9b95dda"
+            "sense:flash:500a3536a9b95dda",
+            "sense:flash:e8951a956a8910c3",
+            "sense:flash:df413710f86ce296"
           ]
         }
       ],
-      "core_meaning_cn": "突然而短暂的闪光或亮光",
-      "core_meaning_en": "a sudden brief burst of light or brightness",
-      "mental_model_cn": "突然而短暂的闪光或亮光",
+      "core_meaning_cn": "闪光、灵光或短暂显现；闪烁、亮出或掠过",
+      "core_meaning_en": "a flash of light or insight; shine, show briefly, or pass quickly",
+      "mental_model_cn": "光线flash是闪烁；flash证件/笑容是短暂亮出，念头或车辆flash是突然出现或迅速掠过。in a flash表示转瞬间；a flash of insight指一瞬领悟。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -162,6 +175,50 @@
         "sense_label_en": "a sudden brilliant understanding",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:flash:e8951a956a8910c3",
+        "pos": "verb",
+        "definition_cn": "短暂亮出、展示（证件、笑容等）",
+        "definition_en": "to show something suddenly and briefly",
+        "sense_label_en": "to show something suddenly and briefly",
+        "governing_pattern": "flash sth (at sb); flash sb a smile",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:48520eb30171edc9aca8",
+            "phrase": "flash an ID card",
+            "meaning_cn": "亮一下身份证件",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:flash:df413710f86ce296",
+        "pos": "verb",
+        "definition_cn": "突然出现；迅速掠过",
+        "definition_en": "to appear suddenly or move past very quickly",
+        "sense_label_en": "to appear suddenly or move past very quickly",
+        "governing_pattern": "flash on/across a screen; flash through one’s mind; flash past/by",
+        "transitivity": "vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:076af6a225591d082b3a",
+            "phrase": "An idea flashed through her mind.",
+            "meaning_cn": "一个想法突然闪过她的脑海。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -191,6 +248,40 @@
           "applicability": [
             {
               "surface": "flash"
+            },
+            {
+              "surface": "flash",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:flash:e8951a956a8910c3"
+              ],
+              "owner_sense_ids": [
+                "sense:flash:e8951a956a8910c3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1952.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "flash sth (at sb); flash sb a smile"
+              }
+            },
+            {
+              "surface": "flash",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:flash:df413710f86ce296"
+              ],
+              "owner_sense_ids": [
+                "sense:flash:df413710f86ce296"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1952.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "flash on/across a screen; flash through one’s mind; flash past/by"
+              }
             }
           ],
           "sources": [
@@ -565,6 +656,22 @@
         "merged_into_sense_id": null,
         "source_row": 5403,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
+      },
+      {
+        "sense_id": "sense:flash:e8951a956a8910c3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1952.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:flash:df413710f86ce296",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1952.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
@@ -600,6 +707,20 @@
         "id": "collocation:e3cc975b6b586c8c28da",
         "source_row": 19285,
         "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:48520eb30171edc9aca8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1952.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:076af6a225591d082b3a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1952.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

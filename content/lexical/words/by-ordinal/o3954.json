@@ -6,7 +6,23 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:reach:ad24075bbc5c5abe",
+        "pattern": "reach out (to sb)",
+        "meaning_cn": "主动联系、表示关心或寻求帮助",
+        "definition_en": "to make contact to offer support or seek help",
+        "boundary": "用于联络人，不等同于伸手够物。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/reach-out",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
+      }
+    ],
     "content_hash": "003fa6109258a54dcade1a5b82ea1a10fc4cea09711754fc9f3fc33276852322",
     "core_concept": {
       "core_clusters": [
@@ -135,14 +151,20 @@
         "confidence": "medium",
         "definition_cn": "伸手（去够）",
         "definition_en": "to stretch out an arm or hand to touch or grasp something",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "I/T: reach for/across/out; reach sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:reach:2e5f009b70bd59c8",
         "sense_label_en": "to stretch out an arm or hand to touch or grasp something",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vt/vi",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/english/reach",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
       },
       {
         "collocations": [
@@ -200,6 +222,39 @@
         "sense_label_en": "to contact or successfully communicate with someone",
         "sort_order": 4,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:reach:fe8936272a4263d7",
+        "pos": "verb",
+        "definition_cn": "延伸到；够到（某处）",
+        "definition_en": "to extend as far as a place or point",
+        "sense_label_en": "to extend as far as a place or point",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "reach sth; reach to/down to sth",
+        "transitivity": "vt/vi",
+        "usage_note": "",
+        "collocations": [
+          {
+            "collocation_id": "collocation:reach:bfbce8393280163b",
+            "phrase": "The cable reaches the desk.",
+            "meaning_cn": "电缆一直够到书桌。",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://dictionary.cambridge.org/dictionary/english/reach",
+                "role": "semantic support; wording/examples authored in bounded review"
+              }
+            ]
+          }
+        ],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/english/reach",
+            "role": "semantic support; wording/examples authored in bounded review"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -422,6 +477,12 @@
         "merged_into_sense_id": null,
         "source_row": 11082,
         "source_path": "content/lexical/canonical/senses/shards/o3937-3968.json"
+      },
+      {
+        "sense_id": "sense:reach:fe8936272a4263d7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3954.json"
       }
     ],
     "active_collocations": [
@@ -433,7 +494,8 @@
       "collocation:cb25cb672b49084c1050",
       "collocation:eccb76522c10117f8394",
       "collocation:f163a44c7a6238915812",
-      "collocation:f4a8674cb0edd7d0dfe1"
+      "collocation:f4a8674cb0edd7d0dfe1",
+      "collocation:reach:bfbce8393280163b"
     ],
     "facts": [],
     "collocations": [
@@ -481,6 +543,10 @@
         "id": "collocation:cb25cb672b49084c1050",
         "source_row": 21599,
         "source_path": "content/lexical/canonical/collocations/shards/o3937-3968.json"
+      },
+      {
+        "id": "collocation:reach:bfbce8393280163b",
+        "source_path": "content/lexical/words/by-ordinal/o3954.json"
       }
     ],
     "exam-mappings": [],

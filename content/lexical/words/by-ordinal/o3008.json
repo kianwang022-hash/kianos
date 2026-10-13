@@ -6,17 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:a6800910ce42e9ca0c55",
+        "pattern": "find/strike a happy medium (between A and B)",
+        "meaning_cn": "找到两端之间恰当的折中",
+        "definition_en": "find a satisfactory balance between two extremes",
+        "usage_note": "不是“开心的媒体”或灵媒；用于难易、用量或做法之间的平衡。",
+        "boundary": "不是“开心的媒体”或灵媒；用于难易、用量或做法之间的平衡。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "4f7ea15718e064a921818f29ccf876cf11d935f41360b01e71f4c1ba004138f2",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "媒体；媒介；介质；环境",
-          "label_en": "a means of communication, such as television or newspapers; a substance or environment through which something acts or is transmitted",
+          "label_cn": "传播媒介；介质、环境；艺术材料或形式",
+          "label_en": "communication media; physical media or environments; artistic materials or forms",
           "pos": "noun",
           "sense_ids": [
             "sense:medium:7c6feef589bc5240",
-            "sense:medium:215e273741f15240"
+            "sense:medium:215e273741f15240",
+            "sense:medium:6ee0ff2251ada841"
           ]
         },
         {
@@ -28,9 +40,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "媒介；中间",
-      "core_meaning_en": "a means of communication or expression; middle state",
-      "mental_model_cn": "媒介；中间",
+      "core_meaning_cn": "媒介、介质；艺术材料或形式；中等的",
+      "core_meaning_en": "a medium of communication, transmission or art; medium in size or degree",
+      "mental_model_cn": "radio是传播媒介，培养基和存储载体是介质；paint/poetry可为艺术媒介；medium height是中等身高。a medium也可指声称通灵的人。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -65,7 +77,7 @@
         "confidence": "medium",
         "definition_cn": "媒体；媒介",
         "definition_en": "a means of communication, such as television or newspapers",
-        "governing_pattern": "",
+        "governing_pattern": "a medium of communication; a medium for doing sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
@@ -84,19 +96,26 @@
             ],
             "meaning_cn": "生长介质",
             "phrase": "a medium for growth"
+          },
+          {
+            "collocation_id": "collocation:b1e77ab9e781ae325ddb",
+            "phrase": "a storage medium",
+            "meaning_cn": "存储介质",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "介质；环境",
-        "definition_en": "a substance or environment through which something acts or is transmitted",
+        "definition_cn": "介质；生长或活动的环境",
+        "definition_en": "a substance or environment in which something grows or through which something acts or is transmitted",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:medium:215e273741f15240",
-        "sense_label_en": "a substance or environment through which something acts or is transmitte",
+        "sense_label_en": "a substance or environment in which something grows or through which something acts or is transmitted",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "包括生长环境、传输介质和存储信息的物质载体；在计算机语境可说a storage medium，复数storage media。"
       },
       {
         "collocations": [
@@ -120,7 +139,46 @@
         "sense_id": "sense:medium:c88d7bd5dcf153ff",
         "sense_label_en": "in the middle of a range of sizes, amounts, etc.",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "通常置于名词前：medium height/heat；medium-sized表示中等尺寸。"
+      },
+      {
+        "sense_id": "sense:medium:6ee0ff2251ada841",
+        "pos": "noun",
+        "definition_cn": "（艺术创作的）材料、形式或表现媒介",
+        "definition_en": "the material or form used in artistic expression",
+        "sense_label_en": "the material or form used in artistic expression",
+        "governing_pattern": "an artistic medium; the medium of paint/poetry",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9b258a6fb191b03e1e5d",
+            "phrase": "work in different media",
+            "meaning_cn": "运用不同的艺术媒介创作",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:medium:dd3e6e77b96b3a35",
+        "pos": "noun",
+        "definition_cn": "声称能与死者灵魂交流的人；灵媒",
+        "definition_en": "a person who claims to communicate with spirits of the dead",
+        "sense_label_en": "a person who claims to communicate with spirits of the dead",
+        "governing_pattern": "a medium; mediums",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [],
+        "usage_note": "用于文化或故事语境；claims表明这是人的声称。这个人称义通常复数mediums。"
       }
     ],
     "verification_summary": {
@@ -150,6 +208,42 @@
           "applicability": [
             {
               "surface": "medium"
+            },
+            {
+              "surface": "medium",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:medium:6ee0ff2251ada841"
+              ],
+              "owner_sense_ids": [
+                "sense:medium:6ee0ff2251ada841"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3008.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an artistic medium; the medium of paint/poetry",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "medium",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:medium:dd3e6e77b96b3a35"
+              ],
+              "owner_sense_ids": [
+                "sense:medium:dd3e6e77b96b3a35"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3008.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a medium; mediums",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -270,6 +364,42 @@
           "applicability": [
             {
               "surface": "medium"
+            },
+            {
+              "surface": "medium",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:medium:6ee0ff2251ada841"
+              ],
+              "owner_sense_ids": [
+                "sense:medium:6ee0ff2251ada841"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3008.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an artistic medium; the medium of paint/poetry",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
+            },
+            {
+              "surface": "medium",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:medium:dd3e6e77b96b3a35"
+              ],
+              "owner_sense_ids": [
+                "sense:medium:dd3e6e77b96b3a35"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3008.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a medium; mediums",
+              "binding_basis": "Original unbounded exact-surface matching-POS complete headword observation; all original source qualifiers and applicability remain unchanged."
             }
           ],
           "sources": [
@@ -356,13 +486,31 @@
         "merged_into_sense_id": null,
         "source_row": 8391,
         "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
+      },
+      {
+        "sense_id": "sense:medium:6ee0ff2251ada841",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3008.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:medium:dd3e6e77b96b3a35",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3008.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:6c56e9a4e3a7a42a3c5b",
-      "collocation:ac20a7c1c81ad10cc428",
       "collocation:c2e87394f117c65bb402",
-      "collocation:e84b578a2725152a910f"
+      "collocation:6c56e9a4e3a7a42a3c5b",
+      "collocation:e84b578a2725152a910f",
+      "collocation:b1e77ab9e781ae325ddb",
+      "collocation:ac20a7c1c81ad10cc428",
+      "collocation:9b258a6fb191b03e1e5d"
     ],
     "facts": [],
     "collocations": [
@@ -385,6 +533,20 @@
         "id": "collocation:e84b578a2725152a910f",
         "source_row": 19684,
         "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:9b258a6fb191b03e1e5d",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3008.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:b1e77ab9e781ae325ddb",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3008.json",
+        "source_pointer": "/record/senses/1/collocations/1"
       }
     ],
     "exam-mappings": [],

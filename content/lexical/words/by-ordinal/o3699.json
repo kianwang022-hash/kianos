@@ -6,7 +6,23 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:post:99813b7f4d3e9fe3",
+        "pattern": "keep sb posted (on sth)",
+        "meaning_cn": "让某人随时了解最新情况",
+        "definition_en": "to continue giving someone current information",
+        "boundary": "posted在此表示已获告知；sb是接收消息的人，on标事情，不要求实际邮寄或网络发帖。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/post",
+            "role": "meaning_and_pattern"
+          }
+        ]
+      }
+    ],
     "content_hash": "2c948d6980d1151c7d5ed5630f27d4ca8b50c5a3f22ab6b064ff752345dbe7b1",
     "core_concept": {
       "core_clusters": [
@@ -204,19 +220,45 @@
             ],
             "meaning_cn": "张贴通知",
             "phrase": "post a notice"
+          },
+          {
+            "collocation_id": "collocation:post:6ab0d9e6fd628023",
+            "phrase": "post profits/results",
+            "meaning_cn": "公布利润或结果",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.merriam-webster.com/dictionary/post",
+                "role": "meaning support; example/pattern authored for this review, not quoted"
+              }
+            ]
           }
         ],
         "confidence": "medium",
-        "definition_cn": "在公共场所张贴通知或公告",
-        "definition_en": "display a notice or announcement in a public place",
+        "definition_cn": "张贴；公布，发布（通知、公告或结果）",
+        "definition_en": "to display or announce information publicly, including notices or results",
         "governing_pattern": "vt. + sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:post:eb8f34a5115356a0",
-        "sense_label_en": "display a notice or announcement in a public place",
+        "sense_label_en": "to display or announce information publicly, including notices or results",
         "sort_order": 5,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/post",
+            "role": "P1 lexical calibration or context-bound structure"
+          },
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/post",
+            "role": "P1 lexical calibration or context-bound structure"
+          },
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/post",
+            "role": "P1 lexical calibration or context-bound structure"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -1097,7 +1139,8 @@
       "collocation:c2ad985e678fdd3cd3f1",
       "collocation:c5b7160bd980457786f8",
       "collocation:c9685198be0bc27445db",
-      "collocation:d96c293832c22f2199c8"
+      "collocation:d96c293832c22f2199c8",
+      "collocation:post:6ab0d9e6fd628023"
     ],
     "facts": [],
     "collocations": [
@@ -1145,6 +1188,10 @@
         "id": "collocation:c9685198be0bc27445db",
         "source_row": 21603,
         "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
+        "id": "collocation:post:6ab0d9e6fd628023",
+        "source_path": "content/lexical/words/by-ordinal/o3699.json"
       }
     ],
     "exam-mappings": [],

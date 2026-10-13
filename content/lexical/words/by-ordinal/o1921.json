@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "文件；档案；行列；锉刀",
-          "label_en": "a file of records; a line; a smoothing tool",
+          "label_cn": "文件；档案；行列；纵队；锉刀；指甲锉",
+          "label_en": "a set of related records (either written or electronic) kept together; a line of persons or things ranged one behind the other; a rough-surfaced tool used to shape or smooth material, including wood, metal or nails",
           "pos": "noun",
           "sense_ids": [
             "sense:file:9239d8673a10550e",
@@ -21,18 +21,20 @@
           ]
         },
         {
-          "label_cn": "归档；存档；提交；申请",
-          "label_en": "to file/store or submit formally",
+          "label_cn": "归档；存档；提交；申请；列队行进；用锉刀锉平、锉成形",
+          "label_en": "to place something in a file or arrange in order; to submit or record formally; to march or walk in a line; to smooth or shape something using a file",
           "pos": "verb",
           "sense_ids": [
             "sense:file:544b3130d2d55d3e",
-            "sense:file:11a1aeacafdc59bc"
+            "sense:file:11a1aeacafdc59bc",
+            "sense:file:6cdca3f71750527c",
+            "sense:file:babe493ab769fbe1"
           ]
         }
       ],
-      "core_meaning_cn": "文件；档案；行列；锉刀；提交；归档",
-      "core_meaning_en": "a collection of documents or data; a line of people or things; a tool for smoothing; to submit or arrange",
-      "mental_model_cn": "文件；档案；行列；锉刀；提交；归档",
+      "core_meaning_cn": "文件或队列、锉刀；归档、提交、列队行走或锉磨",
+      "core_meaning_en": "a file, line, or tool; store, submit, walk in line, or smooth",
+      "mental_model_cn": "file documents是归档，file a complaint/for divorce是正式提交或申请；people file in/out是列队走。nail file是锉刀，file nails是锉指甲。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -79,26 +81,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:ae73c52f91cf3185d174",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:file:544b3130d2d55d3e:collocation:0"
-            ],
-            "meaning_cn": "提交报告",
-            "phrase": "file a report"
-          },
-          {
-            "collocation_id": "collocation:0bf1c8e17b10c8fdf3a8",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:file:544b3130d2d55d3e:collocation:1"
-            ],
-            "meaning_cn": "提起诉讼",
-            "phrase": "file a lawsuit"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "归档；存档",
         "definition_en": "to place something in a file or arrange in order",
@@ -148,14 +131,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "锉刀",
-        "definition_en": "a steel hand tool with small sharp teeth on some or all of its surfaces; used for smoothing wood or metal",
+        "definition_cn": "锉刀；指甲锉",
+        "definition_en": "a rough-surfaced tool used to shape or smooth material, including wood, metal or nails",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:file:3b8531ea10d65ff1",
-        "sense_label_en": "a steel hand tool with small sharp teeth on some or all of its surfaces;",
+        "sense_label_en": "a rough-surfaced tool used to shape or smooth material, including wood, metal or nails",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -178,19 +161,37 @@
             ],
             "meaning_cn": "提出投诉",
             "phrase": "file a complaint"
+          },
+          {
+            "collocation_id": "collocation:ae73c52f91cf3185d174",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:file:544b3130d2d55d3e:collocation:0"
+            ],
+            "meaning_cn": "提交报告",
+            "phrase": "file a report"
+          },
+          {
+            "collocation_id": "collocation:0bf1c8e17b10c8fdf3a8",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:file:544b3130d2d55d3e:collocation:1"
+            ],
+            "meaning_cn": "提起诉讼",
+            "phrase": "file a lawsuit"
           }
         ],
         "confidence": "medium",
         "definition_cn": "提交；申请",
         "definition_en": "to submit or record formally",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "file sth; file for sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:file:11a1aeacafdc59bc",
         "sense_label_en": "to submit or record formally",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -216,7 +217,7 @@
         "confidence": "medium",
         "definition_cn": "列队行进",
         "definition_en": "to march or walk in a line",
-        "governing_pattern": "vi. + in",
+        "governing_pattern": "file in/out; file through/past a place",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
@@ -224,6 +225,28 @@
         "sense_label_en": "to march or walk in a line",
         "sort_order": 5,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:file:babe493ab769fbe1",
+        "pos": "verb",
+        "definition_cn": "用锉刀锉平、锉成形",
+        "definition_en": "to smooth or shape something using a file",
+        "sense_label_en": "to smooth or shape something using a file",
+        "governing_pattern": "file + object, e.g. file nails",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1e82bdefb4b49a3e58d4",
+            "phrase": "file one’s nails",
+            "meaning_cn": "锉指甲",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -287,6 +310,23 @@
           "applicability": [
             {
               "surface": "file"
+            },
+            {
+              "surface": "file",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:file:babe493ab769fbe1"
+              ],
+              "owner_sense_ids": [
+                "sense:file:babe493ab769fbe1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1921.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "file + object, e.g. file nails"
+              }
             }
           ],
           "sources": [
@@ -628,6 +668,14 @@
         "merged_into_sense_id": null,
         "source_row": 5286,
         "source_path": "content/lexical/canonical/senses/shards/o1921-1952.json"
+      },
+      {
+        "sense_id": "sense:file:babe493ab769fbe1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1921.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
@@ -653,7 +701,8 @@
       {
         "id": "collocation:0bf1c8e17b10c8fdf3a8",
         "source_row": 988,
-        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json",
+        "sense_id": "sense:file:11a1aeacafdc59bc"
       },
       {
         "id": "collocation:2676af008976b7009d64",
@@ -683,7 +732,8 @@
       {
         "id": "collocation:ae73c52f91cf3185d174",
         "source_row": 14764,
-        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json",
+        "sense_id": "sense:file:11a1aeacafdc59bc"
       },
       {
         "id": "collocation:d4900883f339e01970e9",
@@ -699,6 +749,13 @@
         "id": "collocation:e87f84f9375252f78f8f",
         "source_row": 19703,
         "source_path": "content/lexical/canonical/collocations/shards/o1921-1952.json"
+      },
+      {
+        "id": "collocation:1e82bdefb4b49a3e58d4",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1921.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

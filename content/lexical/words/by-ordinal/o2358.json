@@ -16,27 +16,60 @@
         "pattern": "home in on sth",
         "source_sense_id": "sense:home:394b67853eec0420",
         "boundary": "home in on sth"
+      },
+      {
+        "construction_id": "construction:25e7cea906c3703518d6",
+        "pattern": "feel/be at home; make yourself at home",
+        "meaning_cn": "感到自在；别拘束",
+        "definition_en": "to feel comfortable and relaxed",
+        "usage_note": "at home 是含名词的介词短语；不是把 go home 改成 go to home。",
+        "boundary": "at home 是含名词的介词短语；不是把 go home 改成 go to home。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:home:261bfe8ee0835a9a"
+      },
+      {
+        "construction_id": "construction:5a298ae4f5cfc0a6d216",
+        "pattern": "play at home",
+        "meaning_cn": "在主场比赛",
+        "definition_en": "to play on your own team’s ground",
+        "usage_note": "at home / away from home；这不是 go home 的副词框架。",
+        "boundary": "at home / away from home；这不是 go home 的副词框架。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:46fd4f9f7d550c2f5e3b",
+        "pattern": "close to home",
+        "meaning_cn": "切身相关；戳中敏感处",
+        "definition_en": "personally relevant or uncomfortably accurate",
+        "usage_note": "评论可因说中自身情况令人尴尬，不仅表示地理距离近。",
+        "boundary": "评论可因说中自身情况令人尴尬，不仅表示地理距离近。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "9fe02be785733a003321838bd9fcfb96a9cacae3208b9b4345964251a3288fb1",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "家，住所；家乡，本国；发源地，大本营",
-          "label_en": "the place where one lives; the country or city where one lives; a place where something began or is most common",
+          "label_cn": "家，住所；家乡，本国；发源地，大本营；（为不能自理者提供照料的）院、所",
+          "label_en": "the place where one lives; the country or city where one lives; a place where something began or is most common; a residence providing care",
           "pos": "noun",
           "sense_ids": [
             "sense:home:261bfe8ee0835a9a",
             "sense:home:d4d718d067075186",
-            "sense:home:412d3b6186f35f22"
+            "sense:home:412d3b6186f35f22",
+            "sense:home:8127d6dd4e633a15"
           ]
         },
         {
-          "label_cn": "家庭的，国内的",
-          "label_en": "relating to one's own country or family",
+          "label_cn": "家庭的，国内的；（体育）主场的；主队的",
+          "label_en": "relating to one's own country or family; relating to a team’s own ground",
           "pos": "adjective",
           "sense_ids": [
-            "sense:home:7a09484d74255086"
+            "sense:home:7a09484d74255086",
+            "sense:home:a7773581a99d038c"
           ]
         },
         {
@@ -46,12 +79,20 @@
           "sense_ids": [
             "sense:home:ad0985b20d525920"
           ]
+        },
+        {
+          "label_cn": "朝目标直接移动、瞄准或聚焦",
+          "label_en": "to move, aim, or focus directly toward a target",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:home:394b67853eec0420"
+          ]
         }
       ],
-      "core_meaning_cn": "家，居住地，归属地",
-      "core_meaning_en": "place where one lives or feels belonging",
-      "mental_model_cn": "家，居住地，归属地",
-      "mental_model_en": ""
+      "core_meaning_cn": "家、家乡、发源地或照料机构；家庭、国内或主场的；回家、在家；瞄准或聚焦目标",
+      "core_meaning_en": "a home, homeland, origin or care residence; domestic or home-ground; homewards; to home in on a target",
+      "mental_model_cn": "住所和归属是核心；照料机构、体育主场与 home in on 另看语境。",
+      "mental_model_en": "a home, homeland, origin or care residence; domestic or home-ground; homewards; to home in on a target."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -74,15 +115,6 @@
             ],
             "meaning_cn": "在家",
             "phrase": "at home"
-          },
-          {
-            "collocation_id": "collocation:62cd2aa534495fedc56e",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:home:261bfe8ee0835a9a:collocation:1"
-            ],
-            "meaning_cn": "回家",
-            "phrase": "go home"
           }
         ],
         "confidence": "medium",
@@ -197,12 +229,24 @@
             ],
             "meaning_cn": "回家来",
             "phrase": "come home"
+          },
+          {
+            "collocation_id": "collocation:62cd2aa534495fedc56e",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:home:261bfe8ee0835a9a:collocation:1"
+            ],
+            "meaning_cn": "回家",
+            "phrase": "go home",
+            "presentation_merge": {
+              "surviving_object_id": "collocation:9d22cf3602d9064f456c"
+            }
           }
         ],
         "confidence": "medium",
         "definition_cn": "在家，回家，在本国",
         "definition_en": "to or at one's home or country",
-        "governing_pattern": "",
+        "governing_pattern": "go/come home (no to); at home uses the noun",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adverb",
@@ -224,6 +268,51 @@
         "sense_label_en": "to move, aim, or focus directly toward a target",
         "sort_order": 5,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:home:8127d6dd4e633a15",
+        "pos": "noun",
+        "definition_cn": "（为不能自理者提供照料的）院、所",
+        "definition_en": "a residence providing care",
+        "sense_label_en": "a residence providing care",
+        "governing_pattern": "a home for sb; live in a home",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:13ff25dafb70161c5f00",
+            "phrase": "She works in a home for older people.",
+            "meaning_cn": "她在一家养老机构工作。",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:home:a7773581a99d038c",
+        "pos": "adjective",
+        "definition_cn": "（体育）主场的；主队的",
+        "definition_en": "relating to a team’s own ground",
+        "sense_label_en": "relating to a team’s own ground",
+        "governing_pattern": "a home game/team/win",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a8f69658b3b07bc1a3bb",
+            "phrase": "The home team won again.",
+            "meaning_cn": "主队再次获胜。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "放在名词前；与 away 相对，不等于国内比赛。"
       }
     ],
     "verification_summary": {
@@ -266,6 +355,40 @@
           "applicability": [
             {
               "surface": "home"
+            },
+            {
+              "surface": "home",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:home:8127d6dd4e633a15"
+              ],
+              "owner_sense_ids": [
+                "sense:home:8127d6dd4e633a15"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2358.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a home for sb; live in a home"
+            },
+            {
+              "surface": "home",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:home:a7773581a99d038c"
+              ],
+              "owner_sense_ids": [
+                "sense:home:a7773581a99d038c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2358.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a home game/team/win"
             }
           ],
           "sources": [
@@ -443,17 +566,35 @@
         "merged_into_sense_id": null,
         "source_row": 6586,
         "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json"
+      },
+      {
+        "sense_id": "sense:home:8127d6dd4e633a15",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2358.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:home:a7773581a99d038c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2358.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
       "collocation:100487a30148df16275e",
-      "collocation:1d7f1193dd47f40ba68d",
       "collocation:3c08c33045f7f9ab8df8",
+      "collocation:1d7f1193dd47f40ba68d",
+      "collocation:662485ee68efb77ec5ac",
+      "collocation:a65e56fcba72bbb1bf8d",
+      "collocation:9d22cf3602d9064f456c",
       "collocation:3d91feecf9113ef5070f",
       "collocation:62cd2aa534495fedc56e",
-      "collocation:662485ee68efb77ec5ac",
-      "collocation:9d22cf3602d9064f456c",
-      "collocation:a65e56fcba72bbb1bf8d"
+      "collocation:13ff25dafb70161c5f00",
+      "collocation:a8f69658b3b07bc1a3bb"
     ],
     "facts": [],
     "collocations": [
@@ -480,7 +621,10 @@
       {
         "id": "collocation:62cd2aa534495fedc56e",
         "source_row": 8321,
-        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json",
+        "sense_id": "sense:home:ad0985b20d525920",
+        "status": "merged",
+        "merged_into_id": "collocation:9d22cf3602d9064f456c"
       },
       {
         "id": "collocation:662485ee68efb77ec5ac",
@@ -496,6 +640,20 @@
         "id": "collocation:a65e56fcba72bbb1bf8d",
         "source_row": 14118,
         "source_path": "content/lexical/canonical/collocations/shards/o2337-2368.json"
+      },
+      {
+        "id": "collocation:13ff25dafb70161c5f00",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2358.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:a8f69658b3b07bc1a3bb",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2358.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

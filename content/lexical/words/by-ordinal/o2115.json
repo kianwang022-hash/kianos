@@ -9,11 +9,23 @@
     "constructions": [],
     "content_hash": "993aeaa3d5cef026b504c44eff5092e80140e8c5760c31fd6f074e0f20fdb066",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "同代人或产生的行为",
-      "core_meaning_en": "a group of people born around the same time or the act of producing",
-      "mental_model_cn": "同代人或产生的行为",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "一代人；同代人；产生；发电；（技术或产品的）代；一代的时间；父母和子女出生之间的平均间隔",
+          "label_en": "all the people born and living at about the same time; the act or process of producing something such as electricity or heat; a stage in the development of a technology or product; the usual time interval between the birth of parents and the birth of their children",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:generation:bb093a165c7c5f49",
+            "sense:generation:563a3f135ca85d77",
+            "sense:generation:e981083f4a8c5be9",
+            "sense:generation:8be32a7492dce93c"
+          ]
+        }
+      ],
+      "core_meaning_cn": "一代人、一代的时间、产生过程或产品的一代",
+      "core_meaning_en": "a group born around the same time, a generation’s time span, production, or a product generation",
+      "mental_model_cn": "generation可指同代人，也可指父母与子女出生之间的一代时间；power generation为发电，新一代设备中的generation指产品阶段。",
+      "mental_model_en": "a group born around the same time, a generation’s time span, production, or a product generation."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -115,6 +127,28 @@
         "sense_label_en": "a stage in the development of a technology or product",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:generation:8be32a7492dce93c",
+        "pos": "noun",
+        "definition_cn": "一代的时间；父母和子女出生之间的平均间隔",
+        "definition_en": "the usual time interval between the birth of parents and the birth of their children",
+        "sense_label_en": "the usual time interval between the birth of parents and the birth of their children",
+        "governing_pattern": "a generation ago; for a generation",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a2f4a9ade6f4cd5aefaa",
+            "phrase": "a generation ago",
+            "meaning_cn": "一代人之前",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -163,7 +197,7 @@
         "priority": "A",
         "publication_status": "codex_reviewed",
         "shared_definition": null,
-        "source_sense_id": "sense:generation:bb093a165c7c5f49",
+        "source_sense_id": "sense:generation:563a3f135ca85d77",
         "target_sense_id": "sense:generate:ccb71cdc505857ee",
         "target_word": "generate",
         "task_tags": [
@@ -201,6 +235,23 @@
           "applicability": [
             {
               "surface": "generation"
+            },
+            {
+              "surface": "generation",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:generation:8be32a7492dce93c"
+              ],
+              "owner_sense_ids": [
+                "sense:generation:8be32a7492dce93c"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2115.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "a generation ago; for a generation"
+              }
             }
           ],
           "sources": [
@@ -265,6 +316,14 @@
         "merged_into_sense_id": null,
         "source_row": 5900,
         "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json"
+      },
+      {
+        "sense_id": "sense:generation:8be32a7492dce93c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2115.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -306,6 +365,13 @@
         "id": "collocation:eb761549c61efbab76fc",
         "source_row": 19945,
         "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      },
+      {
+        "id": "collocation:a2f4a9ade6f4cd5aefaa",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2115.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

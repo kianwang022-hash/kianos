@@ -8,7 +8,7 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "vt. + that-clause",
+        "boundary": "Formal verb intimate, not adjective intimate",
         "codex_reviewed": false,
         "definition_cn": "暗示，提示",
         "definition_en": "to suggest or hint something indirectly",
@@ -28,9 +28,9 @@
         "family_sources": [],
         "label_en": null,
         "level": null,
-        "meaning_cn": "",
+        "meaning_cn": "暗示某事",
         "module": "constructions",
-        "pattern": "vt. + that-clause",
+        "pattern": "intimate that + clause",
         "pos": "verb",
         "priority": "A",
         "publication_status": "publishable",
@@ -43,7 +43,11 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:d6320c1faf006f06ed2c"
+        }
       },
       {
         "boundary": "intimate that + clause",
@@ -93,32 +97,46 @@
         ],
         "verification_status": "verified",
         "writing_safe": true
+      },
+      {
+        "construction_id": "construction:52d605c4cf40da2d0276",
+        "pattern": "be intimate with sb",
+        "meaning_cn": "与某人有性关系",
+        "definition_en": "to have a sexual relationship with someone",
+        "usage_note": "正式或法律语境可指性关系；普通 intimate friends 仍表示密友，应据语境选择。",
+        "boundary": "正式或法律语境可指性关系；普通 intimate friends 仍表示密友，应据语境选择。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:intimate:af73cae5e2cb193a"
       }
     ],
     "content_hash": "b9f3a47c942e68624c00c927338e65ec776e4cce90513a43e572fbb7d7e6a760",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "亲密的，密切的；私人的，个人的",
-          "label_en": "having a very close and friendly relationship; private and personal",
+          "label_cn": "亲密、私密；熟知",
+          "label_en": "close, private or closely familiar",
           "pos": "adjective",
           "sense_ids": [
             "sense:intimate:39edeb8793a7571b",
-            "sense:intimate:e34860c522b45808"
+            "sense:intimate:e34860c522b45808",
+            "sense:intimate:1c67ece3ca465eb3",
+            "sense:intimate:112497e84c4c21ed",
+            "sense:intimate:af73cae5e2cb193a"
           ]
         },
         {
-          "label_cn": "暗示，提示",
-          "label_en": "to suggest or hint something indirectly",
+          "label_cn": "暗示",
+          "label_en": "to hint or make known",
           "pos": "verb",
           "sense_ids": [
             "sense:intimate:9cc93fe499e056a9"
           ]
         }
       ],
-      "core_meaning_cn": "亲密的；私人的；暗示",
-      "core_meaning_en": "close in relationship or private; also to hint or make known",
-      "mental_model_cn": "adjective → 亲密的/私密的；formal verb intimate that… → 暗示。名词“至交、密友”保留为 Reference。",
+      "core_meaning_cn": "亲密、私密；熟知；暗示",
+      "core_meaning_en": "close or private; closely familiar; to hint",
+      "mental_model_cn": "people → 亲密；details → 私密；knowledge → 熟知；place → 亲切私密；formal verb → 暗示。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -238,6 +256,65 @@
         "sense_label_en": "to suggest or hint something indirectly",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:intimate:1c67ece3ca465eb3",
+        "pos": "adjective",
+        "definition_cn": "（知识、了解）深入细致的；熟知的",
+        "definition_en": "of knowledge or understanding, detailed and gained through close familiarity",
+        "sense_label_en": "of knowledge or understanding, detailed and gained through close familiarity",
+        "governing_pattern": "intimate knowledge/understanding of sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:51a22cef493252aa2588",
+            "phrase": "intimate knowledge of the area",
+            "meaning_cn": "对该地区深入细致的了解",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:intimate:112497e84c4c21ed",
+        "pos": "adjective",
+        "definition_cn": "（场所、气氛）亲切私密的",
+        "definition_en": "of a place or setting, small or private enough to encourage closeness",
+        "sense_label_en": "of a place or setting, small or private enough to encourage closeness",
+        "governing_pattern": "an intimate setting/atmosphere",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9a0c97e8922965cfa522",
+            "phrase": "an intimate atmosphere",
+            "meaning_cn": "亲切私密的气氛",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:intimate:af73cae5e2cb193a",
+        "pos": "adjective",
+        "definition_cn": "（正式或法律语境）有性关系的",
+        "definition_en": "in formal or legal contexts, having a sexual relationship with someone",
+        "sense_label_en": "in formal or legal contexts, having a sexual relationship with someone",
+        "governing_pattern": "be intimate with sb",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -487,6 +564,53 @@
               ]
             }
           ]
+        },
+        {
+          "ipa": "/ˈɪntɪmət/",
+          "locales": [],
+          "locale_evidence": [],
+          "transcription_shape": "phonemic_slashes",
+          "applicability": [
+            {
+              "surface": "intimate",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:intimate:1c67ece3ca465eb3",
+                "sense:intimate:112497e84c4c21ed",
+                "sense:intimate:af73cae5e2cb193a"
+              ],
+              "owner_sense_ids": [
+                "sense:intimate:1c67ece3ca465eb3",
+                "sense:intimate:112497e84c4c21ed",
+                "sense:intimate:af73cae5e2cb193a"
+              ],
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "binding_basis": "Actual Oxford editorial entry and whole headword IPA read; exact new current meanings only."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "publisher": "Oxford University Press / Oxford Advanced Learner’s Dictionary",
+              "url": "https://www.oxfordlearnersdictionaries.com/definition/english/intimate_1",
+              "accessed_date": "2026-10-11",
+              "entry_context": {
+                "word": "intimate",
+                "pos": "adjective",
+                "sense_indices_1based": [
+                  3,
+                  4,
+                  6
+                ]
+              },
+              "original_ipa": "/ˈɪntɪmət/",
+              "transcription_policy": "whole published IPA preserved; no inferred locale or fabricated dataset row"
+            }
+          ]
         }
       ]
     }
@@ -552,14 +676,40 @@
         "merged_into_sense_id": null,
         "source_row": 7217,
         "source_path": "content/lexical/canonical/senses/shards/o2593-2624.json"
+      },
+      {
+        "sense_id": "sense:intimate:1c67ece3ca465eb3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2616.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:intimate:112497e84c4c21ed",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2616.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:intimate:af73cae5e2cb193a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2616.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:1da929421c5e8b5032e7",
-      "collocation:60a13a5b5942b43d3c35",
       "collocation:998f88908208f08f9b9e",
+      "collocation:e8d38216828358525717",
+      "collocation:60a13a5b5942b43d3c35",
       "collocation:d6320c1faf006f06ed2c",
-      "collocation:e8d38216828358525717"
+      "collocation:1da929421c5e8b5032e7",
+      "collocation:51a22cef493252aa2588",
+      "collocation:9a0c97e8922965cfa522"
     ],
     "facts": [
       {
@@ -605,6 +755,20 @@
         "id": "collocation:e8d38216828358525717",
         "source_row": 19729,
         "source_path": "content/lexical/canonical/collocations/shards/o2593-2624.json"
+      },
+      {
+        "id": "collocation:51a22cef493252aa2588",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2616.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:9a0c97e8922965cfa522",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2616.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

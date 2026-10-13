@@ -26,11 +26,19 @@
           "sense_ids": [
             "sense:eye:703cb720d6cb52a1"
           ]
+        },
+        {
+          "label_cn": "观察、鉴赏眼光",
+          "label_en": "observation and judgement",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:eye:5bcc096fd4ab6b9a"
+          ]
         }
       ],
-      "core_meaning_cn": "眼睛；看",
-      "core_meaning_en": "the organ of sight; to look at",
-      "mental_model_cn": "眼睛；看",
+      "core_meaning_cn": "眼睛、视觉；观察判断；注视",
+      "core_meaning_en": "the organ or faculty of sight; observation or judgement; to watch",
+      "mental_model_cn": "身体部位或视力语境是眼睛/视觉；an eye for + 特点表示敏于观察或判断的眼光；动词eye sb/sth表示仔细注视。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -121,6 +129,28 @@
         "sense_label_en": "to look at or watch carefully",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:eye:5bcc096fd4ab6b9a",
+        "pos": "noun",
+        "definition_cn": "观察力；鉴赏眼光",
+        "definition_en": "an ability to notice or judge a particular quality, or a way of observing something",
+        "sense_label_en": "an ability to notice or judge a particular quality, or a way of observing something",
+        "governing_pattern": "usually singular: have an eye for sth; a critical/practised eye",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9ef264ec1fc7e947bf5b",
+            "phrase": "have an eye for detail",
+            "meaning_cn": "善于察觉细节",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -270,6 +300,23 @@
           "applicability": [
             {
               "surface": "eye"
+            },
+            {
+              "surface": "eye",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:eye:5bcc096fd4ab6b9a"
+              ],
+              "owner_sense_ids": [
+                "sense:eye:5bcc096fd4ab6b9a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1826.json",
+              "source_pointer": "/record/senses/3",
+              "conditions": {
+                "current_owner_usage": "usually singular: have an eye for sth; a critical/practised eye"
+              }
             }
           ],
           "sources": [
@@ -502,6 +549,14 @@
         "merged_into_sense_id": null,
         "source_row": 5001,
         "source_path": "content/lexical/canonical/senses/shards/o1825-1856.json"
+      },
+      {
+        "sense_id": "sense:eye:5bcc096fd4ab6b9a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1826.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
@@ -531,6 +586,13 @@
         "id": "collocation:c091f8dd6bd1c28876cc",
         "source_row": 16274,
         "source_path": "content/lexical/canonical/collocations/shards/o1825-1856.json"
+      },
+      {
+        "id": "collocation:9ef264ec1fc7e947bf5b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1826.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

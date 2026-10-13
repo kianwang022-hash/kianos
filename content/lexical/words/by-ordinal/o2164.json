@@ -19,11 +19,21 @@
     ],
     "content_hash": "5aa8713f60e83295e90d466b91aab1d396c9b65e0dcb438a28612274b3dee00e",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "善良，美德",
-      "core_meaning_en": "the quality of being good",
-      "mental_model_cn": "noun → 善良、美德；Goodness!/My goodness! → 表示惊讶等强烈情绪。",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "仁慈，善良；有益或优良的成分；精华",
+          "label_en": "the quality of being morally good or kind; the beneficial or valuable elements contained in something",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:goodness:5f1b051b61cc5b3f",
+            "sense:goodness:44eee85742bc28e0"
+          ]
+        }
+      ],
+      "core_meaning_cn": "善良、仁慈；有益成分或精华；惊讶感叹",
+      "core_meaning_en": "moral goodness or kindness; beneficial essence; an exclamation of surprise",
+      "mental_model_cn": "goodness可为人的善良，也可为事物中有益的成分；Goodness!等感叹表示惊讶。",
+      "mental_model_en": "moral goodness or kindness; beneficial essence; an exclamation of surprise."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -56,6 +66,28 @@
         "sense_label_en": "the quality of being morally good or kind",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:goodness:44eee85742bc28e0",
+        "pos": "noun",
+        "definition_cn": "有益或优良的成分；精华",
+        "definition_en": "the beneficial or valuable elements contained in something",
+        "sense_label_en": "the beneficial or valuable elements contained in something",
+        "governing_pattern": "the goodness in/of sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2f06a3700f99332b2bb3",
+            "phrase": "the goodness in fresh vegetables",
+            "meaning_cn": "新鲜蔬菜中的有益成分",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -85,6 +117,23 @@
           "applicability": [
             {
               "surface": "goodness"
+            },
+            {
+              "surface": "goodness",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:goodness:44eee85742bc28e0"
+              ],
+              "owner_sense_ids": [
+                "sense:goodness:44eee85742bc28e0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2164.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "the goodness in/of sth"
+              }
             }
           ],
           "sources": [
@@ -409,6 +458,14 @@
         "merged_into_sense_id": null,
         "source_row": 6030,
         "source_path": "content/lexical/canonical/senses/shards/o2145-2176.json"
+      },
+      {
+        "sense_id": "sense:goodness:44eee85742bc28e0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2164.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -420,6 +477,13 @@
         "id": "collocation:76a7a25fe4554ff0e4fa",
         "source_row": 10020,
         "source_path": "content/lexical/canonical/collocations/shards/o2145-2176.json"
+      },
+      {
+        "id": "collocation:2f06a3700f99332b2bb3",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2164.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

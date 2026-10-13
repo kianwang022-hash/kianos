@@ -6,14 +6,46 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:f4b848d7a19b75a5700b",
+        "pattern": "come to grief",
+        "meaning_cn": "失败；遭遇事故而受伤",
+        "definition_en": "to fail or be hurt in an accident",
+        "usage_note": "可用于计划失败或事故受伤，由语境决定；The project came to grief. 表示项目失败。",
+        "boundary": "可用于计划失败或事故受伤，由语境决定；The project came to grief. 表示项目失败。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:5293862a25bcb02da7e5",
+        "pattern": "good grief!",
+        "meaning_cn": "天哪！（惊讶或震惊）",
+        "definition_en": "an exclamation of surprise or shock",
+        "usage_note": "固定感叹表达，不等于积极的悲伤。",
+        "boundary": "固定感叹表达，不等于积极的悲伤。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "09749cf96e1484e0a7201cbbd18762b8082754730e9d52d53408f8f2b13b5220",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "深深的悲伤",
-      "core_meaning_en": "deep sorrow",
-      "mental_model_cn": "深深的悲伤",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "深切的悲伤；（尤指亲人去世后的）悲痛；令人伤心的事；不幸；麻烦；烦恼（非正式）",
+          "label_en": "deep sorrow, especially after the death of someone loved; something that causes great unhappiness; trouble or worry",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:grief:45bcd3c03d605187",
+            "sense:grief:0379a35d57a25d0e",
+            "sense:grief:fe44f1eff710c7bb"
+          ]
+        }
+      ],
+      "core_meaning_cn": "悲伤、令人伤心的事或麻烦烦恼",
+      "core_meaning_en": "sorrow, a cause of sorrow, or trouble",
+      "mental_model_cn": "grief既可指悲伤，也可在非正式语境指麻烦；come to grief可表示失败或事故受伤。",
+      "mental_model_en": "sorrow, a cause of sorrow, or trouble."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,14 +77,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（尤指因亲人去世引起的）极度悲伤",
-        "definition_en": "intense sorrow caused by loss of a loved one (especially by death)",
+        "definition_cn": "深切的悲伤；（尤指亲人去世后的）悲痛",
+        "definition_en": "deep sorrow, especially after the death of someone loved",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:grief:45bcd3c03d605187",
-        "sense_label_en": "intense sorrow caused by loss of a loved one (especially by death)",
+        "sense_label_en": "deep sorrow, especially after the death of someone loved",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -79,6 +111,28 @@
         "sense_label_en": "something that causes great unhappiness",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:grief:fe44f1eff710c7bb",
+        "pos": "noun",
+        "definition_cn": "麻烦；烦恼（非正式）",
+        "definition_en": "trouble or worry",
+        "sense_label_en": "trouble or worry",
+        "governing_pattern": "cause/give somebody grief",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:def2c57aca4fd5d3c893",
+            "phrase": "The faulty printer caused us a lot of grief.",
+            "meaning_cn": "这台有故障的打印机给我们添了不少麻烦。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -108,6 +162,23 @@
           "applicability": [
             {
               "surface": "grief"
+            },
+            {
+              "surface": "grief",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:grief:fe44f1eff710c7bb"
+              ],
+              "owner_sense_ids": [
+                "sense:grief:fe44f1eff710c7bb"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2204.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "cause/give somebody grief"
+              }
             }
           ],
           "sources": [
@@ -226,12 +297,21 @@
         "merged_into_sense_id": null,
         "source_row": 6149,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      },
+      {
+        "sense_id": "sense:grief:fe44f1eff710c7bb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2204.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:2763e9b8f0bcd75354d6",
       "collocation:3b8ae9ddd855c65046de",
-      "collocation:d2a0b5bee6155442f3a3"
+      "collocation:2763e9b8f0bcd75354d6",
+      "collocation:d2a0b5bee6155442f3a3",
+      "collocation:def2c57aca4fd5d3c893"
     ],
     "facts": [],
     "collocations": [
@@ -249,6 +329,13 @@
         "id": "collocation:d2a0b5bee6155442f3a3",
         "source_row": 17798,
         "source_path": "content/lexical/canonical/collocations/shards/o2177-2208.json"
+      },
+      {
+        "id": "collocation:def2c57aca4fd5d3c893",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2204.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

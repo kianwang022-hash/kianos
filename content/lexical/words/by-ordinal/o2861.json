@@ -11,36 +11,30 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "活的，活着的；逼真的，栩栩如生的；（用于强调）十足的，完全的",
-          "label_en": "alive; not dead; true to life; lifelike; used to emphasize something extreme",
+          "label_cn": "活的，活着的；仍然存在的；仍在延续、使用或发挥作用的；逼真的，栩栩如生的；（用于强调）十足的，完全的",
+          "label_en": "alive; not dead; still existing, continuing, or in active use; true to life; lifelike; used to emphasize something extreme",
           "pos": "adjective",
           "sense_ids": [
             "sense:living:650768fba89e5e8e",
+            "sense:living:92dfe2ecde2e3d14",
             "sense:living:8999a3146b6153b4",
             "sense:living:50b778e79ee652bf"
           ]
         },
         {
-          "label_cn": "生计，谋生之道",
-          "label_en": "the way in which one earns money to support oneself",
+          "label_cn": "生计，谋生之道；生活；生活方式",
+          "label_en": "the way in which one earns money to support oneself; the manner or conditions of everyday life",
           "pos": "noun",
           "sense_ids": [
-            "sense:living:92c66173a2285c7b"
-          ]
-        },
-        {
-          "label_cn": "仍然存在、延续或使用中的",
-          "label_en": "still existing, continuing, or in active use",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:living:92dfe2ecde2e3d14"
+            "sense:living:92c66173a2285c7b",
+            "sense:living:a3a79908e9eb75cd"
           ]
         }
       ],
-      "core_meaning_cn": "活着的；仍在延续/使用中的；生计",
-      "core_meaning_en": "alive; still existing or continuing; livelihood",
-      "mental_model_cn": "living things/people → 活着的；living language/tradition/monument → 仍存在、延续或使用中的；make/do sth for a living → 谋生。",
-      "mental_model_en": ""
+      "core_meaning_cn": "活着或仍在延续的；逼真/强调用法；生计与生活方式",
+      "core_meaning_en": "alive or still continuing; lifelike or emphatic; livelihood and everyday living",
+      "mental_model_cn": "living 形容词各用法与名词分开；赚钱谋生 a living 不等于日常生活方式 living。",
+      "mental_model_en": "alive or still continuing; lifelike or emphatic; livelihood and everyday living."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -162,6 +156,29 @@
         "sense_label_en": "used to emphasize something extreme",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:living:a3a79908e9eb75cd",
+        "pos": "noun",
+        "definition_cn": "生活；生活方式",
+        "definition_en": "the manner or conditions of everyday life",
+        "sense_label_en": "the manner or conditions of everyday life",
+        "governing_pattern": "healthy/daily living; living conditions",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0b1b335312df6f065634",
+            "phrase": "healthy living",
+            "meaning_cn": "健康的生活方式",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "此生活方式义通常不可数；a living 表示生计。"
       }
     ],
     "verification_summary": {
@@ -236,6 +253,23 @@
           "applicability": [
             {
               "surface": "living"
+            },
+            {
+              "surface": "living",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:living:a3a79908e9eb75cd"
+              ],
+              "owner_sense_ids": [
+                "sense:living:a3a79908e9eb75cd"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2861.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "healthy/daily living; living conditions"
             }
           ],
           "sources": [
@@ -675,13 +709,22 @@
         "merged_into_sense_id": null,
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2861.json"
+      },
+      {
+        "sense_id": "sense:living:a3a79908e9eb75cd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2861.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
       "collocation:767ab4cbceb5f699d3e3",
       "collocation:82fe1d1c56044a9b6d50",
+      "collocation:b6efc2c5b149b4cd7609",
       "collocation:a767f41900a81836e621",
-      "collocation:b6efc2c5b149b4cd7609"
+      "collocation:0b1b335312df6f065634"
     ],
     "facts": [],
     "collocations": [
@@ -704,6 +747,13 @@
         "id": "collocation:b6efc2c5b149b4cd7609",
         "source_row": 15511,
         "source_path": "content/lexical/canonical/collocations/shards/o2849-2880.json"
+      },
+      {
+        "id": "collocation:0b1b335312df6f065634",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2861.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

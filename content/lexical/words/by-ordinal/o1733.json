@@ -9,10 +9,35 @@
     "constructions": [],
     "content_hash": "08fd5fe449042c752424f11eab2552822a062214d155e904be85ae000d710b6b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "在任何时候",
-      "core_meaning_en": "at any time",
-      "mental_model_cn": "在任何时候",
+      "core_clusters": [
+        {
+          "label_cn": "任何时候、曾经",
+          "label_en": "at any time",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:ever:c580654484a75eb1"
+          ]
+        },
+        {
+          "label_cn": "强调程度",
+          "label_en": "emphatic degree",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:ever:daefcb18a2df5f9b"
+          ]
+        },
+        {
+          "label_cn": "始终、持续",
+          "label_en": "always or continually",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:ever:9dfb45a607902733"
+          ]
+        }
+      ],
+      "core_meaning_cn": "任何时候、曾经；始终、持续；强调程度",
+      "core_meaning_en": "at any time; always or continually; emphatic degree",
+      "mental_model_cn": "疑问、否定、条件和最高级语境中指任何时候；书面ever vigilant表示始终警觉；ever more/less表示持续变化；ever so + 形容词/副词强调程度。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -47,14 +72,15 @@
         "confidence": "medium",
         "definition_cn": "曾经；在任何时候",
         "definition_en": "at any time",
-        "governing_pattern": "",
+        "governing_pattern": "ever in questions, negatives, conditionals, and comparisons/superlatives; ever since + time/clause",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:ever:c580654484a75eb1",
         "sense_label_en": "at any time",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "In ever since, the meaning runs continuously from that time until now; in better than ever or the best ever, it compares with any previous time."
       },
       {
         "collocations": [
@@ -79,6 +105,35 @@
         "sense_label_en": "used as an intensifier for adjectives",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:ever:9dfb45a607902733",
+        "pos": "adverb",
+        "definition_cn": "总是、始终；持续地",
+        "definition_en": "always or continually, especially in written usage",
+        "sense_label_en": "always or continually, especially in written usage",
+        "governing_pattern": "ever + adjective/adverb; ever + comparative; ever the + noun (e.g. ever the optimist)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d210b45e213e3067ae75",
+            "phrase": "ever vigilant",
+            "meaning_cn": "始终警觉",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:103a7cfc6d3ca89f6a5a",
+            "phrase": "ever more complex",
+            "meaning_cn": "越来越复杂",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "Often written in the sense always; before a comparative, it can indicate continuing increase or change."
       }
     ],
     "verification_summary": {
@@ -118,6 +173,28 @@
           "applicability": [
             {
               "surface": "ever"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "ever",
+              "pos": "adverb",
+              "owner_sense_ids": [
+                "sense:ever:9dfb45a607902733"
+              ],
+              "sense_ids": [
+                "sense:ever:9dfb45a607902733"
+              ],
+              "excluded_sense_ids": [
+                "sense:ever:c580654484a75eb1",
+                "sense:ever:daefcb18a2df5f9b"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/ever",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -151,6 +228,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/ever",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "ever",
+                "pos": "adverb"
+              },
+              "existing_observed_ipa_unchanged": "/ˈɛvɚ/",
+              "applies_to_sense_ids": [
+                "sense:ever:9dfb45a607902733"
+              ],
+              "evidence_note": "Same headword meaning checked; original observed IPA, regional/source conditions retained; bounded identity support only, no new IPA/default locale."
             }
           ]
         },
@@ -227,6 +320,14 @@
         "merged_into_sense_id": null,
         "source_row": 4773,
         "source_path": "content/lexical/canonical/senses/shards/o1729-1760.json"
+      },
+      {
+        "sense_id": "sense:ever:9dfb45a607902733",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1733.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -250,6 +351,20 @@
         "id": "collocation:c444647e1142fdd21356",
         "source_row": 16604,
         "source_path": "content/lexical/canonical/collocations/shards/o1729-1760.json"
+      },
+      {
+        "id": "collocation:d210b45e213e3067ae75",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1733.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:103a7cfc6d3ca89f6a5a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1733.json",
+        "source_pointer": "/record/senses/2/collocations/1"
       }
     ],
     "exam-mappings": [],

@@ -11,28 +11,29 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "无罪的，清白的；纯洁的，天真无邪的；天真的，幼稚的；不谙世故的",
-          "label_en": "not guilty of a crime or offense; free from moral wrong; not sinful; lacking knowledge of evil or worldly things; naive",
+          "label_cn": "清白、无辜；天真无邪；无恶意",
+          "label_en": "innocence or harmless intent",
           "pos": "adjective",
           "sense_ids": [
             "sense:innocent:48bee9550a4354b7",
             "sense:innocent:db664446d2a1546d",
-            "sense:innocent:60d4bc47a5fa5b30"
+            "sense:innocent:60d4bc47a5fa5b30",
+            "sense:innocent:468e9b9860928f7e"
           ]
         },
         {
           "label_cn": "天真的人；无辜者",
-          "label_en": "a person who is innocent, especially a child or naive person",
+          "label_en": "a naive or innocent person",
           "pos": "noun",
           "sense_ids": [
             "sense:innocent:6217757fb8f25aa9"
           ]
         }
       ],
-      "core_meaning_cn": "无罪/无辜；天真/无邪",
-      "core_meaning_en": "free from guilt or responsibility; innocent or naive",
-      "mental_model_cn": "无罪/无辜；天真/无邪",
-      "mental_model_en": ""
+      "core_meaning_cn": "清白、无辜；天真无邪；无恶意",
+      "core_meaning_en": "innocence or harmless intent",
+      "mental_model_cn": "crime看是否有罪；victim看是否无辜受害；person看阅历；remark/fun看有无恶意。",
+      "mental_model_en": "innocence or harmless intent."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -82,14 +83,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "无罪的；无辜的；未参与或不对过错负责的",
-        "definition_en": "not guilty or responsible for wrongdoing; not involved in a harmful event",
+        "definition_cn": "无罪的；无辜的；不对过错或伤害负责的",
+        "definition_en": "not guilty of or responsible for wrongdoing or harm, even if affected by it",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:innocent:48bee9550a4354b7",
-        "sense_label_en": "not guilty or responsible for wrongdoing; not involved in a harmful event",
+        "sense_label_en": "not guilty of or responsible for wrongdoing or harm, even if affected by it",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -164,6 +165,28 @@
         "sense_label_en": "a person who is innocent, especially a child or naive person",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:innocent:468e9b9860928f7e",
+        "pos": "adjective",
+        "definition_cn": "无恶意的；并非有意伤害或冒犯的",
+        "definition_en": "harmless or without an intention to offend",
+        "sense_label_en": "harmless or without an intention to offend",
+        "governing_pattern": "an innocent remark/joke; innocent fun",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:aa1e595e2f426ee54bdf",
+            "phrase": "an innocent remark",
+            "meaning_cn": "并无恶意的话",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -193,6 +216,23 @@
           "applicability": [
             {
               "surface": "innocent"
+            },
+            {
+              "surface": "innocent",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:innocent:468e9b9860928f7e"
+              ],
+              "owner_sense_ids": [
+                "sense:innocent:468e9b9860928f7e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2553.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an innocent remark/joke; innocent fun"
             }
           ],
           "sources": [
@@ -526,16 +566,25 @@
         "merged_into_sense_id": null,
         "source_row": 7062,
         "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
+      },
+      {
+        "sense_id": "sense:innocent:468e9b9860928f7e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2553.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:060aed070a9e403d56a4",
-      "collocation:17a06c93f8e8dd92ab27",
-      "collocation:553f4b4652b9b4f22bf7",
       "collocation:685c935a091b44e663a6",
-      "collocation:730a6ad5294bc56d1353",
+      "collocation:17a06c93f8e8dd92ab27",
       "collocation:cf6311675da7f440ccbe",
-      "collocation:fd62f05a01d2e4d1fce1"
+      "collocation:060aed070a9e403d56a4",
+      "collocation:730a6ad5294bc56d1353",
+      "collocation:fd62f05a01d2e4d1fce1",
+      "collocation:553f4b4652b9b4f22bf7",
+      "collocation:aa1e595e2f426ee54bdf"
     ],
     "facts": [],
     "collocations": [
@@ -573,6 +622,13 @@
         "id": "collocation:cf6311675da7f440ccbe",
         "source_row": 21612,
         "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      },
+      {
+        "id": "collocation:aa1e595e2f426ee54bdf",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2553.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

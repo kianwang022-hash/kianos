@@ -26,12 +26,20 @@
             "sense:mob:d397de992c0e54c0",
             "sense:mob:f883f02f338953fa"
           ]
+        },
+        {
+          "label_cn": "有组织犯罪集团；黑手党（the Mob）",
+          "label_en": "organized criminals collectively, especially the Mafia",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mob:3046fb92818524fa"
+          ]
         }
       ],
-      "core_meaning_cn": "暴民或围攻",
-      "core_meaning_en": "a disorderly crowd or to surround aggressively",
-      "mental_model_cn": "暴民或围攻",
-      "mental_model_en": ""
+      "core_meaning_cn": "乱哄哄的人群；蜂拥包围；the Mob犯罪集团",
+      "core_meaning_en": "a disorderly crowd; crowd around someone; the Mob as organized crime",
+      "mental_model_cn": "普通mob指可能闹事的人群，mob a singer也可指兴奋粉丝包围；the Mob在犯罪语境指有组织犯罪集团。",
+      "mental_model_en": "a disorderly crowd; crowd around someone; the Mob as organized crime."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -102,6 +110,35 @@
         "sense_label_en": "to surround or crowd around someone or something, often aggressively or excitedly",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:mob:3046fb92818524fa",
+        "pos": "noun",
+        "definition_cn": "有组织犯罪集团；黑手党（the Mob）",
+        "definition_en": "organized criminals collectively, especially the Mafia",
+        "sense_label_en": "organized criminals collectively, especially the Mafia",
+        "governing_pattern": "the Mob（单数整体、非正式）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:63ba3096efbed7d35770",
+            "phrase": "links to the Mob",
+            "meaning_cn": "与有组织犯罪集团的联系",
+            "exam_value": "usage_example"
+          }
+        ],
+        "lexical_identity_overlay": {
+          "identity_type": "case_sensitive_lexeme",
+          "case_sensitive": true,
+          "surface_lemma": "Mob",
+          "paired_form": "mob",
+          "note": "This collective organized-crime use is commonly written the Mob; ordinary crowd mob remains lowercase."
+        }
       }
     ],
     "verification_summary": {
@@ -485,6 +522,47 @@
               }
             }
           ]
+        },
+        {
+          "ipa": "/mɒb/",
+          "locales": [],
+          "locale_evidence": [],
+          "applicability": [
+            {
+              "surface": "Mob",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:mob:3046fb92818524fa"
+              ],
+              "owner_sense_ids": [
+                "sense:mob:3046fb92818524fa"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3090.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the Mob（单数整体、非正式）",
+              "binding_basis": "Independently read complete Oxford headword transcription and exact new meaning; original bounded/lowercase observations untouched; no accent or default-locale inference."
+            }
+          ],
+          "sources": [
+            {
+              "type": "dictionary_entry",
+              "role": "pronunciation",
+              "page": "https://www.oxfordlearnersdictionaries.com/definition/english/mob_1",
+              "entry_context": {
+                "word": "mob",
+                "pos": "noun",
+                "etymology_number": null
+              },
+              "original_ipa": "/mɒb/",
+              "sound_qualifiers": {},
+              "accessed_date": "2026-10-11",
+              "source_scope": "Exact selected current new owner sense, full transcription read, no unsupported locale inferred"
+            }
+          ]
         }
       ]
     }
@@ -513,11 +591,20 @@
         "merged_into_sense_id": null,
         "source_row": 8607,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:mob:3046fb92818524fa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3090.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:0bf7106f7e6a416fdfe0",
-      "collocation:e9aac39b5d6162eb0197"
+      "collocation:e9aac39b5d6162eb0197",
+      "collocation:63ba3096efbed7d35770"
     ],
     "facts": [],
     "collocations": [
@@ -540,6 +627,13 @@
         "id": "collocation:e9aac39b5d6162eb0197",
         "source_row": 19798,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:63ba3096efbed7d35770",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3090.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

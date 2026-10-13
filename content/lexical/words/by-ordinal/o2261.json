@@ -6,19 +6,53 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:247f6c226fc7a7d4a2a9",
+        "pattern": "be hard on somebody",
+        "meaning_cn": "对某人严厉、苛刻",
+        "definition_en": "to treat or criticize somebody severely",
+        "usage_note": "此分支限对人的严厉批评；Do not be so hard on him。",
+        "boundary": "此分支限对人的严厉批评；Do not be so hard on him。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:e14e7c22401dc7ea7a8d",
+        "pattern": "be hard on somebody/something",
+        "meaning_cn": "使某人难受或对其不公平；损伤某物",
+        "definition_en": "to be unfair, difficult or damaging to somebody or something",
+        "usage_note": "区别于严厉批评分支；The long journey was hard on the old car。",
+        "boundary": "区别于严厉批评分支；The long journey was hard on the old car。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:9ce6686b17dc8b160e56",
+        "pattern": "hard and fast",
+        "meaning_cn": "严格固定、不容改变的",
+        "definition_en": "fixed and inflexible",
+        "usage_note": "常见否定no hard and fast rules；整体表达。",
+        "boundary": "常见否定no hard and fast rules；整体表达。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "73ade563f0c8044605cc6ff7072b3f16db55d9e3c47af53b994b4552ac7dc169",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "坚硬的；困难的；艰苦的、费力的；猛烈的、强烈的",
-          "label_en": "hard/not soft; difficult; requiring much effort; strong or vigorous",
+          "label_cn": "坚硬的；困难的；艰苦的，费力的；猛烈的，强烈的；严厉的；冷酷的；不近人情的；（事实、证据）确凿的、可证实的；（水）含有使肥皂难起泡的矿物盐的；硬水的",
+          "label_en": "resisting weight or pressure; not soft; difficult to do or understand; needing or using much effort; strenuous; very strong or vigorous; stern or lacking kindness and sympathy; definite and supported by verifiable information; containing mineral salts that hinder lathering with soap",
           "pos": "adjective",
           "sense_ids": [
             "sense:hard:7c825e4c4cb45b06",
             "sense:hard:2132671976cd5787",
             "sense:hard:a00ee874dbdb5425",
-            "sense:hard:4e6908b4c4db56ac"
+            "sense:hard:4e6908b4c4db56ac",
+            "sense:hard:dfc83aa5e7035f97",
+            "sense:hard:e80704c9b17302e9",
+            "sense:hard:05d54f13875c0f4a"
           ]
         },
         {
@@ -30,10 +64,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "坚硬或困难",
-      "core_meaning_en": "solid, firm, or difficult",
-      "mental_model_cn": "坚硬或困难",
-      "mental_model_en": ""
+      "core_meaning_cn": "硬、难、用力或严酷；确凿证据或硬水；努力地",
+      "core_meaning_en": "hard, difficult, forceful or severe; proven evidence or mineral-rich water; with effort",
+      "mental_model_cn": "hard既为adj也为adv；hard evidence和hard water另有专门义，hardly的几乎不由既有关系说明。",
+      "mental_model_en": "hard, difficult, forceful or severe; proven evidence or mineral-rich water; with effort."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -80,6 +114,12 @@
             ],
             "meaning_cn": "难题",
             "phrase": "hard question"
+          },
+          {
+            "collocation_id": "collocation:2b734c7e327a43fe5960",
+            "phrase": "Reliable staff are hard to come by.",
+            "meaning_cn": "可靠的员工很难找到。",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
@@ -180,16 +220,61 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "冷静的，无情的",
-        "definition_en": "dispassionate; not showing emotion",
+        "definition_cn": "严厉的；冷酷的；不近人情的",
+        "definition_en": "stern or lacking kindness and sympathy",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:hard:dfc83aa5e7035f97",
-        "sense_label_en": "dispassionate; not showing emotion",
+        "sense_label_en": "stern or lacking kindness and sympathy",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:hard:e80704c9b17302e9",
+        "pos": "adjective",
+        "definition_cn": "（事实、证据）确凿的、可证实的",
+        "definition_en": "definite and supported by verifiable information",
+        "sense_label_en": "definite and supported by verifiable information",
+        "governing_pattern": "hard facts/evidence",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0ebd40765deda3a977d8",
+            "phrase": "hard evidence",
+            "meaning_cn": "确凿证据",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "只置名词前；hard evidence意为确凿证据。"
+      },
+      {
+        "sense_id": "sense:hard:05d54f13875c0f4a",
+        "pos": "adjective",
+        "definition_cn": "（水）含有使肥皂难起泡的矿物盐的；硬水的",
+        "definition_en": "containing mineral salts that hinder lathering with soap",
+        "sense_label_en": "containing mineral salts that hinder lathering with soap",
+        "governing_pattern": "hard water; the water is hard",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:570d690014bf54e21035",
+            "phrase": "hard water",
+            "meaning_cn": "硬水",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -271,6 +356,40 @@
           "applicability": [
             {
               "surface": "hard"
+            },
+            {
+              "surface": "hard",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:hard:e80704c9b17302e9"
+              ],
+              "owner_sense_ids": [
+                "sense:hard:e80704c9b17302e9"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2261.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hard facts/evidence"
+            },
+            {
+              "surface": "hard",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:hard:05d54f13875c0f4a"
+              ],
+              "owner_sense_ids": [
+                "sense:hard:05d54f13875c0f4a"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2261.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hard water; the water is hard"
             }
           ],
           "sources": [
@@ -541,15 +660,34 @@
         "merged_into_sense_id": null,
         "source_row": 6317,
         "source_path": "content/lexical/canonical/senses/shards/o2241-2272.json"
+      },
+      {
+        "sense_id": "sense:hard:e80704c9b17302e9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2261.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:hard:05d54f13875c0f4a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2261.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:0be66f7ce8cc7eef1d2d",
+      "collocation:8743cf79d61068415356",
+      "collocation:ed6c8e7bc54b645d8fd5",
+      "collocation:2b734c7e327a43fe5960",
       "collocation:246e9c923d61c124c213",
       "collocation:5ad4a79daaf73415a912",
-      "collocation:8743cf79d61068415356",
+      "collocation:0be66f7ce8cc7eef1d2d",
       "collocation:c645cc182d150b646d4d",
-      "collocation:ed6c8e7bc54b645d8fd5"
+      "collocation:0ebd40765deda3a977d8",
+      "collocation:570d690014bf54e21035"
     ],
     "facts": [
       {
@@ -588,6 +726,27 @@
         "id": "collocation:ed6c8e7bc54b645d8fd5",
         "source_row": 20119,
         "source_path": "content/lexical/canonical/collocations/shards/o2241-2272.json"
+      },
+      {
+        "id": "collocation:0ebd40765deda3a977d8",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2261.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:570d690014bf54e21035",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2261.json",
+        "source_pointer": "/record/senses/7/collocations/0"
+      },
+      {
+        "id": "collocation:2b734c7e327a43fe5960",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2261.json",
+        "source_pointer": "/record/senses/1/collocations/1"
       }
     ],
     "exam-mappings": [],

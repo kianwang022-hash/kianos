@@ -6,39 +6,66 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:fced7e1211c6020fe1f3",
+        "pattern": "be in the market for sth",
+        "meaning_cn": "有意购买；正在寻找购买机会",
+        "definition_en": "to be interested in buying something",
+        "usage_note": "for后接想买的东西；不等于在集市里。",
+        "boundary": "for后接想买的东西；不等于在集市里。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:39e2691737e921c90f7c",
+        "pattern": "on the market",
+        "meaning_cn": "在售；上市出售",
+        "definition_en": "available for people to buy",
+        "usage_note": "put sth on the market表示拿出来出售；不同于买方的in the market for。",
+        "boundary": "put sth on the market表示拿出来出售；不同于买方的in the market for。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:market:481c3b85d87c5311"
+      },
+      {
+        "construction_id": "construction:ceb03daf712d105b99a5",
+        "pattern": "a buyer’s market",
+        "meaning_cn": "买方市场；供给充足、买方选择较多的市场",
+        "definition_en": "a market with plentiful supply and greater choice for buyers",
+        "usage_note": "强调供给和选择较多，不能仅理解为任何有买家的市场。",
+        "boundary": "强调供给和选择较多，不能仅理解为任何有买家的市场。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:market:481c3b85d87c5311"
+      }
+    ],
     "content_hash": "dd5bba79bcd8b7c6b03ba2cd2d77b8588e7c453cd2ce43c397002fc64e1721db",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "市场；交易领域/体系",
-          "label_en": "a place, business area, or system for buying and selling",
+          "label_cn": "市场；进行买卖或交易的场所、领域或体系；销路，市场需求；（潜在买方所在的）地区、国家或人群市场",
+          "label_en": "a place, area of business, or system in which goods, services, financial products, etc. are bought and sold; the demand for a product or service; a region or group of people that may buy a product",
           "pos": "noun",
           "sense_ids": [
-            "sense:market:481c3b85d87c5311"
+            "sense:market:481c3b85d87c5311",
+            "sense:market:a7c16c2b93765e65",
+            "sense:market:4aa311802a217fe4"
           ]
         },
         {
-          "label_cn": "市场需求；买方群体",
-          "label_en": "the demand or potential buyers for a product or service",
-          "pos": "noun",
-          "sense_ids": [
-            "sense:market:a7c16c2b93765e65"
-          ]
-        },
-        {
-          "label_cn": "推销；营销",
-          "label_en": "to advertise and sell a product or service",
+          "label_cn": "推销，销售",
+          "label_en": "to advertise and sell a product",
           "pos": "verb",
           "sense_ids": [
             "sense:market:cbe835b005505035"
           ]
         }
       ],
-      "core_meaning_cn": "市场/交易体系；市场需求；推销营销",
-      "core_meaning_en": "a market or trading system; demand/buyers; or to market a product",
-      "mental_model_cn": "place/trading system → market（集市、股票市场等）；buyers/demand → market for sth；verb → 推销/营销。",
-      "mental_model_en": ""
+      "core_meaning_cn": "交易场所体系；销路需求；地区或人群市场；营销",
+      "core_meaning_en": "a trading place/system; demand; a buyer region or segment; marketing",
+      "mental_model_cn": "stock market属交易体系；market for a product可指销路；target/domestic market可指买方群体或地区；on the market是在售。",
+      "mental_model_en": "a trading place/system; demand; a buyer region or segment; marketing."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -129,6 +156,28 @@
         "sense_label_en": "to advertise and sell a product",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:market:4aa311802a217fe4",
+        "pos": "noun",
+        "definition_cn": "（潜在买方所在的）地区、国家或人群市场",
+        "definition_en": "a region or group of people that may buy a product",
+        "sense_label_en": "a region or group of people that may buy a product",
+        "governing_pattern": "the domestic/Japanese/target market",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:5472b1d9faac57628cbe",
+            "phrase": "the target market",
+            "meaning_cn": "目标买方市场",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -169,6 +218,23 @@
           "applicability": [
             {
               "surface": "market"
+            },
+            {
+              "surface": "market",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:market:4aa311802a217fe4"
+              ],
+              "owner_sense_ids": [
+                "sense:market:4aa311802a217fe4"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2963.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the domestic/Japanese/target market"
             }
           ],
           "sources": [
@@ -497,13 +563,22 @@
         "merged_into_sense_id": null,
         "source_row": 8257,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:market:4aa311802a217fe4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2963.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:5dc6aec90e0a9afd980d",
       "collocation:6df4f23347883047e58f",
+      "collocation:9370b4fed64eb1839ede",
       "collocation:758111d16dbca8f7a141",
-      "collocation:9370b4fed64eb1839ede"
+      "collocation:5472b1d9faac57628cbe"
     ],
     "facts": [],
     "collocations": [
@@ -526,6 +601,13 @@
         "id": "collocation:9370b4fed64eb1839ede",
         "source_row": 12526,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:5472b1d9faac57628cbe",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2963.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -6,14 +6,54 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:ea7798e3681b12fc5b2e",
+        "pattern": "be in the mood for sth/doing sth / to do sth",
+        "meaning_cn": "有心情、有兴致做某事",
+        "definition_en": "feel willing or inclined to do or enjoy something",
+        "usage_note": "for接名词或-ing；to接动词原形，二者都可。",
+        "boundary": "for接名词或-ing；to接动词原形，二者都可。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:mood:5fb280a299af5916"
+      },
+      {
+        "construction_id": "construction:048de8521a17e72f3ee5",
+        "pattern": "be in a mood / one of your moods",
+        "meaning_cn": "闹情绪；正生气或不耐烦",
+        "definition_en": "be angry, impatient or sulky",
+        "usage_note": "没有good/bad等限定的in a mood通常不是中性的“有一种心情”。",
+        "boundary": "没有good/bad等限定的in a mood通常不是中性的“有一种心情”。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:mood:5fb280a299af5916"
+      }
+    ],
     "content_hash": "969fe054f3629f1ea985e2e798e215fb2a16a6d51e5ecfa191f292a1c4972635",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "心情；情绪",
-      "core_meaning_en": "a temporary state of mind or feeling",
-      "mental_model_cn": "心情；情绪",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "心情；情绪",
+          "label_en": "a temporary state of mind or feeling",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mood:5fb280a299af5916"
+          ]
+        },
+        {
+          "label_cn": "共同情绪；气氛、基调",
+          "label_en": "the shared feelings of a group, or the atmosphere or tone of a place or work of art",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:mood:709b2cc30dee5436"
+          ]
+        }
+      ],
+      "core_meaning_cn": "个人或群体情绪、气氛与语法语气",
+      "core_meaning_en": "individual or shared feelings, atmosphere, or grammatical mood",
+      "mental_model_cn": "mood可说个人当下感受，也可说群体情绪或作品气氛；语法语气另依indicative/subjunctive等语境识别。",
+      "mental_model_en": "individual or shared feelings, atmosphere, or grammatical mood."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -69,14 +109,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "气氛；基调",
-        "definition_en": "the atmosphere or tone of a place or work of art",
+        "definition_cn": "共同情绪；气氛、基调",
+        "definition_en": "the shared feelings of a group, or the atmosphere or tone of a place or work of art",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:mood:709b2cc30dee5436",
-        "sense_label_en": "the atmosphere or tone of a place or work of art",
+        "sense_label_en": "the shared feelings of a group, or the atmosphere or tone of a place or work of art",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -100,7 +140,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:mood:343053f1bd7a5c06",
-        "sense_label_en": "a grammatical category indicating the speaker's attitude (e.g., indicati",
+        "sense_label_en": "a grammatical category indicating the speaker's attitude (e.g., indicative, subjunctive)",
         "sort_order": 2,
         "transitivity": "nonverb"
       }
@@ -275,10 +315,10 @@
       }
     ],
     "active_collocations": [
-      "collocation:78f35ea7e14019e4f1a7",
-      "collocation:c63de6d53f46d60fd742",
       "collocation:d7fe41e06e916b6e77c4",
-      "collocation:e17552a502ec84d845f5"
+      "collocation:c63de6d53f46d60fd742",
+      "collocation:e17552a502ec84d845f5",
+      "collocation:78f35ea7e14019e4f1a7"
     ],
     "facts": [],
     "collocations": [

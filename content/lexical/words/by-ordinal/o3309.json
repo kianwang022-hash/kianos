@@ -26,8 +26,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "场合；时刻；理由；原因；机会；时机",
-          "label_en": "a particular time when something happens; a reason or cause; a suitable time or opportunity to do something",
+          "label_cn": "某次发生或特别活动；理由与时机",
+          "label_en": "a particular occurrence or special event; a reason or opportunity",
           "pos": "noun",
           "sense_ids": [
             "sense:occasion:549b9c0ca1595f3d",
@@ -44,10 +44,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "特定时间或事件，或理由/机会",
-      "core_meaning_en": "a particular time or event, or a reason/opportunity",
-      "mental_model_cn": "特定时间或事件，或理由/机会",
-      "mental_model_en": ""
+      "core_meaning_cn": "某次发生或特别活动；理由或时机；引起",
+      "core_meaning_en": "a particular occurrence or special event; a reason or opportunity; cause something",
+      "mental_model_cn": "on several occasions说发生过几次，a special occasion说特别活动；have occasion to do有理由、机会或需要。动词occasion在正式语体中表示引起某事。",
+      "mental_model_en": "a particular occurrence or special event; a reason or opportunity; cause something."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -109,17 +109,23 @@
             ],
             "meaning_cn": "在……之际",
             "phrase": "on the occasion of + sth"
+          },
+          {
+            "collocation_id": "collocation:8d72fb33c4f8b79e1a75",
+            "phrase": "a special occasion",
+            "meaning_cn": "一个特别的场合或值得庆祝的活动",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "场合；时刻",
-        "definition_en": "a particular time when something happens",
-        "governing_pattern": "",
+        "definition_cn": "场合；时刻；特别的活动、庆典",
+        "definition_en": "a particular time when something happens, or a notable event or celebration",
+        "governing_pattern": "on an occasion; on the occasion of sth; an occasion when…",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:occasion:549b9c0ca1595f3d",
-        "sense_label_en": "a particular time when something happens",
+        "sense_label_en": "a particular time when something happens, or a notable event or celebration",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -162,17 +168,7 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:62282b7fabac4d60ecee",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:occasion:902f9fe45ec853b2:collocation:0"
-            ],
-            "meaning_cn": "引起某事",
-            "phrase": "occasion + sth"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "引起；惹起",
         "definition_en": "to cause something",
@@ -183,7 +179,19 @@
         "sense_id": "sense:occasion:902f9fe45ec853b2",
         "sense_label_en": "to cause something",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "Formal usage（正式语体）",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:62282b7fabac4d60ecee",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:occasion:902f9fe45ec853b2:collocation:0"
+            ],
+            "meaning_cn": "引起某事",
+            "phrase": "occasion + sth"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -585,9 +593,9 @@
       }
     ],
     "active_collocations": [
-      "collocation:02ed5fea176cf265c5a9",
-      "collocation:62282b7fabac4d60ecee",
-      "collocation:eae475dbb839b5fd12ae"
+      "collocation:eae475dbb839b5fd12ae",
+      "collocation:8d72fb33c4f8b79e1a75",
+      "collocation:02ed5fea176cf265c5a9"
     ],
     "facts": [
       {
@@ -610,7 +618,9 @@
       {
         "id": "collocation:62282b7fabac4d60ecee",
         "source_row": 8270,
-        "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:681a6e23bcf904a77f30",
@@ -626,6 +636,13 @@
         "id": "collocation:eae475dbb839b5fd12ae",
         "source_row": 19899,
         "source_path": "content/lexical/canonical/collocations/shards/o3297-3328.json"
+      },
+      {
+        "id": "collocation:8d72fb33c4f8b79e1a75",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3309.json",
+        "source_pointer": "/record/senses/0/collocations/1"
       }
     ],
     "exam-mappings": [],

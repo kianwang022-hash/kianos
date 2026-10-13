@@ -10,9 +10,9 @@
     "content_hash": "8ae68e8c2bd641cd1009e7b9ee62a49bae473378404fce5c8c69322f5caf8f1c",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "强烈的兴奋或兴趣",
-      "core_meaning_en": "strong excitement or interest",
-      "mental_model_cn": "强烈的兴奋或兴趣",
+      "core_meaning_cn": "强烈兴趣或投入热情；也可指热衷的具体事物",
+      "core_meaning_en": "eager interest or involvement; also a particular activity or subject of keen interest",
+      "mental_model_cn": "for某事常描述热情本身；an enthusiasm或复数enthusiasms也可指一个或多个具体爱好。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,6 +55,25 @@
         "sense_label_en": "a feeling of excitement and interest",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:enthusiasm:156fa69805be0ce0",
+        "pos": "noun",
+        "definition_cn": "热衷的活动或事物；爱好",
+        "definition_en": "an activity or subject that someone is keenly interested in",
+        "sense_label_en": "an activity or subject that someone is keenly interested in",
+        "governing_pattern": "an enthusiasm; someone’s enthusiasms",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:enthusiasm:fb38cceafd6540d0",
+            "phrase": "one of her enthusiasms",
+            "meaning_cn": "她热衷的一件事",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "可数，可用复数enthusiasms指具体爱好；原enthusiasm for仍是热情、热心本身。"
       }
     ],
     "verification_summary": {
@@ -84,6 +103,27 @@
           "applicability": [
             {
               "surface": "enthusiasm"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "enthusiasm",
+              "pos": "noun",
+              "owner_sense_ids": [
+                "sense:enthusiasm:156fa69805be0ce0"
+              ],
+              "sense_ids": [
+                "sense:enthusiasm:156fa69805be0ce0"
+              ],
+              "excluded_sense_ids": [
+                "sense:enthusiasm:e4611ab14c5a5382"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/enthusiasm",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -113,6 +153,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/enthusiasm",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "enthusiasm",
+                "pos": "noun"
+              },
+              "existing_observed_ipa_unchanged": "/ɪnˈθjuːziæzm̩/",
+              "applies_to_sense_ids": [
+                "sense:enthusiasm:156fa69805be0ce0"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         },
@@ -168,11 +224,20 @@
         "merged_into_sense_id": null,
         "source_row": 4639,
         "source_path": "content/lexical/canonical/senses/shards/o1665-1696.json"
+      },
+      {
+        "sense_id": "sense:enthusiasm:156fa69805be0ce0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1676.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
       "collocation:49cd00b46e56792aee85",
-      "collocation:9a6d224e17e6ad0f5a11"
+      "collocation:9a6d224e17e6ad0f5a11",
+      "collocation:enthusiasm:fb38cceafd6540d0"
     ],
     "facts": [],
     "collocations": [
@@ -185,6 +250,14 @@
         "id": "collocation:9a6d224e17e6ad0f5a11",
         "source_row": 13160,
         "source_path": "content/lexical/canonical/collocations/shards/o1665-1696.json"
+      },
+      {
+        "id": "collocation:enthusiasm:fb38cceafd6540d0",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1676.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

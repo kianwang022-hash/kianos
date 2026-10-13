@@ -36,25 +36,32 @@
           },
           {
             "collocation_id": "collocation:49d59b7e506191a9a7bc",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:eliminate:129dc8ef8c0e57a2:collocation:1"
             ],
             "meaning_cn": "消除某物",
             "phrase": "eliminate + sth"
+          },
+          {
+            "collocation_id": "collocation:eliminate:76db79f1d3dbf374",
+            "phrase": "eliminate a possibility",
+            "meaning_cn": "排除一种可能性",
+            "exam_value": "fixed_pattern"
           }
         ],
         "confidence": "medium",
         "definition_cn": "消除；排除",
-        "definition_en": "to completely remove something unwanted",
-        "governing_pattern": "vt. + object",
+        "definition_en": "to remove something completely or exclude it from consideration",
+        "governing_pattern": "eliminate sth; eliminate sth/sb from consideration",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:eliminate:129dc8ef8c0e57a2",
-        "sense_label_en": "to completely remove something unwanted",
+        "sense_label_en": "remove completely or exclude from consideration",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "在排除可能性或候选对象的语境中，表示不再纳入考虑；不代表杀死某人。比赛淘汰仍属原独立义。"
       },
       {
         "collocations": [
@@ -65,7 +72,7 @@
               "sense:eliminate:d9c3fa0d49c155e9:collocation:0"
             ],
             "meaning_cn": "从比赛中淘汰",
-            "phrase": "eliminate from + competition"
+            "phrase": "eliminate sb from a competition / be eliminated from a competition"
           },
           {
             "collocation_id": "collocation:cb6e8adf906366d4d9b0",
@@ -112,6 +119,26 @@
         "sense_label_en": "to remove an unknown variable from equations",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:eliminate:fce10ac67029f3da",
+        "pos": "verb",
+        "definition_cn": "（委婉）杀死；除掉",
+        "definition_en": "to kill someone, using an indirect expression",
+        "sense_label_en": "to kill someone, using an indirect expression",
+        "governing_pattern": "eliminate an enemy/opponent",
+        "transitivity": "vt",
+        "level": "L2",
+        "collocations": [
+          {
+            "collocation_id": "collocation:eliminate:1426e7e42730d152",
+            "phrase": "eliminate an enemy",
+            "meaning_cn": "杀死或除掉敌人",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "direction": "R",
+        "usage_note": "敌对、暴力或犯罪语境中的委婉措辞，可淡化杀人的直接表达；eliminate a candidate from a competition等淘汰语境不取此义。"
       }
     ],
     "verification_summary": {
@@ -318,6 +345,29 @@
           "applicability": [
             {
               "surface": "eliminate"
+            },
+            {
+              "mode": "bounded_current_owner_senses",
+              "surface": "eliminate",
+              "pos": "verb",
+              "owner_sense_ids": [
+                "sense:eliminate:fce10ac67029f3da"
+              ],
+              "sense_ids": [
+                "sense:eliminate:fce10ac67029f3da"
+              ],
+              "excluded_sense_ids": [
+                "sense:eliminate:129dc8ef8c0e57a2",
+                "sense:eliminate:44de84d8f4865498",
+                "sense:eliminate:d9c3fa0d49c155e9"
+              ],
+              "does_not_apply_to_other_owner_senses": true,
+              "source_conditions_must_be_retained": true,
+              "is_default_pronunciation_claim": false,
+              "binding_basis": "20261011 current Word identity continuation; checked publisher same headword meaning",
+              "morphological_role": "lemma_citation_form",
+              "source_url": "https://www.collinsdictionary.com/dictionary/english/eliminate",
+              "source_checked_date": "2026-10-11"
             }
           ],
           "sources": [
@@ -382,6 +432,22 @@
                 "attribution": "Wiktionary contributors, extracted by Kaikki/Wiktextract",
                 "notice_path": "content/lexical/source-notices/headword-pronunciation/CC-BY-SA-4.0.txt"
               }
+            },
+            {
+              "type": "publisher_dictionary",
+              "role": "headword_identity_scope_corroboration",
+              "publisher": "Collins / HarperCollins",
+              "url": "https://www.collinsdictionary.com/dictionary/english/eliminate",
+              "accessed_at": "2026-10-11",
+              "entry_context": {
+                "word": "eliminate",
+                "pos": "verb"
+              },
+              "existing_observed_ipa_unchanged": "/ɪˈlɪm.ɪ.neɪt/",
+              "applies_to_sense_ids": [
+                "sense:eliminate:fce10ac67029f3da"
+              ],
+              "evidence_note": "Checked same headword meanings; original observed IPA, sources, locales, qualifier conditions retained. Adds bounded identity applicability, not a new reading or regional default."
             }
           ]
         }
@@ -412,14 +478,23 @@
         "merged_into_sense_id": null,
         "source_row": 4489,
         "source_path": "content/lexical/canonical/senses/shards/o1601-1632.json"
+      },
+      {
+        "sense_id": "sense:eliminate:fce10ac67029f3da",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1608.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:0bb1703dfb8c4d26c26e",
-      "collocation:49d59b7e506191a9a7bc",
       "collocation:bd44cb2be3ebbc55eed7",
       "collocation:c1e341f92a8210bf5548",
-      "collocation:cb6e8adf906366d4d9b0"
+      "collocation:cb6e8adf906366d4d9b0",
+      "collocation:eliminate:76db79f1d3dbf374",
+      "collocation:eliminate:1426e7e42730d152"
     ],
     "facts": [],
     "collocations": [
@@ -431,7 +506,9 @@
       {
         "id": "collocation:49d59b7e506191a9a7bc",
         "source_row": 6216,
-        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:bd44cb2be3ebbc55eed7",
@@ -447,6 +524,22 @@
         "id": "collocation:cb6e8adf906366d4d9b0",
         "source_row": 17183,
         "source_path": "content/lexical/canonical/collocations/shards/o1601-1632.json"
+      },
+      {
+        "id": "collocation:eliminate:76db79f1d3dbf374",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1608.json",
+        "source_pointer": "/record/senses/0/collocations/2"
+      },
+      {
+        "id": "collocation:eliminate:1426e7e42730d152",
+        "status": "active",
+        "merged_into_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1608.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

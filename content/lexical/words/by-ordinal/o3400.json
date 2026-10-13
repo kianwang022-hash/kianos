@@ -12,7 +12,7 @@
       "core_clusters": [
         {
           "label_cn": "轮廓；外形线；大纲；概要",
-          "label_en": "a line that appears to bound an object; a sketchy summary of the main points of an argument or theory",
+          "label_en": "an outer shape or boundary; a brief account or plan of main points",
           "pos": "noun",
           "sense_ids": [
             "sense:outline:7c8533cd035d5f7f",
@@ -26,12 +26,20 @@
           "sense_ids": [
             "sense:outline:216397e25add5fb3"
           ]
+        },
+        {
+          "label_cn": "显示或勾勒轮廓",
+          "label_en": "show or mark an outer boundary",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:outline:a7f663711279757e"
+          ]
         }
       ],
-      "core_meaning_cn": "外形轮廓；要点概述",
-      "core_meaning_en": "a line or shape showing the outer edge; a summary of main points",
-      "mental_model_cn": "外形轮廓；要点概述",
-      "mental_model_en": ""
+      "core_meaning_cn": "外形轮廓或要点概要；概述；勾勒轮廓",
+      "core_meaning_en": "an outer shape or main-point summary; summarize; show an outer boundary",
+      "mental_model_cn": "outline of an island是外形轮廓，outline of a plan是要点概要；outline a plan概述计划，a shape outlined against the sky说显出轮廓。in outline按物理或概要语境选择。",
+      "mental_model_en": "an outer shape or main-point summary; summarize; show an outer boundary."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -51,15 +59,6 @@
             ],
             "meaning_cn": "某物的轮廓",
             "phrase": "outline of + sth"
-          },
-          {
-            "collocation_id": "collocation:3cf0089b07b3bdff361e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:outline:7c8533cd035d5f7f:collocation:1"
-            ],
-            "meaning_cn": "概括地；轮廓地",
-            "phrase": "in outline"
           }
         ],
         "confidence": "medium",
@@ -93,31 +92,32 @@
             ],
             "meaning_cn": "概述某事",
             "phrase": "give an outline of + sth"
+          },
+          {
+            "collocation_id": "collocation:3cf0089b07b3bdff361e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:outline:7c8533cd035d5f7f:collocation:1"
+            ],
+            "meaning_cn": "概括地、以概要形式（此处读法）；物理语境另可指只呈现外轮廓",
+            "phrase": "in outline",
+            "usage_note": "本挂载示范概要义；draw/show something in outline 的外轮廓读法回看该词物理轮廓义。"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "大纲；概要",
-        "definition_en": "a sketchy summary of the main points of an argument or theory",
+        "definition_cn": "大纲；概要；简要计划",
+        "definition_en": "a brief description or plan giving the main points without full detail",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:outline:31b9e27934d9508c",
-        "sense_label_en": "a sketchy summary of the main points of an argument or theory",
+        "sense_label_en": "a brief description or plan giving the main points without full detail",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:4e1ea2a43a387ea3fecf",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:outline:216397e25add5fb3:collocation:0"
-            ],
-            "meaning_cn": "概述某事",
-            "phrase": "outline + sth"
-          },
           {
             "collocation_id": "collocation:c7eb6469060a525c3e35",
             "exam_value": "usage_example",
@@ -131,14 +131,53 @@
         "confidence": "medium",
         "definition_cn": "概述；概括",
         "definition_en": "to give a summary of the main points of something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "outline sth; outline sth to sb; outline what/how…",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:outline:216397e25add5fb3",
         "sense_label_en": "to give a summary of the main points of something",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:4e1ea2a43a387ea3fecf",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:outline:216397e25add5fb3:collocation:0"
+            ],
+            "meaning_cn": "概述某事",
+            "phrase": "outline + sth"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:outline:a7f663711279757e",
+        "pos": "verb",
+        "definition_cn": "显示、勾勒出外轮廓",
+        "definition_en": "show or mark the outside boundary of something",
+        "sense_label_en": "show or mark the outside boundary of something",
+        "governing_pattern": "outline sth; be outlined against sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ec7294c0997373de50ad",
+            "phrase": "The hills were outlined against the sky.",
+            "meaning_cn": "群山以天空为背景显出了轮廓。",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ],
+        "usage_note": "常用被动，be outlined against the sky说以天空为背景显出轮廓。不是概述观点。"
       }
     ],
     "verification_summary": {
@@ -168,6 +207,24 @@
           "applicability": [
             {
               "surface": "outline"
+            },
+            {
+              "surface": "outline",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:outline:a7f663711279757e"
+              ],
+              "owner_sense_ids": [
+                "sense:outline:a7f663711279757e"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3400.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "outline sth; be outlined against sth",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -308,27 +365,38 @@
         "merged_into_sense_id": null,
         "source_row": 9432,
         "source_path": "content/lexical/canonical/senses/shards/o3393-3424.json"
+      },
+      {
+        "sense_id": "sense:outline:a7f663711279757e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3400.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:3cf0089b07b3bdff361e",
-      "collocation:4e1ea2a43a387ea3fecf",
       "collocation:539db737475d639edfcf",
+      "collocation:e70156ae8df0934b7e8f",
       "collocation:bad5f3370ff7ab746707",
+      "collocation:3cf0089b07b3bdff361e",
       "collocation:c7eb6469060a525c3e35",
-      "collocation:e70156ae8df0934b7e8f"
+      "collocation:ec7294c0997373de50ad"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:3cf0089b07b3bdff361e",
         "source_row": 5153,
-        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json",
+        "sense_id": "sense:outline:31b9e27934d9508c"
       },
       {
         "id": "collocation:4e1ea2a43a387ea3fecf",
         "source_row": 6594,
-        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:539db737475d639edfcf",
@@ -349,6 +417,13 @@
         "id": "collocation:e70156ae8df0934b7e8f",
         "source_row": 19578,
         "source_path": "content/lexical/canonical/collocations/shards/o3393-3424.json"
+      },
+      {
+        "id": "collocation:ec7294c0997373de50ad",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3400.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

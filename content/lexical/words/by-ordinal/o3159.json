@@ -6,14 +6,58 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:3861afee80d25760dca4",
+        "pattern": "music to sb’s ears",
+        "meaning_cn": "令人高兴的消息、话语",
+        "definition_en": "news or information somebody is very pleased to hear",
+        "usage_note": "比喻消息合心意，不必真的播放音乐。",
+        "boundary": "比喻消息合心意，不必真的播放音乐。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "bf63f53a1305d9a0f5673deedaa56cd47a6f03aa353aad4d0512796f63f62229",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "有组织的声音，尤指声乐或器乐，悦耳或有结构",
-      "core_meaning_en": "organized sound, especially vocal or instrumental, that is pleasing or structured",
-      "mental_model_cn": "有组织的声音，尤指声乐或器乐，悦耳或有结构",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "音乐：有组织地用于艺术表达的声乐或器乐声音",
+          "label_en": "vocal or instrumental sounds arranged for artistic expression",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:music:d0b487742bfc534e"
+          ]
+        },
+        {
+          "label_cn": "任何悦耳和谐的声音",
+          "label_en": "any agreeable (pleasing and harmonious) sounds",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:music:3cb9a993fa925037"
+          ]
+        },
+        {
+          "label_cn": "音乐艺术、学科或行业领域",
+          "label_en": "the art and field of composing, studying or performing music",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:music:987fcc2b8728bff0"
+          ]
+        },
+        {
+          "label_cn": "乐谱；表示乐音的书写符号",
+          "label_en": "written or printed notation representing sounds to be performed",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:music:0126f262ee3b3e80"
+          ]
+        }
+      ],
+      "core_meaning_cn": "音乐与悦耳声响；音乐活动、艺术领域和乐谱",
+      "core_meaning_en": "music and pleasing sounds; musical activity, the art and field, and notation",
+      "mental_model_cn": "listen to music听声音，study music学艺术或学科，read music读乐谱。一般说a piece of music；make music是演奏/歌唱活动。",
+      "mental_model_en": "music and pleasing sounds; musical activity, the art and field, and notation."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,16 +89,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "一种听觉艺术形式，以结构化和连续的方式结合器乐或声乐音调",
-        "definition_en": "an artistic form of auditory communication incorporating instrumental or vocal tones in a structured and continuous manner",
+        "definition_cn": "音乐：有组织地用于艺术表达的声乐或器乐声音",
+        "definition_en": "vocal or instrumental sounds arranged for artistic expression",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:music:d0b487742bfc534e",
-        "sense_label_en": "an artistic form of auditory communication incorporating instrumental or",
+        "sense_label_en": "vocal or instrumental sounds arranged for artistic expression",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "通常不可数：some music、a piece of music；不把a music当普通的“一首音乐”。"
       },
       {
         "collocations": [
@@ -103,6 +148,50 @@
         "sense_label_en": "musical activity (singing or whistling etc.)",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:music:987fcc2b8728bff0",
+        "pos": "noun",
+        "definition_cn": "音乐艺术、学科或行业领域",
+        "definition_en": "the art and field of composing, studying or performing music",
+        "sense_label_en": "the art and field of composing, studying or performing music",
+        "governing_pattern": "study music; a career in music",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3a8811c401c5bf39db61",
+            "phrase": "study music",
+            "meaning_cn": "学习音乐这一艺术或学科",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:music:0126f262ee3b3e80",
+        "pos": "noun",
+        "definition_cn": "乐谱；表示乐音的书写符号",
+        "definition_en": "written or printed notation representing sounds to be performed",
+        "sense_label_en": "written or printed notation representing sounds to be performed",
+        "governing_pattern": "read music; sheet music",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:de9dd89b5fe1c492b082",
+            "phrase": "read music",
+            "meaning_cn": "识谱",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -144,6 +233,42 @@
           "applicability": [
             {
               "surface": "music"
+            },
+            {
+              "surface": "music",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:music:987fcc2b8728bff0"
+              ],
+              "owner_sense_ids": [
+                "sense:music:987fcc2b8728bff0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3159.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "study music; a career in music",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "music",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:music:0126f262ee3b3e80"
+              ],
+              "owner_sense_ids": [
+                "sense:music:0126f262ee3b3e80"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3159.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "read music; sheet music",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -261,6 +386,42 @@
           "applicability": [
             {
               "surface": "music"
+            },
+            {
+              "surface": "music",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:music:987fcc2b8728bff0"
+              ],
+              "owner_sense_ids": [
+                "sense:music:987fcc2b8728bff0"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3159.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "study music; a career in music",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "music",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:music:0126f262ee3b3e80"
+              ],
+              "owner_sense_ids": [
+                "sense:music:0126f262ee3b3e80"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3159.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "read music; sheet music",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -386,13 +547,31 @@
         "merged_into_sense_id": null,
         "source_row": 8798,
         "source_path": "content/lexical/canonical/senses/shards/o3137-3168.json"
+      },
+      {
+        "sense_id": "sense:music:987fcc2b8728bff0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3159.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:music:0126f262ee3b3e80",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3159.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
       "collocation:06225a7494a9415b4b21",
-      "collocation:5edea6c4865e5545d84c",
       "collocation:730b96daf45fdada42dd",
-      "collocation:d8e658eb794b1451b594"
+      "collocation:5edea6c4865e5545d84c",
+      "collocation:d8e658eb794b1451b594",
+      "collocation:3a8811c401c5bf39db61",
+      "collocation:de9dd89b5fe1c492b082"
     ],
     "facts": [],
     "collocations": [
@@ -415,6 +594,20 @@
         "id": "collocation:d8e658eb794b1451b594",
         "source_row": 18340,
         "source_path": "content/lexical/canonical/collocations/shards/o3137-3168.json"
+      },
+      {
+        "id": "collocation:3a8811c401c5bf39db61",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3159.json",
+        "source_pointer": "/record/senses/3/collocations/0"
+      },
+      {
+        "id": "collocation:de9dd89b5fe1c492b082",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3159.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

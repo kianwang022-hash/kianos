@@ -16,15 +16,47 @@
         "pattern": "hear from sb",
         "source_sense_id": "sense:hear:89653dfbfb1850da",
         "boundary": "communication-from-person use; distinct from hear of/about = learn that something exists or happened"
+      },
+      {
+        "construction_id": "construction:aa625a7ea6887f9e3546",
+        "pattern": "hear somebody out",
+        "meaning_cn": "耐心听完某人的话",
+        "definition_en": "to listen until somebody finishes speaking",
+        "usage_note": "宾语为说话人，代词中置：hear me out。",
+        "boundary": "宾语为说话人，代词中置：hear me out。",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:86a92616254f35827b1e",
+        "pattern": "hear, hear!",
+        "meaning_cn": "说得好！赞同！",
+        "definition_en": "an exclamation expressing agreement with a speaker",
+        "usage_note": "常见于演说回应，表示赞同；拼作hear, hear。",
+        "boundary": "常见于演说回应，表示赞同；拼作hear, hear。",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "2cf102869ce3f226b0f6742d5e088c2f5e0839b7a81a22949d61304c8137f986",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "听到",
-      "core_meaning_en": "to perceive sound with the ear",
-      "mental_model_cn": "sound → 听到；news/info → 听说；hear from sb → 收到某人消息；legal → 审理案件。",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "听到；听说；审理；听取；聆听某人或某事",
+          "label_en": "to perceive sound via the auditory sense; to receive information about something; to listen to and judge a case in court; to listen or pay attention to somebody or something",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:hear:68702ecad8e85f11",
+            "sense:hear:89653dfbfb1850da",
+            "sense:hear:0b6f9f2a78d854e0",
+            "sense:hear:2081da18dfa9e166"
+          ]
+        }
+      ],
+      "core_meaning_cn": "听见、聆听听取、听说或审理",
+      "core_meaning_en": "hear sounds, listen attentively, learn information or hear a legal case",
+      "mental_model_cn": "hear不只表示无意听见，也可听取意见、聆听演出；hear out为听完话，hear, hear表示赞同。",
+      "mental_model_en": "hear sounds, listen attentively, learn information or hear a legal case."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -40,7 +72,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:087199330347ea1914e5",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:hear:68702ecad8e85f11:collocation:0"
             ],
@@ -60,14 +92,15 @@
         "confidence": "medium",
         "definition_cn": "听到",
         "definition_en": "to perceive sound via the auditory sense",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "hear (sth); hear sb do/doing sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hear:68702ecad8e85f11",
         "sense_label_en": "to perceive sound via the auditory sense",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi",
+        "usage_note": "hear somebody do强调听到所描述动作发生，hear somebody doing呈现正在进行的动作；被动可说be heard to do。听取意见或演出另有聆听义。"
       },
       {
         "collocations": [
@@ -93,14 +126,14 @@
         "confidence": "medium",
         "definition_cn": "听说",
         "definition_en": "to receive information about something",
-        "governing_pattern": "vi. + of/about",
+        "governing_pattern": "hear of/about sth; hear that ...; hear what/how/...",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:hear:89653dfbfb1850da",
         "sense_label_en": "to receive information about something",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vt/vi"
       },
       {
         "collocations": [
@@ -125,6 +158,28 @@
         "sense_label_en": "to listen to and judge a case in court",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:hear:2081da18dfa9e166",
+        "pos": "verb",
+        "definition_cn": "听取；聆听某人或某事",
+        "definition_en": "to listen or pay attention to somebody or something",
+        "sense_label_en": "to listen or pay attention to somebody or something",
+        "governing_pattern": "hear an argument/performance; hear somebody do something",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:61204a43288198461c88",
+            "phrase": "We should hear both sides of the argument.",
+            "meaning_cn": "我们应该听取争论双方的意见。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -188,6 +243,23 @@
           "applicability": [
             {
               "surface": "hear"
+            },
+            {
+              "surface": "hear",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:hear:2081da18dfa9e166"
+              ],
+              "owner_sense_ids": [
+                "sense:hear:2081da18dfa9e166"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2292.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "hear an argument/performance; hear somebody do something"
             }
           ],
           "sources": [
@@ -436,14 +508,23 @@
         "merged_into_sense_id": null,
         "source_row": 6401,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
+      },
+      {
+        "sense_id": "sense:hear:2081da18dfa9e166",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2292.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:087199330347ea1914e5",
-      "collocation:2fffc2d33b0d0ab6472d",
       "collocation:7ff3e7c10d44bc2b89b0",
       "collocation:ccf9dd08065003bb5020",
-      "collocation:f7121d359982bf5fad95"
+      "collocation:2fffc2d33b0d0ab6472d",
+      "collocation:f7121d359982bf5fad95",
+      "collocation:61204a43288198461c88"
     ],
     "facts": [
       {
@@ -456,7 +537,9 @@
       {
         "id": "collocation:087199330347ea1914e5",
         "source_row": 705,
-        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:2fffc2d33b0d0ab6472d",
@@ -477,6 +560,13 @@
         "id": "collocation:f7121d359982bf5fad95",
         "source_row": 20925,
         "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+      },
+      {
+        "id": "collocation:61204a43288198461c88",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2292.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

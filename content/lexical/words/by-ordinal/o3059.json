@@ -6,7 +6,19 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:b4de04220298d5400f3d",
+        "pattern": "a mine of information/data (about/on sth)",
+        "meaning_cn": "丰富的信息、资料来源",
+        "definition_en": "a person or source that supplies a great deal of information",
+        "usage_note": "固定of构式；mine在此为名词，不是表示“我的”的代词。",
+        "boundary": "固定of构式；mine在此为名词，不是表示“我的”的代词。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:mine:467dcee4354950d4"
+      }
+    ],
     "content_hash": "a831ac1245d0b2e291714328ed3868f050cfe3780c500262bb67b5043d4aa3bd",
     "core_concept": {
       "core_clusters": [
@@ -35,12 +47,28 @@
           "sense_ids": [
             "sense:mine:cb4306326a025ebf"
           ]
+        },
+        {
+          "label_cn": "挖掘、提取（资料中的信息或价值）",
+          "label_en": "extract useful information or material from a source",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:mine:bb75d381cb9a5513"
+          ]
+        },
+        {
+          "label_cn": "（用计算机验证交易等）挖取加密货币",
+          "label_en": "use computational work to verify cryptocurrency transactions and obtain cryptocurrency",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:mine:25eb638fbb158de8"
+          ]
         }
       ],
-      "core_meaning_cn": "矿藏或爆炸装置；开采或布雷；我的",
-      "core_meaning_en": "excavation or explosive device; to extract or lay mines; possessive pronoun",
-      "mental_model_cn": "矿藏或爆炸装置；开采或布雷；我的",
-      "mental_model_en": ""
+      "core_meaning_cn": "我的所有物；矿井、爆炸雷具；开采及挖掘资源",
+      "core_meaning_en": "what belongs to me; a mineral mine or explosive mine; obtain resources or information",
+      "mental_model_cn": "代词mine独立表示“我的”；名词可指矿井或雷具。动词从开采延伸到从记录中提取信息，计算语境还可指挖取加密货币。",
+      "mental_model_en": "what belongs to me; a mineral mine or explosive mine; obtain resources or information."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -119,16 +147,16 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "开采（矿物）",
-        "definition_en": "to dig minerals from the earth",
-        "governing_pattern": "",
+        "definition_cn": "采矿；开采矿物",
+        "definition_en": "to dig for or extract minerals from the earth",
+        "governing_pattern": "mine coal/minerals; mine an area for minerals; mine for minerals",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:mine:cf78ce54bdfb5206",
-        "sense_label_en": "to dig minerals from the earth",
+        "sense_label_en": "to dig for or extract minerals from the earth",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -177,6 +205,50 @@
         "sense_label_en": "to place explosive mines in an area",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:mine:bb75d381cb9a5513",
+        "pos": "verb",
+        "definition_cn": "挖掘、提取（资料中的信息或价值）",
+        "definition_en": "extract useful information or material from a source",
+        "sense_label_en": "extract useful information or material from a source",
+        "governing_pattern": "mine data/information; mine records for details",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1f780b3dfc8b5dd91b39",
+            "phrase": "mine the archives for evidence",
+            "meaning_cn": "从档案中挖掘证据",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:mine:25eb638fbb158de8",
+        "pos": "verb",
+        "definition_cn": "（用计算机验证交易等）挖取加密货币",
+        "definition_en": "use computational work to verify cryptocurrency transactions and obtain cryptocurrency",
+        "sense_label_en": "use computational work to verify cryptocurrency transactions and obtain cryptocurrency",
+        "governing_pattern": "mine cryptocurrency; mine for cryptocurrency",
+        "transitivity": "I/T",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:49c9c86cf1f03bdaef18",
+            "phrase": "mine Bitcoin",
+            "meaning_cn": "挖取比特币",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -206,6 +278,42 @@
           "applicability": [
             {
               "surface": "mine"
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine data/information; mine records for details",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine cryptocurrency; mine for cryptocurrency",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -326,6 +434,42 @@
           "applicability": [
             {
               "surface": "mine"
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine data/information; mine records for details",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine cryptocurrency; mine for cryptocurrency",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -513,6 +657,42 @@
           "applicability": [
             {
               "surface": "mine"
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:bb75d381cb9a5513"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine data/information; mine records for details",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "mine",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "owner_sense_ids": [
+                "sense:mine:25eb638fbb158de8"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3059.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "mine cryptocurrency; mine for cryptocurrency",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -660,15 +840,33 @@
         "merged_into_sense_id": null,
         "source_row": 8524,
         "source_path": "content/lexical/canonical/senses/shards/o3041-3072.json"
+      },
+      {
+        "sense_id": "sense:mine:bb75d381cb9a5513",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3059.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:mine:25eb638fbb158de8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3059.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
-      "collocation:2f04dd475c9d966deb91",
       "collocation:40aaae219344f038f9a5",
-      "collocation:68d0b211dd512827cb86",
+      "collocation:e3c5570e45e5cc6597c5",
       "collocation:9d2330fd3742611d3677",
+      "collocation:68d0b211dd512827cb86",
       "collocation:b9f7f02976e751ced8ca",
-      "collocation:e3c5570e45e5cc6597c5"
+      "collocation:2f04dd475c9d966deb91",
+      "collocation:1f780b3dfc8b5dd91b39",
+      "collocation:49c9c86cf1f03bdaef18"
     ],
     "facts": [],
     "collocations": [
@@ -701,6 +899,20 @@
         "id": "collocation:e3c5570e45e5cc6597c5",
         "source_row": 19281,
         "source_path": "content/lexical/canonical/collocations/shards/o3041-3072.json"
+      },
+      {
+        "id": "collocation:1f780b3dfc8b5dd91b39",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3059.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:49c9c86cf1f03bdaef18",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3059.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

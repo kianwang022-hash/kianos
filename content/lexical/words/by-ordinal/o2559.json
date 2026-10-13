@@ -16,50 +16,74 @@
         "pattern": "inside out / know sth inside out",
         "source_sense_id": "sense:inside:8cba25af0b90533d",
         "boundary": "fixed orientation/completeness phrase; distinct from ordinary inside = interior"
+      },
+      {
+        "construction_id": "construction:1b2661209ed1263b4a11",
+        "pattern": "on the inside",
+        "meaning_cn": "属于内部圈子，能获得外人不知道的消息",
+        "definition_en": "belonging to an organization and having access to private information",
+        "usage_note": "指成员身份和信息渠道；不是仅位于建筑里面。",
+        "boundary": "指成员身份和信息渠道；不是仅位于建筑里面。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:inside:8cba25af0b90533d"
+      },
+      {
+        "construction_id": "construction:4e9a6e6440bc00e26ada",
+        "pattern": "turn sth inside out",
+        "meaning_cn": "翻乱某处以搜查；彻底改变某事",
+        "definition_en": "to search a place so thoroughly that it becomes untidy, or change something completely",
+        "usage_note": "搜查/改革按宾语选择；衣物里外翻转和know sth inside out彻底熟悉各有不同语境。",
+        "boundary": "搜查/改革按宾语选择；衣物里外翻转和know sth inside out彻底熟悉各有不同语境。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:inside:8cba25af0b90533d"
       }
     ],
     "content_hash": "436d5fa068b9e51a67bd85927f688f5a4c251b2229110dc668aa85b4b709a95f",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "内部，里面；内幕，内部消息",
-          "label_en": "the inner part or surface of something; information or knowledge that is not publicly known",
+          "label_cn": "内部；胃肠",
+          "label_en": "interior or bodily insides",
           "pos": "noun",
           "sense_ids": [
             "sense:inside:8cba25af0b90533d",
+            "sense:inside:3f194b11d4779683"
+          ]
+        },
+        {
+          "label_cn": "内部的；内幕的",
+          "label_en": "interior or privately known",
+          "pos": "adjective",
+          "sense_ids": [
             "sense:inside:b92ba0d2a25a5a1e",
             "sense:inside:e6adaaca228a56cf"
           ]
         },
         {
-          "label_cn": "内部的，户内的",
-          "label_en": "located on the inner side or within a building",
-          "pos": "adjective",
-          "sense_ids": [
-            "sense:inside:e6adaaca228a56cf"
-          ]
-        },
-        {
-          "label_cn": "在里面",
-          "label_en": "in or into the inner part",
+          "label_cn": "在里面；服刑",
+          "label_en": "indoors or in prison",
           "pos": "adverb",
           "sense_ids": [
-            "sense:inside:500b1e103ff2518e"
+            "sense:inside:500b1e103ff2518e",
+            "sense:inside:92aa292296298b16"
           ]
         },
         {
-          "label_cn": "在……之内",
-          "label_en": "within the boundaries or limits of something",
+          "label_cn": "在内部；少于所述时长",
+          "label_en": "within a place or time limit",
           "pos": "preposition",
           "sense_ids": [
-            "sense:inside:27ef294a78175b0f"
+            "sense:inside:27ef294a78175b0f",
+            "sense:inside:5b2fbc82dd63ee73"
           ]
         }
       ],
-      "core_meaning_cn": "内部，在里面",
-      "core_meaning_en": "the inner part or within something",
-      "mental_model_cn": "place → 里面/内部；inside information → 内幕消息；inside out → 里面朝外，或“彻底熟悉”。",
-      "mental_model_en": ""
+      "core_meaning_cn": "内部、里面；内幕",
+      "core_meaning_en": "interior location or insider access",
+      "mental_model_cn": "place看空间；information看非公开；inside a year看少于一年；three years inside看服刑；insides看胃肠。",
+      "mental_model_en": "interior location, insider access, or a bounded time or prison use."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -188,6 +212,72 @@
         "sense_label_en": "within the boundaries or limits of something",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:inside:5b2fbc82dd63ee73",
+        "pos": "preposition",
+        "definition_cn": "在少于所述时间之内",
+        "definition_en": "before the stated amount of time has elapsed",
+        "sense_label_en": "before the stated amount of time has elapsed",
+        "governing_pattern": "inside (of) a year/hour",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a0f971a7371924d13abc",
+            "phrase": "inside an hour",
+            "meaning_cn": "不到一小时内",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:inside:92aa292296298b16",
+        "pos": "adverb",
+        "definition_cn": "在监狱里；服刑中（非正式）",
+        "definition_en": "in prison, in informal usage",
+        "sense_label_en": "in prison, in informal usage",
+        "governing_pattern": "be inside; spend three years inside",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:34c244ab479a491b13dd",
+            "phrase": "three years inside",
+            "meaning_cn": "三年牢狱生活",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:inside:3f194b11d4779683",
+        "pos": "noun",
+        "definition_cn": "（insides，复数，非正式）腹内、胃肠",
+        "definition_en": "the stomach and bowels, in the plural form insides",
+        "sense_label_en": "the stomach and bowels, in the plural form insides",
+        "governing_pattern": "sb’s insides; a pain in one’s insides",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:868cd5887492bc03068e",
+            "phrase": "a pain in my insides",
+            "meaning_cn": "肚子里面疼",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -217,6 +307,57 @@
           "applicability": [
             {
               "surface": "inside"
+            },
+            {
+              "surface": "inside",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:inside:5b2fbc82dd63ee73"
+              ],
+              "owner_sense_ids": [
+                "sense:inside:5b2fbc82dd63ee73"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2559.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "inside (of) a year/hour"
+            },
+            {
+              "surface": "inside",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:inside:92aa292296298b16"
+              ],
+              "owner_sense_ids": [
+                "sense:inside:92aa292296298b16"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2559.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "be inside; spend three years inside"
+            },
+            {
+              "surface": "inside",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:inside:3f194b11d4779683"
+              ],
+              "owner_sense_ids": [
+                "sense:inside:3f194b11d4779683"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2559.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "sb’s insides; a pain in one’s insides"
             }
           ],
           "sources": [
@@ -726,6 +867,20 @@
             }
           ]
         }
+      ],
+      "lexicalized_forms": [
+        {
+          "surface": "insides",
+          "base_form": "inside",
+          "pos": "noun",
+          "owner_sense_ids": [
+            "sense:inside:3f194b11d4779683"
+          ],
+          "number": "plural",
+          "usage_limit": "informal bodily stomach/bowels sense; not all plural interiors",
+          "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/inside_3",
+          "pronunciation_claim": "none; no plural IPA inferred from a base-form observation"
+        }
       ]
     }
   },
@@ -767,14 +922,41 @@
         "merged_into_sense_id": null,
         "source_row": 7076,
         "source_path": "content/lexical/canonical/senses/shards/o2529-2560.json"
+      },
+      {
+        "sense_id": "sense:inside:5b2fbc82dd63ee73",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2559.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:inside:92aa292296298b16",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2559.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:inside:3f194b11d4779683",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2559.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
       "collocation:283c7625a9a0bb684627",
-      "collocation:3f87bd3d22dca0a46f02",
       "collocation:b4f4d6f27d10b04b3b7e",
+      "collocation:3f87bd3d22dca0a46f02",
+      "collocation:e47bb1a30dd342791808",
       "collocation:dced3bbb36785fe594ae",
-      "collocation:e47bb1a30dd342791808"
+      "collocation:a0f971a7371924d13abc",
+      "collocation:34c244ab479a491b13dd",
+      "collocation:868cd5887492bc03068e"
     ],
     "facts": [],
     "collocations": [
@@ -802,6 +984,27 @@
         "id": "collocation:e47bb1a30dd342791808",
         "source_row": 19346,
         "source_path": "content/lexical/canonical/collocations/shards/o2529-2560.json"
+      },
+      {
+        "id": "collocation:a0f971a7371924d13abc",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2559.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:34c244ab479a491b13dd",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2559.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:868cd5887492bc03068e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2559.json",
+        "source_pointer": "/record/senses/7/collocations/0"
       }
     ],
     "exam-mappings": [],

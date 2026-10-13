@@ -9,11 +9,21 @@
     "constructions": [],
     "content_hash": "9ee99988273859cb12426d53e9ec91bcae5c61908f941d4e3ec2d63a22432f38",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "有教养、有风度的男子",
-      "core_meaning_en": "a man of refinement and good manners",
-      "mental_model_cn": "有教养、有风度的男子",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "绅士；有教养的男人；先生；男士（礼貌称呼或指称）",
+          "label_en": "a man whose behaviour is polite, considerate, and proper; a polite way to refer to or address a man",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:gentleman:e36c58ecd46d55ff",
+            "sense:gentleman:75727353f86d63df"
+          ]
+        }
+      ],
+      "core_meaning_cn": "有礼貌、有风度的男子；先生或男士的礼貌称呼",
+      "core_meaning_en": "a courteous man; a polite term for a man",
+      "mental_model_cn": "gentleman可评价男子的礼貌举止，也可只是礼貌称为先生或男士；ladies and gentlemen是常用称呼。",
+      "mental_model_en": "a courteous man; a polite term for a man."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -46,15 +56,37 @@
         ],
         "confidence": "medium",
         "definition_cn": "绅士；有教养的男人",
-        "definition_en": "a man who is polite, well-educated, and has high standards of behavior",
+        "definition_en": "a man whose behaviour is polite, considerate, and proper",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:gentleman:e36c58ecd46d55ff",
-        "sense_label_en": "a man who is polite, well-educated, and has high standards of behavior",
+        "sense_label_en": "a man whose behaviour is polite, considerate, and proper",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:gentleman:75727353f86d63df",
+        "pos": "noun",
+        "definition_cn": "先生；男士（礼貌称呼或指称）",
+        "definition_en": "a polite way to refer to or address a man",
+        "sense_label_en": "a polite way to refer to or address a man",
+        "governing_pattern": "a gentleman; ladies and gentlemen",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 1,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6316bf82fa566c1a568a",
+            "phrase": "ladies and gentlemen",
+            "meaning_cn": "女士们、先生们",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -84,6 +116,23 @@
           "applicability": [
             {
               "surface": "gentleman"
+            },
+            {
+              "surface": "gentleman",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:gentleman:75727353f86d63df"
+              ],
+              "owner_sense_ids": [
+                "sense:gentleman:75727353f86d63df"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2122.json",
+              "source_pointer": "/record/senses/1",
+              "conditions": {
+                "current_owner_usage": "a gentleman; ladies and gentlemen"
+              }
             }
           ],
           "sources": [
@@ -168,6 +217,14 @@
         "merged_into_sense_id": null,
         "source_row": 5915,
         "source_path": "content/lexical/canonical/senses/shards/o2113-2144.json"
+      },
+      {
+        "sense_id": "sense:gentleman:75727353f86d63df",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2122.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -185,6 +242,13 @@
         "id": "collocation:dd36318b580a440d82c3",
         "source_row": 18726,
         "source_path": "content/lexical/canonical/collocations/shards/o2113-2144.json"
+      },
+      {
+        "id": "collocation:6316bf82fa566c1a568a",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2122.json",
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

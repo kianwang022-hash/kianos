@@ -6,33 +6,80 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:c7668a0a7af38ae74846",
+        "pattern": "meet your match",
+        "meaning_cn": "遇到旗鼓相当或更厉害的对手",
+        "definition_en": "to encounter someone equally strong or more capable",
+        "usage_note": "通常用于先前很自信的人遇到强敌；不是首次约会。",
+        "boundary": "通常用于先前很自信的人遇到强敌；不是首次约会。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:match:9771530c450b5546"
+      },
+      {
+        "construction_id": "construction:8a628f3d95a3024adc31",
+        "pattern": "match up (to sb/sth)",
+        "meaning_cn": "达到同样水平或期望",
+        "definition_en": "to be as good as someone or meet an expectation",
+        "usage_note": "常用于否定语境；to后接比较标准，不是把两物配对。",
+        "boundary": "常用于否定语境；to后接比较标准，不是把两物配对。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:match:e76465e1b9f75e54"
+      },
+      {
+        "construction_id": "construction:e059d506d98489a9be9d",
+        "pattern": "match up (with sth)",
+        "meaning_cn": "一致；相符",
+        "definition_en": "to agree or be the same in relevant details",
+        "usage_note": "例如stories match up说叙述相符；with可以省略。",
+        "boundary": "例如stories match up说叙述相符；with可以省略。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:match:e76465e1b9f75e54"
+      },
+      {
+        "construction_id": "construction:2ccd3134d863925ead9a",
+        "pattern": "match sth up (with sth)",
+        "meaning_cn": "把有关或相配的东西配在一起",
+        "definition_en": "to find and pair items that belong together",
+        "usage_note": "可分离：match them up；如订单与发票配对。",
+        "boundary": "可分离：match them up；如订单与发票配对。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:match:e76465e1b9f75e54"
+      }
+    ],
     "content_hash": "095dd079b124a760b6bce3743ed041d04fb7c9373028388d5437f32c1479375c",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "比赛；火柴；匹敌者",
-          "label_en": "a sports contest, a matchstick, or an equal opponent",
+          "label_cn": "比赛；火柴；对手，匹敌者；相配的人或物；合适的配对；相同或非常相似的对应物",
+          "label_en": "a sports competition between two people or teams; a small stick that produces a flame when rubbed against a rough surface; a person or thing that is equal to another in some way; a person or thing that combines well with another; a thing that is identical or very similar to another",
           "pos": "noun",
           "sense_ids": [
             "sense:match:f78fecebf1f25422",
             "sense:match:08d50f3ef3565cce",
-            "sense:match:9771530c450b5546"
+            "sense:match:9771530c450b5546",
+            "sense:match:516a283aeecce698",
+            "sense:match:5a7bb396a27ec8ed"
           ]
         },
         {
-          "label_cn": "相配；相符；相当；合适",
-          "label_en": "equal, correspond, or be suitable/the same in relevant features",
+          "label_cn": "与……相配、相符、相当；在颜色/样式/类型等方面一致或合适",
+          "label_en": "to equal, correspond to, be the same as, or be suitable with something in quality, amount, colour, pattern, type, etc.",
           "pos": "verb",
           "sense_ids": [
             "sense:match:e76465e1b9f75e54"
           ]
         }
       ],
-      "core_meaning_cn": "比赛/火柴/匹敌者；相配、相符或相当",
-      "core_meaning_en": "a contest/matchstick/equal; to equal, correspond, or suit",
-      "mental_model_cn": "比赛/火柴/匹敌者；相配、相符或相当",
-      "mental_model_en": ""
+      "core_meaning_cn": "比赛、火柴、匹敌者、相配者或相同对应物；相符、相配、相当",
+      "core_meaning_en": "a contest, matchstick, equal, compatible partner or identical item; to correspond, suit or equal",
+      "mental_model_cn": "a match for sb可指实力相当；a good match for clothes可指颜色款式相配；an exact match说完全对应；match up to expectations与match items up的用途不同。",
+      "mental_model_en": "a contest, matchstick, equal, compatible partner or identical item; to correspond, suit or equal."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -140,7 +187,7 @@
         "confidence": "medium",
         "definition_cn": "与……相配、相符、相当；在颜色/样式/类型等方面一致或合适",
         "definition_en": "to equal, correspond to, be the same as, or be suitable with something in quality, amount, colour, pattern, type, etc.",
-        "governing_pattern": "vt./vi. + object / match with",
+        "governing_pattern": "match sth; things match; match A with/to B",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -195,7 +242,52 @@
         "sense_id": "sense:match:9771530c450b5546",
         "sense_label_en": "a person or thing that is equal to another in some way",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "be a match for sb表示实力相当；be no match for sb表示不是对手，不等于没有安排比赛。"
+      },
+      {
+        "sense_id": "sense:match:516a283aeecce698",
+        "pos": "noun",
+        "definition_cn": "相配的人或物；合适的配对",
+        "definition_en": "a person or thing that combines well with another",
+        "sense_label_en": "a person or thing that combines well with another",
+        "governing_pattern": "a good/perfect match for sb/sth; a match between A and B",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:34525aab9504b2a2cb1e",
+            "phrase": "a good match for the curtains",
+            "meaning_cn": "与窗帘相配的物品",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:match:5a7bb396a27ec8ed",
+        "pos": "noun",
+        "definition_cn": "相同或非常相似的对应物",
+        "definition_en": "a thing that is identical or very similar to another",
+        "sense_label_en": "a thing that is identical or very similar to another",
+        "governing_pattern": "an exact/close match for/of sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:501bf7c87c78635cdd93",
+            "phrase": "an exact match for the original",
+            "meaning_cn": "与原件完全相同的对应物",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -225,6 +317,40 @@
           "applicability": [
             {
               "surface": "match"
+            },
+            {
+              "surface": "match",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:match:516a283aeecce698"
+              ],
+              "owner_sense_ids": [
+                "sense:match:516a283aeecce698"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2977.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a good/perfect match for sb/sth; a match between A and B"
+            },
+            {
+              "surface": "match",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:match:5a7bb396a27ec8ed"
+              ],
+              "owner_sense_ids": [
+                "sense:match:5a7bb396a27ec8ed"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2977.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an exact/close match for/of sth"
             }
           ],
           "sources": [
@@ -808,15 +934,33 @@
         "merged_into_sense_id": null,
         "source_row": 8305,
         "source_path": "content/lexical/canonical/senses/shards/o2977-3008.json"
+      },
+      {
+        "sense_id": "sense:match:516a283aeecce698",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2977.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:match:5a7bb396a27ec8ed",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2977.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:0da74a247423cf26be81",
       "collocation:4cbf7e318fd8eaecf02c",
-      "collocation:816f825f2e054b2de39f",
+      "collocation:dc5a55a81ee6078a0a56",
       "collocation:a669ae0618400566e4ba",
+      "collocation:0da74a247423cf26be81",
       "collocation:c18137bad3d64bc24c35",
-      "collocation:dc5a55a81ee6078a0a56"
+      "collocation:816f825f2e054b2de39f",
+      "collocation:34525aab9504b2a2cb1e",
+      "collocation:501bf7c87c78635cdd93"
     ],
     "facts": [
       {
@@ -865,6 +1009,20 @@
         "id": "collocation:dc5a55a81ee6078a0a56",
         "source_row": 18646,
         "source_path": "content/lexical/canonical/collocations/shards/o2977-3008.json"
+      },
+      {
+        "id": "collocation:34525aab9504b2a2cb1e",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2977.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:501bf7c87c78635cdd93",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2977.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

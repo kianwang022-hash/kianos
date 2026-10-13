@@ -19,12 +19,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "自由主义的，开明的；慷慨的，大方的",
-          "label_en": "having political or social views favoring reform and progress; generous, abundant",
+          "label_cn": "自由主义的；主张个人自由权利或政治社会改革的；慷慨的，大方的；宽容的；尊重不同观点或生活方式的",
+          "label_en": "supporting individual freedom and rights or political and social reform, depending on the political context; generous, abundant; accepting other views or ways of living and allowing freedom of choice",
           "pos": "adjective",
           "sense_ids": [
             "sense:liberal:bf451a4ff1df57f8",
-            "sense:liberal:96d7a48bbd9f5477"
+            "sense:liberal:96d7a48bbd9f5477",
+            "sense:liberal:ba70578981f5b2ac"
           ]
         },
         {
@@ -36,10 +37,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "自由主义的；慷慨的",
-      "core_meaning_en": "favoring freedom and reform",
-      "mental_model_cn": "自由主义的；慷慨的",
-      "mental_model_en": ""
+      "core_meaning_cn": "自由主义的；宽容开明的；慷慨或大量的；自由主义者",
+      "core_meaning_en": "liberal in politics; tolerant; generous or abundant; a liberal person",
+      "mental_model_cn": "政治主张与对不同生活方式的宽容分开；liberal amounts 表示大量。",
+      "mental_model_en": "liberal in politics; tolerant; generous or abundant; a liberal person."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -62,16 +63,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "自由主义的，开明的",
-        "definition_en": "having political or social views favoring reform and progress",
+        "definition_cn": "自由主义的；主张个人自由权利或政治社会改革的",
+        "definition_en": "supporting individual freedom and rights or political and social reform, depending on the political context",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:liberal:bf451a4ff1df57f8",
-        "sense_label_en": "having political or social views favoring reform and progress",
+        "sense_label_en": "supporting individual freedom and rights or political and social reform, depending on the political context",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "政治用语的侧重随语境而变；liberal democracy 强调自由与个人权利，不要求每处都指某一政党。"
       },
       {
         "collocations": [
@@ -120,6 +122,28 @@
         "sense_label_en": "a person who favors political reform and civil liberties",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:liberal:ba70578981f5b2ac",
+        "pos": "adjective",
+        "definition_cn": "宽容的；尊重不同观点或生活方式的",
+        "definition_en": "accepting other views or ways of living and allowing freedom of choice",
+        "sense_label_en": "accepting other views or ways of living and allowing freedom of choice",
+        "governing_pattern": "liberal attitudes/views",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9947fd8229597eebb5ce",
+            "phrase": "liberal parents",
+            "meaning_cn": "思想开明、允许子女自由选择的父母",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -160,6 +184,23 @@
           "applicability": [
             {
               "surface": "liberal"
+            },
+            {
+              "surface": "liberal",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:liberal:ba70578981f5b2ac"
+              ],
+              "owner_sense_ids": [
+                "sense:liberal:ba70578981f5b2ac"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2815.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "liberal attitudes/views"
             }
           ],
           "sources": [
@@ -339,12 +380,21 @@
         "merged_into_sense_id": null,
         "source_row": 7813,
         "source_path": "content/lexical/canonical/senses/shards/o2785-2816.json"
+      },
+      {
+        "sense_id": "sense:liberal:ba70578981f5b2ac",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2815.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
+      "collocation:e71cd238a435971ea4b9",
       "collocation:3e547174f16b5a2c0023",
       "collocation:d0ba5c726aaf959487a4",
-      "collocation:e71cd238a435971ea4b9"
+      "collocation:9947fd8229597eebb5ce"
     ],
     "facts": [],
     "collocations": [
@@ -367,6 +417,13 @@
         "id": "collocation:eb09e983a0d345ea35bb",
         "source_row": 19913,
         "source_path": "content/lexical/canonical/collocations/shards/o2785-2816.json"
+      },
+      {
+        "id": "collocation:9947fd8229597eebb5ce",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2815.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

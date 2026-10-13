@@ -9,11 +9,23 @@
     "constructions": [],
     "content_hash": "830de72e2288334c41266f09b091053e695d94c450c992de787663d10247dce2",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "健康状态",
-      "core_meaning_en": "state of being free from disease or the general condition of body and mind",
-      "mental_model_cn": "健康状态",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "健康；无疾病的状态；身心状况；医疗服务事业；医疗卫生工作；（经济、组织或关系）运作良好的程度",
+          "label_en": "a healthy state of wellbeing free from disease; the general condition of body and mind; the provision of medical services; how well an economy, organization or relationship is functioning",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:health:bed105a9b7e7538c",
+            "sense:health:1ab2cf1634df554e",
+            "sense:health:f10e72f843422308",
+            "sense:health:e36809c739e549c9"
+          ]
+        }
+      ],
+      "core_meaning_cn": "身心健康或状况；医疗卫生事业；事物的运行状况",
+      "core_meaning_en": "personal health or condition; healthcare services; the state of an organization or system",
+      "mental_model_cn": "health可指身心状况，也可指医疗服务事业；the health of the economy关注运行状况，不是身体疾病。",
+      "mental_model_en": "personal health or condition; healthcare services; the state of an organization or system."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -88,6 +100,50 @@
         "sense_label_en": "the general condition of body and mind",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:health:f10e72f843422308",
+        "pos": "noun",
+        "definition_cn": "医疗服务事业；医疗卫生工作",
+        "definition_en": "the provision of medical services",
+        "sense_label_en": "the provision of medical services",
+        "governing_pattern": "spending on health; health workers",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1f134c6d60d16ae8e9b0",
+            "phrase": "spending on health",
+            "meaning_cn": "医疗卫生支出",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:health:e36809c739e549c9",
+        "pos": "noun",
+        "definition_cn": "（经济、组织或关系）运作良好的程度",
+        "definition_en": "how well an economy, organization or relationship is functioning",
+        "sense_label_en": "how well an economy, organization or relationship is functioning",
+        "governing_pattern": "the health of something",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0e7f0063c0487e1551ad",
+            "phrase": "the health of the economy",
+            "meaning_cn": "经济的运行状况",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -135,6 +191,40 @@
           "applicability": [
             {
               "surface": "health"
+            },
+            {
+              "surface": "health",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:health:f10e72f843422308"
+              ],
+              "owner_sense_ids": [
+                "sense:health:f10e72f843422308"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2289.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "spending on health; health workers"
+            },
+            {
+              "surface": "health",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:health:e36809c739e549c9"
+              ],
+              "owner_sense_ids": [
+                "sense:health:e36809c739e549c9"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2289.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "the health of something"
             }
           ],
           "sources": [
@@ -192,13 +282,31 @@
         "merged_into_sense_id": null,
         "source_row": 6390,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
+      },
+      {
+        "sense_id": "sense:health:f10e72f843422308",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2289.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:health:e36809c739e549c9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2289.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
       "collocation:533ee2e17bcf03632e84",
-      "collocation:7aeccb05a1ed89340fb0",
       "collocation:ce99061f4b363131132b",
-      "collocation:ee06379f035798c9a05f"
+      "collocation:7aeccb05a1ed89340fb0",
+      "collocation:ee06379f035798c9a05f",
+      "collocation:1f134c6d60d16ae8e9b0",
+      "collocation:0e7f0063c0487e1551ad"
     ],
     "facts": [],
     "collocations": [
@@ -221,6 +329,20 @@
         "id": "collocation:ee06379f035798c9a05f",
         "source_row": 20173,
         "source_path": "content/lexical/canonical/collocations/shards/o2273-2304.json"
+      },
+      {
+        "id": "collocation:1f134c6d60d16ae8e9b0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2289.json",
+        "source_pointer": "/record/senses/2/collocations/0"
+      },
+      {
+        "id": "collocation:0e7f0063c0487e1551ad",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2289.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

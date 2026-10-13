@@ -6,13 +6,34 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:0b689467bd837c7233af",
+        "pattern": "frosted glass",
+        "meaning_cn": "磨砂玻璃（经处理而半透明，不是表面结冰）",
+        "definition_en": "glass treated to have a rough, translucent surface",
+        "level": "L2",
+        "direction": "R",
+        "semantic_attachment": "construction_only",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:dd4d87d2d02001c99313",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:frost:466452af8ded5d0f:collocation:1"
+            ],
+            "meaning_cn": "磨砂玻璃",
+            "phrase": "frosted glass"
+          }
+        ]
+      }
+    ],
     "content_hash": "34d348ee6af899e650855acd8b26c4a052ffae67f1e46395b61010c315e7dfd1",
     "core_concept": {
       "core_clusters": [
         {
           "label_cn": "霜；霜冻；结霜；冰冻",
-          "label_en": "frost/ice crystals and the formation of frost",
+          "label_en": "ice crystals forming a white deposit on surfaces; the formation of frost or ice on a surface",
           "pos": "noun",
           "sense_ids": [
             "sense:frost:dcca2170ac16592c",
@@ -20,18 +41,19 @@
           ]
         },
         {
-          "label_cn": "给…覆上霜；给蛋糕撒糖霜",
-          "label_en": "to cover with frost or icing",
+          "label_cn": "给…覆上霜；给（蛋糕）涂糖霜；结霜；受冻",
+          "label_en": "to cover with frost or icing; to become covered with frost",
           "pos": "verb",
           "sense_ids": [
-            "sense:frost:466452af8ded5d0f"
+            "sense:frost:466452af8ded5d0f",
+            "sense:frost:d31a76ffcc4a5371"
           ]
         }
       ],
-      "core_meaning_cn": "霜；霜冻",
-      "core_meaning_en": "ice crystals forming a white deposit on surfaces",
-      "mental_model_cn": "霜；霜冻",
-      "mental_model_en": ""
+      "core_meaning_cn": "霜、霜冻或结霜；覆霜、涂糖霜或结霜",
+      "core_meaning_en": "frost or its formation; cover with frost or icing; become frosted",
+      "mental_model_cn": "frost作名词为霜或结霜现象；frost a cake为涂糖霜，窗面frost over为结霜。frosted glass指经过处理而半透明的毛玻璃。",
+      "mental_model_en": "frost or its formation; cover with frost or icing; become frosted."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -115,21 +137,12 @@
             "legacy_source_object_ids": [
               "sense:frost:466452af8ded5d0f:collocation:0"
             ],
-            "meaning_cn": "给蛋糕撒糖霜",
+            "meaning_cn": "给蛋糕涂糖霜",
             "phrase": "frost a cake"
-          },
-          {
-            "collocation_id": "collocation:dd4d87d2d02001c99313",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:frost:466452af8ded5d0f:collocation:1"
-            ],
-            "meaning_cn": "磨砂玻璃",
-            "phrase": "frosted glass"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "给…覆上霜；给（蛋糕）撒糖霜",
+        "definition_cn": "给…覆上霜；给（蛋糕）涂糖霜",
         "definition_en": "to cover with frost or icing",
         "governing_pattern": "vt. + object",
         "level": "L2",
@@ -430,7 +443,6 @@
       "collocation:4e3e5dd5fc431ddaff1d",
       "collocation:7b848caa84ba35718795",
       "collocation:d3f801c963ba9bd70cc5",
-      "collocation:dd4d87d2d02001c99313",
       "collocation:e9e9f55d1da0f10c96b1"
     ],
     "facts": [],
@@ -468,7 +480,9 @@
       {
         "id": "collocation:dd4d87d2d02001c99313",
         "source_row": 18730,
-        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2049-2080.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:e9e9f55d1da0f10c96b1",

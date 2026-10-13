@@ -9,11 +9,22 @@
     "constructions": [],
     "content_hash": "aa43efb50a9c9c2095427feb9636faf35fedc36d91063b0efc6c341df623d6f7",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "新奇性",
-      "core_meaning_en": "the quality of being new and original",
-      "mental_model_cn": "新奇性",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "新鲜感、新鲜事物与小玩意",
+          "label_en": "newness, unfamiliar experiences and small novelty objects",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:novelty:f937cfd6e7515acc",
+            "sense:novelty:9a347a89ab13565b",
+            "sense:novelty:24484608def7afd3"
+          ]
+        }
+      ],
+      "core_meaning_cn": "新鲜感；新鲜事物或小玩意",
+      "core_meaning_en": "newness; an unfamiliar experience or a small novelty object",
+      "mental_model_cn": "the novelty wears off是新鲜感消退；an experience is a novelty说此前不常见的体验，不一定是小玩具，也不必证明它原创。",
+      "mental_model_en": "newness; an unfamiliar experience or a small novelty object."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -45,14 +56,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "新奇，新颖",
-        "definition_en": "the quality of being new, original, and unusual",
+        "definition_cn": "新奇，新颖；新鲜感",
+        "definition_en": "the quality of being new or unfamiliar and therefore interesting",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:novelty:f937cfd6e7515acc",
-        "sense_label_en": "the quality of being new, original, and unusual",
+        "sense_label_en": "the quality of being new or unfamiliar and therefore interesting",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -79,6 +90,28 @@
         "sense_label_en": "a small and unusual thing, often mass-produced as a toy or decoration",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:novelty:24484608def7afd3",
+        "pos": "noun",
+        "definition_cn": "新鲜事物、人物或经历",
+        "definition_en": "a thing, person or experience that attracts interest through being unfamiliar",
+        "sense_label_en": "a thing, person or experience that attracts interest through being unfamiliar",
+        "governing_pattern": "a novelty; be something of a novelty",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0ae693d97b888c977577",
+            "phrase": "Working from home was a novelty for me.",
+            "meaning_cn": "居家办公对我来说是新鲜体验。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -119,6 +152,24 @@
           "applicability": [
             {
               "surface": "novelty"
+            },
+            {
+              "surface": "novelty",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:novelty:24484608def7afd3"
+              ],
+              "owner_sense_ids": [
+                "sense:novelty:24484608def7afd3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3268.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a novelty; be something of a novelty",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -204,6 +255,24 @@
           "applicability": [
             {
               "surface": "novelty"
+            },
+            {
+              "surface": "novelty",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:novelty:24484608def7afd3"
+              ],
+              "owner_sense_ids": [
+                "sense:novelty:24484608def7afd3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3268.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a novelty; be something of a novelty",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -291,12 +360,21 @@
         "merged_into_sense_id": null,
         "source_row": 9078,
         "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
+      },
+      {
+        "sense_id": "sense:novelty:24484608def7afd3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3268.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
       "collocation:5c6e45c81670e002b409",
       "collocation:b9b10bb0d96695b86d2e",
-      "collocation:c3a3476b63a668566597"
+      "collocation:c3a3476b63a668566597",
+      "collocation:0ae693d97b888c977577"
     ],
     "facts": [],
     "collocations": [
@@ -314,6 +392,13 @@
         "id": "collocation:c3a3476b63a668566597",
         "source_row": 16560,
         "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:0ae693d97b888c977577",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3268.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

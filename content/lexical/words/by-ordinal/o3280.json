@@ -19,20 +19,22 @@
           ]
         },
         {
-          "label_cn": "护理，看护；小心处理，精心照料；哺乳，喂奶",
-          "label_en": "to care for someone who is sick or injured; to treat or handle something carefully; to feed a baby from the breast",
+          "label_cn": "护理与悉心照料；长期怀有感情；哺乳/吃奶；慢慢喝饮料",
+          "label_en": "care carefully, harbour feelings, breastfeed or sip a drink",
           "pos": "verb",
           "sense_ids": [
             "sense:nurse:7176181044525a49",
             "sense:nurse:c61b7093386b51e9",
-            "sense:nurse:26845096841e5a5f"
+            "sense:nurse:26845096841e5a5f",
+            "sense:nurse:3443f5ec5811d68b",
+            "sense:nurse:4df538f93ed5bde3"
           ]
         }
       ],
-      "core_meaning_cn": "照顾某人或某物",
-      "core_meaning_en": "to care for someone or something",
-      "mental_model_cn": "照顾某人或某物",
-      "mental_model_en": ""
+      "core_meaning_cn": "护士；护理或悉心照料；怀有感情；哺乳或慢慢喝",
+      "core_meaning_en": "a nurse; careful care, persistent feelings, breastfeeding or slow drinking",
+      "mental_model_cn": "照料病人、伤病或易出问题的事物可用nurse；nurse a grudge长期怀恨，nurse a baby哺乳，the baby nurses吃奶；nurse a coffee是慢慢喝，按宾语判断。",
+      "mental_model_en": "a nurse; careful care, persistent feelings, breastfeeding or slow drinking."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -85,17 +87,23 @@
             ],
             "meaning_cn": "护理病人",
             "phrase": "nurse a patient"
+          },
+          {
+            "collocation_id": "collocation:8c881d061081d55e451b",
+            "phrase": "nurse a shoulder injury",
+            "meaning_cn": "养护、调养肩伤",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "护理，看护",
-        "definition_en": "to care for someone who is sick or injured",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "护理病人；照料、调养伤病",
+        "definition_en": "care for a sick or injured person, or tend an injury or illness",
+        "governing_pattern": "nurse sb (back to health); nurse an injury/illness",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:nurse:7176181044525a49",
-        "sense_label_en": "to care for someone who is sick or injured",
+        "sense_label_en": "care for a sick or injured person, or tend an injury or illness",
         "sort_order": 1,
         "transitivity": "vt"
       },
@@ -119,7 +127,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:nurse:c61b7093386b51e9",
-        "sense_label_en": "to treat or handle something carefully",
+        "sense_label_en": "to keep, cherish, or continue to hold a feeling, hope, resentment, or idea for a long time",
         "sort_order": 2,
         "transitivity": "vt"
       },
@@ -164,6 +172,50 @@
         "sense_label_en": "to breastfeed a baby; or, of a baby, to drink breast milk",
         "sort_order": 3,
         "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:nurse:3443f5ec5811d68b",
+        "pos": "verb",
+        "definition_cn": "悉心照料；小心维持或操作",
+        "definition_en": "give something careful attention to protect it or keep it working",
+        "sense_label_en": "give something careful attention to protect it or keep it working",
+        "governing_pattern": "nurse sth; nurse sth + direction",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:09bff886d3cfae43a9f0",
+            "phrase": "nurse an old car up the hill",
+            "meaning_cn": "小心驾驶旧车上坡",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:nurse:4df538f93ed5bde3",
+        "pos": "verb",
+        "definition_cn": "拿着一杯饮料慢慢喝",
+        "definition_en": "keep a drink for a long time while sipping it slowly",
+        "sense_label_en": "keep a drink for a long time while sipping it slowly",
+        "governing_pattern": "nurse a drink",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9c409efc1dc584f06537",
+            "phrase": "nurse a cup of coffee",
+            "meaning_cn": "端着一杯咖啡慢慢喝",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -205,6 +257,42 @@
           "applicability": [
             {
               "surface": "nurse"
+            },
+            {
+              "surface": "nurse",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nurse:3443f5ec5811d68b"
+              ],
+              "owner_sense_ids": [
+                "sense:nurse:3443f5ec5811d68b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3280.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nurse sth; nurse sth + direction",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "nurse",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nurse:4df538f93ed5bde3"
+              ],
+              "owner_sense_ids": [
+                "sense:nurse:4df538f93ed5bde3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3280.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nurse a drink",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -322,6 +410,42 @@
           "applicability": [
             {
               "surface": "nurse"
+            },
+            {
+              "surface": "nurse",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nurse:3443f5ec5811d68b"
+              ],
+              "owner_sense_ids": [
+                "sense:nurse:3443f5ec5811d68b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3280.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nurse sth; nurse sth + direction",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "nurse",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:nurse:4df538f93ed5bde3"
+              ],
+              "owner_sense_ids": [
+                "sense:nurse:4df538f93ed5bde3"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3280.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "nurse a drink",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -454,16 +578,35 @@
         "merged_into_sense_id": null,
         "source_row": 9109,
         "source_path": "content/lexical/canonical/senses/shards/o3265-3296.json"
+      },
+      {
+        "sense_id": "sense:nurse:3443f5ec5811d68b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3280.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:nurse:4df538f93ed5bde3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3280.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
-      "collocation:1b773cdaea6e7b3f46f6",
+      "collocation:be07afb3defe7f46660b",
       "collocation:273020947a99ff8591c0",
       "collocation:377567a867d09ee986ce",
+      "collocation:8c881d061081d55e451b",
       "collocation:7015c9567c271d2e7da5",
-      "collocation:be07afb3defe7f46660b",
       "collocation:ce422687eb0cd8a1f933",
-      "collocation:fb623906296c99200926"
+      "collocation:1b773cdaea6e7b3f46f6",
+      "collocation:fb623906296c99200926",
+      "collocation:09bff886d3cfae43a9f0",
+      "collocation:9c409efc1dc584f06537"
     ],
     "facts": [],
     "collocations": [
@@ -506,6 +649,27 @@
         "id": "collocation:fb623906296c99200926",
         "source_row": 20932,
         "source_path": "content/lexical/canonical/collocations/shards/o3265-3296.json"
+      },
+      {
+        "id": "collocation:8c881d061081d55e451b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3280.json",
+        "source_pointer": "/record/senses/1/collocations/2"
+      },
+      {
+        "id": "collocation:09bff886d3cfae43a9f0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3280.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:9c409efc1dc584f06537",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3280.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -5,7 +5,7 @@
     "ordinal": 3585,
     "word": "physical",
     "source_owner_path": "content/lexical/words/by-ordinal/o3585.json",
-    "source_fingerprint": "3621a351e32569e6c576d373ccd616a8087891c65fd5688e66ef636c91429897",
+    "source_fingerprint": "3eff3048e602055d4e659da7cb17e2181b4d80fc61864129da74c79f7fe6c485",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -107,7 +107,7 @@
             "id": "collocation:7df0ae4233ea616af789",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "physical science",
-            "meaning_cn": "自然科学（尤指物理）",
+            "meaning_cn": "研究非生命物质和自然力的自然科学（如物理学、化学）",
             "kind": "usage_example",
             "repair": null
           },
@@ -811,7 +811,7 @@
     "ordinal": 3591,
     "word": "pick",
     "source_owner_path": "content/lexical/words/by-ordinal/o3591.json",
-    "source_fingerprint": "3fa2ddc45782ab3506600cc6b3361c8485a3dc5630b86e2243953406522122d8",
+    "source_fingerprint": "c0cb42e20773cbd91b72dce59cd5ca6d8a683055aa98a6db3e3fd46738aea798",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -981,7 +981,7 @@
         "governing_pattern": "",
         "definition_cn": "镐，鹤嘴锄",
         "definition_en": "a heavy tool with a curved head used for breaking ground",
-        "note": "",
+        "note": "此名词pick可指镐；pickaxe也是这类工具的名称，是完整单词，不能按“pick + axe”的搭配模板拆用。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1153,11 +1153,11 @@
     "ordinal": 3592,
     "word": "pickup",
     "source_owner_path": "content/lexical/words/by-ordinal/o3592.json",
-    "source_fingerprint": "97009203fa0df5d58dcf16ee02bbdf0ea95e12c2a4269bc62a59998fb39b86d9",
+    "source_fingerprint": "8222fa7a8e6a3ad0f9cb8a549baf7bfd66c4a77dbdab843ffea70059425e9a89",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
@@ -1262,7 +1262,7 @@
         "governing_pattern": "",
         "definition_cn": "接取；拾取；收集；拾音/接收装置",
         "definition_en": "the act of collecting or picking someone or something up; also a device that picks up sound or signals",
-        "note": "",
+        "note": "airport/school pickup指接送人或取物的行为；guitar pickup指吉他拾音器，器件与接取行为要看前面的语境词。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1298,6 +1298,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "接取；拾取；收集；拾音/接收装置"
         }
+      },
+      {
+        "id": "sense:pickup:93b423d4116d6e52",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "a pickup in sth",
+        "definition_cn": "改善；好转；回升",
+        "definition_en": "an improvement or increase in activity or conditions",
+        "note": "a pickup in demand/sales/the economy表示回升或好转，不能按接送行为或皮卡车理解。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:pickup:060a862faf18ded8",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a pickup in demand",
+            "meaning_cn": "需求回升",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pickup:93b423d4116d6e52",
+          "target_locator": "record.senses[4]",
+          "target_label": "改善；好转；回升"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1332,7 +1358,7 @@
     "ordinal": 3593,
     "word": "picnic",
     "source_owner_path": "content/lexical/words/by-ordinal/o3593.json",
-    "source_fingerprint": "a92fb7e7f2855cd6d3e96be63203b49650355ae664228c2bb17847e151c4e228",
+    "source_fingerprint": "ad2bc528e8cf383ba9fe2d3bb32931997e18565a9a1c67b2d9764e1d2aa71b67",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1436,7 +1462,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:picnic:0e3a133c4f93a62c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be no picnic",
+        "lines": [
+          {
+            "text": "很不容易；是件苦差事",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式否定习语，用于工作、处境等时不是真的取消野餐。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be difficult or troublesome",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:picnic:0e3a133c4f93a62c",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be no picnic"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1450,12 +1502,12 @@
     "ordinal": 3594,
     "word": "picture",
     "source_owner_path": "content/lexical/words/by-ordinal/o3594.json",
-    "source_fingerprint": "d80b403790912f1d8cc3e5661de913e64622e80bd783f383bd418d9c586718c8",
+    "source_fingerprint": "cd9e407ddff817095687ac10412a55c63a1ae2509579e96d1063841299bd390c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -1519,8 +1571,13 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "get the picture",
             "meaning_cn": "明白，了解情况",
-            "kind": "usage_example",
-            "repair": null
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:0064d36e6eb5342971c9",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "get the picture"
+            }
           }
         ],
         "repair": {
@@ -1624,6 +1681,32 @@
           "target_locator": "record.senses[4]",
           "target_label": "整体情况；局面"
         }
+      },
+      {
+        "id": "sense:picture:637b621494ace96e",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "电影；影片",
+        "definition_en": "a film or motion picture",
+        "note": "Best Picture等电影奖项语境中指影片；不是最佳照片。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:picture:c5fcd0cf3118e4c8",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a prize-winning picture",
+            "meaning_cn": "一部获奖影片",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:picture:637b621494ace96e",
+          "target_locator": "record.senses[5]",
+          "target_label": "电影；影片"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1647,23 +1730,6 @@
     },
     "secondary_senses": [],
     "constructions": [
-      {
-        "id": "construction:70bac4ba2eaa7b4e1a81",
-        "source_locator": "record.constructions[0]",
-        "pattern": "get the picture",
-        "lines": [
-          {
-            "text": "明白整体情况；弄清状况",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:70bac4ba2eaa7b4e1a81",
-          "target_locator": "record.constructions[0]",
-          "target_label": "get the picture"
-        }
-      },
       {
         "id": "construction:6ba5f4239f613d8b07d4",
         "source_locator": "record.constructions[1]",
@@ -1703,7 +1769,7 @@
     "ordinal": 3595,
     "word": "pie",
     "source_owner_path": "content/lexical/words/by-ordinal/o3595.json",
-    "source_fingerprint": "4594014ac037fa97368a4ef5cee3e2a91f47ed29b5f6bd39f5e8cd7e6487d664",
+    "source_fingerprint": "8a24c831266f6fac29fe0327ebbcd4fa0557b87dbd1c28e42243e7247dc01b14",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1728,7 +1794,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "馅饼",
-        "definition_en": "a baked dish of meat, fruit, etc., with pastry on the bottom and sides",
+        "definition_en": "a baked dish of meat, fruit or other filling with a pastry base, topping, or both",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1789,7 +1855,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:pie:a647a506e5813bba",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a piece/slice/share of the pie",
+        "lines": [
+          {
+            "text": "可分配利益或钱财中的一份",
+            "lang": "cn"
+          },
+          {
+            "text": "利益、市场、利润语境中的pie是可分配总量，不是食物。",
+            "lang": "cn"
+          },
+          {
+            "text": "a portion of money or benefits available to be shared",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pie:a647a506e5813bba",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a piece/slice/share of the pie"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1803,7 +1895,7 @@
     "ordinal": 3596,
     "word": "piece",
     "source_owner_path": "content/lexical/words/by-ordinal/o3596.json",
-    "source_fingerprint": "41014dcd47f1afa5a0412bc175e6270d29ba9edcfc1a34161a6fdb848a14dc79",
+    "source_fingerprint": "b91d72323632f76c9557530637e8c102698350690b946c6287f8d8a678801a3f",
     "sense_lineage": [
       {
         "word_id": "word:piece",
@@ -1838,7 +1930,7 @@
         "governing_pattern": "",
         "definition_cn": "块；片；部分；碎片",
         "definition_en": "a separate part or portion of a whole",
-        "note": "",
+        "note": "a piece of furniture表示一件完整家具，不是从家具上割下一块；piece也可给不可数类别计量。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1903,10 +1995,10 @@
         "id": "sense:piece:bc5310cf965c5549",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "vi.; dialectal piece (on sth)",
         "definition_cn": "吃零食",
         "definition_en": "to eat snacks or small amounts of food",
-        "note": "",
+        "note": "“吃零食”是非正式、方言用法，尤其见于美国中北部；保留理解价值，不把它当作通用正式写作的常规动词。on短语可选。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2016,7 +2108,7 @@
     "ordinal": 3597,
     "word": "pierce",
     "source_owner_path": "content/lexical/words/by-ordinal/o3597.json",
-    "source_fingerprint": "e82a017bc99f1f7793600c925071e9b0d7ba747065dec39c55b4029353c887c1",
+    "source_fingerprint": "2c7598a58fa7d80ebdef950ef54096d865481558cc0fc96207b81618a7359e05",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2039,7 +2131,7 @@
         "id": "sense:pierce:5ce79596903b5658",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: pierce sth; pierce through sth",
         "definition_cn": "刺穿，穿透",
         "definition_en": "to make a hole in or through something with a sharp object",
         "note": "",
@@ -2109,10 +2201,10 @@
         "id": "sense:pierce:49ee092e2d775778",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + through/into",
+        "governing_pattern": "I/T: pierce the silence/mist; pierce through/into sth",
         "definition_cn": "（声音）响彻；（亮光）照进",
         "definition_en": "to pass through or into something, as sound or light",
-        "note": "",
+        "note": "光或声音可直接接silence/mist等宾语，突出穿透阻隔而被看见或听见；不是本义都必须带through/into。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2353,7 +2445,7 @@
     "ordinal": 3599,
     "word": "pigeon",
     "source_owner_path": "content/lexical/words/by-ordinal/o3599.json",
-    "source_fingerprint": "c26ca320f44393ca6d861789dcd55242b9f49817f93dcf61b532bdc128f15db7",
+    "source_fingerprint": "4e0572b1a372059ccf1b41649ab310f7a86e68d815ac24bcdd9c20de7918862e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2362,13 +2454,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "一种身体笨重、腿短的鸟，常用于传递信息",
+      "summary_cn": "鸽子，一种身体圆实、腿短的鸟",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "一种身体笨重、腿短的鸟，常用于传递信息"
+        "target_label": "鸽子，一种身体圆实、腿短的鸟"
       }
     },
     "senses": [
@@ -2379,7 +2471,7 @@
         "governing_pattern": "",
         "definition_cn": "鸽子",
         "definition_en": "a bird of the dove family, often domesticated",
-        "note": "",
+        "note": "pigeonhole是包含pigeon的复合词，所示文件分类小格不等于鸽笼或整座分类架。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2393,15 +2485,10 @@
           {
             "id": "collocation:e960635618c16dab5c4b",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "pigeon hole",
-            "meaning_cn": "鸽笼式分类架",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e960635618c16dab5c4b",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "pigeon hole"
-            }
+            "phrase": "pigeonhole",
+            "meaning_cn": "（信件、文件等的）分类小格",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -2487,11 +2574,11 @@
     "ordinal": 3600,
     "word": "pile",
     "source_owner_path": "content/lexical/words/by-ordinal/o3600.json",
-    "source_fingerprint": "7e38e94648f4f7b11847655558f495eccf2bcc66710e5574f529ad0792537b78",
+    "source_fingerprint": "18b757ee4cd1968db90bdfc9bf52ae9be2939a420b90a54e8d3bec7fa55d9285",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "2V",
         "4N"
       ],
       "density": "rich"
@@ -2514,7 +2601,7 @@
         "governing_pattern": "",
         "definition_cn": "堆；摞",
         "definition_en": "a collection of objects placed on top of each other",
-        "note": "",
+        "note": "a pile of sth是名词短语，表示堆、摞；pile up作动词表示事物不断积聚。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2533,15 +2620,10 @@
           {
             "id": "collocation:0399e3504997e27d6cee",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "pile up",
-            "meaning_cn": "堆积；积累",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0399e3504997e27d6cee",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "pile up"
-            }
+            "phrase": "a pile of books",
+            "meaning_cn": "一摞书",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -2743,22 +2825,7 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:pile:315681c8842de557",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "堆积；积聚",
-        "definition_en": "to increase in quantity",
-        "pattern": "pile up 堆积；积累",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:pile:315681c8842de557",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "堆积；积聚"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -2975,7 +3042,7 @@
     "ordinal": 3602,
     "word": "pill",
     "source_owner_path": "content/lexical/words/by-ordinal/o3602.json",
-    "source_fingerprint": "066e421e3909f045191a09797075bf76cd451a9b9b18ba5bcdcc3f42d3807288",
+    "source_fingerprint": "2ec5774162ca9701ef6fa8dc5b803d3bde229ee82b6510811f752e89d740f2e9",
     "sense_lineage": [
       {
         "word_id": "word:pill",
@@ -3096,7 +3163,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:pill:a0eae56c6b76e900",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be/go on the pill",
+        "lines": [
+          {
+            "text": "服用／开始服用口服避孕药",
+            "lang": "cn"
+          },
+          {
+            "text": "the pill在此特指口服避孕药；不是泛指正在吃任意一种药。",
+            "lang": "cn"
+          },
+          {
+            "text": "to use or start using an oral contraceptive",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pill:a0eae56c6b76e900",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be/go on the pill"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3282,7 +3375,7 @@
     "ordinal": 3604,
     "word": "pillow",
     "source_owner_path": "content/lexical/words/by-ordinal/o3604.json",
-    "source_fingerprint": "00f21229620939a3fb1463e2ce09373bc06643bd71453fead2314d9da208d8ff",
+    "source_fingerprint": "eea42003cf80a49bdacd18435731f11d6f20b8bd7119674007f1d3f4f977f623",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3309,7 +3402,7 @@
         "governing_pattern": "",
         "definition_cn": "枕头",
         "definition_en": "a cushion to support the head of a sleeping person",
-        "note": "",
+        "note": "pillowcase是表示枕套的完整复合词，不是pillow + 任意名词的自由搭配模板。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3323,15 +3416,10 @@
           {
             "id": "collocation:9e2739a21a3c8f56d6da",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "pillow case",
+            "phrase": "pillowcase",
             "meaning_cn": "枕套",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9e2739a21a3c8f56d6da",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "pillow case"
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -3438,13 +3526,13 @@
     "ordinal": 3605,
     "word": "pilot",
     "source_owner_path": "content/lexical/words/by-ordinal/o3605.json",
-    "source_fingerprint": "328ff6bca76ffa4e9a25700edf3b5bf972b6e14999df4439212f581c0b935ab3",
+    "source_fingerprint": "0005ab64d5160d278f9bb34cf83fae62dd55f00b540100a4fdac832139cb8d98",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
         "1A",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -3619,6 +3707,32 @@
           "target_locator": "record.senses[5]",
           "target_label": "试用；试验"
         }
+      },
+      {
+        "id": "sense:pilot:1486aa766f208a42",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（电视节目的）试播集",
+        "definition_en": "a television episode made to test interest in a possible series",
+        "note": "影视制作语境中的a pilot可指试播集，不能按飞行员或已正式播出的整季节目理解。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:pilot:9ff09edf617d23ce",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "They filmed a pilot for a new comedy series.",
+            "meaning_cn": "他们为一部新喜剧拍了试播集。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pilot:1486aa766f208a42",
+          "target_locator": "record.senses[6]",
+          "target_label": "（电视节目的）试播集"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3653,7 +3767,7 @@
     "ordinal": 3606,
     "word": "pin",
     "source_owner_path": "content/lexical/words/by-ordinal/o3606.json",
-    "source_fingerprint": "8a3b805c9115a776d0a989961c19e8749de0eb84688e4af8850eaa8879e0ff19",
+    "source_fingerprint": "9740dd8ea3e54f0d16c6e78605802bc84a7db2a0a6c75ff35adc70dda3698a34",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3699,7 +3813,7 @@
           {
             "id": "collocation:b580df1d09e14f76fdd8",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "hair pin",
+            "phrase": "hairpin",
             "meaning_cn": "发夹",
             "kind": "usage_example",
             "repair": null
@@ -3827,6 +3941,56 @@
           "target_locator": "record.constructions[0]",
           "target_label": "pin blame/responsibility on sb/sth"
         }
+      },
+      {
+        "id": "construction:pin:d51a7e6aa4e7e6eb",
+        "source_locator": "record.constructions[1]",
+        "pattern": "pin (all) one's hopes on sb/sth",
+        "lines": [
+          {
+            "text": "把（全部）希望寄托在某人／某事上",
+            "lang": "cn"
+          },
+          {
+            "text": "hopes后的on指依靠对象；不是用别针固定物体，也不是归咎责任。",
+            "lang": "cn"
+          },
+          {
+            "text": "to depend strongly on someone or something for a hoped-for result",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pin:d51a7e6aa4e7e6eb",
+          "target_locator": "record.constructions[1]",
+          "target_label": "pin (all) one's hopes on sb/sth"
+        }
+      },
+      {
+        "id": "construction:pin:ca1e2c240f04d6aa",
+        "source_locator": "record.constructions[2]",
+        "pattern": "pin sth down; pin sb down (to sth/doing sth)",
+        "lines": [
+          {
+            "text": "准确确定某事；使某人明确表态或作出承诺",
+            "lang": "cn"
+          },
+          {
+            "text": "事物如cause/details作宾语时是准确确定；人作宾语并带to sth/doing sth时是要求明确决定。身体被压住的用法仍归原压住Sense。代词置于pin与down之间。",
+            "lang": "cn"
+          },
+          {
+            "text": "to establish something precisely, or make someone give a definite answer or commitment",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pin:ca1e2c240f04d6aa",
+          "target_locator": "record.constructions[2]",
+          "target_label": "pin sth down; pin sb down (to sth/doing sth)"
+        }
       }
     ],
     "reference": {
@@ -3842,7 +4006,7 @@
     "ordinal": 3607,
     "word": "pinch",
     "source_owner_path": "content/lexical/words/by-ordinal/o3607.json",
-    "source_fingerprint": "4d1d2e0bab927d3e7ed27a283dc72217b7e56a51773cd63540f7b8b14b5b2ee3",
+    "source_fingerprint": "46deff143f6487c9a5674b37da0132ccb269474bb691218b07bf3068d1e8910d",
     "sense_lineage": [
       {
         "word_id": "word:pinch",
@@ -3854,7 +4018,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "4V",
         "2N"
       ],
       "density": "rich"
@@ -3992,6 +4156,58 @@
           "target_id": "sense:pinch:58be636ca3965700",
           "target_locator": "record.senses[3]",
           "target_label": "少量；一撮（尤指粉末、盐等）"
+        }
+      },
+      {
+        "id": "sense:pinch:3033c9fdbbd4b09f",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "I/T: shoes pinch; pinch sb/sth",
+        "definition_cn": "（鞋等）太紧而夹痛",
+        "definition_en": "to hurt through being too tight",
+        "note": "主语为鞋、衣物等时，pinch指夹脚或勒痛，可不带宾语；不是鞋在用手指捏。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:pinch:b36de637e4346431",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "The new boots pinch my toes.",
+            "meaning_cn": "这双新靴子夹脚趾。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pinch:3033c9fdbbd4b09f",
+          "target_locator": "record.senses[4]",
+          "target_label": "（鞋等）太紧而夹痛"
+        }
+      },
+      {
+        "id": "sense:pinch:7f2a95fbf8307193",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "vt.: pinch sth (from sb/sth)",
+        "definition_cn": "偷走（尤指小物件）",
+        "definition_en": "to steal something, especially a small item",
+        "note": "英式非正式用法；pinch a pen等语境要区分偷走与用手捏。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:pinch:234fcb84f5042695",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "Someone pinched my umbrella.",
+            "meaning_cn": "有人顺走了我的伞。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pinch:7f2a95fbf8307193",
+          "target_locator": "record.senses[5]",
+          "target_label": "偷走（尤指小物件）"
         }
       }
     ],
@@ -4142,7 +4358,7 @@
     "ordinal": 3608,
     "word": "pine",
     "source_owner_path": "content/lexical/words/by-ordinal/o3608.json",
-    "source_fingerprint": "bf866ebe91c5b773dc50043e30c874818838a568af277ab04c34578ddbb21887",
+    "source_fingerprint": "12d06fe4bae354fda311cbcf3e156512b4c54817f04435e352d052787813a680",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4265,14 +4481,14 @@
         "governing_pattern": "vi. + away",
         "definition_cn": "消瘦；憔悴",
         "definition_en": "become weak or thin because of grief or illness",
-        "note": "",
+        "note": "pine away强调因思念、悲伤等日渐衰弱；具体语境可能涉及死亡，但短语本身不必然表示死亡。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ce0a3d550ce337c27586",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "pine away",
-            "meaning_cn": "憔悴而死；消瘦",
+            "meaning_cn": "（因思念、悲伤等）日渐消瘦、憔悴",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -4324,7 +4540,7 @@
     "ordinal": 3609,
     "word": "pink",
     "source_owner_path": "content/lexical/words/by-ordinal/o3609.json",
-    "source_fingerprint": "60c85a6d5c3839eb62e068b571908ea15f4fdb8fe7a80915cc7fedb0b6367101",
+    "source_fingerprint": "d05a34e6830ba9353a5ab96c6ff31b048207f99d36cf016f2114d3dfc300486c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4366,8 +4582,8 @@
           {
             "id": "collocation:041f33483b97ab4722f0",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "pink dress",
-            "meaning_cn": "粉红色的连衣裙",
+            "phrase": "a shade of pink",
+            "meaning_cn": "一种深浅的粉红色",
             "kind": "usage_example",
             "repair": null
           }
@@ -4505,7 +4721,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:pink:4d73c1f35973dbf1",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in the pink",
+        "lines": [
+          {
+            "text": "身体健康；气色很好",
+            "lang": "cn"
+          },
+          {
+            "text": "较旧式、非正式表达。in pink通常说穿粉色衣服；带the的in the pink是健康习语。",
+            "lang": "cn"
+          },
+          {
+            "text": "in very good health",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:pink:4d73c1f35973dbf1",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in the pink"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4796,7 +5038,7 @@
     "ordinal": 3612,
     "word": "pipe",
     "source_owner_path": "content/lexical/words/by-ordinal/o3612.json",
-    "source_fingerprint": "4594313bbb1b6d8fb67ae95cf354d541200f7af839a931e2f75c94e6243f663a",
+    "source_fingerprint": "a207d4710ebe1b8757196cd47a4901da600440b59e5d53fc51ea1a6d4acb6f25",
     "sense_lineage": [
       {
         "word_id": "word:pipe",
@@ -4999,12 +5241,12 @@
     "ordinal": 3613,
     "word": "pirate",
     "source_owner_path": "content/lexical/words/by-ordinal/o3613.json",
-    "source_fingerprint": "c4c88cd1cc150e35083ed01e36ce8e8f271e3b30ef14f20bef3c646305b378f9",
+    "source_fingerprint": "562ec29c963a5329feda63b530244b051141292de717cb861c89c6ae6dcc9e7d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -5059,7 +5301,7 @@
             "id": "collocation:25e95b244ffb9053305c",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "pirate software",
-            "meaning_cn": "盗版软件",
+            "meaning_cn": "非法复制软件",
             "kind": "usage_example",
             "repair": null
           }
@@ -5078,14 +5320,14 @@
         "governing_pattern": "",
         "definition_cn": "海盗船",
         "definition_en": "a ship that is manned by pirates",
-        "note": "",
+        "note": "本例按pirate的海盗船义理解；sank本身不足以排除指人的读法，仍需船只上下文。另有指人的海盗义，不能混为同一例示。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b79338cce0150254b246",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "the pirates attacked the merchant vessel",
-            "meaning_cn": "海盗袭击了商船",
+            "phrase": "The pirate sank in the storm.",
+            "meaning_cn": "那艘海盗船在风暴中沉没了。",
             "kind": "usage_example",
             "repair": null
           }
@@ -5121,6 +5363,32 @@
           "target_id": "sense:pirate:1645da9c4f39550b",
           "target_locator": "record.senses[3]",
           "target_label": "做海盗，从事劫掠"
+        }
+      },
+      {
+        "id": "sense:pirate:2fec5111fd277eb7",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "盗版者；非法复制他人作品的人",
+        "definition_en": "a person who unlawfully copies another person's work",
+        "note": "software/books语境下的pirates可以指盗版者，与海上抢劫者不同。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:pirate:698dc412e70350ce",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "publishers fighting software pirates",
+            "meaning_cn": "打击软件盗版者的出版商",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pirate:2fec5111fd277eb7",
+          "target_locator": "record.senses[4]",
+          "target_label": "盗版者；非法复制他人作品的人"
         }
       }
     ],
@@ -5303,7 +5571,7 @@
     "ordinal": 3615,
     "word": "pit",
     "source_owner_path": "content/lexical/words/by-ordinal/o3615.json",
-    "source_fingerprint": "e0c3cea3de0ba642d7f80afd6b533f9ce72a2c969ef8073c49f00201ad85c09e",
+    "source_fingerprint": "9589832aa1d708d603b532a68f4c9da6ebcbda8478b174ce92b1b3264377d308",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5431,10 +5699,10 @@
         "id": "sense:pit:502da4e5b4395045",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: pit A against B",
         "definition_cn": "使相斗；使竞争",
         "definition_en": "to set in opposition or competition",
-        "note": "",
+        "note": "使两方相互竞争或对抗；A、B可为人、队伍或力量，against标对抗另一方。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5566,7 +5834,7 @@
     "ordinal": 3616,
     "word": "pitch",
     "source_owner_path": "content/lexical/words/by-ordinal/o3616.json",
-    "source_fingerprint": "9f5a498d523b5c3ecc989678d51d4930e982fd8363350c0f6eedf1034f6158b9",
+    "source_fingerprint": "683b8f60de6d480803a081acc1008775751ea7654a1606f3051532493764d4dc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5694,7 +5962,7 @@
         "id": "sense:pitch:79891fd0adba5473",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: pitch sth; in baseball, pitch (a ball), pitch for/against a team",
         "definition_cn": "投，掷",
         "definition_en": "to throw or toss",
         "note": "",
@@ -5886,7 +6154,7 @@
     "ordinal": 3617,
     "word": "pity",
     "source_owner_path": "content/lexical/words/by-ordinal/o3617.json",
-    "source_fingerprint": "1126777d6b98fface147e3600ebf11fc1cc762bf775cf361b149754df989fa19",
+    "source_fingerprint": "f024451a06b36130db1559bcb4f0dce2371ebabcf2c9a04940e6d59f0e7aaa1e",
     "sense_lineage": [
       {
         "word_id": "word:pity",
@@ -6022,7 +6290,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "同情；怜悯",
         "definition_en": "to feel sympathy or compassion for someone's suffering or misfortune",
-        "note": "",
+        "note": "动词直接说pity sb；feel pity for sb中的pity是名词，不能据此把动词强制写成pity for sb。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6151,7 +6419,7 @@
     "ordinal": 3618,
     "word": "place",
     "source_owner_path": "content/lexical/words/by-ordinal/o3618.json",
-    "source_fingerprint": "9abcbde86d2579e7ab18aa53aaa812217d2118d3fa89c9edc41dd9bdc1d61efa",
+    "source_fingerprint": "66a3dadf6f0820c66fd76bfc646ab9be024244b5976561b99228c3c6c06ae751",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6287,23 +6555,23 @@
         "id": "sense:place:015bd3ca25c35518",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "认出，评定",
-        "definition_en": "to recognize or identify someone or something",
-        "note": "",
+        "governing_pattern": "vt.: place sb/sth; place sb/sth among ...; place sb/sth high/low ...",
+        "definition_cn": "认出，辨认；把…归入某一等级或位置",
+        "definition_en": "to identify someone or something, or assign a relative rank or category",
+        "note": "face/name/accent语境常指想起或辨认出处；among the best或high on a list等比较框架指排位评定，不是仅仅认出面孔。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b53a09fec47d3a98fa6b",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "place sb as + noun",
-            "meaning_cn": "把某人评定为...",
+            "phrase": "place sb/sth among the best",
+            "meaning_cn": "把某人／某物列入最优秀者之列",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:b53a09fec47d3a98fa6b",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "place sb as + noun"
+              "target_label": "place sb/sth among the best"
             }
           },
           {
@@ -6319,7 +6587,7 @@
           "target_kind": "sense",
           "target_id": "sense:place:015bd3ca25c35518",
           "target_locator": "record.senses[3]",
-          "target_label": "认出，评定"
+          "target_label": "认出，辨认；把…归入某一等级或位置"
         }
       },
       {
@@ -6422,7 +6690,7 @@
     "ordinal": 3619,
     "word": "plagiarism",
     "source_owner_path": "content/lexical/words/by-ordinal/o3619.json",
-    "source_fingerprint": "ac45309f0f3065771381a825644f0a4865075c20d34108aad17fab5ee471631c",
+    "source_fingerprint": "fec3cb9c2943ff9a89aa97ea4a12359e5a46d0ec212b4bb64a4e0ff068172924",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6709,11 +6977,11 @@
     "ordinal": 3621,
     "word": "plain",
     "source_owner_path": "content/lexical/words/by-ordinal/o3621.json",
-    "source_fingerprint": "24874199c6b6b9e4925943018366e0cf2f3d6770a653e4430bfd660c825289ea",
+    "source_fingerprint": "646a7b73f11569f55ed2cc070bee48903231d13a55eb2169cd118b5d30aa3c74",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4A",
+        "5A",
         "1N",
         "1ADV"
       ],
@@ -6885,6 +7153,32 @@
           "target_locator": "record.senses[5]",
           "target_label": "显然；简直"
         }
+      },
+      {
+        "id": "sense:plain:a0dd95862c4e3f84",
+        "source_locator": "record.senses[6]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（外貌）不漂亮的；相貌平平的",
+        "definition_en": "not physically attractive",
+        "note": "形容面孔或人时可评价外貌；不等于衣着简朴。直接这样评价别人可能不礼貌。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:plain:63daa3a5054f7996",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "a rather plain face",
+            "meaning_cn": "一张相貌平平的脸",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:plain:a0dd95862c4e3f84",
+          "target_locator": "record.senses[6]",
+          "target_label": "（外貌）不漂亮的；相貌平平的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7026,7 +7320,7 @@
     "ordinal": 3623,
     "word": "plan",
     "source_owner_path": "content/lexical/words/by-ordinal/o3623.json",
-    "source_fingerprint": "c1ef04cc0d889ee008f11f3718bf39aa91ef8e6b35c07b8b7bb868918a277fe1",
+    "source_fingerprint": "46117cb813f08a8cf92c74fc9f1890271157341c1bcaf512f6dec4d8f25e6860",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7067,14 +7361,14 @@
           {
             "id": "collocation:45ac228e14a2a5a6d9ba",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "plan for sth",
-            "meaning_cn": "为某事做计划",
+            "phrase": "a plan for sth",
+            "meaning_cn": "关于某事的计划",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:45ac228e14a2a5a6d9ba",
               "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "plan for sth"
+              "target_label": "a plan for sth"
             }
           }
         ],
@@ -7115,7 +7409,7 @@
         "id": "sense:plan:cd3431d0c48b51ef",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + to-infinitive / object",
+        "governing_pattern": "I/T: plan to do sth; plan on doing sth; plan sth",
         "definition_cn": "打算，意欲",
         "definition_en": "to have the intention to do something",
         "note": "",
@@ -7154,10 +7448,10 @@
         "id": "sense:plan:486aeaca9c2e51ef",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "I/T: plan; plan ahead; plan for sth; plan sth",
         "definition_cn": "订计划，规划",
         "definition_en": "to make plans for something",
-        "note": "",
+        "note": "for短语不是必需：plan ahead或单独plan都可用；直接安排一次活动也可用plan sth。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7985,12 +8279,12 @@
     "ordinal": 3628,
     "word": "plaster",
     "source_owner_path": "content/lexical/words/by-ordinal/o3628.json",
-    "source_fingerprint": "fa0dc68acdee79b22392e58ef6ab1c4f2a9b024dd161b67a0ec3ab1579b26d16",
+    "source_fingerprint": "8385df4bd97605089c99a58b47287e0f393a17fe3a161f39f74990f5c1b43298",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -8081,7 +8375,7 @@
         "governing_pattern": "",
         "definition_cn": "膏药，创可贴",
         "definition_en": "adhesive tape used in dressing wounds",
-        "note": "",
+        "note": "指保护小伤口的胶布／创可贴时主要为英式英语；不是所有plaster都指贴在皮肤上的膏药。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8151,6 +8445,32 @@
           "target_locator": "record.senses[5]",
           "target_label": "厚厚地涂抹，粘贴"
         }
+      },
+      {
+        "id": "sense:plaster:b3dd050cbdb4532f",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "石膏（用于制模或固定骨折等）",
+        "definition_en": "a material that sets hard and is used for moulds or casts",
+        "note": "in plaster是英式常见表达，指打着石膏；与小伤口上贴的plaster不同。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:plaster:6735cd67ff37f7a7",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "Her wrist was in plaster.",
+            "meaning_cn": "她的手腕打着石膏。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:plaster:b3dd050cbdb4532f",
+          "target_locator": "record.senses[6]",
+          "target_label": "石膏（用于制模或固定骨折等）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8200,7 +8520,7 @@
     "ordinal": 3629,
     "word": "plastic",
     "source_owner_path": "content/lexical/words/by-ordinal/o3629.json",
-    "source_fingerprint": "2c9130cd821590ea3ba8512c3af00660c71fa1ae82a408a6aa958dd425517c21",
+    "source_fingerprint": "7034137d1a39f465edf1509fc7c620fb27006a9e0649b38693b0a4bf24c20551",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8233,16 +8553,16 @@
           {
             "id": "collocation:5bdc1119f58f4421de24",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "plastic bag",
-            "meaning_cn": "塑料袋",
+            "phrase": "a bag made of plastic",
+            "meaning_cn": "一个用塑料制成的袋子",
             "kind": "usage_example",
             "repair": null
           },
           {
             "id": "collocation:c733e1ec204d9aab2422",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "plastic bottle",
-            "meaning_cn": "塑料瓶",
+            "phrase": "recycle the plastic in bottles",
+            "meaning_cn": "回收瓶子中的塑料",
             "kind": "usage_example",
             "repair": null
           }
@@ -8969,7 +9289,7 @@
     "ordinal": 3633,
     "word": "plausible",
     "source_owner_path": "content/lexical/words/by-ordinal/o3633.json",
-    "source_fingerprint": "c21860f95956f09dcd84724b6f2162593576ac4b8afe6d380fd245d5de576134",
+    "source_fingerprint": "a4bccd29105d6002420416c54878bb0ed1928e1d843e86223b2b3008f1deeda5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8995,7 +9315,7 @@
         "governing_pattern": "",
         "definition_cn": "貌似合理的，貌似真实的",
         "definition_en": "seeming reasonable or likely to be true",
-        "note": "",
+        "note": "解释或理论plausible表示说得通、可能为真，不等于已证明，也不自动断言虚假；形容人时可带贬意，表示说得像很诚实而可能在骗人。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9075,7 +9395,7 @@
     "ordinal": 3634,
     "word": "play",
     "source_owner_path": "content/lexical/words/by-ordinal/o3634.json",
-    "source_fingerprint": "adec6996cc1d32d3a9ed080be16d5f358e7a35a9b24abaf636f181fd8b177c30",
+    "source_fingerprint": "2bbaeba8f12140f7ff433775be941393d45a6de5845a77f8efed7e640309318f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9099,10 +9419,10 @@
         "id": "sense:play:94d7edcae82e56b2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "vi.: play; play with sb/sth",
         "definition_cn": "玩；玩耍",
         "definition_en": "to engage in an activity for enjoyment",
-        "note": "",
+        "note": "玩耍可单独说play，with只在说明同伴或玩具等时加入。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9146,7 +9466,7 @@
         "id": "sense:play:e6eb19b2c0135ee6",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: play; play a sport/game; play sb; play against/with sb; play for a team",
         "definition_cn": "参加（比赛）；打（球）",
         "definition_en": "to take part in a game or sport",
         "note": "",
@@ -9180,10 +9500,10 @@
         "id": "sense:play:272d424e44c15150",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: play; play an instrument/piece; play sth on an instrument",
         "definition_cn": "演奏",
         "definition_en": "to perform music on an instrument",
-        "note": "",
+        "note": "乐队或乐手可单独play；play a song既可能现场演奏，也可能播放录音，由人/乐器与播放器语境区分。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9283,9 +9603,9 @@
         "source_locator": "record.senses[5]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "游戏；比赛",
-        "definition_en": "the activity of playing a game",
-        "note": "",
+        "definition_cn": "游戏；比赛活动；比赛中的一个动作",
+        "definition_en": "the activity of playing a game, or a particular move within a game",
+        "note": "泛指游戏/比赛活动时play通常不可数；a play可指比赛中的一个动作，原a play in the game即属此用法。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9314,7 +9634,7 @@
           "target_kind": "sense",
           "target_id": "sense:play:2197b82de4585984",
           "target_locator": "record.senses[5]",
-          "target_label": "游戏；比赛"
+          "target_label": "游戏；比赛活动；比赛中的一个动作"
         }
       },
       {
@@ -9662,7 +9982,7 @@
     "ordinal": 3637,
     "word": "plead",
     "source_owner_path": "content/lexical/words/by-ordinal/o3637.json",
-    "source_fingerprint": "e4b907559d19cda50113aa4fb748587138dd6a50e216fe9e3573704d9b4703e7",
+    "source_fingerprint": "c82965fce1473056978faf9c42bacd6ed84c53ac033f6add082e2ecaaad128cb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9685,7 +10005,7 @@
         "id": "sense:plead:9e9ba3a786835e94",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + for/with",
+        "governing_pattern": "plead; plead with sb for sth; plead with sb to do sth; plead to do sth; plead + direct speech",
         "definition_cn": "恳求；请求",
         "definition_en": "to ask for something in an urgent or emotional way",
         "note": "",
@@ -9726,8 +10046,8 @@
         "pos": "verb",
         "governing_pattern": "plead guilty/not guilty (to a charge); plead a case/cause",
         "definition_cn": "申辩；辩护",
-        "definition_en": "to state in court whether you are guilty or not",
-        "note": "",
+        "definition_en": "to state a plea in court, or present a legal case or argument in support",
+        "note": "plead guilty/not guilty是在法庭上表明认罪或不认罪；plead a case/cause是陈述案情或据理支持某主张，不表示替人认罪。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9956,7 +10276,7 @@
     "ordinal": 3639,
     "word": "please",
     "source_owner_path": "content/lexical/words/by-ordinal/o3639.json",
-    "source_fingerprint": "af413f15f23181aaf77340b3ef9830073efc351160335fcf5c38e565654dac30",
+    "source_fingerprint": "c23d1d0e64c753dbc9ad73abeabeb7a6d79662301805fb491ed3f302f8c34f16",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10019,7 +10339,7 @@
         "id": "sense:please:57d5db52c31b5018",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: please sb; aim/be eager to please",
         "definition_cn": "使高兴，取悦",
         "definition_en": "to make someone happy or satisfied",
         "note": "",
@@ -10058,12 +10378,21 @@
         "id": "sense:please:563305f64db855b6",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "as/what/where/whenever + subject + please",
         "definition_cn": "愿意，喜欢",
         "definition_en": "to wish or choose to do something",
-        "note": "",
+        "note": "表示随意选择时常见as you please、wherever you please等，从句中是愿意/选择，不是请别人做事。",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:please:52ca4114c4340ede",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "Choose whichever colour you please.",
+            "meaning_cn": "你愿意选哪种颜色就选哪种。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:please:563305f64db855b6",
@@ -10615,11 +10944,12 @@
     "ordinal": 3643,
     "word": "plenty",
     "source_owner_path": "content/lexical/words/by-ordinal/o3643.json",
-    "source_fingerprint": "11ece115dc8b637f5affb48328a513b7e9907ec301f597f0e83a8e780eb81488",
+    "source_fingerprint": "0190c2bae9132ff1412fb2bae99d9147e85cb6312f721a99d877c246f4f07e87",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1N",
+        "1ADV",
         "1DET"
       ],
       "density": "rich"
@@ -10681,6 +11011,32 @@
           "target_id": "sense:plenty:52cd100574d250af",
           "target_locator": "record.senses[1]",
           "target_label": "很多的；大量的；足够的"
+        }
+      },
+      {
+        "id": "sense:plenty:2e651a1cb48deeed",
+        "source_locator": "record.senses[2]",
+        "pos": "adverb",
+        "governing_pattern": "plenty more; plenty + adjective + enough; chiefly AmE plenty + adjective",
+        "definition_cn": "很；相当；绰绰有余地",
+        "definition_en": "to a large degree or by more than enough",
+        "note": "plenty + 形容词 + enough较口语；北美也可直接修饰形容词。plenty more表示还多得多，与plenty of + 名词框架不同。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:plenty:4cbf31981eb77ff2",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "This room is plenty large enough.",
+            "meaning_cn": "这个房间足够大，绰绰有余。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:plenty:2e651a1cb48deeed",
+          "target_locator": "record.senses[2]",
+          "target_label": "很；相当；绰绰有余地"
         }
       }
     ],
@@ -10894,7 +11250,7 @@
     "ordinal": 3645,
     "word": "plot",
     "source_owner_path": "content/lexical/words/by-ordinal/o3645.json",
-    "source_fingerprint": "db8b05944fe273c8768d7949ca8c77e96f72cd31c4c7324ddc72c7f6ac3ffd11",
+    "source_fingerprint": "1ecf50c2ce803425674cd00a56f79c77d27b439b84e8d1bf80e071cc1e70e8b6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10970,7 +11326,7 @@
         "id": "sense:plot:c3fa7ea068df5e0a",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: plot; plot sth; plot to do sth; plot with sb; plot against sb/sth",
         "definition_cn": "密谋；策划",
         "definition_en": "to plan secretly something illegal or harmful",
         "note": "",
@@ -11048,10 +11404,10 @@
         "id": "sense:plot:7c8524ce30ae5cbf",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: plot sth on a graph/map; plot one variable against another",
         "definition_cn": "绘制；标绘",
         "definition_en": "to mark or draw a graph or map",
-        "note": "",
+        "note": "data/points或map/graph语境指按位置标绘，不含密谋的贬意；against在坐标图中可比较两个变量，不是对抗某人。",
         "identity_overlay": null,
         "usage": [
           {
@@ -11133,7 +11489,7 @@
     "ordinal": 3646,
     "word": "plough",
     "source_owner_path": "content/lexical/words/by-ordinal/o3646.json",
-    "source_fingerprint": "922fa84493da77f586128d7c592b65c0ca1e80adb0f823808420bafddf7be0d5",
+    "source_fingerprint": "a49f5bb3740357edfd255539772177f0d4d50602cf354e430ec48decc4726d8b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11182,7 +11538,7 @@
         "id": "sense:plough:7d16632b66b25178",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: plough; plough a field/land",
         "definition_cn": "耕，犁（地）",
         "definition_en": "to break and turn over earth with a plow",
         "note": "",
@@ -11227,7 +11583,7 @@
         "governing_pattern": "vi. + through",
         "definition_cn": "艰难地前进；开路",
         "definition_en": "to move in a way resembling a plow cutting into or going through the soil",
-        "note": "",
+        "note": "through后为人群/阻碍时是费力穿过；为book/report时指艰难或枯燥地读完/处理，未必有实际移动。",
         "identity_overlay": {
           "text": "plough is the usual BrE spelling; plow the usual AmE spelling for the same farm-tool/soil-turning lexeme",
           "repair": {
@@ -11320,7 +11676,7 @@
     "ordinal": 3647,
     "word": "plug",
     "source_owner_path": "content/lexical/words/by-ordinal/o3647.json",
-    "source_fingerprint": "535a4d53ce5769081448ec8d338c78a2a1d8be797bd339ff1b0770bec513e00a",
+    "source_fingerprint": "70734002927f9ae25c818d0f982959c5e4e4bdf3d98857f3151826349c15b725",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11413,10 +11769,10 @@
         "id": "sense:plug:72738fcc3c7d5276",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: plug sth in; plug in sth; plug sth into sth",
         "definition_cn": "插入，接通电源",
         "definition_en": "connect to an electrical supply",
-        "note": "",
+        "note": "接通或连接设备可用plug sth in或plug sth into sth；代词宾语放中间，如plug it in。into后明确电源或另一设备。",
         "identity_overlay": null,
         "usage": [
           {

@@ -15,24 +15,47 @@
         "definition_en": "used to say that something is extremely important or must be done",
         "pattern": "it is imperative that + clause",
         "source_sense_id": "sense:imperative:754150ad9eb85cc8",
-        "boundary": "importance/necessity pattern; distinct from grammatical imperative mood"
+        "boundary": "importance/necessity pattern; distinct from grammatical imperative mood",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:59587a453f9f7e6ad989",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:imperative:754150ad9eb85cc8:collocation:0"
+            ],
+            "meaning_cn": "……是至关重要的",
+            "phrase": "it is imperative that ..."
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:4ac519e059906021a2de",
+        "pattern": "it is imperative to do sth",
+        "meaning_cn": "做某事至关重要、必须马上采取行动",
+        "definition_en": "to say that an action is urgently necessary",
+        "usage_note": "与既有that从句构式并用；不是描述句子的语法语气。",
+        "boundary": "与既有that从句构式并用；不是描述句子的语法语气。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:imperative:754150ad9eb85cc8"
       }
     ],
     "content_hash": "b55252ae5c1812b830399ca64bc62d725c69b2a47ab7d2ed6c6d901372623078",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "至关重要的；紧急的；祈使语气的",
-          "label_en": "extremely important or urgent; relating to the imperative mood",
+          "label_cn": "必要的行动或命令权威",
+          "label_en": "urgent necessity or authoritative command",
           "pos": "adjective",
           "sense_ids": [
             "sense:imperative:754150ad9eb85cc8",
-            "sense:imperative:973a7a44bf0a5ac8"
+            "sense:imperative:973a7a44bf0a5ac8",
+            "sense:imperative:954d05412c18af16"
           ]
         },
         {
-          "label_cn": "必要的事；紧急的事；祈使语气",
-          "label_en": "something that is essential or urgent; the form of a verb that expresses a command",
+          "label_cn": "必要的行动或命令权威",
+          "label_en": "urgent necessity or authoritative command",
           "pos": "noun",
           "sense_ids": [
             "sense:imperative:6dda9a61c6345441",
@@ -40,10 +63,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "必要的、紧急的或命令",
-      "core_meaning_en": "essential, urgent, or a command",
-      "mental_model_cn": "adjective/noun → 至关重要、必须做的事；it is imperative that… → …是必须的；grammar → 祈使语气。",
-      "mental_model_en": ""
+      "core_meaning_cn": "必要的行动或命令权威",
+      "core_meaning_en": "urgent necessity or authoritative command",
+      "mental_model_cn": "a moral imperative是必须履行的责任；imperative tone是命令口吻；grammar中imperative mood/sentence是祈使，三者按名词/补语判断。",
+      "mental_model_en": "urgent necessity or authoritative command."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -55,15 +78,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:59587a453f9f7e6ad989",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:imperative:754150ad9eb85cc8:collocation:0"
-            ],
-            "meaning_cn": "……是至关重要的",
-            "phrase": "it is imperative that ..."
-          },
           {
             "collocation_id": "collocation:7a95c25547493a066e44",
             "exam_value": "usage_example",
@@ -84,7 +98,8 @@
         "sense_id": "sense:imperative:754150ad9eb85cc8",
         "sense_label_en": "extremely important or urgent",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "正式语；此重要/迫切义一般作表语，常接that从句或to do。"
       },
       {
         "collocations": [
@@ -114,12 +129,12 @@
         "collocations": [
           {
             "collocation_id": "collocation:1474275d8d050981885f",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:imperative:7cdb424ba22e56fa:collocation:0"
             ],
-            "meaning_cn": "祈使语气",
-            "phrase": "the imperative mood"
+            "meaning_cn": "使用祈使语气",
+            "phrase": "use the imperative"
           }
         ],
         "confidence": "medium",
@@ -157,6 +172,28 @@
         "sense_label_en": "relating to the imperative mood",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:imperative:954d05412c18af16",
+        "pos": "adjective",
+        "definition_cn": "发号施令的；带有命令权威的（正式）",
+        "definition_en": "expressing authority or a command",
+        "sense_label_en": "expressing authority or a command",
+        "governing_pattern": "an imperative tone/manner",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:bfc651d1678af81cf0bf",
+            "phrase": "an imperative tone",
+            "meaning_cn": "命令式的语气",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -206,6 +243,23 @@
           "applicability": [
             {
               "surface": "imperative"
+            },
+            {
+              "surface": "imperative",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:imperative:954d05412c18af16"
+              ],
+              "owner_sense_ids": [
+                "sense:imperative:954d05412c18af16"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2466.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "an imperative tone/manner"
             }
           ],
           "sources": [
@@ -371,26 +425,38 @@
         "merged_into_sense_id": null,
         "source_row": 6849,
         "source_path": "content/lexical/canonical/senses/shards/o2465-2496.json"
+      },
+      {
+        "sense_id": "sense:imperative:954d05412c18af16",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2466.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
-      "collocation:1474275d8d050981885f",
-      "collocation:59587a453f9f7e6ad989",
-      "collocation:784baf0a46b958c8267a",
       "collocation:7a95c25547493a066e44",
-      "collocation:ddb15703d118edeb5559"
+      "collocation:ddb15703d118edeb5559",
+      "collocation:1474275d8d050981885f",
+      "collocation:784baf0a46b958c8267a",
+      "collocation:bfc651d1678af81cf0bf"
     ],
     "facts": [],
     "collocations": [
       {
         "id": "collocation:1474275d8d050981885f",
         "source_row": 1694,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:59587a453f9f7e6ad989",
         "source_row": 7543,
-        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:784baf0a46b958c8267a",
@@ -406,6 +472,13 @@
         "id": "collocation:ddb15703d118edeb5559",
         "source_row": 18766,
         "source_path": "content/lexical/canonical/collocations/shards/o2465-2496.json"
+      },
+      {
+        "id": "collocation:bfc651d1678af81cf0bf",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2466.json",
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

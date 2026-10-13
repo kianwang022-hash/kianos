@@ -11,12 +11,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "饥饿感；渴望",
-          "label_en": "the feeling of needing food; a strong desire for something",
+          "label_cn": "饥饿感；渴望；饥饿；食物匮乏的状态",
+          "label_en": "the feeling of needing food; a strong desire for something; a state of having too little food, especially when it causes serious hardship",
           "pos": "noun",
           "sense_ids": [
             "sense:hunger:2b0e1e4ea94a50bd",
-            "sense:hunger:c2058f09a9d35923"
+            "sense:hunger:c2058f09a9d35923",
+            "sense:hunger:5116f55e8220d5fa"
           ]
         },
         {
@@ -28,10 +29,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "饥饿或强烈渴望",
-      "core_meaning_en": "need for food or strong desire",
-      "mental_model_cn": "physical noun → 饥饿；figurative noun/verb → 对…强烈渴望（hunger for/after）。少见“感到饥饿”动词义保留为 Reference。",
-      "mental_model_en": ""
+      "core_meaning_cn": "饥饿感／食物匮乏；强烈渴望",
+      "core_meaning_en": "the feeling of needing food or the state of food shortage; strong desire",
+      "mental_model_cn": "feel hunger→饥饿感；world hunger→食物匮乏；a hunger for/hunger for→强烈渴望。",
+      "mental_model_en": "the feeling of needing food or the state of food shortage; strong desire."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -112,6 +113,28 @@
         "sense_label_en": "to have a strong desire for something",
         "sort_order": 2,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:hunger:5116f55e8220d5fa",
+        "pos": "noun",
+        "definition_cn": "饥饿；食物匮乏的状态",
+        "definition_en": "a state of having too little food, especially when it causes serious hardship",
+        "sense_label_en": "a state of having too little food, especially when it causes serious hardship",
+        "governing_pattern": "world hunger; die of hunger (uncountable)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:881d64a68a2b4549749b",
+            "phrase": "The charity works to reduce hunger in rural communities.",
+            "meaning_cn": "这个慈善组织致力于减轻农村社区的饥饿问题。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -152,6 +175,23 @@
           "applicability": [
             {
               "surface": "hunger"
+            },
+            {
+              "surface": "hunger",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:hunger:5116f55e8220d5fa"
+              ],
+              "owner_sense_ids": [
+                "sense:hunger:5116f55e8220d5fa"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2408.json",
+              "source_pointer": "/record/senses/3",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "world hunger; die of hunger (uncountable)"
             }
           ],
           "sources": [
@@ -353,12 +393,21 @@
         "merged_into_sense_id": null,
         "source_row": 6715,
         "source_path": "content/lexical/canonical/senses/shards/o2401-2432.json"
+      },
+      {
+        "sense_id": "sense:hunger:5116f55e8220d5fa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2408.json",
+        "source_pointer": "/record/senses/3"
       }
     ],
     "active_collocations": [
-      "collocation:73ac61a327ba111e7f06",
       "collocation:c133f2570b1e8bb2e9e4",
-      "collocation:d04e6a5d8a73ebcff96d"
+      "collocation:d04e6a5d8a73ebcff96d",
+      "collocation:73ac61a327ba111e7f06",
+      "collocation:881d64a68a2b4549749b"
     ],
     "facts": [],
     "collocations": [
@@ -376,6 +425,13 @@
         "id": "collocation:d04e6a5d8a73ebcff96d",
         "source_row": 17597,
         "source_path": "content/lexical/canonical/collocations/shards/o2401-2432.json"
+      },
+      {
+        "id": "collocation:881d64a68a2b4549749b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2408.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],

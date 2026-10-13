@@ -28,12 +28,36 @@
           "sense_ids": [
             "sense:model:5a7af841ecd5532d"
           ]
+        },
+        {
+          "label_cn": "建模；模拟（系统、过程等）",
+          "label_en": "represent a process or situation in a model for study or prediction",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:model:7b7e965f216f2415"
+          ]
+        },
+        {
+          "label_cn": "当模特；为画家摆姿势或穿着展示服装",
+          "label_en": "work as an artist’s or fashion model, or display clothes by wearing them",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:model:dbcfb97661394995"
+          ]
+        },
+        {
+          "label_cn": "模范的；堪称榜样的",
+          "label_en": "performing a role exceptionally well and worthy of being copied",
+          "pos": "adjective",
+          "sense_ids": [
+            "sense:model:27bd7894af8379d1"
+          ]
         }
       ],
-      "core_meaning_cn": "模型；模范",
-      "core_meaning_en": "a representation or example to follow",
-      "mental_model_cn": "模型；模范",
-      "mental_model_en": ""
+      "core_meaning_cn": "模型、模式、型号与榜样；模特、模范的；塑形、建模或当模特",
+      "core_meaning_en": "representations, versions and examples; a model or exemplary; shape, simulate or work as a model",
+      "mental_model_cn": "名词说模型、型号、榜样或模特；a model student是名词前的赞许形容词。动词塑形、按范本做与模拟过程、展示衣服区分；on/after引出采用的范本。",
+      "mental_model_en": "representations, versions and examples; a model or exemplary; shape, simulate or work as a model."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -104,7 +128,7 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:model:71110702951151e1",
-        "sense_label_en": "a small copy of something, or a particular type of product",
+        "sense_label_en": "a physical or conceptual representation of something",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -142,15 +166,6 @@
             ],
             "meaning_cn": "榜样",
             "phrase": "role model"
-          },
-          {
-            "collocation_id": "collocation:8b0115fe63dc71823795",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:model:4daef57f204a5bc1:collocation:1"
-            ],
-            "meaning_cn": "模范学生",
-            "phrase": "a model student"
           }
         ],
         "confidence": "medium",
@@ -189,14 +204,14 @@
         "confidence": "medium",
         "definition_cn": "塑造；模仿",
         "definition_en": "to make or shape something so that it looks like something else",
-        "governing_pattern": "vt. + object + on/after + sth",
+        "governing_pattern": "model a figure; model in clay（塑形可不及物）；model A on/after B（以B为范本，须宾语）",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:model:5a7af841ecd5532d",
         "sense_label_en": "to make or shape something so that it looks like something else",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -218,9 +233,78 @@
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:model:5d42d1f3ee1352b6",
-        "sense_label_en": "a small copy of something, or a particular type of product",
+        "sense_label_en": "a particular version or type of a manufactured product",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:model:7b7e965f216f2415",
+        "pos": "verb",
+        "definition_cn": "建模；模拟（系统、过程等）",
+        "definition_en": "represent a process or situation in a model for study or prediction",
+        "sense_label_en": "represent a process or situation in a model for study or prediction",
+        "governing_pattern": "model a process/system",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:dfba14f4280bf6ae0755",
+            "phrase": "model the effects of a change",
+            "meaning_cn": "模拟某一变化的影响",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:model:dbcfb97661394995",
+        "pos": "verb",
+        "definition_cn": "当模特；为画家摆姿势或穿着展示服装",
+        "definition_en": "work as an artist’s or fashion model, or display clothes by wearing them",
+        "sense_label_en": "work as an artist’s or fashion model, or display clothes by wearing them",
+        "governing_pattern": "model (for an artist); model clothes (for sb)",
+        "transitivity": "I/T",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:385f2f1138eb53adfd5b",
+            "phrase": "model for a painter",
+            "meaning_cn": "为画家当模特",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:model:27bd7894af8379d1",
+        "pos": "adjective",
+        "definition_cn": "模范的；堪称榜样的",
+        "definition_en": "performing a role exceptionally well and worthy of being copied",
+        "sense_label_en": "performing a role exceptionally well and worthy of being copied",
+        "governing_pattern": "model + noun（名词前，表示赞许）",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8b0115fe63dc71823795",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:model:4daef57f204a5bc1:collocation:1"
+            ],
+            "meaning_cn": "模范学生",
+            "phrase": "a model student"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -262,6 +346,60 @@
           "applicability": [
             {
               "surface": "model"
+            },
+            {
+              "surface": "model",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:model:7b7e965f216f2415"
+              ],
+              "owner_sense_ids": [
+                "sense:model:7b7e965f216f2415"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3095.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "model a process/system",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "model",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:model:dbcfb97661394995"
+              ],
+              "owner_sense_ids": [
+                "sense:model:dbcfb97661394995"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3095.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "model (for an artist); model clothes (for sb)",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "model",
+              "pos": [
+                "adjective"
+              ],
+              "sense_ids": [
+                "sense:model:27bd7894af8379d1"
+              ],
+              "owner_sense_ids": [
+                "sense:model:27bd7894af8379d1"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3095.json",
+              "source_pointer": "/record/senses/7",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "model + noun（名词前，表示赞许）",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -503,16 +641,42 @@
         "merged_into_sense_id": null,
         "source_row": 8624,
         "source_path": "content/lexical/canonical/senses/shards/o3073-3104.json"
+      },
+      {
+        "sense_id": "sense:model:7b7e965f216f2415",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3095.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:model:dbcfb97661394995",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3095.json",
+        "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:model:27bd7894af8379d1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3095.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [
-      "collocation:2b2cee36cd6d5ea15f8b",
-      "collocation:8b0115fe63dc71823795",
-      "collocation:8b79b2166bc79506dfec",
-      "collocation:d7df2d0da298fe3103e7",
-      "collocation:dd0b34e55f85622592ff",
       "collocation:eb2ce92a99f932417d72",
-      "collocation:f54547923a668ccdff9f"
+      "collocation:d7df2d0da298fe3103e7",
+      "collocation:8b79b2166bc79506dfec",
+      "collocation:dd0b34e55f85622592ff",
+      "collocation:2b2cee36cd6d5ea15f8b",
+      "collocation:f54547923a668ccdff9f",
+      "collocation:dfba14f4280bf6ae0755",
+      "collocation:385f2f1138eb53adfd5b",
+      "collocation:8b0115fe63dc71823795"
     ],
     "facts": [
       {
@@ -556,6 +720,20 @@
         "id": "collocation:f54547923a668ccdff9f",
         "source_row": 20769,
         "source_path": "content/lexical/canonical/collocations/shards/o3073-3104.json"
+      },
+      {
+        "id": "collocation:dfba14f4280bf6ae0755",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3095.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:385f2f1138eb53adfd5b",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3095.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

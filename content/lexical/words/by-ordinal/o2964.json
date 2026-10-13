@@ -6,14 +6,37 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:01752e3695fb185cd3b4",
+        "pattern": "related by marriage",
+        "meaning_cn": "因婚姻而成为亲属",
+        "definition_en": "related because of a marriage in the family",
+        "usage_note": "指姻亲，不表示有血缘关系。",
+        "boundary": "指姻亲，不表示有血缘关系。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:marriage:70c6bd82298557cf"
+      }
+    ],
     "content_hash": "1827abcad840c1a25f066263976ee0c404b84f94fbe3aafeac5d7b59d690c45b",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "婚姻；结婚",
-      "core_meaning_en": "the legal union of two people as partners",
-      "mental_model_cn": "婚姻；结婚",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "婚姻关系；婚礼；两者的融合",
+          "label_en": "a marital union or ceremony; a combination of two things",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:marriage:6a8664e8dac45da8",
+            "sense:marriage:70c6bd82298557cf",
+            "sense:marriage:65549ad5c7f6943b"
+          ]
+        }
+      ],
+      "core_meaning_cn": "婚姻关系；婚礼；两者的融合",
+      "core_meaning_en": "a marital union or ceremony; a combination of two things",
+      "mental_model_cn": "marriage可指关系、制度或婚礼；a marriage of art and technology说融合；related by marriage指姻亲。",
+      "mental_model_en": "a marital union or ceremony; a combination of two things."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -48,7 +71,8 @@
         "sense_id": "sense:marriage:6a8664e8dac45da8",
         "sense_label_en": "the ceremony in which two people are married",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "表示婚礼时，wedding通常更常用；婚姻关系与结合比喻分开理解。"
       },
       {
         "collocations": [],
@@ -63,6 +87,28 @@
         "sense_label_en": "the legal or formal union of two people as partners",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:marriage:65549ad5c7f6943b",
+        "pos": "noun",
+        "definition_cn": "（两者的）结合、融合",
+        "definition_en": "a combination of two different things",
+        "sense_label_en": "a combination of two different things",
+        "governing_pattern": "a marriage of/between A and B",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:d1d4d94b21187d3742fc",
+            "phrase": "a marriage of art and technology",
+            "meaning_cn": "艺术与技术的融合",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -141,6 +187,23 @@
           "applicability": [
             {
               "surface": "marriage"
+            },
+            {
+              "surface": "marriage",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:marriage:65549ad5c7f6943b"
+              ],
+              "owner_sense_ids": [
+                "sense:marriage:65549ad5c7f6943b"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2964.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "a marriage of/between A and B"
             }
           ],
           "sources": [
@@ -227,10 +290,19 @@
         "merged_into_sense_id": null,
         "source_row": 8259,
         "source_path": "content/lexical/canonical/senses/shards/o2945-2976.json"
+      },
+      {
+        "sense_id": "sense:marriage:65549ad5c7f6943b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2964.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:702e6f43e7f94a668901"
+      "collocation:702e6f43e7f94a668901",
+      "collocation:d1d4d94b21187d3742fc"
     ],
     "facts": [
       {
@@ -254,6 +326,13 @@
         "id": "collocation:ccd4a478a8d0b0634672",
         "source_row": 17325,
         "source_path": "content/lexical/canonical/collocations/shards/o2945-2976.json"
+      },
+      {
+        "id": "collocation:d1d4d94b21187d3742fc",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2964.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

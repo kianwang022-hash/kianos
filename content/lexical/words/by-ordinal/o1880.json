@@ -6,30 +6,43 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:a2b9a07fa671c12b5f67",
+        "pattern": "in sb's favor",
+        "meaning_cn": "对某人有利；（裁决等）支持某人",
+        "definition_en": "to someone’s advantage, or supporting their position in a decision",
+        "usage_note": "结果/条件in sb’s favor表示有利；原in favor of表示赞成、支持，分别保留。",
+        "boundary": "结果/条件in sb’s favor表示有利；原in favor of表示赞成、支持，分别保留。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:favor:950ff8b6f0b9535b"
+      }
+    ],
     "content_hash": "db683b931ef5a30738c786a8bf3f0f0cbabae40bdfcb5856c728ae7c02aaa4f4",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "恩惠；赞同",
-          "label_en": "a kind or helpful act; approval or support",
+          "label_cn": "帮助；赞同",
+          "label_en": "a kindness or approval",
           "pos": "noun",
           "sense_ids": [
             "sense:favor:950ff8b6f0b9535b"
           ]
         },
         {
-          "label_cn": "支持，赞成；偏爱",
-          "label_en": "to support or prefer someone or something",
+          "label_cn": "偏爱、支持；有利于",
+          "label_en": "prefer, support, or help",
           "pos": "verb",
           "sense_ids": [
-            "sense:favor:a306cee1f1025d5c"
+            "sense:favor:a306cee1f1025d5c",
+            "sense:favor:9a0f052451cd0056"
           ]
         }
       ],
-      "core_meaning_cn": "恩惠；支持",
-      "core_meaning_en": "kindness or approval; to support or prefer",
-      "mental_model_cn": "恩惠；支持",
+      "core_meaning_cn": "帮助、赞同；偏爱、支持或有利于",
+      "core_meaning_en": "a kindness or approval; prefer, support, or help",
+      "mental_model_cn": "do sb a favor是帮忙，in favor of是赞成；动词可偏爱或支持，也可指条件有利于某事。in sb’s favor指对某人有利或裁决支持某人。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -85,7 +98,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:10ed5dca2cac462e87ed",
-            "exam_value": "fixed_pattern",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
               "sense:favor:a306cee1f1025d5c:collocation:0"
             ],
@@ -113,6 +126,28 @@
         "sense_label_en": "to support or prefer someone or something",
         "sort_order": 1,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:favor:9a0f052451cd0056",
+        "pos": "verb",
+        "definition_cn": "有利于；使更容易",
+        "definition_en": "to help something succeed or make it easier",
+        "sense_label_en": "to help something succeed or make it easier",
+        "governing_pattern": "conditions/weather favor sb/sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9c510a41fcfbd2268494",
+            "phrase": "The weather favors outdoor activities.",
+            "meaning_cn": "这种天气有利于户外活动。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -171,6 +206,23 @@
           "applicability": [
             {
               "surface": "favor"
+            },
+            {
+              "surface": "favor",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:favor:9a0f052451cd0056"
+              ],
+              "owner_sense_ids": [
+                "sense:favor:9a0f052451cd0056"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1880.json",
+              "source_pointer": "/record/senses/2",
+              "conditions": {
+                "current_owner_usage": "conditions/weather favor sb/sth"
+              }
             }
           ],
           "sources": [
@@ -258,10 +310,17 @@
         "merged_into_sense_id": null,
         "source_row": 5164,
         "source_path": "content/lexical/canonical/senses/shards/o1857-1888.json"
+      },
+      {
+        "sense_id": "sense:favor:9a0f052451cd0056",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1880.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
-      "collocation:10ed5dca2cac462e87ed",
       "collocation:286dd2d9282d5277c5b2",
       "collocation:3cb75aece718e977bb0b",
       "collocation:eb983a7aa4ab243327be"
@@ -282,7 +341,9 @@
       {
         "id": "collocation:10ed5dca2cac462e87ed",
         "source_row": 1399,
-        "source_path": "content/lexical/canonical/collocations/shards/o1857-1888.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o1857-1888.json",
+        "status": "reference",
+        "merged_into_id": null
       },
       {
         "id": "collocation:286dd2d9282d5277c5b2",
@@ -298,6 +359,13 @@
         "id": "collocation:eb983a7aa4ab243327be",
         "source_row": 19953,
         "source_path": "content/lexical/canonical/collocations/shards/o1857-1888.json"
+      },
+      {
+        "id": "collocation:9c510a41fcfbd2268494",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1880.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

@@ -12,7 +12,7 @@
       "core_clusters": [
         {
           "label_cn": "对面的，相对的；相反的，对立的",
-          "label_en": "being directly across from each other; facing; moving or facing away from each other",
+          "label_en": "across from or facing; contrary in direction, nature, or meaning",
           "pos": "adjective",
           "sense_ids": [
             "sense:opposite:0fbfd600ff7059e7",
@@ -29,17 +29,33 @@
         },
         {
           "label_cn": "对立面",
-          "label_en": "the other one of a complementary pair",
+          "label_en": "a person or thing that is completely different or contrary",
           "pos": "noun",
           "sense_ids": [
             "sense:opposite:43bec2827e3b5764"
           ]
+        },
+        {
+          "label_cn": "在对面",
+          "label_en": "in a position across from something",
+          "pos": "adverb",
+          "sense_ids": [
+            "sense:opposite:4fb76e80f58b31b7"
+          ]
+        },
+        {
+          "label_cn": "与某人搭档演戏",
+          "label_en": "as a performer’s partner",
+          "pos": "preposition",
+          "sense_ids": [
+            "sense:opposite:bf3d59c238468209"
+          ]
         }
       ],
-      "core_meaning_cn": "对面；相反",
-      "core_meaning_en": "facing or contrary",
-      "mental_model_cn": "对面；相反",
-      "mental_model_en": ""
+      "core_meaning_cn": "对面或相反；相反的人/事物；在对面；与某人演对手戏",
+      "core_meaning_en": "facing or contrary; a contrary person or thing; across from something; a performer’s partner",
+      "mental_model_cn": "opposite the bank接名词说在对面；They live opposite不接宾语，作副词。the opposite of sth说相反事物，star opposite sb说演对手戏。",
+      "mental_model_en": "facing or contrary; a contrary person or thing; across from something; a performer’s partner."
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -59,15 +75,6 @@
             ],
             "meaning_cn": "对面",
             "phrase": "opposite side"
-          },
-          {
-            "collocation_id": "collocation:5d5adca6fee9c251f7ea",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:opposite:0fbfd600ff7059e7:collocation:1"
-            ],
-            "meaning_cn": "相反方向",
-            "phrase": "opposite direction"
           }
         ],
         "confidence": "medium",
@@ -92,17 +99,26 @@
             ],
             "meaning_cn": "相反的意见",
             "phrase": "opposite opinions"
+          },
+          {
+            "collocation_id": "collocation:5d5adca6fee9c251f7ea",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:opposite:0fbfd600ff7059e7:collocation:1"
+            ],
+            "meaning_cn": "相反方向",
+            "phrase": "opposite direction"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "相反的；完全不同的",
-        "definition_en": "completely different or contrary in nature or meaning",
+        "definition_cn": "相反的；方向相反或性质完全不同的",
+        "definition_en": "contrary or completely different in direction, nature, or meaning",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:opposite:9e02199c6b3e5180",
-        "sense_label_en": "completely different or contrary in nature or meaning",
+        "sense_label_en": "contrary or completely different in direction, nature, or meaning",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -143,16 +159,70 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "对立面",
-        "definition_en": "the other one of a complementary pair",
+        "definition_cn": "相反的人或事物；对立面",
+        "definition_en": "a person or thing that is completely different or contrary",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:opposite:43bec2827e3b5764",
-        "sense_label_en": "the other one of a complementary pair",
+        "sense_label_en": "a person or thing that is completely different or contrary",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:opposite:4fb76e80f58b31b7",
+        "pos": "adverb",
+        "definition_cn": "在对面；在相对的位置",
+        "definition_en": "across an area, usually facing the person or thing mentioned",
+        "sense_label_en": "across an area, usually facing the person or thing mentioned",
+        "governing_pattern": "live/sit opposite; see opposite",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:eb80d40e76af4ad2e325",
+            "phrase": "They live opposite.",
+            "meaning_cn": "他们住在对面。",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:opposite:bf3d59c238468209",
+        "pos": "preposition",
+        "definition_cn": "与某人演对手戏",
+        "definition_en": "as another performer’s partner in a film or play",
+        "sense_label_en": "as another performer’s partner in a film or play",
+        "governing_pattern": "star/play opposite sb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:76cf9114262c663e3859",
+            "phrase": "She starred opposite an experienced actor.",
+            "meaning_cn": "她与一位经验丰富的演员演对手戏。",
+            "exam_value": "usage_example",
+            "example_provenance": {
+              "type": "editorial_example",
+              "is_dictionary_quotation": false,
+              "created_date": "2026-10-12"
+            }
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -195,6 +265,42 @@
           "applicability": [
             {
               "surface": "opposite"
+            },
+            {
+              "surface": "opposite",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:opposite:4fb76e80f58b31b7"
+              ],
+              "owner_sense_ids": [
+                "sense:opposite:4fb76e80f58b31b7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3354.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "live/sit opposite; see opposite",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "opposite",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:opposite:bf3d59c238468209"
+              ],
+              "owner_sense_ids": [
+                "sense:opposite:bf3d59c238468209"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3354.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "star/play opposite sb",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -480,6 +586,42 @@
           "applicability": [
             {
               "surface": "opposite"
+            },
+            {
+              "surface": "opposite",
+              "pos": [
+                "adverb"
+              ],
+              "sense_ids": [
+                "sense:opposite:4fb76e80f58b31b7"
+              ],
+              "owner_sense_ids": [
+                "sense:opposite:4fb76e80f58b31b7"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3354.json",
+              "source_pointer": "/record/senses/4",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "live/sit opposite; see opposite",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
+            },
+            {
+              "surface": "opposite",
+              "pos": [
+                "preposition"
+              ],
+              "sense_ids": [
+                "sense:opposite:bf3d59c238468209"
+              ],
+              "owner_sense_ids": [
+                "sense:opposite:bf3d59c238468209"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o3354.json",
+              "source_pointer": "/record/senses/5",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "star/play opposite sb",
+              "binding_basis": "All original unbounded exact-surface matching-POS whole observations; all original source qualifiers and applicability unchanged."
             }
           ],
           "sources": [
@@ -779,14 +921,32 @@
         "merged_into_sense_id": null,
         "source_row": 9320,
         "source_path": "content/lexical/canonical/senses/shards/o3329-3360.json"
+      },
+      {
+        "sense_id": "sense:opposite:4fb76e80f58b31b7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3354.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:opposite:bf3d59c238468209",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3354.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
       "collocation:26b15153308c9dd18ebc",
-      "collocation:3857425dc76069f731ec",
+      "collocation:6f590c818c2f88da9cd2",
       "collocation:5d5adca6fee9c251f7ea",
       "collocation:5f2e149338593dd00a44",
-      "collocation:6f590c818c2f88da9cd2"
+      "collocation:3857425dc76069f731ec",
+      "collocation:eb80d40e76af4ad2e325",
+      "collocation:76cf9114262c663e3859"
     ],
     "facts": [],
     "collocations": [
@@ -803,7 +963,8 @@
       {
         "id": "collocation:5d5adca6fee9c251f7ea",
         "source_row": 7866,
-        "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json",
+        "sense_id": "sense:opposite:9e02199c6b3e5180"
       },
       {
         "id": "collocation:5f2e149338593dd00a44",
@@ -814,6 +975,20 @@
         "id": "collocation:6f590c818c2f88da9cd2",
         "source_row": 9403,
         "source_path": "content/lexical/canonical/collocations/shards/o3329-3360.json"
+      },
+      {
+        "id": "collocation:eb80d40e76af4ad2e325",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3354.json",
+        "source_pointer": "/record/senses/4/collocations/0"
+      },
+      {
+        "id": "collocation:76cf9114262c663e3859",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o3354.json",
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

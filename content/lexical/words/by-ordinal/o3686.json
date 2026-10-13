@@ -87,8 +87,14 @@
             "legacy_source_object_ids": [
               "sense:portable:c821fbd1d9ae517a:collocation:0"
             ],
-            "meaning_cn": "舷外马达",
-            "phrase": "portable motor"
+            "meaning_cn": "便携式舷外马达",
+            "phrase": "portable outboard motor",
+            "source_evidence": [
+              {
+                "source_url": "https://yamahaoutboards.com/outboards/25-2-5-hp/6-2-5-hp",
+                "role": "actual manufacturer distinguishes carryable portable outboards"
+              }
+            ]
           }
         ],
         "confidence": "medium",
@@ -101,7 +107,14 @@
         "sense_id": "sense:portable:c821fbd1d9ae517a",
         "sense_label_en": "of a motor designed to be attached to the outside of a boat's hull",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "部分词典把portable用于舷外马达这一设备义。普通portable motor仅表示便于携带的马达，不应一律译成舷外；此处明确说portable outboard motor。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.wordwebonline.com/en/PORTABLE",
+            "role": "retained specialist motor sense, not a general equivalence"
+          }
+        ]
       },
       {
         "collocations": [
@@ -111,8 +124,14 @@
             "legacy_source_object_ids": [
               "sense:portable:c95d2bf397315c18:collocation:0"
             ],
-            "meaning_cn": "便携式打字机",
-            "phrase": "a portable typewriter"
+            "meaning_cn": "她选了一台便携式打字机，而不是全尺寸的打字机。",
+            "phrase": "She chose a portable instead of a full-sized typewriter.",
+            "source_evidence": [
+              {
+                "source_url": "https://www.wordwebonline.com/en/PORTABLE",
+                "role": "standalone noun sense supported; contextual example authored for this review"
+              }
+            ]
           }
         ],
         "confidence": "medium",
@@ -126,6 +145,43 @@
         "sense_label_en": "a small light typewriter, usually with a case",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:portable:8ee0e6dd492fcf91",
+        "pos": "adjective",
+        "definition_cn": "（软件或数据）可移植的，可跨不同计算机系统使用的",
+        "definition_en": "able to run or be used on different computer systems with little or no change",
+        "sense_label_en": "able to run or be used on different computer systems with little or no change",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "level": "L2",
+        "direction": "R",
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:portable:facb864656be3231",
+            "phrase": "portable software",
+            "meaning_cn": "可跨系统使用的软件",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.merriam-webster.com/dictionary/portable",
+                "role": "meaning support; example/pattern authored for this review, not quoted"
+              }
+            ]
+          }
+        ],
+        "usage_note": "With software or data, portable concerns compatibility across systems, not physical size or ease of carrying.",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/portable",
+            "role": "meaning_and_pattern"
+          },
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/portable",
+            "role": "additional primary source for explicit condition"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -345,13 +401,20 @@
         "merged_into_sense_id": null,
         "source_row": 10269,
         "source_path": "content/lexical/canonical/senses/shards/o3681-3712.json"
+      },
+      {
+        "sense_id": "sense:portable:8ee0e6dd492fcf91",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o3686.json"
       }
     ],
     "active_collocations": [
       "collocation:1a42c594983ded1f5ffc",
       "collocation:47e95cd51a29ab381e72",
       "collocation:9a7d3fa9ca796742e469",
-      "collocation:f04d814fe97803fe42b5"
+      "collocation:f04d814fe97803fe42b5",
+      "collocation:portable:facb864656be3231"
     ],
     "facts": [
       {
@@ -380,6 +443,10 @@
         "id": "collocation:f04d814fe97803fe42b5",
         "source_row": 20356,
         "source_path": "content/lexical/canonical/collocations/shards/o3681-3712.json"
+      },
+      {
+        "id": "collocation:portable:facb864656be3231",
+        "source_path": "content/lexical/words/by-ordinal/o3686.json"
       }
     ],
     "exam-mappings": [],

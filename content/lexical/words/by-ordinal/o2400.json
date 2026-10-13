@@ -6,14 +6,36 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:a91959b8e79df7167ec6",
+        "pattern": "(the) humanities",
+        "meaning_cn": "人文学科，如文学、语言、历史和哲学",
+        "definition_en": "academic study of human culture and thought",
+        "usage_note": "固定复数名词 humanities，不能用 humanity 表示某一门人文学科。",
+        "boundary": "固定复数名词 humanities，不能用 humanity 表示某一门人文学科。",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "0efc4c7cc0efab8e5782075e911c91934f209877b56700d474a1503bab2fbb67",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "人性；人类",
-      "core_meaning_en": "the quality of being humane; human beings collectively",
-      "mental_model_cn": "人性；人类",
-      "mental_model_en": ""
+      "core_clusters": [
+        {
+          "label_cn": "人类；人道；仁慈；同情心；作为人的状态；人所共有的人性",
+          "label_en": "the human race; all people; the quality of being kind, merciful, or compassionate; the state or shared qualities of being human",
+          "pos": "noun",
+          "sense_ids": [
+            "sense:humanity:d8a6cb60bbf45ddc",
+            "sense:humanity:4b80f22ed5c6539d",
+            "sense:humanity:42dc4281dd5b0989"
+          ]
+        }
+      ],
+      "core_meaning_cn": "人类整体；人的状态或共同人性；仁慈；humanities指人文学科",
+      "core_meaning_en": "humankind, being human or compassion; humanities for academic disciplines",
+      "mental_model_cn": "同为人类关联：整体、作为人的状态和仁慈分开；人文学科保持实际复数形式。",
+      "mental_model_en": "humankind, being human or compassion; humanities for academic disciplines."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -65,7 +87,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "人性；博爱",
+        "definition_cn": "人道；仁慈；同情心",
         "definition_en": "the quality of being kind, merciful, or compassionate",
         "governing_pattern": "",
         "level": "L1",
@@ -75,6 +97,29 @@
         "sense_label_en": "the quality of being kind, merciful, or compassionate",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:humanity:42dc4281dd5b0989",
+        "pos": "noun",
+        "definition_cn": "作为人的状态；人所共有的人性",
+        "definition_en": "the state or shared qualities of being human",
+        "sense_label_en": "the state or shared qualities of being human",
+        "governing_pattern": "common/shared humanity; the humanity of sb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 2,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b8b8f5490f22ff4e73c4",
+            "phrase": "We share a common humanity.",
+            "meaning_cn": "我们具有共同的人性。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "不可数；此处区别于全人类和仁慈，也不等于必然善良。"
       }
     ],
     "verification_summary": {
@@ -95,7 +140,7 @@
     "word": "humanity",
     "word_family": [
       {
-        "boundary": "humanity(人性)与human(人类的)同根词",
+        "boundary": "humanity 人类整体 与 human 人的／人类的同根；另有仁慈义",
         "codex_reviewed": false,
         "definition_cn": null,
         "definition_en": null,
@@ -155,6 +200,23 @@
           "applicability": [
             {
               "surface": "humanity"
+            },
+            {
+              "surface": "humanity",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:humanity:42dc4281dd5b0989"
+              ],
+              "owner_sense_ids": [
+                "sense:humanity:42dc4281dd5b0989"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2400.json",
+              "source_pointer": "/record/senses/2",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "common/shared humanity; the humanity of sb"
             }
           ],
           "sources": [
@@ -249,11 +311,20 @@
         "merged_into_sense_id": null,
         "source_row": 6696,
         "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      },
+      {
+        "sense_id": "sense:humanity:42dc4281dd5b0989",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2400.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
+      "collocation:d294a9497a860c3c9308",
       "collocation:ac2c338a4c123aa48662",
-      "collocation:d294a9497a860c3c9308"
+      "collocation:b8b8f5490f22ff4e73c4"
     ],
     "facts": [
       {
@@ -277,6 +348,13 @@
         "id": "collocation:d294a9497a860c3c9308",
         "source_row": 17793,
         "source_path": "content/lexical/canonical/collocations/shards/o2369-2400.json"
+      },
+      {
+        "id": "collocation:b8b8f5490f22ff4e73c4",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2400.json",
+        "source_pointer": "/record/senses/2/collocations/0"
       }
     ],
     "exam-mappings": [],

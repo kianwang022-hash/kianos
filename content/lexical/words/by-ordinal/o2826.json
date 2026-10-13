@@ -11,18 +11,19 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "举起；取消限制/禁令",
-          "label_en": "to raise; or remove/end a ban, restriction, sanction, rule, or limit",
+          "label_cn": "举起；抬起；升起；消散；解除；取消（禁令、限制等）；使振奋；心情好转",
+          "label_en": "to raise something to a higher position; to move upward or disappear (e.g., fog); to end or remove a ban, restriction, sanction, rule, or limit; to make someone more cheerful, or become more cheerful",
           "pos": "verb",
           "sense_ids": [
             "sense:lift:062533f6f75056a3",
             "sense:lift:42f207064ee851d8",
-            "sense:lift:bb6745260ab953bd"
+            "sense:lift:bb6745260ab953bd",
+            "sense:lift:6a574924def9cd05"
           ]
         },
         {
-          "label_cn": "提升；搭便车/顺路载送",
-          "label_en": "a lift/boost; a free ride in another person's vehicle",
+          "label_cn": "电梯；鼓舞；振奋；搭便车；顺路载送",
+          "label_en": "a machine that carries people up and down between floors; a feeling of increased happiness or energy; a free ride in another person's vehicle",
           "pos": "noun",
           "sense_ids": [
             "sense:lift:8ea0440644d0597e",
@@ -31,10 +32,10 @@
           ]
         }
       ],
-      "core_meaning_cn": "向上移动或升起",
-      "core_meaning_en": "to move something upward or to rise",
-      "mental_model_cn": "向上移动或升起",
-      "mental_model_en": ""
+      "core_meaning_cn": "举起、升起或解除；使振奋；电梯、搭车或鼓舞",
+      "core_meaning_en": "to raise, rise, remove a restriction, or cheer; an elevator, ride, or boost",
+      "mental_model_cn": "物理提升、禁令解除与心情振奋按对象区分；give sb a lift 可表示让人搭车。",
+      "mental_model_en": "to raise, rise, remove a restriction, or cheer; an elevator, ride, or boost."
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -173,7 +174,7 @@
             "legacy_source_object_ids": [
               "sense:lift:b8513b24b1bb52f0:collocation:0"
             ],
-            "meaning_cn": "让某人搭车；使某人振奋",
+            "meaning_cn": "让某人搭便车；顺路载某人",
             "phrase": "give sb a lift"
           }
         ],
@@ -194,6 +195,28 @@
             "source_operation_id": "operation:1d2066754c1994c0eab7",
             "source_operation_sha256": "7213c375e3ddae71f7d1d5d3e37d7a57fa949d919e19a3c33797b20d368a0de5",
             "verification_status": "semantic_auditor_verified"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:lift:6a574924def9cd05",
+        "pos": "verb",
+        "definition_cn": "使振奋；心情好转",
+        "definition_en": "to make someone more cheerful, or become more cheerful",
+        "sense_label_en": "to make someone more cheerful, or become more cheerful",
+        "governing_pattern": "lift sb’s spirits; sb’s heart/spirits lift",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b8ddaba5351b406dece7",
+            "phrase": "lift her spirits",
+            "meaning_cn": "使她精神振奋",
+            "exam_value": "usage_example"
           }
         ]
       }
@@ -225,6 +248,23 @@
           "applicability": [
             {
               "surface": "lift"
+            },
+            {
+              "surface": "lift",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:lift:6a574924def9cd05"
+              ],
+              "owner_sense_ids": [
+                "sense:lift:6a574924def9cd05"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o2826.json",
+              "source_pointer": "/record/senses/6",
+              "mode": "bounded_current_owner_senses",
+              "does_not_apply_to_other_owner_senses": true,
+              "current_owner_usage": "lift sb’s spirits; sb’s heart/spirits lift"
             }
           ],
           "sources": [
@@ -736,14 +776,23 @@
         "merged_into_sense_id": null,
         "source_row": 7848,
         "source_path": "content/lexical/canonical/senses/shards/o2817-2848.json"
+      },
+      {
+        "sense_id": "sense:lift:6a574924def9cd05",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2826.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
       "collocation:53bc1c76316af3b9c2a6",
-      "collocation:5809adaedf1a1e6eb5c9",
       "collocation:99b9218610da0a5178d4",
+      "collocation:c84c37c831bb45559ab9",
       "collocation:ba8133264abb60db23e0",
-      "collocation:c84c37c831bb45559ab9"
+      "collocation:5809adaedf1a1e6eb5c9",
+      "collocation:b8ddaba5351b406dece7"
     ],
     "facts": [],
     "collocations": [
@@ -771,6 +820,13 @@
         "id": "collocation:ba8133264abb60db23e0",
         "source_row": 21629,
         "source_path": "content/lexical/canonical/collocations/shards/o2817-2848.json"
+      },
+      {
+        "id": "collocation:b8ddaba5351b406dece7",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2826.json",
+        "source_pointer": "/record/senses/6/collocations/0"
       }
     ],
     "exam-mappings": [],

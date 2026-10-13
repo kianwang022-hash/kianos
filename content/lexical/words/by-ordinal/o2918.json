@@ -6,7 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:magazine:ammunition-magazine",
+        "pattern": "ammunition magazine",
+        "meaning_cn": "储存弹药的库房/舱室；不是指相机胶片盒",
+        "definition_en": "a building, room, or compartment used for storing ammunition",
+        "direction": "R",
+        "level": "L2",
+        "source_sense_id": null,
+        "semantic_attachment": "construction_only",
+        "source_evidence_objects": [
+          {
+            "collocation_id": "collocation:64ddcae3686fb3f94608",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:magazine:bdc8aaf2588e5364:collocation:0"
+            ],
+            "meaning_cn": "弹药库",
+            "phrase": "ammunition magazine"
+          }
+        ]
+      }
+    ],
     "content_hash": "ecf9e2f284e8aae45c824af605ab2c4612bd01d31df35892b75a4a895c13035b",
     "core_concept": {
       "core_clusters": [],
@@ -57,26 +79,16 @@
         "transitivity": "nonverb"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:64ddcae3686fb3f94608",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:magazine:bdc8aaf2588e5364:collocation:0"
-            ],
-            "meaning_cn": "弹药库",
-            "phrase": "ammunition magazine"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "弹盒；胶卷盒",
-        "definition_en": "a container for holding bullets or film in a camera",
+        "definition_cn": "枪械的弹匣；摄影机的胶片盒",
+        "definition_en": "a holder for ammunition in a gun, or a lightproof container for film in a camera",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:magazine:bdc8aaf2588e5364",
-        "sense_label_en": "a container for holding bullets or film in a camera",
+        "sense_label_en": "a holder for ammunition in a gun, or a lightproof container for film in a camera",
         "sort_order": 1,
         "transitivity": "nonverb"
       }
@@ -164,8 +176,7 @@
     ],
     "active_collocations": [
       "collocation:06af8ed5bb930071d72b",
-      "collocation:5e20f671e237f1fa4c08",
-      "collocation:64ddcae3686fb3f94608"
+      "collocation:5e20f671e237f1fa4c08"
     ],
     "facts": [],
     "collocations": [
@@ -182,7 +193,9 @@
       {
         "id": "collocation:64ddcae3686fb3f94608",
         "source_row": 8503,
-        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o2913-2944.json",
+        "status": "reference",
+        "merged_into_id": null
       }
     ],
     "exam-mappings": [],

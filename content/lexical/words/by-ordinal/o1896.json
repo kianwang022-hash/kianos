@@ -11,49 +11,37 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "喂；喂养",
-          "label_en": "give food to a person or animal",
+          "label_cn": "喂养；以……为食",
+          "label_en": "give or eat food",
           "pos": "verb",
           "sense_ids": [
-            "sense:feed:318b1c14ba0b534c"
-          ]
-        },
-        {
-          "label_cn": "（动物）以……为食",
-          "label_en": "eat or live on a particular kind of food",
-          "pos": "verb",
-          "sense_ids": [
+            "sense:feed:318b1c14ba0b534c",
             "sense:feed:b193293ab8f15495"
           ]
         },
         {
-          "label_cn": "供应；输入",
-          "label_en": "supply something continuously",
+          "label_cn": "供应、流入；滋长",
+          "label_en": "supply, flow into, or intensify",
           "pos": "verb",
           "sense_ids": [
-            "sense:feed:666d1ed334275fdc"
+            "sense:feed:2d342ec3a3c9589c",
+            "sense:feed:666d1ed334275fdc",
+            "sense:feed:f8201d73e18fc286"
           ]
         },
         {
-          "label_cn": "流入；汇入",
-          "label_en": "flow into",
-          "pos": "verb",
-          "sense_ids": [
-            "sense:feed:2d342ec3a3c9589c"
-          ]
-        },
-        {
-          "label_cn": "饲料",
-          "label_en": "food for domestic animals",
+          "label_cn": "饲料；内容流",
+          "label_en": "animal food or content stream",
           "pos": "noun",
           "sense_ids": [
-            "sense:feed:fa71a24cd5275132"
+            "sense:feed:fa71a24cd5275132",
+            "sense:feed:cac8ed9f2972ff6f"
           ]
         }
       ],
-      "core_meaning_cn": "喂养；以……为食；供应/流入；饲料",
-      "core_meaning_en": "feed/give food; feed on/eat; supply or flow into; animal food",
-      "mental_model_cn": "喂养；以……为食；供应/流入；饲料",
+      "core_meaning_cn": "喂养、以……为食；供应、流入或滋长；饲料、信息流",
+      "core_meaning_en": "give or eat food; supply, flow into, or sustain; animal food or content stream",
+      "mental_model_cn": "feed人/动物是喂养，feed on是以……为食；及物feed sth into是输入，原不及物流入身份保留。情绪作对象可指滋长；a news/video feed是内容流，不是饲料。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -130,14 +118,22 @@
         "sense_id": "sense:feed:2d342ec3a3c9589c",
         "sense_label_en": "flow into",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "可描述自然流入，也可描述材料进入设备；保留不及物方向，和及物feed sth into设备区分。"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:5112a4232f201bda82a2",
+            "phrase": "feed data into a computer",
+            "meaning_cn": "把数据输入计算机",
+            "exam_value": "fixed_pattern"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "不断供应；输入",
         "definition_en": "supply something continuously",
-        "governing_pattern": "",
+        "governing_pattern": "feed sth to/into sth; feed sb information; feed information to sb",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -169,6 +165,50 @@
         "sense_label_en": "to eat or live on a particular kind of food, especially of animals",
         "sort_order": 4,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:feed:cac8ed9f2972ff6f",
+        "pos": "noun",
+        "definition_cn": "（网络或广播等的）内容流；持续传送的信息或画面",
+        "definition_en": "a stream of newly posted or transmitted content",
+        "sense_label_en": "a stream of newly posted or transmitted content",
+        "governing_pattern": "countable: a news/social-media/live video feed",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:51a13813d911b4f61ba0",
+            "phrase": "a live video feed",
+            "meaning_cn": "实时视频流",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:feed:f8201d73e18fc286",
+        "pos": "verb",
+        "definition_cn": "滋长；助长（情绪、欲望等）",
+        "definition_en": "to sustain or make a feeling, desire, or tendency stronger",
+        "sense_label_en": "to sustain or make a feeling, desire, or tendency stronger",
+        "governing_pattern": "feed fear/anger/a desire",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:933825fc0fec1c90f90f",
+            "phrase": "Rumors fed public anxiety.",
+            "meaning_cn": "谣言加剧了公众的不安。",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -221,6 +261,40 @@
           "applicability": [
             {
               "surface": "feed"
+            },
+            {
+              "surface": "feed",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:feed:cac8ed9f2972ff6f"
+              ],
+              "owner_sense_ids": [
+                "sense:feed:cac8ed9f2972ff6f"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1896.json",
+              "source_pointer": "/record/senses/5",
+              "conditions": {
+                "current_owner_usage": "countable: a news/social-media/live video feed"
+              }
+            },
+            {
+              "surface": "feed",
+              "pos": [
+                "verb"
+              ],
+              "sense_ids": [
+                "sense:feed:f8201d73e18fc286"
+              ],
+              "owner_sense_ids": [
+                "sense:feed:f8201d73e18fc286"
+              ],
+              "source_path": "content/lexical/words/by-ordinal/o1896.json",
+              "source_pointer": "/record/senses/6",
+              "conditions": {
+                "current_owner_usage": "feed fear/anger/a desire"
+              }
             }
           ],
           "sources": [
@@ -348,6 +422,22 @@
         "merged_into_sense_id": null,
         "source_row": 5209,
         "source_path": "content/lexical/canonical/senses/shards/o1889-1920.json"
+      },
+      {
+        "sense_id": "sense:feed:cac8ed9f2972ff6f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1896.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:feed:f8201d73e18fc286",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1896.json",
+        "source_pointer": "/record/senses/6"
       }
     ],
     "active_collocations": [
@@ -412,6 +502,27 @@
         "id": "collocation:e09bd87469f5c9858e62",
         "source_row": 18995,
         "source_path": "content/lexical/canonical/collocations/shards/o1889-1920.json"
+      },
+      {
+        "id": "collocation:51a13813d911b4f61ba0",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1896.json",
+        "source_pointer": "/record/senses/5/collocations/0"
+      },
+      {
+        "id": "collocation:933825fc0fec1c90f90f",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1896.json",
+        "source_pointer": "/record/senses/6/collocations/0"
+      },
+      {
+        "id": "collocation:5112a4232f201bda82a2",
+        "status": "active",
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o1896.json",
+        "source_pointer": "/record/senses/3/collocations/0"
       }
     ],
     "exam-mappings": [],
