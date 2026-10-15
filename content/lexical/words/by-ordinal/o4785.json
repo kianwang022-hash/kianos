@@ -12,14 +12,22 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "例如；诸如",
-        "pattern": "such as"
+        "pattern": "such as",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:a7afb8d373cffa6d054e"
+        }
       },
       {
         "construction_id": "construction:5432f5e29cf8eaffe009",
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "如此……以至于……",
-        "pattern": "such ... that"
+        "pattern": "such ... that",
+        "presentation_merge": {
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:5b6e80b49d6e5e523e4c"
+        }
       },
       {
         "construction_id": "construction:8a5d406804d13bcf5cff",
@@ -57,9 +65,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "如此的，这样的；如此地；这样的；上述种类的",
-      "core_meaning_en": "of so extreme a degree or extent; to so extreme a degree; of the kind or type just mentioned or indicated",
-      "mental_model_cn": "如此的，这样的；如此地；这样的；上述种类的",
+      "core_meaning_cn": "这样的种类；如此程度",
+      "core_meaning_en": "of the kind indicated, or of a great degree",
+      "mental_model_cn": "回指某类事物，或用 such as 举例；such 加名词短语可强调程度，后接 that 引出结果。as such 单独表示以该身份或严格说来。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -72,15 +80,6 @@
     "senses": [
       {
         "collocations": [
-          {
-            "collocation_id": "collocation:a7afb8d373cffa6d054e",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:such:20e46f9fa5575394:collocation:0"
-            ],
-            "meaning_cn": "例如",
-            "phrase": "such as"
-          },
           {
             "collocation_id": "collocation:5b6e80b49d6e5e523e4c",
             "exam_value": "fixed_pattern",
@@ -101,7 +100,8 @@
         "sense_id": "sense:such:20e46f9fa5575394",
         "sense_label_en": "of so extreme a degree or extent",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "In such + noun phrase + that-clause, the that-clause states the result of the degree described."
       },
       {
         "collocations": [
@@ -125,10 +125,21 @@
         "sense_id": "sense:such:314e0bbd585e5c8c",
         "sense_label_en": "to so extreme a degree",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "Degree use is followed by a noun phrase: such a/an + (adjective) + singular count noun; such + (adjective) + plural or uncountable noun. Use so, not such, directly before a bare adjective/adverb."
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:a7afb8d373cffa6d054e",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:such:20e46f9fa5575394:collocation:0"
+            ],
+            "meaning_cn": "例如",
+            "phrase": "such as"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "这样的；上述种类的",
         "definition_en": "of the kind or type just mentioned or indicated",
@@ -139,7 +150,8 @@
         "sense_id": "sense:such:157889391fc0dd74",
         "sense_label_en": "of the kind or type just mentioned or indicated",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "such as introduces examples of the kind mentioned; it is not the extreme-degree branch."
       }
     ],
     "verification_summary": {

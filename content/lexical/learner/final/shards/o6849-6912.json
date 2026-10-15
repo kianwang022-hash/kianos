@@ -5,7 +5,7 @@
     "ordinal": 6849,
     "word": "flog",
     "source_owner_path": "content/lexical/words/by-ordinal/o6849.json",
-    "source_fingerprint": "5bc24fd26460265a24b9d693489e9648c8f560cf689e0beb751bbd304805317f",
+    "source_fingerprint": "b083155654bc90c57d3af91f1b4b55e1cb55bb6c7bd1577d119d88e3e8de2d2f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -30,8 +30,8 @@
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "鞭打, 鞭策, 严厉的批评, 迫使",
-        "definition_en": "beat severely with a whip or rod",
-        "note": "",
+        "definition_en": "to beat severely with a whip or rod; also to criticize harshly or forcefully urge someone into action",
+        "note": "A physical whipping, harsh criticism, or forceful urging is selected by context; the separate selling sense is informal, especially British.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -92,7 +92,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:1bc8aa87dd45aae20a1c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "flog a dead horse",
+        "lines": [
+          {
+            "text": "（非正式）在无望成功的事情上继续白费力气",
+            "lang": "cn"
+          },
+          {
+            "text": "to keep trying to achieve something that cannot succeed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1bc8aa87dd45aae20a1c",
+          "target_locator": "record.constructions[0]",
+          "target_label": "flog a dead horse"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -268,7 +290,7 @@
     "ordinal": 6851,
     "word": "florid",
     "source_owner_path": "content/lexical/words/by-ordinal/o6851.json",
-    "source_fingerprint": "3da6d2c375a5014a134d18900949e9910bbccb7537dfa12a8b215127eccddf11",
+    "source_fingerprint": "6ff81d46b89568b28c63ecfb3718bae0bb50fb582dd93021cf6e30eb5dc4df1b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -278,7 +300,7 @@
     },
     "word_feel": {
       "summary_cn": "华丽的, 红润的",
-      "decision_cn": "",
+      "decision_cn": "修饰语言、装饰或风格时看是否繁复华丽；修饰脸色时读作泛红，不把面色本身当作健康判断。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -309,16 +331,16 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "面色红润的；健康泛红的",
-        "definition_en": "inclined to a healthy reddish color often associated with outdoor life",
-        "note": "",
+        "definition_cn": "面色泛红的；红润或潮红的",
+        "definition_en": "having a noticeably red or ruddy complexion",
+        "note": "Often of a ruddy complexion, sometimes associated with health or outdoor life; it does not by itself establish either.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:florid:a4d75a60188c5a7f",
           "target_locator": "record.senses[1]",
-          "target_label": "面色红润的；健康泛红的"
+          "target_label": "面色泛红的；红润或潮红的"
         }
       }
     ],
@@ -603,7 +625,7 @@
     "ordinal": 6854,
     "word": "fluffy",
     "source_owner_path": "content/lexical/words/by-ordinal/o6854.json",
-    "source_fingerprint": "0c7bf1d0b3dc3865d5a555691395eebd5ee6b486b0b2a3a8e2e06cae06024ba6",
+    "source_fingerprint": "2841d8c0f7152bcd2aed7501c290093f030d5dedd70ff721b392ba74519091b1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -613,7 +635,7 @@
     },
     "word_feel": {
       "summary_cn": "毛绒绒的, 蓬松的, 空洞的, 无内容的, 不明确的；比喻轻浮表面的；缺乏实质、深度或严谨性的",
-      "decision_cn": "",
+      "decision_cn": "修饰毛巾、织物等看蓬松柔软，修饰蛋糕等看轻软松发；修饰文章或论述时看是否轻浮空洞、缺乏实质，而非泛指任何不明确。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -713,22 +735,23 @@
     "ordinal": 6855,
     "word": "fluster",
     "source_owner_path": "content/lexical/words/by-ordinal/o6855.json",
-    "source_fingerprint": "148f02e31f7e73d788d971d2098441de912170a5e8bc717cfff8160f5aefba70",
+    "source_fingerprint": "7a7b1d1bd626858212c88d4ed54e7021754cb98c0af41e974fc5e73d0a3ecf66",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "2V",
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使紧张, 使慌张, 使激动",
-      "decision_cn": "",
+      "summary_cn": "紧张得乱了阵脚，或使人陷入这种慌乱",
+      "decision_cn": "带人作宾语是使对方慌乱；不及物是自己慌乱起来；in a fluster 指处在慌乱状态。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使紧张, 使慌张, 使激动"
+        "target_label": "紧张得乱了阵脚，或使人陷入这种慌乱"
       }
     },
     "senses": [
@@ -736,8 +759,8 @@
         "id": "sense:fluster:2728d189d05f518a",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "使紧张, 使慌张, 使激动",
+        "governing_pattern": "fluster sb",
+        "definition_cn": "使慌乱；使紧张得不知所措",
         "definition_en": "cause to be nervous or upset",
         "note": "",
         "identity_overlay": null,
@@ -746,15 +769,15 @@
           "target_kind": "sense",
           "target_id": "sense:fluster:2728d189d05f518a",
           "target_locator": "record.senses[0]",
-          "target_label": "使紧张, 使慌张, 使激动"
+          "target_label": "使慌乱；使紧张得不知所措"
         }
       },
       {
         "id": "sense:fluster:b7eada92ce0e5ac2",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "使紧张, 使慌张, 使激动",
+        "governing_pattern": "fluster (intransitive)",
+        "definition_cn": "慌乱起来；紧张得不知所措",
         "definition_en": "be flustered; behave in a confused manner",
         "note": "",
         "identity_overlay": null,
@@ -763,7 +786,24 @@
           "target_kind": "sense",
           "target_id": "sense:fluster:b7eada92ce0e5ac2",
           "target_locator": "record.senses[1]",
-          "target_label": "使紧张, 使慌张, 使激动"
+          "target_label": "慌乱起来；紧张得不知所措"
+        }
+      },
+      {
+        "id": "sense:fluster:9ca441861bd65ee1",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "in a fluster",
+        "definition_cn": "慌乱；紧张不安的状态",
+        "definition_en": "a state of nervous confusion",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fluster:9ca441861bd65ee1",
+          "target_locator": "record.senses[2]",
+          "target_label": "慌乱；紧张不安的状态"
         }
       }
     ],
@@ -898,7 +938,7 @@
     "ordinal": 6857,
     "word": "foist",
     "source_owner_path": "content/lexical/words/by-ordinal/o6857.json",
-    "source_fingerprint": "1ff4d88bf3e20c1f1c65837256d9786cdd64faf2ccb741ea4275ec61485cac51",
+    "source_fingerprint": "4764d3ef53957050af5252c14be87a95da3463171312e563e891ac7222ad5cc6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -907,13 +947,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "硬卖给, 偷偷插入, 使混入",
-      "decision_cn": "",
+      "summary_cn": "把不应或不想接受的东西硬塞进去",
+      "decision_cn": "on/upon sb 指硬塞给接受者；into sth 指偷偷混入文本、内容等。硬卖属于欺骗式强加的一种用法。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "硬卖给, 偷偷插入, 使混入"
+        "target_label": "把不应或不想接受的东西硬塞进去"
       }
     },
     "senses": [
@@ -922,8 +962,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "硬卖给, 偷偷插入, 使混入",
-        "definition_en": "to force onto another",
+        "definition_cn": "把不想要的东西强加给别人；常含欺骗或无理硬塞",
+        "definition_en": "to make someone accept something unwanted, often unfairly or deceptively",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -931,7 +971,7 @@
           "target_kind": "sense",
           "target_id": "sense:foist:369ac3559ad95b54",
           "target_locator": "record.senses[0]",
-          "target_label": "硬卖给, 偷偷插入, 使混入"
+          "target_label": "把不想要的东西强加给别人；常含欺骗或无理硬塞"
         }
       },
       {
@@ -939,7 +979,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "硬卖给, 偷偷插入, 使混入",
+        "definition_cn": "偷偷或不正当地插入、混入",
         "definition_en": "insert surreptitiously or without warrant",
         "note": "",
         "identity_overlay": null,
@@ -948,7 +988,7 @@
           "target_kind": "sense",
           "target_id": "sense:foist:d73c79590ad15301",
           "target_locator": "record.senses[1]",
-          "target_label": "硬卖给, 偷偷插入, 使混入"
+          "target_label": "偷偷或不正当地插入、混入"
         }
       }
     ],
@@ -1011,6 +1051,28 @@
           "target_id": "construction:b3cfddf1b37454738459",
           "target_locator": "record.constructions[0]",
           "target_label": "foist sth on/upon sb"
+        }
+      },
+      {
+        "id": "construction:ee0b3bbe2f88624448b6",
+        "sense_id": "sense:foist:d73c79590ad15301",
+        "source_locator": "record.constructions[1]",
+        "pattern": "foist sth into sth",
+        "lines": [
+          {
+            "text": "把某物偷偷或不正当地塞入另一事物中",
+            "lang": "cn"
+          },
+          {
+            "text": "to insert something covertly or without justification",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ee0b3bbe2f88624448b6",
+          "target_locator": "record.constructions[1]",
+          "target_label": "foist sth into sth"
         }
       }
     ],
@@ -1128,22 +1190,22 @@
     "ordinal": 6859,
     "word": "folly",
     "source_owner_path": "content/lexical/words/by-ordinal/o6859.json",
-    "source_fingerprint": "b104588e099b2dfa62ad40152d99c30e092917dad8a7573eedfd66b7758bccce",
+    "source_fingerprint": "7c7ac181911f2b42d574403e22b520e0ca88a662488880d752e78bf2489d439d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "愚蠢, 荒唐事, 讽刺剧",
-      "decision_cn": "",
+      "summary_cn": "缺乏明智判断的荒唐；也可指园林中主要为观赏而建的奇特建筑",
+      "decision_cn": "判断或行为语境看愚蠢；园林建筑语境的 a folly 指装饰建筑；复数 follies 在舞台语境中指华丽歌舞表演。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "愚蠢, 荒唐事, 讽刺剧"
+        "target_label": "缺乏明智判断的荒唐；也可指园林中主要为观赏而建的奇特建筑"
       }
     },
     "senses": [
@@ -1152,7 +1214,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "愚蠢, 荒唐事, 讽刺剧",
+        "definition_cn": "愚蠢；欠考虑或鲁莽的性质",
         "definition_en": "the quality of being rash and foolish",
         "note": "",
         "identity_overlay": null,
@@ -1161,7 +1223,7 @@
           "target_kind": "sense",
           "target_id": "sense:folly:3ce11424c92f5fa9",
           "target_locator": "record.senses[0]",
-          "target_label": "愚蠢, 荒唐事, 讽刺剧"
+          "target_label": "愚蠢；欠考虑或鲁莽的性质"
         }
       },
       {
@@ -1169,7 +1231,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "愚蠢, 荒唐事, 讽刺剧",
+        "definition_cn": "行事愚蠢或鲁莽的习性",
         "definition_en": "the trait of acting stupidly or rashly",
         "note": "",
         "identity_overlay": null,
@@ -1178,7 +1240,7 @@
           "target_kind": "sense",
           "target_id": "sense:folly:a79b806d85205d06",
           "target_locator": "record.senses[1]",
-          "target_label": "愚蠢, 荒唐事, 讽刺剧"
+          "target_label": "行事愚蠢或鲁莽的习性"
         }
       },
       {
@@ -1186,7 +1248,7 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "愚蠢, 荒唐事, 讽刺剧",
+        "definition_cn": "愚蠢的行为；荒唐举动",
         "definition_en": "foolish or senseless behavior",
         "note": "",
         "identity_overlay": null,
@@ -1195,7 +1257,24 @@
           "target_kind": "sense",
           "target_id": "sense:folly:f1a8facc8f6f54f9",
           "target_locator": "record.senses[2]",
-          "target_label": "愚蠢, 荒唐事, 讽刺剧"
+          "target_label": "愚蠢的行为；荒唐举动"
+        }
+      },
+      {
+        "id": "sense:folly:33d6ab3d5c762e6e",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（园林中）装饰性奇特建筑",
+        "definition_en": "an unusual ornamental building, especially in a garden or park",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:folly:33d6ab3d5c762e6e",
+          "target_locator": "record.senses[3]",
+          "target_label": "（园林中）装饰性奇特建筑"
         }
       }
     ],
@@ -1237,7 +1316,34 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "（复数 follies）华丽歌舞杂耍表演",
+          "definition_en": "an elaborate theatrical revue, usually called follies",
+          "sense_label_en": "an elaborate theatrical revue, usually called follies",
+          "pos": "noun",
+          "level": "L3",
+          "sort_order": 99,
+          "governing_pattern": "follies (plural)",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/folly",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "register": "theatre",
+          "stable_sense_id": "sense:folly:98acad3b96eaab80",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "Usually plural follies in a theatre context: an elaborate revue, not a general term for any satirical play."
+        }
+      ]
     }
   },
   {
@@ -1246,7 +1352,7 @@
     "ordinal": 6860,
     "word": "foment",
     "source_owner_path": "content/lexical/words/by-ordinal/o6860.json",
-    "source_fingerprint": "cfde5be04f958c710da5182c19ad2d88f6405faddaf4feef04f8753ff3196f50",
+    "source_fingerprint": "4b988da815ddd3a92a30556d8f85de0204b21b45d530b21092775021dce096d8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1270,7 +1376,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "热敷, 煽动",
+        "definition_cn": "（医学旧用）热敷；以温水或药液处理身体部位",
         "definition_en": "bathe with warm water or medicated lotions",
         "note": "Warm-water or medicated-lotion treatment is archaic/specialist.",
         "identity_overlay": null,
@@ -1279,7 +1385,7 @@
           "target_kind": "sense",
           "target_id": "sense:foment:12d449bc529a59e8",
           "target_locator": "record.senses[0]",
-          "target_label": "热敷, 煽动"
+          "target_label": "（医学旧用）热敷；以温水或药液处理身体部位"
         }
       },
       {
@@ -1418,17 +1524,18 @@
     "ordinal": 6862,
     "word": "forage",
     "source_owner_path": "content/lexical/words/by-ordinal/o6862.json",
-    "source_fingerprint": "b1c5277518ff71b1eb0d30f314d401ac7c4101b544359792c9695ed5548e4cb4",
+    "source_fingerprint": "30e10b120d7a7a147526d211d62f157e424afc0be0ac650ff1d242a8a5a0aff8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V"
+        "2V",
+        "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "觅食；四处寻找食物、补给或可用资源",
-      "decision_cn": "",
+      "decision_cn": "forage for sth 是四处寻找；直接接食物作宾语时可指采集取得；农业或饲养语境的名词 forage 是饲草本身。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1452,6 +1559,40 @@
           "target_id": "sense:forage:ca2eefef255e56a6",
           "target_locator": "record.senses[0]",
           "target_label": "觅食；四处寻找食物、补给或可用资源"
+        }
+      },
+      {
+        "id": "sense:forage:54c4775ba07228f4",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（供牛马等食用的）饲草；草料",
+        "definition_en": "plant material used as feed for livestock",
+        "note": "Uncountable: the feed itself, not the act of searching.",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:forage:54c4775ba07228f4",
+          "target_locator": "record.senses[1]",
+          "target_label": "（供牛马等食用的）饲草；草料"
+        }
+      },
+      {
+        "id": "sense:forage:f6ce77f9d87326d1",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "forage sth",
+        "definition_cn": "采集；搜寻并取得食物等",
+        "definition_en": "to obtain food or supplies by searching for them",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:forage:f6ce77f9d87326d1",
+          "target_locator": "record.senses[2]",
+          "target_label": "采集；搜寻并取得食物等"
         }
       }
     ],
@@ -1586,7 +1727,7 @@
     "ordinal": 6864,
     "word": "forestall",
     "source_owner_path": "content/lexical/words/by-ordinal/o6864.json",
-    "source_fingerprint": "c0e0c9f33da8f1daf2b28cebc3e8eca137cc837961eaf563f9bc857983cbed12",
+    "source_fingerprint": "4cf5955c496519325ef2b4acfb186bdfea4b993bcf51e184da1c2e715af1b7f4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1595,13 +1736,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "预先阻止, 先...一步行动, 占先一步, 垄断, 阻碍",
-      "decision_cn": "",
+      "summary_cn": "在事情发生或别人行动之前抢先应对，以阻止或延缓",
+      "decision_cn": "普通语境强调预先一步的干预，而非任何一般阻碍；历史贸易语境可指预先收购货物来操控市场。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "预先阻止, 先...一步行动, 占先一步, 垄断, 阻碍"
+        "target_label": "在事情发生或别人行动之前抢先应对，以阻止或延缓"
       }
     },
     "senses": [
@@ -1610,8 +1751,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "预先阻止, 先...一步行动, 占先一步, 垄断, 阻碍",
-        "definition_en": "keep from happening or arising; make impossible",
+        "definition_cn": "预先采取行动阻止或延缓",
+        "definition_en": "to prevent or delay something by acting beforehand",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -1619,7 +1760,7 @@
           "target_kind": "sense",
           "target_id": "sense:forestall:5077484e44275e88",
           "target_locator": "record.senses[0]",
-          "target_label": "预先阻止, 先...一步行动, 占先一步, 垄断, 阻碍"
+          "target_label": "预先采取行动阻止或延缓"
         }
       },
       {
@@ -1627,7 +1768,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "预先阻止, 先...一步行动, 占先一步, 垄断, 阻碍",
+        "definition_cn": "抢先行动；预先应对",
         "definition_en": "act in advance of; deal with ahead of time",
         "note": "",
         "identity_overlay": null,
@@ -1636,7 +1777,7 @@
           "target_kind": "sense",
           "target_id": "sense:forestall:e2302afbf9b8533d",
           "target_locator": "record.senses[1]",
-          "target_label": "预先阻止, 先...一步行动, 占先一步, 垄断, 阻碍"
+          "target_label": "抢先行动；预先应对"
         }
       }
     ],
@@ -1681,7 +1822,34 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "（历史贸易）预先收购货物以操控市场或转卖牟利",
+          "definition_en": "to buy goods ahead of the market in order to control supply or resell them",
+          "sense_label_en": "to buy goods ahead of the market in order to control supply or resell them",
+          "pos": "verb",
+          "level": "L3",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/forestall",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "register": "historical trade",
+          "stable_sense_id": "sense:forestall:639da239cf54a946",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "Historical trade use: buying goods before they reach the market in order to control supply or resell them."
+        }
+      ]
     }
   },
   {
@@ -1690,7 +1858,7 @@
     "ordinal": 6865,
     "word": "forlorn",
     "source_owner_path": "content/lexical/words/by-ordinal/o6865.json",
-    "source_fingerprint": "fee18cedb927b6c6ee6183e32c7b8d50fc1d51a84102bb6abb0dd5d1070c5571",
+    "source_fingerprint": "8078a62274e9c46df6ac872e13063cae4bae3bc512a1cac5501c3ae64b83db1e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1716,7 +1884,7 @@
         "governing_pattern": "",
         "definition_cn": "孤独凄凉的；被遗弃的；悲伤绝望的",
         "definition_en": "lonely, abandoned, very sad, or hopeless in appearance or situation",
-        "note": "",
+        "note": "With hope, attempt, or effort, forlorn means unlikely to succeed; with people or places it suggests loneliness, sadness, or abandonment.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -1800,17 +1968,19 @@
     "ordinal": 6866,
     "word": "forte",
     "source_owner_path": "content/lexical/words/by-ordinal/o6866.json",
-    "source_fingerprint": "5adec71301b18824eefa9c5b9a68325922f4d7d496719b668ac600c695f68d73",
+    "source_fingerprint": "7d022a438ecc54ba0e56376d1040341423ae40e5d8aacd509bebf308a04997ae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "1A",
+        "3N",
+        "1ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "长处；专长；特别擅长的领域；长处, 特长, 拿手, 优点",
-      "decision_cn": "",
+      "decision_cn": "某活动是人的 forte 时指专长；乐谱或演奏指示中的 forte 指强奏，a forte 可指强奏乐段；剑术语境指剑身强部。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1841,16 +2011,16 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（音乐）强；强奏（f）",
-        "definition_en": "(music) loud",
-        "note": "Music: forte = loud/strong.",
+        "definition_cn": "（音乐）强奏乐段；强奏",
+        "definition_en": "a passage or performance played loudly",
+        "note": "Music noun: a loud passage or performance; the direction is also used adjectivally and adverbially.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:forte:c79c9ff83ce35eb7",
           "target_locator": "record.senses[1]",
-          "target_label": "（音乐）强；强奏（f）"
+          "target_label": "（音乐）强奏乐段；强奏"
         }
       },
       {
@@ -1868,6 +2038,40 @@
           "target_id": "sense:forte:63115ce208855b4f",
           "target_locator": "record.senses[2]",
           "target_label": "（剑身）强部；靠近剑柄的较强部分"
+        }
+      },
+      {
+        "id": "sense:forte:4e7ccc00fd2450f8",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（音乐）强的；以较大音量演奏的",
+        "definition_en": "loud in a musical direction or passage",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:forte:4e7ccc00fd2450f8",
+          "target_locator": "record.senses[3]",
+          "target_label": "（音乐）强的；以较大音量演奏的"
+        }
+      },
+      {
+        "id": "sense:forte:3d7ce31c443e8ce8",
+        "source_locator": "record.senses[4]",
+        "pos": "adverb",
+        "governing_pattern": "",
+        "definition_cn": "（音乐）强奏地；大声地",
+        "definition_en": "loudly, as a musical direction",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:forte:3d7ce31c443e8ce8",
+          "target_locator": "record.senses[4]",
+          "target_label": "（音乐）强奏地；大声地"
         }
       }
     ],
@@ -1935,7 +2139,7 @@
     "ordinal": 6867,
     "word": "forthright",
     "source_owner_path": "content/lexical/words/by-ordinal/o6867.json",
-    "source_fingerprint": "0b5e3ed8c8612b2e71151e967ffa39c7030a821b2c87ef8f5e645b91fc8b6ad6",
+    "source_fingerprint": "9c424ec36f184fefb4ff675bd09c10f6a1ce5ac3f23727c5e7afc23dbd36b63f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2040,7 +2244,34 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "（旧用）立即；马上",
+          "definition_en": "immediately or at once",
+          "sense_label_en": "immediately or at once",
+          "pos": "adverb",
+          "level": "L3",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/forthright",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "register": "archaic",
+          "stable_sense_id": "sense:forthright:46b1242bfcc2074b",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "Archaic temporal use meaning immediately, distinct from speaking or acting in a direct, open manner."
+        }
+      ]
     }
   },
   {
@@ -2049,17 +2280,17 @@
     "ordinal": 6868,
     "word": "fortify",
     "source_owner_path": "content/lexical/words/by-ordinal/o6868.json",
-    "source_fingerprint": "467c433e6cdd1afe83c1fc930d09ac545f6bfe3f5feaf3effc0898a21508489c",
+    "source_fingerprint": "b8e4cb4b0287818b542d22f18b045288e8544c5951763c5cb1bbccba397e7d51",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "加强、保护、巩固；也可指给食物或饮料强化营养",
-      "decision_cn": "",
+      "decision_cn": "看被加强的对象及添加物：防御、论证或人的力量；食品加营养素；酒加烈酒。fortified wine 不是营养强化酒。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2101,6 +2332,23 @@
           "target_locator": "record.senses[1]",
           "target_label": "给食品或饮料强化、添加维生素矿物质等营养素"
         }
+      },
+      {
+        "id": "sense:fortify:525434fe00c935e8",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "fortify wine with spirits",
+        "definition_cn": "向葡萄酒等加入烈酒以提高酒精度",
+        "definition_en": "to make wine stronger by adding spirits",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fortify:525434fe00c935e8",
+          "target_locator": "record.senses[2]",
+          "target_label": "向葡萄酒等加入烈酒以提高酒精度"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2136,7 +2384,30 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:80070499fd5d514d74e1",
+        "sense_id": "sense:fortify:c72d6f077d775fb0",
+        "source_locator": "record.constructions[0]",
+        "pattern": "fortify food with nutrients",
+        "lines": [
+          {
+            "text": "向食品添加营养素以提高营养价值",
+            "lang": "cn"
+          },
+          {
+            "text": "to enrich food by adding nutrients",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:80070499fd5d514d74e1",
+          "target_locator": "record.constructions[0]",
+          "target_label": "fortify food with nutrients"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2234,7 +2505,7 @@
     "ordinal": 6870,
     "word": "fortuitous",
     "source_owner_path": "content/lexical/words/by-ordinal/o6870.json",
-    "source_fingerprint": "b71ba63b3e1dede69632a8819b3f8e9fcaa1d0c010d8ed6e5920c2ca4e4a61e9",
+    "source_fingerprint": "9782812b6f8f972ec9129b236469c440a33eae3ff158820751e52ab226dd1486",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2243,13 +2514,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "偶然发生的；出于巧合而非计划的；现代用法有时受 fortunate 影响",
-      "decision_cn": "",
+      "summary_cn": "出乎计划的巧合；也可表示幸运、有利",
+      "decision_cn": "说明事情如何发生时侧重偶然；评价结果时可侧重幸运或有利，也常兼有幸运巧合两层意思。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "偶然发生的；出于巧合而非计划的；现代用法有时受 fortunate 影响"
+        "target_label": "出乎计划的巧合；也可表示幸运、有利"
       }
     },
     "senses": [
@@ -2258,16 +2529,16 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "偶然发生的；出于巧合而非计划的；现代用法有时受 fortunate 影响",
-        "definition_en": "happening by chance or accident rather than by design; in modern use sometimes confused with or influenced by fortunate",
-        "note": "",
+        "definition_cn": "偶然发生的；也指幸运的、带来有利结果的",
+        "definition_en": "happening by chance; also lucky or favourable",
+        "note": "The lucky or favourable use is standard, although some critics prefer limiting the word to chance occurrences. A lucky chance combines both readings.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fortuitous:1a01b4ef43db51f4",
           "target_locator": "record.senses[0]",
-          "target_label": "偶然发生的；出于巧合而非计划的；现代用法有时受 fortunate 影响"
+          "target_label": "偶然发生的；也指幸运的、带来有利结果的"
         }
       }
     ],
@@ -2475,17 +2746,17 @@
     "ordinal": 6873,
     "word": "fragrance",
     "source_owner_path": "content/lexical/words/by-ordinal/o6873.json",
-    "source_fingerprint": "223134a75bee97b388974c013c3b752953a77732d016a0e463ab86adab293ced",
+    "source_fingerprint": "23599bbf8de69029f4691c1c228094466e34c3c271ad81c653cfbfd01afe68a9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "芬芳, 香味",
-      "decision_cn": "",
+      "decision_cn": "花或空气中的 fragrance 是香气；上市、购买、使用某款 fragrance 时可指香水产品，不只是抽象气味。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2526,6 +2797,23 @@
           "target_id": "sense:fragrance:3c50c5e1e9da5284",
           "target_locator": "record.senses[1]",
           "target_label": "芬芳, 香味"
+        }
+      },
+      {
+        "id": "sense:fragrance:8ca664912288bb24",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "香水；使身体带有香味的产品",
+        "definition_en": "a perfume or similar scented product worn on the body",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fragrance:8ca664912288bb24",
+          "target_locator": "record.senses[2]",
+          "target_label": "香水；使身体带有香味的产品"
         }
       }
     ],
@@ -2826,7 +3114,7 @@
     "ordinal": 6877,
     "word": "fraught",
     "source_owner_path": "content/lexical/words/by-ordinal/o6877.json",
-    "source_fingerprint": "c1d886fe5f0dd94d202183e7be3c19a7e90a7e1c4eb804dd9f1da8d43c31f1a2",
+    "source_fingerprint": "1c3b606a4a5602e502f6ed2028c3dc4016d79f48375ee316e4e8074d26931d4a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2835,13 +3123,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "含有...的, 伴着...的, 充满...的；充满困难、危险、紧张或焦虑的；伴随着这些问题的",
-      "decision_cn": "",
+      "summary_cn": "紧张不安的；令人焦虑的；充满困难、危险、紧张或焦虑的；伴随着这些问题的",
+      "decision_cn": "with 后接的是充满或伴随的事物；不带 with 而形容人、关系或局面时，侧重忧虑、紧张不安。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "含有...的, 伴着...的, 充满...的；充满困难、危险、紧张或焦虑的；伴随着这些问题的"
+        "target_label": "紧张不安的；令人焦虑的；充满困难、危险、紧张或焦虑的；伴随着这些问题的"
       }
     },
     "senses": [
@@ -2850,16 +3138,16 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "含有...的, 伴着...的, 充满...的",
-        "definition_en": "marked by distress",
-        "note": "Also describes a situation or person marked by distress or anxiety.",
+        "definition_cn": "紧张不安的；令人焦虑的",
+        "definition_en": "causing or marked by emotional distress or tension",
+        "note": "Without a with-complement, fraught describes emotional distress or tension; fraught with something names what a situation is full of or accompanied by.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fraught:0ec5ed9187e75559",
           "target_locator": "record.senses[0]",
-          "target_label": "含有...的, 伴着...的, 充满...的"
+          "target_label": "紧张不安的；令人焦虑的"
         }
       },
       {
@@ -2867,8 +3155,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "充满困难、危险、紧张或焦虑的；伴随着这些问题的",
-        "definition_en": "filled with, accompanied by, or likely to cause difficulty, danger, tension, or anxiety",
+        "definition_cn": "充满或伴随着某事物的（尤指困难、危险、紧张等）",
+        "definition_en": "filled with or accompanied by something, especially difficulty, danger, or tension",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2876,7 +3164,7 @@
           "target_kind": "sense",
           "target_id": "sense:fraught:c973853c01995114",
           "target_locator": "record.senses[1]",
-          "target_label": "充满困难、危险、紧张或焦虑的；伴随着这些问题的"
+          "target_label": "充满或伴随着某事物的（尤指困难、危险、紧张等）"
         }
       }
     ],
@@ -3230,11 +3518,11 @@
     "ordinal": 6879,
     "word": "frigid",
     "source_owner_path": "content/lexical/words/by-ordinal/o6879.json",
-    "source_fingerprint": "eb4c9a0682ba790f2e474214c415b669366701cd6c5175f4bcc552cfd3614301",
+    "source_fingerprint": "35f422c5dd9ca8d8a6a307196554f80a38c5320a66927e1437e645c948e8fa7d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -3281,6 +3569,23 @@
           "target_id": "sense:frigid:434bf598b570b208",
           "target_locator": "record.senses[1]",
           "target_label": "严寒的；极冷的"
+        }
+      },
+      {
+        "id": "sense:frigid:44676d8f2a6fff2b",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（旧式、常带贬意的说法）缺乏性欲或性反应的",
+        "definition_en": "old-fashioned: described as having little or no sexual desire or response",
+        "note": "Especially used of women and often disapproving. In an intimate or sexual context this is a sexual-response label, not merely a description of unfriendly manners. Avoid treating it as a neutral clinical diagnosis.",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:frigid:44676d8f2a6fff2b",
+          "target_locator": "record.senses[2]",
+          "target_label": "（旧式、常带贬意的说法）缺乏性欲或性反应的"
         }
       }
     ],
@@ -3476,7 +3781,7 @@
     "ordinal": 6882,
     "word": "fulminate",
     "source_owner_path": "content/lexical/words/by-ordinal/o6882.json",
-    "source_fingerprint": "9d9225d7f484e16fcd836fee853e85aedf7e1216840151249da25e818d7cf9fc",
+    "source_fingerprint": "2b2a6c25187ba37da9828abd56df92473db00c15ecde16f5f70959fc1a2ac01d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3606,7 +3911,34 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "（及物动词）使爆炸",
+          "definition_en": "to cause to explode",
+          "sense_label_en": "to cause to explode",
+          "pos": "verb",
+          "level": "L3",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/fulminate",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "transitivity": "vt",
+          "stable_sense_id": "sense:fulminate:2508e1b763bbc5f8",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "This transitive meaning differs from severe public criticism and from sudden medical onset."
+        }
+      ]
     }
   },
   {
@@ -3615,7 +3947,7 @@
     "ordinal": 6883,
     "word": "fulsome",
     "source_owner_path": "content/lexical/words/by-ordinal/o6883.json",
-    "source_fingerprint": "57156d6133559c1a81fcfb57df7c0c762f4b831dc5c56cf86f107f9dacf0da8d",
+    "source_fingerprint": "8515360c2519c37627a1c975ca150c0e5edd95371a180672b74d434735580785",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3656,16 +3988,16 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "充分的；全面的；丰富的（较新的中性或褒义用法，语境接受度有差异）",
-        "definition_en": "full, comprehensive, or abundant; a newer neutral-positive use whose acceptability can depend on context",
-        "note": "This newer positive use coexists with the traditional negative sense and can still be interpreted ambiguously.",
+        "definition_cn": "充分的；全面的；丰富的（中性或褒义用法，理解可能因语境而异）",
+        "definition_en": "full, comprehensive, or abundant; a neutral or positive use that can be ambiguous in context",
+        "note": "The full/abundant meaning is historically old and was revived. Context emphasizing completeness or abundance supports this reading; criticism of excess or insincerity supports the negative reading. Fulsome praise alone can remain ambiguous.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fulsome:be4ecfa5b0e9ac33",
           "target_locator": "record.senses[1]",
-          "target_label": "充分的；全面的；丰富的（较新的中性或褒义用法，语境接受度有差异）"
+          "target_label": "充分的；全面的；丰富的（中性或褒义用法，理解可能因语境而异）"
         }
       }
     ],
@@ -3714,7 +4046,7 @@
     "ordinal": 6884,
     "word": "fussy",
     "source_owner_path": "content/lexical/words/by-ordinal/o6884.json",
-    "source_fingerprint": "32f316e513cee8976d46d32a927ce042e108e45e96c924248c861e4d797de063",
+    "source_fingerprint": "1751f59afdf5702b38fc739d25c4dde7e11c8dc2a7560d78d9d8eb150bc0ff76",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3738,7 +4070,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "易怒的, 爱挑剔的, 难取悦的, 易烦恼的",
+        "definition_cn": "易烦躁的；爱抱怨或哭闹的",
         "definition_en": "annoyed and irritable",
         "note": "Irritable or fretful is a secondary use, especially of children or behavior.",
         "identity_overlay": null,
@@ -3747,7 +4079,7 @@
           "target_kind": "sense",
           "target_id": "sense:fussy:32ef2395b3df554f",
           "target_locator": "record.senses[0]",
-          "target_label": "易怒的, 爱挑剔的, 难取悦的, 易烦恼的"
+          "target_label": "易烦躁的；爱抱怨或哭闹的"
         }
       },
       {
@@ -3816,7 +4148,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:f3c7e26c5d11f1dc9119",
+        "sense_id": "sense:fussy:ab412f6222f3530c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be fussy about sth",
+        "lines": [
+          {
+            "text": "对某事物挑剔；很在意其细节",
+            "lang": "cn"
+          },
+          {
+            "text": "about 引出挑剔的对象；不把这个补语框架解释成婴儿烦躁或装饰繁琐。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be hard to please or very particular about something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:f3c7e26c5d11f1dc9119",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be fussy about sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3830,7 +4189,7 @@
     "ordinal": 6885,
     "word": "fuzzy",
     "source_owner_path": "content/lexical/words/by-ordinal/o6885.json",
-    "source_fingerprint": "6ca6ac63eb03834ba3f235476000dd4f906fb37ff3f154622c9b33e39b876ff3",
+    "source_fingerprint": "e225b0786a3f4a35036522b5fa09d4ce370bbfc193d7722b29509f71aa092d68",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3840,7 +4199,7 @@
     },
     "word_feel": {
       "summary_cn": "模糊的；含混的；思路不清的；有绒毛的；毛茸茸的；轮廓模糊不清的",
-      "decision_cn": "",
+      "decision_cn": "表面、玩具或叶片语境看短绒毛；照片或轮廓语境看是否失焦、不清晰；思想、记忆或责任界线语境看是否含混。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4006,7 +4365,7 @@
     "ordinal": 6887,
     "word": "gait",
     "source_owner_path": "content/lexical/words/by-ordinal/o6887.json",
-    "source_fingerprint": "a9aeafc725cb7e8bd88361f970876a8e777a68fbdf999b76c273e08d35b89cd5",
+    "source_fingerprint": "6bcb533f630ace458b0eef76b00872213e6fea0d22ecfa0b94b5d32ef4d5623b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4030,7 +4389,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "步法, 步态",
+        "definition_cn": "（人的）走路姿态；步态",
         "definition_en": "a person's manner of walking",
         "note": "",
         "identity_overlay": null,
@@ -4039,7 +4398,7 @@
           "target_kind": "sense",
           "target_id": "sense:gait:5aed0972bb065e14",
           "target_locator": "record.senses[0]",
-          "target_label": "步法, 步态"
+          "target_label": "（人的）走路姿态；步态"
         }
       },
       {
@@ -4047,7 +4406,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "步法, 步态",
+        "definition_cn": "（马的）运动步法；步态",
         "definition_en": "a horse's manner of moving",
         "note": "",
         "identity_overlay": null,
@@ -4056,7 +4415,7 @@
           "target_kind": "sense",
           "target_id": "sense:gait:d5031ad3d7f05efe",
           "target_locator": "record.senses[1]",
-          "target_label": "步法, 步态"
+          "target_label": "（马的）运动步法；步态"
         }
       }
     ],
@@ -4195,7 +4554,7 @@
     "ordinal": 6889,
     "word": "gallant",
     "source_owner_path": "content/lexical/words/by-ordinal/o6889.json",
-    "source_fingerprint": "9c0b8690644a2479cc110297c2e4d89d9c6dc33455fd0b0aa4eb6437ae4f965d",
+    "source_fingerprint": "4cf691b05461190e7d135f9acef5db03af73f690ec92ee929a201dde1adac099",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4204,13 +4563,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "勇敢的；英勇的；英勇的, 壮丽的, 华丽的",
-      "decision_cn": "",
+      "summary_cn": "勇敢的；英勇的；高贵庄严的；壮丽的；华丽出众的",
+      "decision_cn": "看搭配选义：effort/attempt 侧重迎难而上的勇气；bow/gesture 在礼仪语境中侧重殷勤有礼；ship/dress 侧重庄严壮丽或华美。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "勇敢的；英勇的；英勇的, 壮丽的, 华丽的"
+        "target_label": "勇敢的；英勇的；高贵庄严的；壮丽的；华丽出众的"
       }
     },
     "senses": [
@@ -4236,16 +4595,16 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "英勇的, 壮丽的, 华丽的",
-        "definition_en": "having or displaying great dignity or nobility",
-        "note": "Also dignified, noble, or splendid in conduct.",
+        "definition_cn": "高贵庄严的；壮丽的；（服饰或仪态）华丽出众的",
+        "definition_en": "noble, stately, or splendid; showy in dress or bearing",
+        "note": "With a ship or imposing appearance, gallant can mean stately or splendid; with dress or bearing it can mean showy; with conduct it can express nobility.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:gallant:f9eed3eef4d259b8",
           "target_locator": "record.senses[1]",
-          "target_label": "英勇的, 壮丽的, 华丽的"
+          "target_label": "高贵庄严的；壮丽的；（服饰或仪态）华丽出众的"
         }
       },
       {
@@ -4324,18 +4683,18 @@
     "ordinal": 6890,
     "word": "gallop",
     "source_owner_path": "content/lexical/words/by-ordinal/o6890.json",
-    "source_fingerprint": "77ec61ce05d375200d0b0f5f0f1e2a8cfdab4b2bb412bf3011998b82607b6a87",
+    "source_fingerprint": "252037291e712c28edd859b8eca5705a4f06e194cb8f5ecec8219edf285194a1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "4V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "飞驰, 急速进行, 急急忙忙地说；疾驰, 飞奔；（马）飞奔；（骑手或人）疾驰",
-      "decision_cn": "",
+      "decision_cn": "马作宾语时指使马疾驰；马或骑手作主语时指飞奔或骑马疾驰；进程、材料或任务语境指飞快推进，gallop through 常带过于仓促的意味。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4349,7 +4708,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt.: gallop a horse",
-        "definition_cn": "使马疾驰；骑马疾驰",
+        "definition_cn": "使马疾驰",
         "definition_en": "cause to move at full gallop",
         "note": "Transitive/causative: make a horse move at a gallop.",
         "identity_overlay": null,
@@ -4358,7 +4717,7 @@
           "target_kind": "sense",
           "target_id": "sense:gallop:31aff85ad3e05097",
           "target_locator": "record.senses[0]",
-          "target_label": "使马疾驰；骑马疾驰"
+          "target_label": "使马疾驰"
         }
       },
       {
@@ -4367,7 +4726,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "疾驰, 飞奔",
-        "definition_en": "a fast gait of a horse; a two-beat stride during which all four legs are off the ground simultaneously",
+        "definition_en": "a fast gait of a horse in which all four feet are briefly off the ground during each stride",
         "note": "Noun: the fast gait in which a horse moves with all four feet off the ground during part of the stride.",
         "identity_overlay": null,
         "usage": [],
@@ -4383,7 +4742,7 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "飞驰, 急速进行, 急急忙忙地说",
+        "definition_cn": "骑马疾驰",
         "definition_en": "ride at a galloping pace",
         "note": "To ride at a galloping pace.",
         "identity_overlay": null,
@@ -4392,7 +4751,7 @@
           "target_kind": "sense",
           "target_id": "sense:gallop:b9f20a53a5a0559b",
           "target_locator": "record.senses[2]",
-          "target_label": "飞驰, 急速进行, 急急忙忙地说"
+          "target_label": "骑马疾驰"
         }
       },
       {
@@ -4410,6 +4769,23 @@
           "target_id": "sense:gallop:849e2b403ed3bd9f",
           "target_locator": "record.senses[3]",
           "target_label": "（马）飞奔；（骑手或人）疾驰"
+        }
+      },
+      {
+        "id": "sense:gallop:c032ed501103882d",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "急速进行或发展；匆忙地读、说或做",
+        "definition_en": "to progress, read, speak, or act very rapidly, sometimes too hastily",
+        "note": "A process or its results can gallop ahead; gallop through a text or task emphasizes rapid completion, often with insufficient care.",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:gallop:c032ed501103882d",
+          "target_locator": "record.senses[4]",
+          "target_label": "急速进行或发展；匆忙地读、说或做"
         }
       }
     ],
@@ -4444,7 +4820,34 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:gallop:4b68bf740a4bcdec",
+        "sense_id": "sense:gallop:c032ed501103882d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "gallop through sth",
+        "lines": [
+          {
+            "text": "匆匆读完、说完或做完某事；常暗示不够仔细",
+            "lang": "cn"
+          },
+          {
+            "text": "任务、材料或一段话作 through 的对象时，取匆匆完成的比喻义；马穿过树林等地点的用法仍可取字面义。",
+            "lang": "cn"
+          },
+          {
+            "text": "to rush through reading, saying, or doing something, often with insufficient care",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:gallop:4b68bf740a4bcdec",
+          "target_locator": "record.constructions[0]",
+          "target_label": "gallop through sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4458,7 +4861,7 @@
     "ordinal": 6891,
     "word": "gape",
     "source_owner_path": "content/lexical/words/by-ordinal/o6891.json",
-    "source_fingerprint": "cbb57cc56cedb2b2c4d518019f7702481278a7cae0f358a972c81851e244555f",
+    "source_fingerprint": "889d0c97ec9089ea7b4c2864b2de379ddc19001f30d389dacf7f1fe470d0cc3d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4469,7 +4872,7 @@
     },
     "word_feel": {
       "summary_cn": "裂口, 张嘴, 打哈欠；裂开；张得很大；敞开；目瞪口呆地凝视；张口吃惊地看",
-      "decision_cn": "",
+      "decision_cn": "看主语和补语：人 gape at 某人或某物，通常是张口惊讶地看；洞口或裂缝 gape，则是张得很开。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4592,7 +4995,7 @@
     "ordinal": 6892,
     "word": "garb",
     "source_owner_path": "content/lexical/words/by-ordinal/o6892.json",
-    "source_fingerprint": "bb34952a46f9bf394d776cbd1058ba5f96f277f16fbd35cdfb2701a829a6ff6a",
+    "source_fingerprint": "39ad5b4997daaf371e972ed0e5b66555aad8ff260346a6b1776108c4e05dac7b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4619,7 +5022,7 @@
         "governing_pattern": "",
         "definition_cn": "打扮, 装束",
         "definition_en": "clothing of a distinctive style or for a particular occasion",
-        "note": "",
+        "note": "A written term for clothing, especially a distinctive style or outfit.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4633,8 +5036,8 @@
         "id": "sense:garb:89b93001285156fc",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "打扮, 穿衣",
+        "governing_pattern": "garb sb in sth; be garbed in sth",
+        "definition_cn": "给……穿衣；使穿着",
         "definition_en": "provide with clothes or put clothes on",
         "note": "",
         "identity_overlay": null,
@@ -4643,7 +5046,7 @@
           "target_kind": "sense",
           "target_id": "sense:garb:89b93001285156fc",
           "target_locator": "record.senses[1]",
-          "target_label": "打扮, 穿衣"
+          "target_label": "给……穿衣；使穿着"
         }
       }
     ],
@@ -4685,18 +5088,18 @@
     "ordinal": 6893,
     "word": "garnish",
     "source_owner_path": "content/lexical/words/by-ordinal/o6893.json",
-    "source_fingerprint": "74a18948dd75f606a688ebc284e1dac41ab1d50cb9b2d7d0216c0a1cd668522c",
+    "source_fingerprint": "54cafea83847f78b9038d8111213f3102f74c9b05fa035bee2294b083555cc94",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "装饰, 装饰品；给……加配菜或装饰；点缀",
-      "decision_cn": "",
+      "decision_cn": "食物配 with 某种配料时是加以点缀；工资、债务或法院命令的语境中，garnish 是依法扣款抵债。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4710,7 +5113,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "装饰, 装饰品",
+        "definition_cn": "（食物或饮料的）装饰性配料；点缀物",
         "definition_en": "something (such as parsley) added to a dish for flavor or decoration",
         "note": "",
         "identity_overlay": null,
@@ -4719,7 +5122,7 @@
           "target_kind": "sense",
           "target_id": "sense:garnish:a9804fb36a155a50",
           "target_locator": "record.senses[0]",
-          "target_label": "装饰, 装饰品"
+          "target_label": "（食物或饮料的）装饰性配料；点缀物"
         }
       },
       {
@@ -4754,6 +5157,23 @@
           "target_id": "sense:garnish:265dfd7a2e88041d",
           "target_locator": "record.senses[2]",
           "target_label": "给……加配菜或装饰；点缀"
+        }
+      },
+      {
+        "id": "sense:garnish:bc9562fc1d7ad503",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "garnish sb's wages; wages are garnished",
+        "definition_cn": "（依法院命令）扣押工资或其他款项以偿还债务",
+        "definition_en": "to take wages or other money held by a third party under a court order to pay a debt",
+        "note": "A wages, creditor, debt, or court context selects compulsory debt repayment, not the addition of a decorative finishing touch.",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:garnish:bc9562fc1d7ad503",
+          "target_locator": "record.senses[3]",
+          "target_label": "（依法院命令）扣押工资或其他款项以偿还债务"
         }
       }
     ],
@@ -4822,7 +5242,7 @@
     "ordinal": 6894,
     "word": "garrison",
     "source_owner_path": "content/lexical/words/by-ordinal/o6894.json",
-    "source_fingerprint": "0dc9830d1bf5acac8e3d47967943de64a2deecdcaeb70ce46f45cebc905a1db1",
+    "source_fingerprint": "cad20ecf28aeb4c111cc6a7d9dfcf2ec313868ec254004f03abdcb399678d321",
     "sense_lineage": [
       {
         "word_id": "word:garrison",
@@ -4935,7 +5355,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "noun",
-          "definition_cn": "守备队, 驻军, 要塞",
+          "definition_cn": "加里森：William Lloyd Garrison（1805—1879），美国废奴主义者及反奴隶制报纸出版人",
           "definition_en": "United States abolitionist who published an anti-slavery journal (1805-1879)",
           "semantic_key": "d64b8cc5376e7f0a08a09de70e8cf0909ba792718d848af5cbeec3749bd8d906",
           "semantic_key_history": [
@@ -4946,7 +5366,25 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 17919,
           "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:garrison:ce50ac3a52be5d6e",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "noun",
+            "definition_cn": "守备队, 驻军, 要塞",
+            "definition_en": "United States abolitionist who published an anti-slavery journal (1805-1879)",
+            "semantic_key": "d64b8cc5376e7f0a08a09de70e8cf0909ba792718d848af5cbeec3749bd8d906",
+            "semantic_key_history": [
+              "4c81b869b225f2158081fedab15e30fe11b9a164d0509d6522745d149a345a8e"
+            ],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-09T00:00:00Z",
+            "source_row": 17919,
+            "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json",
+            "reference_only": true
+          }
         }
       ]
     }
@@ -5041,7 +5479,7 @@
     "ordinal": 6896,
     "word": "gaudy",
     "source_owner_path": "content/lexical/words/by-ordinal/o6896.json",
-    "source_fingerprint": "477ee8d73b04498090b5672456687abd4cde9427e72939c8b183cdd034cad96e",
+    "source_fingerprint": "290154730dd573ca70d3af70e7fe8823fe996ab90a7ad63daeedfc5e22f72e05",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5066,8 +5504,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "盛大宴会",
-        "definition_en": "(Britain) a celebratory reunion feast or entertainment held a college",
+        "definition_cn": "（英国大学的）校友聚会宴会",
+        "definition_en": "(Britain) a celebratory reunion feast or entertainment held at a college",
         "note": "Rare noun: a celebratory college reunion or feast in Britain.",
         "identity_overlay": null,
         "usage": [],
@@ -5075,7 +5513,7 @@
           "target_kind": "sense",
           "target_id": "sense:gaudy:432af23307235e66",
           "target_locator": "record.senses[0]",
-          "target_label": "盛大宴会"
+          "target_label": "（英国大学的）校友聚会宴会"
         }
       },
       {
@@ -5507,7 +5945,7 @@
     "ordinal": 6901,
     "word": "germane",
     "source_owner_path": "content/lexical/words/by-ordinal/o6901.json",
-    "source_fingerprint": "f7e3d5dd1b69a3420782f631874fd760302eb1360e8fb6d998bee21ab61bbdc9",
+    "source_fingerprint": "6f749896429689da64c153dbd5d0072856e1b802d6de7a9d175b559f7c02153f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5516,13 +5954,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "关系密切的, 有关的, 同样的, 恰当的, 贴切的",
+      "summary_cn": "与当前主题相关而切题",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "关系密切的, 有关的, 同样的, 恰当的, 贴切的"
+        "target_label": "与当前主题相关而切题"
       }
     },
     "senses": [
@@ -5531,7 +5969,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "关系密切的, 有关的, 同样的, 恰当的, 贴切的",
+        "definition_cn": "（正式）与当前主题密切相关的；切题的",
         "definition_en": "relevant and appropriate",
         "note": "",
         "identity_overlay": null,
@@ -5540,7 +5978,7 @@
           "target_kind": "sense",
           "target_id": "sense:germane:95dc13797fb550a1",
           "target_locator": "record.senses[0]",
-          "target_label": "关系密切的, 有关的, 同样的, 恰当的, 贴切的"
+          "target_label": "（正式）与当前主题密切相关的；切题的"
         }
       }
     ],
@@ -5909,7 +6347,7 @@
     "ordinal": 6904,
     "word": "gibe",
     "source_owner_path": "content/lexical/words/by-ordinal/o6904.json",
-    "source_fingerprint": "8ae839c82c370027e04a49637db9377eee03cf232b6ff4af30ceca8520421bfe",
+    "source_fingerprint": "68335e83f2638efb1166a8af697509947ee60619aef4c85c5a555337c8ae1d19",
     "sense_lineage": [
       {
         "word_id": "word:gibe",
@@ -6027,7 +6465,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "verb",
-          "definition_cn": "嘲笑",
+          "definition_cn": "（保留的 jibe 用法记录）相符；一致",
           "definition_en": "be compatible, similar or consistent; coincide in their characteristics",
           "semantic_key": "51f6ee749ebd4f36122f7dd1ac475b4fc3a03268554c4a5a40ec2856914ec46f",
           "semantic_key_history": [],
@@ -6036,7 +6474,24 @@
           "updated_at": "2026-09-14T00:00:00Z",
           "source_row": 17931,
           "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:gibe:c0bcf3ec80f85378",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "verb",
+            "definition_cn": "嘲笑",
+            "definition_en": "be compatible, similar or consistent; coincide in their characteristics",
+            "semantic_key": "51f6ee749ebd4f36122f7dd1ac475b4fc3a03268554c4a5a40ec2856914ec46f",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-14T00:00:00Z",
+            "source_row": 17931,
+            "source_path": "content/lexical/canonical/senses/shards/o6881-6912.json",
+            "reference_only": true
+          },
+          "usage_note": "Deprecated historical row: its English meaning belongs to jibe with, not the active taunt senses of gibe. Preserved for provenance and lookup, with no reactivation or unrestricted alias."
         }
       ]
     }
@@ -6047,22 +6502,22 @@
     "ordinal": 6905,
     "word": "gild",
     "source_owner_path": "content/lexical/words/by-ordinal/o6905.json",
-    "source_fingerprint": "929ea577a54c3b8ccc11d6681cc965892c6f287345a37b9d6331dc8793545c5f",
+    "source_fingerprint": "dfe19048ce54dee99ab4956b4a2587ecf4c4601da63c889b4375988808e4b83e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V"
+        "2V"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "镀金, 虚饰, 装饰, 供给钱",
-      "decision_cn": "",
+      "summary_cn": "给外表镀上一层金色或吸引力",
+      "decision_cn": "实体表面可镀金，光线可染金色；抽象对象可被粉饰。gild the lily 强调多余修饰，而非一般改善。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "镀金, 虚饰, 装饰, 供给钱"
+        "target_label": "给外表镀上一层金色或吸引力"
       }
     },
     "senses": [
@@ -6073,7 +6528,7 @@
         "governing_pattern": "",
         "definition_cn": "镀金；贴金；用金箔/金液装饰",
         "definition_en": "decorate with, or as if with, gold leaf or liquid gold",
-        "note": "",
+        "note": "Literal coating may be gold or gold-coloured material; literary light can gild a surface without depositing metal.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -6081,6 +6536,23 @@
           "target_id": "sense:gild:c32488104f4950da",
           "target_locator": "record.senses[0]",
           "target_label": "镀金；贴金；用金箔/金液装饰"
+        }
+      },
+      {
+        "id": "sense:gild:7f03fd2081b6640e",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "美化外表；把事物粉饰得更有吸引力",
+        "definition_en": "to give something an attractive appearance, sometimes concealing its real nature",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:gild:7f03fd2081b6640e",
+          "target_locator": "record.senses[1]",
+          "target_label": "美化外表；把事物粉饰得更有吸引力"
         }
       }
     ],
@@ -6115,12 +6587,61 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:3af68e365c22c5c62385",
+        "sense_id": "sense:gild:7f03fd2081b6640e",
+        "source_locator": "record.constructions[0]",
+        "pattern": "gild the lily",
+        "lines": [
+          {
+            "text": "对已经很好或完美的东西再作多余修饰；画蛇添足",
+            "lang": "cn"
+          },
+          {
+            "text": "to add unnecessary improvement or decoration to something already good",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3af68e365c22c5c62385",
+          "target_locator": "record.constructions[0]",
+          "target_label": "gild the lily"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "给予钱财；资助",
+          "definition_en": "to give money to someone",
+          "sense_label_en": "to give money to someone",
+          "pos": "verb",
+          "level": "L3",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.merriam-webster.com/dictionary/gild",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "stable_sense_id": "sense:gild:74e1a8f8101a9abb",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "Pecuniary meaning preserved from the original Core; no general current production priority is inferred from its dictionary listing."
+        }
+      ]
     }
   },
   {
@@ -6129,22 +6650,23 @@
     "ordinal": 6906,
     "word": "gilt",
     "source_owner_path": "content/lexical/words/by-ordinal/o6906.json",
-    "source_fingerprint": "4d55f937ba9a408adb32d8848d8679811a15b712abe1527e02aa22b3a0ed8f0d",
+    "source_fingerprint": "d567e4007246358ac372c64385d5020022b14ff9bc0235fa3544b5718a98d05c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "1A",
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "镀金, 眩目的外表, 小母猪",
-      "decision_cn": "",
+      "summary_cn": "物体外表的金色薄层；金融语境另指英国国债",
+      "decision_cn": "gilt + 物体名可为镀金的；复数 gilts 或收益率、投资语境指英国国债。畜牧语境另有尚未产仔的年轻母猪义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "镀金, 眩目的外表, 小母猪"
+        "target_label": "物体外表的金色薄层；金融语境另指英国国债"
       }
     },
     "senses": [
@@ -6163,6 +6685,40 @@
           "target_id": "sense:gilt:bdbc5bbd222f5cd0",
           "target_locator": "record.senses[0]",
           "target_label": "镀金层；金色涂层；仿金层"
+        }
+      },
+      {
+        "id": "sense:gilt:6004f2e02f33c809",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "镀金的；覆有金色薄层的",
+        "definition_en": "covered with a thin layer of gold or gold-coloured material",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:gilt:6004f2e02f33c809",
+          "target_locator": "record.senses[1]",
+          "target_label": "镀金的；覆有金色薄层的"
+        }
+      },
+      {
+        "id": "sense:gilt:28165e251e77160e",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "gilts; gilt yields",
+        "definition_cn": "（英国金融，常用复数 gilts）英国政府债券",
+        "definition_en": "a British government debt security, commonly referred to in the plural as gilts",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:gilt:28165e251e77160e",
+          "target_locator": "record.senses[2]",
+          "target_label": "（英国金融，常用复数 gilts）英国政府债券"
         }
       }
     ],
@@ -6192,7 +6748,58 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "（畜牧）尚未产仔的年轻母猪",
+          "definition_en": "a young female pig that has not yet had a litter",
+          "sense_label_en": "a young female pig that has not yet had a litter",
+          "pos": "noun",
+          "level": "L3",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/us/dictionary/english/gilt",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "register": "animal husbandry",
+          "stable_sense_id": "sense:gilt:59bcb4c39eaa6a11",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "Separate homonym used in animal husbandry; not a gold or finance meaning."
+        },
+        {
+          "definition_cn": "表面的光彩；虚饰的华美",
+          "definition_en": "a superficial appearance of excellence or glamour",
+          "sense_label_en": "a superficial appearance of excellence or glamour",
+          "pos": "noun",
+          "level": "L3",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/us/dictionary/english/gilt",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "stable_sense_id": "sense:gilt:47e167036e0b238a",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "Figurative appearance use preserved from the old summary without forcing default learner attention."
+        }
+      ]
     }
   },
   {
@@ -6201,23 +6808,23 @@
     "ordinal": 6907,
     "word": "girdle",
     "source_owner_path": "content/lexical/words/by-ordinal/o6907.json",
-    "source_fingerprint": "d37e0cc550f98a77a541ca5bab2976b5840f18dd54ea2fc1687088a5593ea67c",
+    "source_fingerprint": "d493d12d92b28401abfa6002b94cedce6cc4b9852cbf3d7088797c0249ef7a30",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
-        "2N"
+        "2V",
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "腰带, 围绕物",
-      "decision_cn": "",
+      "summary_cn": "围成一圈的带状物，或环绕一物",
+      "decision_cn": "服饰中分腰带与塑形内衣；围绕地点时为环绕；树木语境的环剥是切去一圈树皮，不能泛化成普通围住。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "腰带, 围绕物"
+        "target_label": "围成一圈的带状物，或环绕一物"
       }
     },
     "senses": [
@@ -6226,7 +6833,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "腰带, 围绕物",
+        "definition_cn": "环绕物；环状结构",
         "definition_en": "an encircling or ringlike structure",
         "note": "",
         "identity_overlay": null,
@@ -6235,7 +6842,7 @@
           "target_kind": "sense",
           "target_id": "sense:girdle:ba3cd2de379153b6",
           "target_locator": "record.senses[0]",
-          "target_label": "腰带, 围绕物"
+          "target_label": "环绕物；环状结构"
         }
       },
       {
@@ -6243,16 +6850,16 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "腰带, 围绕物",
-        "definition_en": "a band of material around the waist that strengthens a skirt or trousers",
-        "note": "",
+        "definition_cn": "（传统服饰）腰带；束带",
+        "definition_en": "a belt or sash worn around the waist",
+        "note": "Traditional belt or sash; distinct from a close-fitting foundation garment.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:girdle:240c4b71de1851f2",
           "target_locator": "record.senses[1]",
-          "target_label": "腰带, 围绕物"
+          "target_label": "（传统服饰）腰带；束带"
         }
       },
       {
@@ -6270,6 +6877,40 @@
           "target_id": "sense:girdle:be858a99ec3656f8",
           "target_locator": "record.senses[2]",
           "target_label": "环剥（树皮）；对树干作环状剥皮使其枯死"
+        }
+      },
+      {
+        "id": "sense:girdle:037e16752fb9fbf6",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（塑形或支撑腰腹臀部的）紧身内衣",
+        "definition_en": "a close-fitting undergarment supporting or shaping the waist and hips",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:girdle:037e16752fb9fbf6",
+          "target_locator": "record.senses[3]",
+          "target_label": "（塑形或支撑腰腹臀部的）紧身内衣"
+        }
+      },
+      {
+        "id": "sense:girdle:f2ebd07bb9cbb90e",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "（文学）环绕；围住",
+        "definition_en": "to surround or encircle something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:girdle:f2ebd07bb9cbb90e",
+          "target_locator": "record.senses[4]",
+          "target_label": "（文学）环绕；围住"
         }
       }
     ],
@@ -6320,7 +6961,7 @@
     "ordinal": 6908,
     "word": "gist",
     "source_owner_path": "content/lexical/words/by-ordinal/o6908.json",
-    "source_fingerprint": "544f0b9a9558c3e00557b9b547b09af0da16bb270c27282090cb2536c55b8d1a",
+    "source_fingerprint": "4aa40026fc1012f6eb6b48e766eb2578b37eddbef8196089c86acbe70c9441e2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6329,13 +6970,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "要点, 要旨, 依据",
+      "summary_cn": "抓住整体要旨，而不必逐项掌握细节",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "要点, 要旨, 依据"
+        "target_label": "抓住整体要旨，而不必逐项掌握细节"
       }
     },
     "senses": [
@@ -6344,7 +6985,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "要点, 要旨, 依据",
+        "definition_cn": "（事情、想法等的）要旨；实质",
         "definition_en": "the choicest or most essential or most vital part of some idea or experience",
         "note": "",
         "identity_overlay": null,
@@ -6353,7 +6994,7 @@
           "target_kind": "sense",
           "target_id": "sense:gist:bb5b9e13f44f5e0b",
           "target_locator": "record.senses[0]",
-          "target_label": "要点, 要旨, 依据"
+          "target_label": "（事情、想法等的）要旨；实质"
         }
       },
       {
@@ -6361,7 +7002,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "要点, 要旨, 依据",
+        "definition_cn": "（谈话或文章的）大意；中心意思",
         "definition_en": "the central meaning or theme of a speech or literary work",
         "note": "",
         "identity_overlay": null,
@@ -6370,7 +7011,7 @@
           "target_kind": "sense",
           "target_id": "sense:gist:d0a68cbdfb8853ab",
           "target_locator": "record.senses[1]",
-          "target_label": "要点, 要旨, 依据"
+          "target_label": "（谈话或文章的）大意；中心意思"
         }
       }
     ],
@@ -6395,12 +7036,62 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:6616dd80009f70c11a7e",
+        "sense_id": "sense:gist:d0a68cbdfb8853ab",
+        "source_locator": "record.constructions[0]",
+        "pattern": "get/grasp the gist of sth",
+        "lines": [
+          {
+            "text": "理解某事的大意，不要求掌握全部细节",
+            "lang": "cn"
+          },
+          {
+            "text": "to understand the main point without all the detail",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6616dd80009f70c11a7e",
+          "target_locator": "record.constructions[0]",
+          "target_label": "get/grasp the gist of sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "（法律）诉讼的核心依据",
+          "definition_en": "the essential ground of a legal action",
+          "sense_label_en": "the essential ground of a legal action",
+          "pos": "noun",
+          "level": "L3",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/us/dictionary/english/gist",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "register": "law",
+          "stable_sense_id": "sense:gist:7a50b9cfbe38cbb6",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "Legal use preserved from 依据 in the original summary; it is not the default meaning of gist."
+        }
+      ]
     }
   },
   {
@@ -6481,22 +7172,22 @@
     "ordinal": 6910,
     "word": "glaring",
     "source_owner_path": "content/lexical/words/by-ordinal/o6910.json",
-    "source_fingerprint": "63687ecea5c6e032e5b03d3d5cf8ada1269cd41c4f23c8792db976b7fdc50087",
+    "source_fingerprint": "c22fdebc02e4fcde37ffc129af4270ce56e46cb7e0a6f38686d2275d31fb185b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "闪耀的, 炫目的, 瞪视的",
-      "decision_cn": "",
+      "summary_cn": "强烈到无法忽视：光刺眼，缺陷显而易见",
+      "decision_cn": "light/colours 选择刺眼；error/injustice/omission 选择明显。目光或眼睛语境还保留怒视义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "闪耀的, 炫目的, 瞪视的"
+        "target_label": "强烈到无法忽视：光刺眼，缺陷显而易见"
       }
     },
     "senses": [
@@ -6532,6 +7223,23 @@
           "target_id": "sense:glaring:081ff31acb09531d",
           "target_locator": "record.senses[1]",
           "target_label": "明显而严重的；触目惊心的；恶劣得显眼的"
+        }
+      },
+      {
+        "id": "sense:glaring:df8e3e7a06eb5471",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（目光）怒视的；凶狠瞪视的",
+        "definition_en": "staring with anger or hostility",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:glaring:df8e3e7a06eb5471",
+          "target_locator": "record.senses[2]",
+          "target_label": "（目光）怒视的；凶狠瞪视的"
         }
       }
     ],
@@ -6582,7 +7290,7 @@
     "ordinal": 6911,
     "word": "glean",
     "source_owner_path": "content/lexical/words/by-ordinal/o6911.json",
-    "source_fingerprint": "bd163012f956a991c5b8f73d24640d5b5ae5508c706f2294da206efc7171e141",
+    "source_fingerprint": "d5771ccc0a554d6ce94128ab1b60f5524d916791a3e4478446fbfac6f8501d0a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6669,7 +7377,30 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ccb840b7b6fbf2886ac0",
+        "sense_id": "sense:glean:c66d628083cb1c57",
+        "source_locator": "record.constructions[0]",
+        "pattern": "glean information/facts from sb/sth",
+        "lines": [
+          {
+            "text": "从人或材料中一点点获取信息",
+            "lang": "cn"
+          },
+          {
+            "text": "to gather information bit by bit from a source",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ccb840b7b6fbf2886ac0",
+          "target_locator": "record.constructions[0]",
+          "target_label": "glean information/facts from sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

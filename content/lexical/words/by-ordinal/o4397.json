@@ -19,18 +19,19 @@
           ]
         },
         {
-          "label_cn": "运送，装船；乘船，上船",
-          "label_en": "to send or transport something, especially by ship; to travel by ship",
+          "label_cn": "运送；发货（不限海运）；乘船，上船；（产品、软件）推出、上市；使推出",
+          "label_en": "to send or transport someone or something by any means, or to be sent for delivery; to travel by ship; to release a product for customers, or become available as a product",
           "pos": "verb",
           "sense_ids": [
             "sense:ship:d017c31e11125552",
-            "sense:ship:760eedaf8112510d"
+            "sense:ship:760eedaf8112510d",
+            "sense:ship:3f9fe20ce4e3c3f7"
           ]
         }
       ],
-      "core_meaning_cn": "船，舰；运送，装船；乘船，上船",
-      "core_meaning_en": "a large boat that carries people or goods across the sea; to send or transport something, especially by ship; to travel by ship",
-      "mental_model_cn": "船，舰；运送，装船；乘船，上船",
+      "core_meaning_cn": "船；运送、发货或推出产品",
+      "core_meaning_en": "a vessel; to transport, dispatch or release a product",
+      "mental_model_cn": "名词看船；运送动词不限海路，ship by air也成立。人ship (out)可乘船出发；订单ships看发货，软件或新产品ships可看推出上市，由主语与上下文选义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -58,16 +59,26 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "运送，装船",
-        "definition_en": "to send or transport something, especially by ship",
-        "governing_pattern": "",
+        "definition_cn": "运送；发货（不限海运）",
+        "definition_en": "to send or transport someone or something by any means, or to be sent for delivery",
+        "governing_pattern": "ship sb/sth (from A) to B; ship by air/rail/sea; an order ships",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:ship:d017c31e11125552",
-        "sense_label_en": "to send or transport something, especially by ship",
+        "sense_label_en": "to send or be sent for delivery",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "vt/vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/ship_3",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          },
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/ship",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -82,6 +93,27 @@
         "sense_label_en": "to travel by ship",
         "sort_order": 999,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:ship:3f9fe20ce4e3c3f7",
+        "definition_cn": "（产品、软件）推出、上市；使推出",
+        "definition_en": "to release a product for customers, or become available as a product",
+        "sense_label_en": "to release a product for customers, or become available as a product",
+        "pos": "verb",
+        "governing_pattern": "ship a product/version; new software ships",
+        "transitivity": "vt/vi",
+        "level": "L2",
+        "sort_order": 1000,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [],
+        "usage_note": "产品或软件作主语的ships可表示推出上市；新版本推出不一定涉及把实物运到某处。一般订单发货仍看运送义。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/ship_3",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -723,6 +755,12 @@
         "merged_into_sense_id": null,
         "source_row": 12392,
         "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
+      },
+      {
+        "sense_id": "sense:ship:3f9fe20ce4e3c3f7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4397.json"
       }
     ],
     "active_collocations": [],

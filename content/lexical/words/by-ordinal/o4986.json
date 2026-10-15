@@ -8,7 +8,7 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "think that + 从句表观点",
+        "boundary": "表达观点；that 通常可省略。",
         "codex_reviewed": false,
         "definition_cn": "认为；以为",
         "definition_en": "to have an opinion or belief about something",
@@ -30,7 +30,7 @@
         "level": "L1",
         "meaning_cn": "认为、相信……",
         "module": "constructions",
-        "pattern": "think that + clause",
+        "pattern": "think (that) + clause",
         "pos": "verb",
         "presentation_merge": {
           "merge_id": "presentation-merge:2b42c860c5c854950b19",
@@ -55,6 +55,58 @@
         ],
         "verification_status": "verified",
         "writing_safe": true
+      },
+      {
+        "construction_id": "construction:cb51b199fbd100791f9d",
+        "pattern": "think about/of + sb/sth; think about/of + doing",
+        "meaning_cn": "考虑某人/某事；考虑做某事",
+        "definition_en": "consider a person, matter or possible action",
+        "boundary": "表示考虑行动时用 about/of doing；不能据此写成 think to do。",
+        "sense_id": "sense:think:1a92a30e99f354f1",
+        "level": "L2",
+        "direction": "R+P",
+        "module": "constructions",
+        "source_sense_id": "sense:think:1a92a30e99f354f1",
+        "publication_status": "publishable"
+      },
+      {
+        "construction_id": "construction:6ca6a946e108cfd14098",
+        "pattern": "think of + sb/sth",
+        "meaning_cn": "想到、想起；想出",
+        "definition_en": "bring a person or thing to mind, or form an idea",
+        "boundary": "can't think of a name 可指想不起来；think of a solution 可指想出。",
+        "sense_id": "sense:think:1a92a30e99f354f1",
+        "level": "L2",
+        "direction": "R+P",
+        "module": "constructions",
+        "source_sense_id": "sense:think:1a92a30e99f354f1",
+        "publication_status": "publishable"
+      },
+      {
+        "construction_id": "construction:36338de4571ceffcd1c6",
+        "pattern": "think + sth + over / think over + sth",
+        "meaning_cn": "仔细考虑，再作决定",
+        "definition_en": "consider an issue carefully before deciding",
+        "boundary": "宾语为 it 等代词时放在 think 与 over 之间：think it over。",
+        "sense_id": "sense:think:1a92a30e99f354f1",
+        "level": "L2",
+        "direction": "R+P",
+        "module": "constructions",
+        "source_sense_id": "sense:think:1a92a30e99f354f1",
+        "publication_status": "publishable"
+      },
+      {
+        "construction_id": "construction:3a3f167c141c1f8d127d",
+        "pattern": "think + sth + up / think up + sth",
+        "meaning_cn": "想出、构思出（点子、办法、借口等）",
+        "definition_en": "invent an idea or plan",
+        "boundary": "较口语；宾语为 it 等代词时放在 think 与 up 之间。",
+        "sense_id": "sense:think:1a92a30e99f354f1",
+        "level": "L2",
+        "direction": "R+P",
+        "module": "constructions",
+        "source_sense_id": "sense:think:1a92a30e99f354f1",
+        "publication_status": "publishable"
       }
     ],
     "content_hash": "67697757be94800884a9cfffff99fd922479d721e1fb26082f4460ec65af10f0",
@@ -71,8 +123,8 @@
         }
       ],
       "core_meaning_cn": "思考；考虑；认为；以为",
-      "core_meaning_en": "to use the mind to consider something; to have an opinion or belief about something",
-      "mental_model_cn": "思考；考虑；认为；以为",
+      "core_meaning_en": "to use the mind to consider or form ideas, or to hold an opinion",
+      "mental_model_cn": "分清过程与判断：about/of 常引出思考对象，of doing 表考虑行动，over 表仔细权衡，up 表构思产出；(that) 从句常表达已形成的看法。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -246,7 +298,7 @@
         "confidence": "medium",
         "definition_cn": "思考；考虑",
         "definition_en": "to use the mind to consider something",
-        "governing_pattern": "",
+        "governing_pattern": "think; think about/of + sb/sth; think about/of + doing",
         "level": "L1",
         "lexical_identity_overlay": {
           "case_sensitive": false,
@@ -260,14 +312,15 @@
         "sense_id": "sense:think:1a92a30e99f354f1",
         "sense_label_en": "to use the mind to consider something",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "vt/vi",
+        "usage_note": "思考这一活动可独立使用，也可接 about/of 引出对象；可用进行时。of 后也可表示想到或想出，须结合宾语和语境。"
       },
       {
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "认为；以为",
         "definition_en": "to have an opinion or belief about something",
-        "governing_pattern": "",
+        "governing_pattern": "think (that) + clause; What do you think of/about + sb/sth?",
         "level": "L1",
         "lexical_identity_overlay": {
           "case_sensitive": false,
@@ -281,7 +334,8 @@
         "sense_id": "sense:think:5f219d551ca75ebb",
         "sense_label_en": "to have an opinion or belief about something",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "vt/vi",
+        "usage_note": "表持有看法通常不用进行时；What do you think of/about ...? 是询问评价。I think / I do not think 的语气强弱取决于整个语境。"
       }
     ],
     "verification_summary": {

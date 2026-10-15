@@ -9,10 +9,22 @@
     "constructions": [],
     "content_hash": "c79c910f45693333c057e16cdbd53455be95f17bfe6b1d0420de9cf92a5830f2",
     "core_concept": {
-      "core_clusters": [],
+      "core_clusters": [
+        {
+          "pos": "noun",
+          "sense_ids": [
+            "sense:territory:8ce230be8f285e33",
+            "sense:territory:2eb9770e02f75b8d",
+            "sense:territory:373e0184b3885d92",
+            "sense:territory:faeafb197c56a92341f2"
+          ],
+          "label_cn": "控制、占有或负责的地域；知识与活动领域",
+          "label_en": "a controlled, defended or assigned area; a field of knowledge or activity"
+        }
+      ],
       "core_meaning_cn": "领土或领域",
-      "core_meaning_en": "an area of land or a field of knowledge",
-      "mental_model_cn": "领土或领域",
+      "core_meaning_en": "a controlled or defended area, or a field of knowledge or work",
+      "mental_model_cn": "国家控制的地域是领土，动物或个人占据并保护的是地盘；知识和工作分工语境可引申为领域、辖区。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -33,26 +45,17 @@
             ],
             "meaning_cn": "被占领的领土",
             "phrase": "occupied territory"
-          },
-          {
-            "collocation_id": "collocation:f00d28becd88f2572ca5",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:territory:8ce230be8f285e33:collocation:1"
-            ],
-            "meaning_cn": "领海",
-            "phrase": "territorial waters"
           }
         ],
         "confidence": "medium",
         "definition_cn": "领土；领地",
-        "definition_en": "an area of land under the control of a country or ruler",
+        "definition_en": "an area of land or sea controlled by a country or ruler",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:territory:8ce230be8f285e33",
-        "sense_label_en": "an area of land under the control of a country or ruler",
+        "sense_label_en": "an area of land or sea controlled by a country or ruler",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -103,6 +106,28 @@
         "sense_label_en": "an area assigned to a salesperson or representative",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:territory:faeafb197c56a92341f2",
+        "pos": "noun",
+        "definition_cn": "（动物或个人占据并保护的）领地，地盘",
+        "definition_en": "an area an animal or person regards as its own and tries to control or defend",
+        "sense_label_en": "an area an animal or person regards as its own and tries to control or defend",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6f173bc57444dd503da2",
+            "phrase": "defend its territory",
+            "meaning_cn": "保卫自己的领地",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -121,7 +146,23 @@
       "runtime_model_calls": false
     },
     "word": "territory",
-    "word_family": [],
+    "word_family": [
+      {
+        "fact_id": "deep:word_family:territory:e45189341bfc52671ee8",
+        "module": "word_family",
+        "target_word": "territorial",
+        "source_sense_id": "sense:territory:8ce230be8f285e33",
+        "target_sense_id": null,
+        "direction": "R+P",
+        "meaning_cn": "territory（名词：领土、领地）→ territorial（形容词：领土的、领地的）",
+        "boundary": "territorial waters 指领海；这是派生形容词 territorial 的组合，不是名词 territory 的直接搭配。",
+        "legacy_source_object_ids": [
+          "collocation:f00d28becd88f2572ca5",
+          "sense:territory:8ce230be8f285e33:collocation:1"
+        ],
+        "publication_status": "publishable"
+      }
+    ],
     "word_id": "word:territory",
     "form_identity": {
       "headword_pronunciations": [
@@ -258,15 +299,28 @@
         "merged_into_sense_id": null,
         "source_row": 14083,
         "source_path": "content/lexical/canonical/senses/shards/o4929-4960.json"
+      },
+      {
+        "sense_id": "sense:territory:faeafb197c56a92341f2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14125,
+        "source_path": "content/lexical/canonical/senses/shards/o4929-4960.json"
       }
     ],
     "active_collocations": [
       "collocation:35afcee2dfe5f7d1d1ba",
       "collocation:7c331887d30c7430c413",
       "collocation:e8acb44128e675bc1dd9",
-      "collocation:f00d28becd88f2572ca5"
+      "collocation:6f173bc57444dd503da2"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "deep:word_family:territory:e45189341bfc52671ee8",
+        "source_row": 1193,
+        "source_path": "content/lexical/canonical/facts/shards/o4929-4960.json"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:35afcee2dfe5f7d1d1ba",
@@ -286,6 +340,13 @@
       {
         "id": "collocation:f00d28becd88f2572ca5",
         "source_row": 20335,
+        "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json",
+        "status": "retired",
+        "merged_into_id": null
+      },
+      {
+        "id": "collocation:6f173bc57444dd503da2",
+        "source_row": 21458,
         "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json"
       }
     ],

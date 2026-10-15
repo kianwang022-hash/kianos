@@ -13,7 +13,11 @@
         "level": "L2",
         "meaning_cn": "使某人免于经历、听到或应付某事",
         "pattern": "spare sb sth",
-        "source_sense_id": "sense:spare:f4017cfb9e3e5a75"
+        "source_sense_id": "sense:spare:f4017cfb9e3e5a75",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:de44a0f3164a194287ab",
+          "reason": "The exact same argument skeleton and meaning remain in this sense-local fixed pattern; preserve the canonical construction, suppress only duplicate Final display."
+        }
       },
       {
         "construction_id": "construction:cec347aa9e93200184e9",
@@ -21,23 +25,42 @@
         "level": "L2",
         "meaning_cn": "使某人免遭/免于某事",
         "pattern": "spare sb from sth",
-        "source_sense_id": "sense:spare:f4017cfb9e3e5a75"
+        "source_sense_id": "sense:spare:f4017cfb9e3e5a75",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:033bd1279c34bfdc86ab",
+          "reason": "The exact same argument skeleton and meaning remain in this sense-local fixed pattern; preserve the canonical construction, suppress only duplicate Final display."
+        }
+      },
+      {
+        "construction_id": "construction:spare:865acd937455cf79",
+        "pattern": "time/money/room to spare",
+        "meaning_cn": "多余可用的时间、钱或空间；尚有余量",
+        "boundary": "to spare后置，表示超过需要的量；例如with time to spare为时间还很充裕。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spare_2",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       }
     ],
     "content_hash": "298a581864be0f42d673710ea56362255fb9e9e9e02e4d4cc3bc14511cf51510",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "备用的；多余的",
-          "label_en": "kept in reserve or extra",
+          "label_cn": "备用、空余；文风或设计简省",
+          "label_en": "extra or available; plain and economical in style",
           "pos": "adjective",
           "sense_ids": [
-            "sense:spare:3687c12db7bc5e24"
+            "sense:spare:3687c12db7bc5e24",
+            "sense:spare:35771e6ee0729268"
           ]
         },
         {
-          "label_cn": "饶恕、免去；使某人免于经历、承受或应付某事；抽出；腾出；匀出（时间、钱、空间等）；节约；省用",
-          "label_en": "to spare or save someone from having to experience, suffer, hear, or deal with something; to make time, money, space, or another resource available; to be frugal or economical",
+          "label_cn": "匀出资源；免去伤害、经历或听闻；省用",
+          "label_en": "to make resources available, prevent harm or experience, or use economically",
           "pos": "verb",
           "sense_ids": [
             "sense:spare:f4017cfb9e3e5a75",
@@ -54,9 +77,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "备用的；多余的；饶恕、免去；使某人免于经历、承受或应付某事；抽出；腾出；匀出（时间、钱、空间等）；节约；省用；备用品；备用零件",
-      "core_meaning_en": "kept in reserve or extra; to spare or save someone from having to experience, suffer, hear, or deal with something; to make time, money, space, or another resource available; to be frugal or economical; an extra item or a reserve",
-      "mental_model_cn": "备用的；多余的；饶恕、免去；使某人免于经历、承受或应付某事；抽出；腾出；匀出（时间、钱、空间等）；节约；省用；备用品；备用零件",
+      "core_meaning_cn": "有余量可用，或省去某种消耗与伤害",
+      "core_meaning_en": "extra capacity, making resources available, or avoiding harm and expenditure",
+      "mental_model_cn": "修饰时间或零件看可用余量；动词带资源看匀出、带人和苦事看免遭；no effort/expense把省用反转为不惜。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -134,7 +157,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "饶恕、免去；使某人免于经历、承受或应付某事",
+        "definition_cn": "饶恕、免去；使某人免于经历、承受、听到或应付某事",
         "definition_en": "to spare or save someone from having to experience, suffer, hear, or deal with something",
         "governing_pattern": "vt. + sb/sth",
         "level": "L1",
@@ -143,7 +166,8 @@
         "sense_id": "sense:spare:f4017cfb9e3e5a75",
         "sense_label_en": "to spare or save someone from having to experience, suffer, hear, or deal with something",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "spare sb sth中，sth若是麻烦、痛苦或细节，表示让某人免于经历、听到或应付；若是时间或钱，则转入“匀出供某人使用”义。"
       },
       {
         "collocations": [
@@ -155,6 +179,31 @@
             ],
             "meaning_cn": "为某事抽出时间/钱",
             "phrase": "spare + time/money + for + sth"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "抽出；腾出；匀出（时间、钱、空间等）",
+        "definition_en": "to make time, money, space, or another resource available",
+        "governing_pattern": "vt. + sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:spare:29d26ddbc3db5c7b",
+        "sense_label_en": "to make time, money, space, or another resource available",
+        "sort_order": 2,
+        "transitivity": "vt",
+        "usage_note": "spare time/money通常表示匀出资源供某人或某事使用；与“不用或省用资源”的义项须依语境区分。"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:caed89e6145ae42a24c3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:spare:56defde8de535bd6:collocation:0"
+            ],
+            "meaning_cn": "节省某物",
+            "phrase": "spare + sth"
           },
           {
             "collocation_id": "collocation:dce2655d65008a683365",
@@ -167,40 +216,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "抽出；腾出；匀出（时间、钱、空间等）",
-        "definition_en": "to make time, money, space, or another resource available",
-        "governing_pattern": "vt. + sth",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "verb",
-        "sense_id": "sense:spare:29d26ddbc3db5c7b",
-        "sense_label_en": "to give up or do without something",
-        "sort_order": 2,
-        "transitivity": "vt"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:caed89e6145ae42a24c3",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:spare:56defde8de535bd6:collocation:0"
-            ],
-            "meaning_cn": "节省某物",
-            "phrase": "spare with + sth"
-          }
-        ],
-        "confidence": "medium",
         "definition_cn": "节约；省用",
-        "definition_en": "to be frugal or economical",
-        "governing_pattern": "vi. + with",
+        "definition_en": "to avoid using something, or use it economically; rarely, to live frugally",
+        "governing_pattern": "spare sth; spare no effort/expense; rare intransitive spare",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:spare:56defde8de535bd6",
-        "sense_label_en": "to be frugal or economical",
+        "sense_label_en": "to avoid using something, or use it economically; rarely, to live frugally",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "usage_note": "及物形式表示省用或不用；spare no effort/expense 表示不惜精力或费用。单独作不及物“节俭地生活”已罕见；不把 spare with sth 当作固定框架。 同样的spare sth若指把时间或钱让给别人使用，属于“抽出／匀出”义，不能一概译为节省。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/spare",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -225,6 +257,26 @@
         "sense_label_en": "an extra item or a reserve",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:spare:35771e6ee0729268",
+        "pos": "adjective",
+        "definition_cn": "（文风、设计等）简练的；朴素的；无多余修饰的",
+        "definition_en": "plain or economical, without unnecessary detail",
+        "sense_label_en": "plain or economical, without unnecessary detail",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "spare prose/style/design",
+        "transitivity": "nonverb",
+        "usage_note": "描述文字或设计时多用于书面评论；不是“备用的文章/设计”。",
+        "collocations": [],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/spare",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -405,6 +457,12 @@
         "merged_into_sense_id": null,
         "source_row": 12979,
         "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json"
+      },
+      {
+        "sense_id": "sense:spare:35771e6ee0729268",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4588.json"
       }
     ],
     "active_collocations": [

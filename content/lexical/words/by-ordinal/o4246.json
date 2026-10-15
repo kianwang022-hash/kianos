@@ -6,13 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:same:5b59229cab7d52f5",
+        "pattern": "all/just the same",
+        "meaning_cn": "尽管如此；仍然",
+        "definition_en": "despite what has just been said",
+        "boundary": "连接转折或让步时，不按“所有东西一样”字面理解。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/same_2",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      }
+    ],
     "content_hash": "54cf0d9f74c7099be735742155a7005d657479ad127d3abf16ba44eef64b8684",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "相同的，同样的",
-          "label_en": "exactly like another one; not different",
+          "label_cn": "同一的；相同的，同样的",
+          "label_en": "the identical person or thing, or another of exactly the same kind",
           "pos": "adjective",
           "sense_ids": [
             "sense:same:f14688c124ec591a"
@@ -37,7 +53,7 @@
       ],
       "core_meaning_cn": "相同的，一样的",
       "core_meaning_en": "identical or exactly alike",
-      "mental_model_cn": "相同的，一样的",
+      "mental_model_cn": "先分同一实体还是同一类型：same room可是一间房，same model可为不同物品的同款；all/just the same另有尽管如此的整体用法。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -70,16 +86,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "相同的，同样的",
-        "definition_en": "exactly like another one; not different",
+        "definition_cn": "同一的；相同的，同样的",
+        "definition_en": "the identical person or thing, or another of exactly the same kind",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:same:f14688c124ec591a",
-        "sense_label_en": "exactly like another one; not different",
+        "sense_label_en": "identical in identity or kind",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "the same可指同一个实体，也可指同一款式/类别的另一个；看上下文，不能一律理解成两个东西相像。比较常用the same ... as ...。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/same_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -389,6 +412,13 @@
         "id": "membership:b0c109701ce6eb6b6ca5",
         "source_row": 7891,
         "source_path": "content/lexical/canonical/packs/shards/o4225-4256.json"
+      }
+    ],
+    "constructions": [
+      {
+        "id": "construction:same:5b59229cab7d52f5",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4246.json"
       }
     ]
   },

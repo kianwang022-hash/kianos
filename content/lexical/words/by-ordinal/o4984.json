@@ -11,13 +11,15 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "薄的；瘦的；稀疏的，稀少的",
-          "label_en": "having a small distance between two opposite sides; having little fat on the body; not dense; with few parts or people",
+          "label_cn": "薄、瘦、稀疏；液体稀薄；论据薄弱",
+          "label_en": "little thickness, fat, density, liquid consistency or evidential support",
           "pos": "adjective",
           "sense_ids": [
             "sense:thin:5d52101971aa59a8",
             "sense:thin:a5d158bff95d5ce8",
-            "sense:thin:c98623b13aa05435"
+            "sense:thin:c98623b13aa05435",
+            "sense:thin:1db67a6cd1db799e",
+            "sense:thin:d78ef725d9d5b87a"
           ]
         },
         {
@@ -30,9 +32,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "薄的，细的；使变薄",
-      "core_meaning_en": "having a small distance between sides or little thickness; to make or become thin",
-      "mental_model_cn": "薄的，细的；使变薄",
+      "core_meaning_cn": "薄、细、瘦或稀疏；也指液体稀、根据薄弱；动词使变薄或变稀",
+      "core_meaning_en": "having little thickness, fat, density or substance; watery or weakly supported; to make or become thinner",
+      "mental_model_cn": "共同线索是“厚度、密度或充实程度不够”：物体看厚度，人看脂肪，头发/人群看密度，液体看稠度，论据看支持是否充分。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -164,7 +166,8 @@
         "sense_id": "sense:thin:0ea7fe49a3655542",
         "sense_label_en": "to make something thinner or less dense",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "液体作宾语可指稀释（thin the paint）；人群、树木等作宾语可指减少密度。"
       },
       {
         "collocations": [
@@ -189,6 +192,43 @@
         "sense_label_en": "to become thinner or less dense",
         "sort_order": 4,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:thin:1db67a6cd1db799e",
+        "pos": "adjective",
+        "definition_cn": "（液体）稀的；稀薄的",
+        "definition_en": "watery rather than thick in consistency",
+        "sense_label_en": "watery rather than thick in consistency",
+        "level": "L2",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "collocations": [
+          {
+            "collocation_id": "collocation:00bae41cdb1429519757",
+            "phrase": "thin soup",
+            "meaning_cn": "稀汤",
+            "exam_value": "usage_example"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:thin:d78ef725d9d5b87a",
+        "pos": "adjective",
+        "definition_cn": "（论据、理由等）薄弱的；不充分的",
+        "definition_en": "lacking enough substance or support to be convincing",
+        "sense_label_en": "lacking enough substance or support to be convincing",
+        "level": "L2",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "collocations": [
+          {
+            "collocation_id": "collocation:911baa64f81f7ab328d8",
+            "phrase": "thin evidence",
+            "meaning_cn": "薄弱的证据",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "argument / evidence / excuse 作对象时评说说服力或根据，不是物理厚度。"
       }
     ],
     "verification_summary": {
@@ -624,6 +664,20 @@
         "merged_into_sense_id": null,
         "source_row": 14166,
         "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
+      },
+      {
+        "sense_id": "sense:thin:1db67a6cd1db799e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json",
+        "source_row": 14195
+      },
+      {
+        "sense_id": "sense:thin:d78ef725d9d5b87a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json",
+        "source_row": 14196
       }
     ],
     "active_collocations": [
@@ -634,7 +688,9 @@
       "collocation:a01d4ab47b52e5b7988d",
       "collocation:e3391d582625924dc275",
       "collocation:e6451b6a3321a9a14348",
-      "collocation:f2102a639ce524a6e6bf"
+      "collocation:f2102a639ce524a6e6bf",
+      "collocation:00bae41cdb1429519757",
+      "collocation:911baa64f81f7ab328d8"
     ],
     "facts": [],
     "collocations": [
@@ -677,6 +733,16 @@
         "id": "collocation:f2102a639ce524a6e6bf",
         "source_row": 20510,
         "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json"
+      },
+      {
+        "id": "collocation:00bae41cdb1429519757",
+        "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json",
+        "source_row": 21544
+      },
+      {
+        "id": "collocation:911baa64f81f7ab328d8",
+        "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json",
+        "source_row": 21545
       }
     ],
     "exam-mappings": [],

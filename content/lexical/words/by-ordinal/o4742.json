@@ -15,7 +15,54 @@
         "level": "L1",
         "meaning_cn": "给某人以……的印象；在某人看来似乎……",
         "pattern": "strike sb as + adj/noun",
-        "source_sense_id": "sense:strike:ce94f06dda1800bb"
+        "source_sense_id": "sense:strike:ce94f06dda1800bb",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:f3f343fe3f9b043b2679",
+          "reason": "Same exact impression skeleton survives under the active impression sense."
+        }
+      },
+      {
+        "construction_id": "construction:31e12393b85e9ca4dc2a",
+        "pattern": "strike a deal/agreement (with sb)",
+        "meaning_cn": "（与某人）达成交易或协议",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/strike?topic=watches-and-clocks"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/strike?topic=sitting-and-standing"
+          }
+        ],
+        "boundary": "deal/agreement 是达成的结果，不是被击打的对象。"
+      },
+      {
+        "construction_id": "construction:26c96b15ff51d0ff1330",
+        "pattern": "strike a balance between A and B",
+        "meaning_cn": "在两种需求之间取得恰当平衡",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/strike?topic=watches-and-clocks"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/strike?topic=sitting-and-standing"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:217d974cf58b1aba50e0",
+        "pattern": "strike a match",
+        "meaning_cn": "擦划火柴使其点燃",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/strike?topic=watches-and-clocks"
+          }
+        ]
       }
     ],
     "content_hash": "e2349ff17af86b562227d2f9a612ed38e61af6c4972f465ce77af9f31f448c07",
@@ -49,9 +96,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "打击；罢工",
-      "core_meaning_en": "to hit or attack; also a work stoppage",
-      "mental_model_cn": "打击；罢工",
+      "core_meaning_cn": "突然有力地作用于人或事；也指停工抗议",
+      "core_meaning_en": "a forceful or sudden impact; separately, stopping work in protest",
+      "mental_model_cn": "实物宾语看撞击；灾难作主语看突然袭来；钟作主语看报时；sb as 看印象、it strikes sb that 看突然想到；deal/balance 看达成，workers/strike for 看罢工。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -280,7 +327,57 @@
         "sense_id": "sense:strike:ce94f06dda1800bb",
         "sense_label_en": "to seem or appear to someone in a particular way",
         "sort_order": 5,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "strike sb as + 描述：给人的印象；it strikes sb that ...：突然意识到某事。"
+      },
+      {
+        "sense_id": "sense:strike:595525dd5c0d184e",
+        "pos": "verb",
+        "definition_cn": "（灾难、疾病等）突然发生或袭击",
+        "definition_en": "of a disaster or illness, to happen suddenly or affect someone or somewhere",
+        "sense_label_en": "of a disaster or illness, to happen suddenly or affect someone or somewhere",
+        "governing_pattern": "I/T: disaster strikes; strike sb/a place",
+        "usage_note": "",
+        "transitivity": "both",
+        "level": "L2",
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:2b430c3bc26ae51696ec",
+            "phrase": "disaster strikes",
+            "meaning_cn": "灾难突然降临",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/strike?topic=watches-and-clocks"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/strike?topic=sitting-and-standing"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:strike:e5848928370ce069",
+        "pos": "verb",
+        "definition_cn": "（钟）鸣响报时；（时间）到来",
+        "definition_en": "of a clock, to sound the hour; of an hour, to arrive with a clock sounding",
+        "sense_label_en": "of a clock, to sound the hour; of an hour, to arrive with a clock sounding",
+        "governing_pattern": "I/T: the clock strikes (an hour); midnight strikes",
+        "usage_note": "",
+        "transitivity": "both",
+        "level": "L2",
+        "sort_order": 7,
+        "collocations": [],
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/strike?topic=watches-and-clocks"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/strike?topic=sitting-and-standing"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -447,6 +544,20 @@
         "merged_into_sense_id": null,
         "source_row": 13580,
         "source_path": "content/lexical/canonical/senses/shards/o4737-4768.json"
+      },
+      {
+        "sense_id": "sense:strike:595525dd5c0d184e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4742.json",
+        "source_locator": "record.senses[6]"
+      },
+      {
+        "sense_id": "sense:strike:e5848928370ce069",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4742.json",
+        "source_locator": "record.senses[7]"
       }
     ],
     "active_collocations": [
@@ -459,13 +570,32 @@
       "collocation:887a23022360342f2913",
       "collocation:cf7ca09bb0e9cb76407d",
       "collocation:d063e52060b93a79a224",
-      "collocation:f3f343fe3f9b043b2679"
+      "collocation:f3f343fe3f9b043b2679",
+      "collocation:2b430c3bc26ae51696ec"
     ],
     "facts": [
       {
         "id": "deep:secondary_senses:strike:43021bf664e97379",
         "source_row": 1146,
         "source_path": "content/lexical/canonical/facts/shards/o4737-4768.json"
+      },
+      {
+        "id": "construction:31e12393b85e9ca4dc2a",
+        "source_path": "content/lexical/words/by-ordinal/o4742.json",
+        "source_locator": "record.constructions[1]",
+        "status": "active"
+      },
+      {
+        "id": "construction:26c96b15ff51d0ff1330",
+        "source_path": "content/lexical/words/by-ordinal/o4742.json",
+        "source_locator": "record.constructions[2]",
+        "status": "active"
+      },
+      {
+        "id": "construction:217d974cf58b1aba50e0",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4742.json",
+        "source_locator": "record.constructions[3]"
       }
     ],
     "collocations": [
@@ -518,6 +648,13 @@
         "id": "collocation:f3f343fe3f9b043b2679",
         "source_row": 21608,
         "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json"
+      },
+      {
+        "id": "collocation:2b430c3bc26ae51696ec",
+        "sense_id": "sense:strike:595525dd5c0d184e",
+        "source_path": "content/lexical/words/by-ordinal/o4742.json",
+        "source_locator": "record.senses[6].collocations[0]",
+        "status": "active"
       }
     ],
     "exam-mappings": [],

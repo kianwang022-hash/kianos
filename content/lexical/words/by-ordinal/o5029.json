@@ -27,6 +27,18 @@
         "level": "L1",
         "meaning_cn": "到……的时候；截至某时",
         "pattern": "by the time + clause"
+      },
+      {
+        "construction_id": "construction:147982700736facc70ab",
+        "module": "constructions",
+        "publication_status": "publishable",
+        "pattern": "It's time (for sb) to do sth",
+        "meaning_cn": "到了（某人）该做某事的时候",
+        "definition_en": "the appropriate moment to do something has arrived",
+        "direction": "R+P",
+        "level": "L1",
+        "sense_id": "sense:time:1a8408a647425a6a",
+        "source_sense_id": "sense:time:1a8408a647425a6a"
       }
     ],
     "content_hash": "426c9b95f14df30234b0f959f40abeb85249f3a4f9813f7061fff8f0e7d1bfcd",
@@ -43,17 +55,18 @@
           ]
         },
         {
-          "label_cn": "计时；测定时间",
-          "label_en": "to measure the time taken by something",
+          "label_cn": "计时；测定时间；为……安排时机；使在特定或合适的时候发生",
+          "label_en": "to measure the time taken by something; to arrange when something happens, especially to make the timing suitable",
           "pos": "verb",
           "sense_ids": [
-            "sense:time:6122ef66a47950c2"
+            "sense:time:6122ef66a47950c2",
+            "sense:time:01b6db84f0134f01"
           ]
         }
       ],
-      "core_meaning_cn": "时间；时机",
-      "core_meaning_en": "duration or a specific moment",
-      "mental_model_cn": "时间；时机",
+      "core_meaning_cn": "时间、时刻或次数；动词可计时，也可安排时机",
+      "core_meaning_en": "duration, a moment, or an occurrence; as a verb, to measure duration or arrange timing",
+      "mental_model_cn": "how much time 看时长，what time 看时刻，three times 数次数；time a race 量耗时，time a departure 选出发时机。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -68,12 +81,12 @@
         "collocations": [
           {
             "collocation_id": "collocation:8a4c774dd70269e30cc9",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:time:fac8afcee1565ed4:collocation:0"
             ],
-            "meaning_cn": "花费时间",
-            "phrase": "spend time"
+            "meaning_cn": "花时间做某事／在某事上",
+            "phrase": "spend time doing sth / on sth"
           },
           {
             "collocation_id": "collocation:0323de0362ae3553f710",
@@ -195,6 +208,19 @@
         "sense_label_en": "to measure the time taken by something",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:time:01b6db84f0134f01",
+        "pos": "verb",
+        "transitivity": "vt",
+        "definition_cn": "为……安排时机；使在特定或合适的时候发生",
+        "definition_en": "to arrange when something happens, especially to make the timing suitable",
+        "sense_label_en": "to arrange when something happens, especially to make the timing suitable",
+        "governing_pattern": "time sth (for sth); time sth to do sth",
+        "usage_note": "time a race 可计量耗时；time a departure/release 是选择其发生时机。",
+        "level": "L2",
+        "sort_order": 4,
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -381,6 +407,13 @@
         "merged_into_sense_id": null,
         "source_row": 14303,
         "source_path": "content/lexical/canonical/senses/shards/o5025-5056.json"
+      },
+      {
+        "sense_id": "sense:time:01b6db84f0134f01",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5025-5056.json",
+        "source_row": 14384
       }
     ],
     "active_collocations": [

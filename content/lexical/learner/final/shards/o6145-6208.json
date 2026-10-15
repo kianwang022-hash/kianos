@@ -474,7 +474,7 @@
     "ordinal": 6150,
     "word": "soy",
     "source_owner_path": "content/lexical/words/by-ordinal/o6150.json",
-    "source_fingerprint": "7a4c204bdf9215fd770016a69c0159b168eecb1ad73b8cde4f6858dffecf0657",
+    "source_fingerprint": "534de0977ad8cac09b27b70ed4ba6ba37eddd4efd5a827404f75c096b6d564cb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -517,7 +517,7 @@
         "governing_pattern": "",
         "definition_cn": "大豆植株；黄豆植株",
         "definition_en": "erect bushy hairy annual herb having trifoliate leaves and purple to pink flowers; extensively cultivated for food and forage and soil improvement but especially for its nutritious oil-rich seeds; native to Asia",
-        "note": "Botanical plant description is lower expansion; everyday soy use centers on soybean and soy-derived foods/materials.",
+        "note": "此义专指生长中的大豆植株；食物或材料语境应选豆粒/制品义。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -835,7 +835,7 @@
     "ordinal": 6154,
     "word": "spice",
     "source_owner_path": "content/lexical/words/by-ordinal/o6154.json",
-    "source_fingerprint": "80d2689531f9e8a9d6c8882be954421dd5c561eff023c2958554d1ce9d8def81",
+    "source_fingerprint": "82c1de88fa2d015f60cf6f01c163a4eb73128b1f931437ab10aef043e02d710c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -876,10 +876,10 @@
         "id": "sense:spice:4ccd88a338695d6e",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "spice sth (with sth); spice sth up / spice up sth",
         "definition_cn": "给…加香料；使增添趣味",
         "definition_en": "to add spice or make something more interesting or exciting",
-        "note": "",
+        "note": "增添趣味常用spice sth up；代词宾语置于spice与up之间，如spice it up。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -1015,18 +1015,18 @@
     "ordinal": 6156,
     "word": "squash",
     "source_owner_path": "content/lexical/words/by-ordinal/o6156.json",
-    "source_fingerprint": "c6a0e602a2d911150fa0d3bd2c78910d8a3654fc1137d9bfbcde0a1bd7bc339c",
+    "source_fingerprint": "ecd75fff2ed3489f8cbd379a899ee116b0a9e2f57a2efcb3e02e01380222cf7c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "压扁；压碎；南瓜类植物；南瓜类果实；壁球；（英式）果汁浓缩饮料；饮用时通常加水稀释",
-      "decision_cn": "",
+      "decision_cn": "实物被压扁看物理动词；计划、想法或传言被squash是被强力制止；名词分别可指瓜类、壁球和英式果汁浓缩饮料。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1101,6 +1101,23 @@
           "target_id": "sense:squash:a38e2e708e2972b2",
           "target_locator": "record.senses[3]",
           "target_label": "（英式）果汁浓缩饮料；饮用时通常加水稀释"
+        }
+      },
+      {
+        "id": "sense:squash:60e894e9f809573f",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "squash a plan/idea/rumour",
+        "definition_cn": "强力制止；打消；压下（计划、想法或传言等）",
+        "definition_en": "to forcefully stop a plan, idea or rumour from continuing or spreading",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:squash:60e894e9f809573f",
+          "target_locator": "record.senses[4]",
+          "target_label": "强力制止；打消；压下（计划、想法或传言等）"
         }
       }
     ],
@@ -1872,7 +1889,7 @@
     "ordinal": 6162,
     "word": "stimulus",
     "source_owner_path": "content/lexical/words/by-ordinal/o6162.json",
-    "source_fingerprint": "3302cbcfa0a65a7b3c66a1ce25acf1042789e27a58f47ce2c98a1eb04563880f",
+    "source_fingerprint": "ce3682f9c0943478785b3043485ff9061e92b2559b29114a75d0d2bef890087c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1933,7 +1950,23 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "stimulus → stimuli",
+            "condition": "irregular plural noun form",
+            "note": "可数用法的复数通常为stimuli；原stimulus音标不扩展到stimuli，不新增复数发音。"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -2014,18 +2047,18 @@
     "ordinal": 6164,
     "word": "stout",
     "source_owner_path": "content/lexical/words/by-ordinal/o6164.json",
-    "source_fingerprint": "aeb300d03efe0b61b6ded3abcf71217384d085920210f476cd52488bbd6976cc",
+    "source_fingerprint": "c4183fa65a3491e1496f61841f4dc307196fe5625933e845572e9fcbbaabf92f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A",
+        "3A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "结实的；粗壮的",
-      "decision_cn": "",
+      "decision_cn": "物体stout看结实厚实；人外形可指粗胖；文学性a stout heart看意志坚强；名词仍指黑啤酒。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2084,6 +2117,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "烈性黑啤酒"
         }
+      },
+      {
+        "id": "sense:stout:51dbc53a7b234859",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "a stout heart",
+        "definition_cn": "坚定的；意志坚强的",
+        "definition_en": "showing determination and strength of character or opinion",
+        "note": "文学性用法，通常置于名词前；这里指意志坚定，不是在描述体型粗胖或物体厚实。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stout:51dbc53a7b234859",
+          "target_locator": "record.senses[3]",
+          "target_label": "坚定的；意志坚强的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2131,7 +2181,7 @@
     "ordinal": 6165,
     "word": "straighten",
     "source_owner_path": "content/lexical/words/by-ordinal/o6165.json",
-    "source_fingerprint": "768357e67519f214bdc49e8aff5cf5eb98fa8c7caa96a022dd8a12d9554175f5",
+    "source_fingerprint": "6b7103b843c4497fe6d29a97b5c1d24f1b517847b378e2d48daa76a6db9a7f99",
     "sense_lineage": [
       {
         "word_id": "word:straighten",
@@ -2148,13 +2198,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "弄直；整顿；清理；使改正",
+      "summary_cn": "（使）变直；调正；整理；理顺",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "弄直；整顿；清理；使改正"
+        "target_label": "（使）变直；调正；整理；理顺"
       }
     },
     "senses": [
@@ -2162,9 +2212,9 @@
         "id": "sense:straighten:2e715bf95953528c",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "弄直；整顿；清理；使改正",
-        "definition_en": "straighten up or out; make straight",
+        "governing_pattern": "straighten sth; sth straightens",
+        "definition_cn": "（使）变直；调正；整理；理顺",
+        "definition_en": "to make or become straight; to put something in a neat, level or orderly condition",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2172,7 +2222,7 @@
           "target_kind": "sense",
           "target_id": "sense:straighten:2e715bf95953528c",
           "target_locator": "record.senses[0]",
-          "target_label": "弄直；整顿；清理；使改正"
+          "target_label": "（使）变直；调正；整理；理顺"
         }
       }
     ],
@@ -2513,19 +2563,19 @@
     "ordinal": 6168,
     "word": "stray",
     "source_owner_path": "content/lexical/words/by-ordinal/o6168.json",
-    "source_fingerprint": "e671abe30d42de456ffa57007a6a96804d64dc717ea1bceaf08a0bfbd50683d6",
+    "source_fingerprint": "f1100f1105d6efdb9928973cd678d6a35011619c90f0dc6b7eafa3c71bf6f28f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "1A",
+        "2A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "偏离；走失；离题",
-      "decision_cn": "",
+      "decision_cn": "动词指偏离路线或话题；动物stray表示走失或无主；stray hair/mark/bullet指零散、离位或偏离方向的东西。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2574,7 +2624,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "流浪动物；走失的动物",
-        "definition_en": "a stray animal",
+        "definition_en": "an animal that has become lost or has no home or owner",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2583,6 +2633,23 @@
           "target_id": "sense:stray:7d1c2276627b57e1",
           "target_locator": "record.senses[2]",
           "target_label": "流浪动物；走失的动物"
+        }
+      },
+      {
+        "id": "sense:stray:179bf96bd4bdaf2c",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "a stray hair/mark/bullet",
+        "definition_cn": "零散的；离开原来位置的；偏离预定方向的",
+        "definition_en": "separated from others of its kind or away from its expected place or direction",
+        "note": "通常放在名词前；修饰散落物、零散痕迹或流弹，不表示这些物体是流浪动物。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stray:179bf96bd4bdaf2c",
+          "target_locator": "record.senses[3]",
+          "target_label": "零散的；离开原来位置的；偏离预定方向的"
         }
       }
     ],
@@ -2747,7 +2814,7 @@
     "ordinal": 6170,
     "word": "subdivide",
     "source_owner_path": "content/lexical/words/by-ordinal/o6170.json",
-    "source_fingerprint": "bab05958f9b501a8b8f926af7f0a46a12e9b491f8978647f2114eeff45aad431",
+    "source_fingerprint": "642f05719861f4472c505aebf615e7b00060e856e8144249e39a582f86fc109d",
     "sense_lineage": [
       {
         "word_id": "word:subdivide",
@@ -2764,13 +2831,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "把……再分成较小部分；细分",
+      "summary_cn": "（使）再分成较小部分；（使）细分",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "把……再分成较小部分；细分"
+        "target_label": "（使）再分成较小部分；（使）细分"
       }
     },
     "senses": [
@@ -2778,9 +2845,9 @@
         "id": "sense:subdivide:80810c0c788f59d7",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt./vi.",
-        "definition_cn": "把……再分成较小部分；细分",
-        "definition_en": "to divide something into smaller divisions or parts",
+        "governing_pattern": "subdivide sth into smaller parts; sth subdivides into smaller parts",
+        "definition_cn": "（使）再分成较小部分；（使）细分",
+        "definition_en": "to divide something, or become divided, into smaller divisions or parts",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2788,7 +2855,7 @@
           "target_kind": "sense",
           "target_id": "sense:subdivide:80810c0c788f59d7",
           "target_locator": "record.senses[0]",
-          "target_label": "把……再分成较小部分；细分"
+          "target_label": "（使）再分成较小部分；（使）细分"
         }
       }
     ],
@@ -3045,17 +3112,17 @@
     "ordinal": 6173,
     "word": "subscription",
     "source_owner_path": "content/lexical/words/by-ordinal/o6173.json",
-    "source_fingerprint": "aa1cd749779f5211c059d0e285c20cd7b13f81d3a57b24a779befd2ab5042b2c",
+    "source_fingerprint": "710dd93bb917a5beb2a2e5b63df6601a1c03d3aea29682b2f79939911e19153e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "订阅/定期付费安排；签署表示的同意",
-      "decision_cn": "",
+      "decision_cn": "订阅通常是持续获得服务或内容的安排；慈善语境subscription也可指捐款或认捐款，不是一般购物订金；签名表示同意的旧义仍保。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3096,6 +3163,23 @@
           "target_id": "sense:subscription:5eaa27d3453b5a89",
           "target_locator": "record.senses[1]",
           "target_label": "签署；签名表示的同意/认同"
+        }
+      },
+      {
+        "id": "sense:subscription:87f7e3913eb265f9",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a subscription to a charity",
+        "definition_cn": "捐款；认捐款",
+        "definition_en": "money given or promised to support a charity or other cause",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:subscription:87f7e3913eb265f9",
+          "target_locator": "record.senses[2]",
+          "target_label": "捐款；认捐款"
         }
       }
     ],
@@ -3445,7 +3529,7 @@
     "ordinal": 6177,
     "word": "sweeten",
     "source_owner_path": "content/lexical/words/by-ordinal/o6177.json",
-    "source_fingerprint": "9ce79625b757354b6d3b213e62dca77a4e8ac99abdf8c07866fba47890af3ba2",
+    "source_fingerprint": "683f8824409cbebfda57f5d7406593e1084b88bb5edcf5a4589718390c4707dd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3485,17 +3569,17 @@
         "id": "sense:sweeten:126f6ef975de55d9",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "使更悦耳/更温和/更令人愉快",
-        "definition_en": "make sweeter, more pleasant, or more agreeable",
-        "note": "",
+        "governing_pattern": "sweeten a deal/offer",
+        "definition_cn": "使更令人愉快；使更有吸引力或更易接受",
+        "definition_en": "to make something more pleasant, attractive or acceptable",
+        "note": "sweeten a deal/offer指改善条件、增添好处以提高吸引力，不是把协议变甜或声音变柔和。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:sweeten:126f6ef975de55d9",
           "target_locator": "record.senses[1]",
-          "target_label": "使更悦耳/更温和/更令人愉快"
+          "target_label": "使更令人愉快；使更有吸引力或更易接受"
         }
       }
     ],
@@ -3615,7 +3699,7 @@
     "ordinal": 6179,
     "word": "synthesize",
     "source_owner_path": "content/lexical/words/by-ordinal/o6179.json",
-    "source_fingerprint": "153a946dfa6c37b070a98323399f2dc8fb200ea7034c5a5ecac0ed6ceaa0b380",
+    "source_fingerprint": "8b80fe4101f4fea1221aa47055c467aec5b18c83192b238d98891919ed27768b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3708,12 +3792,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -4038,7 +4118,7 @@
     "ordinal": 6183,
     "word": "taper",
     "source_owner_path": "content/lexical/words/by-ordinal/o6183.json",
-    "source_fingerprint": "198c5e5c964887fd6f1dbbc9499fdebfe471cd4d2dc8b7e870ac87881911aefa",
+    "source_fingerprint": "0ca44311a235168cf2343edeaca9b363edf9a6b19d7440b34d063ba12b4a961e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4048,13 +4128,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "逐渐变细；逐渐减少",
+      "summary_cn": "（使）逐渐变细；（使）逐渐减少",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "逐渐变细；逐渐减少"
+        "target_label": "（使）逐渐变细；（使）逐渐减少"
       }
     },
     "senses": [
@@ -4062,9 +4142,9 @@
         "id": "sense:taper:a7471796047a5503",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "逐渐变细；逐渐减少",
-        "definition_en": "to become gradually narrower, thinner, smaller, or weaker toward one end or over time",
+        "governing_pattern": "sth tapers (off); taper sth",
+        "definition_cn": "（使）逐渐变细；（使）逐渐减少",
+        "definition_en": "to become, or make something, gradually narrower toward one end or smaller or weaker over time",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4072,7 +4152,7 @@
           "target_kind": "sense",
           "target_id": "sense:taper:a7471796047a5503",
           "target_locator": "record.senses[0]",
-          "target_label": "逐渐变细；逐渐减少"
+          "target_label": "（使）逐渐变细；（使）逐渐减少"
         }
       },
       {
@@ -4247,7 +4327,7 @@
     "ordinal": 6185,
     "word": "telex",
     "source_owner_path": "content/lexical/words/by-ordinal/o6185.json",
-    "source_fingerprint": "f41932ace824386c1d4a4bd59902032ad4aaa9cea98c077eea405c467fae42b3",
+    "source_fingerprint": "72491432495d3a033e906d22431d12148985b72e4137a3a066c11584a8fdfdc5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4272,8 +4352,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "电传；用户电报",
-        "definition_en": "communicate by telex",
+        "definition_cn": "发电传；用电传发送（消息）",
+        "definition_en": "to send a written message using a teleprinter communication system",
         "note": "Historical/dated communication technology rather than ordinary current messaging.",
         "identity_overlay": null,
         "usage": [],
@@ -4281,7 +4361,7 @@
           "target_kind": "sense",
           "target_id": "sense:telex:a4ce59ea09ae56e3",
           "target_locator": "record.senses[0]",
-          "target_label": "电传；用户电报"
+          "target_label": "发电传；用电传发送（消息）"
         }
       },
       {
@@ -4509,7 +4589,7 @@
     "ordinal": 6188,
     "word": "terminology",
     "source_owner_path": "content/lexical/words/by-ordinal/o6188.json",
-    "source_fingerprint": "a6476917062c491814a3fc4fd95539e8ce57b3a9f451126e909f32be0ba3b0d9",
+    "source_fingerprint": "6523b57c4352ed42c7f89b9fcc31d3853895109f963f05aae8678a16c186b83b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4534,7 +4614,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "术语；术语学",
-        "definition_en": "a system of words used to name things in a particular discipline",
+        "definition_en": "the specialized words used in a subject, or the study of such terms",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4580,7 +4660,7 @@
     "ordinal": 6189,
     "word": "terrace",
     "source_owner_path": "content/lexical/words/by-ordinal/o6189.json",
-    "source_fingerprint": "ae38ca9d712c054089dc0244546fcaeec56c22b00ab27b5280943bae57252636",
+    "source_fingerprint": "7903d6c8ffe28ccab2978f1941f8bed3b13101fc8ad5c9b15aa72ac3aef4864b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4590,13 +4670,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "梯田、台地；坡地上的水平阶地；使成梯田；使成有平台屋顶；露台；建筑旁的水平户外平台或区域",
+      "summary_cn": "梯田、台地；坡地上的水平阶地；把坡地修成梯田或阶地；给建筑设置露台；露台；建筑旁的水平户外平台或区域",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "梯田、台地；坡地上的水平阶地；使成梯田；使成有平台屋顶；露台；建筑旁的水平户外平台或区域"
+        "target_label": "梯田、台地；坡地上的水平阶地；把坡地修成梯田或阶地；给建筑设置露台；露台；建筑旁的水平户外平台或区域"
       }
     },
     "senses": [
@@ -4622,8 +4702,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "使成梯田；使成有平台屋顶",
-        "definition_en": "provide (a house) with a terrace",
+        "definition_cn": "把坡地修成梯田或阶地；给建筑设置露台",
+        "definition_en": "to shape sloping land into level steps, or provide a building with an outdoor terrace",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4631,7 +4711,7 @@
           "target_kind": "sense",
           "target_id": "sense:terrace:dd3e08ee72755ff9",
           "target_locator": "record.senses[1]",
-          "target_label": "使成梯田；使成有平台屋顶"
+          "target_label": "把坡地修成梯田或阶地；给建筑设置露台"
         }
       },
       {
@@ -5226,7 +5306,7 @@
     "ordinal": 6195,
     "word": "thresh",
     "source_owner_path": "content/lexical/words/by-ordinal/o6195.json",
-    "source_fingerprint": "6a5985d9ab074c453cb6bcdd32fdeed7eb0cae5e7462d9ed2cfa1c27c65f71f8",
+    "source_fingerprint": "efed27c2643c525b52fd3aecc0ba3e3c0f645d98f8767e4999090f639ed2f27a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5236,7 +5316,7 @@
     },
     "word_feel": {
       "summary_cn": "脱粒/打谷；猛烈摆动/翻腾",
-      "decision_cn": "",
+      "decision_cn": "谷物语境指脱粒；thresh about可指猛烈摆动或翻腾；原有反复研究、推敲知识明确归到thresh out构式，指充分讨论求得解决。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5339,7 +5419,25 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:2c4d638271639a12a065",
+        "source_locator": "record.constructions[0]",
+        "pattern": "thresh sth out / thresh out sth",
+        "lines": [
+          {
+            "text": "通过反复、充分讨论来研究问题、推敲方案并求得解决或一致意见",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:2c4d638271639a12a065",
+          "target_locator": "record.constructions[0]",
+          "target_label": "thresh sth out / thresh out sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5435,7 +5533,7 @@
     "ordinal": 6197,
     "word": "tickle",
     "source_owner_path": "content/lexical/words/by-ordinal/o6197.json",
-    "source_fingerprint": "f4c523a045e02f07a8ad05a44337a36a152db38e14ca9f0492e607e84ee51ed6",
+    "source_fingerprint": "18f1e19a9f0e7c2d9f7b863e78ba55e2d9980aac3e74b00bb84b5ae7a731bceb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5461,8 +5559,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "胳肢；痒",
-        "definition_en": "a cutaneous sensation often resulting from light stroking",
-        "note": "",
+        "definition_en": "a light itching or irritating feeling, on the skin or in the throat",
+        "note": "a tickle in the throat指喉咙发痒、想咳嗽的感觉，不限于皮肤被轻触。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5958,7 +6056,7 @@
     "ordinal": 6202,
     "word": "tradesman",
     "source_owner_path": "content/lexical/words/by-ordinal/o6202.json",
-    "source_fingerprint": "cde22f1fecfe2f017497626dcbaf44e76016d4599d3b25771e3f0b76d7bc547c",
+    "source_fingerprint": "6b869932ce11f3c7dccbf2bc73bbcd9cc5b0fbae10d5c6700340de417360b01e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5982,16 +6080,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "零售商；工匠",
+        "definition_cn": "商人；店主；零售商",
         "definition_en": "a merchant who owns or manages a shop",
-        "note": "Older shopkeeper/merchant use is dated or regional; not the modern learner-main sense.",
+        "note": "商人或店主义主要用于英式英语；与熟练技工义区分。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tradesman:29eed67777125b94",
           "target_locator": "record.senses[0]",
-          "target_label": "零售商；工匠"
+          "target_label": "商人；店主；零售商"
         }
       },
       {
@@ -6452,12 +6550,12 @@
     "ordinal": 6207,
     "word": "tread",
     "source_owner_path": "content/lexical/words/by-ordinal/o6207.json",
-    "source_fingerprint": "9be717bcc5839eb3b85fcd6c00b1ee0df7e0e52e6be3f5a93e1d461ad1f32fe1",
+    "source_fingerprint": "2e06b2e325a26236cbb10450375ffed65b066c5f67b3ff2ac81b544304a6a995",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -6476,7 +6574,7 @@
         "id": "sense:tread:72ea270bcdcd5f5c",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "tread on/in sth; tread sth",
         "definition_cn": "踩；踏；行走",
         "definition_en": "to step, walk, or press on something with the feet",
         "note": "",
@@ -6504,6 +6602,23 @@
           "target_id": "sense:tread:59f4d4bcaf5a520d",
           "target_locator": "record.senses[1]",
           "target_label": "轮胎花纹；鞋底着地面"
+        }
+      },
+      {
+        "id": "sense:tread:57dffc460eb90f90",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "脚步声",
+        "definition_en": "the sound of someone's footsteps",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tread:57dffc460eb90f90",
+          "target_locator": "record.senses[2]",
+          "target_label": "脚步声"
         }
       }
     ],
@@ -6571,7 +6686,23 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "trod / trodden",
+            "condition": "verb inflection",
+            "note": "过去式通常trod；过去分词通常trodden，美式/澳式也用trod；美式过去式还可用treaded。"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },

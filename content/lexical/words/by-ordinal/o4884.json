@@ -11,12 +11,14 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "动物的尾巴；硬币的反面；常用复数 tails",
-          "label_en": "the posterior part of an animal's body, especially when elongated; the reverse side of a coin, especially in heads or tails / tails",
+          "label_cn": "尾巴、尾部；跟踪者；硬币反面（tails）",
+          "label_en": "animal tail or tail-like rear part; a person following someone; the reverse of a coin (tails)",
           "pos": "noun",
           "sense_ids": [
             "sense:tail:e6ab4870675d5372",
-            "sense:tail:763f725f65ee59bc"
+            "sense:tail:763f725f65ee59bc",
+            "sense:tail:188bb0d5b40a5403",
+            "sense:tail:23df918a352f5669"
           ]
         },
         {
@@ -28,9 +30,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "动物的尾巴；跟踪，尾随；硬币的反面；常用复数 tails",
-      "core_meaning_en": "the posterior part of an animal's body, especially when elongated; to follow someone secretly; the reverse side of a coin, especially in heads or tails / tails",
-      "mental_model_cn": "动物的尾巴；跟踪，尾随；硬币的反面；常用复数 tails",
+      "core_meaning_cn": "尾巴、尾部；尾随、跟踪；tails 指硬币反面",
+      "core_meaning_en": "an animal’s tail or a tail-like rear part; a follower or following someone; tails as the reverse of a coin",
+      "mental_model_cn": "动物或物体后端选“尾巴/尾部”；a tail 在跟踪语境可指跟踪者，动词 tail 表示尾随；heads or tails 中 tails 是硬币反面。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -116,6 +118,60 @@
         "sense_label_en": "the reverse side of a coin, especially in heads or tails / tails",
         "sort_order": 999,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:tail:188bb0d5b40a5403",
+        "pos": "noun",
+        "definition_cn": "尾部；形似尾巴的部分（如飞机尾部、彗尾）",
+        "definition_en": "a rear part or projection resembling an animal’s tail, such as the tail of an aircraft or comet",
+        "sense_label_en": "a tail-like rear part or projection",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 4,
+        "collocations": [],
+        "current_lifecycle_correction_history": [
+          {
+            "task": "lexical-4851-4900",
+            "sense_id": "sense:tail:188bb0d5b40a5403",
+            "before": {
+              "status": "merged",
+              "merged_into_sense_id": "sense:tail:e6ab4870675d5372"
+            },
+            "after": {
+              "status": "active",
+              "merged_into_sense_id": null
+            },
+            "reason": "Correct false current equivalence; original full owner and registry rows preserved in this exact proposal and history-before snapshot."
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:tail:23df918a352f5669",
+        "pos": "noun",
+        "definition_cn": "跟踪者，特务",
+        "definition_en": "a person employed to follow and report on someone's movements",
+        "sense_label_en": "a person employed to follow and report on someone's movements",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 5,
+        "collocations": [],
+        "current_lifecycle_correction_history": [
+          {
+            "task": "lexical-4851-4900",
+            "sense_id": "sense:tail:23df918a352f5669",
+            "before": {
+              "status": "merged",
+              "merged_into_sense_id": "sense:tail:e6ab4870675d5372"
+            },
+            "after": {
+              "status": "active",
+              "merged_into_sense_id": null
+            },
+            "reason": "Correct false current equivalence; original full owner and registry rows preserved in this exact proposal and history-before snapshot."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -306,71 +362,20 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [
-    {
-      "stable_sense_id": "sense:tail:188bb0d5b40a5403",
-      "status": "merged",
-      "merged_into_sense_id": "sense:tail:e6ab4870675d5372",
-      "pos": "noun",
-      "definition_cn": "类似尾巴的突出物",
-      "definition_en": "a projection resembling an animal's tail",
-      "semantic_key": "e49ddb918a28583c3cbad9a281bec4a80965629e77bc260f64fc510d80757f6b",
-      "semantic_key_history": [
-        "ce3f57312237561f15a2794a070bc1a497e4d6b1edb43ddb0ee28808c4655e06"
-      ],
-      "legacy_aliases": [
-        "tail:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "tail:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13881,
-      "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:tail:23df918a352f5669",
-      "status": "merged",
-      "merged_into_sense_id": "sense:tail:e6ab4870675d5372",
-      "pos": "noun",
-      "definition_cn": "跟踪者，特务",
-      "definition_en": "a person employed to follow and report on someone's movements",
-      "semantic_key": "d5613658f46198934dc31d525dcaebf6b589c3d9666e7dfb32555ff9bdca31cc",
-      "semantic_key_history": [
-        "4d2fa2f2a6b8f82a7871628792caa5f99746e0c8ebc73aa3cdd199ddbcc06478"
-      ],
-      "legacy_aliases": [
-        "tail:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "tail:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 13882,
-      "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json",
-      "reference_only": true
-    }
-  ],
+  "reference_senses": [],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:tail:188bb0d5b40a5403",
-        "status": "merged",
-        "merged_into_sense_id": "sense:tail:e6ab4870675d5372",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 13881,
         "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
       },
       {
         "sense_id": "sense:tail:23df918a352f5669",
-        "status": "merged",
-        "merged_into_sense_id": "sense:tail:e6ab4870675d5372",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 13882,
         "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
       },

@@ -21,8 +21,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "股票；股份；库存；现货；枪托；枪柄；声望；信誉；高汤；用肉、骨、蔬菜等慢煮制成的汤底",
-          "label_en": "the capital raised by a corporation through the issue of shares; the merchandise that a shop has on hand; the handle of a handgun or the butt end of a rifle or shotgun; the reputation and popularity a person has; stock: a flavorful liquid made by simmering meat, bones, vegetables, or similar ingredients",
+          "label_cn": "股票；股份；库存；现货；储备，存量；枪托；枪柄；声望；信誉；高汤；用肉、骨、蔬菜等慢煮制成的汤底",
+          "label_en": "shares in a company, or the capital represented by those shares; a supply of something kept for use or sale, including a shop’s inventory; the handle of a handgun or the butt end of a rifle or shotgun; the reputation and popularity a person has; stock: a flavorful liquid made by simmering meat, bones, vegetables, or similar ingredients",
           "pos": "noun",
           "sense_ids": [
             "sense:stock:836264a6a7d15062",
@@ -127,15 +127,23 @@
         ],
         "confidence": "medium",
         "definition_cn": "股票；股份",
-        "definition_en": "the capital raised by a corporation through the issue of shares",
+        "definition_en": "shares in a company, or the capital represented by those shares",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:stock:836264a6a7d15062",
-        "sense_label_en": "the capital raised by a corporation through the issue of shares",
+        "sense_label_en": "shares in a company, or the capital represented by those shares",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/stock",
+            "source_section": "SUPPLY: food stocks, housing stock and retail inventory; INVESTMENT: ownership shares",
+            "accessed_at_utc": "2026-10-13T14:44:30Z",
+            "role": "bounded semantic correction support"
+          }
+        ]
       },
       {
         "collocations": [
@@ -159,16 +167,25 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "库存；现货",
-        "definition_en": "the merchandise that a shop has on hand",
+        "definition_cn": "库存；现货；储备，存量",
+        "definition_en": "a supply of something kept for use or sale, including a shop’s inventory",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:stock:9fc83b9df0b0581b",
-        "sense_label_en": "the merchandise that a shop has on hand",
+        "sense_label_en": "a supply of something kept for use or sale, including a shop’s inventory",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "stock of food等不限商店货物；food stocks是食品储备，housing stock是住房存量。",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/stock",
+            "source_section": "SUPPLY: food stocks, housing stock and retail inventory; INVESTMENT: ownership shares",
+            "accessed_at_utc": "2026-10-13T14:44:30Z",
+            "role": "bounded semantic correction support"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -196,7 +213,16 @@
         "sense_id": "sense:stock:8e8c777e83f45009",
         "sense_label_en": "the reputation and popularity a person has",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "较正式：人的stock高低指其声望/受尊重程度，不是股票价格。",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/english/stock",
+            "source_section": "SUPPLY broader than retail; ANIMALS livestock; adjective NOT SPECIAL usual/unoriginal; verb stocks goods or stocks shelves",
+            "accessed_at_utc": "2026-10-13T14:44:30Z",
+            "role": "bounded semantic correction support"
+          }
+        ]
       },
       {
         "collocations": [
@@ -213,14 +239,22 @@
         "confidence": "medium",
         "definition_cn": "进货；备有",
         "definition_en": "to supply or keep a supply of goods",
-        "governing_pattern": "vt.: stock a shelf/shop with sth",
+        "governing_pattern": "vt.: stock goods; stock a shelf/shop with sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:stock:d223478f2bcf5d91",
         "sense_label_en": "to supply or keep a supply of goods",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/english/stock",
+            "source_section": "SUPPLY broader than retail; ANIMALS livestock; adjective NOT SPECIAL usual/unoriginal; verb stocks goods or stocks shelves",
+            "accessed_at_utc": "2026-10-13T14:44:30Z",
+            "role": "bounded semantic correction support"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -235,6 +269,52 @@
         "sense_label_en": "stock: a flavorful liquid made by simmering meat, bones, vegetables, or similar ingredients",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:stock:143111c3a867a6b2",
+        "pos": "noun",
+        "definition_cn": "家畜；牲畜",
+        "definition_en": "farm animals kept collectively, such as cattle or sheep",
+        "sense_label_en": "farm animals kept collectively, such as cattle or sheep",
+        "level": "L2",
+        "sort_order": 6,
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "usage_note": "农业语境指一群饲养的牲畜，不是商店存货或股票。",
+        "collocations": [],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/english/stock",
+            "source_section": "SUPPLY broader than retail; ANIMALS livestock; adjective NOT SPECIAL usual/unoriginal; verb stocks goods or stocks shelves",
+            "accessed_at_utc": "2026-10-13T14:44:30Z",
+            "role": "bounded semantic correction support"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:stock:821601aefc02a3a3",
+        "pos": "adjective",
+        "definition_cn": "惯用的；老一套的；缺乏新意的",
+        "definition_en": "used habitually or conventionally rather than being original",
+        "sense_label_en": "used habitually or conventionally rather than being original",
+        "level": "L2",
+        "sort_order": 7,
+        "transitivity": "nonverb",
+        "governing_pattern": "before noun: a stock answer/phrase",
+        "usage_note": "置于名词前；stock answer/phrase指套话、惯常答复，不是“库存的回答”。",
+        "collocations": [],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/english/stock",
+            "source_section": "SUPPLY broader than retail; ANIMALS livestock; adjective NOT SPECIAL usual/unoriginal; verb stocks goods or stocks shelves",
+            "accessed_at_utc": "2026-10-13T14:44:30Z",
+            "role": "bounded semantic correction support"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -727,6 +807,20 @@
         "merged_into_sense_id": null,
         "source_row": 13479,
         "source_path": "content/lexical/canonical/senses/shards/o4705-4736.json"
+      },
+      {
+        "sense_id": "sense:stock:143111c3a867a6b2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4708.json",
+        "source_locator": "record.senses[6]"
+      },
+      {
+        "sense_id": "sense:stock:821601aefc02a3a3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4708.json",
+        "source_locator": "record.senses[7]"
       }
     ],
     "active_collocations": [

@@ -6,7 +6,24 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:e891a75e484d11c2ec3b",
+        "pattern": "for + duration + at a stretch",
+        "meaning_cn": "连续、不间断地做这么长时间",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/stretch"
+          },
+          {
+            "source_locator": "https://www.oxfordlearnersdictionaries.com/us/definition/english/stretch_1"
+          }
+        ],
+        "sense_id": "sense:stretch:b272d69d3c305bb2"
+      }
+    ],
     "content_hash": "0779db5baf90d334f015956f468b3e898b794e2843580f092db11189be38ce8d",
     "core_concept": {
       "core_clusters": [
@@ -36,9 +53,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "伸展或延伸至全长或全宽",
-      "core_meaning_en": "to extend or be extended to full length or width",
-      "mental_model_cn": "伸展或延伸至全长或全宽",
+      "core_meaning_cn": "把长度、范围或承受限度拉开",
+      "core_meaning_en": "extending length, range or capacity",
+      "mental_model_cn": "身体或材料看伸展、拉长；空间和时间看延伸；预算、能力、耐心看被推到极限；a stretch of 是连续的一段。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -57,7 +74,7 @@
             "legacy_source_object_ids": [
               "sense:stretch:c00ddafe3b5759be:collocation:0"
             ],
-            "meaning_cn": "伸腿",
+            "meaning_cn": "伸展双腿；（久坐后）走动活动腿脚",
             "phrase": "stretch one's legs"
           },
           {
@@ -73,14 +90,15 @@
         "confidence": "medium",
         "definition_cn": "伸展（四肢或身体部位）至全长",
         "definition_en": "to extend (a limb or body part) to its full length",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: stretch; stretch your arms/legs",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:stretch:c00ddafe3b5759be",
         "sense_label_en": "to extend (a limb or body part) to its full length",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "both",
+        "usage_note": "可不带宾语表示伸展身体；stretch your legs 也常指久坐后走动活动腿脚。"
       },
       {
         "collocations": [
@@ -171,6 +189,62 @@
         "sense_label_en": "made of elastic material that can be stretched",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:stretch:e0f3ffe95c5acf8c",
+        "pos": "verb",
+        "definition_cn": "（使材料）拉长、撑宽；伸缩",
+        "definition_en": "to make material longer or wider by pulling, or become longer or wider when pulled",
+        "sense_label_en": "to make material longer or wider by pulling, or become longer or wider when pulled",
+        "governing_pattern": "I/T: stretch (sth)",
+        "usage_note": "",
+        "transitivity": "both",
+        "level": "L2",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a4f259cbc329ab6f6d78",
+            "phrase": "The elastic stretches easily.",
+            "meaning_cn": "这条松紧带很容易拉长。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/stretch"
+          },
+          {
+            "source_locator": "https://www.oxfordlearnersdictionaries.com/us/definition/english/stretch_1"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:stretch:83283f685c7dc5b5",
+        "pos": "verb",
+        "definition_cn": "使能力、资源等发挥到极限；使超出通常限度",
+        "definition_en": "to demand the full capacity of someone or something, or push beyond a usual limit",
+        "sense_label_en": "to demand the full capacity of someone or something, or push beyond a usual limit",
+        "governing_pattern": "stretch sb/sth (to the limit)",
+        "usage_note": "预算、耐心、能力作宾语时看承受限度，不是物体长度。",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:723534da3065f38bda0a",
+            "phrase": "stretch resources to the limit",
+            "meaning_cn": "使资源的使用达到极限",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/stretch"
+          },
+          {
+            "source_locator": "https://www.oxfordlearnersdictionaries.com/us/definition/english/stretch_1"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -523,6 +597,20 @@
         "merged_into_sense_id": null,
         "source_row": 13488,
         "source_path": "content/lexical/canonical/senses/shards/o4737-4768.json"
+      },
+      {
+        "sense_id": "sense:stretch:e0f3ffe95c5acf8c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4738.json",
+        "source_locator": "record.senses[4]"
+      },
+      {
+        "sense_id": "sense:stretch:83283f685c7dc5b5",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4738.json",
+        "source_locator": "record.senses[5]"
       }
     ],
     "active_collocations": [
@@ -532,9 +620,18 @@
       "collocation:8b979e6bdebd9e5c0526",
       "collocation:9167e9f06396d53c6efe",
       "collocation:9c708c5fca496922a597",
-      "collocation:a1216a325f81163aa223"
+      "collocation:a1216a325f81163aa223",
+      "collocation:a4f259cbc329ab6f6d78",
+      "collocation:723534da3065f38bda0a"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:e891a75e484d11c2ec3b",
+        "source_path": "content/lexical/words/by-ordinal/o4738.json",
+        "source_locator": "record.constructions[0]",
+        "status": "active"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:013806e8c35e29e4b189",
@@ -570,6 +667,20 @@
         "id": "collocation:a1216a325f81163aa223",
         "source_row": 13696,
         "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json"
+      },
+      {
+        "id": "collocation:a4f259cbc329ab6f6d78",
+        "sense_id": "sense:stretch:e0f3ffe95c5acf8c",
+        "source_path": "content/lexical/words/by-ordinal/o4738.json",
+        "source_locator": "record.senses[4].collocations[0]",
+        "status": "active"
+      },
+      {
+        "id": "collocation:723534da3065f38bda0a",
+        "sense_id": "sense:stretch:83283f685c7dc5b5",
+        "source_path": "content/lexical/words/by-ordinal/o4738.json",
+        "source_locator": "record.senses[5].collocations[0]",
+        "status": "active"
       }
     ],
     "exam-mappings": [],

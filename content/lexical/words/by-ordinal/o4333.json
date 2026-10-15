@@ -6,13 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:sell:7fd372e37b43f7d0",
+        "pattern": "sell out; sell out of sth; be sold out (of sth)",
+        "meaning_cn": "售罄；卖光某物",
+        "definition_en": "to sell all available stock or tickets, leaving none available",
+        "boundary": "商品或票可作主语说sell out；商店或销售者作主语时sell out of接已卖光的货品。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sell-out_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      }
+    ],
     "content_hash": "346ad20c64d3ce516889e2d021efa4296eb6cd5a36afeae119638e775227a230",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "卖，出售；以…价格出售；说服，使接受；出卖，背叛",
-          "label_en": "to give something to someone in exchange for money; to be bought in a particular way or for a particular price; to persuade someone to accept or approve of an idea or plan; to betray someone for money or reward",
+          "label_cn": "卖，出售；售出；销路……；以……价格出售；说服，使接受；出卖，背叛",
+          "label_en": "to give something to someone in exchange for money; to be bought in a particular quantity or manner, or at a stated price; to persuade someone to accept or approve of an idea or plan; to betray someone for money or reward",
           "pos": "verb",
           "sense_ids": [
             "sense:sell:ca2ea8da2af856fa",
@@ -30,9 +46,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "以物换钱",
-      "core_meaning_en": "to exchange something for money",
-      "mental_model_cn": "以物换钱",
+      "core_meaning_cn": "卖出商品；促使人购买或接受",
+      "core_meaning_en": "to exchange something for money or persuade someone to buy or accept it",
+      "mental_model_cn": "卖家作主语是出售，商品作主语看销量或售价；接idea/plan是争取认可；sell out库存语境看售罄，背叛义须结合人、原则或利益。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -67,14 +83,20 @@
         "confidence": "medium",
         "definition_cn": "卖，出售",
         "definition_en": "to give something to someone in exchange for money",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "sell (sth); sell sb sth; sell sth to sb; sell sth for/at a price",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sell:ca2ea8da2af856fa",
         "sense_label_en": "to give something to someone in exchange for money",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt/vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sell_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -107,16 +129,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "以…价格出售",
-        "definition_en": "to be bought in a particular way or for a particular price",
-        "governing_pattern": "vi. + at/for",
+        "definition_cn": "售出；销路……；以……价格出售",
+        "definition_en": "to be bought in a particular quantity or manner, or at a stated price",
+        "governing_pattern": "sth sells well/badly; sth sells (a number of copies); sth sells for/at a price",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sell:f0d58b5fc1605b90",
-        "sense_label_en": "to be bought in a particular way or for a particular price",
+        "sense_label_en": "to be bought in a particular way, quantity or at a price",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vt/vi",
+        "usage_note": "商品作主语，sell well表示畅销；这类主动形式可表达商品被购买，不必改成被动。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sell_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -547,6 +576,13 @@
         "id": "membership:314828af76b7e101b1db",
         "source_row": 17518,
         "source_path": "content/lexical/canonical/packs/shards/o4321-4352.json"
+      }
+    ],
+    "constructions": [
+      {
+        "id": "construction:sell:7fd372e37b43f7d0",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4333.json"
       }
     ]
   },

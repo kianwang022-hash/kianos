@@ -6,13 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:send:3cc8d172ea7e3091",
+        "pattern": "send sb/sth + -ing; send sb + adjective / to sleep / into a state",
+        "meaning_cn": "使突然移动；使进入某种状态或产生反应",
+        "definition_en": "to cause sudden movement or a particular state or reaction",
+        "boundary": "send sb to do sth是派人去做；send sb flying等-ing补语表示造成动作，send sb to sleep/into a panic等表示造成状态。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/send_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      }
+    ],
     "content_hash": "1a806302f624b1f2a641cc59dc6a0b77783c1630570afbbdcf5ac07c9b3e8d3e",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "发送，寄；派遣；发射，传送；派人去叫",
-          "label_en": "to cause something to go or be taken to another place; to cause someone to go somewhere; to cause something to move or be transmitted; to send a message or request for someone to come",
+          "label_cn": "发送，寄；派遣；发射，传送；召来某人；请人送来某物",
+          "label_en": "to cause something to go or be taken to another place; to cause someone to go somewhere; to cause something to move or be transmitted; to request that someone come or that something be brought or delivered",
           "pos": "verb",
           "sense_ids": [
             "sense:send:2df16abe0d0f501e",
@@ -30,9 +46,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "发送，寄",
-      "core_meaning_en": "to cause something to go somewhere",
-      "mental_model_cn": "发送，寄",
+      "core_meaning_cn": "使人或物前往某处；使进入某种状态",
+      "core_meaning_en": "to cause someone or something to go somewhere or enter a state",
+      "mental_model_cn": "接物或信息看发送，接人及任务看派遣；send for方向是请人/物过来；send sb flying/to sleep等结果补语表示使发生动作或状态。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -67,14 +83,20 @@
         "confidence": "medium",
         "definition_cn": "发送，寄",
         "definition_en": "to cause something to go or be taken to another place",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "send sb sth; send sth to sb/a place",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:send:2df16abe0d0f501e",
         "sense_label_en": "to cause something to go or be taken to another place",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/send_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -100,14 +122,20 @@
         "confidence": "medium",
         "definition_cn": "派遣",
         "definition_en": "to cause someone to go somewhere",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "send sb to a place; send sb to do sth; send sb home/away",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:send:f4b6749a4bf85d7f",
         "sense_label_en": "to cause someone to go somewhere",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/send_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -146,16 +174,22 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "派人去叫",
-        "definition_en": "to send a message or request for someone to come",
-        "governing_pattern": "vi. + for",
+        "definition_cn": "召来某人；请人送来某物",
+        "definition_en": "to request that someone come or that something be brought or delivered",
+        "governing_pattern": "send for sb/sth",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:send:0652e3eacae45d58",
-        "sense_label_en": "to send a message or request for someone to come",
+        "sense_label_en": "to request someone or something to come to you",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/send-for",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -511,6 +545,13 @@
         "id": "membership:95f6bc1f0f122225fcdd",
         "source_row": 8063,
         "source_path": "content/lexical/canonical/packs/shards/o4321-4352.json"
+      }
+    ],
+    "constructions": [
+      {
+        "id": "construction:send:3cc8d172ea7e3091",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4339.json"
       }
     ]
   },

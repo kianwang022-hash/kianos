@@ -5,7 +5,7 @@
     "ordinal": 7489,
     "word": "smack",
     "source_owner_path": "content/lexical/words/by-ordinal/o7489.json",
-    "source_fingerprint": "8721a8a54dfca463609d2442526ae1bf08f18faec09b827e8d0d6edc51c71d24",
+    "source_fingerprint": "d4ab28f0b0588ec61b9eb8374a0bb8967f3076921ccf55fd0aa111aa331878e1",
     "sense_lineage": [
       {
         "word_id": "word:smack",
@@ -18,7 +18,8 @@
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "2N",
+        "1ADV"
       ],
       "density": "rich"
     },
@@ -83,6 +84,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "掌掴；啪地击打；尤指用张开的手猛击"
         }
+      },
+      {
+        "id": "sense:smack:7437fc60b63afc4f",
+        "source_locator": "record.senses[3]",
+        "pos": "adverb",
+        "governing_pattern": "",
+        "definition_cn": "（非正式）恰好；正好（在某处）",
+        "definition_en": "informal: exactly or directly in a particular position",
+        "note": "smack in the middle等位置短语中是强调准确位置，不能解析为掌掴动作。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:smack:7437fc60b63afc4f",
+          "target_locator": "record.senses[3]",
+          "target_label": "（非正式）恰好；正好（在某处）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -141,6 +159,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "smack of sth"
         }
+      },
+      {
+        "id": "construction:4fc463cf6c812f1ef146",
+        "source_locator": "record.constructions[1]",
+        "pattern": "smack one's lips",
+        "lines": [
+          {
+            "text": "咂嘴：嘴唇合拢再张开发出清脆声音，常见于进食",
+            "lang": "cn"
+          },
+          {
+            "text": "嘴唇发声的动作，不是用手拍打嘴唇；也不同于名词表示的咂嘴声。",
+            "lang": "cn"
+          },
+          {
+            "text": "to press the lips together and part them noisily, especially when eating",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:4fc463cf6c812f1ef146",
+          "target_locator": "record.constructions[1]",
+          "target_label": "smack one's lips"
+        }
       }
     ],
     "reference": {
@@ -154,7 +197,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "noun",
-          "definition_cn": "风味, 滋味, 少量, 拍击声, 咂嘴声, 小渔船, 海洛因",
+          "definition_cn": "（沿海捕渔或航行用）小型帆船",
           "definition_en": "a sailing ship (usually rigged like a sloop or cutter) used in fishing and sailing along the coast",
           "semantic_key": "f291d178acc2076dec6f544adec338d0a946cbd23a77ff6af085bad588ec5d9b",
           "semantic_key_history": [],
@@ -163,7 +206,135 @@
           "updated_at": "2026-09-14T00:00:00Z",
           "source_row": 18917,
           "source_path": "content/lexical/canonical/senses/shards/o7489-7520.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:smack:128a958a0df450f7",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "noun",
+            "definition_cn": "风味, 滋味, 少量, 拍击声, 咂嘴声, 小渔船, 海洛因",
+            "definition_en": "a sailing ship (usually rigged like a sloop or cutter) used in fishing and sailing along the coast",
+            "semantic_key": "f291d178acc2076dec6f544adec338d0a946cbd23a77ff6af085bad588ec5d9b",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-14T00:00:00Z",
+            "source_row": 18917,
+            "source_path": "content/lexical/canonical/senses/shards/o7489-7520.json",
+            "reference_only": true
+          }
+        },
+        {
+          "pos": "noun",
+          "definition_cn": "淡淡的独特滋味或气味",
+          "definition_en": "a slight but distinctive taste or smell",
+          "source_evidence": [
+            {
+              "source_type": "current_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/smack",
+              "evidence_status": "supplemental_current_body_checked",
+              "source_capture": {
+                "file": "source-smack.json",
+                "url": "https://www.collinsdictionary.com/dictionary/english/smack",
+                "file_sha256": "fbfae2403c3d5779f6532d1caa228eb08fda4cb121bcb394611fc65ee6421a2a",
+                "char_start": 7672,
+                "char_end_exclusive": 7953,
+                "byte_start": 8534,
+                "byte_end_exclusive": 8864,
+                "span_sha256": "cba0c2ae45fd683e39d193ffe871cb2a3cff4207870e47a153385d0eefe7e3d5",
+                "representation": "Exact original web tool response, JSON-decoded string; half-open character and UTF-8 offsets; supplemental current evidence, not historical source recovery"
+              }
+            }
+          ],
+          "stable_sense_id": "sense:smack:8663d169cb0b718f",
+          "status": "active",
+          "merged_into_sense_id": null,
+          "reference_only": true,
+          "usage_note": "常指能辨出的淡淡滋味或气味。"
+        },
+        {
+          "pos": "noun",
+          "definition_cn": "少量；一点，尤指一小口",
+          "definition_en": "a small quantity, especially a mouthful or taste",
+          "source_evidence": [
+            {
+              "source_type": "current_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/smack",
+              "evidence_status": "supplemental_current_body_checked",
+              "source_capture": {
+                "file": "source-smack.json",
+                "url": "https://www.collinsdictionary.com/dictionary/english/smack",
+                "file_sha256": "fbfae2403c3d5779f6532d1caa228eb08fda4cb121bcb394611fc65ee6421a2a",
+                "char_start": 7953,
+                "char_end_exclusive": 8092,
+                "byte_start": 8864,
+                "byte_end_exclusive": 9027,
+                "span_sha256": "eebd6cb1f66c585b6922b53757edc9d8bf4f682233c76c3d2ccf842c11519d97",
+                "representation": "Exact original web tool response, JSON-decoded string; half-open character and UTF-8 offsets; supplemental current evidence, not historical source recovery"
+              }
+            }
+          ],
+          "stable_sense_id": "sense:smack:a67bd56c96346454",
+          "status": "active",
+          "merged_into_sense_id": null,
+          "reference_only": true,
+          "usage_note": "指少量，尤其一小口食物或饮品。"
+        },
+        {
+          "pos": "noun",
+          "definition_cn": "拍击声；咂嘴发出的清脆声响",
+          "definition_en": "a sharp sound made by a slap or by parting the lips",
+          "source_evidence": [
+            {
+              "source_type": "current_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/smack",
+              "evidence_status": "supplemental_current_body_checked",
+              "source_capture": {
+                "file": "source-smack.json",
+                "url": "https://www.collinsdictionary.com/dictionary/english/smack",
+                "file_sha256": "fbfae2403c3d5779f6532d1caa228eb08fda4cb121bcb394611fc65ee6421a2a",
+                "char_start": 9205,
+                "char_end_exclusive": 9502,
+                "byte_start": 10249,
+                "byte_end_exclusive": 10602,
+                "span_sha256": "b0a1200141476e5e4098d0d019083357d9cfc2757802199ee709bf7dc5a7f5db",
+                "representation": "Exact original web tool response, JSON-decoded string; half-open character and UTF-8 offsets; supplemental current evidence, not historical source recovery"
+              }
+            }
+          ],
+          "stable_sense_id": "sense:smack:8d30808b04e22681",
+          "status": "active",
+          "merged_into_sense_id": null,
+          "reference_only": true,
+          "usage_note": "声音义；可指拍击发声，也可指嘴唇分开发出的咂嘴声。"
+        },
+        {
+          "pos": "noun",
+          "definition_cn": "（俚语）海洛因",
+          "definition_en": "slang: heroin",
+          "source_evidence": [
+            {
+              "source_type": "current_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/smack",
+              "evidence_status": "supplemental_current_body_checked",
+              "source_capture": {
+                "file": "source-smack.json",
+                "url": "https://www.collinsdictionary.com/dictionary/english/smack",
+                "file_sha256": "fbfae2403c3d5779f6532d1caa228eb08fda4cb121bcb394611fc65ee6421a2a",
+                "char_start": 10008,
+                "char_end_exclusive": 10240,
+                "byte_start": 11143,
+                "byte_end_exclusive": 11385,
+                "span_sha256": "ad00377a315735a87b2532033904ff55d4d7463d510e94851b0d25dfa5ce26e5",
+                "representation": "Exact original web tool response, JSON-decoded string; half-open character and UTF-8 offsets; supplemental current evidence, not historical source recovery"
+              }
+            }
+          ],
+          "stable_sense_id": "sense:smack:9c65e3472dd73344",
+          "status": "active",
+          "merged_into_sense_id": null,
+          "reference_only": true,
+          "usage_note": "毒品名称的俚语；仅用于理解相应语境。"
         }
       ]
     }
@@ -174,12 +345,12 @@
     "ordinal": 7490,
     "word": "smear",
     "source_owner_path": "content/lexical/words/by-ordinal/o7490.json",
-    "source_fingerprint": "6ff362b590e7268fcdb5afabba1a00edfb54912b2b681131926cff42d96e656d",
+    "source_fingerprint": "ee75d87ca4e4b525e65d966aee58eec1376e6e6d9df4f2734b6466d328c3ce16",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -261,6 +432,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "（比喻）抹黑；用虚假、恶意或误导性指控损害名誉"
         }
+      },
+      {
+        "id": "sense:smear:217cda1cf5fbfa46",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "污迹；涂抹留下的脏痕",
+        "definition_en": "a dirty or greasy mark left on a surface",
+        "note": "smear of gravy等指实体污痕，不是诽谤或显微镜样本。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:smear:217cda1cf5fbfa46",
+          "target_locator": "record.senses[4]",
+          "target_label": "污迹；涂抹留下的脏痕"
+        }
       }
     ],
     "pronunciation_support": {
@@ -310,7 +498,7 @@
     "ordinal": 7491,
     "word": "smother",
     "source_owner_path": "content/lexical/words/by-ordinal/o7491.json",
-    "source_fingerprint": "8fbb9cd9363bf5bf217db2c02f85501687a178b0dd3dc2b35af23d199e3fda29",
+    "source_fingerprint": "0000d69635a4f48b843606693d61ef10a3825be426f23e70b6e9d9f3b1bcc046",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -335,7 +523,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "浓烟, 窒息状态, 杂乱无章",
+        "definition_cn": "令人窒息的浓烟或浓厚烟雾",
         "definition_en": "a stifling cloud of smoke",
         "note": "Noun use for a stifling mass or cloud is secondary.",
         "identity_overlay": null,
@@ -344,7 +532,7 @@
           "target_kind": "sense",
           "target_id": "sense:smother:d05582c71ef05e7c",
           "target_locator": "record.senses[0]",
-          "target_label": "浓烟, 窒息状态, 杂乱无章"
+          "target_label": "令人窒息的浓烟或浓厚烟雾"
         }
       },
       {
@@ -354,7 +542,7 @@
         "governing_pattern": "",
         "definition_cn": "完全覆盖、包住；（比喻）压制、扼杀、扑灭",
         "definition_en": "to cover, surround, or overwhelm something completely; figuratively, to suppress or extinguish",
-        "note": "",
+        "note": "smother sb with love/attention：关爱过度、使人受压抑；smother a reaction/giggle：抑制不让显露。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -433,7 +621,68 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "pos": "noun",
+          "definition_cn": "混乱；纷乱的一团",
+          "definition_en": "a confused mass or turmoil",
+          "source_evidence": [
+            {
+              "source_type": "current_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/smother",
+              "evidence_status": "supplemental_current_body_checked",
+              "source_capture": {
+                "file": "source-smother.json",
+                "url": "https://www.collinsdictionary.com/dictionary/english/smother",
+                "file_sha256": "33872793faf50cf844daef0a3a05bc5b44143ae94e5bec5a3c6d849856e2e0f7",
+                "char_start": 10498,
+                "char_end_exclusive": 10836,
+                "byte_start": 11552,
+                "byte_end_exclusive": 11940,
+                "span_sha256": "d255cde0e30ac6aef1a092edd280ab0dc26b4e8d6cd9743275413a8173de1e10",
+                "representation": "Exact original web tool response, JSON-decoded string; half-open character and UTF-8 offsets; supplemental current evidence, not historical source recovery"
+              }
+            }
+          ],
+          "stable_sense_id": "sense:smother:4b4d0e81b9690921",
+          "status": "active",
+          "merged_into_sense_id": null,
+          "reference_only": true,
+          "usage_note": "指纷杂混乱的一团，区别令人窒息的浓烟。"
+        },
+        {
+          "stable_sense_id": "sense:smother:ad8300bc403fdc4a",
+          "status": "active",
+          "merged_into_sense_id": null,
+          "reference_only": true,
+          "pos": "noun",
+          "definition_cn": "窒息或受抑制的状态",
+          "definition_en": "a condition of being stifled or suppressed",
+          "usage_note": "表示所处的状态，区别浓烟这一物质及纷乱的一团。",
+          "source_evidence": [
+            {
+              "source_type": "current_dictionary",
+              "source_path": "https://www.merriam-webster.com/dictionary/smother",
+              "evidence_status": "supplemental_current_body_checked",
+              "source_capture": {
+                "file": "sources/source-web-06.json",
+                "url": "https://www.merriam-webster.com/dictionary/smother",
+                "file_sha256": "3dbdfa498e511821fd0959a65f97b8a72c269601f9593189b66544d319124d20",
+                "decoded_body_sha256": "9e8c27adb978952a06e8a26afd7dc2bbf8db4503a78dead609fb9d5a643023dd",
+                "char_start": 2671,
+                "char_end_exclusive": 2816,
+                "byte_start": 2979,
+                "byte_end_exclusive": 3124,
+                "span_sha256": "d21050a085b9fccf4b46e7b39feb6cf423f310f2a78ac079792d69668da14845",
+                "offset_convention": "0-based half-open positions in exact JSON-decoded toolbody; full combined response retained",
+                "original_Source": "UNKNOWN",
+                "role": "CURRENT_CORROBORATION_ONLY"
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -514,12 +763,12 @@
     "ordinal": 7493,
     "word": "snag",
     "source_owner_path": "content/lexical/words/by-ordinal/o7493.json",
-    "source_fingerprint": "8ed6b646bdab1c927d2c201aea1c55847bbdfe0528b56f16ec1f1968d836107c",
+    "source_fingerprint": "787f9d7213d2b5b5cf36c379c7006b9db2ac5e752759b0d158293f435738169d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -618,6 +867,23 @@
           "target_locator": "record.senses[4]",
           "target_label": "（非正式）迅速弄到、抢到或抓住某物"
         }
+      },
+      {
+        "id": "sense:snag:dc4d0adb5c35d1e8",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（织物被钩住造成的）抽丝、线圈或破口",
+        "definition_en": "a pulled loop, hole, or tear in fabric caused by catching on something sharp",
+        "note": "织物被尖物钩住所留下的抽丝或破口，是损伤结果。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:snag:dc4d0adb5c35d1e8",
+          "target_locator": "record.senses[5]",
+          "target_label": "（织物被钩住造成的）抽丝、线圈或破口"
+        }
       }
     ],
     "pronunciation_support": {
@@ -664,7 +930,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "pos": "noun",
+          "definition_cn": "断齿；参差不齐的牙齿",
+          "definition_en": "a broken or irregular tooth",
+          "source_evidence": [
+            {
+              "source_type": "current_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/snag",
+              "evidence_status": "supplemental_current_body_checked",
+              "source_capture": {
+                "file": "source-snag.json",
+                "url": "https://www.collinsdictionary.com/dictionary/english/snag",
+                "file_sha256": "aa8444d2990ae2e4ecf6a53d75c0522516c7f8fdd5fd3b3b57a1810ab3b7bea3",
+                "char_start": 8734,
+                "char_end_exclusive": 9533,
+                "byte_start": 9688,
+                "byte_end_exclusive": 10584,
+                "span_sha256": "f47d8a999916d2d3b5330085e4a83740f1ba5b3f87e7fe8c5531726669fe993d",
+                "representation": "Exact original web tool response, JSON-decoded string; half-open character and UTF-8 offsets; supplemental current evidence, not historical source recovery"
+              }
+            }
+          ],
+          "stable_sense_id": "sense:snag:bfc2f9d6664cf9a3",
+          "status": "active",
+          "merged_into_sense_id": null,
+          "reference_only": true,
+          "usage_note": "指折断或参差的牙齿。"
+        }
+      ]
     }
   },
   {
@@ -673,12 +969,12 @@
     "ordinal": 7494,
     "word": "snarl",
     "source_owner_path": "content/lexical/words/by-ordinal/o7494.json",
-    "source_fingerprint": "2f83c07b4334148cc9170d9f0e2a0a6b164744b5b04fb6d3fe5a463de4521ecb",
+    "source_fingerprint": "13e49beb2089101baf8d8619696b1d3a6c8467cead8ddd792184c034b8d1fc58",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -700,7 +996,7 @@
         "governing_pattern": "",
         "definition_cn": "龇牙低吼；发出凶狠的咆哮声",
         "definition_en": "to make a harsh, angry growling sound, especially while showing teeth",
-        "note": "",
+        "note": "也可指凶狠地说话；snarl words / snarl at sb由话语或人物对象选择，未必实际龇牙。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -742,6 +1038,23 @@
           "target_id": "sense:snarl:2f526118ebd55b0f",
           "target_locator": "record.senses[2]",
           "target_label": "凶狠的低吼；愤怒咆哮"
+        }
+      },
+      {
+        "id": "sense:snarl:dbdb559e2a748054",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "纠结的一团；混乱或拥堵（如交通）",
+        "definition_en": "a tangled or disorganized mass; a state of congestion",
+        "note": "traffic snarls和a snarl of branches是纠结/堵塞名词，不是怒吼声音。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:snarl:dbdb559e2a748054",
+          "target_locator": "record.senses[3]",
+          "target_label": "纠结的一团；混乱或拥堵（如交通）"
         }
       }
     ],
@@ -900,7 +1213,7 @@
     "ordinal": 7496,
     "word": "snug",
     "source_owner_path": "content/lexical/words/by-ordinal/o7496.json",
-    "source_fingerprint": "c358c7cb12615c0152443684b6900bdc7933d46961405cdc0f731458fc411b8c",
+    "source_fingerprint": "8771c96159c6e848feb69e6f96c9a5457a4b439dd3ef29919f645fe5bf266121",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -909,13 +1222,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "安全隐蔽的；受到良好保护的；舒适的, 温暖的, 整洁的, 紧身的, 隐藏的；温暖舒适的；惬意的；避风而安稳的；贴身合适的；紧密合身的；稳妥贴合的",
-      "decision_cn": "",
+      "summary_cn": "紧密妥贴、温暖安稳；形容舒适受保护或贴合牢靠",
+      "decision_cn": "环境或人侧重温暖受保护；衣物、接合处侧重紧密贴合。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "安全隐蔽的；受到良好保护的；舒适的, 温暖的, 整洁的, 紧身的, 隐藏的；温暖舒适的；惬意的；避风而安稳的；贴身合适的；紧密合身的；稳妥贴合的"
+        "target_label": "紧密妥贴、温暖安稳；形容舒适受保护或贴合牢靠"
       }
     },
     "senses": [
@@ -960,7 +1273,7 @@
         "governing_pattern": "",
         "definition_cn": "温暖舒适的；惬意的；避风而安稳的",
         "definition_en": "comfortably warm, cozy, sheltered, and pleasant",
-        "note": "",
+        "note": "形容住所等也可指小巧紧凑、布置妥当而整洁，不仅是温暖或贴身。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -1151,11 +1464,11 @@
     "ordinal": 7498,
     "word": "solicit",
     "source_owner_path": "content/lexical/words/by-ordinal/o7498.json",
-    "source_fingerprint": "88212b74a806a3eea4538b370ed0fc0842f74f1bf1a7240599ee859ff9a3e759",
+    "source_fingerprint": "e51289af6efa78510f983de63b9593eab71f78ba7012571a72f1937669963f5d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V"
+        "4V"
       ],
       "density": "rich"
     },
@@ -1174,7 +1487,7 @@
         "id": "sense:solicit:8f8b3c5995475d6a",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "solicit sth (from sb)",
         "definition_cn": "请求, 乞求, 招揽, 征求",
         "definition_en": "make a solicitation or entreaty for something; request urgently or persistently",
         "note": "",
@@ -1191,7 +1504,7 @@
         "id": "sense:solicit:c6ecd3f10b495012",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "solicit sb for sth",
         "definition_cn": "请求, 乞求, 招揽, 征求",
         "definition_en": "make a solicitation or petition for something desired",
         "note": "",
@@ -1219,6 +1532,23 @@
           "target_id": "sense:solicit:6d9ec4bfff085544",
           "target_locator": "record.senses[2]",
           "target_label": "教唆；煽动；怂恿从事违法/违抗行为"
+        }
+      },
+      {
+        "id": "sense:solicit:b42417a5c6423c2f",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "（卖淫者）拉客；向人提出有偿性服务",
+        "definition_en": "to offer sexual services to someone in exchange for money",
+        "note": "无宾语或警方/违法语境中soliciting可能指拉客，不能只译普通征求意见。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:solicit:b42417a5c6423c2f",
+          "target_locator": "record.senses[3]",
+          "target_label": "（卖淫者）拉客；向人提出有偿性服务"
         }
       }
     ],
@@ -1267,11 +1597,11 @@
     "ordinal": 7499,
     "word": "solicitous",
     "source_owner_path": "content/lexical/words/by-ordinal/o7499.json",
-    "source_fingerprint": "efa1db6aa271003d77a6e867aa5b835a9dfc22ac26532bb8ec404f00d0f318d1",
+    "source_fingerprint": "0f49ccf37a7d3ce3651f57d89fd997dd72b7c023f6b62c8d32e72f3256d8ce0c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -1293,7 +1623,7 @@
         "governing_pattern": "",
         "definition_cn": "焦虑关切的；忧心的",
         "definition_en": "full of anxiety and concern",
-        "note": "",
+        "note": "较正式；solicitous about/for sb or sth表示担忧、关切；不能据此把他人健康语境读成渴望得到。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -1308,16 +1638,33 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "殷勤关照的；过分周到关注的",
-        "definition_en": "showing hovering attentiveness",
-        "note": "",
+        "definition_cn": "细心关照的；周到关注他人需要或福祉的",
+        "definition_en": "showing care and attention to another person's needs or well-being",
+        "note": "语境可使这种关注显得过分殷勤或紧盯不放，但通常也可表示善意、周到的关照。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:solicitous:96385d5768f5539f",
           "target_locator": "record.senses[1]",
-          "target_label": "殷勤关照的；过分周到关注的"
+          "target_label": "细心关照的；周到关注他人需要或福祉的"
+        }
+      },
+      {
+        "id": "sense:solicitous:55d0cae9955f5501",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "热切希望的；急于做某事的",
+        "definition_en": "eager or anxiously desirous of something",
+        "note": "solicitous to do sth表示热切想做；about/for他人境况通常表示关切。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:solicitous:55d0cae9955f5501",
+          "target_locator": "record.senses[2]",
+          "target_label": "热切希望的；急于做某事的"
         }
       }
     ],
@@ -1344,7 +1691,40 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "stable_sense_id": "sense:solicitous:dacd832cd6f22337",
+          "status": "active",
+          "merged_into_sense_id": null,
+          "reference_only": true,
+          "pos": "adjective",
+          "definition_cn": "细致讲究的；对某方面格外小心认真的",
+          "definition_en": "meticulously careful about a particular matter",
+          "usage_note": "solicitous in matters of dress可指对衣着细致讲究；这里关注的是某个领域的细节，不限于照顾他人。",
+          "source_evidence": [
+            {
+              "source_type": "current_dictionary",
+              "source_path": "https://www.merriam-webster.com/dictionary/solicitous",
+              "evidence_status": "supplemental_current_body_checked",
+              "source_capture": {
+                "file": "sources/source-web-07.json",
+                "url": "https://www.merriam-webster.com/dictionary/solicitous",
+                "file_sha256": "1d982a212b76ee41f36e060fe59939a76a9624a3ac2a8ff962a9e4065e8ac58f",
+                "decoded_body_sha256": "699de0aec62c355e973a6d2d055654a1178b0aff9fd4dd06eecf37c57e1e4904",
+                "char_start": 1774,
+                "char_end_exclusive": 1863,
+                "byte_start": 2048,
+                "byte_end_exclusive": 2137,
+                "span_sha256": "d4b116ada844ff299f7377ec5795b604bae8aab37604a19ea3f8449a01ed9dd8",
+                "offset_convention": "0-based half-open positions in exact JSON-decoded toolbody; full combined response retained",
+                "original_Source": "UNKNOWN",
+                "role": "CURRENT_CORROBORATION_ONLY"
+              }
+            }
+          ]
+        }
+      ]
     }
   },
   {
@@ -1353,7 +1733,7 @@
     "ordinal": 7500,
     "word": "solitude",
     "source_owner_path": "content/lexical/words/by-ordinal/o7500.json",
-    "source_fingerprint": "7f1c7dac1e42196e1e01be955e070e987e426111eaaffb235aeff9ad13c3669a",
+    "source_fingerprint": "cadbbc293989c6d46eb7d13724c1be7ad89f8b23f8c1d766aca4f17854f52fbe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1379,7 +1759,7 @@
         "governing_pattern": "",
         "definition_cn": "社会隔离；与他人分离的状态",
         "definition_en": "social isolation or separation from other people",
-        "note": "This negative or imposed sense should not make solitude synonymous with loneliness.",
+        "note": "强调与他人分离；语境可带孤寂感，但独处本身不必是被迫或痛苦。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -1471,18 +1851,18 @@
     "ordinal": 7501,
     "word": "solvent",
     "source_owner_path": "content/lexical/words/by-ordinal/o7501.json",
-    "source_fingerprint": "d2d4801145175e6c9d05956a75f75d4bef9268f8c980a68f46bb9ea7c7eb8961",
+    "source_fingerprint": "06103fd8d5d62d7ddea630ee21b29cc6152d3373c0846cd265d5707d4129ba3f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
+        "2A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "溶剂",
-      "decision_cn": "",
+      "decision_cn": "化学语境看溶解作用；公司或个人 remain/be solvent 指付得起债。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1523,6 +1903,23 @@
           "target_id": "sense:solvent:dd88a5e5a1295d59",
           "target_locator": "record.senses[1]",
           "target_label": "有偿付能力的；资能抵债的"
+        }
+      },
+      {
+        "id": "sense:solvent:2b0f2caf392b505b",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "solvent action/power",
+        "definition_cn": "有溶解能力的；能溶解其他物质的",
+        "definition_en": "able to dissolve another substance",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:solvent:2b0f2caf392b505b",
+          "target_locator": "record.senses[2]",
+          "target_label": "有溶解能力的；能溶解其他物质的"
         }
       }
     ],
@@ -1713,17 +2110,17 @@
     "ordinal": 7504,
     "word": "spasm",
     "source_owner_path": "content/lexical/words/by-ordinal/o7504.json",
-    "source_fingerprint": "ed43f849b9b73d7521626426977900157aff21cde6869c3fe0d653d320825ad2",
+    "source_fingerprint": "84a1bc69a76a8e0609dbfea9a7c16335e2ce775679de248494d443fe377f3e05",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "痉挛, 抽搐, 发作",
-      "decision_cn": "",
+      "decision_cn": "肌肉、血管语境是突然收缩；a spasm of fear/pain/activity 可指短暂袭来的一阵。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1737,8 +2134,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "痉挛, 抽搐, 发作",
-        "definition_en": "a painful and involuntary muscular contraction",
+        "definition_cn": "肌肉痉挛；不自主收缩，常伴疼痛",
+        "definition_en": "a sudden involuntary contraction of a muscle, often painful",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -1746,7 +2143,7 @@
           "target_kind": "sense",
           "target_id": "sense:spasm:1a4e09ebf2615358",
           "target_locator": "record.senses[0]",
-          "target_label": "痉挛, 抽搐, 发作"
+          "target_label": "肌肉痉挛；不自主收缩，常伴疼痛"
         }
       },
       {
@@ -1754,7 +2151,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "痉挛, 抽搐, 发作",
+        "definition_cn": "（病理）血管等中空器官的突然收缩或痉挛",
         "definition_en": "(pathology) sudden constriction of a hollow organ (as a blood vessel)",
         "note": "",
         "identity_overlay": null,
@@ -1763,7 +2160,24 @@
           "target_kind": "sense",
           "target_id": "sense:spasm:0b055fe454955caf",
           "target_locator": "record.senses[1]",
-          "target_label": "痉挛, 抽搐, 发作"
+          "target_label": "（病理）血管等中空器官的突然收缩或痉挛"
+        }
+      },
+      {
+        "id": "sense:spasm:96443296e14c5130",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a spasm of pain/fear/activity",
+        "definition_cn": "（疼痛、情绪或活动）突然的一阵、短暂发作",
+        "definition_en": "a sudden brief burst of pain, emotion, or activity",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:spasm:96443296e14c5130",
+          "target_locator": "record.senses[2]",
+          "target_label": "（疼痛、情绪或活动）突然的一阵、短暂发作"
         }
       }
     ],
@@ -1942,7 +2356,7 @@
     "ordinal": 7506,
     "word": "spew",
     "source_owner_path": "content/lexical/words/by-ordinal/o7506.json",
-    "source_fingerprint": "5db84215c5e7cda6bfdd8871ec03dc8f7b944b608544ee3f6ae45a6e7858719c",
+    "source_fingerprint": "1f09c136c864a2d6a87cfc8967cfd5fb58c63ceb5b9316043ae02cdbd3d692ac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1965,8 +2379,8 @@
         "id": "sense:spew:7b408a3b93e653dc",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "呕吐, 喷涌",
+        "governing_pattern": "spew (out) sth; sth spews from/out of a source; spew (up)",
+        "definition_cn": "大量喷出、涌出；（非正式）呕吐；也可比喻大量说出",
         "definition_en": "eject or send out in large quantities, also metaphorical",
         "note": "",
         "identity_overlay": null,
@@ -1975,7 +2389,7 @@
           "target_kind": "sense",
           "target_id": "sense:spew:7b408a3b93e653dc",
           "target_locator": "record.senses[0]",
-          "target_label": "呕吐, 喷涌"
+          "target_label": "大量喷出、涌出；（非正式）呕吐；也可比喻大量说出"
         }
       }
     ],
@@ -2011,7 +2425,7 @@
     "ordinal": 7507,
     "word": "spineless",
     "source_owner_path": "content/lexical/words/by-ordinal/o7507.json",
-    "source_fingerprint": "3741ccdf0f855dd8c21a9bcceefca54f4b6e25643cf853c085fed33d4c224937",
+    "source_fingerprint": "acc84cba25009876293d361eb1e75c8695f7cb6986f54b21b4119c8e920f4507",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2035,16 +2449,16 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "（生物学）无刺的；没有棘状突起的",
-        "definition_en": "biology: lacking spines or spine-like projections",
-        "note": "",
+        "definition_cn": "（生物）无脊柱的；或无刺、无棘状突起的",
+        "definition_en": "biology: lacking a backbone, or lacking spines or thorn-like projections",
+        "note": "动物解剖语境可指没有脊柱；植物或表面结构语境可指无刺。形容人的品格时用另一义。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:spineless:b6e8c54c7b785ad8",
           "target_locator": "record.senses[0]",
-          "target_label": "（生物学）无刺的；没有棘状突起的"
+          "target_label": "（生物）无脊柱的；或无刺、无棘状突起的"
         }
       },
       {
@@ -2114,7 +2528,7 @@
     "ordinal": 7508,
     "word": "spiny",
     "source_owner_path": "content/lexical/words/by-ordinal/o7508.json",
-    "source_fingerprint": "621524451241e7e9176e134762fe787887f0b3cdfdb536e6da25c04b98fbecdd",
+    "source_fingerprint": "8bb0e7c73a3b8afe7e3f84391f06d2e6e8cc5b003c6e6cacbde296b318477a0a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2123,13 +2537,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有刺的；有棘的；带尖锐突起的；多刺的, 尽是尖刺的, 尖刺状的, 麻烦的, 棘手的；（比喻）棘手的；难处理的；敏感麻烦的",
+      "summary_cn": "有刺的；有棘的；带尖锐突起的；多刺或尖刺状的；（比喻）棘手的；难处理的；敏感麻烦的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有刺的；有棘的；带尖锐突起的；多刺的, 尽是尖刺的, 尖刺状的, 麻烦的, 棘手的；（比喻）棘手的；难处理的；敏感麻烦的"
+        "target_label": "有刺的；有棘的；带尖锐突起的；多刺或尖刺状的；（比喻）棘手的；难处理的；敏感麻烦的"
       }
     },
     "senses": [
@@ -2155,8 +2569,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "多刺的, 尽是尖刺的, 尖刺状的, 麻烦的, 棘手的",
-        "definition_en": "having or covered with protective barbs or quills or spines or thorns or setae etc",
+        "definition_cn": "多刺的；覆盖尖刺的；也可指尖刺状的",
+        "definition_en": "having or covered with spines, thorns, or sharp projections; also shaped like a spine",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2164,7 +2578,7 @@
           "target_kind": "sense",
           "target_id": "sense:spiny:7a1b9dc770a45082",
           "target_locator": "record.senses[1]",
-          "target_label": "多刺的, 尽是尖刺的, 尖刺状的, 麻烦的, 棘手的"
+          "target_label": "多刺的；覆盖尖刺的；也可指尖刺状的"
         }
       },
       {
@@ -2230,7 +2644,7 @@
     "ordinal": 7509,
     "word": "splendor",
     "source_owner_path": "content/lexical/words/by-ordinal/o7509.json",
-    "source_fingerprint": "b2290173da951fe87788f76cb4bd89bc46255df434362b11e65daa4dc45fe577",
+    "source_fingerprint": "8ffafdcb7e32b1945fcb68de47665afcd8fec283c941bddec07b74cc9c62588b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2256,7 +2670,7 @@
         "governing_pattern": "",
         "definition_cn": "壮丽；辉煌；宏伟；令人赞叹的华美",
         "definition_en": "magnificence, grandeur, beauty, or impressive richness",
-        "note": "",
+        "note": "复数 splendors 也可指某地或生活方式中令人赞叹的美景、特色。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -2336,12 +2750,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -2352,7 +2762,7 @@
     "ordinal": 7510,
     "word": "splinter",
     "source_owner_path": "content/lexical/words/by-ordinal/o7510.json",
-    "source_fingerprint": "7293f3e9775761269a1e4ac617670f42d4277295a798222ca2a0528ad86612e1",
+    "source_fingerprint": "80ea5b63b592dbe1a6c8996abf4525b89a3fd6249cbde5b511fd7cfe33330523",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2410,9 +2820,9 @@
         "id": "sense:splinter:3b1d7c965c8a7c75",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi.: group/organization splinters into factions",
+        "governing_pattern": "I/T: an organization splinters into groups; sth splinters an organization",
         "definition_cn": "（比喻）分裂成派别；团体裂变为多个小群体",
-        "definition_en": "figurative: for a group or organization to split into smaller factions",
+        "definition_en": "figurative: to split, or cause a group or organization to split, into smaller factions",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2574,12 +2984,12 @@
     "ordinal": 7512,
     "word": "spout",
     "source_owner_path": "content/lexical/words/by-ordinal/o7512.json",
-    "source_fingerprint": "fd566de8d4690ca913f172262d8d6d0d8ec97d1a9039d0cfb857959aaadca8ed",
+    "source_fingerprint": "6d783f9d589d0ed6e80ac7019e318605602f05f079a65541255d3d67b61d4f18",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -2616,8 +3026,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "I/T: liquid/steam spouts from/out of sth; source spouts water/steam",
-        "definition_cn": "喷出；涌出；使液体强力喷射",
-        "definition_en": "to gush, jet, or project liquid forcefully",
+        "definition_cn": "喷出；涌出；使液体、火焰等强力喷射",
+        "definition_en": "to gush or jet out, or forcefully project liquid, flames, or other material",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2625,17 +3035,17 @@
           "target_kind": "sense",
           "target_id": "sense:spout:d016461b3853ce24",
           "target_locator": "record.senses[1]",
-          "target_label": "喷出；涌出；使液体强力喷射"
+          "target_label": "喷出；涌出；使液体、火焰等强力喷射"
         }
       },
       {
         "id": "sense:spout:633a98a03611c4aa",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt.: spout nonsense/opinions",
+        "governing_pattern": "spout nonsense/opinions; spout off/forth (about sth)",
         "definition_cn": "（比喻/非正式）滔滔不绝地说；高谈阔论，常指反复说观点或胡话",
         "definition_en": "figurative/informal: to speak at length or emphatically, often repeating opinions or nonsense",
-        "note": "",
+        "note": "常带不赞同或贬义，暗示所说内容空泛、不可信或惹人反感；不是中性发表观点。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -2643,6 +3053,23 @@
           "target_id": "sense:spout:633a98a03611c4aa",
           "target_locator": "record.senses[2]",
           "target_label": "（比喻/非正式）滔滔不绝地说；高谈阔论，常指反复说观点或胡话"
+        }
+      },
+      {
+        "id": "sense:spout:c7cdd4ce0e4124d8",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "a spout of water/liquid",
+        "definition_cn": "喷出的水柱、液流；一股喷流",
+        "definition_en": "a forceful stream or jet of liquid issuing from something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:spout:c7cdd4ce0e4124d8",
+          "target_locator": "record.senses[3]",
+          "target_label": "喷出的水柱、液流；一股喷流"
         }
       }
     ],
@@ -2709,11 +3136,11 @@
     "ordinal": 7513,
     "word": "sprawl",
     "source_owner_path": "content/lexical/words/by-ordinal/o7513.json",
-    "source_fingerprint": "86c44fffcf1e452eada5c7f41dac268812ca27ac76c07fba218f5a3f8f18e55f",
+    "source_fingerprint": "d4545471b510043f3130065368c5b8b4f548c861cb572b0ac8740e158273657c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "2N"
       ],
       "density": "rich"
@@ -2795,6 +3222,23 @@
           "target_id": "sense:sprawl:d5c417f0ccfe0712",
           "target_locator": "record.senses[3]",
           "target_label": "无序蔓延；尤指城市向外无规划扩张（urban sprawl）"
+        }
+      },
+      {
+        "id": "sense:sprawl:1c8008804599748c",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "prose/a story sprawls",
+        "definition_cn": "（文章、故事等）结构松散；无章法地展开",
+        "definition_en": "of writing or another structured work: to develop loosely without clear organization or direction",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sprawl:1c8008804599748c",
+          "target_locator": "record.senses[4]",
+          "target_label": "（文章、故事等）结构松散；无章法地展开"
         }
       }
     ],
@@ -2943,11 +3387,11 @@
     "ordinal": 7515,
     "word": "spurt",
     "source_owner_path": "content/lexical/words/by-ordinal/o7515.json",
-    "source_fingerprint": "7ee64c29de111fc82b722507c893c2a779d6bc0c705179c3d4d26291271b984e",
+    "source_fingerprint": "ca1464a39cb2b3b8033d88a649ca80e7184a4370fbe9983e35c874080e9b942a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
@@ -2967,9 +3411,9 @@
         "id": "sense:spurt:8b9b05b887a5537b",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "liquid spurts from/out of sth; sth spurts (out) liquid",
         "definition_cn": "喷射；突然短促地涌出或射出",
-        "definition_en": "to gush, jet, or shoot out suddenly in a brief stream",
+        "definition_en": "to gush out suddenly in a brief jet, or cause liquid to do so",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2995,6 +3439,23 @@
           "target_id": "sense:spurt:1ef896e37dd1c3f6",
           "target_locator": "record.senses[1]",
           "target_label": "突然的一阵；喷发；活动、增长、速度或产出的短时激增"
+        }
+      },
+      {
+        "id": "sense:spurt:009f5d2e123de688",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "spurt forward/ahead; activity spurts",
+        "definition_cn": "突然加速冲出；短时间猛增或奋力行动",
+        "definition_en": "to move suddenly faster or show a brief burst of activity or effort",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:spurt:009f5d2e123de688",
+          "target_locator": "record.senses[2]",
+          "target_label": "突然加速冲出；短时间猛增或奋力行动"
         }
       }
     ],
@@ -3045,7 +3506,7 @@
     "ordinal": 7516,
     "word": "squabble",
     "source_owner_path": "content/lexical/words/by-ordinal/o7516.json",
-    "source_fingerprint": "df355813e05b117934d10a0d6ea461d81e5aa4d10a9f755d228ed3cb254da684",
+    "source_fingerprint": "08a9e43b57599938655a3092a8d3044b1ed50c417da0da974f5ea83bb403e735",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3055,13 +3516,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "争吵, 口角",
+      "summary_cn": "为琐事争吵、闹口角",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "争吵, 口角"
+        "target_label": "为琐事争吵、闹口角"
       }
     },
     "senses": [
@@ -3070,7 +3531,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "争吵, 口角",
+        "definition_cn": "为琐事发生的争吵；口角",
         "definition_en": "a quarrel about petty points",
         "note": "",
         "identity_overlay": null,
@@ -3079,15 +3540,15 @@
           "target_kind": "sense",
           "target_id": "sense:squabble:ffe0e445dd4454a8",
           "target_locator": "record.senses[0]",
-          "target_label": "争吵, 口角"
+          "target_label": "为琐事发生的争吵；口角"
         }
       },
       {
         "id": "sense:squabble:6e3b9b461cfd568b",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "争吵, 口角",
+        "governing_pattern": "squabble with sb over/about sth",
+        "definition_cn": "为小事争吵；发生口角",
         "definition_en": "argue over petty things",
         "note": "",
         "identity_overlay": null,
@@ -3096,7 +3557,7 @@
           "target_kind": "sense",
           "target_id": "sense:squabble:6e3b9b461cfd568b",
           "target_locator": "record.senses[1]",
-          "target_label": "争吵, 口角"
+          "target_label": "为小事争吵；发生口角"
         }
       }
     ],
@@ -3454,7 +3915,7 @@
     "ordinal": 7520,
     "word": "stark",
     "source_owner_path": "content/lexical/words/by-ordinal/o7520.json",
-    "source_fingerprint": "dc537947c96793e805e7b3afebdaa61bb78a2ee7eb007bd4395b8b527db1e50a",
+    "source_fingerprint": "3afbae54924eb88b7717eb8c0422aa67c9b5005a4fba3c570972f9199c78a838",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3495,7 +3956,7 @@
         "id": "sense:stark:61fe149f1deb5f41",
         "source_locator": "record.senses[1]",
         "pos": "adverb",
-        "governing_pattern": "",
+        "governing_pattern": "stark naked; stark mad",
         "definition_cn": "完全地；彻底地",
         "definition_en": "completely or utterly",
         "note": "",
@@ -3513,16 +3974,16 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "严酷的；赤裸明显的；鲜明到无法忽视的",
+        "definition_cn": "严酷的；赤裸明显的；鲜明到无法忽视的；（外观）光秃简陋、不加装饰的",
         "definition_en": "severe, harsh, plain, or sharply obvious and impossible to ignore",
-        "note": "",
+        "note": "外观或房间是朴素空裸；contrast/difference是差别鲜明；reality/warning常是严酷直白。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:stark:46e2ec3fc27f5dfb",
           "target_locator": "record.senses[2]",
-          "target_label": "严酷的；赤裸明显的；鲜明到无法忽视的"
+          "target_label": "严酷的；赤裸明显的；鲜明到无法忽视的；（外观）光秃简陋、不加装饰的"
         }
       }
     ],
@@ -3776,7 +4237,7 @@
     "ordinal": 7523,
     "word": "staunch",
     "source_owner_path": "content/lexical/words/by-ordinal/o7523.json",
-    "source_fingerprint": "c46747daf04e3696d140d00fd18d15d495bbe691b757a66eeef219e0054351b0",
+    "source_fingerprint": "cbda403c1393a2423b78cbb441ca610ded89caf481103ce0b9df805fdc49042c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3800,9 +4261,9 @@
         "id": "sense:staunch:6ac6a4c48dd256e6",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "止住；阻止血液或其他液体流出",
-        "definition_en": "to stop or check the flow of blood or another liquid",
+        "governing_pattern": "staunch blood/a wound; staunch the flow of sth",
+        "definition_cn": "止住流出；止血，也可比喻遏制资金、资源等流失",
+        "definition_en": "to stop or check a flow, especially bleeding or the loss of money or resources",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3810,7 +4271,7 @@
           "target_kind": "sense",
           "target_id": "sense:staunch:6ac6a4c48dd256e6",
           "target_locator": "record.senses[0]",
-          "target_label": "止住；阻止血液或其他液体流出"
+          "target_label": "止住流出；止血，也可比喻遏制资金、资源等流失"
         }
       },
       {
@@ -3981,8 +4442,8 @@
           },
           {
             "surface": "stanch",
-            "condition": "flow-stopping verb only",
-            "note": "Stanch is a spelling variant of the verb meaning stop a flow; it is not a variant of the loyal adjective."
+            "condition": "common flow-stopping verb spelling; less common adjective variant",
+            "note": "Stanch commonly spells the flow-stopping verb and is also an accepted, less common spelling of the adjective meaning loyal or firm; staunch is the usual adjective spelling."
           }
         ],
         "variants": [],
@@ -4002,7 +4463,7 @@
     "ordinal": 7524,
     "word": "steadfast",
     "source_owner_path": "content/lexical/words/by-ordinal/o7524.json",
-    "source_fingerprint": "a401f744a01ed0030196ba3f7c0d4e7db9fa5d0ca305b9ef869debb404fb5612",
+    "source_fingerprint": "6e20a9c5920ca8e96aeeb643aa91beff49b425177811ca20fa6d47dd15480908",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4027,8 +4488,8 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "坚定的, 踏实的, 固定的, 不变的",
-        "definition_en": "firm and dependable especially in loyalty",
-        "note": "",
+        "definition_en": "firm and unwavering in purpose or loyalty; also fixed or steady in position or direction",
+        "note": "主要指信念、目的或忠诚坚定不移；a steadfast gaze 指目光稳定不移，fixed需按对象理解。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4086,7 +4547,7 @@
     "ordinal": 7525,
     "word": "sterile",
     "source_owner_path": "content/lexical/words/by-ordinal/o7525.json",
-    "source_fingerprint": "405db2a7777e566b522df7424f28eb212b48379870449eec4440488f46328cfc",
+    "source_fingerprint": "a8a437a255adf2aaed9fff1574c86adfc89daba33f24672af8dc3b164b68dc32",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4110,8 +4571,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "不育的；不能繁殖或产生后代的",
-        "definition_en": "unable to reproduce or produce offspring",
+        "definition_cn": "不育的；不能繁殖、结实或产生后代的；（土地）贫瘠不产作物的",
+        "definition_en": "unable to reproduce or bear offspring or fruit; of soil, unable to support crops",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4119,7 +4580,7 @@
           "target_kind": "sense",
           "target_id": "sense:sterile:833f238233765a52",
           "target_locator": "record.senses[0]",
-          "target_label": "不育的；不能繁殖或产生后代的"
+          "target_label": "不育的；不能繁殖、结实或产生后代的；（土地）贫瘠不产作物的"
         }
       },
       {
@@ -4127,8 +4588,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "（比喻）无成果的；缺乏创造力或原创性的",
-        "definition_en": "figurative: unproductive, uncreative, or lacking originality",
+        "definition_cn": "（比喻）无成果的；缺乏创造力、原创性、生气或趣味的",
+        "definition_en": "figurative: unproductive, uncreative, or lacking originality, vitality, or interest",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4136,7 +4597,7 @@
           "target_kind": "sense",
           "target_id": "sense:sterile:45e29de13d6e5eb2",
           "target_locator": "record.senses[1]",
-          "target_label": "（比喻）无成果的；缺乏创造力或原创性的"
+          "target_label": "（比喻）无成果的；缺乏创造力、原创性、生气或趣味的"
         }
       },
       {
@@ -4568,7 +5029,7 @@
     "ordinal": 7530,
     "word": "stoical",
     "source_owner_path": "content/lexical/words/by-ordinal/o7530.json",
-    "source_fingerprint": "85b8dd5b4e555a549f27e9144052304a5444b4355a932af04da84f4a46a82dbf",
+    "source_fingerprint": "a304a4de4f7dc720e92580d03fd167dfaa04926a4f4ff3de1ab663ede334949c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4577,13 +5038,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "禁欲主义的, 不以苦乐为意的, 坚忍的, 淡泊的",
+      "summary_cn": "坚忍克制的；面对痛苦或不幸不抱怨、不显露情绪的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "禁欲主义的, 不以苦乐为意的, 坚忍的, 淡泊的"
+        "target_label": "坚忍克制的；面对痛苦或不幸不抱怨、不显露情绪的"
       }
     },
     "senses": [
@@ -4592,16 +5053,16 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "禁欲主义的, 不以苦乐为意的, 坚忍的, 淡泊的",
+        "definition_cn": "坚忍克制的；面对痛苦或不幸不抱怨、不显露情绪的",
         "definition_en": "seeming unaffected by pleasure or pain; impassive",
-        "note": "",
+        "note": "较正式，通常带赞许，强调遭遇不幸时仍冷静忍耐。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:stoical:7e740a3f299c5d90",
           "target_locator": "record.senses[0]",
-          "target_label": "禁欲主义的, 不以苦乐为意的, 坚忍的, 淡泊的"
+          "target_label": "坚忍克制的；面对痛苦或不幸不抱怨、不显露情绪的"
         }
       }
     ],
@@ -4652,12 +5113,12 @@
     "ordinal": 7531,
     "word": "straddle",
     "source_owner_path": "content/lexical/words/by-ordinal/o7531.json",
-    "source_fingerprint": "2f947f7e5ce8d6bee3f98094e9e79dbd78d0e422b52a5e139febf5cf5c0f35c2",
+    "source_fingerprint": "cfac2bcd41b597033dc460f4cca3496137e337bd80f7e0f73d6ff2710374cc09",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -4694,7 +5155,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "跨坐, 观望",
+        "definition_cn": "（体操）双腿分置双杠两侧的分腿动作",
         "definition_en": "a gymnastic exercise performed with a leg on either side of the parallel bars",
         "note": "",
         "identity_overlay": null,
@@ -4703,7 +5164,7 @@
           "target_kind": "sense",
           "target_id": "sense:straddle:f1ad893779665789",
           "target_locator": "record.senses[1]",
-          "target_label": "跨坐, 观望"
+          "target_label": "（体操）双腿分置双杠两侧的分腿动作"
         }
       },
       {
@@ -4773,6 +5234,23 @@
           "target_locator": "record.senses[5]",
           "target_label": "（比喻）骑墙；在两种立场之间保持暧昧不决"
         }
+      },
+      {
+        "id": "sense:straddle:aefc7d761a1ea3bd",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（金融）跨式期权组合：同一标的、相同行权价和到期日的看涨与看跌期权组合",
+        "definition_en": "an options position combining a call and a put on the same underlying asset with matching strike price and expiry",
+        "note": "期权交易语境选择跨式组合，不是骑墙态度或身体姿势。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:straddle:aefc7d761a1ea3bd",
+          "target_locator": "record.senses[6]",
+          "target_label": "（金融）跨式期权组合：同一标的、相同行权价和到期日的看涨与看跌期权组合"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4820,22 +5298,23 @@
     "ordinal": 7532,
     "word": "streak",
     "source_owner_path": "content/lexical/words/by-ordinal/o7532.json",
-    "source_fingerprint": "ed22ea1d831f04200f1b143b20c98dd2b1ee1af3f894a2f11725c0fbb9712ef7",
+    "source_fingerprint": "c1bde5dc9715136427ed870058ab0d0d674b96448a1a2d12979bdcc4b716a332",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "3V",
         "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "连续的一段；一连串同类事件、结果或表现；性格中的一面；明显的倾向或特质；条纹；细长的线、痕迹或带状部分",
-      "decision_cn": "",
+      "summary_cn": "显出的细长条痕；也指性格中一股倾向或连续一段经历；动词可指留下条痕、飞速掠过或裸奔。",
+      "decision_cn": "颜色或污迹看条痕；personality看性格倾向；连续结果看一连串；动词搭方向看快移，公众裸体语境才是裸奔。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "连续的一段；一连串同类事件、结果或表现；性格中的一面；明显的倾向或特质；条纹；细长的线、痕迹或带状部分"
+        "target_label": "显出的细长条痕；也指性格中一股倾向或连续一段经历；动词可指留下条痕、飞速掠过或裸奔。"
       }
     },
     "senses": [
@@ -4906,6 +5385,57 @@
           "target_locator": "record.senses[3]",
           "target_label": "条纹；细长的线、痕迹或带状部分"
         }
+      },
+      {
+        "id": "sense:streak:55a988c1c8a20a02",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "streak sth; be streaked with sth; sth streaks",
+        "definition_cn": "（使）留下条纹或条痕",
+        "definition_en": "to mark with long narrow lines, or become marked in this way",
+        "note": "表面、头发或污迹作对象时表示形成条痕；不是快速移动。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:streak:55a988c1c8a20a02",
+          "target_locator": "record.senses[4]",
+          "target_label": "（使）留下条纹或条痕"
+        }
+      },
+      {
+        "id": "sense:streak:55680d471cd7f5b0",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "streak + direction",
+        "definition_cn": "飞奔；快速掠过",
+        "definition_en": "to move very quickly",
+        "note": "方向短语across/past/away选择快速移动义，不要求裸体。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:streak:55680d471cd7f5b0",
+          "target_locator": "record.senses[5]",
+          "target_label": "飞奔；快速掠过"
+        }
+      },
+      {
+        "id": "sense:streak:be5758d1b0970279",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "在公共场所裸奔（通常为恶作剧）",
+        "definition_en": "to run naked in public, usually as a prank",
+        "note": "人物在公共活动中裸奔的报道选择此义；不能仅按速度解释。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:streak:be5758d1b0970279",
+          "target_locator": "record.senses[6]",
+          "target_label": "在公共场所裸奔（通常为恶作剧）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4951,13 +5481,13 @@
     "ordinal": 7533,
     "word": "stringent",
     "source_owner_path": "content/lexical/words/by-ordinal/o7533.json",
-    "source_fingerprint": "e33e7a4c352e89829d226af4b21a766298d19f574308296e108fd8457dbd6917",
+    "source_fingerprint": "b14f90382409642d1b25843b8b033ca7bef0ead9e28bfee973c3cd03b5feb597",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "迫切的, 严厉的, 银根紧的",
@@ -4985,6 +5515,23 @@
           "target_id": "sense:stringent:fb4194db2e6852bb",
           "target_locator": "record.senses[0]",
           "target_label": "严格的；严厉的；要求严格遵守规则/程序的"
+        }
+      },
+      {
+        "id": "sense:stringent:b2e46c049c0ada35",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（资金、信贷或金融条件）紧张的；紧缩的",
+        "definition_en": "of money or credit: scarce or subject to tight restrictions",
+        "note": "金融资源或货币市场语境表示资金紧缺，不能仅解释为严格遵守程序。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stringent:b2e46c049c0ada35",
+          "target_locator": "record.senses[1]",
+          "target_label": "（资金、信贷或金融条件）紧张的；紧缩的"
         }
       }
     ],
@@ -5044,7 +5591,7 @@
     "ordinal": 7534,
     "word": "stub",
     "source_owner_path": "content/lexical/words/by-ordinal/o7534.json",
-    "source_fingerprint": "344cd80ed188eabca192338a4f625807841442578e40b18d5f2e3dfeee91a450",
+    "source_fingerprint": "8fb56e5b930f3cee831fabaa54e2e31ed3d971f35ef34c56c5d572447b2fe266",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5069,7 +5616,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "断肢, 烟蒂, 树桩, 残余, 存根",
+        "definition_cn": "断枝后留在树干或茎上的短残端",
         "definition_en": "a short piece remaining on a trunk or stem where a branch is lost",
         "note": "",
         "identity_overlay": null,
@@ -5078,7 +5625,7 @@
           "target_kind": "sense",
           "target_id": "sense:stub:bef1f9a522bb5db0",
           "target_locator": "record.senses[0]",
-          "target_label": "断肢, 烟蒂, 树桩, 残余, 存根"
+          "target_label": "断枝后留在树干或茎上的短残端"
         }
       },
       {
@@ -5086,7 +5633,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "断肢, 烟蒂, 树桩, 残余, 存根",
+        "definition_cn": "票根；票据撕下后交还持有者保留的部分",
         "definition_en": "a torn part of a ticket returned to the holder as a receipt",
         "note": "",
         "identity_overlay": null,
@@ -5095,7 +5642,7 @@
           "target_kind": "sense",
           "target_id": "sense:stub:75fa1bfcd3215c7c",
           "target_locator": "record.senses[1]",
-          "target_label": "断肢, 烟蒂, 树桩, 残余, 存根"
+          "target_label": "票根；票据撕下后交还持有者保留的部分"
         }
       },
       {
@@ -5103,7 +5650,7 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "断肢, 烟蒂, 树桩, 残余, 存根",
+        "definition_cn": "支票存根；留作付款记录的部分",
         "definition_en": "the part of a check that is retained as a record",
         "note": "",
         "identity_overlay": null,
@@ -5112,7 +5659,7 @@
           "target_kind": "sense",
           "target_id": "sense:stub:e50d5b36e6d95ff1",
           "target_locator": "record.senses[2]",
-          "target_label": "断肢, 烟蒂, 树桩, 残余, 存根"
+          "target_label": "支票存根；留作付款记录的部分"
         }
       },
       {
@@ -5212,7 +5759,7 @@
     "ordinal": 7535,
     "word": "stunt",
     "source_owner_path": "content/lexical/words/by-ordinal/o7535.json",
-    "source_fingerprint": "da61ff7eecd7d7fb2724f1b393ec0784f6eab8f07b6e7954893a6fee55ab72db",
+    "source_fingerprint": "3f09ee82b9f3deeb7128af876b32daf3f6a4f6305ab4414b965141da6e949dad",
     "sense_lineage": [
       {
         "word_id": "word:stunt",
@@ -5225,13 +5772,13 @@
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "特技；惊险或引人注目的高难度动作；阻碍、限制正常生长或发展",
-      "decision_cn": "",
+      "decision_cn": "名词在影视或杂技中是特技，在宣传中是噱头；动词以growth/development为宾语时是阻碍成长。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5272,6 +5819,23 @@
           "target_id": "sense:stunt:e0fd35cec5205f2e",
           "target_locator": "record.senses[1]",
           "target_label": "阻碍、限制正常生长或发展"
+        }
+      },
+      {
+        "id": "sense:stunt:34fa2bfca2f11552",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "为引人注意或宣传而做的噱头、花招",
+        "definition_en": "an unusual action arranged to attract attention or publicity",
+        "note": "publicity/promotional语境选择宣传噱头，不要求动作危险或技术高难。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stunt:34fa2bfca2f11552",
+          "target_locator": "record.senses[2]",
+          "target_label": "为引人注意或宣传而做的噱头、花招"
         }
       }
     ],
@@ -5318,7 +5882,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "noun",
-          "definition_cn": "特技, 绝技, 花招, 噱头, 手腕, 发育不良",
+          "definition_cn": "发育受阻、未长到正常大小的生物（尤指鲸）",
           "definition_en": "a creature (especially a whale) that has been prevented from attaining full growth",
           "semantic_key": "ec9e5f1417518cd3cb5e96f80195d5c3c0c39255155bc4dfec0b628b8e16f278",
           "semantic_key_history": [],
@@ -5327,7 +5891,23 @@
           "updated_at": "2026-09-14T00:00:00Z",
           "source_row": 19001,
           "source_path": "content/lexical/canonical/senses/shards/o7521-7552.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:stunt:1e0457afa3825405",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "noun",
+            "definition_cn": "特技, 绝技, 花招, 噱头, 手腕, 发育不良",
+            "definition_en": "a creature (especially a whale) that has been prevented from attaining full growth",
+            "semantic_key": "ec9e5f1417518cd3cb5e96f80195d5c3c0c39255155bc4dfec0b628b8e16f278",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-14T00:00:00Z",
+            "source_row": 19001,
+            "source_path": "content/lexical/canonical/senses/shards/o7521-7552.json",
+            "reference_only": true
+          }
         }
       ]
     }
@@ -5338,7 +5918,7 @@
     "ordinal": 7536,
     "word": "suave",
     "source_owner_path": "content/lexical/words/by-ordinal/o7536.json",
-    "source_fingerprint": "8f8fa7670f06f722465e9028dc82d3f1c5d7c97882203e45cd562764adbd3e35",
+    "source_fingerprint": "a8429a096b99ae03824be4a778fb967a677a5b2b2ca3eaed2b51cdb9bb09b822",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5347,13 +5927,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "柔和的, 温和的, 文雅的",
+      "summary_cn": "举止优雅、老练而有魅力的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "柔和的, 温和的, 文雅的"
+        "target_label": "举止优雅、老练而有魅力的"
       }
     },
     "senses": [
@@ -5362,16 +5942,16 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "柔和的, 温和的, 文雅的",
+        "definition_cn": "举止优雅、老练而有魅力的",
         "definition_en": "having a sophisticated charm",
-        "note": "",
+        "note": "可带对其圆滑、不够真诚的保留，并非必然表示内心善良。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:suave:e7f68283d3b55b49",
           "target_locator": "record.senses[0]",
-          "target_label": "柔和的, 温和的, 文雅的"
+          "target_label": "举止优雅、老练而有魅力的"
         }
       },
       {
@@ -5379,7 +5959,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "柔和的, 温和的, 文雅的",
+        "definition_cn": "（言谈举止）圆熟有礼、善于讨人喜欢的",
         "definition_en": "smoothly agreeable and courteous with a degree of sophistication",
         "note": "",
         "identity_overlay": null,
@@ -5388,7 +5968,7 @@
           "target_kind": "sense",
           "target_id": "sense:suave:01a2a090860658c7",
           "target_locator": "record.senses[1]",
-          "target_label": "柔和的, 温和的, 文雅的"
+          "target_label": "（言谈举止）圆熟有礼、善于讨人喜欢的"
         }
       }
     ],
@@ -5452,7 +6032,7 @@
     "ordinal": 7537,
     "word": "subjection",
     "source_owner_path": "content/lexical/words/by-ordinal/o7537.json",
-    "source_fingerprint": "83b4c284ec6960a803b6715de549d1946da7e619c78a98c42a31ae89631dbb4a",
+    "source_fingerprint": "8fbcefe3136d236e623bff7144d987854688bf5b44422eab582af04d4408e3f3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5476,7 +6056,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "征服, 服从, 隶属",
+        "definition_cn": "受支配、受控制或被迫服从的状态",
         "definition_en": "forced submission to control by others",
         "note": "",
         "identity_overlay": null,
@@ -5485,7 +6065,7 @@
           "target_kind": "sense",
           "target_id": "sense:subjection:d3ead174d1e95815",
           "target_locator": "record.senses[0]",
-          "target_label": "征服, 服从, 隶属"
+          "target_label": "受支配、受控制或被迫服从的状态"
         }
       },
       {
@@ -5493,7 +6073,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "征服, 服从, 隶属",
+        "definition_cn": "征服；使人或群体处于控制之下的行为",
         "definition_en": "the act of conquering",
         "note": "",
         "identity_overlay": null,
@@ -5502,7 +6082,7 @@
           "target_kind": "sense",
           "target_id": "sense:subjection:fee1c7afa4c25f2a",
           "target_locator": "record.senses[1]",
-          "target_label": "征服, 服从, 隶属"
+          "target_label": "征服；使人或群体处于控制之下的行为"
         }
       }
     ],
@@ -5522,7 +6102,7 @@
     "ordinal": 7538,
     "word": "sublimate",
     "source_owner_path": "content/lexical/words/by-ordinal/o7538.json",
-    "source_fingerprint": "c42db7545a229123282190b0b47cfc4de0ecd53e3006b8306027fb69e5bd4320",
+    "source_fingerprint": "2560a2ae95345c89d7561663765e830d549ab969da6bc78d932702a5e3dfc41c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5549,7 +6129,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "升华物",
-        "definition_en": "the product of vaporization of a solid",
+        "definition_en": "material obtained by sublimation, including the deposited solid",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5564,7 +6144,7 @@
         "id": "sense:sublimate:1b35f4e551a051fa",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "sublimate an impulse/desire into sth",
         "definition_cn": "（心理学）升华；把冲动、欲望或能量转向建设性、社会可接受的活动",
         "definition_en": "psychology: to redirect an impulse, urge, or energy into a socially acceptable or constructive activity",
         "note": "",
@@ -5598,9 +6178,9 @@
         "id": "sense:sublimate:01ec35460db0d40c",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi.: a solid sublimates",
-        "definition_cn": "（化学/物理）升华；固体不经液态直接变成气体",
-        "definition_en": "chemistry/physics: for a solid to change directly into a gas without first becoming liquid",
+        "governing_pattern": "a solid sublimates; sublimate a solid",
+        "definition_cn": "（化学/物理）（使）升华；固体不经液态直接成为气体",
+        "definition_en": "to change, or cause a solid to change, directly into gas without becoming liquid",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5608,16 +6188,16 @@
           "target_kind": "sense",
           "target_id": "sense:sublimate:01ec35460db0d40c",
           "target_locator": "record.senses[3]",
-          "target_label": "（化学/物理）升华；固体不经液态直接变成气体"
+          "target_label": "（化学/物理）（使）升华；固体不经液态直接成为气体"
         }
       },
       {
         "id": "sense:sublimate:3bb9e48379f90cc3",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi.: a gas deposits directly as a solid",
-        "definition_cn": "（化学/物理）凝华；气体直接沉积为固体",
-        "definition_en": "chemistry/physics: for a gas to deposit directly as a solid under appropriate conditions",
+        "governing_pattern": "a gas sublimates; sublimate a gas",
+        "definition_cn": "（化学/物理）（使）凝华；气体不经液态直接沉积为固体",
+        "definition_en": "to change, or cause a gas to change, directly into solid without becoming liquid",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5625,7 +6205,7 @@
           "target_kind": "sense",
           "target_id": "sense:sublimate:3bb9e48379f90cc3",
           "target_locator": "record.senses[4]",
-          "target_label": "（化学/物理）凝华；气体直接沉积为固体"
+          "target_label": "（化学/物理）（使）凝华；气体不经液态直接沉积为固体"
         }
       }
     ],
@@ -5764,17 +6344,17 @@
     "ordinal": 7540,
     "word": "subservient",
     "source_owner_path": "content/lexical/words/by-ordinal/o7540.json",
-    "source_fingerprint": "17952175c46a6f8c50cd123ad884548eb78b229f5ce5a4f50ec7c4484080fa7d",
+    "source_fingerprint": "c64d3037bbc0e86343a7b0cce9c0d28ea6045b7d985b3501866318954032f645",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "卑躬屈膝的；过分顺从、甘愿服从或服务于他人利益的",
-      "decision_cn": "",
+      "decision_cn": "人对权威的态度可指过分顺从；事物或目标subservient to另一个目标时，指地位、重要性或作用从属。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5798,6 +6378,23 @@
           "target_id": "sense:subservient:08486b0fd9b1508e",
           "target_locator": "record.senses[0]",
           "target_label": "卑躬屈膝的；过分顺从、甘愿服从或服务于他人利益的"
+        }
+      },
+      {
+        "id": "sense:subservient:3f13a0b5e516a5db",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "be subservient to sth",
+        "definition_cn": "（地位、作用或重要性）从属的；次于并服务于另一事物的",
+        "definition_en": "secondary in importance or serving a subordinate role",
+        "note": "需要、目标或制度相对于另一目标时，subservient to表示优先级从属，不是人格卑躬屈膝。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:subservient:3f13a0b5e516a5db",
+          "target_locator": "record.senses[1]",
+          "target_label": "（地位、作用或重要性）从属的；次于并服务于另一事物的"
         }
       }
     ],
@@ -5846,11 +6443,11 @@
     "ordinal": 7541,
     "word": "subsist",
     "source_owner_path": "content/lexical/words/by-ordinal/o7541.json",
-    "source_fingerprint": "acb62d9db2170a06b03e01a649b4ce2bdd3dc6c3a510c13f07f30f0828c709c7",
+    "source_fingerprint": "b7e4a748b9f91ce07090d968d99f03b47de36617a04476d15825a3ee5d50d3bc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V"
+        "2V"
       ],
       "density": "rich"
     },
@@ -5880,6 +6477,23 @@
           "target_id": "sense:subsist:286eb348455c5c78",
           "target_locator": "record.senses[0]",
           "target_label": "维持生活；勉强生存；常指依靠最低限度的食物、金钱或资源生活"
+        }
+      },
+      {
+        "id": "sense:subsist:08166cfc69a92df4",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "（关系、权利、状态等）继续存在；继续有效",
+        "definition_en": "to continue to exist or remain in force",
+        "note": "关系、权利或状态作主语时表示持续存在或有效，不是靠食物勉强活命。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:subsist:08166cfc69a92df4",
+          "target_locator": "record.senses[1]",
+          "target_label": "（关系、权利、状态等）继续存在；继续有效"
         }
       }
     ],
@@ -6280,7 +6894,7 @@
     "ordinal": 7545,
     "word": "subvert",
     "source_owner_path": "content/lexical/words/by-ordinal/o7545.json",
-    "source_fingerprint": "9891aeed4a1de0dec9fc58e122d58c527db51722c27399bf57cf08a88705f86c",
+    "source_fingerprint": "3ccf093c9a5dca2b22a5f6d2f3b18298fc7fcbd365f6d367e853bb569e4ef39d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6289,13 +6903,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "颠覆；从内部削弱、腐蚀或推翻制度、权威、机构或既有秩序",
+      "summary_cn": "颠覆；常从内部削弱、腐蚀或推翻制度、权威、机构或既有秩序",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "颠覆；从内部削弱、腐蚀或推翻制度、权威、机构或既有秩序"
+        "target_label": "颠覆；常从内部削弱、腐蚀或推翻制度、权威、机构或既有秩序"
       }
     },
     "senses": [
@@ -6304,16 +6918,16 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "颠覆；从内部削弱、腐蚀或推翻制度、权威、机构或既有秩序",
-        "definition_en": "to undermine, weaken, corrupt, or overthrow a system, authority, institution, or established order, often from within",
-        "note": "",
+        "definition_cn": "削弱、腐蚀或颠覆既有的制度、权威或秩序；也可指打破既定的传统或预期，常从内部进行",
+        "definition_en": "to undermine, weaken, corrupt, or overturn something established, including a system, authority, tradition, or expectation, often from within",
+        "note": "宾语是预期、传统或既定模式时，可指打破其常规；不必是推翻政治机构，也不必从内部实施。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:subvert:1f05dc4e8a7b58b3",
           "target_locator": "record.senses[0]",
-          "target_label": "颠覆；从内部削弱、腐蚀或推翻制度、权威、机构或既有秩序"
+          "target_label": "削弱、腐蚀或颠覆既有的制度、权威或秩序；也可指打破既定的传统或预期，常从内部进行"
         }
       }
     ],
@@ -6742,7 +7356,7 @@
     "ordinal": 7550,
     "word": "sulky",
     "source_owner_path": "content/lexical/words/by-ordinal/o7550.json",
-    "source_fingerprint": "465e54868d8c55a7c47e37e618f4b99d26786ec0322ba1d9420ff18dd08f949b",
+    "source_fingerprint": "b40d6d6cf1fdfae037c062485bd484c0ed63993a2e8af3b18b45dd4f2117feb2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6767,16 +7381,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（历史）单人双轮马车",
-        "definition_en": "historical: a light two-wheeled one-person vehicle drawn by a horse",
+        "definition_cn": "单人双轮马车；现亦用于轻驾车赛马",
+        "definition_en": "a light two-wheeled horse-drawn vehicle for one person, also used in harness racing",
         "note": "",
         "identity_overlay": {
-          "text": "historical noun = one-person two-wheeled horse-drawn vehicle; not a nominalized mood",
+          "text": "noun = one-person two-wheeled horse-drawn vehicle, including modern harness racing; not a nominalized mood",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "historical noun = one-person two-wheeled horse-drawn vehicle; not a nominalized mood"
+            "target_label": "noun = one-person two-wheeled horse-drawn vehicle, including modern harness racing; not a nominalized mood"
           }
         },
         "usage": [],
@@ -6784,7 +7398,7 @@
           "target_kind": "sense",
           "target_id": "sense:sulky:b2756bce3fc553a7",
           "target_locator": "record.senses[0]",
-          "target_label": "（历史）单人双轮马车"
+          "target_label": "单人双轮马车；现亦用于轻驾车赛马"
         }
       },
       {
@@ -6796,12 +7410,12 @@
         "definition_en": "bad-tempered, resentful, and often silent or withdrawn because one is annoyed",
         "note": "",
         "identity_overlay": {
-          "text": "adjective = resentful/bad-tempered; distinct from historical carriage noun",
+          "text": "adjective = resentful/bad-tempered; distinct from the carriage noun",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "adjective = resentful/bad-tempered; distinct from historical carriage noun"
+            "target_label": "adjective = resentful/bad-tempered; distinct from the carriage noun"
           }
         },
         "usage": [],
@@ -6845,8 +7459,8 @@
           },
           {
             "surface": "sulky",
-            "condition": "historical noun",
-            "note": "a light two-wheeled one-person horse-drawn vehicle"
+            "condition": "noun: vehicle; harness racing",
+            "note": "a light two-wheeled one-person horse-drawn vehicle, including modern harness-racing use"
           }
         ],
         "variants": [],
@@ -6866,7 +7480,7 @@
     "ordinal": 7551,
     "word": "sultry",
     "source_owner_path": "content/lexical/words/by-ordinal/o7551.json",
-    "source_fingerprint": "1f61eefb3f31b10c19bfb85e23cedd5be9077c7a8d77858012b421e15a5545d5",
+    "source_fingerprint": "58eadef4d0077752121cc5c8e92bbae48aac3543268bcacef8f616a8f30f7d18",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6875,13 +7489,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "闷热潮湿的；令人压抑难受的；（比喻）性感迷人的；带慵懒、炽热魅力的",
+      "summary_cn": "酷热难耐的，通常潮湿憋闷；（比喻）性感迷人的；带慵懒、炽热魅力的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "闷热潮湿的；令人压抑难受的；（比喻）性感迷人的；带慵懒、炽热魅力的"
+        "target_label": "酷热难耐的，通常潮湿憋闷；（比喻）性感迷人的；带慵懒、炽热魅力的"
       }
     },
     "senses": [
@@ -6890,8 +7504,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "闷热潮湿的；令人压抑难受的",
-        "definition_en": "hot, humid, oppressive, and uncomfortable in weather or atmosphere",
+        "definition_cn": "闷热的；酷热难耐的，通常还潮湿憋闷",
+        "definition_en": "oppressively hot, often humid and close; giving off intense heat",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -6899,7 +7513,7 @@
           "target_kind": "sense",
           "target_id": "sense:sultry:9da48ae4ad815974",
           "target_locator": "record.senses[0]",
-          "target_label": "闷热潮湿的；令人压抑难受的"
+          "target_label": "闷热的；酷热难耐的，通常还潮湿憋闷"
         }
       },
       {

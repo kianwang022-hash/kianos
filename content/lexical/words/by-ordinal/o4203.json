@@ -10,9 +10,9 @@
     "content_hash": "617b7a898b942dadf4bdca6a0e2e6792ddb8722b5828994055be81a89ec9ced0",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "粗糙的；大致的；粗暴/严酷的",
-      "core_meaning_en": "not smooth; approximate; harsh, rough or violent",
-      "mental_model_cn": "粗糙的；大致的；粗暴/严酷的",
+      "core_meaning_cn": "不平滑、不精细或不好应付；由对象判断具体含义",
+      "core_meaning_en": "uneven, approximate, forceful or difficult, depending on context",
+      "mental_model_cn": "表面看平整度，estimate/draft看精确与细节，动作看是否轻柔；time/patch指难熬，seas/weather指风浪恶劣。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -40,30 +40,113 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "大致的",
-        "definition_en": "not exact; approximate",
+        "definition_cn": "大致的；粗略的，未含全部细节的",
+        "definition_en": "approximate or lacking full detail",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:rough:42d37462962351db",
-        "sense_label_en": "not exact; approximate",
+        "sense_label_en": "approximate or lacking full detail",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rough_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "usage_note": "估计数值时是不精确；draft/sketch等语境可指初稿或草图，不等于表面粗糙。"
       },
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "粗暴的",
-        "definition_en": "rude or violent in manner",
+        "definition_cn": "粗鲁的；粗暴的，不轻柔的",
+        "definition_en": "rude in manner or forceful rather than gentle or careful",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:rough:07d07d188b595ae6",
-        "sense_label_en": "rude or violent in manner",
+        "sense_label_en": "rude in manner or forceful rather than gentle or careful",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rough_1",
+            "role": "semantic support; independently authored bounded correction"
+          },
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/rough",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:rough:15cc3fd5cc9293aa",
+        "pos": "adjective",
+        "definition_cn": "（经历、处境等）艰难难熬的",
+        "definition_en": "difficult and unpleasant to experience",
+        "sense_label_en": "difficult and unpleasant to experience",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "usage_note": "time/patch/life等语境是日子难过，不是触感粗糙或一个人无礼。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:rough:1ed19b1c6bd82da6",
+            "phrase": "go through a rough patch",
+            "meaning_cn": "经历一段困难时期",
+            "exam_value": "fixed_pattern",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rough_1",
+                "role": "semantic support; independently authored bounded correction"
+              }
+            ]
+          }
+        ],
+        "sort_order": 3,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rough_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:rough:bb0301b12ec102a4",
+        "pos": "adjective",
+        "definition_cn": "（海面、天气等）风浪大的，恶劣的",
+        "definition_en": "with strong waves or stormy conditions",
+        "sense_label_en": "with strong waves or stormy conditions",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "usage_note": "海上航行语境强调风浪和颠簸；不能按表面有颗粒理解rough seas。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:rough:bb7d192590db7486",
+            "phrase": "rough seas",
+            "meaning_cn": "风浪很大的海面",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rough_1",
+                "role": "semantic support; independently authored bounded correction"
+              }
+            ]
+          }
+        ],
+        "sort_order": 4,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rough_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -342,9 +425,24 @@
         "merged_into_sense_id": null,
         "source_row": 11786,
         "source_path": "content/lexical/canonical/senses/shards/o4193-4224.json"
+      },
+      {
+        "sense_id": "sense:rough:15cc3fd5cc9293aa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4203.json"
+      },
+      {
+        "sense_id": "sense:rough:bb0301b12ec102a4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4203.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:rough:1ed19b1c6bd82da6",
+      "collocation:rough:bb7d192590db7486"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -371,6 +469,16 @@
         "id": "collocation:ef228b48b8363263a467",
         "source_row": 20261,
         "source_path": "content/lexical/canonical/collocations/shards/o4193-4224.json"
+      },
+      {
+        "id": "collocation:rough:1ed19b1c6bd82da6",
+        "source_path": "content/lexical/words/by-ordinal/o4203.json",
+        "sense_id": "sense:rough:15cc3fd5cc9293aa"
+      },
+      {
+        "id": "collocation:rough:bb7d192590db7486",
+        "source_path": "content/lexical/words/by-ordinal/o4203.json",
+        "sense_id": "sense:rough:bb0301b12ec102a4"
       }
     ],
     "exam-mappings": [],

@@ -11,12 +11,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "声音；嗓音；发言权；表达权",
-          "label_en": "the sound produced by a person speaking or singing; the right or opportunity to express an opinion",
+          "label_cn": "声音；嗓音；意见表达；发言权；代表某种意见的声音或人；（语法）语态",
+          "label_en": "the sound produced by a person speaking or singing; an expression of opinion, the right to express it, or a person expressing a particular viewpoint; the verb form or grammatical relationship showing how a subject relates to an action",
           "pos": "noun",
           "sense_ids": [
             "sense:voice:a9d2e9039fcd5965",
-            "sense:voice:289fb96eeca257cf"
+            "sense:voice:289fb96eeca257cf",
+            "sense:voice:dfd336eb7d4b3a57"
           ]
         },
         {
@@ -30,7 +31,7 @@
       ],
       "core_meaning_cn": "声音；表达",
       "core_meaning_en": "the sound produced when speaking or singing; to express an opinion",
-      "mental_model_cn": "声音；表达",
+      "mental_model_cn": "声音听嗓音；a voice in看发言权，a dissenting voice看意见或表达者；active/passive voice是语法语态；voice concerns是说出担忧。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -127,16 +128,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "发言权；表达权",
-        "definition_en": "the right or opportunity to express an opinion",
+        "definition_cn": "意见表达；发言权；代表某种意见的声音或人",
+        "definition_en": "an expression of opinion, the right to express it, or a person expressing a particular viewpoint",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:voice:289fb96eeca257cf",
-        "sense_label_en": "the right or opportunity to express an opinion",
+        "sense_label_en": "an expression of opinion, the right to express it, or a person expressing a particular viewpoint",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "have a voice in侧重发言权；a dissenting voice是不同意见，the voice of reason也可指讲理的人。"
       },
       {
         "collocations": [
@@ -170,6 +172,27 @@
         "sense_label_en": "to express feelings or opinions in words",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:voice:dfd336eb7d4b3a57",
+        "definition_cn": "（语法）语态",
+        "definition_en": "the verb form or grammatical relationship showing how a subject relates to an action",
+        "sense_label_en": "the verb form or grammatical relationship showing how a subject relates to an action",
+        "pos": "noun",
+        "governing_pattern": "the active/passive voice",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:97ebceba173c0b2f03f3",
+            "phrase": "the passive voice",
+            "meaning_cn": "被动语态",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -315,6 +338,13 @@
         "merged_into_sense_id": null,
         "source_row": 15115,
         "source_path": "content/lexical/canonical/senses/shards/o5313-5344.json"
+      },
+      {
+        "sense_id": "sense:voice:dfd336eb7d4b3a57",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5313-5344.json",
+        "source_row": 15190
       }
     ],
     "active_collocations": [
@@ -322,7 +352,8 @@
       "collocation:67b802819da7b3299c55",
       "collocation:b8f5b39c5e4e803f31a4",
       "collocation:bc7a167913716db24396",
-      "collocation:f853bd53ca035ee5a34f"
+      "collocation:f853bd53ca035ee5a34f",
+      "collocation:97ebceba173c0b2f03f3"
     ],
     "facts": [
       {
@@ -356,6 +387,11 @@
         "id": "collocation:f853bd53ca035ee5a34f",
         "source_row": 21036,
         "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      },
+      {
+        "id": "collocation:97ebceba173c0b2f03f3",
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json",
+        "source_row": 21395
       }
     ],
     "exam-mappings": [],

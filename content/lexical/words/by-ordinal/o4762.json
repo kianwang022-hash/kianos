@@ -11,19 +11,26 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "风格；做事、写作、设计、穿着等具有特征的方式或表现形式；文体；格式；（植物）花柱",
-          "label_en": "a characteristic manner or way of doing, writing, designing, dressing, or presenting something; editorial directions to be followed in spelling and punctuation and capitalization and typographical display; a slender bristlelike or tubular process",
+          "label_cn": "风格与呈现方式",
+          "label_en": "distinctive manner and written conventions",
           "pos": "noun",
           "sense_ids": [
             "sense:style:fc894a0f7af352ae",
-            "sense:style:796957bd58cd5406",
-            "sense:style:e03274f19b3f517f"
+            "sense:style:796957bd58cd5406"
+          ]
+        },
+        {
+          "label_cn": "设计造型或称呼命名",
+          "label_en": "give a style or an identifying name",
+          "pos": "verb",
+          "sense_ids": [
+            "sense:style:d03fe26109eb5b58"
           ]
         }
       ],
-      "core_meaning_cn": "风格；做事、写作、设计、穿着等具有特征的方式或表现形式；文体；格式；（植物）花柱",
-      "core_meaning_en": "a characteristic manner or way of doing, writing, designing, dressing, or presenting something; editorial directions to be followed in spelling and punctuation and capitalization and typographical display; a slender bristlelike or tubular process",
-      "mental_model_cn": "风格；做事、写作、设计、穿着等具有特征的方式或表现形式；文体；格式；（植物）花柱",
+      "core_meaning_cn": "做事或呈现的独特方式、风格；也可指文字格式规范",
+      "core_meaning_en": "a distinctive way of doing or presenting something, including conventions for written presentation",
+      "mental_model_cn": "风格看呈现方式；house style/style guide 看写作和排版规范；动词看宾语及补语，是设计造型还是称某人为某身份。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -38,11 +45,11 @@
         "collocations": [
           {
             "collocation_id": "collocation:29e17094573deb8cb7b1",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:style:fc894a0f7af352ae:collocation:0"
             ],
-            "meaning_cn": "时髦地；流行地",
+            "meaning_cn": "流行、时髦；或有气派、出色地（看是谈流行状态还是做事方式）",
             "phrase": "in style"
           },
           {
@@ -56,14 +63,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "风格；做事、写作、设计、穿着等具有特征的方式或表现形式",
-        "definition_en": "a characteristic manner or way of doing, writing, designing, dressing, or presenting something",
+        "definition_cn": "风格；做事、写作、设计、穿着等的方式；时尚或气派",
+        "definition_en": "a distinctive manner or form, or fashionable and impressive presentation",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:style:fc894a0f7af352ae",
-        "sense_label_en": "a characteristic manner or way of doing, writing, designing, dressing, or presenting something",
+        "sense_label_en": "a distinctive manner or form, or fashionable and impressive presentation",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -103,49 +110,13 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:35e7f0a8d6ec977ee6c8",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:style:e03274f19b3f517f:collocation:0"
-            ],
-            "meaning_cn": "花的花柱",
-            "phrase": "style of a flower"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "（植物）花柱",
-        "definition_en": "a slender bristlelike or tubular process",
-        "governing_pattern": "",
-        "level": "L2",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "scope_state": {
-          "core_active": false,
-          "exclude_from_active_recall_summary": true,
-          "exclude_from_default_learning_surface": true,
-          "learning_surface_active": false,
-          "pending_review": false,
-          "physical_delete": false,
-          "preserve_provenance": true,
-          "preserve_stable_object_id": true,
-          "retain_for_source_pack_audit": true,
-          "scope_disposition": "DEFER_TECHNICAL"
-        },
-        "sense_id": "sense:style:e03274f19b3f517f",
-        "sense_label_en": "a slender bristlelike or tubular process",
-        "sort_order": 2,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
             "collocation_id": "collocation:167ade3b031a5c693007",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:style:d03fe26109eb5b58:collocation:0"
             ],
-            "meaning_cn": "自称是",
-            "phrase": "style oneself as"
+            "meaning_cn": "把自己称作……；自称……",
+            "phrase": "style oneself (as) + description"
           },
           {
             "collocation_id": "collocation:48799c33cd1781bcb4ed",
@@ -160,14 +131,15 @@
         "confidence": "medium",
         "definition_cn": "称呼；设计",
         "definition_en": "to call or name; to design in a particular style",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "T: style sth; style sb/oneself (as) + name or description",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:style:d03fe26109eb5b58",
         "sense_label_en": "to call or name; to design in a particular style",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "接 hair/clothes/room 等指设计或整理造型；style sb/oneself (as) + 身份称呼指称某人为、自称。"
       }
     ],
     "verification_summary": {
@@ -290,7 +262,44 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:35e7f0a8d6ec977ee6c8",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:style:e03274f19b3f517f:collocation:0"
+          ],
+          "meaning_cn": "花的花柱",
+          "phrase": "style of a flower"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "（植物）花柱",
+      "definition_en": "a slender bristlelike or tubular process",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "scope_state": {
+        "core_active": false,
+        "exclude_from_active_recall_summary": true,
+        "exclude_from_default_learning_surface": true,
+        "learning_surface_active": false,
+        "pending_review": false,
+        "physical_delete": false,
+        "preserve_provenance": true,
+        "preserve_stable_object_id": true,
+        "retain_for_source_pack_audit": true,
+        "scope_disposition": "DEFER_TECHNICAL"
+      },
+      "sense_id": "sense:style:e03274f19b3f517f",
+      "sense_label_en": "a slender bristlelike or tubular process",
+      "sort_order": 2,
+      "transitivity": "nonverb"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -309,7 +318,7 @@
       },
       {
         "sense_id": "sense:style:e03274f19b3f517f",
-        "status": "active",
+        "status": "reference_only",
         "merged_into_sense_id": null,
         "source_row": 13561,
         "source_path": "content/lexical/canonical/senses/shards/o4737-4768.json"
@@ -326,7 +335,6 @@
       "collocation:167ade3b031a5c693007",
       "collocation:29c369ebeca14ff52d9e",
       "collocation:29e17094573deb8cb7b1",
-      "collocation:35e7f0a8d6ec977ee6c8",
       "collocation:48799c33cd1781bcb4ed",
       "collocation:8fef0cf39a6a63f84503",
       "collocation:e51deece2bfdad65cb69"
@@ -351,7 +359,8 @@
       {
         "id": "collocation:35e7f0a8d6ec977ee6c8",
         "source_row": 4563,
-        "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json",
+        "status": "reference_only"
       },
       {
         "id": "collocation:48799c33cd1781bcb4ed",

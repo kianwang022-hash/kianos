@@ -6,7 +6,24 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:b24d80a96b24c705fffe",
+        "pattern": "with (no) strings attached",
+        "meaning_cn": "附带（不附带）条件或义务",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/string"
+          },
+          {
+            "source_locator": "https://www.collinsdictionary.com/us/dictionary/english/string"
+          }
+        ],
+        "boundary": "这里 strings 用复数，谈的是接受好处所伴随的约束。"
+      }
+    ],
     "content_hash": "08968679ce669ef9951f7673e46524b1cda6a2584d886706fe57617eb99d145f",
     "core_concept": {
       "core_clusters": [
@@ -30,9 +47,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "细绳或一系列事物",
-      "core_meaning_en": "a thin cord or a sequence of items",
-      "mental_model_cn": "细绳或一系列事物",
+      "core_meaning_cn": "一根细长的线，或沿线接续的一串",
+      "core_meaning_en": "a thin cord, or things connected in a sequence",
+      "mental_model_cn": "实体可为细绳或乐器弦；of 后接一系列事物，计算机中是字符序列；the strings 可指弦乐声部，strings attached 则是附带条件。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -154,14 +171,43 @@
         "confidence": "medium",
         "definition_cn": "成一串",
         "definition_en": "to form into a string or series",
-        "governing_pattern": "vi. + into",
+        "governing_pattern": "vi.; optional directional/result complement",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:string:cb96e440d23c5d3e",
         "sense_label_en": "to form into a string or series",
         "sort_order": 4,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "此不及物义表示形成或接续成一线、一串；into + 结果结构可表串成某种队列或系列，into 不是必需介词，也不是任何宾语都可接。"
+      },
+      {
+        "sense_id": "sense:string:41065b9ba2fcbae3",
+        "pos": "noun",
+        "definition_cn": "（乐器的）弦；（复数）弦乐器或弦乐声部",
+        "definition_en": "a cord on an instrument that vibrates to make notes; in the plural, string instruments or their players",
+        "sense_label_en": "a cord on an instrument that vibrates to make notes; in the plural, string instruments or their players",
+        "governing_pattern": "",
+        "usage_note": "guitar string 指一根弦；the strings 可指乐队中的弦乐声部。",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:90a5ac3cfb4701601dbf",
+            "phrase": "guitar strings",
+            "meaning_cn": "吉他弦",
+            "exam_value": "usage_example"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/string"
+          },
+          {
+            "source_locator": "https://www.collinsdictionary.com/us/dictionary/english/string"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -321,6 +367,13 @@
         "merged_into_sense_id": null,
         "source_row": 13507,
         "source_path": "content/lexical/canonical/senses/shards/o4737-4768.json"
+      },
+      {
+        "sense_id": "sense:string:41065b9ba2fcbae3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4744.json",
+        "source_locator": "record.senses[5]"
       }
     ],
     "active_collocations": [
@@ -328,9 +381,17 @@
       "collocation:3b13a5932df704cc2208",
       "collocation:8f5ac0aefecbc5b07ec6",
       "collocation:e4bc9b80644bcaf0e75e",
-      "collocation:ecea5d86434d9c6e7b09"
+      "collocation:ecea5d86434d9c6e7b09",
+      "collocation:90a5ac3cfb4701601dbf"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:b24d80a96b24c705fffe",
+        "source_path": "content/lexical/words/by-ordinal/o4744.json",
+        "source_locator": "record.constructions[0]",
+        "status": "active"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:2bdec56c40a79723a5ec",
@@ -356,6 +417,13 @@
         "id": "collocation:ecea5d86434d9c6e7b09",
         "source_row": 20076,
         "source_path": "content/lexical/canonical/collocations/shards/o4737-4768.json"
+      },
+      {
+        "id": "collocation:90a5ac3cfb4701601dbf",
+        "sense_id": "sense:string:41065b9ba2fcbae3",
+        "source_path": "content/lexical/words/by-ordinal/o4744.json",
+        "source_locator": "record.senses[5].collocations[0]",
+        "status": "active"
       }
     ],
     "exam-mappings": [],

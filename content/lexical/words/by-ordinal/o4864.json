@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "开关；电闸",
-          "label_en": "a device for making or breaking or changing the connections in a circuit",
+          "label_cn": "开关；电闸；改变；转换；替换",
+          "label_en": "a device for making or breaking or changing the connections in a circuit; a change from one thing, activity, or choice to another",
           "pos": "noun",
           "sense_ids": [
-            "sense:switch:c60efabd57955168"
+            "sense:switch:c60efabd57955168",
+            "sense:switch:74ba825097408673156a"
           ]
         },
         {
@@ -78,14 +79,27 @@
         "confidence": "medium",
         "definition_cn": "转变；切换；转换",
         "definition_en": "to change from one thing, state, activity, job, channel, or system to another, or to change an object/choice in this way",
-        "governing_pattern": "I/T: switch to/from sth; switch jobs/channels; switch sth from A to B; switch A and B",
+        "governing_pattern": "I/T: switch to/from sth; switch jobs/channels; switch sth from A to B; switch A and B; switch sth on/off",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:switch:09618a95fa3c5b45",
         "sense_label_en": "to change from one thing to another",
         "sort_order": 999,
-        "transitivity": "I/T"
+        "transitivity": "I/T",
+        "usage_note": "switch a device on/off 指把设备打开／关闭；switch from A to B 指转换，switch A and B可指互换。"
+      },
+      {
+        "sense_id": "sense:switch:74ba825097408673156a",
+        "pos": "noun",
+        "definition_cn": "改变；转换；替换",
+        "definition_en": "a change from one thing, activity, or choice to another",
+        "sense_label_en": "a change from one thing, activity, or choice to another",
+        "governing_pattern": "a switch from A to B; make a switch",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 1000,
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -648,8 +662,8 @@
   "reference_senses": [
     {
       "stable_sense_id": "sense:switch:7358c073a83e50fe",
-      "status": "merged",
-      "merged_into_sense_id": "sense:switch:c60efabd57955168",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
       "pos": "noun",
       "definition_cn": "道岔",
       "definition_en": "railroad track having two movable rails and necessary connections; used to turn a train from one track to another or to store rolling stock",
@@ -669,7 +683,22 @@
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 13833,
       "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json",
-      "reference_only": true
+      "reference_only": true,
+      "current_lifecycle_correction_history": [
+        {
+          "task": "lexical-4851-4900",
+          "sense_id": "sense:switch:7358c073a83e50fe",
+          "before": {
+            "status": "merged",
+            "merged_into_sense_id": "sense:switch:c60efabd57955168"
+          },
+          "after": {
+            "status": "deprecated",
+            "merged_into_sense_id": null
+          },
+          "reason": "Correct false current equivalence; original full owner and registry rows preserved in this exact proposal and history-before snapshot."
+        }
+      ]
     },
     {
       "stable_sense_id": "sense:switch:7805fa495bbb5bbd",
@@ -698,8 +727,8 @@
     },
     {
       "stable_sense_id": "sense:switch:98c4221b3af85428",
-      "status": "merged",
-      "merged_into_sense_id": "sense:switch:c60efabd57955168",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
       "pos": "noun",
       "definition_cn": "软枝；鞭子",
       "definition_en": "a flexible implement used as an instrument of punishment",
@@ -719,7 +748,22 @@
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 13835,
       "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json",
-      "reference_only": true
+      "reference_only": true,
+      "current_lifecycle_correction_history": [
+        {
+          "task": "lexical-4851-4900",
+          "sense_id": "sense:switch:98c4221b3af85428",
+          "before": {
+            "status": "merged",
+            "merged_into_sense_id": "sense:switch:c60efabd57955168"
+          },
+          "after": {
+            "status": "deprecated",
+            "merged_into_sense_id": null
+          },
+          "reason": "Correct false current equivalence; original full owner and registry rows preserved in this exact proposal and history-before snapshot."
+        }
+      ]
     }
   ],
   "identity_refs": {
@@ -733,8 +777,8 @@
       },
       {
         "sense_id": "sense:switch:7358c073a83e50fe",
-        "status": "merged",
-        "merged_into_sense_id": "sense:switch:c60efabd57955168",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
         "source_row": 13833,
         "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json"
       },
@@ -747,8 +791,8 @@
       },
       {
         "sense_id": "sense:switch:98c4221b3af85428",
-        "status": "merged",
-        "merged_into_sense_id": "sense:switch:c60efabd57955168",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
         "source_row": 13835,
         "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json"
       },
@@ -757,6 +801,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13836,
+        "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json"
+      },
+      {
+        "sense_id": "sense:switch:74ba825097408673156a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13844,
         "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json"
       }
     ],

@@ -5,7 +5,7 @@
     "ordinal": 4865,
     "word": "sword",
     "source_owner_path": "content/lexical/words/by-ordinal/o4865.json",
-    "source_fingerprint": "8a58449c8871e2963aec912b7214045067ae23cdc834829726f82ad89e6ef525",
+    "source_fingerprint": "841b806b5d27be28976c06e06cd8e8d58527509c4189d0835f7ffb5b8c583277",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -51,9 +51,14 @@
             "id": "collocation:b0a24d9c44b3d7cc8c08",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "the sword of Damocles",
-            "meaning_cn": "达摩克利斯之剑",
-            "kind": "usage_example",
-            "repair": null
+            "meaning_cn": "达摩克利斯之剑：悬而未决、随时可能降临的灾祸或威胁",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b0a24d9c44b3d7cc8c08",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "the sword of Damocles"
+            }
           }
         ],
         "repair": {
@@ -494,7 +499,7 @@
     "ordinal": 4869,
     "word": "sympathise",
     "source_owner_path": "content/lexical/words/by-ordinal/o4869.json",
-    "source_fingerprint": "d71f415838fd58b6b86c27701466664ef58c8cf482b45c769e0a64892aa1a35f",
+    "source_fingerprint": "5f3e5416231d4bfdb29580e109a89822922cc21dbbee6da6d53f9ea2846df720",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -626,12 +631,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -1163,7 +1164,7 @@
     "ordinal": 4874,
     "word": "syndrome",
     "source_owner_path": "content/lexical/words/by-ordinal/o4874.json",
-    "source_fingerprint": "cbb91d6f1146f64e7905948cba8c0b41d4b26d70ccb695ef4ec79271a44a58b9",
+    "source_fingerprint": "234ca50ca915bde3bf8d0f3c9014e84d116bbbbdc0afc17fa5dfd98d1ea5fffb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1172,13 +1173,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "一组同时出现的症状或特征",
+      "summary_cn": "共同出现的一组症状，或相互关联的典型表现",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "一组同时出现的症状或特征"
+        "target_label": "共同出现的一组症状，或相互关联的典型表现"
       }
     },
     "senses": [
@@ -1187,8 +1188,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "综合征，并发症状",
-        "definition_en": "a pattern of symptoms indicative of some disease",
+        "definition_cn": "综合征；一组共同出现、提示某种疾病或异常状态的症状",
+        "definition_en": "a group of symptoms that occur together and characterize a disease, disorder, or abnormal condition",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1205,7 +1206,7 @@
           "target_kind": "sense",
           "target_id": "sense:syndrome:41cc3d4b9a8e59d9",
           "target_locator": "record.senses[0]",
-          "target_label": "综合征，并发症状"
+          "target_label": "综合征；一组共同出现、提示某种疾病或异常状态的症状"
         }
       },
       {
@@ -1213,8 +1214,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "同时存在的事物，并发事物",
-        "definition_en": "a complex of concurrent things",
+        "definition_cn": "（比喻）一组相互关联的典型表现或行为模式，常带负面意味",
+        "definition_en": "a characteristic pattern of related behaviours or features, often associated with an undesirable condition",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1222,7 +1223,7 @@
             "id": "collocation:8622b396665388faab7e",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a syndrome of modern life",
-            "meaning_cn": "现代生活的一种并发现象",
+            "meaning_cn": "现代生活中一组相互关联的典型表现或问题",
             "kind": "usage_example",
             "repair": null
           }
@@ -1231,7 +1232,7 @@
           "target_kind": "sense",
           "target_id": "sense:syndrome:6ca27eef54e55cf5",
           "target_locator": "record.senses[1]",
-          "target_label": "同时存在的事物，并发事物"
+          "target_label": "（比喻）一组相互关联的典型表现或行为模式，常带负面意味"
         }
       }
     ],
@@ -1648,7 +1649,7 @@
     "ordinal": 4878,
     "word": "table",
     "source_owner_path": "content/lexical/words/by-ordinal/o4878.json",
-    "source_fingerprint": "f3b86cb2e354e42f1c4970b51ba7002cfcf43db56ea204cebdae112742d54040",
+    "source_fingerprint": "624be7491df913890e35c21bf0999d492cae6dc63364ef5265668f58fb68dedb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1658,13 +1659,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "桌子；表格",
-      "decision_cn": "",
+      "summary_cn": "桌子、表格；动词 table 在英美议事语境中方向相反",
+      "decision_cn": "table a proposal/motion：英式为正式提出讨论，美式为暂时搁置；先识别议事语境和地域，再判断动作。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "桌子；表格"
+        "target_label": "桌子、表格；动词 table 在英美议事语境中方向相反"
       }
     },
     "senses": [
@@ -2161,7 +2162,7 @@
     "ordinal": 4881,
     "word": "tackle",
     "source_owner_path": "content/lexical/words/by-ordinal/o4881.json",
-    "source_fingerprint": "c6ceaf4465b53fd176cf703f7dc5830fbf107b8f9d99c158c15a1bb008c2fc91",
+    "source_fingerprint": "116cb6033138965b88ee46bf9322fbe0b7cea266ff6b59c4901fae60ce7e7e22",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2220,8 +2221,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "擒抱；拦截",
-        "definition_en": "to seize and stop an opponent in football or rugby",
+        "definition_cn": "（足球等）抢断；（橄榄球、美式足球）擒抱拦截",
+        "definition_en": "to challenge an opponent for the ball in soccer or similar games, or stop an opponent by taking hold of them in rugby or American football",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2229,7 +2230,7 @@
             "id": "collocation:69c229350da4cc5985b7",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "tackle an opponent",
-            "meaning_cn": "擒抱对手",
+            "meaning_cn": "抢断或擒抱对手（依运动项目而定）",
             "kind": "usage_example",
             "repair": null
           }
@@ -2238,7 +2239,7 @@
           "target_kind": "sense",
           "target_id": "sense:tackle:5578f787706e5c12",
           "target_locator": "record.senses[1]",
-          "target_label": "擒抱；拦截"
+          "target_label": "（足球等）抢断；（橄榄球、美式足球）擒抱拦截"
         }
       },
       {
@@ -2448,23 +2449,23 @@
     "ordinal": 4883,
     "word": "tag",
     "source_owner_path": "content/lexical/words/by-ordinal/o4883.json",
-    "source_fingerprint": "43e18be35688e6a277076d4a33f10af5832c18a8313a9df8d104ccdb4fdbf879",
+    "source_fingerprint": "bf1f5032fda5f6b5097fbb39bc068e82a5cb6c97449d90bd9b0f6b140676c8f4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "标签；标记",
-      "decision_cn": "",
+      "summary_cn": "标签、标记；加标签；跟随；捉人游戏及触碰出局",
+      "decision_cn": "标签语境为识别或标记；tag along 常为跟着别人一道去；游戏语境 tag 可为捉人游戏、一次触碰，或动词触及对方使其出局。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "标签；标记"
+        "target_label": "标签、标记；加标签；跟随；捉人游戏及触碰出局"
       }
     },
     "senses": [
@@ -2606,14 +2607,14 @@
           {
             "id": "collocation:6eca16723fbee8e2d429",
             "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "tag along",
-            "meaning_cn": "跟随；尾随",
+            "phrase": "tag along (with sb)",
+            "meaning_cn": "（常未经邀请）跟着某人或一群人一起去",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:6eca16723fbee8e2d429",
               "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "tag along"
+              "target_label": "tag along (with sb)"
             }
           },
           {
@@ -2646,26 +2647,43 @@
         "definition_en": "the act of touching a player in a game, changing their status",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:b2ef804039055af3e8a3",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "tag out",
-            "meaning_cn": "触杀出局",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b2ef804039055af3e8a3",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "tag out"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tag:c4fd5591d62754ca",
           "target_locator": "record.senses[5]",
           "target_label": "（体育比赛中的）触杀"
+        }
+      },
+      {
+        "id": "sense:tag:0d80af4f9490f60f68f7",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "vt.: tag sb; tag sb out",
+        "definition_cn": "（游戏中）触及对方；（棒球中）持球触杀跑垒员",
+        "definition_en": "to touch a player in a chasing game, or touch a baseball runner with the ball or a glove holding it to put the runner out",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b2ef804039055af3e8a3",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "tag sb out",
+            "meaning_cn": "（棒球）持球触及跑垒员使其出局",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b2ef804039055af3e8a3",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "tag sb out"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tag:0d80af4f9490f60f68f7",
+          "target_locator": "record.senses[6]",
+          "target_label": "（游戏中）触及对方；（棒球中）持球触杀跑垒员"
         }
       }
     ],
@@ -2895,38 +2913,23 @@
     "ordinal": 4884,
     "word": "tail",
     "source_owner_path": "content/lexical/words/by-ordinal/o4884.json",
-    "source_fingerprint": "0cdda4e568e42e62edc0fbdc66d839e9dc15efe8fcc5f45afe26afabd1084a3d",
-    "sense_lineage": [
-      {
-        "word_id": "word:tail",
-        "target_kind": "sense",
-        "from_target_id": "sense:tail:188bb0d5b40a5403",
-        "status": "merged",
-        "to_target_id": "sense:tail:e6ab4870675d5372"
-      },
-      {
-        "word_id": "word:tail",
-        "target_kind": "sense",
-        "from_target_id": "sense:tail:23df918a352f5669",
-        "status": "merged",
-        "to_target_id": "sense:tail:e6ab4870675d5372"
-      }
-    ],
+    "source_fingerprint": "7af9d8cf05a7e2d22d01281d0d90f778d26ab58f096f6e6290e3afe3e087c251",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "动物的尾巴；跟踪，尾随；硬币的反面；常用复数 tails",
-      "decision_cn": "",
+      "summary_cn": "尾巴、尾部；尾随、跟踪；tails 指硬币反面",
+      "decision_cn": "动物或物体后端选“尾巴/尾部”；a tail 在跟踪语境可指跟踪者，动词 tail 表示尾随；heads or tails 中 tails 是硬币反面。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "动物的尾巴；跟踪，尾随；硬币的反面；常用复数 tails"
+        "target_label": "尾巴、尾部；尾随、跟踪；tails 指硬币反面"
       }
     },
     "senses": [
@@ -3015,6 +3018,40 @@
           "target_locator": "record.senses[3]",
           "target_label": "硬币的反面；常用复数 tails"
         }
+      },
+      {
+        "id": "sense:tail:188bb0d5b40a5403",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "尾部；形似尾巴的部分（如飞机尾部、彗尾）",
+        "definition_en": "a rear part or projection resembling an animal’s tail, such as the tail of an aircraft or comet",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tail:188bb0d5b40a5403",
+          "target_locator": "record.senses[4]",
+          "target_label": "尾部；形似尾巴的部分（如飞机尾部、彗尾）"
+        }
+      },
+      {
+        "id": "sense:tail:23df918a352f5669",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "跟踪者，特务",
+        "definition_en": "a person employed to follow and report on someone's movements",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tail:23df918a352f5669",
+          "target_locator": "record.senses[5]",
+          "target_label": "跟踪者，特务"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3043,59 +3080,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [],
-      "senses": [
-        {
-          "stable_sense_id": "sense:tail:188bb0d5b40a5403",
-          "status": "merged",
-          "merged_into_sense_id": "sense:tail:e6ab4870675d5372",
-          "pos": "noun",
-          "definition_cn": "类似尾巴的突出物",
-          "definition_en": "a projection resembling an animal's tail",
-          "semantic_key": "e49ddb918a28583c3cbad9a281bec4a80965629e77bc260f64fc510d80757f6b",
-          "semantic_key_history": [
-            "ce3f57312237561f15a2794a070bc1a497e4d6b1edb43ddb0ee28808c4655e06"
-          ],
-          "legacy_aliases": [
-            "tail:l2:2"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "tail:l2:2",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 13881,
-          "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json",
-          "reference_only": true
-        },
-        {
-          "stable_sense_id": "sense:tail:23df918a352f5669",
-          "status": "merged",
-          "merged_into_sense_id": "sense:tail:e6ab4870675d5372",
-          "pos": "noun",
-          "definition_cn": "跟踪者，特务",
-          "definition_en": "a person employed to follow and report on someone's movements",
-          "semantic_key": "d5613658f46198934dc31d525dcaebf6b589c3d9666e7dfb32555ff9bdca31cc",
-          "semantic_key_history": [
-            "4d2fa2f2a6b8f82a7871628792caa5f99746e0c8ebc73aa3cdd199ddbcc06478"
-          ],
-          "legacy_aliases": [
-            "tail:l2:3"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "tail:l2:3",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 13882,
-          "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json",
-          "reference_only": true
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -3104,7 +3089,7 @@
     "ordinal": 4885,
     "word": "tailor",
     "source_owner_path": "content/lexical/words/by-ordinal/o4885.json",
-    "source_fingerprint": "fba316abe0efa6dc812dfb3d49df562d6498469ea58d08901ebbf2ebf7a68d6f",
+    "source_fingerprint": "787bf7133e77a16627e6c1f80ef15d837128db61f5a2137663aa29ad7ecde6b7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3154,7 +3139,7 @@
         "id": "sense:tailor:2321d9e33fcd522a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: tailor sth to sb/sth; tailor sth for sb/sth",
         "definition_cn": "缝制；使适应",
         "definition_en": "to make or adapt something for a specific need",
         "note": "",
@@ -3224,7 +3209,7 @@
     "ordinal": 4886,
     "word": "take",
     "source_owner_path": "content/lexical/words/by-ordinal/o4886.json",
-    "source_fingerprint": "0a07d45687e7f1e637e71ca1c8abf8d38388aa67d2e5946fd681d35b4155d08c",
+    "source_fingerprint": "325fd0fdb5d8ee7d0ec838f55e136cf84c9c4b24ce0cdea6c4612b21ba8785fc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3233,13 +3218,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "拿；取；进行；采取；需要；花费；接受；收到；带、拿、领某人或某物到某处；服用、吃、使用（药物等）",
-      "decision_cn": "",
+      "summary_cn": "把东西拿到手、带走或接受；也用来执行动作、表示所需时间与精力",
+      "decision_cn": "看宾语和补足语：实体可拿取或带走，medicine 表服用，action/steps 表采取，time/effort 表需要；off/up/over 等粒子构式要整体取义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "拿；取；进行；采取；需要；花费；接受；收到；带、拿、领某人或某物到某处；服用、吃、使用（药物等）"
+        "target_label": "把东西拿到手、带走或接受；也用来执行动作、表示所需时间与精力"
       }
     },
     "senses": [
@@ -3320,9 +3305,9 @@
         "id": "sense:take:8adf5bb65f89506e",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: sth takes time/effort; it takes (sb) time to do sth",
         "definition_cn": "需要；花费",
-        "definition_en": "to require (time or space)",
+        "definition_en": "to require time, space, or effort",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3482,10 +3467,14 @@
       {
         "id": "construction:168be01a60fc4d989837",
         "source_locator": "record.constructions[1]",
-        "pattern": "take advantage of sth",
+        "pattern": "take advantage of sb/sth",
         "lines": [
           {
-            "text": "利用…；利用某人/某事物的优势",
+            "text": "利用机会或有利条件；也指不公平地利用某人或其弱点、占便宜",
+            "lang": "cn"
+          },
+          {
+            "text": "机会/资源可为中性或积极利用；人、弱点或无经验等在不公平获利语境中表示占便宜，不能一律译为利用优势。",
             "lang": "cn"
           }
         ],
@@ -3493,7 +3482,7 @@
           "target_kind": "construction",
           "target_id": "construction:168be01a60fc4d989837",
           "target_locator": "record.constructions[1]",
-          "target_label": "take advantage of sth"
+          "target_label": "take advantage of sb/sth"
         }
       },
       {
@@ -3546,6 +3535,69 @@
           "target_locator": "record.constructions[4]",
           "target_label": "take place"
         }
+      },
+      {
+        "id": "construction:7b9573fc79e7674d4591",
+        "source_locator": "record.constructions[5]",
+        "pattern": "take off; take sth off",
+        "lines": [
+          {
+            "text": "不及物：飞机起飞；事业、产品等迅速成功或流行。及物：脱下、取下某物。",
+            "lang": "cn"
+          },
+          {
+            "text": "无宾语时由飞机/发展语境选义；脱衣物用 take sth off，代词放中间：take it off。",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7b9573fc79e7674d4591",
+          "target_locator": "record.constructions[5]",
+          "target_label": "take off; take sth off"
+        }
+      },
+      {
+        "id": "construction:6711ad5685a75dcd06f9",
+        "source_locator": "record.constructions[6]",
+        "pattern": "take up sth / take sth up",
+        "lines": [
+          {
+            "text": "开始从事活动或爱好；占用时间、空间。",
+            "lang": "cn"
+          },
+          {
+            "text": "活动或爱好宾语选“开始从事”；时间/空间宾语选“占用”；代词用 take it up。",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6711ad5685a75dcd06f9",
+          "target_locator": "record.constructions[6]",
+          "target_label": "take up sth / take sth up"
+        }
+      },
+      {
+        "id": "construction:dadeacdfc8aacbcbc4a3",
+        "source_locator": "record.constructions[7]",
+        "pattern": "take over (sth) / take sth over",
+        "lines": [
+          {
+            "text": "接管；接替、承担控制权或职责。",
+            "lang": "cn"
+          },
+          {
+            "text": "可无宾语，也可接业务、机构或职责；代词用 take it over。",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:dadeacdfc8aacbcbc4a3",
+          "target_locator": "record.constructions[7]",
+          "target_label": "take over (sth) / take sth over"
+        }
       }
     ],
     "reference": {
@@ -3561,7 +3613,7 @@
     "ordinal": 4887,
     "word": "tale",
     "source_owner_path": "content/lexical/words/by-ordinal/o4887.json",
-    "source_fingerprint": "4dd4ed7d3ca94a050167ad37c8328bc5584dbba4ece10427432c0458235c9955",
+    "source_fingerprint": "bb6aa0c4871606bd42eb0e04a208a79fed4910ee5e62644fbd1b68ab347acda3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3570,13 +3622,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "故事；谎言",
-      "decision_cn": "",
+      "summary_cn": "故事；谎言；tell tales 也可指告状、揭人隐私",
+      "decision_cn": "tell a tale 可以是讲故事；tell tales 在说人是非、向权威报告的语境可表示告状，不要求内容虚假。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "故事；谎言"
+        "target_label": "故事；谎言；tell tales 也可指告状、揭人隐私"
       }
     },
     "senses": [
@@ -3619,16 +3671,16 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "谎言，谣言",
-        "definition_en": "a lie or false story",
-        "note": "",
+        "definition_cn": "谎言；（常复数）告状或揭人隐私的话",
+        "definition_en": "a false story, or a report about someone that reveals secrets or is intended to get them into trouble",
+        "note": "tell tales 可指说谎，也可指揭人隐私或向老师等告状；告状义不要求内容虚假。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:8adff38d1976e5e81682",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "tell tales",
-            "meaning_cn": "说谎；搬弄是非",
+            "meaning_cn": "说谎；或（尤指向权威）告状、打小报告，所说的事未必是假的",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -3642,7 +3694,7 @@
           "target_kind": "sense",
           "target_id": "sense:tale:a00ecaf9b8b85db1",
           "target_locator": "record.senses[1]",
-          "target_label": "谎言，谣言"
+          "target_label": "谎言；（常复数）告状或揭人隐私的话"
         }
       }
     ],
@@ -3681,7 +3733,7 @@
     "ordinal": 4888,
     "word": "talent",
     "source_owner_path": "content/lexical/words/by-ordinal/o4888.json",
-    "source_fingerprint": "3e3cc7844daf28dfc577f8f0210da2dac31dedc03cb4494b5d4659b08b3d35d9",
+    "source_fingerprint": "29a99f73b9479025f25bcc45231efc428f7b106e2f3be3851c1af266e1b92d19",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3743,9 +3795,9 @@
         "id": "sense:talent:c887475389ab5eb6",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "C: a young talent; U: recruit/retain talent, a talent pool",
         "definition_cn": "有才能的人；人才",
-        "definition_en": "a person of talent",
+        "definition_en": "a talented person, or skilled people considered as a group",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3801,23 +3853,23 @@
     "ordinal": 4889,
     "word": "talk",
     "source_owner_path": "content/lexical/words/by-ordinal/o4889.json",
-    "source_fingerprint": "82e3ee81654b5bea4945ed5a53b05b924e9adc80b215989a0dfb4953eb8ddcc0",
+    "source_fingerprint": "982ad7e6217ab2149c798c2a3dbf467f0f547794b8638e86d836254168eeecd0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "说话；交谈；讨论；谈论；谈话；交谈；演讲；讲座",
-      "decision_cn": "",
+      "summary_cn": "说话、谈论；交谈或演讲；talks 表正式会谈；talk 也可表议论、传闻",
+      "decision_cn": "a talk 可为一次交谈或演讲；复数 talks 在外交、劳资等语境常为正式会谈；不可数 talk of sth 表示有关某事的议论或传闻，不必然是谣言。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "说话；交谈；讨论；谈论；谈话；交谈；演讲；讲座"
+        "target_label": "说话、谈论；交谈或演讲；talks 表正式会谈；talk 也可表议论、传闻"
       }
     },
     "senses": [
@@ -3966,9 +4018,9 @@
         "id": "sense:talk:e68ba38021c55456",
         "source_locator": "record.senses[4]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "闲话；谣言",
-        "definition_en": "idle gossip or rumor",
+        "governing_pattern": "U: talk of/about sth; there is talk of doing sth",
+        "definition_cn": "议论；传言；关于可能发生或属实之事的说法",
+        "definition_en": "discussion or speculation about what may happen or be true, including gossip or rumor",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3985,7 +4037,24 @@
           "target_kind": "sense",
           "target_id": "sense:talk:e68ba38021c55456",
           "target_locator": "record.senses[4]",
-          "target_label": "闲话；谣言"
+          "target_label": "议论；传言；关于可能发生或属实之事的说法"
+        }
+      },
+      {
+        "id": "sense:talk:be6dd5281c1e80a7f252",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "plural: hold talks with sb about/on sth; talks between A and B",
+        "definition_cn": "（复数 talks）正式会谈；谈判",
+        "definition_en": "formal discussions intended to reach an agreement or decision",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:talk:be6dd5281c1e80a7f252",
+          "target_locator": "record.senses[5]",
+          "target_label": "（复数 talks）正式会谈；谈判"
         }
       }
     ],
@@ -4075,7 +4144,7 @@
     "ordinal": 4890,
     "word": "tall",
     "source_owner_path": "content/lexical/words/by-ordinal/o4890.json",
-    "source_fingerprint": "f261ad7f3f0c7a181e4cae88720a953af1e927d0bda3d08736d521fcab6ee154",
+    "source_fingerprint": "24dac26c2d15742e29c9376b1faa36c02fd0174c6c9ceb56108939281bc67999",
     "sense_lineage": [
       {
         "word_id": "word:tall",
@@ -4142,7 +4211,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "大号服装",
+        "definition_cn": "适合高个子的加长服装尺码",
         "definition_en": "a garment size for a tall person",
         "note": "",
         "identity_overlay": null,
@@ -4151,7 +4220,7 @@
             "id": "collocation:98c0c63cf0699012ab8d",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "tall size",
-            "meaning_cn": "大号尺码",
+            "meaning_cn": "高个子加长尺码",
             "kind": "usage_example",
             "repair": null
           }
@@ -4160,7 +4229,7 @@
           "target_kind": "sense",
           "target_id": "sense:tall:dc6ddf80cad45e10",
           "target_locator": "record.senses[1]",
-          "target_label": "大号服装"
+          "target_label": "适合高个子的加长服装尺码"
         }
       }
     ],
@@ -4254,7 +4323,7 @@
     "ordinal": 4891,
     "word": "tame",
     "source_owner_path": "content/lexical/words/by-ordinal/o4891.json",
-    "source_fingerprint": "292a41f0cc580b7a603ef0c3da73ec21a9042f51d897a5fd56417067444aa315",
+    "source_fingerprint": "1db7be1500bba7fdf933497884aac0471231f01d9c9bb825ccc436a4165e8fc7",
     "sense_lineage": [
       {
         "word_id": "word:tame",
@@ -4287,8 +4356,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "驯服的，家养的",
-        "definition_en": "brought from wildness into a domesticated state",
+        "definition_cn": "驯服的；不怕人、习惯与人相处的",
+        "definition_en": "not wild or afraid of people; accustomed to human contact",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4305,7 +4374,7 @@
           "target_kind": "sense",
           "target_id": "sense:tame:9b45c2582c105335",
           "target_locator": "record.senses[0]",
-          "target_label": "驯服的，家养的"
+          "target_label": "驯服的；不怕人、习惯与人相处的"
         }
       },
       {
@@ -4313,8 +4382,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "I/T: tame a wild animal; an animal tames/becomes tame; tame easily",
-        "definition_cn": "驯服，制服",
-        "definition_en": "make tame or subdue",
+        "definition_cn": "驯服、制服；变得驯服",
+        "definition_en": "to make or become tame, or bring something under control",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4339,7 +4408,7 @@
           "target_kind": "sense",
           "target_id": "sense:tame:528e7a6b798d54b0",
           "target_locator": "record.senses[1]",
-          "target_label": "驯服，制服"
+          "target_label": "驯服、制服；变得驯服"
         }
       },
       {
@@ -4465,7 +4534,7 @@
     "ordinal": 4892,
     "word": "tan",
     "source_owner_path": "content/lexical/words/by-ordinal/o4892.json",
-    "source_fingerprint": "0a7d27101a1d36a3e5f152746240d6815e3934f1441e64a7742ee977f3543461",
+    "source_fingerprint": "a13fd35fbef28ad0a6a9940d8443a64b5b5d881f56e6f11c17890d5327227d36",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4521,16 +4590,7 @@
         "definition_en": "a light brown color",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:0429125ec666121616d8",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "tan shoes",
-            "meaning_cn": "黄褐色的鞋子",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tan:6861ed9b6650596b",
@@ -4542,23 +4602,23 @@
         "id": "sense:tan:c0b2e3338a0354cd",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "晒黑（皮肤）",
-        "definition_en": "to make skin darker by exposure to the sun",
+        "governing_pattern": "I/T: tan easily; tan one’s skin; tan oneself",
+        "definition_cn": "（使皮肤）晒成棕褐色",
+        "definition_en": "to become or make skin browner through exposure to sunlight",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:f1f94a22509720a167f3",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "tan + object",
-            "meaning_cn": "晒黑某物",
+            "phrase": "tan one’s skin / tan oneself",
+            "meaning_cn": "把皮肤晒成棕褐色；晒黑自己",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:f1f94a22509720a167f3",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "tan + object"
+              "target_label": "tan one’s skin / tan oneself"
             }
           }
         ],
@@ -4566,7 +4626,7 @@
           "target_kind": "sense",
           "target_id": "sense:tan:c0b2e3338a0354cd",
           "target_locator": "record.senses[2]",
-          "target_label": "晒黑（皮肤）"
+          "target_label": "（使皮肤）晒成棕褐色"
         }
       },
       {
@@ -4575,7 +4635,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "鞣革",
-        "definition_en": "to convert hides into leather by treating with tannic acid",
+        "definition_en": "to treat animal hides with chemicals to turn them into leather",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4641,6 +4701,14 @@
             "source_locator": "record.senses[5].collocations[0]",
             "phrase": "tan leather",
             "meaning_cn": "黄褐色的皮革",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:0429125ec666121616d8",
+            "source_locator": "record.senses[5].collocations[1]",
+            "phrase": "tan shoes",
+            "meaning_cn": "黄褐色的鞋子",
             "kind": "usage_example",
             "repair": null
           }
@@ -4826,7 +4894,7 @@
     "ordinal": 4894,
     "word": "tangle",
     "source_owner_path": "content/lexical/words/by-ordinal/o4894.json",
-    "source_fingerprint": "4352d0cfd44740da3c57abec262f0634c0917f76752c1c3d9ce8b65cc9458e44",
+    "source_fingerprint": "f8adb0a55810fb37a9287f30a9061557ae2b8ef47b91f4fb1b8a5d75990bc920",
     "sense_lineage": [
       {
         "word_id": "word:tangle",
@@ -4897,9 +4965,9 @@
         "id": "sense:tangle:3f2da1b5f480514d",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使缠结，缠住",
-        "definition_en": "to make something twisted together in a messy way",
+        "governing_pattern": "I/T: hair/wires tangle; tangle sth; tangle with sth (physical entanglement)",
+        "definition_cn": "（使）缠结、乱作一团",
+        "definition_en": "to become or make things twisted together in a messy mass",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4928,13 +4996,26 @@
               "target_locator": "record.senses[1].collocations[1]",
               "target_label": "tangle one's hair"
             }
+          },
+          {
+            "id": "collocation:5b27cfb2f945c2803fde",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "tangle with + sth",
+            "meaning_cn": "与某物缠结在一起",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:5b27cfb2f945c2803fde",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "tangle with + sth"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tangle:3f2da1b5f480514d",
           "target_locator": "record.senses[1]",
-          "target_label": "使缠结，缠住"
+          "target_label": "（使）缠结、乱作一团"
         }
       },
       {
@@ -4993,19 +5074,6 @@
             "meaning_cn": "与法律发生纠葛；触犯法律",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:5b27cfb2f945c2803fde",
-            "source_locator": "record.senses[3].collocations[2]",
-            "phrase": "tangle with + sth",
-            "meaning_cn": "与某物缠结在一起",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5b27cfb2f945c2803fde",
-              "target_locator": "record.senses[3].collocations[2]",
-              "target_label": "tangle with + sth"
-            }
           }
         ],
         "repair": {
@@ -5099,7 +5167,7 @@
     "ordinal": 4895,
     "word": "tank",
     "source_owner_path": "content/lexical/words/by-ordinal/o4895.json",
-    "source_fingerprint": "6642ffb1cf6c9518928aaf64ee23c120581ff161643757813a44cfa6c8bf7c5f",
+    "source_fingerprint": "832bcccabfdcd17a58790f25e124f2c7ece9cf1575058a4764e72b97dcbbe3ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5238,7 +5306,7 @@
         "governing_pattern": "vi.: prices/sales/ratings tank",
         "definition_cn": "暴跌、失败或表现很差",
         "definition_en": "to fall sharply, fail, or perform very badly",
-        "note": "",
+        "note": "非正式：价格、销量、表现等突然大幅下滑或失败。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5283,7 +5351,7 @@
     "ordinal": 4896,
     "word": "tanker",
     "source_owner_path": "content/lexical/words/by-ordinal/o4896.json",
-    "source_fingerprint": "9d4197eb97900261a87ecbd25a4f369bf2da9ca6dba80acfc3e1e3216f97a8c3",
+    "source_fingerprint": "af56f276fc7f5b6aa09a4bad8e7cfa75f41833f93d14cb46ba3638f89bc5c106",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5292,13 +5360,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "运输液体的大容器车辆或船只",
-      "decision_cn": "",
+      "summary_cn": "散装液体运输船、罐车或燃油运输机",
+      "decision_cn": "通常按运输工具取义，液体不限于石油；军事人员语境也可指坦克乘员，并不限于驾驶员。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "运输液体的大容器车辆或船只"
+        "target_label": "散装液体运输船、罐车或燃油运输机"
       }
     },
     "senses": [
@@ -5307,8 +5375,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "油轮；油罐车",
-        "definition_en": "a ship or vehicle designed to carry liquids, especially oil",
+        "definition_cn": "散装液体运输船或罐车（常运油）；也指运输燃油的飞机",
+        "definition_en": "a ship or tank-equipped vehicle carrying liquids in bulk, or an aircraft carrying fuel",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5324,7 +5392,7 @@
             "id": "collocation:1a4960d971de4937e215",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "tanker truck",
-            "meaning_cn": "油罐车",
+            "meaning_cn": "液体运输罐车（如油罐车）",
             "kind": "usage_example",
             "repair": null
           }
@@ -5333,7 +5401,7 @@
           "target_kind": "sense",
           "target_id": "sense:tanker:2166cbe316d2503e",
           "target_locator": "record.senses[0]",
-          "target_label": "油轮；油罐车"
+          "target_label": "散装液体运输船或罐车（常运油）；也指运输燃油的飞机"
         }
       },
       {
@@ -5341,8 +5409,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "坦克手",
-        "definition_en": "a soldier who drives a tank",
+        "definition_cn": "坦克乘员",
+        "definition_en": "a member of a military tank crew",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5350,7 +5418,7 @@
           "target_kind": "sense",
           "target_id": "sense:tanker:c68209acf7db5640",
           "target_locator": "record.senses[1]",
-          "target_label": "坦克手"
+          "target_label": "坦克乘员"
         }
       }
     ],
@@ -5388,7 +5456,7 @@
     "ordinal": 4897,
     "word": "tap",
     "source_owner_path": "content/lexical/words/by-ordinal/o4897.json",
-    "source_fingerprint": "c09a2158288fbf3d7ba11be75dd8c661b509c60d52080d3eeeb59b71e63fed20",
+    "source_fingerprint": "3020a64d9581700b115cff30799e3837c2e62668aa1b08dbaec0c98fc6978828",
     "sense_lineage": [
       {
         "word_id": "word:tap",
@@ -5498,7 +5566,7 @@
         "id": "sense:tap:34cbe7efa4255752",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "tap sth; tap into sth (resources/potential)",
         "definition_cn": "开发，利用",
         "definition_en": "to make use of a resource",
         "note": "",
@@ -5508,7 +5576,7 @@
             "id": "collocation:d82187c1df4b673ec48b",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "tap into + sth",
-            "meaning_cn": "利用，开发（资源）",
+            "meaning_cn": "利用、开发某种资源或潜力",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -5572,25 +5640,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:2fbaeb10b1448d1a97e5",
-        "source_locator": "record.constructions[0]",
-        "pattern": "tap into sth",
-        "lines": [
-          {
-            "text": "利用、开发某种资源或潜力",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:2fbaeb10b1448d1a97e5",
-          "target_locator": "record.constructions[0]",
-          "target_label": "tap into sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5629,7 +5679,7 @@
     "ordinal": 4898,
     "word": "tape",
     "source_owner_path": "content/lexical/words/by-ordinal/o4898.json",
-    "source_fingerprint": "575700f8bc1e8ff374f643038547192b75980ab31e5de8cbb34791a00cbf863e",
+    "source_fingerprint": "661ea17d2cb40689e68ff0c77fc8138496871b150b6ac115b92eb89bfe8dc38a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5639,13 +5689,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "带子；胶带；录音或录像；记录内容（历史上常用磁带）；终点线；卷尺；用带子捆扎；录制声音或视频",
-      "decision_cn": "",
+      "summary_cn": "带子、胶带；录音录像磁带或记录内容；终点带、卷尺；用带固定或录制",
+      "decision_cn": "实物语境区分胶带、磁带、终点带和卷尺；录制或播放语境也可指记录内容，tape 动词不要求一定用磁带。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "带子；胶带；录音或录像；记录内容（历史上常用磁带）；终点线；卷尺；用带子捆扎；录制声音或视频"
+        "target_label": "带子、胶带；录音录像磁带或记录内容；终点带、卷尺；用带固定或录制"
       }
     },
     "senses": [
@@ -5655,7 +5705,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "带子；胶带",
-        "definition_en": "a long thin piece of cloth or paper used for binding or fastening",
+        "definition_en": "a long narrow flexible strip of material, especially one used for binding, fastening, or sticking things together",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5680,8 +5730,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "录音或录像；记录内容（历史上常用磁带）",
-        "definition_en": "an audio or video recording; historically often a recording on magnetic tape",
+        "definition_cn": "录音或录像磁带；录音、录像内容（也可为数字记录）",
+        "definition_en": "magnetic recording tape, or an audio or video recording made on tape or another medium",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5706,7 +5756,7 @@
           "target_kind": "sense",
           "target_id": "sense:tape:4cac210561ed564e",
           "target_locator": "record.senses[1]",
-          "target_label": "录音或录像；记录内容（历史上常用磁带）"
+          "target_label": "录音或录像磁带；录音、录像内容（也可为数字记录）"
         }
       },
       {
@@ -5714,8 +5764,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "终点线",
-        "definition_en": "the finishing line for a foot race",
+        "definition_cn": "赛跑终点处的冲线带",
+        "definition_en": "a ribbon or strip stretched across the finish of a race",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5723,7 +5773,7 @@
             "id": "collocation:94c0e016c47089ea465b",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "break the tape",
-            "meaning_cn": "冲过终点线",
+            "meaning_cn": "撞线；冲过终点带",
             "kind": "usage_example",
             "repair": null
           }
@@ -5732,7 +5782,7 @@
           "target_kind": "sense",
           "target_id": "sense:tape:29d35236d9055c0c",
           "target_locator": "record.senses[2]",
-          "target_label": "终点线"
+          "target_label": "赛跑终点处的冲线带"
         }
       },
       {
@@ -5799,7 +5849,7 @@
         "id": "sense:tape:4a25b5d93d0053c3",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: tape a concert; the camera is taping",
         "definition_cn": "录制声音或视频",
         "definition_en": "to record audio or video",
         "note": "",
@@ -5861,7 +5911,7 @@
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(1+1)V",
+        "1V",
         "1N"
       ],
       "density": "rich"
@@ -5983,22 +6033,7 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:target:38d32d2b6a3de595",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "把……作为目标；瞄准",
-        "definition_en": "to aim at or direct something toward a specific goal or group",
-        "pattern": "动词瞄准/以...为目标义",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:target:38d32d2b6a3de595",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "把……作为目标；瞄准"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -6013,7 +6048,7 @@
     "ordinal": 4900,
     "word": "tariff",
     "source_owner_path": "content/lexical/words/by-ordinal/o4900.json",
-    "source_fingerprint": "0df36c0168e756fed634990f2d56a799c47fcf54866673a0d54473aa1cf79f81",
+    "source_fingerprint": "4628358208d70c3d15c1441668463f0e6c784094ecf3f19873bda14c1bb249d0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6023,13 +6058,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "关税",
-      "decision_cn": "",
+      "summary_cn": "关税；服务收费标准或价目表",
+      "decision_cn": "进出口语境选关税；酒店、公用事业等服务语境选收费标准。tariff rate 可依语境表示关税税率或服务收费率。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "关税"
+        "target_label": "关税；服务收费标准或价目表"
       }
     },
     "senses": [
@@ -6058,6 +6093,14 @@
             "meaning_cn": "关税壁垒",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:71fb436aacebc4819940",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "tariff rate",
+            "meaning_cn": "关税税率",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6072,25 +6115,16 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "价目表；收费表",
-        "definition_en": "a list of fixed charges, especially for a hotel or restaurant",
-        "note": "",
+        "definition_cn": "收费标准；价目表、收费表",
+        "definition_en": "a rate or schedule of charges for a service, such as a hotel or public utility",
+        "note": "服务收费语境中的 tariff rate 指收费率；进出口语境中的 tariff rate 是关税税率。",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:71fb436aacebc4819940",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "tariff rate",
-            "meaning_cn": "收费率；关税税率",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tariff:30472bdd2951519c",
           "target_locator": "record.senses[1]",
-          "target_label": "价目表；收费表"
+          "target_label": "收费标准；价目表、收费表"
         }
       },
       {
@@ -6371,7 +6405,7 @@
     "ordinal": 4902,
     "word": "taste",
     "source_owner_path": "content/lexical/words/by-ordinal/o4902.json",
-    "source_fingerprint": "b4ac649f601a746f3ab01a3f98dc9f2aa9df018ce6ddab2a826f190089e68ba1",
+    "source_fingerprint": "4961f03938cc2e17586183f421c80ff897475e3d096113d2086df2fe43b2f0a5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6533,7 +6567,7 @@
         "id": "sense:taste:06e3ccc43de05937",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vi. + of",
+        "governing_pattern": "linking verb: taste + adjective; taste like sth; taste of sth (especially BrE)",
         "definition_cn": "有……味道",
         "definition_en": "to have a particular flavor",
         "note": "",
@@ -6711,7 +6745,7 @@
     "ordinal": 4903,
     "word": "tax",
     "source_owner_path": "content/lexical/words/by-ordinal/o4903.json",
-    "source_fingerprint": "3fb9058a4aac4ddd31cc59ade2f7195d7ccf3c386cb4f4c578ac12f0b63f4e8f",
+    "source_fingerprint": "263f5d379ed7a4c8459041b9866597ea9a871354e4cf991f07f674abbba8bfb6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6721,13 +6755,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "权威机构施加的费用或负担",
+      "summary_cn": "税；征税；使承受重负",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "权威机构施加的费用或负担"
+        "target_label": "税；征税；使承受重负"
       }
     },
     "senses": [
@@ -6736,8 +6770,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "政府向公民征收的税费",
-        "definition_en": "charge against a citizen's person or property or activity for the support of government",
+        "definition_cn": "税；政府向个人或机构的收入、财产、交易等征收的款项",
+        "definition_en": "money that a government requires people or organizations to pay, for example on income, property, or purchases",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6762,7 +6796,7 @@
           "target_kind": "sense",
           "target_id": "sense:tax:3f747a639e545fa8",
           "target_locator": "record.senses[0]",
-          "target_label": "政府向公民征收的税费"
+          "target_label": "税；政府向个人或机构的收入、财产、交易等征收的款项"
         }
       },
       {
@@ -6881,7 +6915,7 @@
     "ordinal": 4904,
     "word": "taxi",
     "source_owner_path": "content/lexical/words/by-ordinal/o4904.json",
-    "source_fingerprint": "f0f350e53cb0bb2679ef50ddaa859a5c37456de7ac368d1394e260391f08a49e",
+    "source_fingerprint": "209960b3145c3c5b76c5553976f0603c6d57aaaf27c922673035d9ff06a2f83b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6891,13 +6925,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "出租车；乘出租车；滑行",
+      "summary_cn": "出租车；乘出租车或用出租车运送；（使飞机）滑行",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "出租车；乘出租车；滑行"
+        "target_label": "出租车；乘出租车或用出租车运送；（使飞机）滑行"
       }
     },
     "senses": [
@@ -6939,7 +6973,7 @@
         "id": "sense:taxi:0f13caea10ac5996",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + to/from",
+        "governing_pattern": "vi.: taxi (to/from a place)",
         "definition_cn": "乘出租车",
         "definition_en": "to travel in a taxi",
         "note": "",
@@ -6978,9 +7012,9 @@
         "id": "sense:taxi:68ad01e7c7445145",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + along/down",
-        "definition_cn": "（飞机）滑行",
-        "definition_en": "of an aircraft: to move slowly on the ground before taking off or after landing",
+        "governing_pattern": "I/T: the plane taxis; taxi a plane (along/down a runway; to a position)",
+        "definition_cn": "（使飞机）滑行",
+        "definition_en": "(of an aircraft) to move slowly on the ground, or to make an aircraft move in this way",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7010,7 +7044,7 @@
           "target_kind": "sense",
           "target_id": "sense:taxi:68ad01e7c7445145",
           "target_locator": "record.senses[2]",
-          "target_label": "（飞机）滑行"
+          "target_label": "（使飞机）滑行"
         }
       },
       {
@@ -7093,22 +7127,22 @@
     "ordinal": 4905,
     "word": "tea",
     "source_owner_path": "content/lexical/words/by-ordinal/o4905.json",
-    "source_fingerprint": "db59d09e490ae5c355f120823f0c6c31a9a02f2af44350bc6104c39b063c4112",
+    "source_fingerprint": "bd5bce2a202f93bd96af096d3387326a71f434eb47ab89a1fd4e8431d3b38a92",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "茶",
+      "summary_cn": "茶；茶叶；茶点；（部分英式用法）晚餐",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "茶"
+        "target_label": "茶；茶叶；茶点；（部分英式用法）晚餐"
       }
     },
     "senses": [
@@ -7189,6 +7223,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "下午茶；茶点"
         }
+      },
+      {
+        "id": "sense:tea:3415970056046fa715ad",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "have tea; be home for tea",
+        "definition_cn": "（英国部分地区用语）晚餐；傍晚的一餐",
+        "definition_en": "in some British usage, the meal eaten in the early evening",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tea:3415970056046fa715ad",
+          "target_locator": "record.senses[3]",
+          "target_label": "（英国部分地区用语）晚餐；傍晚的一餐"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7259,7 +7310,33 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:a82c50e83a1b0fcccbdf",
+        "source_locator": "record.constructions[0]",
+        "pattern": "not be someone's cup of tea",
+        "lines": [
+          {
+            "text": "不是某人喜欢的类型；不合某人的喜好",
+            "lang": "cn"
+          },
+          {
+            "text": "常见否定习语，用于活动、事物等不合喜好；不指字面的一杯茶。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be something that a person does not enjoy or find appealing",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a82c50e83a1b0fcccbdf",
+          "target_locator": "record.constructions[0]",
+          "target_label": "not be someone's cup of tea"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7273,7 +7350,7 @@
     "ordinal": 4906,
     "word": "teach",
     "source_owner_path": "content/lexical/words/by-ordinal/o4906.json",
-    "source_fingerprint": "1797b31ca0fcd49a6255e809892cc0e25eed41b6398a805750387d44368e6f17",
+    "source_fingerprint": "4cd41695a219af0ae03e4767b161e50d79222ba9022340e359dedf81a01b8aac",
     "sense_lineage": [
       {
         "word_id": "word:teach",
@@ -7435,7 +7512,7 @@
     "ordinal": 4907,
     "word": "teacher",
     "source_owner_path": "content/lexical/words/by-ordinal/o4907.json",
-    "source_fingerprint": "4a78e2c72294494a086c8ed98989c57dd0871102eb84cf425c67fdbf4c4138f1",
+    "source_fingerprint": "62693b7ec802ebd74481e827fd30fd972051320b649def61b2bd6132a5474154",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7444,13 +7521,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "教师",
+      "summary_cn": "教师；（比喻）给予教训或启示的事物",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "教师"
+        "target_label": "教师；（比喻）给予教训或启示的事物"
       }
     },
     "senses": [
@@ -7485,8 +7562,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "导师；教导者",
-        "definition_en": "a personified abstraction that teaches",
+        "definition_cn": "（比喻）能给人启示或教训的事物，如经验",
+        "definition_en": "something such as experience that teaches a person a lesson",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -7494,7 +7571,7 @@
           "target_kind": "sense",
           "target_id": "sense:teacher:458cf1562be9574b",
           "target_locator": "record.senses[1]",
-          "target_label": "导师；教导者"
+          "target_label": "（比喻）能给人启示或教训的事物，如经验"
         }
       }
     ],
@@ -7690,7 +7767,7 @@
     "ordinal": 4909,
     "word": "tear",
     "source_owner_path": "content/lexical/words/by-ordinal/o4909.json",
-    "source_fingerprint": "d57f0cc2637fa8a1687063d6546d7490afcdc346185d1eccb147bfb6ef1296fb",
+    "source_fingerprint": "803d51b6e1089bedd40ff83b0acb84f89044d5fdf2f410fc4b3eb37d86c857d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7794,12 +7871,12 @@
         "definition_en": "move very quickly",
         "note": "",
         "identity_overlay": {
-          "text": "tear meaning rip/split (verb or noun) differs in pronunciation from tear = drop from the eye /tɪə(r)/",
+          "text": "The hurry/rush verb shares the rip/split reading, not the eye-liquid reading.",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "tear meaning rip/split (verb or noun) differs in pronunciation from tear = drop from the eye /tɪə(r)/"
+            "target_label": "The hurry/rush verb shares the rip/split reading, not the eye-liquid reading."
           }
         },
         "usage": [],
@@ -7834,7 +7911,7 @@
             {
               "surface": "tear",
               "conditions": {
-                "owner_identity_condition": "rip verb/noun"
+                "owner_identity_condition": "rip/split verb or noun; hurry/rush verb"
               }
             }
           ],
@@ -7846,7 +7923,58 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:3cb858d5fdde8efcb57b",
+        "source_locator": "record.constructions[0]",
+        "pattern": "tear sth up / tear it up",
+        "lines": [
+          {
+            "text": "把纸等撕碎；（比喻）废弃协议",
+            "lang": "cn"
+          },
+          {
+            "text": "及物可分短语；不同于眼含泪水的tear up，也不同于疾驰的tear + 方向。",
+            "lang": "cn"
+          },
+          {
+            "text": "to rip something into pieces; figuratively, to reject an agreement",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3cb858d5fdde8efcb57b",
+          "target_locator": "record.constructions[0]",
+          "target_label": "tear sth up / tear it up"
+        }
+      },
+      {
+        "id": "construction:bf79e22adc512685585b",
+        "source_locator": "record.constructions[1]",
+        "pattern": "tear sth down / tear it down",
+        "lines": [
+          {
+            "text": "拆毁建筑物",
+            "lang": "cn"
+          },
+          {
+            "text": "宾语是被拆毁的建筑；tear down the road中的down是疾驰方向，不是拆毁。",
+            "lang": "cn"
+          },
+          {
+            "text": "to demolish a building",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:bf79e22adc512685585b",
+          "target_locator": "record.constructions[1]",
+          "target_label": "tear sth down / tear it down"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7860,8 +7988,8 @@
           },
           {
             "surface": "tear",
-            "condition": "rip verb/noun",
-            "note": "tear meaning rip or split is pronounced /ter/"
+            "condition": "rip/split verb or noun; hurry/rush verb",
+            "note": "The rip/split noun and verb and the hurry/rush verb share /ter/; distinct from eye-liquid tear /tɪr/."
           }
         ],
         "variants": [],
@@ -7881,31 +8009,23 @@
     "ordinal": 4910,
     "word": "tease",
     "source_owner_path": "content/lexical/words/by-ordinal/o4910.json",
-    "source_fingerprint": "ad80c8f7be2325c5908a9e083c2edb3f73a4b8c9ba3f425f955f1123eb15e45d",
-    "sense_lineage": [
-      {
-        "word_id": "word:tease",
-        "target_kind": "sense",
-        "from_target_id": "sense:tease:850e21b609665fae",
-        "status": "merged",
-        "to_target_id": "sense:tease:0ba17b6c029f5735"
-      }
-    ],
+    "source_fingerprint": "f257bb6ae8336a75f2b3dc7d17bbf351af75f8ebf7da06a6f722a02208e5cf01",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "逗弄、取笑、戏弄；常带玩笑意味，也可使人恼火；揶揄，嘲弄；爱戏弄人的人",
+      "summary_cn": "逗弄、取笑；梳理纤维；tease out细致理清信息；戏弄者或戏弄行为",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "逗弄、取笑、戏弄；常带玩笑意味，也可使人恼火；揶揄，嘲弄；爱戏弄人的人"
+        "target_label": "逗弄、取笑；梳理纤维；tease out细致理清信息；戏弄者或戏弄行为"
       }
     },
     "senses": [
@@ -8026,6 +8146,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "梳理（羊毛等）"
         }
+      },
+      {
+        "id": "sense:tease:850e21b609665fae",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "戏弄；取笑的行为",
+        "definition_en": "an act of teasing or being teased",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tease:850e21b609665fae",
+          "target_locator": "record.senses[4]",
+          "target_label": "戏弄；取笑的行为"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8046,39 +8183,38 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:27968c0ed9a4784bc985",
+        "source_locator": "record.constructions[0]",
+        "pattern": "tease sth out / tease out sth",
+        "lines": [
+          {
+            "text": "经细致努力理清、找出复杂的信息或意思",
+            "lang": "cn"
+          },
+          {
+            "text": "由分离、理清引申到信息；不指对人取笑。",
+            "lang": "cn"
+          },
+          {
+            "text": "to work out difficult information or meaning through careful effort",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:27968c0ed9a4784bc985",
+          "target_locator": "record.constructions[0]",
+          "target_label": "tease sth out / tease out sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [],
-      "senses": [
-        {
-          "stable_sense_id": "sense:tease:850e21b609665fae",
-          "status": "merged",
-          "merged_into_sense_id": "sense:tease:0ba17b6c029f5735",
-          "pos": "noun",
-          "definition_cn": "戏弄，取笑的行为",
-          "definition_en": "the act of harassing someone playfully or maliciously (especially by ridicule); provoking someone with persistent annoyances",
-          "semantic_key": "3b544fa6945bc46f021f2c7eec8e0b6b1561725c57ec86de266d0f975c1f19c3",
-          "semantic_key_history": [
-            "7e7787d7e6e526b69b5aa295d0af0138f4ed7cfab16bb9c6eaa0d741bbf3838b"
-          ],
-          "legacy_aliases": [
-            "tease:l3:5"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "tease:l3:5",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 13978,
-          "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json",
-          "reference_only": true
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -8087,7 +8223,7 @@
     "ordinal": 4911,
     "word": "technical",
     "source_owner_path": "content/lexical/words/by-ordinal/o4911.json",
-    "source_fingerprint": "e2c4367e920f4a1343d9c173136d561acb7bcb7e4e62e9f4e9436c626f8c27c8",
+    "source_fingerprint": "2bb9277bd6ce96648a69103ca07a22dc39314c4e080d7501ed7340a5099cc4c5",
     "sense_lineage": [
       {
         "word_id": "word:technical",
@@ -8106,18 +8242,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "技术的；专业的；涉及专门知识、科学或技术细节的",
+      "summary_cn": "技术的；专业的；涉及规则细节或按严格规则成立的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "技术的；专业的；涉及专门知识、科学或技术细节的"
+        "target_label": "技术的；专业的；涉及规则细节或按严格规则成立的"
       }
     },
     "senses": [
@@ -8127,7 +8263,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "技术的；专业的；涉及专门知识、科学或技术细节的",
-        "definition_en": "technical or specialist; involving specialized, scientific, or technological knowledge or details",
+        "definition_en": "involving the skills or specialized knowledge needed in a subject, activity, science, or technology",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8153,6 +8289,23 @@
           "target_id": "sense:technical:08d2c3837bfe5a4d",
           "target_locator": "record.senses[0]",
           "target_label": "技术的；专业的；涉及专门知识、科学或技术细节的"
+        }
+      },
+      {
+        "id": "sense:technical:d6e2b7fef8a9da77d3eb",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "before a noun: technical details / a technical breach / a technical victory",
+        "definition_cn": "涉及法律或规则细节的；按严格规则或字面解释成立的，而非实质上的",
+        "definition_en": "concerning precise legal or procedural requirements, or true under a strict reading of rules rather than in substance",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:technical:d6e2b7fef8a9da77d3eb",
+          "target_locator": "record.senses[1]",
+          "target_label": "涉及法律或规则细节的；按严格规则或字面解释成立的，而非实质上的"
         }
       }
     ],
@@ -8704,8 +8857,16 @@
     "ordinal": 4916,
     "word": "teenager",
     "source_owner_path": "content/lexical/words/by-ordinal/o4916.json",
-    "source_fingerprint": "b04d357d71ca4bd48ea4816fc04e7afaf739a6d66f460af56fe5730864d37446",
-    "sense_lineage": [],
+    "source_fingerprint": "ec354d44d63019066ac99d735b1494027080f8e3b6b6735c1a411f16828e0318",
+    "sense_lineage": [
+      {
+        "word_id": "word:teenager",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:a3c8a42d152025d490d1",
+        "status": "retired",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1N"
@@ -8730,25 +8891,12 @@
         "governing_pattern": "",
         "definition_cn": "青少年；十几岁的少年",
         "definition_en": "a young person between the ages of 13 and 19",
-        "note": "",
+        "note": "teenager是指人的名词；通常用teenage作名词前的形容词，如teenage students。不要把teenager + 任意名词当作通用构式；具体名词修饰用法需具体语境。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:a3c8a42d152025d490d1",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "teenager + n.",
-            "meaning_cn": "青少年的（作定语）",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a3c8a42d152025d490d1",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "teenager + n."
-            }
-          },
-          {
             "id": "collocation:cb508e84f672085e8359",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "as a teenager",
             "meaning_cn": "在青少年时期",
             "kind": "usage_example",
@@ -8810,7 +8958,7 @@
     "ordinal": 4917,
     "word": "telegraph",
     "source_owner_path": "content/lexical/words/by-ordinal/o4917.json",
-    "source_fingerprint": "1b48e9353370842e564dd7ac283c362887a98b91bffbe8ad136c2fe39f109259",
+    "source_fingerprint": "f56f10fcbe156f22451b8a214c2daa3f6fc774661a16176b18d7f8a6005a00ee",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8820,13 +8968,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "电报；打电报",
+      "summary_cn": "电报系统或设备；打电报；显露意图",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "电报；打电报"
+        "target_label": "电报系统或设备；打电报；显露意图"
       }
     },
     "senses": [
@@ -8835,8 +8983,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "电报；电报机",
-        "definition_en": "a system or device for sending messages over long distances using wires and electrical signals",
+        "definition_cn": "电报通信系统；电报机",
+        "definition_en": "a system or device for communicating coded messages over a distance, for example by wire or radio",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8871,14 +9019,14 @@
           "target_kind": "sense",
           "target_id": "sense:telegraph:8793736e86df5347",
           "target_locator": "record.senses[0]",
-          "target_label": "电报；电报机"
+          "target_label": "电报通信系统；电报机"
         }
       },
       {
         "id": "sense:telegraph:20b3d9af5c4f59a2",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + sth (to sb)",
+        "governing_pattern": "I/T: telegraph; telegraph sb; telegraph sth (to sb); telegraph to sb",
         "definition_cn": "打电报给；电汇",
         "definition_en": "to send a message by telegraph",
         "note": "",
@@ -8919,7 +9067,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + sth",
         "definition_cn": "流露；显示出",
-        "definition_en": "to unintentionally show what you are going to do or feel",
+        "definition_en": "to make an intended action or feeling apparent, deliberately or unintentionally",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9013,7 +9161,7 @@
           "target_word": "telegram",
           "lines": [
             {
-              "text": "telegraph is the communication system/device; telegram is a transmitted message",
+              "text": "In the current system/device sense, telegraph names the communication system or apparatus; telegram names a message sent through it.",
               "lang": "en"
             }
           ],
@@ -9540,22 +9688,22 @@
     "ordinal": 4921,
     "word": "tell",
     "source_owner_path": "content/lexical/words/by-ordinal/o4921.json",
-    "source_fingerprint": "d327c32a8067854b289d4d947e784fccee57851ffb97a7bc172f6bcca333a708",
+    "source_fingerprint": "a752160d530eeeffb89da5eaf72e64897d48391fc5184236b1f347387b16eef6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "6V"
+        "7V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "传达信息或辨别某事",
+      "summary_cn": "告诉、讲述或吩咐；辨别、显示；产生影响",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "传达信息或辨别某事"
+        "target_label": "告诉、讲述或吩咐；辨别、显示；产生影响"
       }
     },
     "senses": [
@@ -9633,7 +9781,7 @@
         "id": "sense:tell:37893102ea895b2d",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: tell sb (not) to do sth",
         "definition_cn": "吩咐；命令",
         "definition_en": "to order or instruct someone to do something",
         "note": "",
@@ -9664,7 +9812,7 @@
         "id": "sense:tell:4e1a4925ba9c5312",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: (can) tell; tell (that)...; tell whether/if/how...; tell A from B; tell the difference (between A and B)",
         "definition_cn": "辨别；断定",
         "definition_en": "to discern or distinguish something",
         "note": "",
@@ -9673,18 +9821,28 @@
           {
             "id": "collocation:791e7166768c522d5ac9",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "tell the difference",
-            "meaning_cn": "辨别差异",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "tell the difference (between A and B)",
+            "meaning_cn": "看出、分辨（A与B之间的）差别",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:791e7166768c522d5ac9",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "tell the difference (between A and B)"
+            }
           },
           {
             "id": "collocation:f346272d0e4f00a1d101",
             "source_locator": "record.senses[3].collocations[1]",
             "phrase": "tell A from B",
             "meaning_cn": "区分A和B",
-            "kind": "usage_example",
-            "repair": null
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f346272d0e4f00a1d101",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "tell A from B"
+            }
           }
         ],
         "repair": {
@@ -9698,7 +9856,7 @@
         "id": "sense:tell:d6e03c8ba98c55dd",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "vi.: tell; tell on sb",
         "definition_cn": "泄密；告发",
         "definition_en": "to reveal a secret or inform against someone",
         "note": "",
@@ -9729,10 +9887,10 @@
         "id": "sense:tell:5516694c2c05547a",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vi. + of",
+        "governing_pattern": "vi.: tell; tell of sth",
         "definition_cn": "表明；显示",
-        "definition_en": "to have a noticeable effect or indicate something",
-        "note": "",
+        "definition_en": "to serve as evidence or an indication of something",
+        "note": "表示迹象、显示某事；与tell (on sb)表示产生影响的义项分开。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9754,6 +9912,23 @@
           "target_id": "sense:tell:5516694c2c05547a",
           "target_locator": "record.senses[5]",
           "target_label": "表明；显示"
+        }
+      },
+      {
+        "id": "sense:tell:4ab3a1f4644da08c82ec",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "vi.: tell (on sb/sth)",
+        "definition_cn": "产生明显影响，尤指不良影响",
+        "definition_en": "to have a noticeable effect, especially a harmful one",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tell:4ab3a1f4644da08c82ec",
+          "target_locator": "record.senses[6]",
+          "target_label": "产生明显影响，尤指不良影响"
         }
       }
     ],
@@ -9801,40 +9976,6 @@
           "target_id": "deep:constructions:tell:e4d22f4b7ea0ecd1",
           "target_locator": "record.constructions[0]",
           "target_label": "vt. + sb + sth / vt. + sb + about + sth"
-        }
-      },
-      {
-        "id": "construction:7ce994c574f2b0336316",
-        "source_locator": "record.constructions[1]",
-        "pattern": "tell A from B",
-        "lines": [
-          {
-            "text": "区分 A 与 B",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:7ce994c574f2b0336316",
-          "target_locator": "record.constructions[1]",
-          "target_label": "tell A from B"
-        }
-      },
-      {
-        "id": "construction:1d797cfb6b10cd0d9d74",
-        "source_locator": "record.constructions[2]",
-        "pattern": "tell the difference (between A and B)",
-        "lines": [
-          {
-            "text": "看出、分辨差别",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:1d797cfb6b10cd0d9d74",
-          "target_locator": "record.constructions[2]",
-          "target_label": "tell the difference (between A and B)"
         }
       }
     ],
@@ -10072,7 +10213,7 @@
     "ordinal": 4923,
     "word": "temperament",
     "source_owner_path": "content/lexical/words/by-ordinal/o4923.json",
-    "source_fingerprint": "a7d49b080cdbe4c34ffff4c6f96b0e808ed3fa8671f377b3ea75118513cd4652",
+    "source_fingerprint": "e00517990062dc690ead3cf67f0e288636a11656401cb86bec2bd26c0d3dacaf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10081,13 +10222,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "气质；性格",
+      "summary_cn": "气质、性情；易激动；（音乐）调律法",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "气质；性格"
+        "target_label": "气质、性情；易激动；（音乐）调律法"
       }
     },
     "senses": [
@@ -10161,9 +10302,9 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（乐器调律的）音律调整；平均律",
-        "definition_en": "an adjustment of musical intervals in tuning a keyboard instrument so that it can play in different keys",
-        "note": "",
+        "definition_cn": "（音乐）调律法；音律调整",
+        "definition_en": "a system of adjusting musical intervals when tuning an instrument",
+        "note": "equal temperament是平均律，是temperament的一种；两者不等同。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10184,7 +10325,7 @@
           "target_kind": "sense",
           "target_id": "sense:temperament:2e02b29d0919553c",
           "target_locator": "record.senses[2]",
-          "target_label": "（乐器调律的）音律调整；平均律"
+          "target_label": "（音乐）调律法；音律调整"
         }
       }
     ],
@@ -10288,7 +10429,7 @@
     "ordinal": 4924,
     "word": "temperature",
     "source_owner_path": "content/lexical/words/by-ordinal/o4924.json",
-    "source_fingerprint": "5fd3ab818521e02967146a51a97e08f93658be6cb009dd60d01e466143b0d425",
+    "source_fingerprint": "11a908efc4c1bd51ede8b84797b7c310ce509d518bc3f719821f81c650e26c6b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10543,7 +10684,7 @@
     "ordinal": 4925,
     "word": "temple",
     "source_owner_path": "content/lexical/words/by-ordinal/o4925.json",
-    "source_fingerprint": "570c07aa74ef53867ad400617e74e7f020fcec924331840a16db504eba223e10",
+    "source_fingerprint": "15f6e4a7363c92ce7c2bea17a91065df9040b03dabb8ff6640f682150fd35719",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10606,7 +10747,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "太阳穴，鬓角",
+        "definition_cn": "太阳穴；额头两侧、耳前的平坦部位",
         "definition_en": "the flat area on either side of the forehead",
         "note": "",
         "identity_overlay": null,
@@ -10624,7 +10765,7 @@
           "target_kind": "sense",
           "target_id": "sense:temple:7abec3e987cb513c",
           "target_locator": "record.senses[1]",
-          "target_label": "太阳穴，鬓角"
+          "target_label": "太阳穴；额头两侧、耳前的平坦部位"
         }
       },
       {
@@ -10691,7 +10832,7 @@
     "ordinal": 4926,
     "word": "tempo",
     "source_owner_path": "content/lexical/words/by-ordinal/o4926.json",
-    "source_fingerprint": "c803319443aeaf51d32ee973ab0306097ea8e4c521025426036a4e2408b48717",
+    "source_fingerprint": "f70f06733104b0b98e97309e60c59e7db932636797d2106a43da05d61cf7a7f5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10715,7 +10856,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "音乐的速度，拍子",
+        "definition_cn": "音乐的速度，快慢",
         "definition_en": "the speed at which a piece of music is played",
         "note": "",
         "identity_overlay": null,
@@ -10741,7 +10882,7 @@
           "target_kind": "sense",
           "target_id": "sense:tempo:68a4bc6b7108573f",
           "target_locator": "record.senses[0]",
-          "target_label": "音乐的速度，拍子"
+          "target_label": "音乐的速度，快慢"
         }
       },
       {
@@ -10749,8 +10890,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（事件重复的）速率，节奏",
-        "definition_en": "the rate of some repeating event",
+        "definition_cn": "（活动或事件发展的）速度，节奏",
+        "definition_en": "the pace at which an activity or event proceeds",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10767,7 +10908,7 @@
           "target_kind": "sense",
           "target_id": "sense:tempo:96ce3e614ddc5824",
           "target_locator": "record.senses[1]",
-          "target_label": "（事件重复的）速率，节奏"
+          "target_label": "（活动或事件发展的）速度，节奏"
         }
       }
     ],

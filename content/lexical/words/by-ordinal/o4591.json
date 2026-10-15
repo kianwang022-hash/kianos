@@ -6,7 +6,120 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:speak:bd769af716dfa1dd",
+        "pattern": "speak up",
+        "meaning_cn": "大声一点说",
+        "boundary": "音量不足时的请求；不表示起身讲话。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak-up",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:speak:55bf5bdd6d22eb61",
+        "pattern": "speak up (for sb/sth)",
+        "meaning_cn": "明确发声；为某人或某事说话",
+        "boundary": "强调表达立场或支持；不只指提高音量。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak-up",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:speak:67ced7a7838916b2",
+        "pattern": "speak out (against sth)",
+        "meaning_cn": "公开表态；大胆说出意见（尤指反对某事）",
+        "boundary": "against引出反对对象；也可独用。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak-out",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:speak:6f86abf749d17595",
+        "pattern": "speak for sb/a group",
+        "meaning_cn": "代表某人或群体表达意见",
+        "boundary": "for引出所代表的人；并非只是对他们讲话。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak-for",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:speak:0b0a8cc65a10d9dd",
+        "pattern": "sth speaks for itself / things speak for themselves",
+        "meaning_cn": "某事本身已足以说明问题；不言自明",
+        "boundary": "通常以事实、结果等为主语；不是代替别人发言。",
+        "level": "L2",
+        "direction": "R",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:speak:c75637c795143570",
+        "pattern": "generally speaking",
+        "meaning_cn": "一般说来；总的来说",
+        "boundary": "句子评注，限定概括适用范围。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:speak:b046fb1686c262d6",
+        "pattern": "so to speak",
+        "meaning_cn": "可以说；打个比方说",
+        "boundary": "提示用的是借喻、近似或非字面的说法。",
+        "level": "L2",
+        "direction": "R",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:speak:5ebdc7982b7a68ad",
+        "pattern": "speak volumes (about/for sb/sth)",
+        "meaning_cn": "充分说明；有力表明某人或某事的情况",
+        "boundary": "可由无声事实或行为提供大量信息。",
+        "level": "L2",
+        "direction": "R",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      }
+    ],
     "content_hash": "a6bd48a87da517af4c8592eb16ac2a764c91bb02452b4f3b6b5cef81ceae7a55",
     "core_concept": {
       "core_clusters": [],
@@ -55,15 +168,22 @@
         ],
         "confidence": "medium",
         "definition_cn": "说话，谈话",
-        "definition_en": "to talk to someone about something",
-        "governing_pattern": "vi. + to/with",
+        "definition_en": "to use the voice to say words or have a conversation",
+        "governing_pattern": "speak; speak to/with sb (about sth)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:speak:1e82ffd5a0e75f9b",
-        "sense_label_en": "to talk to someone about something",
+        "sense_label_en": "to use the voice to say words or have a conversation",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "speak可以独用；对某人说话时用to/with，话题常由about引出。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -87,16 +207,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "会说（某种语言）",
-        "definition_en": "to be able to use a particular language",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "会说；用（某种语言）表达",
+        "definition_en": "to know or use a language",
+        "governing_pattern": "speak a language; speak in a language",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:speak:a835dad9f86a558f",
-        "sense_label_en": "to be able to use a particular language",
+        "sense_label_en": "to know or use a language",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "usage_note": "能力义通常用一般时；实际正在使用某种语言可用进行时。直接宾语是语言，不把人直接放在speak后表示与其交谈。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -122,14 +249,20 @@
         "confidence": "medium",
         "definition_cn": "演讲，发言",
         "definition_en": "to make a formal speech to an audience",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "speak (to an audience) (at an event/on or about a topic)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:speak:31101376e2785e29",
         "sense_label_en": "to make a formal speech to an audience",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -146,14 +279,53 @@
         "confidence": "medium",
         "definition_cn": "提到，谈及",
         "definition_en": "to mention or describe something in speech or writing",
-        "governing_pattern": "vi. + of",
+        "governing_pattern": "speak of/about sb/sth",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:speak:31602bf55d9c5d98",
         "sense_label_en": "to mention or describe something in speech or writing",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:speak:d09d01dabcff5111",
+        "pos": "verb",
+        "definition_cn": "说出；表达（真相、话语等）",
+        "definition_en": "to utter or state words or a truth",
+        "sense_label_en": "to utter or state words or a truth",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "speak the truth/words",
+        "transitivity": "vt",
+        "usage_note": "直接宾语为说出的内容。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:c425984af9aae4a709c3",
+            "phrase": "speak the truth",
+            "meaning_cn": "说实话；说出真相",
+            "exam_value": "fixed_pattern",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak_1",
+                "role": "bounded semantic support; independently authored lexical wording"
+              }
+            ]
+          }
+        ],
+        "sort_order": 4,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/speak_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -444,6 +616,12 @@
         "merged_into_sense_id": null,
         "source_row": 12989,
         "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json"
+      },
+      {
+        "sense_id": "sense:speak:d09d01dabcff5111",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4591.json"
       }
     ],
     "active_collocations": [
@@ -454,7 +632,8 @@
       "collocation:543d96f86ccb2ff3acc1",
       "collocation:982debcacfc101c2eeb4",
       "collocation:da9b4bd7520a9eba987e",
-      "collocation:f40ec24e2f80dd13652f"
+      "collocation:f40ec24e2f80dd13652f",
+      "collocation:c425984af9aae4a709c3"
     ],
     "facts": [],
     "collocations": [
@@ -497,6 +676,10 @@
         "id": "collocation:f40ec24e2f80dd13652f",
         "source_row": 20674,
         "source_path": "content/lexical/canonical/collocations/shards/o4577-4608.json"
+      },
+      {
+        "id": "collocation:c425984af9aae4a709c3",
+        "source_path": "content/lexical/words/by-ordinal/o4591.json"
       }
     ],
     "exam-mappings": [],

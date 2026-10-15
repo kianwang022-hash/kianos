@@ -5,7 +5,7 @@
     "ordinal": 4737,
     "word": "stress",
     "source_owner_path": "content/lexical/words/by-ordinal/o4737.json",
-    "source_fingerprint": "c8867f9de237decf2e63b9736dc87f6482ba014bd9c008d31006d65ba78b2392",
+    "source_fingerprint": "0c0d95afe624b5dc31566770fce719cbba7f67e6d953b2c58a7e67b4ef01a2fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -15,13 +15,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "压力或强调",
-      "decision_cn": "",
+      "summary_cn": "承受的压力，或施加的强调",
+      "decision_cn": "情绪与生活处境中是压力；观点或 that 从句前是强调；音节前是重音/重读；材料受力语境中是应力。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "压力或强调"
+        "target_label": "承受的压力，或施加的强调"
       }
     },
     "senses": [
@@ -265,24 +265,24 @@
     "ordinal": 4738,
     "word": "stretch",
     "source_owner_path": "content/lexical/words/by-ordinal/o4738.json",
-    "source_fingerprint": "6a3740247368be1ecd366739d62ee81fbd8dc9125c3747f2995866f07ca42c29",
+    "source_fingerprint": "16c5a13ce1080be63b1571c8087e10f3f851f1615dcb4428301f0b1696c42830",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "4V",
         "1A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "伸展或延伸至全长或全宽",
-      "decision_cn": "",
+      "summary_cn": "把长度、范围或承受限度拉开",
+      "decision_cn": "身体或材料看伸展、拉长；空间和时间看延伸；预算、能力、耐心看被推到极限；a stretch of 是连续的一段。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "伸展或延伸至全长或全宽"
+        "target_label": "把长度、范围或承受限度拉开"
       }
     },
     "senses": [
@@ -290,17 +290,17 @@
         "id": "sense:stretch:c00ddafe3b5759be",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: stretch; stretch your arms/legs",
         "definition_cn": "伸展（四肢或身体部位）至全长",
         "definition_en": "to extend (a limb or body part) to its full length",
-        "note": "",
+        "note": "可不带宾语表示伸展身体；stretch your legs 也常指久坐后走动活动腿脚。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:2b28a4513bd75cd799dc",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "stretch one's legs",
-            "meaning_cn": "伸腿",
+            "meaning_cn": "伸展双腿；（久坐后）走动活动腿脚",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -433,6 +433,63 @@
           "target_locator": "record.senses[3]",
           "target_label": "可伸缩的，弹性的"
         }
+      },
+      {
+        "id": "sense:stretch:e0f3ffe95c5acf8c",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "I/T: stretch (sth)",
+        "definition_cn": "（使材料）拉长、撑宽；伸缩",
+        "definition_en": "to make material longer or wider by pulling, or become longer or wider when pulled",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a4f259cbc329ab6f6d78",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "The elastic stretches easily.",
+            "meaning_cn": "这条松紧带很容易拉长。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stretch:e0f3ffe95c5acf8c",
+          "target_locator": "record.senses[4]",
+          "target_label": "（使材料）拉长、撑宽；伸缩"
+        }
+      },
+      {
+        "id": "sense:stretch:83283f685c7dc5b5",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "stretch sb/sth (to the limit)",
+        "definition_cn": "使能力、资源等发挥到极限；使超出通常限度",
+        "definition_en": "to demand the full capacity of someone or something, or push beyond a usual limit",
+        "note": "预算、耐心、能力作宾语时看承受限度，不是物体长度。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:723534da3065f38bda0a",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "stretch resources to the limit",
+            "meaning_cn": "使资源的使用达到极限",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:723534da3065f38bda0a",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "stretch resources to the limit"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stretch:83283f685c7dc5b5",
+          "target_locator": "record.senses[5]",
+          "target_label": "使能力、资源等发挥到极限；使超出通常限度"
+        }
       }
     ],
     "pronunciation_support": {
@@ -477,7 +534,26 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e891a75e484d11c2ec3b",
+        "sense_id": "sense:stretch:b272d69d3c305bb2",
+        "source_locator": "record.constructions[0]",
+        "pattern": "for + duration + at a stretch",
+        "lines": [
+          {
+            "text": "连续、不间断地做这么长时间",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e891a75e484d11c2ec3b",
+          "target_locator": "record.constructions[0]",
+          "target_label": "for + duration + at a stretch"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -632,7 +708,7 @@
     "ordinal": 4740,
     "word": "stride",
     "source_owner_path": "content/lexical/words/by-ordinal/o4740.json",
-    "source_fingerprint": "610af4e20f65d43599fc573530c5c134d486e8d08b41132a20e84b2ada2a0f2c",
+    "source_fingerprint": "ce442c2bc5fd3bdfc8394a5156c4fb05d57a7def91fb40c1749ba8a46264dc8b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -643,7 +719,7 @@
     },
     "word_feel": {
       "summary_cn": "大步走；大步",
-      "decision_cn": "",
+      "decision_cn": "行走语境看大步或步幅；make strides in/towards 是取得进步；take sth in stride 是从容应对，不是迈过一个实物。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -945,23 +1021,23 @@
     "ordinal": 4742,
     "word": "strike",
     "source_owner_path": "content/lexical/words/by-ordinal/o4742.json",
-    "source_fingerprint": "efa0e7427ff3933ffe5d598a54059b93cabdd68e0078b71f57b0bcbecb621b89",
+    "source_fingerprint": "c33fb96ed67fc31515c174b692fea36de3a015eb3e4724c06a8eb8f8b39e3cfa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(4+1)V",
+        "6V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "打击；罢工",
-      "decision_cn": "",
+      "summary_cn": "突然有力地作用于人或事；也指停工抗议",
+      "decision_cn": "实物宾语看撞击；灾难作主语看突然袭来；钟作主语看报时；sb as 看印象、it strikes sb that 看突然想到；deal/balance 看达成，workers/strike for 看罢工。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "打击；罢工"
+        "target_label": "突然有力地作用于人或事；也指停工抗议"
       }
     },
     "senses": [
@@ -1154,7 +1230,7 @@
         "governing_pattern": "strike sb as + adjective/noun",
         "definition_cn": "给某人以……印象；在某人看来似乎……",
         "definition_en": "to seem or appear to someone in a particular way",
-        "note": "",
+        "note": "strike sb as + 描述：给人的印象；it strikes sb that ...：突然意识到某事。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1176,6 +1252,54 @@
           "target_id": "sense:strike:ce94f06dda1800bb",
           "target_locator": "record.senses[5]",
           "target_label": "给某人以……印象；在某人看来似乎……"
+        }
+      },
+      {
+        "id": "sense:strike:595525dd5c0d184e",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "I/T: disaster strikes; strike sb/a place",
+        "definition_cn": "（灾难、疾病等）突然发生或袭击",
+        "definition_en": "of a disaster or illness, to happen suddenly or affect someone or somewhere",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2b430c3bc26ae51696ec",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "disaster strikes",
+            "meaning_cn": "灾难突然降临",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:2b430c3bc26ae51696ec",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "disaster strikes"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:strike:595525dd5c0d184e",
+          "target_locator": "record.senses[6]",
+          "target_label": "（灾难、疾病等）突然发生或袭击"
+        }
+      },
+      {
+        "id": "sense:strike:e5848928370ce069",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "I/T: the clock strikes (an hour); midnight strikes",
+        "definition_cn": "（钟）鸣响报时；（时间）到来",
+        "definition_en": "of a clock, to sound the hour; of an hour, to arrive with a clock sounding",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:strike:e5848928370ce069",
+          "target_locator": "record.senses[7]",
+          "target_label": "（钟）鸣响报时；（时间）到来"
         }
       }
     ],
@@ -1199,46 +1323,61 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:strike:43021bf664e97379",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "突然想到",
-        "definition_en": "to suddenly come into one's mind",
-        "pattern": "it struck me that 突然想到",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:strike:43021bf664e97379",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "突然想到"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:a7b56df0e2f5f258b695",
-        "source_locator": "record.constructions[0]",
-        "pattern": "strike sb as + adj/noun",
+        "id": "construction:31e12393b85e9ca4dc2a",
+        "source_locator": "record.constructions[1]",
+        "pattern": "strike a deal/agreement (with sb)",
         "lines": [
           {
-            "text": "给某人以……的印象；在某人看来似乎……",
+            "text": "（与某人）达成交易或协议",
             "lang": "cn"
           },
           {
-            "text": "impression/seeming branch, distinct from it strikes sb that ... = suddenly occur to mind",
-            "lang": "en"
-          },
-          {
-            "text": "to seem or appear to someone in a particular way",
-            "lang": "en"
+            "text": "deal/agreement 是达成的结果，不是被击打的对象。",
+            "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:a7b56df0e2f5f258b695",
-          "target_locator": "record.constructions[0]",
-          "target_label": "strike sb as + adj/noun"
+          "target_id": "construction:31e12393b85e9ca4dc2a",
+          "target_locator": "record.constructions[1]",
+          "target_label": "strike a deal/agreement (with sb)"
+        }
+      },
+      {
+        "id": "construction:26c96b15ff51d0ff1330",
+        "source_locator": "record.constructions[2]",
+        "pattern": "strike a balance between A and B",
+        "lines": [
+          {
+            "text": "在两种需求之间取得恰当平衡",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:26c96b15ff51d0ff1330",
+          "target_locator": "record.constructions[2]",
+          "target_label": "strike a balance between A and B"
+        }
+      },
+      {
+        "id": "construction:217d974cf58b1aba50e0",
+        "source_locator": "record.constructions[3]",
+        "pattern": "strike a match",
+        "lines": [
+          {
+            "text": "擦划火柴使其点燃",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:217d974cf58b1aba50e0",
+          "target_locator": "record.constructions[3]",
+          "target_label": "strike a match"
         }
       }
     ],
@@ -1255,7 +1394,7 @@
     "ordinal": 4743,
     "word": "striking",
     "source_owner_path": "content/lexical/words/by-ordinal/o4743.json",
-    "source_fingerprint": "2ffb37e3bb514aefe3a8f0cc508826383b49a7f67dcfc77e8fbf8be30be11e83",
+    "source_fingerprint": "6aba89dcec5ba666bd25254ed212867722dd4393ab60439426b3ec0e63e22104",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1315,7 +1454,7 @@
         "governing_pattern": "",
         "definition_cn": "打击的，罢工的",
         "definition_en": "related to striking (hitting) or striking (as in a strike)",
-        "note": "",
+        "note": "striking workers 是正在罢工的工人；striking + 相似、差异、外貌等通常是显著或引人注目。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1391,23 +1530,23 @@
     "ordinal": 4744,
     "word": "string",
     "source_owner_path": "content/lexical/words/by-ordinal/o4744.json",
-    "source_fingerprint": "6a66231c2759a602b90d62a0584d9c2fad592c9ca254491c5937e115d3b2e3a1",
+    "source_fingerprint": "eec1bec475e1022f44c8e0907c0fc258152f6dd59f78c96610a0ff63d2f17d9f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "细绳或一系列事物",
-      "decision_cn": "",
+      "summary_cn": "一根细长的线，或沿线接续的一串",
+      "decision_cn": "实体可为细绳或乐器弦；of 后接一系列事物，计算机中是字符序列；the strings 可指弦乐声部，strings attached 则是附带条件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "细绳或一系列事物"
+        "target_label": "一根细长的线，或沿线接续的一串"
       }
     },
     "senses": [
@@ -1524,10 +1663,10 @@
         "id": "sense:string:cb96e440d23c5d3e",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi. + into",
+        "governing_pattern": "vi.; optional directional/result complement",
         "definition_cn": "成一串",
         "definition_en": "to form into a string or series",
-        "note": "",
+        "note": "此不及物义表示形成或接续成一线、一串；into + 结果结构可表串成某种队列或系列，into 不是必需介词，也不是任何宾语都可接。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1549,6 +1688,32 @@
           "target_id": "sense:string:cb96e440d23c5d3e",
           "target_locator": "record.senses[4]",
           "target_label": "成一串"
+        }
+      },
+      {
+        "id": "sense:string:41065b9ba2fcbae3",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（乐器的）弦；（复数）弦乐器或弦乐声部",
+        "definition_en": "a cord on an instrument that vibrates to make notes; in the plural, string instruments or their players",
+        "note": "guitar string 指一根弦；the strings 可指乐队中的弦乐声部。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:90a5ac3cfb4701601dbf",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "guitar strings",
+            "meaning_cn": "吉他弦",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:string:41065b9ba2fcbae3",
+          "target_locator": "record.senses[5]",
+          "target_label": "（乐器的）弦；（复数）弦乐器或弦乐声部"
         }
       }
     ],
@@ -1573,7 +1738,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:b24d80a96b24c705fffe",
+        "source_locator": "record.constructions[0]",
+        "pattern": "with (no) strings attached",
+        "lines": [
+          {
+            "text": "附带（不附带）条件或义务",
+            "lang": "cn"
+          },
+          {
+            "text": "这里 strings 用复数，谈的是接受好处所伴随的约束。",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:b24d80a96b24c705fffe",
+          "target_locator": "record.constructions[0]",
+          "target_label": "with (no) strings attached"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1587,7 +1774,7 @@
     "ordinal": 4745,
     "word": "strip",
     "source_owner_path": "content/lexical/words/by-ordinal/o4745.json",
-    "source_fingerprint": "eaf84886fdd99059497b70ad1cf1f2ecd637f836de0b2b38320f8c621935e3f7",
+    "source_fingerprint": "8768d0af1cb7b079a8a70e8e53e9010c6449d6e1416b59bbad7b79788e357f80",
     "sense_lineage": [
       {
         "word_id": "word:strip",
@@ -1612,13 +1799,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "长条，条状物；剥去，剥掉；剥夺，夺取",
-      "decision_cn": "",
+      "summary_cn": "长而窄的一条；动词把覆盖物、衣物或权利去掉",
+      "decision_cn": "名词看形状；动词接覆盖物/被覆盖物时是剥去，接人和 of + 权利时是剥夺；不带宾语或接 off/down to 衣物时是脱衣。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "长条，条状物；剥去，剥掉；剥夺，夺取"
+        "target_label": "长而窄的一条；动词把覆盖物、衣物或权利去掉"
       }
     },
     "senses": [
@@ -1643,10 +1830,10 @@
         "id": "sense:strip:38752787452850b4",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "strip sth off/from sth; strip sth of sth",
         "definition_cn": "剥去，剥掉",
         "definition_en": "to remove the covering or outer layer from something",
-        "note": "",
+        "note": "strip paint from a door：先说移除的东西；strip a door of paint：先说被剥去覆盖物的对象。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -1665,7 +1852,21 @@
         "definition_en": "to take away property or rights from someone",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:59c90115f45f96474046",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "strip sb of sth",
+            "meaning_cn": "剥夺某人的某物、权利或地位",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:59c90115f45f96474046",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "strip sb of sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:strip:a2dbc7e379fb57b4",
@@ -1678,8 +1879,8 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "I/T: strip; strip off; strip down to sth; strip sb",
-        "definition_cn": "脱衣服；脱去衣物",
-        "definition_en": "to take off one's clothes, partly or completely",
+        "definition_cn": "脱去自己或他人的衣物",
+        "definition_en": "to remove one's own clothes or someone else's clothes, partly or completely",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1714,7 +1915,7 @@
           "target_kind": "sense",
           "target_id": "sense:strip:4df95538ee8b53e2",
           "target_locator": "record.senses[3]",
-          "target_label": "脱衣服；脱去衣物"
+          "target_label": "脱去自己或他人的衣物"
         }
       }
     ],
@@ -1760,37 +1961,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:strip:956f6507e4b1bf11",
-        "source_locator": "record.constructions[0]",
-        "pattern": "strip sb of sth",
-        "lines": [
-          {
-            "text": "剥夺某人的某物、权利或地位",
-            "lang": "cn"
-          },
-          {
-            "text": "剥夺，夺取",
-            "lang": "cn"
-          },
-          {
-            "text": "strip sb of sth 剥夺",
-            "lang": "cn"
-          },
-          {
-            "text": "to take away property or rights from someone",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:strip:956f6507e4b1bf11",
-          "target_locator": "record.constructions[0]",
-          "target_label": "strip sb of sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1856,7 +2027,7 @@
     "ordinal": 4746,
     "word": "stripe",
     "source_owner_path": "content/lexical/words/by-ordinal/o4746.json",
-    "source_fingerprint": "61b367f8df03fb0deb185ac87123b59b256d72082eb01b6fa711d35fbf6496c8",
+    "source_fingerprint": "e4c070e6c6343718e6b3459be8a75f730efe1c61eb26dd71fe79c33daa18b16c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1867,7 +2038,7 @@
     },
     "word_feel": {
       "summary_cn": "长条形的不同颜色或质地带",
-      "decision_cn": "",
+      "decision_cn": "视觉上是条纹；军服上可标军衔；of a different stripe 等结构按人的类型、立场或风格理解，不要求真有条纹。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2141,7 +2312,7 @@
     "ordinal": 4748,
     "word": "stroke",
     "source_owner_path": "content/lexical/words/by-ordinal/o4748.json",
-    "source_fingerprint": "6ac8374dd95bba01759e9951e337788d38b136c2f57bed51f4f77c55774772a2",
+    "source_fingerprint": "2451cf8f46345a62146802ffe5fd7034615c148148b7f9b548b6cfe9c4ce9a72",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2151,13 +2322,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "卒中；脑部血供突然中断或脑内出血造成的急性脑血管事件，可能但并非必须伴随意识丧失；笔画；抚摸；游泳时一次完整的划水动作；泳姿中的一个划水循环",
-      "decision_cn": "",
+      "summary_cn": "一次划动或接触留下的动作、痕迹；另有卒中这一独立义",
+      "decision_cn": "笔刷语境看笔画，手与皮肤看抚摸，球类看击球，游泳看动作或泳姿；have a stroke 是卒中；of luck/genius 是好运或妙举。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "卒中；脑部血供突然中断或脑内出血造成的急性脑血管事件，可能但并非必须伴随意识丧失；笔画；抚摸；游泳时一次完整的划水动作；泳姿中的一个划水循环"
+        "target_label": "一次划动或接触留下的动作、痕迹；另有卒中这一独立义"
       }
     },
     "senses": [
@@ -2301,16 +2472,16 @@
         "source_locator": "record.senses[5]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "游泳时一次完整的划水动作；泳姿中的一个划水循环",
-        "definition_en": "one complete movement or cycle of the arms/legs in swimming; a swimming stroke",
-        "note": "",
+        "definition_cn": "游泳时的一次划水动作；泳姿或游泳方式",
+        "definition_en": "a swimming movement or cycle, or a particular method of swimming",
+        "note": "数动作时是一次划水；问 best stroke 或谈 butterfly stroke 时可指泳姿。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:stroke:9065a268290030c8",
           "target_locator": "record.senses[5]",
-          "target_label": "游泳时一次完整的划水动作；泳姿中的一个划水循环"
+          "target_label": "游泳时的一次划水动作；泳姿或游泳方式"
         }
       }
     ],
@@ -2347,7 +2518,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:1584d2d5c65959180b86",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a stroke of luck/genius",
+        "lines": [
+          {
+            "text": "一次突如其来的好运；一个巧妙之举",
+            "lang": "cn"
+          },
+          {
+            "text": "luck/genius 选择事件或妙举义，不是身体动作或卒中。",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1584d2d5c65959180b86",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a stroke of luck/genius"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2517,7 +2710,7 @@
     "ordinal": 4750,
     "word": "strong",
     "source_owner_path": "content/lexical/words/by-ordinal/o4750.json",
-    "source_fingerprint": "84c28fffa5706267ebfdb2af2d69679bdd8aa263fa00e44038f47be779f2c9b8",
+    "source_fingerprint": "f9958d8cd735acac5a2c7bc96b3f3419b25da3b185c4e52a2cf451448a291da8",
     "sense_lineage": [
       {
         "word_id": "word:strong",
@@ -2536,18 +2729,18 @@
     ],
     "recall_map": {
       "parts": [
-        "3A"
+        "6A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "强壮的，有力的；强烈的，猛烈的；坚强的，坚定的",
-      "decision_cn": "",
+      "summary_cn": "力量、承受力或效力高；由所修饰的对象决定怎样“强”",
+      "decision_cn": "人可指体力或意志；绳索和结构看牢固；风、气味和咖啡看强度或浓度；evidence/argument 看说服力；swimmer、科目等看能力。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "强壮的，有力的；强烈的，猛烈的；坚强的，坚定的"
+        "target_label": "力量、承受力或效力高；由所修饰的对象决定怎样“强”"
       }
     },
     "senses": [
@@ -2573,16 +2766,30 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "强烈的，猛烈的",
-        "definition_en": "intense or forceful in degree",
-        "note": "",
+        "definition_cn": "强烈的，猛烈的；（味道、气味、饮料等）浓烈的",
+        "definition_en": "intense in force or degree, or pronounced in taste, smell or concentration",
+        "note": "strong wind 是风力强；strong coffee 是味道浓，不是身体强壮。",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:1e0ddb7a598e83b1d9c7",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "strong coffee",
+            "meaning_cn": "浓咖啡",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1e0ddb7a598e83b1d9c7",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "strong coffee"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:strong:a32549a64679557d",
           "target_locator": "record.senses[1]",
-          "target_label": "强烈的，猛烈的"
+          "target_label": "强烈的，猛烈的；（味道、气味、饮料等）浓烈的"
         }
       },
       {
@@ -2591,8 +2798,8 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "坚强的，坚定的",
-        "definition_en": "not weak or feeble",
-        "note": "",
+        "definition_en": "firm, determined or resilient in character or belief",
+        "note": "人的意志、性格或信念坚定；不等同于体力强。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -2600,6 +2807,80 @@
           "target_id": "sense:strong:8856a79255c358b9",
           "target_locator": "record.senses[2]",
           "target_label": "坚强的，坚定的"
+        }
+      },
+      {
+        "id": "sense:strong:af1468bb3350c919",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "结实的；牢固的；不易损坏的",
+        "definition_en": "able to bear force or weight without breaking or failing",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4ccdb914061e94cb69b3",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a strong rope",
+            "meaning_cn": "结实的绳子",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:strong:af1468bb3350c919",
+          "target_locator": "record.senses[3]",
+          "target_label": "结实的；牢固的；不易损坏的"
+        }
+      },
+      {
+        "id": "sense:strong:366f57fa7bfbf588",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（证据、论据等）有说服力的；有力的",
+        "definition_en": "convincing or well supported, as an argument or evidence",
+        "note": "修饰 evidence/argument/case 时看支持结论的力度。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:8a77520d8486f8b35ab1",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "strong evidence",
+            "meaning_cn": "有力的证据",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8a77520d8486f8b35ab1",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "strong evidence"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:strong:366f57fa7bfbf588",
+          "target_locator": "record.senses[4]",
+          "target_label": "（证据、论据等）有说服力的；有力的"
+        }
+      },
+      {
+        "id": "sense:strong:7307308b1af827d3",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "strong on sth; a strong + person-role",
+        "definition_cn": "擅长的；能力强的；表现出色的",
+        "definition_en": "skilled or effective in a particular activity",
+        "note": "a strong swimmer 是游泳能力强；strong on technique 指技术方面能力强。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:strong:7307308b1af827d3",
+          "target_locator": "record.senses[5]",
+          "target_label": "擅长的；能力强的；表现出色的"
         }
       }
     ],
@@ -2892,11 +3173,11 @@
     "ordinal": 4752,
     "word": "struggle",
     "source_owner_path": "content/lexical/words/by-ordinal/o4752.json",
-    "source_fingerprint": "575afff09fbc09aaa4fc7159e7163622a49b206f3bc49b8452ae322ad4473204",
+    "source_fingerprint": "b13451778a1701f61a83ff1f87381b04591908bcdf196f84123ae46744608b5c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
@@ -2919,7 +3200,7 @@
         "governing_pattern": "vi.: struggle with sth; struggle against sb/sth; struggle to do sth",
         "definition_cn": "努力，奋斗",
         "definition_en": "to try very hard to do something difficult",
-        "note": "",
+        "note": "struggle to do sth 表费力尝试；接 along/out of 等方向成分时可表示艰难地移动。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2999,6 +3280,37 @@
           "target_locator": "record.senses[1]",
           "target_label": "斗争，奋斗"
         }
+      },
+      {
+        "id": "sense:struggle:d78040d1b1e8cb60",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "I: struggle with/against sb; struggle to get free",
+        "definition_cn": "挣扎；扭打；奋力摆脱控制",
+        "definition_en": "to fight physically or move forcefully in an attempt to get free",
+        "note": "with/against 接人或控制力量时可指身体搏斗；to do sth 则强调费力完成某事。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:struggle:4716d4ab034101da",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "struggle with/against sb",
+            "meaning_cn": "与某人搏斗；挣扎抗拒某人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:struggle:4716d4ab034101da",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "struggle with/against sb"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:struggle:d78040d1b1e8cb60",
+          "target_locator": "record.senses[2]",
+          "target_label": "挣扎；扭打；奋力摆脱控制"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3050,7 +3362,7 @@
     "ordinal": 4753,
     "word": "stubborn",
     "source_owner_path": "content/lexical/words/by-ordinal/o4753.json",
-    "source_fingerprint": "8295b9498bcafead78ab4dbac2249056e8fc174dc524a8180414710f9d837011",
+    "source_fingerprint": "5034390c2784dd484ecd3c9210ebffa5a581fc43d412e493874ac6492890971e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3059,13 +3371,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "拒绝改变主意或行为",
-      "decision_cn": "",
+      "summary_cn": "坚持不变或难以改变：人固执，问题或污渍难处理",
+      "decision_cn": "看所修饰的对象：人不肯改变想法或行为；污渍、问题等则难以去除或解决。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "拒绝改变主意或行为"
+        "target_label": "坚持不变或难以改变：人固执，问题或污渍难处理"
       }
     },
     "senses": [
@@ -3190,11 +3502,11 @@
     "ordinal": 4754,
     "word": "student",
     "source_owner_path": "content/lexical/words/by-ordinal/o4754.json",
-    "source_fingerprint": "0a85ca081102cf11f973a230e065a602219656a52ee5c1571c742d0d428a984e",
+    "source_fingerprint": "514a2a8dd2cd84fc624b1c78652e699521b8a560c583e6d97e560e045ad9b828",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -3233,6 +3545,37 @@
           "target_id": "sense:student:7821430800de5fa4",
           "target_locator": "record.senses[0]",
           "target_label": "学生"
+        }
+      },
+      {
+        "id": "sense:student:00414e1bede70b1d",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a student of sth",
+        "definition_cn": "（某领域的）研究者；留心观察者",
+        "definition_en": "someone who studies or takes a close interest in a particular subject, without necessarily attending a school",
+        "note": "较正式；student of human nature 等不必指在校学生。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:student:ec2adfa9ff2330b6",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "a student of sth",
+            "meaning_cn": "研究、留心观察某领域的人",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:student:ec2adfa9ff2330b6",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "a student of sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:student:00414e1bede70b1d",
+          "target_locator": "record.senses[1]",
+          "target_label": "（某领域的）研究者；留心观察者"
         }
       }
     ],
@@ -3294,7 +3637,7 @@
     "ordinal": 4755,
     "word": "studio",
     "source_owner_path": "content/lexical/words/by-ordinal/o4755.json",
-    "source_fingerprint": "112353ae569405a67a5d5cfef5e06235e47e0fe3f3b0c53ae26030e0e9a6600c",
+    "source_fingerprint": "47a6c5c29316d1c01778b04adfdc4b1e33adb8900fecf2377fe69f3483b49205",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3304,7 +3647,7 @@
     },
     "word_feel": {
       "summary_cn": "用于艺术创作、音乐、影视制作或广播的房间或建筑",
-      "decision_cn": "",
+      "decision_cn": "艺术、录音、影视语境指创作或制作空间；住房广告中 studio 指起居和睡眠区域合一的单间公寓。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3446,7 +3789,7 @@
     "ordinal": 4756,
     "word": "study",
     "source_owner_path": "content/lexical/words/by-ordinal/o4756.json",
-    "source_fingerprint": "d12ae72c589855e788997739c1f5d6d14b3f9a386ca5c7587a02feab044afc6a",
+    "source_fingerprint": "0a04bc618748e16b37485ed5d61eda4c2e5a17dac985dd2d9fa8e2973a51019a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3538,7 +3881,7 @@
         "id": "sense:study:7902cf20b35d5054",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "U: study; the study of sth",
         "definition_cn": "学习，研究",
         "definition_en": "the activity of learning or gaining knowledge",
         "note": "",
@@ -3549,14 +3892,6 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "field of study",
             "meaning_cn": "研究领域",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:b2ff25052fe166805284",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "case study",
-            "meaning_cn": "案例研究",
             "kind": "usage_example",
             "repair": null
           }
@@ -3598,12 +3933,21 @@
         "id": "sense:study:2d232c31f3055d05",
         "source_locator": "record.senses[4]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "C: a study of/on sth; studies",
         "definition_cn": "研究；调查；研究项目",
         "definition_en": "a piece of research or investigation",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:b2ff25052fe166805284",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "case study",
+            "meaning_cn": "案例研究",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:study:2d232c31f3055d05",
@@ -3647,11 +3991,11 @@
     "ordinal": 4757,
     "word": "stuff",
     "source_owner_path": "content/lexical/words/by-ordinal/o4757.json",
-    "source_fingerprint": "810f444a0dbfdcb04fb924e1d7c8fd84d74f2d69e90708a145659446dd8d10ca",
+    "source_fingerprint": "169c6a6d614c52010644c4d4e9b19a4e8e4ca97674def5946bcdaf4ec6a918d0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
@@ -3671,10 +4015,10 @@
         "id": "sense:stuff:56371cafbb8a58a0",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "U: stuff",
         "definition_cn": "东西，材料",
         "definition_en": "used to refer to a substance, material, or a group of objects when you do not know or say exactly what they are",
-        "note": "",
+        "note": "非正式，泛指东西、材料或事情；此义不可数，不用 a stuff 或普通复数 stuffs。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3744,6 +4088,37 @@
           "target_locator": "record.senses[1]",
           "target_label": "填塞，装满"
         }
+      },
+      {
+        "id": "sense:stuff:432f6e1faefc3ee8",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "T: stuff A into/in B",
+        "definition_cn": "把……塞进；胡乱或用力塞入",
+        "definition_en": "to push something quickly or roughly into a place",
+        "note": "A 是被塞入的东西，B 是容器或位置；stuff B with A 则以容器 B 作宾语。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:stuff:067de2ff2caaee24",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "stuff A into B",
+            "meaning_cn": "把A塞进B",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:stuff:067de2ff2caaee24",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "stuff A into B"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stuff:432f6e1faefc3ee8",
+          "target_locator": "record.senses[2]",
+          "target_label": "把……塞进；胡乱或用力塞入"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3781,7 +4156,7 @@
     "ordinal": 4758,
     "word": "stumble",
     "source_owner_path": "content/lexical/words/by-ordinal/o4758.json",
-    "source_fingerprint": "a11e16072bfa11c862d6e225198d59c4e3f30b1d4bf10bf76101299d23dc89a6",
+    "source_fingerprint": "b2414c050042e688fe8522687021c9dcda2e00d66b566cba3e93815fc9d4c706",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3790,13 +4165,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "绊倒或犯错",
+      "summary_cn": "绊了一下或犯错",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "绊倒或犯错"
+        "target_label": "绊了一下或犯错"
       }
     },
     "senses": [
@@ -3804,17 +4179,17 @@
         "id": "sense:stumble:13890c47e0395064",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + on/over",
-        "definition_cn": "绊倒",
-        "definition_en": "to trip and lose balance",
-        "note": "",
+        "governing_pattern": "I: stumble over/on sth; stumble + direction",
+        "definition_cn": "绊了一下；失去平衡；踉跄着走",
+        "definition_en": "to trip or lose balance, or to walk unsteadily",
+        "note": "绊了一下不一定真正摔倒；over/on 接地面障碍时是绊脚，across/upon/on 接新发现的人或事物时通常是偶然遇见。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:2f38be2c75c949d63dd8",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "stumble on + sth",
-            "meaning_cn": "被……绊倒",
+            "meaning_cn": "被……绊了一下；在……上绊了一下",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -3827,7 +4202,7 @@
             "id": "collocation:22fcc0093db466365f16",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "stumble over + sth",
-            "meaning_cn": "被……绊倒",
+            "meaning_cn": "被……绊了一下；在……上绊了一下",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -3841,7 +4216,7 @@
           "target_kind": "sense",
           "target_id": "sense:stumble:13890c47e0395064",
           "target_locator": "record.senses[0]",
-          "target_label": "绊倒"
+          "target_label": "绊了一下；失去平衡；踉跄着走"
         }
       },
       {
@@ -3996,7 +4371,7 @@
     "ordinal": 4759,
     "word": "stun",
     "source_owner_path": "content/lexical/words/by-ordinal/o4759.json",
-    "source_fingerprint": "809446a8a334d006d9c3ba8bc330165cd815dfaf35d8391aeb91acac3fb1cd38",
+    "source_fingerprint": "2fd5ee62d49c0359806e8d01999e12aa22b75ec13bd13a2d16c499dfc4c07369",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4006,13 +4381,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使昏迷；使震惊",
-      "decision_cn": "",
+      "summary_cn": "使发懵、眩晕或昏迷；使震惊",
+      "decision_cn": "身体受击可发懵、眩晕甚至昏迷；消息等则让人震惊、目瞪口呆。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使昏迷；使震惊"
+        "target_label": "使发懵、眩晕或昏迷；使震惊"
       }
     },
     "senses": [
@@ -4021,16 +4396,16 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "打昏；使昏迷",
+        "definition_cn": "使发懵、眩晕或昏迷",
         "definition_en": "make senseless or dizzy by or as if by a blow",
-        "note": "",
+        "note": "不一定失去意识；也可只是受到一击后发懵、眩晕。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:f9684b84cc480cd86d1a",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "stun with a blow",
-            "meaning_cn": "一击打昏",
+            "meaning_cn": "一击使人发懵、眩晕或昏迷",
             "kind": "usage_example",
             "repair": null
           }
@@ -4039,7 +4414,7 @@
           "target_kind": "sense",
           "target_id": "sense:stun:0078e446acb159a7",
           "target_locator": "record.senses[0]",
-          "target_label": "打昏；使昏迷"
+          "target_label": "使发懵、眩晕或昏迷"
         }
       },
       {
@@ -4082,7 +4457,7 @@
             "id": "collocation:a1450b4e5475edbb9893",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "in a stun",
-            "meaning_cn": "处于昏迷状态",
+            "meaning_cn": "处于发懵、眩晕或震惊状态",
             "kind": "usage_example",
             "repair": null
           }
@@ -4140,7 +4515,7 @@
     "ordinal": 4760,
     "word": "stupid",
     "source_owner_path": "content/lexical/words/by-ordinal/o4760.json",
-    "source_fingerprint": "eaeb69346b0985cfeb43ec7dadb3e4741714f71fbb3b07b7aabb4502d843dd59",
+    "source_fingerprint": "c702e4ad02d23eb3ece151f28530b7fc513eae028b17a77934971485381e5832",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4206,7 +4581,7 @@
         "governing_pattern": "",
         "definition_cn": "傻瓜",
         "definition_en": "a foolish person",
-        "note": "",
+        "note": "非正式，常用于直接称呼，可能带侮辱意味；不是中性的称谓。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4365,23 +4740,38 @@
     "ordinal": 4762,
     "word": "style",
     "source_owner_path": "content/lexical/words/by-ordinal/o4762.json",
-    "source_fingerprint": "425050926fd14c28616d283ffb9809c1c381259e8996a798c48d86692e4186e9",
-    "sense_lineage": [],
+    "source_fingerprint": "47841aa313c6696e4d78f6ab990b1956ce1b17ee940d42300bb92d9dcaff4b56",
+    "sense_lineage": [
+      {
+        "word_id": "word:style",
+        "target_kind": "sense",
+        "from_target_id": "sense:style:e03274f19b3f517f",
+        "status": "reference_only",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:style",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:35e7f0a8d6ec977ee6c8",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "风格；做事、写作、设计、穿着等具有特征的方式或表现形式；文体；格式；（植物）花柱",
-      "decision_cn": "",
+      "summary_cn": "做事或呈现的独特方式、风格；也可指文字格式规范",
+      "decision_cn": "风格看呈现方式；house style/style guide 看写作和排版规范；动词看宾语及补语，是设计造型还是称某人为某身份。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "风格；做事、写作、设计、穿着等具有特征的方式或表现形式；文体；格式；（植物）花柱"
+        "target_label": "做事或呈现的独特方式、风格；也可指文字格式规范"
       }
     },
     "senses": [
@@ -4390,8 +4780,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "风格；做事、写作、设计、穿着等具有特征的方式或表现形式",
-        "definition_en": "a characteristic manner or way of doing, writing, designing, dressing, or presenting something",
+        "definition_cn": "风格；做事、写作、设计、穿着等的方式；时尚或气派",
+        "definition_en": "a distinctive manner or form, or fashionable and impressive presentation",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4399,9 +4789,14 @@
             "id": "collocation:29e17094573deb8cb7b1",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "in style",
-            "meaning_cn": "时髦地；流行地",
-            "kind": "usage_example",
-            "repair": null
+            "meaning_cn": "流行、时髦；或有气派、出色地（看是谈流行状态还是做事方式）",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:29e17094573deb8cb7b1",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "in style"
+            }
           },
           {
             "id": "collocation:29c369ebeca14ff52d9e",
@@ -4416,7 +4811,7 @@
           "target_kind": "sense",
           "target_id": "sense:style:fc894a0f7af352ae",
           "target_locator": "record.senses[0]",
-          "target_label": "风格；做事、写作、设计、穿着等具有特征的方式或表现形式"
+          "target_label": "风格；做事、写作、设计、穿着等的方式；时尚或气派"
         }
       },
       {
@@ -4454,52 +4849,31 @@
         }
       },
       {
-        "id": "sense:style:e03274f19b3f517f",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（植物）花柱",
-        "definition_en": "a slender bristlelike or tubular process",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:35e7f0a8d6ec977ee6c8",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "style of a flower",
-            "meaning_cn": "花的花柱",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:style:e03274f19b3f517f",
-          "target_locator": "record.senses[2]",
-          "target_label": "（植物）花柱"
-        }
-      },
-      {
         "id": "sense:style:d03fe26109eb5b58",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "T: style sth; style sb/oneself (as) + name or description",
         "definition_cn": "称呼；设计",
         "definition_en": "to call or name; to design in a particular style",
-        "note": "",
+        "note": "接 hair/clothes/room 等指设计或整理造型；style sb/oneself (as) + 身份称呼指称某人为、自称。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:167ade3b031a5c693007",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "style oneself as",
-            "meaning_cn": "自称是",
-            "kind": "usage_example",
-            "repair": null
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "style oneself (as) + description",
+            "meaning_cn": "把自己称作……；自称……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:167ade3b031a5c693007",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "style oneself (as) + description"
+            }
           },
           {
             "id": "collocation:48799c33cd1781bcb4ed",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "style a dress",
             "meaning_cn": "设计连衣裙",
             "kind": "usage_example",
@@ -4509,7 +4883,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:style:d03fe26109eb5b58",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "称呼；设计"
         }
       }
@@ -4540,7 +4914,45 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:35e7f0a8d6ec977ee6c8",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:style:e03274f19b3f517f:collocation:0"
+              ],
+              "meaning_cn": "花的花柱",
+              "phrase": "style of a flower"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "（植物）花柱",
+          "definition_en": "a slender bristlelike or tubular process",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "scope_state": {
+            "core_active": false,
+            "exclude_from_active_recall_summary": true,
+            "exclude_from_default_learning_surface": true,
+            "learning_surface_active": false,
+            "pending_review": false,
+            "physical_delete": false,
+            "preserve_provenance": true,
+            "preserve_stable_object_id": true,
+            "retain_for_source_pack_audit": true,
+            "scope_disposition": "DEFER_TECHNICAL"
+          },
+          "sense_id": "sense:style:e03274f19b3f517f",
+          "sense_label_en": "a slender bristlelike or tubular process",
+          "sort_order": 2,
+          "transitivity": "nonverb"
+        }
+      ]
     }
   },
   {
@@ -4549,13 +4961,13 @@
     "ordinal": 4763,
     "word": "subject",
     "source_owner_path": "content/lexical/words/by-ordinal/o4763.json",
-    "source_fingerprint": "09c633d679c891d22899164cb1d60a49e874ed77a83b51493330d736c8634a71",
+    "source_fingerprint": "9400f504d6c91f8db036c6975f488bc69ede2fe5e8439ca32ce6ffa352165b84",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
         "1A",
-        "(4+1)N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -4578,21 +4990,13 @@
         "definition_cn": "讨论、研究或表现的主题",
         "definition_en": "the person, thing, or idea being discussed, studied, or represented",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/adjective subject has initial stress; verb subject has final stress",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "noun/adjective subject has initial stress; verb subject has final stress"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:dc2a621bb1d65fdc32e5",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "research subject",
-            "meaning_cn": "讨论、研究或表现的主题",
+            "meaning_cn": "研究主题",
             "kind": "usage_example",
             "repair": null
           },
@@ -4600,7 +5004,7 @@
             "id": "collocation:4aa2e1380349ef0ae188",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "subject matter",
-            "meaning_cn": "讨论、研究或表现的主题",
+            "meaning_cn": "主题内容；题材",
             "kind": "usage_example",
             "repair": null
           },
@@ -4608,7 +5012,7 @@
             "id": "collocation:5c067166884e2ce75e82",
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "the subject of debate",
-            "meaning_cn": "讨论、研究或表现的主题",
+            "meaning_cn": "争论的话题",
             "kind": "usage_example",
             "repair": null
           }
@@ -4625,24 +5029,16 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "易受……影响；受……约束",
-        "definition_en": "likely to experience something or required to obey a condition",
+        "definition_cn": "易受……影响；受……约束；取决于……条件",
+        "definition_en": "likely to be affected by something, governed by it, or dependent on a condition",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/adjective subject has initial stress; verb subject has final stress",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "noun/adjective subject has initial stress; verb subject has final stress"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:723a3486488edafe4105",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "subject to approval",
-            "meaning_cn": "易受……影响；受……约束",
+            "meaning_cn": "须经批准；以批准为条件",
             "kind": "usage_example",
             "repair": null
           },
@@ -4650,7 +5046,7 @@
             "id": "collocation:16d46ee88037ae926caa",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "subject to change",
-            "meaning_cn": "易受……影响；受……约束",
+            "meaning_cn": "可能变更",
             "kind": "usage_example",
             "repair": null
           },
@@ -4658,7 +5054,7 @@
             "id": "collocation:15bbd5a572228e486582",
             "source_locator": "record.senses[1].collocations[2]",
             "phrase": "subject to risk",
-            "meaning_cn": "易受……影响；受……约束",
+            "meaning_cn": "面临风险；易受风险影响",
             "kind": "usage_example",
             "repair": null
           }
@@ -4667,7 +5063,7 @@
           "target_kind": "sense",
           "target_id": "sense:subject:af82293466de5734",
           "target_locator": "record.senses[1]",
-          "target_label": "易受……影响；受……约束"
+          "target_label": "易受……影响；受……约束；取决于……条件"
         }
       },
       {
@@ -4678,21 +5074,13 @@
         "definition_cn": "研究对象；受试者",
         "definition_en": "a person or organism observed in a study",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/adjective subject has initial stress; verb subject has final stress",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "noun/adjective subject has initial stress; verb subject has final stress"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:141b8cf14a64ba5d9d7c",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "experimental subject",
-            "meaning_cn": "研究对象；受试者",
+            "meaning_cn": "实验对象；实验受试者",
             "kind": "usage_example",
             "repair": null
           },
@@ -4700,7 +5088,7 @@
             "id": "collocation:b22ec19c1223f4662929",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "human subjects",
-            "meaning_cn": "研究对象；受试者",
+            "meaning_cn": "人体研究受试者",
             "kind": "usage_example",
             "repair": null
           }
@@ -4720,23 +5108,20 @@
         "definition_cn": "使遭受；使经受",
         "definition_en": "to make someone or something experience a treatment or condition",
         "note": "",
-        "identity_overlay": {
-          "text": "verb subject has final stress; noun/adjective subject has initial stress",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "verb subject has final stress; noun/adjective subject has initial stress"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:81de50ae60b801c079ba",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "subject someone to",
-            "meaning_cn": "使遭受；使经受",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "subject sb/sth to sth",
+            "meaning_cn": "使某人或某物经受……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:81de50ae60b801c079ba",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "subject sb/sth to sth"
+            }
           }
         ],
         "repair": {
@@ -4754,28 +5139,15 @@
         "definition_cn": "学科；科目；课程领域",
         "definition_en": "an area of knowledge studied or taught at school, college, or university",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/adjective subject has initial stress; verb subject has final stress",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[4].lexical_identity_overlay",
-            "target_label": "noun/adjective subject has initial stress; verb subject has final stress"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:5fe3b8cc41d180f75d19",
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "Maths is my favorite subject.",
             "meaning_cn": "数学是我最喜欢的科目。",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:5fe3b8cc41d180f75d19",
-              "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "Maths is my favorite subject."
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4793,28 +5165,15 @@
         "definition_cn": "（语法）主语",
         "definition_en": "the word, phrase, or clause that a sentence or clause is about and that typically controls verb agreement",
         "note": "",
-        "identity_overlay": {
-          "text": "noun/adjective subject has initial stress; verb subject has final stress",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[5].lexical_identity_overlay",
-            "target_label": "noun/adjective subject has initial stress; verb subject has final stress"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:feacda13ea935300b9cd",
             "source_locator": "record.senses[5].collocations[0]",
             "phrase": "\"The dog\" is the subject.",
             "meaning_cn": "“The dog” 是主语。",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:feacda13ea935300b9cd",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "\"The dog\" is the subject."
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -4859,25 +5218,11 @@
       "sense_readings": {},
       "has_scope": true
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:subject:054b0803c746f909",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "研究对象；受试者",
-        "definition_en": "a person or organism observed in a study",
-        "pattern": "experimental subject 实验对象",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:subject:054b0803c746f909",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "研究对象；受试者"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:82ca573ca96390f39561",
+        "sense_id": "sense:subject:af82293466de5734",
         "source_locator": "record.constructions[0]",
         "pattern": "be subject to sth",
         "lines": [
@@ -4912,12 +5257,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": [
         {
@@ -4939,7 +5280,7 @@
     "ordinal": 4764,
     "word": "subjective",
     "source_owner_path": "content/lexical/words/by-ordinal/o4764.json",
-    "source_fingerprint": "cb2982b0749f2a30696ef7260a00bec952f2cccab339a47a01f66c5768b53dad",
+    "source_fingerprint": "4e429bf8521a73b821f71e4a9ddf51d5d0f6a2bf5c2b1df761caa8a8f5e3d251",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5056,8 +5397,8 @@
       "confusables": [],
       "relations": [
         {
-          "title": "subjective ↔ subjective ↔ objective",
-          "target_word": "subjective ↔ objective",
+          "title": "subjective ↔ objective",
+          "target_word": "objective",
           "lines": [
             {
               "text": "objective = based on facts independently of personal feelings; subjective = influenced by personal feelings/opinions. Bind only to those adjective senses.",
@@ -5069,7 +5410,7 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:4136d5aa9c72df5f2de6",
             "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "subjective ↔ subjective ↔ objective"
+            "target_label": "subjective ↔ objective"
           }
         }
       ],
@@ -5083,7 +5424,7 @@
     "ordinal": 4765,
     "word": "submarine",
     "source_owner_path": "content/lexical/words/by-ordinal/o4765.json",
-    "source_fingerprint": "b178282e61705d43d5b016e0b969e0325f5e6718f8a8e4293eed56802393b2cd",
+    "source_fingerprint": "56ba3be712e894f233b4b65dbe535e3c7c27844bfd100b26fdebb004c92ca770",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5110,7 +5451,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "潜水艇",
-        "definition_en": "a warship that operates underwater",
+        "definition_en": "a vessel designed to travel and operate underwater, often used for military purposes",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5161,9 +5502,9 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vi. + under",
-        "definition_cn": "在水下移动；潜行",
+        "definition_cn": "从某物下面移动或滑过",
         "definition_en": "to move or slide under something",
-        "note": "",
+        "note": "此动词义的关键是从下方通过，不要求动作一定发生在水里。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5192,7 +5533,7 @@
           "target_kind": "sense",
           "target_id": "sense:submarine:3facbd0695d058cc",
           "target_locator": "record.senses[2]",
-          "target_label": "在水下移动；潜行"
+          "target_label": "从某物下面移动或滑过"
         }
       }
     ],
@@ -5301,7 +5642,7 @@
     "ordinal": 4766,
     "word": "submerge",
     "source_owner_path": "content/lexical/words/by-ordinal/o4766.json",
-    "source_fingerprint": "4a44e3d78cc58510fa59375e3f6792b495f5ac56504b2e95aa01db9748faff85",
+    "source_fingerprint": "60f7180ef2f0098915b3b16d432c5a8564ccba0999558f533dff811c6edd4905",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5374,13 +5715,8 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "The submarine submerged.",
             "meaning_cn": "潜艇下潜了。",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:eb5a5968ccba6745a755",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "The submarine submerged."
-            }
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5438,7 +5774,7 @@
     "ordinal": 4767,
     "word": "submit",
     "source_owner_path": "content/lexical/words/by-ordinal/o4767.json",
-    "source_fingerprint": "7fcbcf7181011be9e8c94b0f3883e79b9e0d8208e6adc7cb2141461d754194e1",
+    "source_fingerprint": "89500e20f7c1b235713ae277571109dc311d24c51f1e7430a817ddc7829d6bf4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5461,7 +5797,7 @@
         "id": "sense:submit:c4b4e0c9b7ca5014",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "T: submit sth to sb/body; submit sth for approval/consideration",
         "definition_cn": "提交；呈递",
         "definition_en": "to present or refer (something) for judgment or consideration",
         "note": "",
@@ -5472,6 +5808,14 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "submit an application",
             "meaning_cn": "提交申请",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:3371553c57a2ae517dad",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "submit a proposal",
+            "meaning_cn": "提出建议",
             "kind": "usage_example",
             "repair": null
           }
@@ -5487,7 +5831,7 @@
         "id": "sense:submit:583c879c7904554b",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "I/T: submit to sb/sth; submit oneself to sth",
         "definition_cn": "屈服；服从",
         "definition_en": "to yield to the control or authority of another",
         "note": "",
@@ -5518,19 +5862,24 @@
         "id": "sense:submit:867ae550e1c45ced",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "T: submit that + clause",
         "definition_cn": "提出（意见等）",
         "definition_en": "to put forward (an opinion or suggestion) for consideration",
-        "note": "",
+        "note": "较正式，尤见论证或法律语境；submit that 提出自己的意见或主张。提交文件、申请或提案使用前一提交义。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:3371553c57a2ae517dad",
+            "id": "collocation:submit:ecd5def18a3c8acd",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "submit a proposal",
-            "meaning_cn": "提出建议",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "submit that + clause",
+            "meaning_cn": "（正式）提出、主张……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:submit:ecd5def18a3c8acd",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "submit that + clause"
+            }
           }
         ],
         "repair": {
@@ -5586,7 +5935,7 @@
     "ordinal": 4768,
     "word": "subordinate",
     "source_owner_path": "content/lexical/words/by-ordinal/o4768.json",
-    "source_fingerprint": "5ae83111246c83564585df9eb564928f02e70fc4a271a627c3713c2ce54ae8fc",
+    "source_fingerprint": "77de842d3c948a1d370f72a6808742f55196d3b2e1cb2b922139070b8d699a5a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5823,12 +6172,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -5839,7 +6184,7 @@
     "ordinal": 4769,
     "word": "subscribe",
     "source_owner_path": "content/lexical/words/by-ordinal/o4769.json",
-    "source_fingerprint": "c88d74eb1deb7d46c0ba467b8f6260b7f9d6c1db7a32bd03a5e14c1bdbd9094b",
+    "source_fingerprint": "d0b4e991196f0d4b268f205a80d81bbb6b6566c2830dc9000204ae88bd8ce354",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6042,37 +6387,12 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:subscribe:4ab56299187711a4",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + to",
-        "lines": [
-          {
-            "text": "同意；赞成",
-            "lang": "cn"
-          },
-          {
-            "text": "subscribe to表同意，需接to",
-            "lang": "cn"
-          },
-          {
-            "text": "to agree with or support an idea or opinion",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:subscribe:4ab56299187711a4",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + to"
-        }
-      },
-      {
         "id": "construction:58f80da2989c3cc19477",
         "source_locator": "record.constructions[1]",
         "pattern": "subscribe to sth",
         "lines": [
           {
-            "text": "赞同/支持某观点，或订阅/付费接收出版物、服务",
+            "text": "看 to 后的对象：观点或理论→赞同；出版物或服务→订阅；慈善事业或基金→捐助",
             "lang": "cn"
           }
         ],
@@ -6218,7 +6538,7 @@
     "ordinal": 4771,
     "word": "subsidy",
     "source_owner_path": "content/lexical/words/by-ordinal/o4771.json",
-    "source_fingerprint": "5305cc168a6e4265c3ca1463d0c7d7ebe24beeb49ff99319ed57346c1c25b808",
+    "source_fingerprint": "cb021e782f9b6cd1e07c22859c24b833eaf7a48d121f2b4ee6f8af2d24e31f9d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6227,13 +6547,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "政府补贴；补助金",
-      "decision_cn": "",
+      "summary_cn": "为支持某人、机构或活动而提供的补贴、补助金",
+      "decision_cn": "常见于政府支持产业或公共服务，也可由其他机构提供；接受者不只限于公司。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "政府补贴；补助金"
+        "target_label": "为支持某人、机构或活动而提供的补贴、补助金"
       }
     },
     "senses": [
@@ -6243,7 +6563,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "补贴；补助金",
-        "definition_en": "money that a government pays to a company or organization to reduce costs and support a service or product",
+        "definition_en": "money provided by a government or organization to a person, business, or activity to support it or reduce its costs",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6312,22 +6632,22 @@
     "ordinal": 4772,
     "word": "substance",
     "source_owner_path": "content/lexical/words/by-ordinal/o4772.json",
-    "source_fingerprint": "2f4fed37e6aa3e4eb8d591626ff550e95b73ed40985680e16ddd8cdcf5eb89c9",
+    "source_fingerprint": "4337c60d62d8af29bf7f50c80a7f76db78ac05b1e96c0643c17482a8de4d43d9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "物质",
-      "decision_cn": "",
+      "summary_cn": "构成事物的实际内容：物质、主旨或事实根据",
+      "decision_cn": "chemical substance 看物质；the substance of a text 看主旨；substance to a claim 看事实根据；a person of substance 可指有财力或地位的人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "物质"
+        "target_label": "构成事物的实际内容：物质、主旨或事实根据"
       }
     },
     "senses": [
@@ -6426,6 +6746,37 @@
           "target_locator": "record.senses[2]",
           "target_label": "资产"
         }
+      },
+      {
+        "id": "sense:substance:15084138a5fdb02d",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "U: substance to/in a claim; without substance; of substance",
+        "definition_cn": "事实根据；实际内容或重要性",
+        "definition_en": "a real factual basis, or meaningful content and importance",
+        "note": "no substance to/in a claim 表缺乏事实根据；of substance 可表有实质内容或重要性，不是物质种类。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:substance:c8722d59a8582c8c",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "substance to/in a claim",
+            "meaning_cn": "某种说法的事实根据",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:substance:c8722d59a8582c8c",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "substance to/in a claim"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:substance:15084138a5fdb02d",
+          "target_locator": "record.senses[3]",
+          "target_label": "事实根据；实际内容或重要性"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6462,7 +6813,7 @@
     "ordinal": 4773,
     "word": "substantial",
     "source_owner_path": "content/lexical/words/by-ordinal/o4773.json",
-    "source_fingerprint": "9ad61e7e2677d861717ea1495b9d5d4d7e2494cda29004f23e03dcef1feaccca",
+    "source_fingerprint": "da80be67b9831fa0c04a4c19c23a127e59d4912ef697cf197a44ba1e2bdda0bc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6506,6 +6857,14 @@
             "meaning_cn": "实质性进展",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:8bc11f3da475a5e55598",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "substantial evidence",
+            "meaning_cn": "相当多的、有分量的证据（不等于已确凿证明）",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -6524,16 +6883,7 @@
         "definition_en": "having substance or capable of being treated as fact; not imaginary",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:8bc11f3da475a5e55598",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "substantial evidence",
-            "meaning_cn": "确凿的证据",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:substantial:a3a42944fd3954e9",
@@ -6587,7 +6937,7 @@
     "ordinal": 4774,
     "word": "substitute",
     "source_owner_path": "content/lexical/words/by-ordinal/o4774.json",
-    "source_fingerprint": "0b134616e1b75952eb092db49c08cccf7e28c3f1fe2da0c46896eacf8fc1b03a",
+    "source_fingerprint": "e7d1e1a840b7bceb08ce4ac4fad434b7fc149986e79ab17b92b17854fbe35cb7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6678,14 +7028,14 @@
           {
             "id": "collocation:107e955e77037f136828",
             "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "substitute + sth + with + sth",
-            "meaning_cn": "用某物替换某物",
+            "phrase": "substitute B with A",
+            "meaning_cn": "用A替换B（B被换下，A换上）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:107e955e77037f136828",
               "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "substitute + sth + with + sth"
+              "target_label": "substitute B with A"
             }
           },
           {
@@ -7286,7 +7636,7 @@
     "ordinal": 4779,
     "word": "succeed",
     "source_owner_path": "content/lexical/words/by-ordinal/o4779.json",
-    "source_fingerprint": "c0b3fd303994486cc5fef6fb69d859f9682cb1a045b17518ef209a523aee4bea",
+    "source_fingerprint": "4db07233c01a88a9916b2a97a0aa3e82c38368d35d300fdecf819d3cb38ea9ef",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7407,33 +7757,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:succeed:7dce1cbef233569d",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + in + sth/doing sth",
-        "lines": [
-          {
-            "text": "成功，达成",
-            "lang": "cn"
-          },
-          {
-            "text": "succeed in + doing 成功",
-            "lang": "cn"
-          },
-          {
-            "text": "to achieve something that you planned to do",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:succeed:7dce1cbef233569d",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + in + sth/doing sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7709,14 +8033,14 @@
     "ordinal": 4782,
     "word": "succession",
     "source_owner_path": "content/lexical/words/by-ordinal/o4782.json",
-    "source_fingerprint": "5d4c32e7c45dd674565579e3cd167155dc960e011e1514d420e888d46502c51d",
+    "source_fingerprint": "033e027b7eecc485832737bfad317f6b4dc2c98f4411a1ed4a18b8c354f76fa3",
     "sense_lineage": [
       {
         "word_id": "word:succession",
         "target_kind": "sense",
         "from_target_id": "sense:succession:4080924f7b8e5662",
-        "status": "merged",
-        "to_target_id": "sense:succession:dff5f8ff883157e4"
+        "status": "deprecated",
+        "to_target_id": null
       },
       {
         "word_id": "word:succession",
@@ -7733,13 +8057,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "一系列；连续的人或事物；继承；继承权",
-      "decision_cn": "",
+      "summary_cn": "接连出现；继任或继承",
+      "decision_cn": "a succession of / in succession 看先后接连；succession to 后接职位、头衔或财产，表示继任或继承。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "一系列；连续的人或事物；继承；继承权"
+        "target_label": "接连出现；继任或继承"
       }
     },
     "senses": [
@@ -7791,9 +8115,9 @@
         "id": "sense:succession:b1a88dc713c351ba",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "继承；继承权",
-        "definition_en": "acquisition of property by descent or by will",
+        "governing_pattern": "succession to + office/title/property",
+        "definition_cn": "继任；继承；继承权",
+        "definition_en": "the act, process, or right of taking over an office, title, or property from another person",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -7801,7 +8125,7 @@
           "target_kind": "sense",
           "target_id": "sense:succession:b1a88dc713c351ba",
           "target_locator": "record.senses[1]",
-          "target_label": "继承；继承权"
+          "target_label": "继任；继承；继承权"
         }
       }
     ],
@@ -7847,8 +8171,8 @@
       "senses": [
         {
           "stable_sense_id": "sense:succession:4080924f7b8e5662",
-          "status": "merged",
-          "merged_into_sense_id": "sense:succession:dff5f8ff883157e4",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
           "pos": "noun",
           "definition_cn": "（生态）演替",
           "definition_en": "(ecology) the gradual and orderly process of change in an ecosystem",
@@ -8112,7 +8436,7 @@
     "ordinal": 4785,
     "word": "such",
     "source_owner_path": "content/lexical/words/by-ordinal/o4785.json",
-    "source_fingerprint": "706e073a15a1558d871596761fa77a35c5f9fcac1662602c93d41ffda944ad46",
+    "source_fingerprint": "93f08c400a2fbc773ccd80fc5bcc4e8537f184e8cc387a9b3ac27f1b35c83661",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8123,13 +8447,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "如此的，这样的；如此地；这样的；上述种类的",
-      "decision_cn": "",
+      "summary_cn": "这样的种类；如此程度",
+      "decision_cn": "回指某类事物，或用 such as 举例；such 加名词短语可强调程度，后接 that 引出结果。as such 单独表示以该身份或严格说来。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "如此的，这样的；如此地；这样的；上述种类的"
+        "target_label": "这样的种类；如此程度"
       }
     },
     "senses": [
@@ -8140,32 +8464,19 @@
         "governing_pattern": "",
         "definition_cn": "如此的，这样的",
         "definition_en": "of so extreme a degree or extent",
-        "note": "",
+        "note": "In such + noun phrase + that-clause, the that-clause states the result of the degree described.",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:a7afb8d373cffa6d054e",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "such as",
-            "meaning_cn": "例如",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:a7afb8d373cffa6d054e",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "such as"
-            }
-          },
-          {
             "id": "collocation:5b6e80b49d6e5e523e4c",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "such ... that ...",
             "meaning_cn": "如此……以至于……",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:5b6e80b49d6e5e523e4c",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "such ... that ..."
             }
           }
@@ -8184,7 +8495,7 @@
         "governing_pattern": "",
         "definition_cn": "如此地",
         "definition_en": "to so extreme a degree",
-        "note": "",
+        "note": "Degree use is followed by a noun phrase: such a/an + (adjective) + singular count noun; such + (adjective) + plural or uncountable noun. Use so, not such, directly before a bare adjective/adverb.",
         "identity_overlay": null,
         "usage": [
           {
@@ -8215,9 +8526,23 @@
         "governing_pattern": "",
         "definition_cn": "这样的；上述种类的",
         "definition_en": "of the kind or type just mentioned or indicated",
-        "note": "",
+        "note": "such as introduces examples of the kind mentioned; it is not the extreme-degree branch.",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:a7afb8d373cffa6d054e",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "such as",
+            "meaning_cn": "例如",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a7afb8d373cffa6d054e",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "such as"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:such:157889391fc0dd74",
@@ -8269,40 +8594,6 @@
     },
     "secondary_senses": [],
     "constructions": [
-      {
-        "id": "construction:cf810b39bc8cb3b3669d",
-        "source_locator": "record.constructions[0]",
-        "pattern": "such as",
-        "lines": [
-          {
-            "text": "例如；诸如",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:cf810b39bc8cb3b3669d",
-          "target_locator": "record.constructions[0]",
-          "target_label": "such as"
-        }
-      },
-      {
-        "id": "construction:5432f5e29cf8eaffe009",
-        "source_locator": "record.constructions[1]",
-        "pattern": "such ... that",
-        "lines": [
-          {
-            "text": "如此……以至于……",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:5432f5e29cf8eaffe009",
-          "target_locator": "record.constructions[1]",
-          "target_label": "such ... that"
-        }
-      },
       {
         "id": "construction:8a5d406804d13bcf5cff",
         "source_locator": "record.constructions[2]",
@@ -8484,7 +8775,7 @@
     "ordinal": 4787,
     "word": "sudden",
     "source_owner_path": "content/lexical/words/by-ordinal/o4787.json",
-    "source_fingerprint": "16dbfd4bca61d838391dc091aac50a47eaaedca6d2e664d0a4b13c2ce2b09147",
+    "source_fingerprint": "991ef6f7ba8d441b0fb33fc3644a3eb659c4472854d933464a7d16af139d081b",
     "sense_lineage": [
       {
         "word_id": "word:sudden",
@@ -8534,8 +8825,13 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "all of a sudden",
             "meaning_cn": "突然地",
-            "kind": "usage_example",
-            "repair": null
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:24cf19d2a1da9b8bb5e9",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "all of a sudden"
+            }
           }
         ],
         "repair": {
@@ -8588,25 +8884,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:bcc8f43e095b7907ca3f",
-        "source_locator": "record.constructions[0]",
-        "pattern": "all of a sudden",
-        "lines": [
-          {
-            "text": "突然；忽然",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:bcc8f43e095b7907ca3f",
-          "target_locator": "record.constructions[0]",
-          "target_label": "all of a sudden"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8645,7 +8923,7 @@
     "ordinal": 4788,
     "word": "sue",
     "source_owner_path": "content/lexical/words/by-ordinal/o4788.json",
-    "source_fingerprint": "89a453a46f14ab5be372cddc52371efc7b5d173ce1758c18b83ca3a10105492b",
+    "source_fingerprint": "fe87001f619baee4e33de856b1262765007ce36fcf851f9d54386d39956295ba",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8655,7 +8933,7 @@
     },
     "word_feel": {
       "summary_cn": "起诉",
-      "decision_cn": "",
+      "decision_cn": "法律语境 sue (sb) for 原因或索求的赔偿；sue for peace 则是正式请求和平，不是提起诉讼。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8668,17 +8946,17 @@
         "id": "sense:sue:3208f0a70d0c5eb3",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "sue (sb) (for + cause or remedy sought)",
         "definition_cn": "控告；起诉",
         "definition_en": "to take legal action against a person or organization",
-        "note": "",
+        "note": "for may name the cause of the claim (for libel) or the remedy sought (for damages); the person sued may be omitted.",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:797e87fe0883c7ed9965",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "sue sb for + sth",
-            "meaning_cn": "因某事起诉某人",
+            "meaning_cn": "因某事起诉某人，或起诉某人要求赔偿等救济",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -8707,17 +8985,17 @@
         "id": "sense:sue:19cd8d5d810c5d56",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
-        "definition_cn": "请求；提出诉讼",
-        "definition_en": "to make a formal request, especially in court",
-        "note": "",
+        "governing_pattern": "sue for + sth (especially peace)",
+        "definition_cn": "正式请求；恳求（尤指求和）",
+        "definition_en": "to make a formal appeal or request, especially for peace",
+        "note": "Formal appeal use. sue for peace means ask for peace, not bring a court case; legal sue for damages belongs to the legal-action sense.",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b5cb236d8446515343f4",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "sue for + sth",
-            "meaning_cn": "请求某事；为某事起诉",
+            "meaning_cn": "正式请求或恳求某事（尤指和平）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -8739,7 +9017,7 @@
           "target_kind": "sense",
           "target_id": "sense:sue:19cd8d5d810c5d56",
           "target_locator": "record.senses[1]",
-          "target_label": "请求；提出诉讼"
+          "target_label": "正式请求；恳求（尤指求和）"
         }
       }
     ],
@@ -8786,7 +9064,7 @@
     "ordinal": 4789,
     "word": "suffer",
     "source_owner_path": "content/lexical/words/by-ordinal/o4789.json",
-    "source_fingerprint": "3a4730dd0424f3afcec7c88b580a7499d142ae9d6b8d3a16e7a5f2e18f7aa48a",
+    "source_fingerprint": "1bbd322bd58795bceb91f073eaf54640f7508e829ecb554f989e6b3eb24f795a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8861,7 +9139,7 @@
         "id": "sense:suffer:d8e54c10d20c56e7",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + from",
+        "governing_pattern": "vi.; suffer from + illness/problem",
         "definition_cn": "受痛苦，患病",
         "definition_en": "experience pain, illness, or a bad situation",
         "note": "",
@@ -8995,33 +9273,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "deep:constructions:suffer:a49e279ace4ed960",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vi. + from",
-        "lines": [
-          {
-            "text": "受痛苦，患病",
-            "lang": "cn"
-          },
-          {
-            "text": "suffer from 表示受痛苦或患病",
-            "lang": "cn"
-          },
-          {
-            "text": "experience pain, illness, or a bad situation",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:suffer:a49e279ace4ed960",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vi. + from"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9035,7 +9287,7 @@
     "ordinal": 4790,
     "word": "suffice",
     "source_owner_path": "content/lexical/words/by-ordinal/o4790.json",
-    "source_fingerprint": "8431c95a26e8a07fe9b10d242ad2224cd269e72a76e1937bbd4be2d1f90a2e3e",
+    "source_fingerprint": "a55967f1341f7096e759087dcaa30aa2ff8fcf38d1092de41668ff98f6c7ab3d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9058,10 +9310,10 @@
         "id": "sense:suffice:1e0b230fafca51a4",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "vi.; suffice (for sth); suffice to do sth",
         "definition_cn": "足够；满足需要",
         "definition_en": "to be enough or adequate",
-        "note": "",
+        "note": "Formal. It can stand alone to mean be enough; a for-phrase names the need/purpose, and a to-infinitive names what the amount or action is enough to do.",
         "identity_overlay": null,
         "usage": [
           {
@@ -9243,7 +9495,7 @@
     "ordinal": 4792,
     "word": "sugar",
     "source_owner_path": "content/lexical/words/by-ordinal/o4792.json",
-    "source_fingerprint": "d17bf1e30b45f8be5eba4f50b03e4001c5f41d8574d60c3ab6979dee37e5e6ff",
+    "source_fingerprint": "64e9f34175427d7de9769f378e4123d5d3acdc94aa60c30b700f4e953f04db8f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9269,8 +9521,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "糖",
-        "definition_en": "a sweet substance used in food",
-        "note": "",
+        "definition_en": "a sweet substance used in food, or one of the related simple carbohydrates such as glucose",
+        "note": "blood sugar refers to glucose in the blood; sugars can refer to different kinds of simple carbohydrate.",
         "identity_overlay": null,
         "usage": [
           {
@@ -9393,7 +9645,7 @@
     "ordinal": 4793,
     "word": "suggest",
     "source_owner_path": "content/lexical/words/by-ordinal/o4793.json",
-    "source_fingerprint": "c82e8caa5ca1c3a6870889d7ce6813ab4cf0229f8681ec90bc0a857d9d676828",
+    "source_fingerprint": "0000c53b64c971b887a354c3b768c2d0d0950c403c620f20cd11ef774ed252fa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9403,7 +9655,7 @@
     },
     "word_feel": {
       "summary_cn": "建议；暗示",
-      "decision_cn": "",
+      "decision_cn": "提出可采取的做法是“建议”，可接 doing 或建议性 that 从句；证据、迹象支持某个判断是“表明”，that 从句按事实时间用相应时态。使人联想则是“使人想起”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9419,7 +9671,7 @@
         "governing_pattern": "suggest sth; suggest doing sth; suggest (that) + clause",
         "definition_cn": "建议；提议",
         "definition_en": "put forward for consideration",
-        "note": "With a that-clause, formal BrE may use should and AmE often uses the mandative base form; do not use *suggest sb to do sth for recommendation.",
+        "note": "For a recommendation, suggest + noun/doing or suggest (that) + clause; formal BrE may use should, and AmE often uses a mandative base form. Do not use *suggest sb to do sth or *suggest to do sth for this meaning.",
         "identity_overlay": null,
         "usage": [
           {
@@ -9460,10 +9712,10 @@
         "id": "sense:suggest:8362cd323f9655eb",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "suggest + noun phrase; suggest (that) + clause",
         "definition_cn": "暗示；表明",
         "definition_en": "imply as a possibility",
-        "note": "",
+        "note": "When evidence or signs suggest that something is true, use the clause tense appropriate to that claim; this is an inference, not a recommendation requiring mandative grammar.",
         "identity_overlay": null,
         "usage": [
           {
@@ -9529,25 +9781,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:77ade47fc1d06b58a561",
-        "source_locator": "record.constructions[0]",
-        "pattern": "suggest (that) + clause",
-        "lines": [
-          {
-            "text": "建议/提出……；正式语体可用 should，AmE 常用原形虚拟",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:77ade47fc1d06b58a561",
-          "target_locator": "record.constructions[0]",
-          "target_label": "suggest (that) + clause"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -9561,7 +9795,7 @@
     "ordinal": 4794,
     "word": "suggestion",
     "source_owner_path": "content/lexical/words/by-ordinal/o4794.json",
-    "source_fingerprint": "98d34487981f3c9aa8887efec6182d3710a73efd7fa885f0162aea4eb1d9b0c2",
+    "source_fingerprint": "aa222e3c8052b258eb626c9218dd9207cd20276a89217a8be521d19dd8f93c3d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9570,13 +9804,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "建议，提议",
-      "decision_cn": "",
+      "summary_cn": "建议；暗示或一丝迹象",
+      "decision_cn": "讨论怎样做时是建议；that 从句或语境指向真假判断时可表示暗示；of a smile 等细微特征则表示一丝。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "建议，提议"
+        "target_label": "建议；暗示或一丝迹象"
       }
     },
     "senses": [
@@ -9618,10 +9852,10 @@
         "id": "sense:suggestion:75144e4f048b5324",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "暗示，迹象",
-        "definition_en": "a slight sign or indication of something",
-        "note": "",
+        "governing_pattern": "a suggestion that + clause; a suggestion of + sth",
+        "definition_cn": "暗示；迹象；一丝",
+        "definition_en": "an indirect indication of an idea or possibility, or a slight trace of something",
+        "note": "A suggestion that something is true conveys an implication; a suggestion of a smile, accent, or quality means a slight trace. Neither necessarily offers a plan.",
         "identity_overlay": null,
         "usage": [
           {
@@ -9637,7 +9871,7 @@
           "target_kind": "sense",
           "target_id": "sense:suggestion:75144e4f048b5324",
           "target_locator": "record.senses[1]",
-          "target_label": "暗示，迹象"
+          "target_label": "暗示；迹象；一丝"
         }
       }
     ],
@@ -9675,7 +9909,7 @@
     "ordinal": 4795,
     "word": "suicide",
     "source_owner_path": "content/lexical/words/by-ordinal/o4795.json",
-    "source_fingerprint": "a15009b907ce65b568de07ad4747ba003e6f66c467c78dc24ae019233d853f5f",
+    "source_fingerprint": "777ebf8a09de2e976798eacc9e24cfc81b44c5ccd6c041aaab129cf450cd156e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9701,7 +9935,7 @@
         "governing_pattern": "",
         "definition_cn": "自杀行为",
         "definition_en": "the act of killing yourself intentionally",
-        "note": "",
+        "note": "commit suicide is an established expression encountered in reading. For neutral, sensitive contemporary writing, prefer die by suicide. Avoid success/failure language for an attempt.",
         "identity_overlay": null,
         "usage": [
           {
@@ -9785,23 +10019,23 @@
     "ordinal": 4796,
     "word": "suit",
     "source_owner_path": "content/lexical/words/by-ordinal/o4796.json",
-    "source_fingerprint": "29f2e64b7bc844c300240564618f2cbbbf9b16b1fd795c6fbc2aa27768fea5ce",
+    "source_fingerprint": "7fd611c6e7fc550d3d6e3cc45b55d734cc81d91b1dba93144af3fb8554e77226",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "适合；套装",
-      "decision_cn": "",
+      "summary_cn": "适合；套装；诉讼；纸牌花色",
+      "decision_cn": "动词后接人或场合，看是否合适；穿着语境是套装，court/file 语境是诉讼，牌局是花色。follow suit 在一般行动语境中表示跟着仿效。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "适合；套装"
+        "target_label": "适合；套装；诉讼；纸牌花色"
       }
     },
     "senses": [
@@ -9895,6 +10129,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "诉讼"
         }
+      },
+      {
+        "id": "sense:suit:88ae0f9fddeb2e45",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（纸牌的）花色",
+        "definition_en": "one of the four symbol-based categories in a standard pack of playing cards",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:suit:88ae0f9fddeb2e45",
+          "target_locator": "record.senses[3]",
+          "target_label": "（纸牌的）花色"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9917,7 +10168,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:suit:0c650c01de235bb9",
+        "source_locator": "record.constructions[0]",
+        "pattern": "follow suit",
+        "lines": [
+          {
+            "text": "跟着出同花色的牌；仿效先前的做法",
+            "lang": "cn"
+          },
+          {
+            "text": "Card-play context selects the literal same-suit action; people or organizations copying an earlier action selects the figurative use.",
+            "lang": "en"
+          },
+          {
+            "text": "to play a card of the same suit, or to do what someone else has just done",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:suit:0c650c01de235bb9",
+          "target_locator": "record.constructions[0]",
+          "target_label": "follow suit"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -10062,7 +10339,7 @@
     "ordinal": 4798,
     "word": "suite",
     "source_owner_path": "content/lexical/words/by-ordinal/o4798.json",
-    "source_fingerprint": "0587cd03b33392ac228ece89941372aa1258cc8b5f7957f37a3085916967571a",
+    "source_fingerprint": "eb881ebeccdd6c055b7af30cb46dca6b3c81afdb1fa0a6aca332eaad1bac0fe5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10071,13 +10348,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "套房；一套家具；组曲；软件套件；一组相关的应用程序或软件工具",
-      "decision_cn": "",
+      "summary_cn": "一组配套使用的房间、家具、乐章或软件",
+      "decision_cn": "看后接或邻近的名词选择配套组：hotel/offices 是相连房间，furniture 是家具，音乐语境是组曲，software 是软件套件。随行人员语境可指随员、随从。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "套房；一套家具；组曲；软件套件；一组相关的应用程序或软件工具"
+        "target_label": "一组配套使用的房间、家具、乐章或软件"
       }
     },
     "senses": [
@@ -10086,8 +10363,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "套房",
-        "definition_en": "a set of connected rooms used as a living unit, as in a hotel",
+        "definition_cn": "套房；一组相连的房间",
+        "definition_en": "a group of connected rooms used together, such as a hotel suite or a set of offices",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10104,7 +10381,7 @@
           "target_kind": "sense",
           "target_id": "sense:suite:09271c57260d58fc",
           "target_locator": "record.senses[0]",
-          "target_label": "套房"
+          "target_label": "套房；一组相连的房间"
         }
       },
       {
@@ -10249,7 +10526,7 @@
     "ordinal": 4799,
     "word": "sulphur",
     "source_owner_path": "content/lexical/words/by-ordinal/o4799.json",
-    "source_fingerprint": "5fa3c538654c38673a48de561814f823f8632e44a30a98621a2a6d5574171679",
+    "source_fingerprint": "5d4e195d9d260f00d372433ddf73d4cdb5cfbc964c80c63b8d306efb4ce67e80",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10413,12 +10690,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -10429,23 +10702,23 @@
     "ordinal": 4800,
     "word": "sum",
     "source_owner_path": "content/lexical/words/by-ordinal/o4800.json",
-    "source_fingerprint": "8da2299852c5f9b12ce1de3c32cada38b77057b5e66dafe2cebcf496dcd90f88",
+    "source_fingerprint": "1eaa997e80e3b5c7715311110aa71d8e6e932b96df81790c6c8c5620fa251b09",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "总数；合计",
-      "decision_cn": "",
+      "summary_cn": "总和；一笔钱；计算",
+      "decision_cn": "the sum of 看加总；a sum of money 看钱款；英式 do sums 指做算术。sum up 和正式的 in sum 转入总结论点。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "总数；合计"
+        "target_label": "总和；一笔钱；计算"
       }
     },
     "senses": [
@@ -10471,14 +10744,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "the sum of + sth"
             }
-          },
-          {
-            "id": "collocation:5da9e165df608885ac0b",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "a large sum of money",
-            "meaning_cn": "一大笔钱",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -10511,6 +10776,14 @@
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "a sum of money",
             "meaning_cn": "一笔钱",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:5da9e165df608885ac0b",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "a large sum of money",
+            "meaning_cn": "一大笔钱",
             "kind": "usage_example",
             "repair": null
           }
@@ -10551,6 +10824,23 @@
           "target_id": "sense:sum:df69aca3e0ca5dc3",
           "target_locator": "record.senses[2]",
           "target_label": "合计；求总和"
+        }
+      },
+      {
+        "id": "sense:sum:34a033249e41011a",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "do sums",
+        "definition_cn": "算术题；计算",
+        "definition_en": "an arithmetic calculation or exercise",
+        "note": "Chiefly British; often plural sums. This denotes calculations or exercises, not just their total result.",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sum:34a033249e41011a",
+          "target_locator": "record.senses[3]",
+          "target_label": "算术题；计算"
         }
       }
     ],
@@ -10599,6 +10889,31 @@
           "target_id": "construction:314841e9ab7763c07f4c",
           "target_locator": "record.constructions[0]",
           "target_label": "sum up (sth)"
+        }
+      },
+      {
+        "id": "construction:sum:cabc0c6bad6be3ff",
+        "source_locator": "record.constructions[1]",
+        "pattern": "in sum",
+        "lines": [
+          {
+            "text": "总之；概括起来",
+            "lang": "cn"
+          },
+          {
+            "text": "Formal discourse phrase; it summarizes an overall conclusion rather than an arithmetic total.",
+            "lang": "en"
+          },
+          {
+            "text": "used to introduce a summary of the main point",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:sum:cabc0c6bad6be3ff",
+          "target_locator": "record.constructions[1]",
+          "target_label": "in sum"
         }
       }
     ],

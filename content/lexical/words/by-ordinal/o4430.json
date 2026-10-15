@@ -32,7 +32,7 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "视力，视觉；景象，景物；视野，眼界",
+          "label_cn": "视力，视觉；景象，景物；视野；可见范围",
           "label_en": "the ability to see; something that is seen; the range of vision",
           "pos": "noun",
           "sense_ids": [
@@ -42,10 +42,32 @@
           ]
         }
       ],
-      "core_meaning_cn": "视力，视觉；景象，景物；视野，眼界",
-      "core_meaning_en": "the ability to see; something that is seen; the range of vision",
-      "mental_model_cn": "视力，视觉；景象，景物；视野，眼界",
-      "mental_model_en": ""
+      "core_meaning_cn": "围绕“看见”：视力、所见景象、可见范围；动词表示发现目标",
+      "core_meaning_en": "seeing as an ability, a visible scene or range; as a verb, spotting a target",
+      "mental_model_cn": "lose one’s sight 说视力；a familiar sight 说景象；in/out of sight 说是否看得见。正式动词 sight sb/sth 或 be sighted 表示发现目标。",
+      "mental_model_en": "",
+      "source_evidence": [
+        {
+          "evidence_id": "source:4450:sight-noun",
+          "source_type": "primary_public_source",
+          "url": "https://www.oxfordlearnersdictionaries.com/definition/english/sight_1",
+          "accessed_at_utc": "2026-10-12T23:57:09Z",
+          "raw_local_path": "public-source-raw/web-02.json",
+          "raw_sha256": "c817ccaddc9141746530e9818d0e2e1fb35413f35ee722cf37b939d42990a315",
+          "excerpt": "the ability to see",
+          "supports": "Eyesight, seen objects and visibility range are separate noun branches."
+        },
+        {
+          "evidence_id": "source:4450:sight-verb",
+          "source_type": "primary_public_source",
+          "url": "https://www.oxfordlearnersdictionaries.com/definition/english/sight_2",
+          "accessed_at_utc": "2026-10-12T23:57:09Z",
+          "raw_local_path": "public-source-raw/web-02.json",
+          "raw_sha256": "c817ccaddc9141746530e9818d0e2e1fb35413f35ee722cf37b939d42990a315",
+          "excerpt": "sight something",
+          "supports": "Modern formal transitive verb: spot a target, especially one sought. Same historical identity can be reactivated."
+        }
+      ]
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -86,7 +108,7 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "视野，眼界",
+        "definition_cn": "视野；可见范围",
         "definition_en": "the range of vision",
         "governing_pattern": "",
         "level": "L2",
@@ -95,7 +117,47 @@
         "sense_id": "sense:sight:dfbdac060f60554d",
         "sense_label_en": "the range of vision",
         "sort_order": 999,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "evidence_id": "source:4450:sight-noun",
+            "source_type": "primary_public_source",
+            "url": "https://www.oxfordlearnersdictionaries.com/definition/english/sight_1",
+            "accessed_at_utc": "2026-10-12T23:57:09Z",
+            "raw_local_path": "public-source-raw/web-02.json",
+            "raw_sha256": "c817ccaddc9141746530e9818d0e2e1fb35413f35ee722cf37b939d42990a315",
+            "excerpt": "the ability to see",
+            "supports": "Eyesight, seen objects and visibility range are separate noun branches."
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:sight:903bf1832c1d5bac",
+        "pos": "verb",
+        "definition_cn": "（正式）发现，看到（尤指一直在寻找的目标）",
+        "definition_en": "to spot something, especially something being looked for",
+        "sense_label_en": "spot something being looked for",
+        "governing_pattern": "sight sb/sth; be sighted",
+        "transitivity": "vt",
+        "register": "formal",
+        "level": "L2",
+        "sort_order": 1000,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "usage_note": "船只、陆地、动物等作宾语；sighted可作过去式或被动分词，不能按名词“视力”解析。",
+        "collocations": [],
+        "source_evidence": [
+          {
+            "evidence_id": "source:4450:sight-verb",
+            "source_type": "primary_public_source",
+            "url": "https://www.oxfordlearnersdictionaries.com/definition/english/sight_2",
+            "accessed_at_utc": "2026-10-12T23:57:09Z",
+            "raw_local_path": "public-source-raw/web-02.json",
+            "raw_sha256": "c817ccaddc9141746530e9818d0e2e1fb35413f35ee722cf37b939d42990a315",
+            "excerpt": "sight something",
+            "supports": "Modern formal transitive verb: spot a target, especially one sought. Same historical identity can be reactivated."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -600,31 +662,6 @@
       "source_row": 12505,
       "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:sight:903bf1832c1d5bac",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "看见，发现",
-      "definition_en": "see or catch sight of",
-      "semantic_key": "519c429cd327c54ce95a6fc5232231013f10b1d25792a6ec1bd88606464d27a2",
-      "semantic_key_history": [
-        "3ccf7655f26919104aa5d078c0454a308d0998624d827b7951829f92bf6c955e"
-      ],
-      "legacy_aliases": [
-        "sight:l3:5"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "sight:l3:5",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 12506,
-      "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -638,7 +675,7 @@
       },
       {
         "sense_id": "sense:sight:903bf1832c1d5bac",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 12506,
         "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json"

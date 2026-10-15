@@ -6,13 +6,42 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:a82c50e83a1b0fcccbdf",
+        "pattern": "not be someone's cup of tea",
+        "meaning_cn": "不是某人喜欢的类型；不合某人的喜好",
+        "definition_en": "to be something that a person does not enjoy or find appealing",
+        "boundary": "常见否定习语，用于活动、事物等不合喜好；不指字面的一杯茶。",
+        "direction": "R+P",
+        "level": "L1",
+        "source_sense_id": null,
+        "creation_provenance": {
+          "task": "lexical-4901-4950",
+          "basis": "Root-requested common idiom; primary Cambridge entry indexed read",
+          "source_url": "https://dictionary.cambridge.org/it/dizionario/inglese/not-be-cup-of-tea",
+          "verification": "Direct open returned403; primary indexed entry read, explicit idiom not something one likes."
+        }
+      }
+    ],
     "content_hash": "25e2b9d068445a9e9090d84a1eea9f609b1f57440a9b8efa48e746a01bf08bb2",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "茶",
-      "core_meaning_en": "a drink made from tea leaves",
-      "mental_model_cn": "茶",
+      "core_clusters": [
+        {
+          "pos": "noun",
+          "sense_ids": [
+            "sense:tea:0acea97c70e05f6b",
+            "sense:tea:94c59ada9af65919",
+            "sense:tea:45fae66d4b7f5d86",
+            "sense:tea:3415970056046fa715ad"
+          ],
+          "label_cn": "茶；茶水；茶叶；下午茶；茶点；（英国部分地区用语）晚餐；傍晚的一餐",
+          "label_en": "a hot drink made by infusing dried leaves in water; the dried leaves used to make tea; a light afternoon meal with tea and snacks; in some British usage, the meal eaten in the early evening"
+        }
+      ],
+      "core_meaning_cn": "茶；茶叶；茶点；（部分英式用法）晚餐",
+      "core_meaning_en": "tea as a drink or leaves; an afternoon meal; in some British usage, an evening meal",
+      "mental_model_cn": "茶；茶叶；茶点；（部分英式用法）晚餐",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -94,6 +123,20 @@
         "sense_label_en": "a light afternoon meal with tea and snacks",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:tea:3415970056046fa715ad",
+        "pos": "noun",
+        "level": "L2",
+        "definition_cn": "（英国部分地区用语）晚餐；傍晚的一餐",
+        "definition_en": "in some British usage, the meal eaten in the early evening",
+        "sense_label_en": "in some British usage, the meal eaten in the early evening",
+        "governing_pattern": "have tea; be home for tea",
+        "transitivity": "nonverb",
+        "sort_order": 3,
+        "collocations": [],
+        "confidence": "medium",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -312,6 +355,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13962,
+        "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
+      },
+      {
+        "sense_id": "sense:tea:3415970056046fa715ad",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14028,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
       }
     ],

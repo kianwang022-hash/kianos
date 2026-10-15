@@ -32,7 +32,7 @@
       ],
       "core_meaning_cn": "停留；保持",
       "core_meaning_en": "to remain in a place or state",
-      "mental_model_cn": "停留；保持",
+      "mental_model_cn": "地点后是停留，状态词后是保持；法律语境中 stay + 执行/程序 或 a stay of ... 表示让行动暂时停下。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -169,7 +169,37 @@
         "sense_id": "sense:stay:4e425fd3bbc85056",
         "sense_label_en": "a support or brace, especially on a ship",
         "sort_order": 4,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "支撑物/支索义：在船舶、支撑结构等语境中识别。"
+      },
+      {
+        "sense_id": "sense:stay:df7485813c189aea",
+        "pos": "noun",
+        "definition_cn": "（法律）暂缓执行；中止令",
+        "definition_en": "a temporary suspension of a legal action or decision",
+        "sense_label_en": "a temporary suspension of a legal action or decision",
+        "governing_pattern": "a stay of execution/proceedings",
+        "usage_note": "grant/lift a stay 指准予/解除暂缓执行，不是一次逗留。",
+        "level": "L2",
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:a175328fa38eabdc88c6",
+            "phrase": "a stay of execution",
+            "meaning_cn": "暂缓执行令",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_name": "Fresh bounded dictionary verification",
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/stay-of-execution-deportation-etc"
+          },
+          {
+            "source_name": "Fresh bounded dictionary verification",
+            "source_locator": "https://www.merriam-webster.com/dictionary/stay"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -1093,6 +1123,12 @@
         "merged_into_sense_id": null,
         "source_row": 13305,
         "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json"
+      },
+      {
+        "sense_id": "sense:stay:df7485813c189aea",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4686.json"
       }
     ],
     "active_collocations": [
@@ -1101,7 +1137,8 @@
       "collocation:59543295a64a022e3c71",
       "collocation:7068be2788fbf9d1d623",
       "collocation:756060205621b99c567a",
-      "collocation:ba9c2bc26e8fa0f88a68"
+      "collocation:ba9c2bc26e8fa0f88a68",
+      "collocation:a175328fa38eabdc88c6"
     ],
     "facts": [],
     "collocations": [
@@ -1134,6 +1171,13 @@
         "id": "collocation:ba9c2bc26e8fa0f88a68",
         "source_row": 15807,
         "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
+      },
+      {
+        "id": "collocation:a175328fa38eabdc88c6",
+        "source_path": "content/lexical/words/by-ordinal/o4686.json",
+        "sense_id": "sense:stay:df7485813c189aea",
+        "status": "active",
+        "source_locator": "record.senses[5].collocations[0]"
       }
     ],
     "exam-mappings": [],

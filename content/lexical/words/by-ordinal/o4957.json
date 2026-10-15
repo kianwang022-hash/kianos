@@ -8,7 +8,7 @@
     "confusables": [],
     "constructions": [
       {
-        "boundary": "因某事感谢某人",
+        "boundary": "感谢某人；可用 for + 名词/doing 说明感谢的原因，for 部分可省略。",
         "codex_reviewed": false,
         "definition_cn": "感谢，道谢",
         "definition_en": "to tell someone that you are grateful for something they have done",
@@ -30,7 +30,7 @@
         "level": null,
         "meaning_cn": "",
         "module": "constructions",
-        "pattern": "vt. + sb + for + sth",
+        "pattern": "thank sb (for sth/doing sth)",
         "pos": "verb",
         "priority": "A",
         "publication_status": "publishable",
@@ -43,7 +43,8 @@
           "writing"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "sense_id": "sense:thank:71751f551ebc5613"
       },
       {
         "boundary": "causal construction; often credits a positive cause but can be ironic or describe an unwanted cause",
@@ -68,8 +69,8 @@
           ]
         },
         {
-          "label_cn": "感谢，谢意",
-          "label_en": "an expression of gratitude",
+          "label_cn": "谢意；感谢（现代英语通常用复数形式 thanks）",
+          "label_en": "gratitude expressed in words or actions, normally in the plural form thanks",
           "pos": "noun",
           "sense_ids": [
             "sense:thank:c442918876bc52eb"
@@ -103,7 +104,7 @@
               "sense:thank:71751f551ebc5613:collocation:0"
             ],
             "meaning_cn": "因某事感谢某人",
-            "phrase": "thank sb for + sth"
+            "phrase": "thank sb for sth/doing sth"
           },
           {
             "collocation_id": "collocation:2722c2671ce09ef72783",
@@ -118,7 +119,7 @@
         "confidence": "medium",
         "definition_cn": "感谢，道谢",
         "definition_en": "to tell someone that you are grateful for something they have done",
-        "governing_pattern": "vt. + sb + for + sth",
+        "governing_pattern": "thank sb (for sth/doing sth)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -140,16 +141,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "感谢，谢意",
-        "definition_en": "an expression of gratitude",
+        "definition_cn": "谢意；感谢（现代英语通常用复数形式 thanks）",
+        "definition_en": "gratitude expressed in words or actions, normally in the plural form thanks",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:thank:c442918876bc52eb",
-        "sense_label_en": "an expression of gratitude",
+        "sense_label_en": "gratitude expressed in words or actions, normally in the plural form thanks",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "名词通常是 thanks，如 give thanks；不把 a thank 当作普通单数名词。thanks to sb/sth 表原因，由独立构式说明。",
+        "lexical_identity_overlay": {
+          "identity_type": "plural_form_lexicalized_noun",
+          "canonical_form": "thanks",
+          "surface_lemma": "thanks",
+          "note": "这里的名词义用 thanks；thank 是普通动词形式。"
+        }
       }
     ],
     "verification_summary": {
@@ -343,6 +351,13 @@
               }
             }
           ]
+        }
+      ],
+      "boundaries": [
+        {
+          "surface": "thanks",
+          "condition": "noun expressing gratitude",
+          "note": "名词通常用复数形式 thanks，如 give thanks；不从 thank 的现有IPA推造 thanks 的读音。"
         }
       ]
     }

@@ -40,7 +40,7 @@
       ],
       "core_meaning_cn": "对待；看待；治疗；乐事；款待；款待；请客",
       "core_meaning_en": "to behave toward someone in a particular way; to provide medical care for; something that gives special pleasure; to give someone a gift or entertainment",
-      "mental_model_cn": "对待；看待；治疗；乐事；款待；款待；请客",
+      "mental_model_cn": "treat sb well/as... 看对待方式；treat a patient/for... 看治疗，未承诺治愈；treat wood/water 看加工；treat sb to... 看请客。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -56,14 +56,14 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "对待；看待",
-        "definition_en": "to behave toward someone in a particular way",
-        "governing_pattern": "",
+        "definition_cn": "对待；看待；以某种方式处理",
+        "definition_en": "to behave toward someone or deal with something in a particular way",
+        "governing_pattern": "treat sb/sth + adverb; treat sb/sth with respect/caution",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:treat:83e27aff478058f7",
-        "sense_label_en": "to behave toward someone in a particular way",
+        "sense_label_en": "to behave toward someone or deal with something in a particular way",
         "sort_order": 999,
         "transitivity": "vt"
       },
@@ -72,7 +72,7 @@
         "confidence": "medium",
         "definition_cn": "治疗",
         "definition_en": "to provide medical care for",
-        "governing_pattern": "",
+        "governing_pattern": "treat a patient/disease; treat sb for a condition; treat sb/sth with a treatment",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -100,14 +100,36 @@
         "confidence": "medium",
         "definition_cn": "款待；请客",
         "definition_en": "to give someone a gift or entertainment",
-        "governing_pattern": "",
+        "governing_pattern": "treat sb/oneself to sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:treat:d057a05fe17e582d",
         "sense_label_en": "to give someone a gift or entertainment",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "请客/犒劳用to + 所提供的东西；with + 药物或材料选治疗/加工，不是请客。"
+      },
+      {
+        "sense_id": "sense:treat:1c863a49e3af495f",
+        "definition_cn": "处理、加工材料或物质以改善或保护它",
+        "definition_en": "to apply a substance or process to material to change or protect it",
+        "sense_label_en": "to apply a substance or process to material to change or protect it",
+        "pos": "verb",
+        "governing_pattern": "treat sth with sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:0b139f4ccc606d317999",
+            "phrase": "wood treated with preservative",
+            "meaning_cn": "用防腐剂处理过的木材",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -342,9 +364,18 @@
         "merged_into_sense_id": null,
         "source_row": 14568,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
+      },
+      {
+        "sense_id": "sense:treat:1c863a49e3af495f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
+        "source_row": 14583
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:0b139f4ccc606d317999"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -371,6 +402,11 @@
         "id": "collocation:f40d880796d95c398a16",
         "source_row": 20673,
         "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json"
+      },
+      {
+        "id": "collocation:0b139f4ccc606d317999",
+        "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json",
+        "source_row": 21480
       }
     ],
     "exam-mappings": [],

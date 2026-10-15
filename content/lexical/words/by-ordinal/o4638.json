@@ -6,7 +6,25 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:spread:ae179bfc32979ccc",
+        "pattern": "spread + costs/payments/work + over + a period",
+        "meaning_cn": "把费用、付款或工作分摊到一段时间内",
+        "definition_en": "distribute costs, payments, or work across a period",
+        "boundary": "over后是时间跨度；强调分期或分散安排，不能按物理铺开或传播消息理解。",
+        "level": "L2",
+        "direction": "R+D+P",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/spread",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "verb distribute / spreading food; noun newspaper and difference; Business spread payments"
+          }
+        ]
+      }
+    ],
     "content_hash": "481ba91c675d664fe4c04bcc15fd8af75ed415fffe63ca5075001de2c664caf1",
     "core_concept": {
       "core_clusters": [
@@ -31,9 +49,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "展开；铺开；传播；散布；传播；蔓延；涂；敷；涂抹酱；传播、扩散的过程、范围或分布",
-      "core_meaning_en": "to open or extend over a larger area; to cause to become widely known or felt; to become extended or distributed over an area; to apply a substance over a surface; a soft food for spreading on bread; the process, extent, or distribution of something spreading",
-      "mental_model_cn": "展开；铺开；传播；散布；传播；蔓延；涂；敷；涂抹酱；传播、扩散的过程、范围或分布",
+      "core_meaning_cn": "从集中处铺开、扩散或分布出去；名词还可指涂抹酱、报刊版面与数额差距",
+      "core_meaning_en": "open out, distribute, or extend; also a food paste, a publication feature, or a gap between amounts",
+      "mental_model_cn": "看对象选分支：布或肢体是展开，消息或影响是传播，软物质加表面是涂抹，费用加时间是分摊。名词看食物、报刊或价格/利率语境，不把所有spread都译作传播。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -148,15 +166,24 @@
         ],
         "confidence": "medium",
         "definition_cn": "涂；敷",
-        "definition_en": "to apply a substance over a surface",
-        "governing_pattern": "vt. + object",
+        "definition_en": "apply a soft substance across a surface, or be able to be applied in this way",
+        "governing_pattern": "spread + substance + on/over + surface; spread + surface + with + substance; sth spreads easily",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:spread:d516870212aa5d38",
-        "sense_label_en": "to apply a substance over a surface",
+        "sense_label_en": "apply or be spreadable as a soft layer",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "usage_note": "涂抹动作的直接宾语可为软物质或被涂表面；前者配on/over，后者配with。软物质作主语时可说容易涂开。",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/spread",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "verb distribute / spreading food; noun newspaper and difference; Business spread payments"
+          }
+        ]
       },
       {
         "collocations": [
@@ -195,16 +222,25 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "跨页",
-        "definition_en": "two facing pages of a publication",
+        "definition_cn": "（报刊中的）整版或跨页专题、广告",
+        "definition_en": "an article, feature, or advertisement laid out over one or more pages",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:spread:8ae5bd5a17d0598b",
-        "sense_label_en": "two facing pages of a publication",
+        "sense_label_en": "a publication feature or advertisement across one or more pages",
         "sort_order": 5,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "double-page spread专指左右相对的双页；spread本身不必总是恰好两页。",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/spread",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "verb distribute / spreading food; noun newspaper and difference; Business spread payments"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -219,6 +255,28 @@
         "sense_label_en": "the process, extent, or distribution of something spreading",
         "sort_order": 6,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:spread:11ec2ed7abffe003",
+        "pos": "noun",
+        "definition_cn": "（价格、利率等两数额之间的）差额；价差；利差",
+        "definition_en": "the gap between two amounts such as prices or interest rates",
+        "sense_label_en": "the gap between two amounts such as prices or interest rates",
+        "level": "L2",
+        "direction": "R+D",
+        "governing_pattern": "the spread between + A + and + B",
+        "transitivity": "nonverb",
+        "usage_note": "价格、利率或收益率之间的数字差额；不是传播范围，也不是面包涂抹酱。",
+        "collocations": [],
+        "sort_order": 7,
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/spread",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "verb distribute / spreading food; noun newspaper and difference; Business spread payments"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -444,6 +502,12 @@
         "merged_into_sense_id": null,
         "source_row": 13151,
         "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json"
+      },
+      {
+        "sense_id": "sense:spread:11ec2ed7abffe003",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4638.json"
       }
     ],
     "active_collocations": [
@@ -456,7 +520,13 @@
       "collocation:ea38ff6f9282bc3bc04c",
       "collocation:f1c4c66691594a80d671"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:spread:ae179bfc32979ccc",
+        "source_path": "content/lexical/words/by-ordinal/o4638.json",
+        "object_type": "construction"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:55d63968e3aad1720272",

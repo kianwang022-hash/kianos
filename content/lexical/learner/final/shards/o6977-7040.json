@@ -229,7 +229,7 @@
     "ordinal": 6980,
     "word": "imbibe",
     "source_owner_path": "content/lexical/words/by-ordinal/o6980.json",
-    "source_fingerprint": "3f91f9d68f850eebed07325230c1ee9c3d537f28c10a175ce7c7914b67e0bc99",
+    "source_fingerprint": "33af20179ef0d9cae8b0367d589bda95688aa7af7bc6465a444ab14cf80410fe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -269,7 +269,7 @@
         "id": "sense:imbibe:4c31dddf32064ef1",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: imbibe; imbibe sth (especially alcohol)",
         "definition_cn": "（正式/文学）饮用；尤指饮酒",
         "definition_en": "formal or literary: to drink, especially alcohol",
         "note": "",
@@ -441,12 +441,12 @@
     "ordinal": 6982,
     "word": "immortal",
     "source_owner_path": "content/lexical/words/by-ordinal/o6982.json",
-    "source_fingerprint": "2a8f6aaa88a2e5ee7df3f605e187a3cf4528fa1ee1e77946cfaa7d30844189f7",
+    "source_fingerprint": "31ee60a4af348127ea5bf805ebb5c759a15145b22e61020a5c54e5876f5a6e67",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -493,6 +493,23 @@
           "target_id": "sense:immortal:b027a2d41c425f2e",
           "target_locator": "record.senses[1]",
           "target_label": "不朽的；永生的；永远被铭记的"
+        }
+      },
+      {
+        "id": "sense:immortal:3412e76d998a2155",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "神仙；永生者",
+        "definition_en": "a being believed to live forever, such as a god",
+        "note": "神话、宗教中的immortals指不会死的神灵；sports/literary immortals可仍指声名不朽的人。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:immortal:3412e76d998a2155",
+          "target_locator": "record.senses[2]",
+          "target_label": "神仙；永生者"
         }
       }
     ],
@@ -705,7 +722,7 @@
     "ordinal": 6985,
     "word": "impassive",
     "source_owner_path": "content/lexical/words/by-ordinal/o6985.json",
-    "source_fingerprint": "59df99363c85cbbbcb972c2cb7bfbbf6d1a23ae875767901cccdb5180e09b636",
+    "source_fingerprint": "6ec4d5d6baccf5bf4b7c86830d9d37cac3c9e5a0b815de71c518fa2cc26bb432",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -714,13 +731,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "无感情的, 冷淡的, 无感觉的, 不能伤害的",
+      "summary_cn": "不动感情的；冷静而面无表情的（无知觉、不感痛苦的旧义保留供查阅）",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "无感情的, 冷淡的, 无感觉的, 不能伤害的"
+        "target_label": "不动感情的；冷静而面无表情的（无知觉、不感痛苦的旧义保留供查阅）"
       }
     },
     "senses": [
@@ -768,7 +785,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "（罕见/古旧）无知觉的；不感疼痛或不受痛苦影响的",
+          "definition_en": "rare or archaic: lacking physical sensation or not susceptible to pain or suffering",
+          "sense_label_en": "rare or archaic: lacking physical sensation or not susceptible to pain or suffering",
+          "pos": "adjective",
+          "level": "L2",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.merriam-webster.com/dictionary/impassive",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "stable_sense_id": "sense:impassive:9c9b13a4f53ff428",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "承接原Core无感觉的/不能伤害的历史知识；不是现代“不会受伤/刀枪不入”。旧身体感觉义保Lookup，现代默认保不显情绪。"
+        }
+      ]
     }
   },
   {
@@ -1032,7 +1075,7 @@
     "ordinal": 6989,
     "word": "impending",
     "source_owner_path": "content/lexical/words/by-ordinal/o6989.json",
-    "source_fingerprint": "756b28584ced7584bc05514ac009d299cf6c28db6292ec12082533c96ea98153",
+    "source_fingerprint": "b2b3015976c27ca6dbd3e56a797be2decf7265e753b440017e169f2bbb2e68ee",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1041,13 +1084,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "即将发生的, 迫切的, 悬空的",
+      "summary_cn": "即将发生的；迫近的（悬垂的古旧义保留供查阅）",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "即将发生的, 迫切的, 悬空的"
+        "target_label": "即将发生的；迫近的（悬垂的古旧义保留供查阅）"
       }
     },
     "senses": [
@@ -1058,7 +1101,7 @@
         "governing_pattern": "",
         "definition_cn": "即将发生的；迫近的",
         "definition_en": "close in time; about to occur",
-        "note": "",
+        "note": "常指不愉快或不希望发生的事，但并非只能用于坏事，也可说impending marriage/retirement。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -1092,7 +1135,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "（古旧）悬垂的；悬在上方的",
+          "definition_en": "archaic: hanging over or suspended above",
+          "sense_label_en": "archaic: hanging over or suspended above",
+          "pos": "adjective",
+          "level": "L2",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.dictionary.com/browse/impending",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "stable_sense_id": "sense:impending:f0c73e6843c34f58",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "保原Core悬空的所指历史空间义；原publisher adjective entry明确archaic，默认现代词义为即将发生。"
+        }
+      ]
     }
   },
   {
@@ -1401,7 +1470,7 @@
     "ordinal": 6993,
     "word": "implacable",
     "source_owner_path": "content/lexical/words/by-ordinal/o6993.json",
-    "source_fingerprint": "a0af5d4f278187625865e22fc29c3ae63d8dca8529498573b96abd2c65454b71",
+    "source_fingerprint": "7835cf66cb0cf81589cf33e8e3b8d5b2d2c0cca9ff2cae21ced4e37d381f0b1e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1410,13 +1479,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "不能安抚的, 难和解的, 不变的",
+      "summary_cn": "无法安抚的；难以和解的；（敌意、反对等）坚定不移的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "不能安抚的, 难和解的, 不变的"
+        "target_label": "无法安抚的；难以和解的；（敌意、反对等）坚定不移的"
       }
     },
     "senses": [
@@ -1425,7 +1494,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "不能安抚的, 难和解的, 不变的",
+        "definition_cn": "无法安抚的；难以和解的；（敌意、反对等）坚定不移的",
         "definition_en": "incapable of being placated",
         "note": "",
         "identity_overlay": null,
@@ -1434,7 +1503,7 @@
           "target_kind": "sense",
           "target_id": "sense:implacable:b7ea091e3da45aeb",
           "target_locator": "record.senses[0]",
-          "target_label": "不能安抚的, 难和解的, 不变的"
+          "target_label": "无法安抚的；难以和解的；（敌意、反对等）坚定不移的"
         }
       }
     ],
@@ -1472,13 +1541,13 @@
     "ordinal": 6994,
     "word": "implicate",
     "source_owner_path": "content/lexical/words/by-ordinal/o6994.json",
-    "source_fingerprint": "caa2949d6a5665818c4aa7b3e3cabac9a90612f9eebb3eb0ee2b9a1c3a1166dd",
+    "source_fingerprint": "ffaf5502aec06ca41f13004ec9c856e1cc7a88e448a7ab8178548de2bf60390e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "牵涉；显示某人卷入不当行为；也可泛指涉及或意味着某因素",
@@ -1543,7 +1612,30 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e2731f5d720d019d6411",
+        "sense_id": "sense:implicate:e22ab23fda61593b",
+        "source_locator": "record.constructions[0]",
+        "pattern": "implicate sb/sth in sth",
+        "lines": [
+          {
+            "text": "显示某人/某因素涉及某事，尤指不当行为或不良结果",
+            "lang": "cn"
+          },
+          {
+            "text": "show or suggest involvement or responsibility in something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e2731f5d720d019d6411",
+          "target_locator": "record.constructions[0]",
+          "target_label": "implicate sb/sth in sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1689,7 +1781,7 @@
     "ordinal": 6996,
     "word": "imposing",
     "source_owner_path": "content/lexical/words/by-ordinal/o6996.json",
-    "source_fingerprint": "f038aefbff0231220990846861b1e582a8fe5b2813c3ba58c745952bb10dec3d",
+    "source_fingerprint": "4975b2ab2b9aa5065dbc73950cec9d9512bc4cd707ba6938a5007597fd674c26",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1698,13 +1790,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "令人难忘的, 壮丽的, 威风的；气势宏伟的；给人深刻印象的；威严的",
+      "summary_cn": "（人的外表或举止）威严的；气度不凡的；气势宏伟的；给人深刻印象的；威严的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "令人难忘的, 壮丽的, 威风的；气势宏伟的；给人深刻印象的；威严的"
+        "target_label": "（人的外表或举止）威严的；气度不凡的；气势宏伟的；给人深刻印象的；威严的"
       }
     },
     "senses": [
@@ -1713,7 +1805,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "令人难忘的, 壮丽的, 威风的",
+        "definition_cn": "（人的外表或举止）威严的；气度不凡的",
         "definition_en": "used of a person's appearance or behavior; befitting an eminent person",
         "note": "",
         "identity_overlay": null,
@@ -1722,7 +1814,7 @@
           "target_kind": "sense",
           "target_id": "sense:imposing:fd2c5a688f245cdc",
           "target_locator": "record.senses[0]",
-          "target_label": "令人难忘的, 壮丽的, 威风的"
+          "target_label": "（人的外表或举止）威严的；气度不凡的"
         }
       },
       {
@@ -1790,7 +1882,7 @@
     "ordinal": 6997,
     "word": "impotence",
     "source_owner_path": "content/lexical/words/by-ordinal/o6997.json",
-    "source_fingerprint": "8e98a5df20d358c4fde8cacc74bab81fe7d598ec4385f23e366442fc7c34d100",
+    "source_fingerprint": "b3d3eb8d3352412ea86b771113c87e95ec34c9dd74fe0b4c5e7dbb64c04ef887",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1814,16 +1906,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（医学/性健康）勃起功能障碍；性功能障碍",
-        "definition_en": "medical/sexual: erectile dysfunction or inability to perform sexual intercourse",
-        "note": "",
+        "definition_cn": "（医学/性健康）勃起功能障碍",
+        "definition_en": "medical/sexual: inability to achieve or maintain an erection sufficient for sexual activity",
+        "note": "现代医学语境通常指勃起功能障碍，不等于所有性功能问题或任何原因导致的无法性交。抽象语境仍由另一个Sense表达无力、缺乏影响力。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:impotence:9ac77ec8e15e5790",
           "target_locator": "record.senses[0]",
-          "target_label": "（医学/性健康）勃起功能障碍；性功能障碍"
+          "target_label": "（医学/性健康）勃起功能障碍"
         }
       },
       {
@@ -1889,7 +1981,7 @@
     "ordinal": 6998,
     "word": "imprecate",
     "source_owner_path": "content/lexical/words/by-ordinal/o6998.json",
-    "source_fingerprint": "73285063e75ced4e9a954a4e97f599fb073dee7747694f1d7ebd95a26754a204",
+    "source_fingerprint": "1d23d710e7dfad303a70fea20cf4bbb8a53bbc9749f33653e7ee8091f78cc337",
     "sense_lineage": [
       {
         "word_id": "word:imprecate",
@@ -1964,7 +2056,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "verb",
-          "definition_cn": "祈求, 诅咒",
+          "definition_cn": "（罕见）咒骂；说诅咒、亵渎或粗俗的话",
           "definition_en": "utter obscenities or profanities",
           "semantic_key": "4f1b29bdaaf9c59e350902927d6846150836499309ec4f6d1527d1776f236dad",
           "semantic_key_history": [],
@@ -1973,7 +2065,24 @@
           "updated_at": "2026-09-14T00:00:00Z",
           "source_row": 18083,
           "source_path": "content/lexical/canonical/senses/shards/o6977-7008.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:imprecate:df4eb886cee85d76",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "verb",
+            "definition_cn": "祈求, 诅咒",
+            "definition_en": "utter obscenities or profanities",
+            "semantic_key": "4f1b29bdaaf9c59e350902927d6846150836499309ec4f6d1527d1776f236dad",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-14T00:00:00Z",
+            "source_row": 18083,
+            "source_path": "content/lexical/canonical/senses/shards/o6977-7008.json",
+            "reference_only": true
+          },
+          "usage_note": "原deprecated身份与完整源记录历史继续保留；词典证实咒骂用法，中文不应泛作中性祈求。此条保持Reference供Lookup，不恢复为active生命周期，不进入默认Study或Recall。"
         }
       ]
     }
@@ -2188,7 +2297,7 @@
     "ordinal": 7001,
     "word": "improvise",
     "source_owner_path": "content/lexical/words/by-ordinal/o7001.json",
-    "source_fingerprint": "226e429e4100bdbcc80da0c2b53feb900c0d0a2f4e9bbd3f888c27dd7b30a42b",
+    "source_fingerprint": "f36f533f073c9a1c24b5ec3e32f58a6da37b3ab0dd362e64eb12ca8617ddbb06",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2212,7 +2321,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "即席创作, 临时做",
+        "definition_cn": "即兴创作或表演（音乐、台词、演说等）",
         "definition_en": "perform without preparation",
         "note": "",
         "identity_overlay": null,
@@ -2221,7 +2330,7 @@
           "target_kind": "sense",
           "target_id": "sense:improvise:fb2ad9b94fa65412",
           "target_locator": "record.senses[0]",
-          "target_label": "即席创作, 临时做"
+          "target_label": "即兴创作或表演（音乐、台词、演说等）"
         }
       },
       {
@@ -2229,7 +2338,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "即席创作, 临时做",
+        "definition_cn": "利用手头材料临时拼凑、应变或凑合做成",
         "definition_en": "manage in a makeshift way; do with whatever is at hand",
         "note": "",
         "identity_overlay": null,
@@ -2238,7 +2347,7 @@
           "target_kind": "sense",
           "target_id": "sense:improvise:860e41a8395e5f99",
           "target_locator": "record.senses[1]",
-          "target_label": "即席创作, 临时做"
+          "target_label": "利用手头材料临时拼凑、应变或凑合做成"
         }
       }
     ],
@@ -2371,7 +2480,7 @@
     "ordinal": 7003,
     "word": "impudent",
     "source_owner_path": "content/lexical/words/by-ordinal/o7003.json",
-    "source_fingerprint": "4e425e1064d5ec12edc6f5191c13d9596ff9d62160db9546c153432c3def0b96",
+    "source_fingerprint": "dbf1c9e3bead447bcef1c39479dacb61aa82d41b778f039a93da523ee519e3b6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2380,13 +2489,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "鲁莽的, 卑鄙的, 厚颜无耻的",
+      "summary_cn": "放肆无礼的；厚颜冒犯的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "鲁莽的, 卑鄙的, 厚颜无耻的"
+        "target_label": "放肆无礼的；厚颜冒犯的"
       }
     },
     "senses": [
@@ -2395,7 +2504,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "鲁莽的, 卑鄙的, 厚颜无耻的",
+        "definition_cn": "放肆无礼的；厚颜冒犯的",
         "definition_en": "marked by casual disrespect",
         "note": "",
         "identity_overlay": null,
@@ -2404,7 +2513,7 @@
           "target_kind": "sense",
           "target_id": "sense:impudent:60e5595da2895624",
           "target_locator": "record.senses[0]",
-          "target_label": "鲁莽的, 卑鄙的, 厚颜无耻的"
+          "target_label": "放肆无礼的；厚颜冒犯的"
         }
       }
     ],
@@ -2633,22 +2742,22 @@
     "ordinal": 7006,
     "word": "impute",
     "source_owner_path": "content/lexical/words/by-ordinal/o7006.json",
-    "source_fingerprint": "b00117c7730d0076cb38672b0ed3ccd48c7138dcf42fd854a9f6402d34406d14",
+    "source_fingerprint": "926a847732d524c04122b8f0ec28c8badf2de213b40626cab11db072ba7a4c3e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "归罪, 使负责, 嫁祸于；（正式）把责任、过错、动机、原因或性质归于……",
-      "decision_cn": "",
+      "summary_cn": "把性质、责任或原因归于某人某物；（统计、经济）估算未知值",
+      "decision_cn": "归因常带负面判断，但不必然是明知虚假的嫁祸；谈missing values、income或value时留意估算义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "归罪, 使负责, 嫁祸于；（正式）把责任、过错、动机、原因或性质归于……"
+        "target_label": "把性质、责任或原因归于某人某物；（统计、经济）估算未知值"
       }
     },
     "senses": [
@@ -2684,6 +2793,23 @@
           "target_id": "sense:impute:caf41d1f24245f12",
           "target_locator": "record.senses[1]",
           "target_label": "（正式）把责任、过错、动机、原因或性质归于……"
+        }
+      },
+      {
+        "id": "sense:impute:2d9787d33ee26058",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "（统计、经济）根据已知值估算未知值；填补缺失数据",
+        "definition_en": "to estimate an unknown or missing value using available information",
+        "note": "对象为缺失数据、收入或价值时是估算；对象为过错、动机等时是归属判断。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:impute:2d9787d33ee26058",
+          "target_locator": "record.senses[2]",
+          "target_label": "（统计、经济）根据已知值估算未知值；填补缺失数据"
         }
       }
     ],
@@ -3081,7 +3207,7 @@
     "ordinal": 7011,
     "word": "incidental",
     "source_owner_path": "content/lexical/words/by-ordinal/o7011.json",
-    "source_fingerprint": "e3c021a43768f11c6f27b94b961a09d19bf33d2b7df96841865740f2a4c57264",
+    "source_fingerprint": "6a4a53cbd726f395540fe48fb60327834c2816605a0a16bb8d64215e503228ec",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3106,8 +3232,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "附带事件",
-        "definition_en": "an item that is incidental",
+        "definition_cn": "附带的小事或物品；（常用复数）杂项开支、零星费用",
+        "definition_en": "a minor or additional item or event; in the plural, small extra expenses",
         "note": "Noun/plural incidentals: small extra items or expenses.",
         "identity_overlay": null,
         "usage": [],
@@ -3115,7 +3241,7 @@
           "target_kind": "sense",
           "target_id": "sense:incidental:281df53fb00e5300",
           "target_locator": "record.senses[0]",
-          "target_label": "附带事件"
+          "target_label": "附带的小事或物品；（常用复数）杂项开支、零星费用"
         }
       },
       {
@@ -3283,13 +3409,13 @@
     "ordinal": 7013,
     "word": "incisive",
     "source_owner_path": "content/lexical/words/by-ordinal/o7013.json",
-    "source_fingerprint": "37aa4ce5f642961121d166e01405d02ac7514c255113217da76bce945093df9b",
+    "source_fingerprint": "9cc38b5574883d622a648a472290a158fd6473b04e8351949cdf25756a3c9811",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "敏锐的；深刻而直接的；一针见血的",
@@ -3303,25 +3429,8 @@
     },
     "senses": [
       {
-        "id": "sense:incisive:489af052aacd55f8",
-        "source_locator": "record.senses[0]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "适于切割/穿刺的；锋利的",
-        "definition_en": "suitable for cutting or piercing",
-        "note": "Literal/specialist: suitable for cutting or piercing.",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:incisive:489af052aacd55f8",
-          "target_locator": "record.senses[0]",
-          "target_label": "适于切割/穿刺的；锋利的"
-        }
-      },
-      {
         "id": "sense:incisive:7d23f5b6e98f93dd",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "敏锐的；深刻而直接的；一针见血的",
@@ -3332,7 +3441,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:incisive:7d23f5b6e98f93dd",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "敏锐的；深刻而直接的；一针见血的"
         }
       }
@@ -3360,7 +3469,62 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "high",
+          "definition_cn": "适于切割/穿刺的；锋利的",
+          "definition_en": "suitable for cutting or piercing",
+          "depth": "full_card",
+          "domain_tag": "toefl",
+          "frequency_tag": "toefl",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_label_en": "suitable for cutting or piercing",
+          "sort_order": 1,
+          "source_evidence": [
+            {
+              "evidence_id": "source-fact:e18fc22d6844162838c8fbda",
+              "evidence_status": "source_checked",
+              "role": "external_semantic_auditor",
+              "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
+              "source_type": "learner_dictionary"
+            }
+          ],
+          "usage_note": "Literal/specialist: suitable for cutting or piercing.",
+          "stable_sense_id": "sense:incisive:489af052aacd55f8",
+          "status": "active",
+          "reference_only": true,
+          "historical_active_record": {
+            "collocations": [],
+            "confidence": "high",
+            "definition_cn": "适于切割/穿刺的；锋利的",
+            "definition_en": "suitable for cutting or piercing",
+            "depth": "full_card",
+            "domain_tag": "toefl",
+            "frequency_tag": "toefl",
+            "level": "L3",
+            "needs_human_review": 0,
+            "pos": "adjective",
+            "sense_id": "sense:incisive:489af052aacd55f8",
+            "sense_label_en": "suitable for cutting or piercing",
+            "sort_order": 1,
+            "source_evidence": [
+              {
+                "evidence_id": "source-fact:e18fc22d6844162838c8fbda",
+                "evidence_status": "source_checked",
+                "role": "external_semantic_auditor",
+                "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
+                "source_type": "learner_dictionary"
+              }
+            ],
+            "usage_note": "Literal/specialist: suitable for cutting or piercing."
+          },
+          "reference_reason": "物理切割/穿刺的专门义保查阅，默认保思想和分析的一针见血；原字段与source完整保留。"
+        }
+      ]
     }
   },
   {
@@ -3476,7 +3640,7 @@
     "ordinal": 7015,
     "word": "incompatible",
     "source_owner_path": "content/lexical/words/by-ordinal/o7015.json",
-    "source_fingerprint": "8ddbd51fabfd42dd9e34ca24020246027aceb5db9cbe257ee07b196e0ea17315",
+    "source_fingerprint": "c851ba79e87ef682266597adce19c17ae85e6fcd07db05d4e87e1749670fdd1e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3517,7 +3681,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "不相容的, 不能并存的, 矛盾的",
+        "definition_cn": "（设备、组件或系统）不兼容的；不能直接配合使用或连接的",
         "definition_en": "incapable of being used with or connected to other devices or components without modification",
         "note": "",
         "identity_overlay": null,
@@ -3526,7 +3690,7 @@
           "target_kind": "sense",
           "target_id": "sense:incompatible:93e75a5d25fe5943",
           "target_locator": "record.senses[1]",
-          "target_label": "不相容的, 不能并存的, 矛盾的"
+          "target_label": "（设备、组件或系统）不兼容的；不能直接配合使用或连接的"
         }
       },
       {
@@ -3534,7 +3698,7 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "不相容的, 不能并存的, 矛盾的",
+        "definition_cn": "（固体或溶液）不相混溶的；不能混成稳定均匀混合物的",
         "definition_en": "used especially of solids or solutions; incapable of blending into a stable homogeneous mixture",
         "note": "",
         "identity_overlay": null,
@@ -3543,7 +3707,7 @@
           "target_kind": "sense",
           "target_id": "sense:incompatible:584e8a6e05f45c2d",
           "target_locator": "record.senses[2]",
-          "target_label": "不相容的, 不能并存的, 矛盾的"
+          "target_label": "（固体或溶液）不相混溶的；不能混成稳定均匀混合物的"
         }
       }
     ],
@@ -3730,7 +3894,7 @@
     "ordinal": 7018,
     "word": "incubate",
     "source_owner_path": "content/lexical/words/by-ordinal/o7018.json",
-    "source_fingerprint": "e3ba1fd9bb78133000701590b0efe0ee94f12d6c5f056c49fbbc5a3e27c3de9c",
+    "source_fingerprint": "34db589e45d63bc38070b37cd9c0f50ac4a41f4645850fc7b0dd92cef6bc23b1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3753,10 +3917,10 @@
         "id": "sense:incubate:4039ff8925b956d1",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "T: incubate eggs; I: eggs incubate",
         "definition_cn": "孵化；培养；使在适宜条件下发育",
         "definition_en": "to keep eggs, cells, microorganisms, or other developing material under conditions that allow growth or development",
-        "note": "",
+        "note": "及物是进行孵育，不及物是处于孵育、发育过程；疾病潜伏仍由原独立Sense表达。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -3833,7 +3997,7 @@
     "ordinal": 7019,
     "word": "inculcate",
     "source_owner_path": "content/lexical/words/by-ordinal/o7019.json",
-    "source_fingerprint": "68a263f9b8ec5f9f2089e81073259f70c505d786425a7dc50587e7c9fedc0da2",
+    "source_fingerprint": "3de98662c3c77b2014ded6ff25b9c6f42aac77a88c2652c5b7fe31084affbfbe",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3933,6 +4097,28 @@
           "target_locator": "record.constructions[0]",
           "target_label": "inculcate sth in/into sb"
         }
+      },
+      {
+        "id": "construction:1336f744f34855c1c202",
+        "sense_id": "sense:inculcate:6a13b1bacc045b78",
+        "source_locator": "record.constructions[1]",
+        "pattern": "inculcate sb with sth",
+        "lines": [
+          {
+            "text": "向某人反复灌输思想、观念或习惯",
+            "lang": "cn"
+          },
+          {
+            "text": "teach someone an idea or habit by repeated instruction",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1336f744f34855c1c202",
+          "target_locator": "record.constructions[1]",
+          "target_label": "inculcate sb with sth"
+        }
       }
     ],
     "reference": {
@@ -3948,7 +4134,7 @@
     "ordinal": 7020,
     "word": "indecent",
     "source_owner_path": "content/lexical/words/by-ordinal/o7020.json",
-    "source_fingerprint": "371a919123a4fb1e85987b066d02ba563e0c9893f7bd867ce7253938b8cb2e33",
+    "source_fingerprint": "2396b82b777a3cf928f6d00e9d7a5133784808abe37184abe01ac25d77a0e0f0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3972,16 +4158,16 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "下流的, 不礼貌的",
+        "definition_cn": "不合礼仪或社会规范的；不体面的",
         "definition_en": "not in keeping with accepted standards of what is right or proper in polite society",
-        "note": "",
+        "note": "修饰速度、数量或程度时可指过分得不体面；indecent haste 是操之过急，并非色情含义。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:indecent:9489f43f87695beb",
           "target_locator": "record.senses[0]",
-          "target_label": "下流的, 不礼貌的"
+          "target_label": "不合礼仪或社会规范的；不体面的"
         }
       },
       {
@@ -3989,7 +4175,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "下流的, 不礼貌的",
+        "definition_cn": "（尤指性方面）下流的；猥亵的；有伤风化的",
         "definition_en": "offensive to good taste especially in sexual matters",
         "note": "",
         "identity_overlay": null,
@@ -3998,7 +4184,7 @@
           "target_kind": "sense",
           "target_id": "sense:indecent:5074bf7902f0584f",
           "target_locator": "record.senses[1]",
-          "target_label": "下流的, 不礼貌的"
+          "target_label": "（尤指性方面）下流的；猥亵的；有伤风化的"
         }
       },
       {
@@ -4006,7 +4192,7 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "下流的, 不礼貌的",
+        "definition_cn": "（行为或外表）违反性道德规范的；有伤风化的",
         "definition_en": "offending against sexual mores in conduct or appearance",
         "note": "",
         "identity_overlay": null,
@@ -4015,7 +4201,7 @@
           "target_kind": "sense",
           "target_id": "sense:indecent:ef6869b5e81c52d3",
           "target_locator": "record.senses[2]",
-          "target_label": "下流的, 不礼貌的"
+          "target_label": "（行为或外表）违反性道德规范的；有伤风化的"
         }
       }
     ],
@@ -4224,7 +4410,7 @@
     "ordinal": 7023,
     "word": "indent",
     "source_owner_path": "content/lexical/words/by-ordinal/o7023.json",
-    "source_fingerprint": "cce0342058c44b3be96849414e167a629e98da760fce89b5440983ad0d5c97cc",
+    "source_fingerprint": "cd0bf6d0ead52dd852904a84ef6f22938c057c6ded0679f645b0c2f994af083a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4249,7 +4435,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "契约, 订货单, 凹痕",
+        "definition_cn": "（主要英式贸易用语）进出口订货单",
         "definition_en": "an order for goods to be exported or imported",
         "note": "",
         "identity_overlay": null,
@@ -4258,7 +4444,7 @@
           "target_kind": "sense",
           "target_id": "sense:indent:879b37c825315649",
           "target_locator": "record.senses[0]",
-          "target_label": "契约, 订货单, 凹痕"
+          "target_label": "（主要英式贸易用语）进出口订货单"
         }
       },
       {
@@ -4279,25 +4465,8 @@
         }
       },
       {
-        "id": "sense:indent:2d20b4e40d255ca7",
-        "source_locator": "record.senses[2]",
-        "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "切割成锯齿状",
-        "definition_en": "cut or tear along an irregular line so that the parts can later be matched for authentication",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:indent:2d20b4e40d255ca7",
-          "target_locator": "record.senses[2]",
-          "target_label": "切割成锯齿状"
-        }
-      },
-      {
         "id": "sense:indent:eb68b93302c02b16",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "凹口；凹痕；缩进",
@@ -4308,8 +4477,25 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:indent:eb68b93302c02b16",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "凹口；凹痕；缩进"
+        }
+      },
+      {
+        "id": "sense:indent:401cd2a579491640",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "使表面凹入；压出凹痕；使边缘成缺口或锯齿状",
+        "definition_en": "to make a dent, hollow, or notch in a surface or edge",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:indent:401cd2a579491640",
+          "target_locator": "record.senses[3]",
+          "target_label": "使表面凹入；压出凹痕；使边缘成缺口或锯齿状"
         }
       }
     ],
@@ -4383,7 +4569,84 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [],
+          "confidence": "high",
+          "definition_cn": "沿不规则线裁开契据等文件，使两部分以后可拼合验真",
+          "definition_en": "cut or tear along an irregular line so that the parts can later be matched for authentication",
+          "depth": "full_card",
+          "domain_tag": "toefl",
+          "frequency_tag": "toefl",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_label_en": "cut or tear along an irregular line so that the parts can later be matched for authentication",
+          "sort_order": 3,
+          "source_evidence": [
+            {
+              "evidence_id": "source-fact:fea4fd8410596ecb9bc14146",
+              "evidence_status": "source_checked",
+              "role": "external_semantic_auditor",
+              "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
+              "source_type": "learner_dictionary"
+            }
+          ],
+          "stable_sense_id": "sense:indent:2d20b4e40d255ca7",
+          "status": "active",
+          "reference_only": true,
+          "historical_active_record": {
+            "collocations": [],
+            "confidence": "high",
+            "definition_cn": "切割成锯齿状",
+            "definition_en": "cut or tear along an irregular line so that the parts can later be matched for authentication",
+            "depth": "full_card",
+            "domain_tag": "toefl",
+            "frequency_tag": "toefl",
+            "level": "L3",
+            "needs_human_review": 0,
+            "pos": "verb",
+            "sense_id": "sense:indent:2d20b4e40d255ca7",
+            "sense_label_en": "cut or tear along an irregular line so that the parts can later be matched for authentication",
+            "sort_order": 3,
+            "source_evidence": [
+              {
+                "evidence_id": "source-fact:fea4fd8410596ecb9bc14146",
+                "evidence_status": "source_checked",
+                "role": "external_semantic_auditor",
+                "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
+                "source_type": "learner_dictionary"
+              }
+            ]
+          },
+          "reference_reason": "契据裁开验真属于历史专门实物流程；完整旧义保Reference，日常排版不需此Recall。"
+        },
+        {
+          "definition_cn": "（历史）契约；契据",
+          "definition_en": "historical: an indenture or written contract",
+          "sense_label_en": "historical: an indenture or written contract",
+          "pos": "noun",
+          "level": "L2",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/indent",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "stable_sense_id": "sense:indent:438db9395987d2f6",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "承接原订货单行误混的契约名词，保Lookup而不重开默认Recall。"
+        }
+      ]
     }
   },
   {
@@ -4392,13 +4655,13 @@
     "ordinal": 7024,
     "word": "indigenous",
     "source_owner_path": "content/lexical/words/by-ordinal/o7024.json",
-    "source_fingerprint": "3fa0f22c47759e550c7ca2761f886ebaf76708cbb3124b273903fb537d7b74ea",
+    "source_fingerprint": "e468fe8abb32de7a1d51dd6d3ee0267be0592da15e86b1a1c099bfdcc356d5cf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "本土的；土生土长的；原住民的",
@@ -4418,7 +4681,7 @@
         "governing_pattern": "",
         "definition_cn": "本土的；土生土长的；原住民的",
         "definition_en": "originating, naturally occurring, or native to a particular place; for peoples, having ancestral ties to a region before later settlement or colonization",
-        "note": "",
+        "note": "When referring to Indigenous peoples or identities, capitalize Indigenous where the relevant style convention requires it; ordinary biological/geographic indigenous may remain lowercase.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4475,7 +4738,30 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:712e1de670a648dee89c",
+        "sense_id": "sense:indigenous:e7f10c1076f1545d",
+        "source_locator": "record.constructions[0]",
+        "pattern": "indigenous to a place",
+        "lines": [
+          {
+            "text": "原产于、土生于某地",
+            "lang": "cn"
+          },
+          {
+            "text": "native to a particular region",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:712e1de670a648dee89c",
+          "target_locator": "record.constructions[0]",
+          "target_label": "indigenous to a place"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4676,22 +4962,22 @@
     "ordinal": 7027,
     "word": "indulgent",
     "source_owner_path": "content/lexical/words/by-ordinal/o7027.json",
-    "source_fingerprint": "d19bf4b6c5672dcdf59ce969f53122deefdb528c699550477b83dcfc1c792b72",
+    "source_fingerprint": "8eb531d2b7f698f7d6b7cabc5d2518d1a2c3a5525a5618a737f88409d1fa4dec",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3A"
+        "4A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "纵容的, 任性的, 宽容的",
-      "decision_cn": "",
+      "summary_cn": "纵容、迁就的；宽容、宽厚的",
+      "decision_cn": "形容对人的态度时是宽容迁就；形容甜点、度假等享受时是犒赏自己的，不是食物纵容别人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "纵容的, 任性的, 宽容的"
+        "target_label": "纵容、迁就的；宽容、宽厚的"
       }
     },
     "senses": [
@@ -4700,7 +4986,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "纵容的, 任性的, 宽容的",
+        "definition_cn": "迁就他人愿望的；纵容的",
         "definition_en": "characterized by or given to yielding to the wishes of someone",
         "note": "",
         "identity_overlay": null,
@@ -4709,7 +4995,7 @@
           "target_kind": "sense",
           "target_id": "sense:indulgent:57701c520e865e4b",
           "target_locator": "record.senses[0]",
-          "target_label": "纵容的, 任性的, 宽容的"
+          "target_label": "迁就他人愿望的；纵容的"
         }
       },
       {
@@ -4717,7 +5003,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "纵容的, 任性的, 宽容的",
+        "definition_cn": "宽容的；宽大的",
         "definition_en": "tolerant or lenient",
         "note": "",
         "identity_overlay": null,
@@ -4726,7 +5012,7 @@
           "target_kind": "sense",
           "target_id": "sense:indulgent:86ac4b6b5f5b57aa",
           "target_locator": "record.senses[1]",
-          "target_label": "纵容的, 任性的, 宽容的"
+          "target_label": "宽容的；宽大的"
         }
       },
       {
@@ -4734,7 +5020,7 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "纵容的, 任性的, 宽容的",
+        "definition_cn": "怀有善意的；宽厚的",
         "definition_en": "being favorably inclined",
         "note": "",
         "identity_overlay": null,
@@ -4743,7 +5029,24 @@
           "target_kind": "sense",
           "target_id": "sense:indulgent:1723879cce425043",
           "target_locator": "record.senses[2]",
-          "target_label": "纵容的, 任性的, 宽容的"
+          "target_label": "怀有善意的；宽厚的"
+        }
+      },
+      {
+        "id": "sense:indulgent:ec60c2505be11a25",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "尽情享受的；作为特别享受或犒赏的",
+        "definition_en": "offering or enjoyed as a special pleasure or treat",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:indulgent:ec60c2505be11a25",
+          "target_locator": "record.senses[3]",
+          "target_label": "尽情享受的；作为特别享受或犒赏的"
         }
       }
     ],
@@ -4790,7 +5093,7 @@
     "ordinal": 7028,
     "word": "ineligible",
     "source_owner_path": "content/lexical/words/by-ordinal/o7028.json",
-    "source_fingerprint": "be78f90f6a6e3ff7064d31f987f7ec0b6fb18397bbb5db281c784bcee2780e27",
+    "source_fingerprint": "9ce1d2bb7ff9fdc776ac633ce5bf9a7da186a72c8eac037b88575e5cf538ce8c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4799,13 +5102,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "无被选任资格的, 不适任的, 无益的",
+      "summary_cn": "不具资格的；不符合选任、参加或获益条件的；不适任的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "无被选任资格的, 不适任的, 无益的"
+        "target_label": "不具资格的；不符合选任、参加或获益条件的；不适任的"
       }
     },
     "senses": [
@@ -5188,7 +5491,7 @@
     "ordinal": 7031,
     "word": "infest",
     "source_owner_path": "content/lexical/words/by-ordinal/o7031.json",
-    "source_fingerprint": "724981e532563fba83d07d5a921a100909d94ad40fd381915c26384f8e437a70",
+    "source_fingerprint": "a41d5e90d2afad9ad2d53cbe9befd49de09a8a39c6f33a764e4d60fc77115ffa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5211,7 +5514,7 @@
         "id": "sense:infest:2b764463739256d0",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "pests infest a place/host",
         "definition_cn": "大量侵扰、滋生于某地；成灾",
         "definition_en": "to be present in or spread through a place in large, harmful, or unwanted numbers",
         "note": "",
@@ -5228,7 +5531,7 @@
         "id": "sense:infest:a120ccb8e1f8538c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "pests infest a place/host",
         "definition_cn": "（寄生虫或害虫）大量寄生于宿主",
         "definition_en": "for parasites or pests to live on or in a host in harmful or unwanted numbers",
         "note": "",
@@ -5260,7 +5563,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:ca22440c12177388e3b5",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be infested with pests",
+        "lines": [
+          {
+            "text": "某处或宿主有害虫等大量滋生、侵扰",
+            "lang": "cn"
+          },
+          {
+            "text": "have unwanted pests in large numbers",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:ca22440c12177388e3b5",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be infested with pests"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -5274,7 +5599,7 @@
     "ordinal": 7032,
     "word": "infiltrate",
     "source_owner_path": "content/lexical/words/by-ordinal/o7032.json",
-    "source_fingerprint": "8d9e08a8101174017c3e4548e10f88a855c65d99f716ddaf9833495b6bfdbab2",
+    "source_fingerprint": "d0570c6c7a9fc9facea763bbb0a891a3e83729f7a6298e142e011bf562245c46",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5314,7 +5639,7 @@
         "id": "sense:infiltrate:a5410a56f9e754d9",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt.: infiltrate a group/system/place",
+        "governing_pattern": "infiltrate a group/place; infiltrate into a group/place",
         "definition_cn": "秘密渗入、潜入组织或场所",
         "definition_en": "to secretly enter a group, organization, place, or system in order to observe, influence, or operate within it",
         "note": "",
@@ -5331,7 +5656,7 @@
         "id": "sense:infiltrate:e52bf75f9cc75e9e",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + into/through: liquid/cells/material infiltrate into/through sth",
+        "governing_pattern": "I/T: material infiltrates a substance; material infiltrates into/through sth",
         "definition_cn": "逐渐渗入；渗透进入材料、组织或系统",
         "definition_en": "to pass gradually into or through a material, tissue, area, or system",
         "note": "",
@@ -5431,7 +5756,7 @@
     "ordinal": 7033,
     "word": "inflammable",
     "source_owner_path": "content/lexical/words/by-ordinal/o7033.json",
-    "source_fingerprint": "964607e200131a31bcd67eef3c52852f63cd59a6408156db06a153e9dd8f92d6",
+    "source_fingerprint": "fe4dc0c3bd58603ba94ba0c10021a65b78e63a4a82517067844d0185dd77e196",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5457,7 +5782,7 @@
         "governing_pattern": "",
         "definition_cn": "易燃的；可燃的",
         "definition_en": "easily set on fire; flammable",
-        "note": "",
+        "note": "这里的 in- 不是否定前缀；本词表示容易燃烧，不能据词形误读为不燃。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5908,7 +6233,7 @@
     "ordinal": 7037,
     "word": "infuse",
     "source_owner_path": "content/lexical/words/by-ordinal/o7037.json",
-    "source_fingerprint": "c1507ac708e00f6d84d08f4a80925ea1821ba47e3974149d4e4f671b8703496f",
+    "source_fingerprint": "79f639783869bf4b547d04ba56c5607baccb8683679096bd162ae1f386c125a1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5982,17 +6307,17 @@
         "id": "sense:infuse:0b37f639227c584e",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "被浸泡、浸提或输注",
-        "definition_en": "to undergo infusion or steeping",
-        "note": "",
+        "governing_pattern": "vi.: tea/herbs infuse",
+        "definition_cn": "（茶叶、草本等）浸泡、浸提，释放味道或成分",
+        "definition_en": "to steep or undergo infusion, as tea or herbs releasing flavour into liquid",
+        "note": "leave the tea to infuse 中tea是主语，不是被动结构；医学被输注仍用be infused。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:infuse:0b37f639227c584e",
           "target_locator": "record.senses[3]",
-          "target_label": "被浸泡、浸提或输注"
+          "target_label": "（茶叶、草本等）浸泡、浸提，释放味道或成分"
         }
       }
     ],
@@ -6030,6 +6355,28 @@
           "target_id": "construction:6c215311f8e6d256dddd",
           "target_locator": "record.constructions[0]",
           "target_label": "infuse A with B"
+        }
+      },
+      {
+        "id": "construction:60443dd4d5f8981fd8f4",
+        "sense_id": "sense:infuse:6ac9de92a76c7b45",
+        "source_locator": "record.constructions[1]",
+        "pattern": "infuse B into A",
+        "lines": [
+          {
+            "text": "把品质、情感或思想 B 注入 A",
+            "lang": "cn"
+          },
+          {
+            "text": "introduce a quality, feeling, or idea into a person or thing",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:60443dd4d5f8981fd8f4",
+          "target_locator": "record.constructions[1]",
+          "target_label": "infuse B into A"
         }
       }
     ],
@@ -6132,13 +6479,13 @@
     "ordinal": 7039,
     "word": "injurious",
     "source_owner_path": "content/lexical/words/by-ordinal/o7039.json",
-    "source_fingerprint": "cec420b8f29cf5795f84a5dc7effc8fc8e63461eacd806bd112cbc387347b4cd",
+    "source_fingerprint": "500d62e69321b70a892750b50cc4397ab6e768dee93932968a719c098634e6c2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "有害的；会损害健康、利益、名誉、财产或福祉的",
@@ -6228,7 +6575,30 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:8194d679651ec52fe642",
+        "sense_id": "sense:injurious:b0379e282e745749",
+        "source_locator": "record.constructions[0]",
+        "pattern": "injurious to sb/sth",
+        "lines": [
+          {
+            "text": "对某人或某事物有害",
+            "lang": "cn"
+          },
+          {
+            "text": "harmful to a person, interest, or other target",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8194d679651ec52fe642",
+          "target_locator": "record.constructions[0]",
+          "target_label": "injurious to sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

@@ -22,18 +22,19 @@
           ]
         },
         {
-          "label_cn": "给……加标签；紧随；尾随",
-          "label_en": "attach a tag to something; follow closely",
+          "label_cn": "给……加标签；紧随、跟随；（游戏中）触及对方；（棒球中）持球触杀跑垒员",
+          "label_en": "attach a tag; follow or accompany; to touch a player in a chasing game, or touch a baseball runner with the ball or a glove holding it to put the runner out",
           "pos": "verb",
           "sense_ids": [
             "sense:tag:5d33b46b3112579f",
-            "sense:tag:6ebc091f95e151f0"
+            "sense:tag:6ebc091f95e151f0",
+            "sense:tag:0d80af4f9490f60f68f7"
           ]
         }
       ],
-      "core_meaning_cn": "标签；标记",
-      "core_meaning_en": "a label or mark attached to something for identification",
-      "mental_model_cn": "标签；标记",
+      "core_meaning_cn": "标签、标记；加标签；跟随；捉人游戏及触碰出局",
+      "core_meaning_en": "labels and identifying marks; labeling, accompanying, and touching players in games",
+      "mental_model_cn": "标签语境为识别或标记；tag along 常为跟着别人一道去；游戏语境 tag 可为捉人游戏、一次触碰，或动词触及对方使其出局。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -166,8 +167,8 @@
             "legacy_source_object_ids": [
               "sense:tag:6ebc091f95e151f0:collocation:0"
             ],
-            "meaning_cn": "跟随；尾随",
-            "phrase": "tag along"
+            "meaning_cn": "（常未经邀请）跟着某人或一群人一起去",
+            "phrase": "tag along (with sb)"
           },
           {
             "collocation_id": "collocation:448b054afe66019c7275",
@@ -192,17 +193,7 @@
         "transitivity": "vi"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:b2ef804039055af3e8a3",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:tag:c4fd5591d62754ca:collocation:0"
-            ],
-            "meaning_cn": "触杀出局",
-            "phrase": "tag out"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "（体育比赛中的）触杀",
         "definition_en": "the act of touching a player in a game, changing their status",
@@ -214,6 +205,28 @@
         "sense_label_en": "the act of touching a player in a game, changing their status",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "pos": "verb",
+        "definition_cn": "（游戏中）触及对方；（棒球中）持球触杀跑垒员",
+        "definition_en": "to touch a player in a chasing game, or touch a baseball runner with the ball or a glove holding it to put the runner out",
+        "sense_label_en": "touch a player in a game; put a baseball runner out by touching",
+        "governing_pattern": "vt.: tag sb; tag sb out",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b2ef804039055af3e8a3",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:tag:c4fd5591d62754ca:collocation:0"
+            ],
+            "meaning_cn": "（棒球）持球触及跑垒员使其出局",
+            "phrase": "tag sb out"
+          }
+        ],
+        "sense_id": "sense:tag:0d80af4f9490f60f68f7"
       }
     ],
     "verification_summary": {
@@ -830,6 +843,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13880,
+        "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
+      },
+      {
+        "sense_id": "sense:tag:0d80af4f9490f60f68f7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13933,
         "source_path": "content/lexical/canonical/senses/shards/o4865-4896.json"
       }
     ],

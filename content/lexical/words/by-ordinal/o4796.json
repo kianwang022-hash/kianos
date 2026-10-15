@@ -6,7 +6,18 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:suit:0c650c01de235bb9",
+        "pattern": "follow suit",
+        "meaning_cn": "跟着出同花色的牌；仿效先前的做法",
+        "definition_en": "to play a card of the same suit, or to do what someone else has just done",
+        "boundary": "Card-play context selects the literal same-suit action; people or organizations copying an earlier action selects the figurative use.",
+        "construction_type": "idiom",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "7485e8f326421536ec919ee59ea2b214c93dd10552b7e69562ed91c8cadc89f7",
     "core_concept": {
       "core_clusters": [
@@ -19,18 +30,19 @@
           ]
         },
         {
-          "label_cn": "套装；诉讼",
-          "label_en": "a set of clothes worn together, typically for business or formal occasions; a legal case or a request made to a court",
+          "label_cn": "套装；诉讼；纸牌花色",
+          "label_en": "a matching outfit, a legal action, or a category of playing cards",
           "pos": "noun",
           "sense_ids": [
             "sense:suit:204951ddad8b5fb8",
-            "sense:suit:2a7e412d6a9b5dfb"
+            "sense:suit:2a7e412d6a9b5dfb",
+            "sense:suit:88ae0f9fddeb2e45"
           ]
         }
       ],
-      "core_meaning_cn": "适合；套装",
-      "core_meaning_en": "to be acceptable or convenient for someone; a set of clothes",
-      "mental_model_cn": "适合；套装",
+      "core_meaning_cn": "适合；套装；诉讼；纸牌花色",
+      "core_meaning_en": "be suitable; a matching outfit, a legal action, or a card category",
+      "mental_model_cn": "动词后接人或场合，看是否合适；穿着语境是套装，court/file 语境是诉讼，牌局是花色。follow suit 在一般行动语境中表示跟着仿效。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -124,6 +136,20 @@
         "sense_label_en": "a legal case or a request made to a court",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:suit:88ae0f9fddeb2e45",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "definition_cn": "（纸牌的）花色",
+        "definition_en": "one of the four symbol-based categories in a standard pack of playing cards",
+        "sense_label_en": "a category of playing cards marked with the same symbol",
+        "governing_pattern": "",
+        "level": "L2",
+        "sort_order": 3,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -305,6 +331,13 @@
         "merged_into_sense_id": null,
         "source_row": 13641,
         "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
+      },
+      {
+        "sense_id": "sense:suit:88ae0f9fddeb2e45",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13655,
+        "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
       }
     ],
     "active_collocations": [
@@ -317,6 +350,11 @@
       {
         "id": "deep:word_family:suit:e1a2a6291c1203ad",
         "source_row": 1159,
+        "source_path": "content/lexical/canonical/facts/shards/o4769-4800.json"
+      },
+      {
+        "id": "construction:suit:0c650c01de235bb9",
+        "source_row": 1161,
         "source_path": "content/lexical/canonical/facts/shards/o4769-4800.json"
       }
     ],

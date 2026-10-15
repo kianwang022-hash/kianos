@@ -6,7 +6,23 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:serve:7017f658f03da57d",
+        "pattern": "serve (only) to do sth",
+        "meaning_cn": "起到某种作用；结果只会……",
+        "definition_en": "to have a particular effect or result",
+        "boundary": "to do说明产生的作用，可以是意外或不利结果；不要求主语有意提供服务。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/serve_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      }
+    ],
     "content_hash": "e4b129280691249b02a9612d01b4e66a39c491b7bfcb11df3d722bda7b0f84bd",
     "core_concept": {
       "core_clusters": [
@@ -32,7 +48,7 @@
       ],
       "core_meaning_cn": "服务/供应；担任/任职；起作用；体育发球；服刑",
       "core_meaning_en": "to provide service, function or hold a post; sports serve; serve a sentence/time",
-      "mental_model_cn": "服务/供应；担任/任职；起作用；体育发球；服刑",
+      "mental_model_cn": "看对象决定服务方式：餐饮是供应，顾客或地区是接待与服务覆盖，国家或职位是效力任职；刑期是服刑，法律文件是送达。serve to do强调实际结果，球类语境另指发球。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -107,14 +123,21 @@
         "confidence": "medium",
         "definition_cn": "招待；供应（饭菜）",
         "definition_en": "provide food or drink to someone",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "serve (food/drink) / serve sb sth / serve sth to sb / serve sb with sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:serve:679c18b24e2c512b",
         "sense_label_en": "provide food or drink to someone",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "usage_note": "可省餐饮宾语；食物作主语、后接人数时，serve four表示够四个人吃。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/serve_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -173,14 +196,21 @@
         "confidence": "medium",
         "definition_cn": "服役；任职",
         "definition_en": "perform duties or hold a position",
-        "governing_pattern": "vi. + in",
+        "governing_pattern": "serve sb/an organization / serve in/with sth / serve on a committee / serve as sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:serve:7030961f53845db6",
         "sense_label_en": "perform duties or hold a position",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "usage_note": "可直接接所服务的人、机构或国家，也可接任职期间；in/with说明所在机构，on说明委员会或陪审团。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/serve_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -245,14 +275,20 @@
         "confidence": "medium",
         "definition_cn": "（网球等）发球",
         "definition_en": "to hit the ball to start play in a sport such as tennis",
-        "governing_pattern": "I/T",
+        "governing_pattern": "serve / serve the ball/an ace",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:serve:24afdf84c7efb62f",
         "sense_label_en": "to hit the ball to start play in a sport such as tennis",
         "sort_order": 5,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/serve_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -277,6 +313,47 @@
         "sense_label_en": "to spend a stated period in prison or serve a sentence",
         "sort_order": 6,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:serve:a5ba1571721c499a",
+        "pos": "verb",
+        "definition_cn": "接待顾客；为人群或地区提供服务",
+        "definition_en": "to help customers or supply a community or area with a needed service",
+        "sense_label_en": "to help customers or supply a community or area with a needed service",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "serve (customers) / serve an area (with sth)",
+        "transitivity": "I/T",
+        "usage_note": "店铺语境是接待顾客；交通、医院等作主语时是服务覆盖某地区或人群。",
+        "collocations": [],
+        "sort_order": 7,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/serve_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:serve:69b8e446fe110237",
+        "pos": "verb",
+        "definition_cn": "正式送达法律文件",
+        "definition_en": "to formally deliver an official or legal document",
+        "sense_label_en": "to formally deliver an official or legal document",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "serve a writ/summons on sb / serve sb with a writ/summons",
+        "transitivity": "vt",
+        "usage_note": "宾语是传票、令状等正式文件时，不是供应食品；文件接on引收件人，人接with引文件。",
+        "collocations": [],
+        "sort_order": 8,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/serve_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "register": "law"
       }
     ],
     "verification_summary": {
@@ -652,6 +729,18 @@
         "merged_into_sense_id": null,
         "source_row": 12351,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:serve:a5ba1571721c499a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4354.json"
+      },
+      {
+        "sense_id": "sense:serve:69b8e446fe110237",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4354.json"
       }
     ],
     "active_collocations": [
@@ -671,6 +760,11 @@
         "id": "deep:secondary_senses:serve:5de517b89c140600",
         "source_row": 1097,
         "source_path": "content/lexical/canonical/facts/shards/o4353-4384.json"
+      },
+      {
+        "id": "construction:serve:7017f658f03da57d",
+        "source_path": "content/lexical/words/by-ordinal/o4354.json",
+        "object_type": "construction"
       }
     ],
     "collocations": [

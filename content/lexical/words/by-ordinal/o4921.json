@@ -51,7 +51,10 @@
         "level": "L1",
         "meaning_cn": "区分 A 与 B",
         "pattern": "tell A from B",
-        "source_sense_id": "sense:tell:4e1a4925ba9c5312"
+        "source_sense_id": "sense:tell:4e1a4925ba9c5312",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:f346272d0e4f00a1d101"
+        }
       },
       {
         "construction_id": "construction:1d797cfb6b10cd0d9d74",
@@ -59,15 +62,33 @@
         "level": "L1",
         "meaning_cn": "看出、分辨差别",
         "pattern": "tell the difference (between A and B)",
-        "source_sense_id": "sense:tell:4e1a4925ba9c5312"
+        "source_sense_id": "sense:tell:4e1a4925ba9c5312",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:791e7166768c522d5ac9"
+        }
       }
     ],
     "content_hash": "9d07c12d4e07d9c6465501f00f868121234a163921d60992648fb1f378a47201",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "传达信息或辨别某事",
-      "core_meaning_en": "to communicate information or discern something",
-      "mental_model_cn": "传达信息或辨别某事",
+      "core_clusters": [
+        {
+          "pos": "verb",
+          "sense_ids": [
+            "sense:tell:f12f1e0b1d46597b",
+            "sense:tell:c4bd927b04665c70",
+            "sense:tell:37893102ea895b2d",
+            "sense:tell:4e1a4925ba9c5312",
+            "sense:tell:d6e03c8ba98c55dd",
+            "sense:tell:5516694c2c05547a",
+            "sense:tell:4ab3a1f4644da08c82ec"
+          ],
+          "label_cn": "告诉；告知；讲述；叙述；吩咐；命令；辨别；断定；泄密；告发；表明；显示；产生明显影响，尤指不良影响",
+          "label_en": "to give information to someone by speaking or writing; to narrate or give a detailed account of; to order or instruct someone to do something; to discern or distinguish something; to reveal a secret or inform against someone; to serve as evidence or an indication of something; to have a noticeable effect, especially a harmful one"
+        }
+      ],
+      "core_meaning_cn": "告诉、讲述或吩咐；辨别、显示；产生影响",
+      "core_meaning_en": "to communicate, narrate, or instruct; to discern or indicate; to have an effect",
+      "mental_model_cn": "告诉、讲述或吩咐；辨别、显示；产生影响",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -157,7 +178,7 @@
         "confidence": "medium",
         "definition_cn": "吩咐；命令",
         "definition_en": "to order or instruct someone to do something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt.: tell sb (not) to do sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -170,16 +191,16 @@
         "collocations": [
           {
             "collocation_id": "collocation:791e7166768c522d5ac9",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:tell:4e1a4925ba9c5312:collocation:0"
             ],
-            "meaning_cn": "辨别差异",
-            "phrase": "tell the difference"
+            "meaning_cn": "看出、分辨（A与B之间的）差别",
+            "phrase": "tell the difference (between A and B)"
           },
           {
             "collocation_id": "collocation:f346272d0e4f00a1d101",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:tell:4e1a4925ba9c5312:collocation:1"
             ],
@@ -190,14 +211,14 @@
         "confidence": "medium",
         "definition_cn": "辨别；断定",
         "definition_en": "to discern or distinguish something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: (can) tell; tell (that)...; tell whether/if/how...; tell A from B; tell the difference (between A and B)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:tell:4e1a4925ba9c5312",
         "sense_label_en": "to discern or distinguish something",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -214,7 +235,7 @@
         "confidence": "medium",
         "definition_cn": "泄密；告发",
         "definition_en": "to reveal a secret or inform against someone",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "vi.: tell; tell on sb",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -237,15 +258,30 @@
         ],
         "confidence": "medium",
         "definition_cn": "表明；显示",
-        "definition_en": "to have a noticeable effect or indicate something",
-        "governing_pattern": "vi. + of",
+        "definition_en": "to serve as evidence or an indication of something",
+        "governing_pattern": "vi.: tell; tell of sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:tell:5516694c2c05547a",
-        "sense_label_en": "to have a noticeable effect or indicate something",
+        "sense_label_en": "to serve as evidence or an indication of something",
         "sort_order": 5,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "表示迹象、显示某事；与tell (on sb)表示产生影响的义项分开。"
+      },
+      {
+        "sense_id": "sense:tell:4ab3a1f4644da08c82ec",
+        "pos": "verb",
+        "level": "L2",
+        "definition_cn": "产生明显影响，尤指不良影响",
+        "definition_en": "to have a noticeable effect, especially a harmful one",
+        "sense_label_en": "to have a noticeable effect, especially a harmful one",
+        "governing_pattern": "vi.: tell (on sb/sth)",
+        "transitivity": "vi",
+        "sort_order": 6,
+        "collocations": [],
+        "confidence": "medium",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -435,6 +471,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14004,
+        "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
+      },
+      {
+        "sense_id": "sense:tell:4ab3a1f4644da08c82ec",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14030,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
       }
     ],

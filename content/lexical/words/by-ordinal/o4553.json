@@ -6,7 +6,26 @@
   "record": {
     "card_version": "v4",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:solve:4f0421037ce24fbd",
+        "pattern": "solve (an equation) for + variable",
+        "meaning_cn": "解方程，求出指定未知数的值或表达式",
+        "definition_en": "find the value or expression for the specified unknown",
+        "boundary": "可直接接equation表示解方程；for后指定所求变量，如solve for x（求x）。这里for不表示替某人做事，也不要求把未知数当直接宾语。",
+        "level": "L2",
+        "direction": "R+D+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.ahdictionary.com/word/search.html?q=solve",
+            "accessed_at_utc": "2026-10-13T11:09:09Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "v.intr., line 41"
+          }
+        ],
+        "sense_id": "sense:solve:406e82ca367a5265"
+      }
+    ],
     "content_hash": "ac5d339c6ca7bcd44a04092ecdd20dbce88e845cafaf271dd4d28d6aab9d92d9",
     "core_concept": {
       "core_clusters": [
@@ -48,7 +67,16 @@
         "sense_id": "sense:solve:09fbe95ba59d5df9",
         "sense_label_en": "to find the solution to (a problem or question) or understand the meaning of",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "宾语是crime、case或mystery时，solve表示破案或揭开谜底，即找出真相或解释；不是消除某个犯罪现象。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/solve",
+            "accessed_at_utc": "2026-10-13T11:07:58Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "sense 2, lines 151–161"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -62,7 +90,15 @@
         "sense_id": "sense:solve:406e82ca367a5265",
         "sense_label_en": "to find the answer to a mathematical equation",
         "sort_order": 999,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.ahdictionary.com/word/search.html?q=solve",
+            "accessed_at_utc": "2026-10-13T11:09:09Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "v.intr., line 41"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -276,6 +312,11 @@
         "id": "deep:semantic_contrast:solve:3bf0d4a48e7259ec",
         "source_row": 1118,
         "source_path": "content/lexical/canonical/facts/shards/o4545-4576.json"
+      },
+      {
+        "id": "construction:solve:4f0421037ce24fbd",
+        "source_path": "content/lexical/words/by-ordinal/o4553.json",
+        "object_type": "construction"
       }
     ],
     "collocations": [

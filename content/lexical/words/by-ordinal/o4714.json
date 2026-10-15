@@ -15,7 +15,11 @@
         "level": "L1",
         "meaning_cn": "停下正在做的事，以便去做另一件事",
         "pattern": "stop to do sth",
-        "source_sense_id": "sense:stop:76ad2e156b4a5d3e"
+        "source_sense_id": "sense:stop:76ad2e156b4a5d3e",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:stop:0ea94a7637e22acc",
+          "reason": "The surviving fixed pattern retains stop-to-do meaning and the complete stop-doing contrast; canonical construction identity/history retained."
+        }
       },
       {
         "boundary": "gerund means cease the activity; infinitive means pause another activity for a new purpose",
@@ -25,7 +29,11 @@
         "level": "L1",
         "meaning_cn": "stop doing = 停止该活动；stop to do = 暂停原活动以便去做另一件事",
         "pattern": "stop doing sth vs stop to do sth",
-        "source_sense_id": "sense:stop:76ad2e156b4a5d3e"
+        "source_sense_id": "sense:stop:76ad2e156b4a5d3e",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:stop:0ea94a7637e22acc",
+          "reason": "The surviving fixed pattern retains stop-to-do meaning and the complete stop-doing contrast; canonical construction identity/history retained."
+        }
       }
     ],
     "content_hash": "7bf27ad7cbe42f67db17f1051c2eda43a12707fcaf9c1744a302533b097c38b6",
@@ -88,6 +96,22 @@
             ],
             "meaning_cn": "停止做某事",
             "phrase": "stop doing sth"
+          },
+          {
+            "collocation_id": "collocation:stop:0ea94a7637e22acc",
+            "phrase": "stop to do sth",
+            "meaning_cn": "暂停原先的活动，以便做另一件事；区别stop doing sth（停止该活动）",
+            "exam_value": "fixed_pattern",
+            "source_evidence": [
+              {
+                "source_owner": "content/lexical/words/by-ordinal/o4714.json",
+                "source_object_ids": [
+                  "construction:8c1f47b13ed3034f3c20",
+                  "construction:5438a7c20d521731aeaf"
+                ],
+                "role": "verbatim semantic continuity from two already-current constructions"
+              }
+            ]
           }
         ],
         "confidence": "medium",
@@ -469,7 +493,8 @@
       "collocation:9d88fb230e9caddd02e9",
       "collocation:beda03941bc7c1faafbf",
       "collocation:e97e4b32093cf25c5cf1",
-      "collocation:fe483d7ad18c543838f5"
+      "collocation:fe483d7ad18c543838f5",
+      "collocation:stop:0ea94a7637e22acc"
     ],
     "facts": [
       {
@@ -523,6 +548,13 @@
         "id": "collocation:fe483d7ad18c543838f5",
         "source_row": 21504,
         "source_path": "content/lexical/canonical/collocations/shards/o4705-4736.json"
+      },
+      {
+        "id": "collocation:stop:0ea94a7637e22acc",
+        "status": "active",
+        "sense_id": "sense:stop:76ad2e156b4a5d3e",
+        "source_path": "content/lexical/words/by-ordinal/o4714.json",
+        "source_locator": "record.senses[0].collocations[2]"
       }
     ],
     "exam-mappings": [],

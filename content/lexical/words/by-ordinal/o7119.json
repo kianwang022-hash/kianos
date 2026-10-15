@@ -21,6 +21,16 @@
         "meaning_cn": "使某人产生虚假的安全感、放松警惕",
         "pattern": "lull sb into a false sense of security",
         "source_sense_id": "sense:lull:17a677348dda5001"
+      },
+      {
+        "construction_id": "construction:903b4a1b495f7c63b20b",
+        "pattern": "lull sb to sleep",
+        "meaning_cn": "轻柔地安抚某人入睡",
+        "definition_en": "soothe someone until they fall asleep",
+        "direction": "R+P",
+        "level": "L2",
+        "sense_id": "sense:lull:da952dafd1995dd4",
+        "source_sense_id": "sense:lull:da952dafd1995dd4"
       }
     ],
     "content_hash": "f6620433ab9615a7b85987332af837c7093e972b68c0222f7a82bc74e8fe9e49",
@@ -45,9 +55,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "使平静；变得安静；缓和；暂停, 间歇, 稍息, 使人安静的东西；使放松警惕；使产生安全感；暂时的平静期；间歇；活动减少期",
-      "core_meaning_en": "to become or make something calmer, quieter, or less intense; a period of calm weather; to make someone feel safe, calm, or less alert, sometimes deceptively; a temporary pause or period of reduced activity, noise, fighting, or demand",
-      "mental_model_cn": "使平静；变得安静；缓和；暂停, 间歇, 稍息, 使人安静的东西；使放松警惕；使产生安全感；暂时的平静期；间歇；活动减少期",
+      "core_meaning_cn": "让强度暂时减弱：平静、间歇；也可使人放松警惕",
+      "core_meaning_en": "a temporary easing of activity; to soothe or make someone less alert",
+      "mental_model_cn": "a lull in 表活动暂歇；lull sb to sleep 是安抚入睡，lull sb into... 可指放松警惕。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -547,7 +557,32 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "definition_cn": "令人安静的声音；安抚性的声音",
+      "definition_en": "a soothing sound",
+      "sense_label_en": "a soothing sound",
+      "pos": "noun",
+      "level": "L2",
+      "sort_order": 99,
+      "governing_pattern": "",
+      "collocations": [],
+      "confidence": "high",
+      "needs_human_review": 0,
+      "source_evidence": [
+        {
+          "source_type": "learner_dictionary",
+          "source_path": "https://www.collinsdictionary.com/dictionary/english/lull",
+          "evidence_status": "supplemental_primary_source_read",
+          "reviewed_at": "2026-10-14"
+        }
+      ],
+      "stable_sense_id": "sense:lull:fce0c6024139431a",
+      "reference_only": true,
+      "status": "active",
+      "usage_note": "保留原 Core 安抚性事物所能核实的声音义，非默认 Recall。"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -577,6 +612,13 @@
         "merged_into_sense_id": null,
         "source_row": 18326,
         "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json"
+      },
+      {
+        "sense_id": "sense:lull:fce0c6024139431a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
+        "source_row": 18337
       }
     ],
     "active_collocations": [],

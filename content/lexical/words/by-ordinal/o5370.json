@@ -14,7 +14,11 @@
         "level": "L1",
         "meaning_cn": "（药效、感觉、影响等）逐渐消失",
         "pattern": "wear off",
-        "source_sense_id": "sense:wear:0a2a6db4142d9dcb"
+        "source_sense_id": "sense:wear:0a2a6db4142d9dcb",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:cd6d40c44bd142c2769b",
+          "reason": "The exact wear-off skeleton and effect/feeling meaning survive in the active Sense child; preserve complete canonical Construction."
+        }
       },
       {
         "construction_id": "construction:cc86561ff827139fbba1",
@@ -28,8 +32,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "穿着，戴着；磨损，变旧；使疲乏；面带；呈现（某种表情）；（效果、感觉等）逐渐消失",
-          "label_en": "to have clothing, jewelry, etc. on your body; to become thinner or damaged by continuous use; to make someone feel tired; to show or have a particular expression or appearance on the face; for an effect or feeling to gradually disappear",
+          "label_cn": "穿着，戴着；磨损，变旧；经摩擦或使用使物体磨损；使疲乏；面带；呈现（某种表情）；（效果、感觉等）逐渐消失",
+          "label_en": "to have clothing, jewelry, etc. on your body; to become damaged or thinner through use, or cause such damage through rubbing or use; to make someone feel tired; to show or have a particular expression or appearance on the face; for an effect or feeling to gradually disappear",
           "pos": "verb",
           "sense_ids": [
             "sense:wear:dbadb33937c75ee5",
@@ -50,7 +54,7 @@
       ],
       "core_meaning_cn": "穿着，戴着；磨损，变旧；使疲乏；磨损，损耗；面带；呈现（某种表情）；（效果、感觉等）逐渐消失",
       "core_meaning_en": "to have clothing, jewelry, etc. on your body; to become thinner or damaged by continuous use; to make someone feel tired; damage caused by continuous use; to show or have a particular expression or appearance on the face; for an effect or feeling to gradually disappear",
-      "mental_model_cn": "穿着，戴着；磨损，变旧；使疲乏；磨损，损耗；面带；呈现（某种表情）；（效果、感觉等）逐渐消失",
+      "mental_model_cn": "衣物/眼镜看穿戴，smile看面带表情；物品看磨损；wear sb out看使疲惫；药效或感觉作主语的wear off看逐渐消退。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -109,16 +113,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "磨损，变旧",
-        "definition_en": "to become thinner or damaged by continuous use",
-        "governing_pattern": "vi. + away/down/off",
+        "definition_cn": "磨损，变旧；经摩擦或使用使物体磨损",
+        "definition_en": "to become damaged or thinner through use, or cause such damage through rubbing or use",
+        "governing_pattern": "vi.: sth wears (away/down); vt.: wear sth away/down; wear a hole in sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:wear:0a071116d22659ba",
-        "sense_label_en": "to become thinner or damaged by continuous use",
+        "sense_label_en": "to become damaged or thinner through use, or cause such damage through rubbing or use",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -212,7 +216,8 @@
             "source_operation_sha256": "07cdc6e645d3cb7a10c2e86e61896f13e3a029aeccee12e6169c8a135b87cee7",
             "verification_status": "semantic_auditor_verified"
           }
-        ]
+        ],
+        "governing_pattern": "wear a smile/expression"
       },
       {
         "collocations": [

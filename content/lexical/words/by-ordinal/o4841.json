@@ -20,18 +20,19 @@
           ]
         },
         {
-          "label_cn": "审视，纵览；测量，勘测",
-          "label_en": "to look at or examine something carefully; to measure and map an area of land",
+          "label_cn": "审视，纵览；测量，勘测；询问调查",
+          "label_en": "to examine carefully; to measure and map land; to gather information by asking questions",
           "pos": "verb",
           "sense_ids": [
             "sense:survey:2437b795e93c528f",
-            "sense:survey:5cc0668a48045588"
+            "sense:survey:5cc0668a48045588",
+            "sense:survey:adde05d1a064bdefa23f"
           ]
         }
       ],
       "core_meaning_cn": "调查，考察；审视，纵览；测量，勘测",
-      "core_meaning_en": "a detailed examination or investigation; to look at or examine something carefully; to measure and map an area of land; the act of measuring land or making a map",
-      "mental_model_cn": "调查，考察；审视，纵览；测量，勘测",
+      "core_meaning_en": "examination or investigation; looking over a whole scene or subject; measuring land; asking people for information",
+      "mental_model_cn": "问人群、意见或行为选调查；看现场选审视；量土地并作图选勘测。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -394,6 +395,21 @@
         "sense_label_en": "the act of measuring land or making a map",
         "sort_order": 999,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "high",
+        "definition_cn": "（通过询问）调查；调查人们的意见或行为",
+        "definition_en": "to gather information about people’s views or behaviour by asking questions",
+        "governing_pattern": "vt.: survey people/their opinions or behaviour",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:survey:adde05d1a064bdefa23f",
+        "sense_label_en": "to gather information about people’s views or behaviour by asking questions",
+        "sort_order": 4,
+        "transitivity": "vt",
+        "usage_note": "宾语是人群、意见或行为时，可指询问调查；看现场是审视，量地形是勘测。"
       }
     ],
     "verification_summary": {
@@ -420,7 +436,7 @@
     {
       "stable_sense_id": "sense:survey:e4d141086c4953f0",
       "status": "merged",
-      "merged_into_sense_id": "sense:survey:8324a5636ebd52d0",
+      "merged_into_sense_id": "sense:survey:5cc0668a48045588",
       "pos": "verb",
       "definition_cn": "测量土地",
       "definition_en": "to measure land as a profession",
@@ -440,7 +456,16 @@
       "updated_at": "2026-09-09T00:00:00Z",
       "source_row": 13755,
       "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json",
-      "reference_only": true
+      "reference_only": true,
+      "current_successor_correction_history": [
+        {
+          "task": "lexical-4801-4850",
+          "field": "merged_into_sense_id",
+          "before": "sense:survey:8324a5636ebd52d0",
+          "after": "sense:survey:5cc0668a48045588",
+          "reason": "Correct current successor to the same-POS land-measuring Sense; original wrong noun mapping is preserved here as historical evidence."
+        }
+      ]
     }
   ],
   "identity_refs": {
@@ -476,8 +501,15 @@
       {
         "sense_id": "sense:survey:e4d141086c4953f0",
         "status": "merged",
-        "merged_into_sense_id": "sense:survey:8324a5636ebd52d0",
+        "merged_into_sense_id": "sense:survey:5cc0668a48045588",
         "source_row": 13755,
+        "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json"
+      },
+      {
+        "sense_id": "sense:survey:adde05d1a064bdefa23f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13837,
         "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json"
       }
     ],

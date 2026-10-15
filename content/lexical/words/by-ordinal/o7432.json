@@ -30,13 +30,13 @@
       "authority": "content/lexical/semantic-reconciliation/o7375-o7874.md",
       "boundaries": [
         {
-          "condition": "common AmE spelling",
-          "note": "Common American spelling.",
+          "condition": "AmE spelling for taste/figurative adjective and food noun; botanical spelling also used in BrE",
+          "note": "American spelling of the taste adjective, its figurative uses, and the food noun; current British and American dictionary entries also use savory for the botanical noun.",
           "surface": "savory"
         },
         {
-          "condition": "common BrE spelling",
-          "note": "Common British spelling of the same adjective/noun lexeme.",
+          "condition": "common BrE spelling for taste adjective, its figurative uses, and food noun only",
+          "note": "Common British spelling of the taste adjective, its figurative uses, and the savory-food noun; this variant statement does not apply to the botanical noun savory.",
           "surface": "savoury"
         }
       ],
@@ -405,7 +405,29 @@
         "sense_id": "sense:savory:c0e6ba2aaeea6d6a",
         "sense_label_en": "salty, spicy, or otherwise not sweet; also appetizing in smell or taste",
         "sort_order": 4,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "形容名声、行为等抽象对象时，savory/savoury也可指体面、令人愉快或社会上可接受；常见于not (very)或less than等否定组合，表示不体面或令人不快，此时不是在评价食物味道。"
+      },
+      {
+        "sense_id": "sense:savory:bbdecde10589ea76",
+        "pos": "noun",
+        "definition_cn": "咸味或辛香的小吃；非甜味的小份食物",
+        "definition_en": "a small serving of salty or spicy food rather than sweet food",
+        "sense_label_en": "a small serving of salty or spicy food rather than sweet food",
+        "level": "L2",
+        "sort_order": 5,
+        "collocations": [],
+        "source_evidence": [
+          {
+            "evidence_id": "source-fact:3f1b52f00d35b0b16dd243a4",
+            "source_path": "https://www.merriam-webster.com/dictionary/savory",
+            "role": "current_dictionary_evidence",
+            "evidence_status": "source_checked",
+            "source_type": "general_dictionary"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -452,6 +474,13 @@
         "merged_into_sense_id": null,
         "source_row": 18869,
         "source_path": "content/lexical/canonical/senses/shards/o7425-7456.json"
+      },
+      {
+        "sense_id": "sense:savory:bbdecde10589ea76",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7425-7456.json",
+        "source_row": 18941
       }
     ],
     "active_collocations": [],

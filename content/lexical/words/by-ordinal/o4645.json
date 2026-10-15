@@ -6,7 +6,25 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:squeeze:0f97956fd13727c3",
+        "pattern": "squeeze + sb/sth + in / squeeze in + activity",
+        "meaning_cn": "忙中挤出时间接待某人或安排某事",
+        "definition_en": "find time for a person or activity in a busy schedule",
+        "boundary": "约诊或日程语境指挤时间；代词放在in前，如squeeze you in。不是把人挤进狭窄空间。",
+        "level": "L2",
+        "direction": "R+D+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/squeeze-in",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "phrasal verb"
+          }
+        ]
+      }
+    ],
     "content_hash": "fe72e602e25d01cd34445db4807f13686610b51d3e41cee3b31c30a45b2421ec",
     "core_concept": {
       "core_clusters": [
@@ -29,9 +47,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "用力压",
-      "core_meaning_en": "to press firmly",
-      "mental_model_cn": "用力压",
+      "core_meaning_cn": "向内挤压，或在有限空间、时间、资源中勉强安排",
+      "core_meaning_en": "press inward or fit within tight limits of space, time, or resources",
+      "mental_model_cn": "果汁语境看挤出；狭小空间看勉强容纳；繁忙日程中的squeeze in是挤时间；资金或利润语境是压缩与压力。a squeeze还可指一次握压动作。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -103,29 +121,28 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "勉强通过或进入狭窄空间",
-        "definition_en": "manage to get through or into a narrow space",
-        "governing_pattern": "vi. + into",
+        "definition_cn": "挤入、挤过；使人或物勉强进入、通过狭窄空间",
+        "definition_en": "get or force someone or something into or through a narrow space",
+        "governing_pattern": "squeeze (sb/sth) into/through + a space; squeeze past + sb/sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:squeeze:ca3b72c8740c5e70",
-        "sense_label_en": "manage to get through or into a narrow space",
+        "sense_label_en": "get or force into or through a narrow space",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "usage_note": "可自己挤过去，也可把别人或东西勉强塞入；into表示进入，through表示穿过，past表示从旁挤过。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/squeeze_1",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "verb senses 3 and 6"
+          }
+        ]
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:658cde8fdf097abd2f6b",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:squeeze:fe81c9f42b7a557f:collocation:0"
-            ],
-            "meaning_cn": "拥挤；紧压",
-            "phrase": "a tight squeeze"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "紧握和用力压的动作",
         "definition_en": "the act of gripping and pressing firmly",
@@ -137,6 +154,82 @@
         "sense_label_en": "the act of gripping and pressing firmly",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:squeeze:e116c3fca29c410d",
+        "pos": "noun",
+        "definition_cn": "空间狭小、难以容纳的拥挤情形",
+        "definition_en": "a situation in which there is barely enough room for people or things",
+        "sense_label_en": "a situation in which there is barely enough room for people or things",
+        "level": "L2",
+        "direction": "R+D",
+        "governing_pattern": "a (tight) squeeze",
+        "transitivity": "nonverb",
+        "usage_note": "说人或物勉强塞得下；不等于用手握压一下。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:658cde8fdf097abd2f6b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:squeeze:fe81c9f42b7a557f:collocation:0"
+            ],
+            "meaning_cn": "空间很挤；勉强才能容纳",
+            "phrase": "a tight squeeze"
+          }
+        ],
+        "sort_order": 4,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/squeeze_2",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "noun senses 1,3,4"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:squeeze:add08ca5d8ef37fe",
+        "pos": "noun",
+        "definition_cn": "（资金、信贷等的）紧缩；由此造成的压力",
+        "definition_en": "a restriction in available money or resources, or the pressure it creates",
+        "sense_label_en": "a restriction in available money or resources, or the pressure it creates",
+        "level": "L2",
+        "direction": "R+D",
+        "governing_pattern": "a squeeze on + spending/profits; a credit squeeze",
+        "transitivity": "nonverb",
+        "usage_note": "money、credit、spending等语境指资源减少或压力，不是物理握压，也不是空间拥挤。",
+        "collocations": [],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/squeeze_2",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "noun senses 1,3,4"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:squeeze:8378173f962f4d86",
+        "pos": "verb",
+        "definition_cn": "压缩、限制（资金等）；使承受财务压力",
+        "definition_en": "reduce available money or resources or put financial pressure on someone",
+        "sense_label_en": "reduce available money or resources or put financial pressure on someone",
+        "level": "L2",
+        "direction": "R+D",
+        "governing_pattern": "squeeze + budgets/profits/businesses",
+        "transitivity": "vt",
+        "usage_note": "宾语是预算、利润或行业时看资源与财务压力；不用物理按压解释。",
+        "collocations": [],
+        "sort_order": 6,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/squeeze_1",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "verb senses 3 and 6"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -259,6 +352,24 @@
         "merged_into_sense_id": null,
         "source_row": 13168,
         "source_path": "content/lexical/canonical/senses/shards/o4641-4672.json"
+      },
+      {
+        "sense_id": "sense:squeeze:e116c3fca29c410d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4645.json"
+      },
+      {
+        "sense_id": "sense:squeeze:add08ca5d8ef37fe",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4645.json"
+      },
+      {
+        "sense_id": "sense:squeeze:8378173f962f4d86",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4645.json"
       }
     ],
     "active_collocations": [
@@ -267,7 +378,13 @@
       "collocation:5f869a2931745bfdeada",
       "collocation:658cde8fdf097abd2f6b"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:squeeze:0f97956fd13727c3",
+        "source_path": "content/lexical/words/by-ordinal/o4645.json",
+        "object_type": "construction"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:30ce5e7a7388261b80fb",

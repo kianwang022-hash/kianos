@@ -121,6 +121,81 @@
         "meaning_cn": "依我看；在我看来",
         "pattern": "as I see it",
         "source_sense_id": "sense:see:301ce679766b508c"
+      },
+      {
+        "construction_id": "construction:see:caf36735de1265e7",
+        "pattern": "be seeing sb",
+        "meaning_cn": "与某人交往，谈恋爱",
+        "definition_en": "to be in a romantic relationship with someone",
+        "boundary": "进行时结合约会语境常指恋爱关系；其他语境也可能只是多次见面，需结合上下文。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/see_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:see:3cc767c2632d2b82",
+        "pattern": "see sb home/out/across sth",
+        "meaning_cn": "陪送；护送",
+        "definition_en": "to accompany someone to help them reach a place safely",
+        "boundary": "人作宾语，后跟方向或目的地；如home/out表示送回家或送出门，不是只看见人。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/see_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:see:950e3507b9ec03f0",
+        "pattern": "seeing that ... / seeing as ...",
+        "meaning_cn": "既然；因为",
+        "definition_en": "given the fact that something is true",
+        "boundary": "引出理由的连接表达；seeing as较口语，不是正在观看的动作。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/see_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:see:64a2354002afbd53",
+        "pattern": "see through sb/sth",
+        "meaning_cn": "看穿；识破",
+        "definition_en": "to recognize the truth behind an appearance or deception",
+        "boundary": "through在被看穿的人或伎俩前；不是把sth放在see和through之间。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/see-through_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:see:79ccadd6d817b316",
+        "pattern": "see sth through",
+        "meaning_cn": "把某事坚持完成",
+        "definition_en": "to continue a task until it is finished",
+        "boundary": "任务放在see与through之间；若宾语是人，则可指支持其渡过困难时期。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/see-through_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "content_hash": "3dcb5bf57d8e415cfcca40a1d1d0eaf5b5615e8ad4633e6327c02e06fae9cf04",
@@ -128,7 +203,7 @@
       "core_clusters": [],
       "core_meaning_cn": "看见；理解；会见/看望；经历/见证",
       "core_meaning_en": "to perceive with the eyes or understand; also meet/visit and experience/witness",
-      "mental_model_cn": "看见；理解；会见/看望；经历/见证",
+      "mental_model_cn": "眼睛获取信息是看见，脑中弄清是明白；人作宾语可指会见，时间或事件作宾语可指经历。确保义要结合指令语境；through的位置还能区分识破与坚持完成。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -469,7 +544,7 @@
         "confidence": "medium",
         "definition_cn": "看见",
         "definition_en": "to perceive with the eyes",
-        "governing_pattern": "",
+        "governing_pattern": "see (sb/sth) / see sb do/doing sth / be seen to do sth",
         "level": "L1",
         "lexical_identity_overlay": {
           "case_sensitive": false,
@@ -483,21 +558,39 @@
         "sense_id": "sense:see:b9a85402585450f8",
         "sense_label_en": "to perceive with the eyes",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "usage_note": "主动式宾语后do不带to，doing突出正在进行的片段；do结构变被动时恢复to；doing结构可保持doing。单说can see可表示有视力或看得见。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/see_1",
+            "role": "semantic support; independently authored bounded correction"
+          },
+          {
+            "source_url": "https://dictionary.cambridge.org/uk/grammar/british-grammar/hear-see-etc-object-infinitive-or-ing?trk=public_post_comment-text",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "理解；明白",
         "definition_en": "to understand or realize",
-        "governing_pattern": "",
+        "governing_pattern": "see / see sth / see what/how/why ...",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:see:c494c6e327b15c9d",
         "sense_label_en": "to understand or realize",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "usage_note": "I see可独立表示明白；此处不是看见物体。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/see_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -532,14 +625,21 @@
         "confidence": "medium",
         "definition_cn": "确保；务必",
         "definition_en": "to make sure or take care that something happens",
-        "governing_pattern": "",
+        "governing_pattern": "see that ...",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:see:cd9a66de34285ceb",
         "sense_label_en": "to make sure or take care that something happens",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "指令式See that ...可要求确保；陈述句I see that ...则通常是发现或明白，须结合说话意图。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/see_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -587,6 +687,26 @@
         "sense_label_en": "to consider or regard someone or something in a particular way",
         "sort_order": 999,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:see:d6fdd5d6aed5f298",
+        "pos": "verb",
+        "definition_cn": "想象；设想某种可能",
+        "definition_en": "to imagine a person or situation as a possibility",
+        "sense_label_en": "to imagine a person or situation as a possibility",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "see sb/oneself doing sth",
+        "transitivity": "vt",
+        "usage_note": "常见于can/cannot see，尤其谈未来时；并非亲眼看到动作已经发生。",
+        "collocations": [],
+        "sort_order": 1000,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/see_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -667,6 +787,12 @@
         "merged_into_sense_id": null,
         "source_row": 12141,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
+      },
+      {
+        "sense_id": "sense:see:d6fdd5d6aed5f298",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4320.json"
       }
     ],
     "active_collocations": [
@@ -688,6 +814,31 @@
         "id": "deep:constructions:see:114964f7e1a7fb18",
         "source_row": 1091,
         "source_path": "content/lexical/canonical/facts/shards/o4289-4320.json"
+      },
+      {
+        "id": "construction:see:caf36735de1265e7",
+        "source_path": "content/lexical/words/by-ordinal/o4320.json",
+        "object_type": "construction"
+      },
+      {
+        "id": "construction:see:3cc767c2632d2b82",
+        "source_path": "content/lexical/words/by-ordinal/o4320.json",
+        "object_type": "construction"
+      },
+      {
+        "id": "construction:see:950e3507b9ec03f0",
+        "source_path": "content/lexical/words/by-ordinal/o4320.json",
+        "object_type": "construction"
+      },
+      {
+        "id": "construction:see:64a2354002afbd53",
+        "source_path": "content/lexical/words/by-ordinal/o4320.json",
+        "object_type": "construction"
+      },
+      {
+        "id": "construction:see:79ccadd6d817b316",
+        "source_path": "content/lexical/words/by-ordinal/o4320.json",
+        "object_type": "construction"
       }
     ],
     "collocations": [

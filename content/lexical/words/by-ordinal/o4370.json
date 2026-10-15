@@ -6,13 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:shade:2d2b88a8bc3cac70",
+        "pattern": "a shade + adjective/adverb/comparative",
+        "meaning_cn": "稍微；略微",
+        "definition_en": "slightly or by a small degree",
+        "boundary": "a shade too long / a shade darker等表示程度很小；不一定涉及颜色。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shade_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      }
+    ],
     "content_hash": "d7e8548266b92f7bd9dca5a37f775a48006bd4430cd06103023208ceefb04455",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "荫；阴凉处；遮光物；灯罩；浓淡；微量",
-          "label_en": "relative darkness caused by something blocking light; a protective covering that blocks direct sunlight; a slight difference in color or a small amount",
+          "label_cn": "荫；阴凉处；遮光物；灯罩、窗帘等；色调；细微差别；少许",
+          "label_en": "relative darkness caused by something blocking light; a cover or screen that blocks light or reduces its brightness; a particular degree of colour, a subtle distinction, or a small amount",
           "pos": "noun",
           "sense_ids": [
             "sense:shade:7523cd1e45695c3e",
@@ -21,8 +37,8 @@
           ]
         },
         {
-          "label_cn": "遮蔽；使阴暗；渐变",
-          "label_en": "to block light from something; to change gradually in color or tone",
+          "label_cn": "遮蔽；使阴暗；逐渐变成；渐变",
+          "label_en": "to block light from something; to change gradually from one colour, quality or state into another",
           "pos": "verb",
           "sense_ids": [
             "sense:shade:853c77df75b857bd",
@@ -30,9 +46,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "阴凉处或遮光物",
-      "core_meaning_en": "partial darkness or a protective cover from light",
-      "mental_model_cn": "阴凉处或遮光物",
+      "core_meaning_cn": "遮光形成阴凉或明暗层次；由此区分色调和细微程度",
+      "core_meaning_en": "shelter from light, and differences in colour or degree",
+      "mental_model_cn": "灯具或窗前是遮光物，颜色后是色调，meaning/opinion后是细微差别；图画中shade可为涂阴影，shade into强调渐变的界限不明显。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -80,16 +96,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "遮光物；灯罩",
-        "definition_en": "a protective covering that blocks direct sunlight",
+        "definition_cn": "遮光物；灯罩、窗帘等",
+        "definition_en": "a cover or screen that blocks light or reduces its brightness",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:shade:0bd1084bc3a457f1",
-        "sense_label_en": "a protective covering that blocks direct sunlight",
+        "sense_label_en": "a cover or screen that blocks light or reduces its brightness",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shade_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "usage_note": "既可挡阳光，也可减弱灯光；灯罩不以遮挡直射日光为定义条件。"
       },
       {
         "collocations": [
@@ -104,16 +127,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "浓淡；微量",
-        "definition_en": "a slight difference in color or a small amount",
-        "governing_pattern": "",
+        "definition_cn": "色调；细微差别；少许",
+        "definition_en": "a particular degree of colour, a subtle distinction, or a small amount",
+        "governing_pattern": "a shade of a colour / shades of meaning/opinion",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:shade:997e46a4ef915999",
-        "sense_label_en": "a slight difference in color or a small amount",
+        "sense_label_en": "a particular degree of colour, a subtle distinction, or a small amount",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shade_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "usage_note": "颜色名后是具体色调；meaning/opinion等抽象词后是细微差别；a shade还可表示稍微。"
       },
       {
         "collocations": [
@@ -152,16 +182,43 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "渐变",
-        "definition_en": "to change gradually in color or tone",
-        "governing_pattern": "",
+        "definition_cn": "逐渐变成；渐变",
+        "definition_en": "to change gradually from one colour, quality or state into another",
+        "governing_pattern": "shade from A to B / shade into sth",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:shade:4adf1b2e48a25219",
-        "sense_label_en": "to change gradually in color or tone",
+        "sense_label_en": "to change gradually from one colour, quality or state into another",
         "sort_order": 4,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shade-into",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "usage_note": "既可颜色渐变，也可态度、性质缓慢转化，界限不明显。"
+      },
+      {
+        "sense_id": "sense:shade:f0c6a495ab4912f7",
+        "pos": "verb",
+        "definition_cn": "给图画或图表涂阴影、加深颜色",
+        "definition_en": "to make part of a drawing or diagram darker",
+        "sense_label_en": "to make part of a drawing or diagram darker",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "shade an area (in)",
+        "transitivity": "vt",
+        "usage_note": "题目要求shade an area时通常是涂色或画阴影，不是拿东西挡光。",
+        "collocations": [],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shade_2",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -605,6 +662,12 @@
         "merged_into_sense_id": null,
         "source_row": 12294,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:shade:f0c6a495ab4912f7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4370.json"
       }
     ],
     "active_collocations": [
@@ -614,7 +677,13 @@
       "collocation:df781ce0fec0de06d788",
       "collocation:f4a978abeb239f551653"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:shade:2d2b88a8bc3cac70",
+        "source_path": "content/lexical/words/by-ordinal/o4370.json",
+        "object_type": "construction"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:1d9983a11c0e4b51c6f1",

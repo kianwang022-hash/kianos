@@ -38,9 +38,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "使心烦，使不安；打乱，扰乱；心烦的，苦恼的；弄翻，打翻；爆冷门，意外结果；胃肠不适、消化紊乱",
-      "core_meaning_en": "to make someone worried, unhappy, or angry; to change a plan or situation in a way that causes problems; feeling worried, unhappy, or angry; to turn something over, causing it to fall; an unexpected result in a competition; a digestive disturbance or stomach upset",
-      "mental_model_cn": "使心烦，使不安；打乱，扰乱；心烦的，苦恼的；弄翻，打翻；爆冷门，意外结果；胃肠不适、消化紊乱",
+      "core_meaning_cn": "扰乱原有状态：情绪、安排、身体或预期结果",
+      "core_meaning_en": "disturb an existing state, arrangement, or expectation",
+      "mental_model_cn": "宾语是人看情绪，plans/balance看扰乱，stomach看身体；比赛对手作宾语可指爆冷击败；an upset是爆冷结果，a stomach upset是胃肠不适。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -225,6 +225,62 @@
         "sense_label_en": "a digestive disturbance or stomach upset",
         "sort_order": 6,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:upset:e484ce34b96bc749",
+        "definition_cn": "使胃部不适；使消化紊乱",
+        "definition_en": "to cause discomfort or illness in the stomach",
+        "sense_label_en": "to cause discomfort or illness in the stomach",
+        "pos": "verb",
+        "governing_pattern": "upset sb's stomach",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:dbece3ae184ea2893616",
+            "phrase": "upset sb's stomach",
+            "meaning_cn": "使某人胃部不适",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
+      },
+      {
+        "sense_id": "sense:upset:33572d19b9d2b421",
+        "definition_cn": "（胃）不舒服的",
+        "definition_en": "affected by digestive discomfort",
+        "sense_label_en": "affected by digestive discomfort",
+        "pos": "adjective",
+        "governing_pattern": "an upset stomach",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:6399fb87f86cc573d662",
+            "phrase": "an upset stomach",
+            "meaning_cn": "胃部不适",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
+      },
+      {
+        "sense_id": "sense:upset:c3239a9aa894a282",
+        "definition_cn": "爆冷击败（原本被看好的对手）",
+        "definition_en": "to defeat an opponent who was expected to win",
+        "sense_label_en": "to defeat an opponent who was expected to win",
+        "pos": "verb",
+        "governing_pattern": "upset the favourite/champion",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -498,6 +554,27 @@
         "merged_into_sense_id": null,
         "source_row": 14943,
         "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
+      },
+      {
+        "sense_id": "sense:upset:e484ce34b96bc749",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14946,
+        "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
+      },
+      {
+        "sense_id": "sense:upset:33572d19b9d2b421",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14947,
+        "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
+      },
+      {
+        "sense_id": "sense:upset:c3239a9aa894a282",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14948,
+        "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
       }
     ],
     "active_collocations": [
@@ -508,7 +585,9 @@
       "collocation:45e93a257a003e9270a2",
       "collocation:95f97de7dcf339456882",
       "collocation:a511d00e983c201ebf33",
-      "collocation:eafca18e972af3cf3b54"
+      "collocation:eafca18e972af3cf3b54",
+      "collocation:dbece3ae184ea2893616",
+      "collocation:6399fb87f86cc573d662"
     ],
     "facts": [],
     "collocations": [
@@ -550,6 +629,16 @@
       {
         "id": "collocation:eafca18e972af3cf3b54",
         "source_row": 19908,
+        "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
+      },
+      {
+        "id": "collocation:dbece3ae184ea2893616",
+        "source_row": 21456,
+        "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
+      },
+      {
+        "id": "collocation:6399fb87f86cc573d662",
+        "source_row": 21457,
         "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
       }
     ],

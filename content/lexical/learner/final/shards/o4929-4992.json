@@ -587,7 +587,7 @@
     "ordinal": 4933,
     "word": "tend",
     "source_owner_path": "content/lexical/words/by-ordinal/o4933.json",
-    "source_fingerprint": "76e40d25d76b67769ebb2b11c0ada57bf949c562ea1a1c3932b3549aaed3ce70",
+    "source_fingerprint": "b4bf3728e7e7a12ec34055cf5a39d55065ad07ced183761983f0442b0c19c5bf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -597,7 +597,7 @@
     },
     "word_feel": {
       "summary_cn": "倾向；照料",
-      "decision_cn": "",
+      "decision_cn": "先看补语：to do 表往往会做；toward(s) + 名词表倾向；人或事物作宾语，或 to + 人/事物，表示照料或处理。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -610,10 +610,10 @@
         "id": "sense:tend:07541bb4dfa35407",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "vi.: tend to do sth; tend toward(s) sth",
         "definition_cn": "倾向；易于",
         "definition_en": "have a tendency or disposition to do or be something; be inclined",
-        "note": "",
+        "note": "to 后接动词原形表示往往会做；toward(s) 后接名词表示倾向或发展方向。",
         "identity_overlay": null,
         "usage": [
           {
@@ -649,10 +649,10 @@
         "id": "sense:tend:ee73099eb87d54d3",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vt./vi.: tend sb/sth; tend to sb/sth",
         "definition_cn": "照料；护理",
         "definition_en": "have care of or look after",
-        "note": "",
+        "note": "tend (to) sb/sth 表照料、处理其需要；这里的 to 是介词，不是 tend to do 的不定式标记。",
         "identity_overlay": null,
         "usage": [
           {
@@ -866,24 +866,24 @@
     "ordinal": 4935,
     "word": "tender",
     "source_owner_path": "content/lexical/words/by-ordinal/o4935.json",
-    "source_fingerprint": "e4556f36588cf45e85542b42f840482b916bb268666d50778b495e9979808f79",
+    "source_fingerprint": "259327bf2685ea9de28f3bc82d2f3c48c6c604b4e4076f3fdf2b88013be5aacf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
-        "2A",
+        "2V",
+        "3A",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "温柔的；体贴的；投标；投标（书）；嫩的；柔软的；脆弱易受伤的；法定货币；法律上可用于付款的货币",
-      "decision_cn": "",
+      "summary_cn": "柔和或敏感；另有正式提出、投标，以及货币和航运的专门义",
+      "decision_cn": "人或照料方式可温柔，食物可嫩，身体部位可触痛；tender a resignation 是递交辞呈，tender for a contract 是投标。legal tender 指法定货币，航运中 a tender 可指接驳或供应小艇。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "温柔的；体贴的；投标；投标（书）；嫩的；柔软的；脆弱易受伤的；法定货币；法律上可用于付款的货币"
+        "target_label": "柔和或敏感；另有正式提出、投标，以及货币和航运的专门义"
       }
     },
     "senses": [
@@ -1039,6 +1039,63 @@
           "target_locator": "record.senses[5]",
           "target_label": "法定货币；法律上可用于付款的货币"
         }
+      },
+      {
+        "id": "sense:tender:b376a8bc72ed5f3b4b7c",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "vt.: tender sth",
+        "definition_cn": "（正式）提出，递交，提供",
+        "definition_en": "to formally present or offer something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3cd8b147c693a8abbe2c",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "tender one's resignation",
+            "meaning_cn": "递交辞呈",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:3cd8b147c693a8abbe2c",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "tender one's resignation"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tender:b376a8bc72ed5f3b4b7c",
+          "target_locator": "record.senses[6]",
+          "target_label": "（正式）提出，递交，提供"
+        }
+      },
+      {
+        "id": "sense:tender:b9a9de8f7bc35821ab1d",
+        "source_locator": "record.senses[7]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（身体部位）一碰就痛的，触痛的",
+        "definition_en": "sensitive or painful when touched, especially a part of the body",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:228e70e63460661a6d49",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "tender to the touch",
+            "meaning_cn": "触碰时疼痛",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tender:b9a9de8f7bc35821ab1d",
+          "target_locator": "record.senses[7]",
+          "target_label": "（身体部位）一碰就痛的，触痛的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1177,7 +1234,7 @@
     "ordinal": 4937,
     "word": "tense",
     "source_owner_path": "content/lexical/words/by-ordinal/o4937.json",
-    "source_fingerprint": "2e07ad810d7956f9f68497ea5c0cdfa1a224dd712d53a41767cf4d9f7b47b4d0",
+    "source_fingerprint": "58b3ac348b1cf4ad8469f1644bf484287c3c4f5d61a4ae67b35d79b93b47d0b9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1270,9 +1327,9 @@
         "id": "sense:tense:0b1de6edec975e9a",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使紧张，使不安",
-        "definition_en": "cause to be tense and uneasy or nervous or anxious",
+        "governing_pattern": "vt.: tense your muscles; tense yourself (up)",
+        "definition_cn": "使（身体、肌肉等）绷紧；使紧张",
+        "definition_en": "to tighten the body or muscles, or make someone tense or nervous",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1280,7 +1337,7 @@
             "id": "collocation:dc42ca121685156101a8",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "tense oneself",
-            "meaning_cn": "使自己紧张起来",
+            "meaning_cn": "使自己绷紧、紧张起来",
             "kind": "usage_example",
             "repair": null
           }
@@ -1289,16 +1346,16 @@
           "target_kind": "sense",
           "target_id": "sense:tense:0b1de6edec975e9a",
           "target_locator": "record.senses[2]",
-          "target_label": "使紧张，使不安"
+          "target_label": "使（身体、肌肉等）绷紧；使紧张"
         }
       },
       {
         "id": "sense:tense:e8777745ae2a56da",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "变得紧张，变得不安",
-        "definition_en": "become tense, nervous, or uneasy",
+        "governing_pattern": "vi.: tense (up)",
+        "definition_cn": "（身体、肌肉等）绷紧；变得紧张",
+        "definition_en": "to become physically tight or stiff, often because of nervousness",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1306,7 +1363,7 @@
             "id": "collocation:c26a9af7fd109563858f",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "tense up",
-            "meaning_cn": "紧张起来",
+            "meaning_cn": "绷紧；紧张起来",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -1320,7 +1377,7 @@
           "target_kind": "sense",
           "target_id": "sense:tense:e8777745ae2a56da",
           "target_locator": "record.senses[3]",
-          "target_label": "变得紧张，变得不安"
+          "target_label": "（身体、肌肉等）绷紧；变得紧张"
         }
       }
     ],
@@ -1369,18 +1426,18 @@
     "ordinal": 4938,
     "word": "tension",
     "source_owner_path": "content/lexical/words/by-ordinal/o4938.json",
-    "source_fingerprint": "800e79152e173273054a369adc44bff0097bda87328cd27b2aee98e956fd6b02",
+    "source_fingerprint": "baa8aba33b8504cb432578feb8882ee4b46a4808245fa5f1e46fad06db2ec955",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "5N"
+        "6N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "紧张；张力/拉力；相互对立因素之间的张力",
-      "decision_cn": "",
+      "decision_cn": "心理或关系语境看紧张与对立；绳索、肌肉看绷紧；艺术看对立因素的张力。high-tension wire 中的 tension 指电压。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1406,19 +1463,6 @@
             "meaning_cn": "缓解紧张",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:c1c9228b99b151355d25",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "tension between A and B",
-            "meaning_cn": "A和B之间的紧张关系",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c1c9228b99b151355d25",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "tension between A and B"
-            }
           }
         ],
         "repair": {
@@ -1518,14 +1562,6 @@
             "meaning_cn": "张力",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:b283a497cfa79f637906",
-            "source_locator": "record.senses[3].collocations[1]",
-            "phrase": "high-tension wire",
-            "meaning_cn": "高压线",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -1578,12 +1614,52 @@
         "definition_en": "strained or hostile relations between people, groups, or countries",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:c1c9228b99b151355d25",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "tension between A and B",
+            "meaning_cn": "A和B之间的紧张关系",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c1c9228b99b151355d25",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "tension between A and B"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tension:8e629ecffdf15625",
           "target_locator": "record.senses[5]",
           "target_label": "紧张关系；敌对情绪"
+        }
+      },
+      {
+        "id": "sense:tension:e616186aaa9179a4ae06",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（电学）电压；电势差（尤见 high-tension 等组合）",
+        "definition_en": "electrical voltage or potential difference, especially in compounds such as high-tension",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b283a497cfa79f637906",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "high-tension wire",
+            "meaning_cn": "高压线",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tension:e616186aaa9179a4ae06",
+          "target_locator": "record.senses[6]",
+          "target_label": "（电学）电压；电势差（尤见 high-tension 等组合）"
         }
       }
     ],
@@ -1794,7 +1870,7 @@
     "ordinal": 4940,
     "word": "tentative",
     "source_owner_path": "content/lexical/words/by-ordinal/o4940.json",
-    "source_fingerprint": "2ae8edd09a28ecf23f2585bf42bf65e68e37638ff6e778b63362e6ce27814471",
+    "source_fingerprint": "7f6d04bc806a454175c041df27f7534499484f93525b05723a22c82432835acb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1819,16 +1895,16 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "试验性的；暂时的",
+        "definition_cn": "试探性的；初步的，暂定而未最后确定的",
         "definition_en": "not final or fully worked out; provisional",
-        "note": "",
+        "note": "强调尚未最后确定或确认，可能修改；并非仅指持续时间短。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:7cd1cf84600de0299454",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "tentative agreement",
-            "meaning_cn": "临时协议",
+            "meaning_cn": "初步达成、尚待最终确认的协议",
             "kind": "usage_example",
             "repair": null
           },
@@ -1845,7 +1921,7 @@
           "target_kind": "sense",
           "target_id": "sense:tentative:bf3ceb8fef3c5406",
           "target_locator": "record.senses[0]",
-          "target_label": "试验性的；暂时的"
+          "target_label": "试探性的；初步的，暂定而未最后确定的"
         }
       },
       {
@@ -1937,23 +2013,31 @@
     "ordinal": 4941,
     "word": "term",
     "source_owner_path": "content/lexical/words/by-ordinal/o4941.json",
-    "source_fingerprint": "ab970b5b69541aa636b3f4d754e73d649aab680139256f1f862ec2dfc5953218",
-    "sense_lineage": [],
+    "source_fingerprint": "cdcc009151f22c48e62647cb0b61cc5fd3ed8b21e05d034634ba7f46654c48d7",
+    "sense_lineage": [
+      {
+        "word_id": "word:term",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:8d73410c7b08c0abb67c",
+        "status": "retired",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
-        "(4+1)N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "术语；期限",
-      "decision_cn": "",
+      "summary_cn": "指称概念的词语；另可指约定的时间、条件或人际关系",
+      "decision_cn": "语言语境看称谓或术语；学业、任职看期限；协议中的 terms 看条款，on good/bad terms 看关系；in terms of 与 come to terms with 要整体取义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "术语；期限"
+        "target_label": "指称概念的词语；另可指约定的时间、条件或人际关系"
       }
     },
     "senses": [
@@ -1962,7 +2046,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "术语；专有名词",
+        "definition_cn": "词语；称谓；（特定领域的）术语",
         "definition_en": "a word or expression used for a particular thing",
         "note": "",
         "identity_overlay": null,
@@ -1974,21 +2058,13 @@
             "meaning_cn": "技术术语",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:8d73410c7b08c0abb67c",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "in terms of",
-            "meaning_cn": "就……而言；在……方面",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:term:17ec9f77794f5e75",
           "target_locator": "record.senses[0]",
-          "target_label": "术语；专有名词"
+          "target_label": "词语；称谓；（特定领域的）术语"
         }
       },
       {
@@ -2029,8 +2105,8 @@
         "id": "sense:term:698a79ebd4b45ff4",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "条件；条款",
+        "governing_pattern": "usually plural: terms; terms of an agreement",
+        "definition_cn": "（通常用复数 terms）条件；条款",
         "definition_en": "conditions or requirements in an agreement",
         "note": "",
         "identity_overlay": null,
@@ -2048,14 +2124,14 @@
           "target_kind": "sense",
           "target_id": "sense:term:698a79ebd4b45ff4",
           "target_locator": "record.senses[2]",
-          "target_label": "条件；条款"
+          "target_label": "（通常用复数 terms）条件；条款"
         }
       },
       {
         "id": "sense:term:d3a1e98d893056f7",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "vt.: term A B; A is termed B",
         "definition_cn": "称；呼",
         "definition_en": "to call or name something in a particular way",
         "note": "",
@@ -2101,6 +2177,37 @@
           "target_locator": "record.senses[4]",
           "target_label": "（数学）项"
         }
+      },
+      {
+        "id": "sense:term:f37d0087bacf9f2068cd",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "plural: on ... terms (with sb)",
+        "definition_cn": "（复数 terms）人与人之间的关系",
+        "definition_en": "the quality or state of relations between people",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:3deec83dc54f9e099504",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "be on good/bad terms with sb",
+            "meaning_cn": "与某人关系好／不好",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:3deec83dc54f9e099504",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "be on good/bad terms with sb"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:term:f37d0087bacf9f2068cd",
+          "target_locator": "record.senses[5]",
+          "target_label": "（复数 terms）人与人之间的关系"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2135,22 +2242,7 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:term:60d748a1334d0a3f",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "条件；条款",
-        "definition_en": "conditions or requirements in an agreement",
-        "pattern": "terms and conditions 条款和条件",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:term:60d748a1334d0a3f",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "条件；条款"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:cc4d105cc48ba8bceda3",
@@ -2159,6 +2251,10 @@
         "lines": [
           {
             "text": "就…而言；从…方面来看",
+            "lang": "cn"
+          },
+          {
+            "text": "固定复数 terms；后接讨论的方面，整体表示“就……而言”，不作为“术语”义下的一般例词。",
             "lang": "cn"
           }
         ],
@@ -2199,8 +2295,8 @@
       "confusables": [],
       "relations": [
         {
-          "title": "term ↔ expression/word ↔ term",
-          "target_word": "expression/word ↔ term",
+          "title": "term ↔ expression / word",
+          "target_word": "expression / word",
           "lines": [
             {
               "text": "word = lexical word/form; expression may be a word or multiword way of expressing something; term is a word/expression used for a particular concept, often in a field/context. Strong overlap but not interchangeable globally.",
@@ -2212,7 +2308,7 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:48b1ce26a35fd88ecb90",
             "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "term ↔ expression/word ↔ term"
+            "target_label": "term ↔ expression / word"
           }
         }
       ],
@@ -2226,7 +2322,7 @@
     "ordinal": 4942,
     "word": "terminal",
     "source_owner_path": "content/lexical/words/by-ordinal/o4942.json",
-    "source_fingerprint": "f5709079986388e991049741857cd84ae354895c526eafc5220d1a2f298ba284",
+    "source_fingerprint": "8f3ab8240bf3487ea8a5f60421a87f9a4af853bf0d8b3cad5ac01ea3d85168a2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2237,7 +2333,7 @@
     },
     "word_feel": {
       "summary_cn": "末端或终端设备",
-      "decision_cn": "",
+      "decision_cn": "交通、计算机和电路语境看终点或接入端；疾病语境表示无法治愈且将致死，不能仅按“晚期”判断。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2363,16 +2459,16 @@
         "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "晚期的；致死的",
-        "definition_en": "of or relating to a terminal illness; fatal",
-        "note": "",
+        "definition_cn": "（疾病）无法治愈且将导致死亡的；（病人）患绝症的",
+        "definition_en": "describing an incurable illness expected to cause death, or a person with such an illness",
+        "note": "强调无法治愈、将导致死亡；仅有“晚期”或严重程度本身不足以表达 terminal。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:4d1ed58a916f38621f9f",
             "source_locator": "record.senses[4].collocations[0]",
             "phrase": "terminal cancer",
-            "meaning_cn": "晚期癌症",
+            "meaning_cn": "已无法治愈、预计将致死的癌症",
             "kind": "usage_example",
             "repair": null
           }
@@ -2381,7 +2477,7 @@
           "target_kind": "sense",
           "target_id": "sense:terminal:52859949ee895a50",
           "target_locator": "record.senses[4]",
-          "target_label": "晚期的；致死的"
+          "target_label": "（疾病）无法治愈且将导致死亡的；（病人）患绝症的"
         }
       }
     ],
@@ -2779,11 +2875,26 @@
     "ordinal": 4945,
     "word": "terrific",
     "source_owner_path": "content/lexical/words/by-ordinal/o4945.json",
-    "source_fingerprint": "391969227ccc7995b2715ae5a54b73c8946dd5e31708fefded55820b5a70d5be",
-    "sense_lineage": [],
+    "source_fingerprint": "88ad07e5c0c4df4d85d02df1acf51900ac3411f3f54d6f0dfa7210d5eccf5a1b",
+    "sense_lineage": [
+      {
+        "word_id": "word:terrific",
+        "target_kind": "sense",
+        "from_target_id": "sense:terrific:e1632e49bd6454f7",
+        "status": "reference_only",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:terrific",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:398ad389d75e361ab6aa",
+        "status": "reference_only",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A"
+        "2A"
       ],
       "density": "rich"
     },
@@ -2865,32 +2976,6 @@
           "target_locator": "record.senses[1]",
           "target_label": "极度的；极大的"
         }
-      },
-      {
-        "id": "sense:terrific:e1632e49bd6454f7",
-        "source_locator": "record.senses[2]",
-        "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "可怕的；恐怖的",
-        "definition_en": "causing extreme terror",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:398ad389d75e361ab6aa",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a terrific sight",
-            "meaning_cn": "可怕的景象",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:terrific:e1632e49bd6454f7",
-          "target_locator": "record.senses[2]",
-          "target_label": "可怕的；恐怖的"
-        }
       }
     ],
     "pronunciation_support": {
@@ -2916,7 +3001,37 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:398ad389d75e361ab6aa",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:terrific:e1632e49bd6454f7:collocation:0"
+              ],
+              "meaning_cn": "可怕的景象",
+              "phrase": "a terrific sight"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "可怕的；恐怖的",
+          "definition_en": "causing extreme terror",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:terrific:e1632e49bd6454f7",
+          "sense_label_en": "causing extreme terror",
+          "sort_order": 2,
+          "transitivity": "nonverb",
+          "reference_only": true,
+          "usage_note": "旧用：引起恐惧的。Collins 所收 Webster’s New World 将此义标为 archaic；保留供历史或文学语境查阅。",
+          "status": "reference_only",
+          "merged_into_sense_id": null
+        }
+      ]
     }
   },
   {
@@ -3032,17 +3147,25 @@
     "ordinal": 4947,
     "word": "territory",
     "source_owner_path": "content/lexical/words/by-ordinal/o4947.json",
-    "source_fingerprint": "90e591b0a610717eef591fa4bd10a8d91442a6fbaf7a59e6b501e5f3296fd866",
-    "sense_lineage": [],
+    "source_fingerprint": "d40782897645f0e207dc0c0598e75e68ae4b7b568ca578655d6b2ba51a2288af",
+    "sense_lineage": [
+      {
+        "word_id": "word:territory",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:f00d28becd88f2572ca5",
+        "status": "retired",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "领土或领域",
-      "decision_cn": "",
+      "decision_cn": "国家控制的地域是领土，动物或个人占据并保护的是地盘；知识和工作分工语境可引申为领域、辖区。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3057,7 +3180,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "领土；领地",
-        "definition_en": "an area of land under the control of a country or ruler",
+        "definition_en": "an area of land or sea controlled by a country or ruler",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3066,14 +3189,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "occupied territory",
             "meaning_cn": "被占领的领土",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:f00d28becd88f2572ca5",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "territorial waters",
-            "meaning_cn": "领海",
             "kind": "usage_example",
             "repair": null
           }
@@ -3136,6 +3251,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "推销区域；管区"
         }
+      },
+      {
+        "id": "sense:territory:faeafb197c56a92341f2",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（动物或个人占据并保护的）领地，地盘",
+        "definition_en": "an area an animal or person regards as its own and tries to control or defend",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:6f173bc57444dd503da2",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "defend its territory",
+            "meaning_cn": "保卫自己的领地",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:territory:faeafb197c56a92341f2",
+          "target_locator": "record.senses[3]",
+          "target_label": "（动物或个人占据并保护的）领地，地盘"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3176,7 +3317,22 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "territorial",
+          "lines": [
+            {
+              "text": "territory（名词：领土、领地）→ territorial（形容词：领土的、领地的）",
+              "lang": "cn"
+            },
+            {
+              "text": "territorial waters 指领海；这是派生形容词 territorial 的组合，不是名词 territory 的直接搭配。",
+              "lang": "cn"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -3185,7 +3341,7 @@
     "ordinal": 4948,
     "word": "terror",
     "source_owner_path": "content/lexical/words/by-ordinal/o4948.json",
-    "source_fingerprint": "0b55a1930c77c4caa9e769fa659bb5fa4babed30cce5fcad384e5fd071f5b3f0",
+    "source_fingerprint": "32b8363006a6c2c8a07171494ab9d781a82650a21ccbe54c68d0119753919bb9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3194,13 +3350,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "极端恐惧或引起恐惧的人/事物",
-      "decision_cn": "",
+      "summary_cn": "极端恐惧及其来源；口语也指难管的人",
+      "decision_cn": "极端害怕是 terror；a terror 可口语地指难管的人或孩子；政治语境指用暴力、威胁制造恐惧。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "极端恐惧或引起恐惧的人/事物"
+        "target_label": "极端恐惧及其来源；口语也指难管的人"
       }
     },
     "senses": [
@@ -3253,9 +3409,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "可怕的人",
-        "definition_en": "a person who causes fear or dread",
-        "note": "",
+        "definition_cn": "可怕或难以对付的人；（口语，尤指）淘气鬼",
+        "definition_en": "a person who causes fear, or informally someone whose bad behaviour makes them difficult to control",
+        "note": "a little/holy terror 常指顽皮难管的孩子，并不一定表示真的使人恐怖。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3276,7 +3432,7 @@
           "target_kind": "sense",
           "target_id": "sense:terror:774fe8c3a72f5ff4",
           "target_locator": "record.senses[1]",
-          "target_label": "可怕的人"
+          "target_label": "可怕或难以对付的人；（口语，尤指）淘气鬼"
         }
       },
       {
@@ -3369,7 +3525,7 @@
     "ordinal": 4949,
     "word": "test",
     "source_owner_path": "content/lexical/words/by-ordinal/o4949.json",
-    "source_fingerprint": "bd9317647ddf77d65ea61a9eedcb99435c975353496c2c41c2018261d6ef5d1d",
+    "source_fingerprint": "05f0a34d979d2ea1397f12c451e8113a579469bbaa0b3134a9d12a5e0fd90807",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3395,7 +3551,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "测试；测验；检验",
-        "definition_en": "a standardized procedure for measuring ability, knowledge, or quality",
+        "definition_en": "questions, practical tasks or an examination used to assess knowledge, ability, condition or quality",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3466,9 +3622,9 @@
         "id": "sense:test:bb877cc6652158e3",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
-        "definition_cn": "接受测验；进行测试",
-        "definition_en": "to undergo a test; to perform a test",
+        "governing_pattern": "vi.: test (for sth); test well/badly; test positive/negative (for sth)",
+        "definition_cn": "进行测试；受试并呈现某种结果",
+        "definition_en": "to carry out testing, or to show a particular result when tested",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3498,7 +3654,7 @@
           "target_kind": "sense",
           "target_id": "sense:test:bb877cc6652158e3",
           "target_locator": "record.senses[2]",
-          "target_label": "接受测验；进行测试"
+          "target_label": "进行测试；受试并呈现某种结果"
         }
       },
       {
@@ -3544,10 +3700,10 @@
       {
         "id": "construction:69fa1e9d77f7bfcf7169",
         "source_locator": "record.constructions[0]",
-        "pattern": "test positive/negative for sth",
+        "pattern": "test positive/negative (for sth)",
         "lines": [
           {
-            "text": "检测结果为某物阳性/阴性",
+            "text": "检测结果呈阳性／阴性；for 后可说明所检测的项目",
             "lang": "cn"
           }
         ],
@@ -3555,7 +3711,7 @@
           "target_kind": "construction",
           "target_id": "construction:69fa1e9d77f7bfcf7169",
           "target_locator": "record.constructions[0]",
-          "target_label": "test positive/negative for sth"
+          "target_label": "test positive/negative (for sth)"
         }
       }
     ],
@@ -3740,7 +3896,7 @@
     "ordinal": 4951,
     "word": "testimony",
     "source_owner_path": "content/lexical/words/by-ordinal/o4951.json",
-    "source_fingerprint": "8e220c03c1bf7d7d06fd43caeb73414e82b898629b2cd870ba94f544a9732855",
+    "source_fingerprint": "14dc589872c8ec8ba5de888c067025ea58c047a4f6b9ca448b0bebe26d600f16",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3765,8 +3921,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "证言，证词",
-        "definition_en": "a solemn statement made under oath",
-        "note": "",
+        "definition_en": "a formal account of what someone knows or experienced, especially as evidence in court",
+        "note": "证词常用于法庭，也可指正式陈述；under oath 是宣誓作证的条件，不是所有 testimony 的必要条件。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3885,7 +4041,7 @@
     "ordinal": 4952,
     "word": "text",
     "source_owner_path": "content/lexical/words/by-ordinal/o4952.json",
-    "source_fingerprint": "4f55aec4127a95792ba8432482e5710c427e15ed041242d56beea781098e9bdf",
+    "source_fingerprint": "6a6b7dead81d7490546a18d13a4bba5fdc2126c0f591bcc2f0f6a582a2e63437",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3895,13 +4051,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "文本，文字",
-      "decision_cn": "",
+      "summary_cn": "书面文字；也指短信或发文字消息",
+      "decision_cn": "看到文档语境读作文本/正文；手机通信中 a text 是一条消息，text sb 是给某人发消息。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "文本，文字"
+        "target_label": "书面文字；也指短信或发文字消息"
       }
     },
     "senses": [
@@ -4012,10 +4168,10 @@
         "id": "sense:text:5ad3978bb58659f4",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "text (sb); text sb sth",
         "definition_cn": "发短信；发文字消息",
         "definition_en": "to send someone a written message by mobile phone or another text-based messaging service",
-        "note": "",
+        "note": "可直接以收信人为宾语，也可接收信人和消息内容两个宾语；不说出收信人时也可单独用 text。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4071,7 +4227,7 @@
     "ordinal": 4953,
     "word": "textbook",
     "source_owner_path": "content/lexical/words/by-ordinal/o4953.json",
-    "source_fingerprint": "28e5beff9644fc39854f65adfa3afac5b9fef955d7296abcf1a575ae8ebde40f",
+    "source_fingerprint": "093871bf8ad13306f2a753204d24dbac57c468d41b2da55e524f3532ed5271c4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4081,13 +4237,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "教科书",
-      "decision_cn": "",
+      "summary_cn": "教科书；也指教科书式的典型表现",
+      "decision_cn": "作名词是教材；作形容词时强调某类特征十分典型，如 textbook example。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "教科书"
+        "target_label": "教科书；也指教科书式的典型表现"
       }
     },
     "senses": [
@@ -4191,7 +4347,7 @@
     "ordinal": 4954,
     "word": "textile",
     "source_owner_path": "content/lexical/words/by-ordinal/o4954.json",
-    "source_fingerprint": "77ff7daae2768abd885c78b46e9a0ed8dc6cdcdb7272676a91a2a44080b0a4bf",
+    "source_fingerprint": "d97a035458182b66c5ad681220f935a24fb8a2e40f262b9edb6a879bdd595b7c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4216,9 +4372,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "纺织品，纺织业",
-        "definition_en": "a woven or knitted fabric; the industry producing such fabrics",
-        "note": "",
+        "definition_cn": "纺织品；textiles 还可指纺织业",
+        "definition_en": "fabric; in the plural form textiles, also the business of making fabric",
+        "note": "一种织物可说 a textile，多种织物用 textiles；表示从事纺织业常说 work in textiles。textile industry 是纺织工业，不能据此把单数 textile 当作行业名。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4239,7 +4395,7 @@
           "target_kind": "sense",
           "target_id": "sense:textile:3cd26e50cc2f54d9",
           "target_locator": "record.senses[0]",
-          "target_label": "纺织品，纺织业"
+          "target_label": "纺织品；textiles 还可指纺织业"
         }
       },
       {
@@ -4704,7 +4860,7 @@
     "ordinal": 4957,
     "word": "thank",
     "source_owner_path": "content/lexical/words/by-ordinal/o4957.json",
-    "source_fingerprint": "4b216c6b2fd562255a92fd9d438b23a631089f431b5e50aabad2971d930bd9f2",
+    "source_fingerprint": "97905f10be4a7d6831b4634b505e036538e636e9ec0a3a25ba2e9cabd2a020d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4728,7 +4884,7 @@
         "id": "sense:thank:71751f551ebc5613",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + sb + for + sth",
+        "governing_pattern": "thank sb (for sth/doing sth)",
         "definition_cn": "感谢，道谢",
         "definition_en": "to tell someone that you are grateful for something they have done",
         "note": "",
@@ -4737,14 +4893,14 @@
           {
             "id": "collocation:f0e03e17bb744fe56cfd",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "thank sb for + sth",
+            "phrase": "thank sb for sth/doing sth",
             "meaning_cn": "因某事感谢某人",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:f0e03e17bb744fe56cfd",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "thank sb for + sth"
+              "target_label": "thank sb for sth/doing sth"
             }
           },
           {
@@ -4773,10 +4929,18 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "感谢，谢意",
-        "definition_en": "an expression of gratitude",
-        "note": "",
-        "identity_overlay": null,
+        "definition_cn": "谢意；感谢（现代英语通常用复数形式 thanks）",
+        "definition_en": "gratitude expressed in words or actions, normally in the plural form thanks",
+        "note": "名词通常是 thanks，如 give thanks；不把 a thank 当作普通单数名词。thanks to sb/sth 表原因，由独立构式说明。",
+        "identity_overlay": {
+          "text": "这里的名词义用 thanks；thank 是普通动词形式。",
+          "repair": {
+            "target_kind": "form_identity",
+            "target_id": null,
+            "target_locator": "record.senses[1].lexical_identity_overlay",
+            "target_label": "这里的名词义用 thanks；thank 是普通动词形式。"
+          }
+        },
         "usage": [
           {
             "id": "collocation:b259c7291920f388d86e",
@@ -4791,7 +4955,7 @@
           "target_kind": "sense",
           "target_id": "sense:thank:c442918876bc52eb",
           "target_locator": "record.senses[1]",
-          "target_label": "感谢，谢意"
+          "target_label": "谢意；感谢（现代英语通常用复数形式 thanks）"
         }
       }
     ],
@@ -4850,15 +5014,16 @@
     "constructions": [
       {
         "id": "deep:constructions:thank:f6e2a800bf094f39",
+        "sense_id": "sense:thank:71751f551ebc5613",
         "source_locator": "record.constructions[0]",
-        "pattern": "vt. + sb + for + sth",
+        "pattern": "thank sb (for sth/doing sth)",
         "lines": [
           {
             "text": "感谢，道谢",
             "lang": "cn"
           },
           {
-            "text": "因某事感谢某人",
+            "text": "感谢某人；可用 for + 名词/doing 说明感谢的原因，for 部分可省略。",
             "lang": "cn"
           },
           {
@@ -4870,7 +5035,7 @@
           "target_kind": "construction",
           "target_id": "deep:constructions:thank:f6e2a800bf094f39",
           "target_locator": "record.constructions[0]",
-          "target_label": "vt. + sb + for + sth"
+          "target_label": "thank sb (for sth/doing sth)"
         }
       },
       {
@@ -4902,7 +5067,23 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "thanks",
+            "condition": "noun expressing gratitude",
+            "note": "名词通常用复数形式 thanks，如 give thanks；不从 thank 的现有IPA推造 thanks 的读音。"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -4912,7 +5093,7 @@
     "ordinal": 4958,
     "word": "thanksgiving",
     "source_owner_path": "content/lexical/words/by-ordinal/o4958.json",
-    "source_fingerprint": "ad320a75f26b5a93e1c1625a71c6bd0996eb856c493dbabc2a62b43334e1711f",
+    "source_fingerprint": "a8331c18fa50047a286edd5d1bade40e0c556d34bbed22c087578211e563ea1d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5000,14 +5181,9 @@
             "id": "collocation:ab2f11f530f02f778fe5",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "give thanks",
-            "meaning_cn": "表示感谢",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:ab2f11f530f02f778fe5",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "give thanks"
-            }
+            "meaning_cn": "表示感谢（释义表达；thanksgiving 本身是名词）",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -5143,7 +5319,7 @@
     "ordinal": 4959,
     "word": "that",
     "source_owner_path": "content/lexical/words/by-ordinal/o4959.json",
-    "source_fingerprint": "5ddb267d69d85c8d2c88aad886a0107a605e578be2be2fa589c436ad19aff37e",
+    "source_fingerprint": "3270a94fb67f4e445eddbb9124dfa97e57e75857f0c0a754020b31e59f48efe5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5156,13 +5332,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "那，那个；引出内容或补足从句的连接词；目的通常用 so that 等结构表达；那么，那样；关系代词/关系标记：用于引导限定性定语从句，指人或物",
-      "decision_cn": "",
+      "summary_cn": "指明那个人/物，或把后面的从句接入句子；还可表示那么的程度",
+      "decision_cn": "that + 名词用来指明；单独 that 可代人/物；引内容从句时不充当其中的主宾语，限定性定从中的 that 则代先行词作主语或宾语。that much 中表示程度。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "那，那个；引出内容或补足从句的连接词；目的通常用 so that 等结构表达；那么，那样；关系代词/关系标记：用于引导限定性定语从句，指人或物"
+        "target_label": "指明那个人/物，或把后面的从句接入句子；还可表示那么的程度"
       }
     },
     "senses": [
@@ -5172,8 +5348,8 @@
         "pos": "pronoun",
         "governing_pattern": "",
         "definition_cn": "那，那个",
-        "definition_en": "used to refer to a person or thing previously mentioned",
-        "note": "",
+        "definition_en": "used to point to an identifiable person or thing, or refer back to something already mentioned",
+        "note": "可指眼前较远或正在指出的人/物，也可回指已提过的内容，不要求一定已在前文出现。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5230,14 +5406,14 @@
         "governing_pattern": "",
         "definition_cn": "引出内容或补足从句的连接词；目的通常用 so that 等结构表达",
         "definition_en": "a complementizer introducing a content clause; purpose is normally expressed by constructions such as so that",
-        "note": "",
+        "note": "so that / in order that 后接从句；so that 可表目的，也可表结果，但不能把每个结果连词 so 都机械替换成 so that。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b73df0e804310d3e213e",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "so that",
-            "meaning_cn": "以便，所以",
+            "meaning_cn": "后接从句表示目的（以便），有时表示结果（结果是）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -5250,7 +5426,7 @@
             "id": "collocation:1203545e07d1fe3096e9",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "in order that",
-            "meaning_cn": "为了",
+            "meaning_cn": "后接从句表示目的（为了）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -5300,7 +5476,7 @@
         "governing_pattern": "",
         "definition_cn": "关系代词/关系标记：用于引导限定性定语从句，指人或物",
         "definition_en": "used to introduce a defining relative clause referring to a person, animal, or thing, as subject or object",
-        "note": "",
+        "note": "在限定性定语从句中，that 作主语时保留，作宾语时可省略；如 the book (that) I read。不能用于逗号隔开的非限定性定语从句。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5724,7 +5900,7 @@
     "ordinal": 4961,
     "word": "theatre",
     "source_owner_path": "content/lexical/words/by-ordinal/o4961.json",
-    "source_fingerprint": "c96ab27c87d118aeda90fef30d64f2e40b95e3fa4dea99f40b04feb2dc7b6907",
+    "source_fingerprint": "5f97bf925b829ecebbb3c48e3636a294b883f80f555b2d267d8333b009667377",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5886,12 +6062,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -6007,7 +6179,7 @@
     "ordinal": 4963,
     "word": "their",
     "source_owner_path": "content/lexical/words/by-ordinal/o4963.json",
-    "source_fingerprint": "0a0cfb36a9678064c6f74c01ab54ac539dc5295efe4c73bb1f74ee9fa3ee33ab",
+    "source_fingerprint": "6945298b065a82a07c5b093f9977dc6dd4ddc1dff35d5669732c7e8f3701c622",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6077,12 +6249,12 @@
     "reference": {
       "confusables": [
         {
-          "title": "their ↔ their ↔ there ↔ they're",
-          "target_word": "their ↔ there ↔ they're",
+          "title": "their ↔ there / they're",
+          "target_word": "there / they're",
           "lines": [
             {
-              "text": "their = possessive determiner; there = place/existential marker; they're = contraction of they are. Present once as a three-way cluster.",
-              "lang": "en"
+              "text": "their 修饰名词表示所属；there 表地点或引出存在句；they're = they are，后面需要与 they are 相容的成分。",
+              "lang": "cn"
             }
           ],
           "differences": [],
@@ -6090,7 +6262,7 @@
             "target_kind": "relation",
             "target_id": "confusable:horizontal:6f5711efdc5cb02126fb",
             "target_locator": "record.confusables[0]",
-            "target_label": "their ↔ their ↔ there ↔ they're"
+            "target_label": "their ↔ there / they're"
           }
         }
       ],
@@ -6435,7 +6607,7 @@
     "ordinal": 4966,
     "word": "theme",
     "source_owner_path": "content/lexical/words/by-ordinal/o4966.json",
-    "source_fingerprint": "df77e4f8068cd58af37d017e93213df549b7c797a4c85bc45cc459f5ae5c4ff1",
+    "source_fingerprint": "2ad4d2dbe27dafc53407f39ebfb1eadfe1701bc4470ec2a11d7f2a85914659aa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6461,7 +6633,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "主题，主旨",
-        "definition_en": "a unifying idea that is a recurrent element in literary or artistic work",
+        "definition_en": "the central subject or recurring idea in a discussion, activity, piece of writing, or artistic work",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7103,7 +7275,7 @@
     "ordinal": 4970,
     "word": "theory",
     "source_owner_path": "content/lexical/words/by-ordinal/o4970.json",
-    "source_fingerprint": "d936a7e17d83b02cacec907a7cd9710f89b716b7b40d0dbdb860abc23f6a8c66",
+    "source_fingerprint": "68eb95036f5cd01c78ce5ab45a917b1f2bed21521bd94c24659fa659b815f4eb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7113,7 +7285,7 @@
     },
     "word_feel": {
       "summary_cn": "理论；学说；理论、设想；用于解释事实或事件的提出性想法或解释",
-      "decision_cn": "",
+      "decision_cn": "科学语境的 theory 可指有充分证据支持的理论体系；日常 have a theory 可指对事情提出的解释，不能一概译成无根据的猜测。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7368,7 +7540,7 @@
     "ordinal": 4972,
     "word": "there",
     "source_owner_path": "content/lexical/words/by-ordinal/o4972.json",
-    "source_fingerprint": "54551f85f4d514eab4cfcc8e95f756ada230e37183b42071560c6731a850ab50",
+    "source_fingerprint": "b949b61c1bc0c9f6d9c99b6ae5d4c6b0dfdd3b4f007dc6e7aba08282a8280289",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7378,13 +7550,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在那里",
-      "decision_cn": "",
+      "summary_cn": "指那个地方；there be 则引出有或存在某人/物",
+      "decision_cn": "over/from there 指地点；there is/are 中 there 引出存在句，本身不必译成在那里。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在那里"
+        "target_label": "指那个地方；there be 则引出有或存在某人/物"
       }
     },
     "senses": [
@@ -7713,12 +7885,12 @@
     "reference": {
       "confusables": [
         {
-          "title": "there ↔ their ↔ there ↔ they're",
-          "target_word": "their ↔ there ↔ they're",
+          "title": "there ↔ their / they're",
+          "target_word": "their / they're",
           "lines": [
             {
-              "text": "their = possessive determiner; there = place/existential marker; they're = contraction of they are. Present once as a three-way cluster.",
-              "lang": "en"
+              "text": "their 修饰名词表示所属；there 表地点或引出存在句；they're = they are，后面需要与 they are 相容的成分。",
+              "lang": "cn"
             }
           ],
           "differences": [],
@@ -7726,7 +7898,7 @@
             "target_kind": "relation",
             "target_id": "confusable:horizontal:6f5711efdc5cb02126fb",
             "target_locator": "record.confusables[0]",
-            "target_label": "there ↔ their ↔ there ↔ they're"
+            "target_label": "there ↔ their / they're"
           }
         }
       ],
@@ -7826,7 +7998,7 @@
     "ordinal": 4974,
     "word": "thereby",
     "source_owner_path": "content/lexical/words/by-ordinal/o4974.json",
-    "source_fingerprint": "a9ec76020642f9bb8c661287b6f9c04ed6df09dcb686895f662c60e75bfdcdc3",
+    "source_fingerprint": "127406989f69ab0022931530d15241134ae18fdf4e4524b41c9b1f7fe04f8670",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7849,10 +8021,10 @@
         "id": "sense:thereby:d4bcadbac6345915",
         "source_locator": "record.senses[0]",
         "pos": "adverb",
-        "governing_pattern": "",
+        "governing_pattern": "thereby + doing（常见结构，非必带）",
         "definition_cn": "因此；由此",
         "definition_en": "by that means or because of that",
-        "note": "",
+        "note": "回指前述行为或方式，说明由此产生的结果；常见 thereby + doing，如 thereby reducing costs，但 thereby 也可修饰句中其他谓语结构，不强制后接 doing。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8034,23 +8206,23 @@
     "ordinal": 4976,
     "word": "thermal",
     "source_owner_path": "content/lexical/words/by-ordinal/o4976.json",
-    "source_fingerprint": "f9295190dee4b208dde7717da63f50321ef16865e3747273d647f0d402298e52",
+    "source_fingerprint": "7666fcfa20e0914c3fab8abf108d17304007c93aca47359ff6c8a4d3af5c8555",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A",
+        "3A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "热的；热量的",
-      "decision_cn": "",
+      "summary_cn": "与热有关；衣物保暖；名词指上升暖气流",
+      "decision_cn": "看被修饰名词：energy 等指热量，clothing 指保暖，spring 指地热温泉；独立名词 thermal 指可托起鸟或滑翔机的暖气流。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "热的；热量的"
+        "target_label": "与热有关；衣物保暖；名词指上升暖气流"
       }
     },
     "senses": [
@@ -8077,6 +8249,14 @@
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "thermal insulation",
             "meaning_cn": "隔热",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:4eb4577778930401eedc",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "thermal current",
+            "meaning_cn": "上升暖气流",
             "kind": "usage_example",
             "repair": null
           }
@@ -8125,10 +8305,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:4eb4577778930401eedc",
+            "id": "collocation:93bb54392c54a5a06edf",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "thermal current",
-            "meaning_cn": "上升暖气流",
+            "phrase": "rising thermals",
+            "meaning_cn": "上升的暖气流",
             "kind": "usage_example",
             "repair": null
           }
@@ -8138,6 +8318,37 @@
           "target_id": "sense:thermal:48cd5fd218705167",
           "target_locator": "record.senses[2]",
           "target_label": "上升暖气流"
+        }
+      },
+      {
+        "id": "sense:thermal:f04c490650197037",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（衣物）保暖的",
+        "definition_en": "designed to reduce loss of body heat",
+        "note": "修饰衣物时重在留住体热；不表示衣物本身发热。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:daae3391fd6f6212f8dc",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "thermal clothing",
+            "meaning_cn": "保暖衣物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:daae3391fd6f6212f8dc",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "thermal clothing"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:thermal:f04c490650197037",
+          "target_locator": "record.senses[3]",
+          "target_label": "（衣物）保暖的"
         }
       }
     ],
@@ -8453,7 +8664,7 @@
     "ordinal": 4979,
     "word": "thesis",
     "source_owner_path": "content/lexical/words/by-ordinal/o4979.json",
-    "source_fingerprint": "36b5b31f85b083ce9e4755643858899e9de5b39ac32e2bfbdd5d44d4fe2f0ce5",
+    "source_fingerprint": "49bd33ef4ccd910549e0df855865a20b69b9274a01efaeba1046d7dd84d94d82",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8541,39 +8752,17 @@
     "pronunciation_support": {
       "readings": [
         {
-          "ipa": "/ˈθisiz/",
-          "locales": [
-            "en-US"
-          ],
-          "applicability": [
-            {
-              "surface": "thesis"
-            }
-          ],
-          "evidence_basis": "source_ipa",
-          "spelling_binding": null
-        },
-        {
           "ipa": "/ˈθisɪs/",
           "locales": [
             "en-US"
           ],
           "applicability": [
             {
-              "surface": "thesis"
-            }
-          ],
-          "evidence_basis": "source_ipa",
-          "spelling_binding": null
-        },
-        {
-          "ipa": "/ˈθiːsiːz/",
-          "locales": [
-            "en-GB"
-          ],
-          "applicability": [
-            {
-              "surface": "thesis"
+              "surface": "thesis",
+              "conditions": {
+                "number": "singular"
+              },
+              "scope_note": "Singular spelling thesis."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8586,7 +8775,11 @@
           ],
           "applicability": [
             {
-              "surface": "thesis"
+              "surface": "thesis",
+              "conditions": {
+                "number": "singular"
+              },
+              "scope_note": "Singular spelling thesis."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -8594,14 +8787,39 @@
         }
       ],
       "sense_readings": {},
-      "has_scope": false
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [],
+        "variants": [
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "theses（复数） · US",
+            "ipa": "/ˈθisiz/"
+          },
+          {
+            "pos": [
+              "noun"
+            ],
+            "reading": "theses（复数） · UK",
+            "ipa": "/ˈθiːsiːz/"
+          }
+        ],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -8721,11 +8939,11 @@
     "ordinal": 4981,
     "word": "thick",
     "source_owner_path": "content/lexical/words/by-ordinal/o4981.json",
-    "source_fingerprint": "f8d62b6fdfe7a59aa8a60eefe911608739483aeab746a2cbc30a441a188ee198",
+    "source_fingerprint": "94caa87ff1ed387ca9fbb7271a207c5b3e0dc81c7d0cc5f04a9c088ddd6c5e84",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4A",
+        "5A",
         "1N",
         "1ADV"
       ],
@@ -8733,7 +8951,7 @@
     },
     "word_feel": {
       "summary_cn": "厚的；浓的",
-      "decision_cn": "",
+      "decision_cn": "先看对象：书/墙看厚度，树/头发/雾看密度，汤/油漆看黏稠度；in the thick of 指事件最密集或最激烈的部分。评价人的理解能力时还可指“笨”，属非正式且冒犯的说法。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8781,9 +8999,9 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "稠密的；茂密的",
+        "definition_cn": "稠密的；茂密的；（雾、烟等）浓密的",
         "definition_en": "having component parts closely crowded together",
-        "note": "",
+        "note": "trees / hair / crowds 看密集程度；fog / smoke 看遮挡视线的密度，不是液体黏稠度。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8801,13 +9019,21 @@
             "meaning_cn": "密集的人群",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:597a0de95a20beac3b84",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "thick fog",
+            "meaning_cn": "浓雾",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:thick:fa63f023ecf65024",
           "target_locator": "record.senses[1]",
-          "target_label": "稠密的；茂密的"
+          "target_label": "稠密的；茂密的；（雾、烟等）浓密的"
         }
       },
       {
@@ -8816,8 +9042,8 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "浓的；黏稠的",
-        "definition_en": "relatively dense in consistency",
-        "note": "",
+        "definition_en": "having a consistency that does not flow easily",
+        "note": "soup、sauce、paint 等液体看流动是否容易。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8825,14 +9051,6 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "thick soup",
             "meaning_cn": "浓汤",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:597a0de95a20beac3b84",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "thick fog",
-            "meaning_cn": "浓雾",
             "kind": "usage_example",
             "repair": null
           }
@@ -8925,6 +9143,32 @@
           "target_id": "sense:thick:788712c1dfcd5d07",
           "target_locator": "record.senses[5]",
           "target_label": "最厚处；最密集处"
+        }
+      },
+      {
+        "id": "sense:thick:ae06385432d8432b",
+        "source_locator": "record.senses[6]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（非正式、冒犯）愚钝的；笨的",
+        "definition_en": "slow to understand, said insultingly",
+        "note": "用于评价人的理解能力；带侮辱意味，主要需识别/辨别，不宜当中性称呼主动使用。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a767050923f5d214acc3",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "He isn't thick.",
+            "meaning_cn": "他并不笨。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:thick:ae06385432d8432b",
+          "target_locator": "record.senses[6]",
+          "target_label": "（非正式、冒犯）愚钝的；笨的"
         }
       }
     ],
@@ -9166,23 +9410,23 @@
     "ordinal": 4984,
     "word": "thin",
     "source_owner_path": "content/lexical/words/by-ordinal/o4984.json",
-    "source_fingerprint": "87ad3dfd82c7cfef4e2c6072c8d66b160db65b662945287839b1df8284f1b48d",
+    "source_fingerprint": "a5b7cf17e88c18d3a2863d68624b1636bc5ceb7f78c6bc2117af164598df5e51",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "3A"
+        "5A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "薄的，细的；使变薄",
-      "decision_cn": "",
+      "summary_cn": "薄、细、瘦或稀疏；也指液体稀、根据薄弱；动词使变薄或变稀",
+      "decision_cn": "共同线索是“厚度、密度或充实程度不够”：物体看厚度，人看脂肪，头发/人群看密度，液体看稠度，论据看支持是否充分。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "薄的，细的；使变薄"
+        "target_label": "薄、细、瘦或稀疏；也指液体稀、根据薄弱；动词使变薄或变稀"
       }
     },
     "senses": [
@@ -9287,7 +9531,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "使变薄，使变细，使变稀疏",
         "definition_en": "to make something thinner or less dense",
-        "note": "",
+        "note": "液体作宾语可指稀释（thin the paint）；人群、树木等作宾语可指减少密度。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9344,6 +9588,63 @@
           "target_locator": "record.senses[4]",
           "target_label": "变薄，变细，变稀疏"
         }
+      },
+      {
+        "id": "sense:thin:1db67a6cd1db799e",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（液体）稀的；稀薄的",
+        "definition_en": "watery rather than thick in consistency",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:00bae41cdb1429519757",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "thin soup",
+            "meaning_cn": "稀汤",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:thin:1db67a6cd1db799e",
+          "target_locator": "record.senses[5]",
+          "target_label": "（液体）稀的；稀薄的"
+        }
+      },
+      {
+        "id": "sense:thin:d78ef725d9d5b87a",
+        "source_locator": "record.senses[6]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（论据、理由等）薄弱的；不充分的",
+        "definition_en": "lacking enough substance or support to be convincing",
+        "note": "argument / evidence / excuse 作对象时评说说服力或根据，不是物理厚度。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:911baa64f81f7ab328d8",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "thin evidence",
+            "meaning_cn": "薄弱的证据",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:911baa64f81f7ab328d8",
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "thin evidence"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:thin:d78ef725d9d5b87a",
+          "target_locator": "record.senses[6]",
+          "target_label": "（论据、理由等）薄弱的；不充分的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9391,7 +9692,7 @@
     "ordinal": 4985,
     "word": "thing",
     "source_owner_path": "content/lexical/words/by-ordinal/o4985.json",
-    "source_fingerprint": "ec6ed65cb17a26273c80c1554e26dd1680aa257ccb604c2f96921acf1661879b",
+    "source_fingerprint": "531dd4d9ffdb8f85a6925d60a2c42d366b8d2045985a589eae014734044df7ae",
     "sense_lineage": [
       {
         "word_id": "word:thing",
@@ -9424,7 +9725,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "东西；物品",
-        "definition_en": "an artifact (material object)",
+        "definition_en": "a physical object, whether natural or made by people",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9451,16 +9752,21 @@
         "governing_pattern": "",
         "definition_cn": "事情；事件；情况",
         "definition_en": "an action, event, or situation",
-        "note": "",
+        "note": "the thing is (that) ... 引出要点、理由或解释，语气较口语；that 可以省略。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:4d20afa396d76591f4ce",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "the thing is",
+            "phrase": "the thing is (that) + clause",
             "meaning_cn": "问题是；关键是",
-            "kind": "usage_example",
-            "repair": null
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:4d20afa396d76591f4ce",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "the thing is (that) + clause"
+            }
           },
           {
             "id": "collocation:a2a4514f7f52b0c4cafb",
@@ -9583,7 +9889,7 @@
     "ordinal": 4986,
     "word": "think",
     "source_owner_path": "content/lexical/words/by-ordinal/o4986.json",
-    "source_fingerprint": "7520534b42ece5a9e32a42ace082c97a725fa372ed666ea3ad2718e8cb7bec71",
+    "source_fingerprint": "54632f45152d9422e20162be15cbd1a919e2ca5f950cb21ab8e92f5479045381",
     "sense_lineage": [
       {
         "word_id": "word:think",
@@ -9608,7 +9914,7 @@
     },
     "word_feel": {
       "summary_cn": "思考；考虑；认为；以为",
-      "decision_cn": "",
+      "decision_cn": "分清过程与判断：about/of 常引出思考对象，of doing 表考虑行动，over 表仔细权衡，up 表构思产出；(that) 从句常表达已形成的看法。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9621,10 +9927,10 @@
         "id": "sense:think:1a92a30e99f354f1",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "think; think about/of + sb/sth; think about/of + doing",
         "definition_cn": "思考；考虑",
         "definition_en": "to use the mind to consider something",
-        "note": "",
+        "note": "思考这一活动可独立使用，也可接 about/of 引出对象；可用进行时。of 后也可表示想到或想出，须结合宾语和语境。",
         "identity_overlay": {
           "text": "think → thought → thought (irregular simple past and past participle); thought also exists independently as a noun lexeme",
           "repair": {
@@ -9646,10 +9952,10 @@
         "id": "sense:think:5f219d551ca75ebb",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "think (that) + clause; What do you think of/about + sb/sth?",
         "definition_cn": "认为；以为",
         "definition_en": "to have an opinion or belief about something",
-        "note": "",
+        "note": "表持有看法通常不用进行时；What do you think of/about ...? 是询问评价。I think / I do not think 的语气强弱取决于整个语境。",
         "identity_overlay": {
           "text": "think → thought → thought (irregular simple past and past participle); thought also exists independently as a noun lexeme",
           "repair": {
@@ -9693,7 +9999,7 @@
       {
         "id": "deep:constructions:think:8aded13f749a5459",
         "source_locator": "record.constructions[0]",
-        "pattern": "think that + clause",
+        "pattern": "think (that) + clause",
         "lines": [
           {
             "text": "认为、相信……",
@@ -9704,7 +10010,7 @@
             "lang": "cn"
           },
           {
-            "text": "think that + 从句表观点",
+            "text": "表达观点；that 通常可省略。",
             "lang": "cn"
           },
           {
@@ -9716,7 +10022,111 @@
           "target_kind": "construction",
           "target_id": "deep:constructions:think:8aded13f749a5459",
           "target_locator": "record.constructions[0]",
-          "target_label": "think that + clause"
+          "target_label": "think (that) + clause"
+        }
+      },
+      {
+        "id": "construction:cb51b199fbd100791f9d",
+        "sense_id": "sense:think:1a92a30e99f354f1",
+        "source_locator": "record.constructions[1]",
+        "pattern": "think about/of + sb/sth; think about/of + doing",
+        "lines": [
+          {
+            "text": "考虑某人/某事；考虑做某事",
+            "lang": "cn"
+          },
+          {
+            "text": "表示考虑行动时用 about/of doing；不能据此写成 think to do。",
+            "lang": "cn"
+          },
+          {
+            "text": "consider a person, matter or possible action",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:cb51b199fbd100791f9d",
+          "target_locator": "record.constructions[1]",
+          "target_label": "think about/of + sb/sth; think about/of + doing"
+        }
+      },
+      {
+        "id": "construction:6ca6a946e108cfd14098",
+        "sense_id": "sense:think:1a92a30e99f354f1",
+        "source_locator": "record.constructions[2]",
+        "pattern": "think of + sb/sth",
+        "lines": [
+          {
+            "text": "想到、想起；想出",
+            "lang": "cn"
+          },
+          {
+            "text": "can't think of a name 可指想不起来；think of a solution 可指想出。",
+            "lang": "cn"
+          },
+          {
+            "text": "bring a person or thing to mind, or form an idea",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6ca6a946e108cfd14098",
+          "target_locator": "record.constructions[2]",
+          "target_label": "think of + sb/sth"
+        }
+      },
+      {
+        "id": "construction:36338de4571ceffcd1c6",
+        "sense_id": "sense:think:1a92a30e99f354f1",
+        "source_locator": "record.constructions[3]",
+        "pattern": "think + sth + over / think over + sth",
+        "lines": [
+          {
+            "text": "仔细考虑，再作决定",
+            "lang": "cn"
+          },
+          {
+            "text": "宾语为 it 等代词时放在 think 与 over 之间：think it over。",
+            "lang": "cn"
+          },
+          {
+            "text": "consider an issue carefully before deciding",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:36338de4571ceffcd1c6",
+          "target_locator": "record.constructions[3]",
+          "target_label": "think + sth + over / think over + sth"
+        }
+      },
+      {
+        "id": "construction:3a3f167c141c1f8d127d",
+        "sense_id": "sense:think:1a92a30e99f354f1",
+        "source_locator": "record.constructions[4]",
+        "pattern": "think + sth + up / think up + sth",
+        "lines": [
+          {
+            "text": "想出、构思出（点子、办法、借口等）",
+            "lang": "cn"
+          },
+          {
+            "text": "较口语；宾语为 it 等代词时放在 think 与 up 之间。",
+            "lang": "cn"
+          },
+          {
+            "text": "invent an idea or plan",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3a3f167c141c1f8d127d",
+          "target_locator": "record.constructions[4]",
+          "target_label": "think + sth + up / think up + sth"
         }
       }
     ],
@@ -9728,7 +10138,7 @@
           "target_word": "suppose",
           "lines": [
             {
-              "text": "suppose 通常比 think 更试探、更依赖假设",
+              "text": "think 是常见的观点表达；suppose 可依现有信息推测，也常把意见或回应说得较试探、较含蓄。两者没有固定确信度等级；本 Relation 对比判断义，假设与义务构式仍由 suppose 自己的 Word 义项选择。",
               "lang": "cn"
             },
             {
@@ -9749,8 +10159,8 @@
           "target_word": "believe",
           "lines": [
             {
-              "text": "think can report an opinion or judgment with weaker commitment; believe more strongly presents something as accepted as true or held as belief.",
-              "lang": "en"
+              "text": "believe 更明确把内容当真，通常也更正式；think 常用于表达看法。believe 常略强，但两词没有固定确信度等级，须看语境、否定和限定语。",
+              "lang": "cn"
             }
           ],
           "differences": [],
@@ -10022,11 +10432,11 @@
     "ordinal": 4988,
     "word": "thirst",
     "source_owner_path": "content/lexical/words/by-ordinal/o4988.json",
-    "source_fingerprint": "ca382b0a39478c478651691d346619e54d58d103e2a3cb0d0d70cc940d5f19b9",
+    "source_fingerprint": "ae9cd7922c5ddfe03880362dfed36598991975b1f52558f7ce8dc56cb875ca5e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
@@ -10108,31 +10518,48 @@
         "id": "sense:thirst:a260dc199fe25af2",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "vi.",
         "definition_cn": "口渴",
         "definition_en": "feel the need to drink",
-        "note": "",
+        "note": "单独表示生理口渴的动词用法较旧；本义不以 for + 抽象对象说明。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:thirst:a260dc199fe25af2",
+          "target_locator": "record.senses[2]",
+          "target_label": "口渴"
+        }
+      },
+      {
+        "id": "sense:thirst:929229fb30f6da36",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "thirst for + sth",
+        "definition_cn": "（较文学）强烈渴望",
+        "definition_en": "long intensely for something",
+        "note": "for 后接 power、knowledge 等所渴求的事物；区别于身体需要喝水。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b22ed4c10161fb7f178b",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "thirst for + sth",
             "meaning_cn": "渴望某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:b22ed4c10161fb7f178b",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "thirst for + sth"
             }
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:thirst:a260dc199fe25af2",
-          "target_locator": "record.senses[2]",
-          "target_label": "口渴"
+          "target_id": "sense:thirst:929229fb30f6da36",
+          "target_locator": "record.senses[3]",
+          "target_label": "（较文学）强烈渴望"
         }
       }
     ],
@@ -10545,7 +10972,7 @@
     "ordinal": 4992,
     "word": "this",
     "source_owner_path": "content/lexical/words/by-ordinal/o4992.json",
-    "source_fingerprint": "8b48b43777682d989c5bf15e863b83459d5666d69ed693159ab5f5ee9a685c90",
+    "source_fingerprint": "0b7a8b201d8e76891806741b408ae7177babe918642035501167231ccde2d5a7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10556,13 +10983,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "指示代词，指代近处的事物",
-      "decision_cn": "",
+      "summary_cn": "指向当前或较近的人、物或情形；也表示“这么”大的程度",
+      "decision_cn": "独立指代用 this；名词前限定对象用 this + 名词；修饰程度（this much / this big）时是“这么”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "指示代词，指代近处的事物"
+        "target_label": "指向当前或较近的人、物或情形；也表示“这么”大的程度"
       }
     },
     "senses": [
@@ -10596,7 +11023,7 @@
         "id": "sense:this:9d47024b819c51ec",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "this + singular countable noun / uncountable noun",
         "definition_cn": "这；这个",
         "definition_en": "used before a noun to refer to something near in space or time",
         "note": "",

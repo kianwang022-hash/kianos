@@ -22,6 +22,14 @@
         "meaning_cn": "争取、召集支持",
         "pattern": "muster support",
         "source_sense_id": "sense:muster:fe002eb233a55b2e"
+      },
+      {
+        "construction_id": "construction:456065b1877765adf054",
+        "pattern": "pass muster",
+        "meaning_cn": "达到要求；过关；经检查合格",
+        "definition_en": "to be judged adequate for the intended purpose",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "cf4b19fcba5389dfd4245b60aade694649715148bd7318392f20654ee4ec49d1",
@@ -45,9 +53,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "召集；聚集；鼓起勇气/力量；争取支持；召集, 集合, 检阅, 清单, 花名册, 样品；召集, 集合, 应召",
-      "core_meaning_en": "to gather, summon, or bring together people, resources, courage, strength, or support; a gathering of military personnel for duty; call to duty, military service, jury duty, etc",
-      "mental_model_cn": "召集；聚集；鼓起勇气/力量；争取支持；召集, 集合, 检阅, 清单, 花名册, 样品；召集, 集合, 应召",
+      "core_meaning_cn": "把人或可用力量集合起来；名词可指集合、检阅。",
+      "core_meaning_en": "gathering people or resources for use; an assembly or roll of those assembled",
+      "mental_model_cn": "muster courage/support 是聚起勇气或支持；pass muster 是整体达到要求，不是召集人的动作。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -589,7 +597,56 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "definition_cn": "代表性样品；样本",
+      "definition_en": "a representative sample or specimen",
+      "sense_label_en": "a representative sample or specimen",
+      "pos": "noun",
+      "level": "L2",
+      "sort_order": 99,
+      "governing_pattern": "",
+      "collocations": [],
+      "confidence": "high",
+      "needs_human_review": 0,
+      "source_evidence": [
+        {
+          "source_type": "learner_dictionary",
+          "source_path": "https://www.merriam-webster.com/dictionary/muster",
+          "evidence_status": "supplemental_primary_source_read",
+          "reviewed_at": "2026-10-14"
+        }
+      ],
+      "stable_sense_id": "sense:muster:17d62cd90c6edd48",
+      "reference_only": true,
+      "status": "active",
+      "usage_note": "旧Core已有样品义；保留可检索的独立Reference，当前默认检索重点仍是集合/调集。"
+    },
+    {
+      "definition_cn": "清单；名册",
+      "definition_en": "an inventory or list of people or things assembled",
+      "sense_label_en": "an inventory or list of people or things assembled",
+      "pos": "noun",
+      "level": "L2",
+      "sort_order": 99,
+      "governing_pattern": "",
+      "collocations": [],
+      "confidence": "high",
+      "needs_human_review": 0,
+      "source_evidence": [
+        {
+          "source_type": "learner_dictionary",
+          "source_path": "https://www.merriam-webster.com/dictionary/muster",
+          "evidence_status": "supplemental_primary_source_read",
+          "reviewed_at": "2026-10-14"
+        }
+      ],
+      "stable_sense_id": "sense:muster:6fd3ec84058d5c53",
+      "reference_only": true,
+      "status": "active",
+      "usage_note": "旧Core已有清单/花名册义；完整保留在Reference，不删除或归并进集合ID。"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -612,6 +669,20 @@
         "merged_into_sense_id": null,
         "source_row": 18390,
         "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json"
+      },
+      {
+        "sense_id": "sense:muster:17d62cd90c6edd48",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json",
+        "source_row": 18438
+      },
+      {
+        "sense_id": "sense:muster:6fd3ec84058d5c53",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7169-7200.json",
+        "source_row": 18439
       }
     ],
     "active_collocations": [],

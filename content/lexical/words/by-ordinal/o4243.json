@@ -6,16 +6,33 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:salt:a899d3f426bae8ac",
+        "pattern": "take sth with a grain/pinch of salt",
+        "meaning_cn": "对某说法持保留态度；不全信",
+        "definition_en": "to treat a claim with skepticism rather than accept it completely",
+        "boundary": "grain尤见北美，也用pinch；这里的对象是说法或信息，区别于a pinch of salt的一撮食盐。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/salt_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      }
+    ],
     "content_hash": "70e3c9b496c6ea736b53a43f4b7b7226583eab8975186107e6ddc1a9e802039d",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "盐",
-          "label_en": "a white crystalline substance (sodium chloride) used to season and preserve food",
+          "label_cn": "盐；（化学）盐；盐类",
+          "label_en": "a white crystalline substance (sodium chloride) used to season and preserve food; a compound formed when acidic hydrogen is partly or wholly replaced by a metal or a similar positive ion",
           "pos": "noun",
           "sense_ids": [
-            "sense:salt:66a434267e9f5a72"
+            "sense:salt:66a434267e9f5a72",
+            "sense:salt:68323700b0317306"
           ]
         },
         {
@@ -37,7 +54,7 @@
       ],
       "core_meaning_cn": "用于调味的白色晶体物质",
       "core_meaning_en": "a white crystalline substance used to season food",
-      "mental_model_cn": "用于调味的白色晶体物质",
+      "mental_model_cn": "餐饮语境通常是食盐；化学或矿物语境的a salt/salts可指盐类；take说法with a grain/pinch of salt则表示保留怀疑。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -128,6 +145,40 @@
         "sense_label_en": "containing salt; salty",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:salt:68323700b0317306",
+        "definition_cn": "（化学）盐；盐类",
+        "definition_en": "a compound formed when acidic hydrogen is partly or wholly replaced by a metal or a similar positive ion",
+        "sense_label_en": "a compound formed when acidic hydrogen is partly or wholly replaced by a metal or a similar positive ion",
+        "pos": "noun",
+        "governing_pattern": "[C] a salt; salts",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 3,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:salt:a01406023a1f14fa",
+            "exam_value": "usage_example",
+            "meaning_cn": "矿物盐；无机盐",
+            "phrase": "mineral salts",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/salt_1",
+                "role": "bounded P1 semantic verification; independently authored learner wording"
+              }
+            ]
+          }
+        ],
+        "usage_note": "化学、营养或矿物语境的salts可指多种盐类，不限定为食盐氯化钠。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/salt",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -411,13 +462,20 @@
         "merged_into_sense_id": null,
         "source_row": 11903,
         "source_path": "content/lexical/canonical/senses/shards/o4225-4256.json"
+      },
+      {
+        "sense_id": "sense:salt:68323700b0317306",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4243.json"
       }
     ],
     "active_collocations": [
       "collocation:3e4ecd078f80156d4778",
       "collocation:9547c44dc090ab1241fb",
       "collocation:c57a5f0822a329604dfb",
-      "collocation:ffc5a0c380a6a26faa57"
+      "collocation:ffc5a0c380a6a26faa57",
+      "collocation:salt:a01406023a1f14fa"
     ],
     "facts": [],
     "collocations": [
@@ -440,6 +498,12 @@
         "id": "collocation:ffc5a0c380a6a26faa57",
         "source_row": 21609,
         "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
+      },
+      {
+        "id": "collocation:salt:a01406023a1f14fa",
+        "sense_id": "sense:salt:68323700b0317306",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4243.json"
       }
     ],
     "exam-mappings": [],
@@ -463,6 +527,13 @@
         "id": "membership:4aaee90c677676bdf612",
         "source_row": 17432,
         "source_path": "content/lexical/canonical/packs/shards/o4225-4256.json"
+      }
+    ],
+    "constructions": [
+      {
+        "id": "construction:salt:a899d3f426bae8ac",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4243.json"
       }
     ]
   },

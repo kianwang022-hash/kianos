@@ -46,10 +46,30 @@
           ]
         }
       ],
-      "core_meaning_cn": "松弛或懈怠",
-      "core_meaning_en": "not tight or not busy; to loosen or neglect",
-      "mental_model_cn": "松弛或懈怠",
-      "mental_model_en": ""
+      "core_meaning_cn": "松而未绷紧；活动不足、做事松懈，或尚有余量",
+      "core_meaning_en": "loose, inactive or careless; also spare capacity",
+      "mental_model_cn": "绳子看松紧，生意看忙闲，工作态度看是否认真；预算或系统中的 slack 是余量。煤屑是独立名词义，不从这个比喻推导。",
+      "mental_model_en": "",
+      "source_evidence": [
+        {
+          "evidence_id": "source:4500:slack_1",
+          "source_type": "primary_public_source",
+          "url": "https://www.oxfordlearnersdictionaries.com/definition/english/slack_1",
+          "accessed_at_utc": "2026-10-13T00:27:49Z",
+          "raw_local_path": "public-source-raw/web-01.json",
+          "raw_sha256": "3ac9eb800668b7c3eecb484442206b3ba94faf05c296bd3258c16f8aba5ee3eb",
+          "supports": "Carelessness is distinct from low demand and literal looseness."
+        },
+        {
+          "evidence_id": "source:4500:slack_2",
+          "source_type": "primary_public_source",
+          "url": "https://www.oxfordlearnersdictionaries.com/definition/english/slack_2",
+          "accessed_at_utc": "2026-10-13T00:28:19Z",
+          "raw_local_path": "public-source-raw/web-02.json",
+          "raw_sha256": "12dad6964587143373b2ce87c6ee7f0950497c747d5c747f221f1ab52dc5fdd7",
+          "supports": "Loose rope and unused capacity are distinct; cut somebody some slack means show leniency."
+        }
+      ]
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -160,7 +180,7 @@
         "confidence": "medium",
         "definition_cn": "松懈；懈怠",
         "definition_en": "to become less active or diligent",
-        "governing_pattern": "vi. + off",
+        "governing_pattern": "slack / slack off",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -192,6 +212,57 @@
         "sense_label_en": "to make looser or less tight",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:slack:9de37f8d5de28183",
+        "definition_cn": "疏忽的；松懈的",
+        "definition_en": "not showing enough care, effort or attention",
+        "sense_label_en": "not showing enough care, effort or attention",
+        "pos": "adjective",
+        "transitivity": "nonverb",
+        "governing_pattern": "be slack in one’s work; slack discipline",
+        "level": "L2",
+        "sort_order": 1006,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [],
+        "usage_note": "带批评意味；不同于生意清淡或绳子松弛。",
+        "source_evidence": [
+          {
+            "evidence_id": "source:4500:slack_1",
+            "source_type": "primary_public_source",
+            "url": "https://www.oxfordlearnersdictionaries.com/definition/english/slack_1",
+            "accessed_at_utc": "2026-10-13T00:27:49Z",
+            "raw_local_path": "public-source-raw/web-01.json",
+            "raw_sha256": "3ac9eb800668b7c3eecb484442206b3ba94faf05c296bd3258c16f8aba5ee3eb",
+            "supports": "Carelessness is distinct from low demand and literal looseness."
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:slack:654e9213baddba4e",
+        "definition_cn": "余量；尚未充分利用的资源",
+        "definition_en": "available capacity or resources that are not fully used",
+        "sense_label_en": "available capacity or resources that are not fully used",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "governing_pattern": "slack in a budget/system",
+        "level": "L2",
+        "sort_order": 1007,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [],
+        "source_evidence": [
+          {
+            "evidence_id": "source:4500:slack_2",
+            "source_type": "primary_public_source",
+            "url": "https://www.oxfordlearnersdictionaries.com/definition/english/slack_2",
+            "accessed_at_utc": "2026-10-13T00:28:19Z",
+            "raw_local_path": "public-source-raw/web-02.json",
+            "raw_sha256": "12dad6964587143373b2ce87c6ee7f0950497c747d5c747f221f1ab52dc5fdd7",
+            "supports": "Loose rope and unused capacity are distinct; cut somebody some slack means show leniency."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -896,6 +967,18 @@
         "merged_into_sense_id": null,
         "source_row": 12665,
         "source_path": "content/lexical/canonical/senses/shards/o4481-4512.json"
+      },
+      {
+        "sense_id": "sense:slack:9de37f8d5de28183",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4484.json"
+      },
+      {
+        "sense_id": "sense:slack:654e9213baddba4e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4484.json"
       }
     ],
     "active_collocations": [

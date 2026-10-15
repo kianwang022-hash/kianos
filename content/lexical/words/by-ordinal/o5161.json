@@ -28,14 +28,47 @@
         "level": "L1",
         "meaning_cn": "向某人/某事寻求帮助、把注意力转向",
         "pattern": "turn to sb/sth"
+      },
+      {
+        "construction_id": "construction:3409c2a3d38157ab1f58",
+        "pattern": "turn sth on/off; turn sth up/down; turn it on/off/up/down",
+        "meaning_cn": "开启/关闭设备；调大/调小音量、热度等",
+        "definition_en": "to switch equipment on or off, or adjust its output",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:turn:88f1052fb8825627"
+      },
+      {
+        "construction_id": "construction:3486b0905b89b432e7b7",
+        "pattern": "turn sb/sth down; turn them/it down",
+        "meaning_cn": "拒绝某人、提议或请求",
+        "definition_en": "to reject a person, offer, or request",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:25c92e3906b22d1c1c98",
+        "pattern": "turn up (at/in ...)",
+        "meaning_cn": "出现；到达；（失物、机会）意外出现",
+        "definition_en": "to arrive, appear, be found, or become available",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:d8769a502e4f1079de1d",
+        "pattern": "in turn（前一变化 → 后一结果）",
+        "meaning_cn": "进而；因此；又反过来",
+        "definition_en": "as a consequence of a preceding event or change",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "50ad0179313f2f5c628787bce167a86c18c4d0ea4f1caa9e21481988a0e49b30",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "转动；旋转；转向；转弯；变成",
-          "label_en": "to move something around a central point; to change direction; to become something different",
+          "label_cn": "转动；使旋转；转向；转弯；变成",
+          "label_en": "to rotate around a point or axis, or cause something to do so; to change direction; to become something different",
           "pos": "verb",
           "sense_ids": [
             "sense:turn:88f1052fb8825627",
@@ -55,7 +88,7 @@
       ],
       "core_meaning_cn": "转动；转变",
       "core_meaning_en": "to rotate or change direction",
-      "mental_model_cn": "转动；转变",
+      "mental_model_cn": "turn a handle/wheels turn 看旋转；turn left 看转向，turn pale/into... 看变化；turn it down遇音量是调低，遇邀请是拒绝；in turn可指轮流，也可连接因果。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -130,16 +163,16 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "转动；旋转",
-        "definition_en": "to move something around a central point",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "转动；使旋转",
+        "definition_en": "to rotate around a point or axis, or cause something to do so",
+        "governing_pattern": "I/T: turn sth; wheels/the Earth turn",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:turn:88f1052fb8825627",
-        "sense_label_en": "to move something around a central point",
+        "sense_label_en": "to rotate around a point or axis, or cause something to do so",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [],
@@ -188,7 +221,7 @@
         "confidence": "medium",
         "definition_cn": "变成",
         "definition_en": "to become something different",
-        "governing_pattern": "vi. + into",
+        "governing_pattern": "turn + adjective; turn (sb/sth) into sb/sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
@@ -262,6 +295,27 @@
         "sense_label_en": "a change or development",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:turn:c74696671f0c7470",
+        "definition_cn": "转动；转身；转弯",
+        "definition_en": "an act of rotating or changing direction",
+        "sense_label_en": "an act of rotating or changing direction",
+        "pos": "noun",
+        "governing_pattern": "a turn; make a left/right turn",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:65a16840a656346f71f0",
+            "phrase": "make a right turn",
+            "meaning_cn": "右转",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -495,6 +549,13 @@
         "merged_into_sense_id": null,
         "source_row": 14718,
         "source_path": "content/lexical/canonical/senses/shards/o5153-5184.json"
+      },
+      {
+        "sense_id": "sense:turn:c74696671f0c7470",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14785,
+        "source_path": "content/lexical/canonical/senses/shards/o5153-5184.json"
       }
     ],
     "active_collocations": [
@@ -506,7 +567,8 @@
       "collocation:93bd6f8326b9b2ab9637",
       "collocation:c1bb882ead414be2b7e8",
       "collocation:cbc30d6bfdca4fcab02f",
-      "collocation:d958ccaddf03713f2f8e"
+      "collocation:d958ccaddf03713f2f8e",
+      "collocation:65a16840a656346f71f0"
     ],
     "facts": [
       {
@@ -564,6 +626,11 @@
       {
         "id": "collocation:d958ccaddf03713f2f8e",
         "source_row": 18384,
+        "source_path": "content/lexical/canonical/collocations/shards/o5153-5184.json"
+      },
+      {
+        "id": "collocation:65a16840a656346f71f0",
+        "source_row": 21327,
         "source_path": "content/lexical/canonical/collocations/shards/o5153-5184.json"
       }
     ],

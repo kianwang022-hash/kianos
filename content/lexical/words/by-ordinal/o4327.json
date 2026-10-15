@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "抓住或夺取",
       "core_meaning_en": "take hold of or take by force",
-      "mental_model_cn": "抓住或夺取",
+      "mental_model_cn": "接人或物看猛抓/夺取，接机会看及时把握；情绪作主语或be seized with/by看突然侵袭；机器或关节作主语而无宾语时，seize (up)指卡住、僵住。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -144,16 +144,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "突然抓住；利用",
-        "definition_en": "to take hold suddenly or eagerly",
-        "governing_pattern": "vi. + on/upon",
+        "definition_cn": "立刻抓住并利用（想法、话语或机会等）",
+        "definition_en": "to eagerly take up an idea, remark or opportunity, especially for a particular advantage",
+        "governing_pattern": "seize on/upon sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:seize:a0aab0a90fd35073",
-        "sense_label_en": "to take hold suddenly or eagerly",
+        "sense_label_en": "to eagerly take up something for use or advantage",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "on/upon后的内容是突然注意并加以利用的对象；可用于论点、评论或机会。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/seize-on",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -170,14 +177,54 @@
         "confidence": "medium",
         "definition_cn": "侵袭；突然发作",
         "definition_en": "affect suddenly (as of a disease)",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "an emotion/illness seizes sb; be seized by/with sth",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:seize:6a7c9178ab6e5b9a",
         "sense_label_en": "affect suddenly (as of a disease)",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/seize",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:seize:f12b27a125764dac",
+        "definition_cn": "（机器）卡住停转；（身体部位）僵住",
+        "definition_en": "of a machine or body part, to become stuck and unable to move normally",
+        "sense_label_en": "of a machine or body part, to become stuck and unable to move normally",
+        "pos": "verb",
+        "governing_pattern": "seize (up)",
+        "transitivity": "vi",
+        "level": "L2",
+        "sort_order": 5,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:seize:9950e351f62b8294",
+            "exam_value": "usage_example",
+            "meaning_cn": "发动机卡住停转了。",
+            "phrase": "The engine seized up.",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/seize",
+                "role": "bounded P1 semantic verification; independently authored learner wording"
+              }
+            ]
+          }
+        ],
+        "usage_note": "机器部件卡住或身体僵住时用seize up；不带up的这一用法主要见于北美英语。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/seize",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -319,6 +366,12 @@
         "merged_into_sense_id": null,
         "source_row": 12163,
         "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
+      },
+      {
+        "sense_id": "sense:seize:f12b27a125764dac",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4327.json"
       }
     ],
     "active_collocations": [
@@ -330,7 +383,8 @@
       "collocation:b13364d752165c9875be",
       "collocation:c8f06effdd9367698041",
       "collocation:cddc4cb116b3f93cf130",
-      "collocation:e6dccdf8a16d8d8157ad"
+      "collocation:e6dccdf8a16d8d8157ad",
+      "collocation:seize:9950e351f62b8294"
     ],
     "facts": [],
     "collocations": [
@@ -378,6 +432,12 @@
         "id": "collocation:7409f81ae2da03331fdd",
         "source_row": 21517,
         "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
+      },
+      {
+        "id": "collocation:seize:9950e351f62b8294",
+        "sense_id": "sense:seize:f12b27a125764dac",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4327.json"
       }
     ],
     "exam-mappings": [],

@@ -6,7 +6,26 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:spin:ac99286341a5b11f",
+        "pattern": "spin + fibre into + thread / spin + thread from + fibre",
+        "meaning_cn": "把纤维纺成线；用某种纤维纺线",
+        "definition_en": "make thread by twisting the named material",
+        "boundary": "into后是产物，from后是原料；宾语可取原料或产物。",
+        "level": "L2",
+        "direction": "R+D+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spin_1",
+            "accessed_at_utc": "2026-10-13T13:59:00Z",
+            "source_section": "Oxford verb senses 3–4 and 7",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "sense_id": "sense:spin:b529d0efa05859cb"
+      }
+    ],
     "content_hash": "c096cf44d73daa53d4cfed731607db03f69165c451c569e1cc87f91fb2a51992",
     "core_concept": {
       "core_clusters": [
@@ -31,10 +50,24 @@
           ]
         }
       ],
-      "core_meaning_cn": "使旋转；纺（线）；旋转；编造（故事等）；短途驾车；（政治）倾向性解释",
-      "core_meaning_en": "to make something turn around quickly; to make thread by twisting fibers; a rapid rotating motion; to invent a story or excuse; a short drive in a car; a particular way of presenting information to influence opinion",
-      "mental_model_cn": "使旋转；纺（线）；旋转；编造（故事等）；短途驾车；（政治）倾向性解释",
-      "mental_model_en": ""
+      "core_meaning_cn": "快速转动与纺线；叙述中可指编故事或有倾向地解释",
+      "core_meaning_en": "rapid rotation, making thread, or shaping a story or account",
+      "mental_model_cn": "轮子和球指转动；纤维指纺线；蜘蛛配web/cocoon指吐丝构造。tale多指编故事，新闻或结果的spin侧重叙述角度；go for a spin是短途兜风。",
+      "mental_model_en": "",
+      "source_evidence": [
+        {
+          "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spin_1",
+          "accessed_at_utc": "2026-10-13T13:59:00Z",
+          "source_section": "Oxford verb senses 3–4 and 7",
+          "role": "semantic support; independently authored bounded correction"
+        },
+        {
+          "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spin_2",
+          "accessed_at_utc": "2026-10-13T14:02:00Z",
+          "source_section": "Oxford noun sense 5",
+          "role": "semantic support; independently authored bounded correction"
+        }
+      ]
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -92,14 +125,22 @@
         "confidence": "medium",
         "definition_cn": "纺（线）",
         "definition_en": "to make thread by twisting fibers",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: spin; spin + fibre/thread",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:spin:b529d0efa05859cb",
         "sense_label_en": "to make thread by twisting fibers",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spin_1",
+            "accessed_at_utc": "2026-10-13T13:59:00Z",
+            "source_section": "Oxford verb senses 3–4 and 7",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -186,7 +227,7 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（政治）倾向性解释",
+        "definition_cn": "（常指政治、公关等）倾向性解释、呈现方式",
         "definition_en": "a particular way of presenting information to influence opinion",
         "governing_pattern": "",
         "level": "L2",
@@ -195,7 +236,60 @@
         "sense_id": "sense:spin:2c4fb8400cb85a11",
         "sense_label_en": "a particular way of presenting information to influence opinion",
         "sort_order": 5,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "重点是选择一种叙述角度，可带有美化目的；不限于政治，也不必全部捏造。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spin_2",
+            "accessed_at_utc": "2026-10-13T14:02:00Z",
+            "source_section": "Oxford noun sense 5",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:spin:9b81652cdcf0c89b",
+        "pos": "verb",
+        "definition_cn": "（蜘蛛、蚕等）吐丝结网或作茧",
+        "definition_en": "to produce silk threads to form a web or cocoon",
+        "sense_label_en": "to produce silk threads to form a web or cocoon",
+        "governing_pattern": "spin + web/cocoon/silk",
+        "usage_note": "主语是蜘蛛或蚕、宾语是web/cocoon时，指生物吐丝构造；不是把已有纤维捻成线。",
+        "level": "L2",
+        "direction": "R+D",
+        "transitivity": "vt",
+        "collocations": [],
+        "sort_order": 6,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spin_1",
+            "accessed_at_utc": "2026-10-13T13:59:00Z",
+            "source_section": "Oxford verb senses 3–4 and 7",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:spin:a0d06622283ca9cf",
+        "pos": "verb",
+        "definition_cn": "有倾向地包装、解释（消息或局势）",
+        "definition_en": "to frame information or a situation in a way that favours a particular view",
+        "sense_label_en": "to frame information or a situation in a way that favours a particular view",
+        "governing_pattern": "spin + information/event + (as + interpretation)",
+        "usage_note": "宾语为消息、事件或结果时，强调选择有利的叙述角度；未必把事情完全编造出来。",
+        "level": "L2",
+        "direction": "R+D",
+        "transitivity": "vt",
+        "collocations": [],
+        "sort_order": 7,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spin_1",
+            "accessed_at_utc": "2026-10-13T13:59:00Z",
+            "source_section": "Oxford verb senses 3–4 and 7",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -818,6 +912,18 @@
         "merged_into_sense_id": null,
         "source_row": 13064,
         "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json"
+      },
+      {
+        "sense_id": "sense:spin:9b81652cdcf0c89b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4617.json"
+      },
+      {
+        "sense_id": "sense:spin:a0d06622283ca9cf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4617.json"
       }
     ],
     "active_collocations": [
@@ -829,7 +935,13 @@
       "collocation:e4d351d089193b4e01a5",
       "collocation:fa04ff514698bf06aa39"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:spin:ac99286341a5b11f",
+        "source_path": "content/lexical/words/by-ordinal/o4617.json",
+        "object_type": "construction"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:02130252afeef2550ebb",

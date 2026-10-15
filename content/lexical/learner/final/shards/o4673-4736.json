@@ -190,22 +190,22 @@
     "ordinal": 4674,
     "word": "starve",
     "source_owner_path": "content/lexical/words/by-ordinal/o4674.json",
-    "source_fingerprint": "8db4b0d558bb770a987c7cd71f8c4800d26b19dc9c6578ed972ff7f4a65eecc7",
+    "source_fingerprint": "b2fe2a8aa4f6d264946608719720a56f45b0c695265c002c92d7f4449b0ecd10",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V"
+        "4V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "挨饿；饿死；非常饥饿；使挨饿；使饿死",
-      "decision_cn": "",
+      "summary_cn": "因食物或必要资源匮乏而受苦；也可口语夸张地说饿极了",
+      "decision_cn": "先看缺的是什么：food 是挨饿；attention/funds 是资源匮乏；I’m starving 在日常谈吃饭时通常只是饿极了。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "挨饿；饿死；非常饥饿；使挨饿；使饿死"
+        "target_label": "因食物或必要资源匮乏而受苦；也可口语夸张地说饿极了"
       }
     },
     "senses": [
@@ -213,7 +213,7 @@
         "id": "sense:starve:58636bd6b6675d40",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi.: starve; starve to death; figurative starve for sth",
+        "governing_pattern": "vi.: starve; starve to death",
         "definition_cn": "挨饿；饿死",
         "definition_en": "to suffer or die because you do not have enough food",
         "note": "",
@@ -231,19 +231,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "starve to death"
             }
-          },
-          {
-            "id": "collocation:077218b8d92651331091",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "starve for + sth",
-            "meaning_cn": "渴望某物；缺乏某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:077218b8d92651331091",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "starve for + sth"
-            }
           }
         ],
         "repair": {
@@ -257,28 +244,15 @@
         "id": "sense:starve:265dec8cac215bba",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "be starving",
         "definition_cn": "非常饥饿",
         "definition_en": "to be very hungry",
-        "note": "",
+        "note": "口语夸张，表示很饿，不必真的处于饥荒或濒死。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:674f4a54f890be02ccc4",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "starve for + sth",
-            "meaning_cn": "渴望某物；急需某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:674f4a54f890be02ccc4",
-              "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "starve for + sth"
-            }
-          },
-          {
             "id": "collocation:b762429538ff971defe7",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "I'm starving",
             "meaning_cn": "我饿极了",
             "kind": "usage_example",
@@ -321,6 +295,50 @@
           "target_id": "sense:starve:9e3e807fc9c95d19",
           "target_locator": "record.senses[2]",
           "target_label": "使挨饿；使饿死"
+        }
+      },
+      {
+        "id": "sense:starve:8f46bed14a236701",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "starve for sth; starve sb/sth of sth; be starved of/for sth",
+        "definition_cn": "（使）极度缺乏所需之物；渴求",
+        "definition_en": "to suffer, or cause someone or something to suffer, from a severe lack of something needed",
+        "note": "attention/funds等非食物宾语指所需资源不足；for表缺乏或渴求，of引出被剥夺的资源。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:077218b8d92651331091",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "starve for + sth",
+            "meaning_cn": "渴望某物；缺乏某物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:077218b8d92651331091",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "starve for + sth"
+            }
+          },
+          {
+            "id": "collocation:674f4a54f890be02ccc4",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "starve for + sth",
+            "meaning_cn": "渴望某物；急需某物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:674f4a54f890be02ccc4",
+              "target_locator": "record.senses[3].collocations[1]",
+              "target_label": "starve for + sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:starve:8f46bed14a236701",
+          "target_locator": "record.senses[3]",
+          "target_label": "（使）极度缺乏所需之物；渴求"
         }
       }
     ],
@@ -371,11 +389,11 @@
     "ordinal": 4675,
     "word": "state",
     "source_owner_path": "content/lexical/words/by-ordinal/o4675.json",
-    "source_fingerprint": "21c96557603af6bb9508bda6681d7c8fd8926d42a4df2e23b008dd3d64149692",
+    "source_fingerprint": "f8202b645768e489de54e807ae030b6f46a8e905d69847547a9af58ec0c9026e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(1+1)V",
+        "1V",
         "1A",
         "2N"
       ],
@@ -383,7 +401,7 @@
     },
     "word_feel": {
       "summary_cn": "状态或政治实体",
-      "decision_cn": "",
+      "decision_cn": "名词随语境指状态或政治实体；动词接内容宾语或that从句，表示明确陈述。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -556,22 +574,7 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:state:27590ea8175acf68",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "陈述；说明",
-        "definition_en": "express something definitely or clearly",
-        "pattern": "state that + clause / state one's opinion",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:state:27590ea8175acf68",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "陈述；说明"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -586,11 +589,11 @@
     "ordinal": 4676,
     "word": "statement",
     "source_owner_path": "content/lexical/words/by-ordinal/o4676.json",
-    "source_fingerprint": "8c2799fbdd979154d262c1731503f3350a645cc1ed3d569a8af868f87e4006c7",
+    "source_fingerprint": "8228accffd047d6b0c71a03a292bdb0b8a28b7b562e19f0d0cdcecc79f5d6568",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
@@ -672,7 +675,7 @@
         "governing_pattern": "",
         "definition_cn": "（音乐）主题的呈示",
         "definition_en": "(music) the presentation of a musical theme",
-        "note": "",
+        "note": "音乐分析用语，指主题或动机在作品中的一次呈示；不是对外发表声明。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -706,6 +709,23 @@
           "target_id": "sense:statement:a84deeb0815352b2",
           "target_locator": "record.senses[3]",
           "target_label": "非言语的表达；姿态"
+        }
+      },
+      {
+        "id": "sense:statement:35fa91d3fca7b804",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（编程）语句",
+        "definition_en": "an instruction or basic executable unit in a programming language",
+        "note": "在program/code/SQL等语境中，不是人的声明或银行账单。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:statement:35fa91d3fca7b804",
+          "target_locator": "record.senses[4]",
+          "target_label": "（编程）语句"
         }
       }
     ],
@@ -839,7 +859,7 @@
     "ordinal": 4678,
     "word": "static",
     "source_owner_path": "content/lexical/words/by-ordinal/o4678.json",
-    "source_fingerprint": "36eef68bbf3d94efc42c18a1f1e4dd1cf1b0053862534cc03a861e7db8e9fd51",
+    "source_fingerprint": "f1ebc7f583fb0cfd2ecc3a8b3ed311e1e855bc82768bbca45047ab3268e14a0b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -918,7 +938,7 @@
         "governing_pattern": "",
         "definition_cn": "指责，批评",
         "definition_en": "angry criticism",
-        "note": "",
+        "note": "非正式用法，指顶嘴、反对或愤怒的批评；正式论述一般不把 static 当作中性的“批评”。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1234,11 +1254,11 @@
     "ordinal": 4680,
     "word": "stationary",
     "source_owner_path": "content/lexical/words/by-ordinal/o4680.json",
-    "source_fingerprint": "a15077d6c5824bafd34e828a50cc3850e535f63defa7a6581841e2f940dd5eb7",
+    "source_fingerprint": "173dd36378870d52acdf3a785d3363846efc71f0aec43c2d4efb10afb773159e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -1285,7 +1305,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "固定的",
-        "definition_en": "not capable of being moved",
+        "definition_en": "fixed in one position rather than designed to move from place to place",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1303,6 +1323,23 @@
           "target_id": "sense:stationary:d32fa58b2a1b5161",
           "target_locator": "record.senses[1]",
           "target_label": "固定的"
+        }
+      },
+      {
+        "id": "sense:stationary:572b6838dce1dabe",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "保持不变的；无增减的",
+        "definition_en": "not changing in condition or amount",
+        "note": "population/price/level等对象指数量或状态未变，并非物体不移动。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stationary:572b6838dce1dabe",
+          "target_locator": "record.senses[2]",
+          "target_label": "保持不变的；无增减的"
         }
       }
     ],
@@ -1508,7 +1545,7 @@
     "ordinal": 4682,
     "word": "statistics",
     "source_owner_path": "content/lexical/words/by-ordinal/o4682.json",
-    "source_fingerprint": "2780a7234841a4a08e23de76b5da1f9341c0782d05bd83e1ee262772b669906c",
+    "source_fingerprint": "d129c121f32258737b7bdd81a01a9d7b8c3eaf231af93406434bfadbcf72efdd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1517,13 +1554,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "统计学",
+      "summary_cn": "把数据作统计分析的学科；也指统计所得的数据",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "统计学"
+        "target_label": "把数据作统计分析的学科；也指统计所得的数据"
       }
     },
     "senses": [
@@ -1535,15 +1572,7 @@
         "definition_cn": "统计学",
         "definition_en": "the science of collecting and analyzing numerical data",
         "note": "",
-        "identity_overlay": {
-          "text": "statistics as the academic field is normally treated as singular: Statistics is ...",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "statistics as the academic field is normally treated as singular: Statistics is ..."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:6d12cbd512ff79ebac92",
@@ -1569,15 +1598,7 @@
         "definition_cn": "统计资料，统计数据",
         "definition_en": "a collection of numerical data",
         "note": "",
-        "identity_overlay": {
-          "text": "statistics meaning numerical data is plural: The statistics are ...",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "statistics meaning numerical data is plural: The statistics are ..."
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:4b8be14eb622cd6c75f3",
@@ -1686,7 +1707,7 @@
     "ordinal": 4683,
     "word": "statue",
     "source_owner_path": "content/lexical/words/by-ordinal/o4683.json",
-    "source_fingerprint": "ab5efdb79c6822a34544aac60553b197cce79613ed753a6bf4ba7dc7b4b60f8d",
+    "source_fingerprint": "615d1d01eaa058cbe3be695801b5de5052ec02bd6774cbfedebcd676dcf74dfc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1739,7 +1760,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "以雕像装饰",
         "definition_en": "to decorate with statues",
-        "note": "",
+        "note": "低频动词，指用雕像装饰场所；普通现代语境通常使用名词statue表示雕像。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -1955,7 +1976,7 @@
     "ordinal": 4685,
     "word": "statute",
     "source_owner_path": "content/lexical/words/by-ordinal/o4685.json",
-    "source_fingerprint": "7b5ec48beacfef1e61f50d493aac00def5ba1dcd4565083e340b88c9da4b9f87",
+    "source_fingerprint": "b3ca9c509c0411c8711288fdf7bc42898fda562fb51400bb164f0d7bff066d43",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2108,7 +2129,25 @@
     "secondary_senses": [],
     "constructions": [],
     "reference": {
-      "confusables": [],
+      "confusables": [
+        {
+          "title": "statute ↔ statue",
+          "target_word": "statue",
+          "lines": [
+            {
+              "text": "statue = 雕像; statute = 成文法/法规. Similar spelling but unrelated meanings.",
+              "lang": "cn"
+            }
+          ],
+          "differences": [],
+          "repair": {
+            "target_kind": "relation",
+            "target_id": "confusable:a626881cc04248895d85",
+            "target_locator": "record.confusables[0]",
+            "target_label": "statute ↔ statue"
+          }
+        }
+      ],
       "relations": [],
       "form": null,
       "family": []
@@ -2120,18 +2159,18 @@
     "ordinal": 4686,
     "word": "stay",
     "source_owner_path": "content/lexical/words/by-ordinal/o4686.json",
-    "source_fingerprint": "c32990c388117913f3ccb1f46c78836cc8bc28651e23946d2a953e4a248f5ccf",
+    "source_fingerprint": "6d1b396b2765b02e1403ca7e30fdf9c7f2b740a3bf94a2d55754a2ec97113be6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "停留；保持",
-      "decision_cn": "",
+      "decision_cn": "地点后是停留，状态词后是保持；法律语境中 stay + 执行/程序 或 a stay of ... 表示让行动暂时停下。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2267,7 +2306,7 @@
         "governing_pattern": "",
         "definition_cn": "支柱；支索",
         "definition_en": "a support or brace, especially on a ship",
-        "note": "",
+        "note": "支撑物/支索义：在船舶、支撑结构等语境中识别。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -2275,6 +2314,37 @@
           "target_id": "sense:stay:4e425fd3bbc85056",
           "target_locator": "record.senses[4]",
           "target_label": "支柱；支索"
+        }
+      },
+      {
+        "id": "sense:stay:df7485813c189aea",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "a stay of execution/proceedings",
+        "definition_cn": "（法律）暂缓执行；中止令",
+        "definition_en": "a temporary suspension of a legal action or decision",
+        "note": "grant/lift a stay 指准予/解除暂缓执行，不是一次逗留。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a175328fa38eabdc88c6",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "a stay of execution",
+            "meaning_cn": "暂缓执行令",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:a175328fa38eabdc88c6",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "a stay of execution"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stay:df7485813c189aea",
+          "target_locator": "record.senses[5]",
+          "target_label": "（法律）暂缓执行；中止令"
         }
       }
     ],
@@ -2323,7 +2393,7 @@
     "ordinal": 4687,
     "word": "steady",
     "source_owner_path": "content/lexical/words/by-ordinal/o4687.json",
-    "source_fingerprint": "25cf5010c73f028583e0d07d5626f3b6f787848878df0a00339bf71d00ba547a",
+    "source_fingerprint": "dc8ff15f3680ef24b241dc07b9d5d82a3d4ecc7e83558207a7fa0c9cab36bc4f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2348,9 +2418,9 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "稳定的；稳固的",
-        "definition_en": "not changing; firmly fixed; not shaking",
-        "note": "",
+        "definition_cn": "稳定的；稳固的；平稳持续的",
+        "definition_en": "firm and not shaking, or continuing or changing at a regular rate",
+        "note": "steady progress/decline 表示变化平稳持续，并非没有变化；a steady hand 表示手稳、不抖。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2374,7 +2444,7 @@
           "target_kind": "sense",
           "target_id": "sense:steady:f7fc5a9e304e5957",
           "target_locator": "record.senses[0]",
-          "target_label": "稳定的；稳固的"
+          "target_label": "稳定的；稳固的；平稳持续的"
         }
       },
       {
@@ -2595,7 +2665,7 @@
     "ordinal": 4689,
     "word": "steal",
     "source_owner_path": "content/lexical/words/by-ordinal/o4689.json",
-    "source_fingerprint": "5f62ee97bc1b8e8350d8260fb0c9c034bbfe2bc5cafeb2b3e027f62e24e397b9",
+    "source_fingerprint": "4aea2b36d74ca3ba32127f67b72fc97a75561fe732459f060071aa08ea644a74",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2606,7 +2676,7 @@
     },
     "word_feel": {
       "summary_cn": "未经许可拿走或秘密移动",
-      "decision_cn": "",
+      "decision_cn": "接被拿走的东西或创意时是偷取；接 into/out of/away 表悄悄移动；价格语境中的 a steal 是便宜得出奇的好交易。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2857,7 +2927,7 @@
     "ordinal": 4690,
     "word": "steam",
     "source_owner_path": "content/lexical/words/by-ordinal/o4690.json",
-    "source_fingerprint": "935439a3280e01241a4d101ac6b4ac6bb8fa982b0230fc03402134b73b8ac591",
+    "source_fingerprint": "b4f96d1a22c8a7162c77dde572d1279a70fed031c92acd0578b7ec10ec13510b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2908,7 +2978,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vi.",
-        "definition_cn": "冒蒸汽；蒸发",
+        "definition_cn": "冒蒸汽；冒热气",
         "definition_en": "to give off steam or vapor",
         "note": "",
         "identity_overlay": null,
@@ -2916,8 +2986,8 @@
           {
             "id": "collocation:f60e61921a2187019ac8",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "steam rising from the pot",
-            "meaning_cn": "从锅里冒出的蒸汽",
+            "phrase": "The pot is steaming.",
+            "meaning_cn": "锅正冒着热气。",
             "kind": "usage_example",
             "repair": null
           }
@@ -2926,30 +2996,30 @@
           "target_kind": "sense",
           "target_id": "sense:steam:a392ecae00805ca2",
           "target_locator": "record.senses[1]",
-          "target_label": "冒蒸汽；蒸发"
+          "target_label": "冒蒸汽；冒热气"
         }
       },
       {
         "id": "sense:steam:39962152c78458e4",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "vi.; steam (with anger/rage)",
         "definition_cn": "发怒；生气",
         "definition_en": "to be very angry",
-        "note": "",
+        "note": "非正式：形容人非常生气；with 后接 anger/rage 等情绪，不是任意引发生气的事件。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:9cbdbba6453086b12639",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "steam with + sth",
-            "meaning_cn": "因某事而发怒",
+            "phrase": "steam with anger/rage",
+            "meaning_cn": "满腔怒气；气得冒烟",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:9cbdbba6453086b12639",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "steam with + sth"
+              "target_label": "steam with anger/rage"
             }
           }
         ],
@@ -2965,7 +3035,7 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "蒸；煮",
+        "definition_cn": "蒸（食物）",
         "definition_en": "to cook food by steaming",
         "note": "",
         "identity_overlay": null,
@@ -2983,7 +3053,7 @@
           "target_kind": "sense",
           "target_id": "sense:steam:30f6ebe310c75531",
           "target_locator": "record.senses[3]",
-          "target_label": "蒸；煮"
+          "target_label": "蒸（食物）"
         }
       }
     ],
@@ -3057,7 +3127,7 @@
     "ordinal": 4691,
     "word": "steel",
     "source_owner_path": "content/lexical/words/by-ordinal/o4691.json",
-    "source_fingerprint": "3a61bd098a73ae15ac317ce3e13d07d33cc619b536387f8366f4341e8fce1537",
+    "source_fingerprint": "4d46f3b68dafb7c3efbe5f409c9e8d04b3240d1ea75e4cbf58965a2e9fe51d1d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3069,7 +3139,7 @@
     },
     "word_feel": {
       "summary_cn": "钢，钢铁",
-      "decision_cn": "",
+      "decision_cn": "名词指钢这种坚硬材料；steel oneself for sth / to do sth 把“坚硬”转到心理上：鼓起勇气准备面对困难。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3117,9 +3187,9 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使坚强，使冷酷",
+        "definition_cn": "使意志坚强；使硬起心肠",
         "definition_en": "get ready for something difficult or unpleasant",
-        "note": "",
+        "note": "steel oneself for sth / to do sth 尤指让自己鼓起勇气应对困难或不愉快的事，不表示必须变得冷酷无情。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3140,7 +3210,7 @@
           "target_kind": "sense",
           "target_id": "sense:steel:38a5093a6cac58c7",
           "target_locator": "record.senses[1]",
-          "target_label": "使坚强，使冷酷"
+          "target_label": "使意志坚强；使硬起心肠"
         }
       },
       {
@@ -3220,7 +3290,7 @@
     "ordinal": 4692,
     "word": "steep",
     "source_owner_path": "content/lexical/words/by-ordinal/o4692.json",
-    "source_fingerprint": "f4798b7912e89958b3c82c482433f7c0a915861f15e8e1cd5ed27dee5b4bed59",
+    "source_fingerprint": "c1399e13cd550112b76143c497a05d7e9f21bc56ae2c38a9c785b28fefe74ed8",
     "sense_lineage": [
       {
         "word_id": "word:steep",
@@ -3240,7 +3310,7 @@
     },
     "word_feel": {
       "summary_cn": "陡峭的；浸泡",
-      "decision_cn": "",
+      "decision_cn": "坡面看倾斜幅度；rise/fall 看变化幅度；price/fee 看价格过高。动词遇到茶叶/液体是浸泡，be steeped in + 传统/文化 表长期浸染。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3479,12 +3549,12 @@
     "ordinal": 4693,
     "word": "steer",
     "source_owner_path": "content/lexical/words/by-ordinal/o4693.json",
-    "source_fingerprint": "93bd1a942f871b532a0261d22e815ee419d2cc28ee05e4d9c33ce19fe8a1fe9b",
+    "source_fingerprint": "b108ab45c87309e3cf4a8535e749c4f80006f8490b3a0fe0cf7c21bba45f61e7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -3625,6 +3695,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "劝告；指导"
         }
+      },
+      {
+        "id": "sense:steer:92087a72e89ba191",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（尤指供肉用的）阉公牛",
+        "definition_en": "a castrated male bovine, especially one raised for meat",
+        "note": "牧场、牲畜或肉类语境中的 steers 指牛，不是引导或建议。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:steer:92087a72e89ba191",
+          "target_locator": "record.senses[4]",
+          "target_label": "（尤指供肉用的）阉公牛"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3713,18 +3800,18 @@
     "ordinal": 4694,
     "word": "stem",
     "source_owner_path": "content/lexical/words/by-ordinal/o4694.json",
-    "source_fingerprint": "77555c3c426ed44829b3bd38e029c5b5671f119a7528b92bbea8ee5d5b99f397",
+    "source_fingerprint": "d2b9035b27f910ec50818ff0eb21fe1de2307031b76eeadfc930c061119974f5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "茎；起源于；阻止",
-      "decision_cn": "",
+      "decision_cn": "stem from + 原因：结果源于该原因；stem + 血流/增长/蔓延：遏制它继续。from 的有无改变因果方向；名词由植物的茎干另行识别。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3803,9 +3890,9 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "烟斗柄",
-        "definition_en": "the tube of a tobacco pipe",
-        "note": "",
+        "definition_cn": "（器物的）细长柄、杆或管；杯脚；烟斗柄",
+        "definition_en": "a narrow supporting or connecting part, such as the stem of a glass or pipe",
+        "note": "a glass 的 stem 是杯身与杯底之间的细长杯脚；pipe stem 是烟斗柄。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3821,7 +3908,7 @@
           "target_kind": "sense",
           "target_id": "sense:stem:a80fd9dfc0c7512c",
           "target_locator": "record.senses[2]",
-          "target_label": "烟斗柄"
+          "target_label": "（器物的）细长柄、杆或管；杯脚；烟斗柄"
         }
       },
       {
@@ -3856,6 +3943,23 @@
           "target_id": "sense:stem:329139e5d54459aa",
           "target_locator": "record.senses[3]",
           "target_label": "遏制；阻止；控制（流动、蔓延、增长）"
+        }
+      },
+      {
+        "id": "sense:stem:0d1c1e8ea5aebc58",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（语法）词干",
+        "definition_en": "the base of a word to which grammatical endings are added",
+        "note": "谈论词形变化时，stem 指加词尾的基础，不是植物的茎。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stem:0d1c1e8ea5aebc58",
+          "target_locator": "record.senses[4]",
+          "target_label": "（语法）词干"
         }
       }
     ],
@@ -3894,7 +3998,7 @@
     "ordinal": 4695,
     "word": "step",
     "source_owner_path": "content/lexical/words/by-ordinal/o4695.json",
-    "source_fingerprint": "b02de931950b9274bcbe9115b7c544b1a10e0732a81c33cb957c0694d0007d4c",
+    "source_fingerprint": "511b19898426ea46aa5499cc6517ec3e2b51a156851c2d96527c0b0be14a8d54",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3931,19 +4035,6 @@
             "meaning_cn": "迈出一步",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:e4813c556a6f68bea620",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "step by step",
-            "meaning_cn": "一步一步地",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e4813c556a6f68bea620",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "step by step"
-            }
           }
         ],
         "repair": {
@@ -3960,7 +4051,7 @@
         "governing_pattern": "",
         "definition_cn": "步骤；措施",
         "definition_en": "one of a series of actions taken to achieve a goal",
-        "note": "",
+        "note": "step by step 可按字面表示一步一步走，也常表示按顺序逐步完成；固定的顺序表达归在本义下，字面行走义仍保留。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3983,6 +4074,19 @@
             "meaning_cn": "第一步",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:e4813c556a6f68bea620",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "step by step",
+            "meaning_cn": "一步一步地；按顺序逐步地",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e4813c556a6f68bea620",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "step by step"
+            }
           }
         ],
         "repair": {
@@ -4110,7 +4214,67 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e4af4e55552a6f6cf8c4",
+        "source_locator": "record.constructions[0]",
+        "pattern": "step sth up / step up sth",
+        "lines": [
+          {
+            "text": "加大、加强或加快某种活动、力度或进程",
+            "lang": "cn"
+          },
+          {
+            "text": "有宾语时是加强，如 efforts/production；代词宾语置中：step it up。",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e4af4e55552a6f6cf8c4",
+          "target_locator": "record.constructions[0]",
+          "target_label": "step sth up / step up sth"
+        }
+      },
+      {
+        "id": "construction:0a5b25a49cd0f0b520de",
+        "source_locator": "record.constructions[1]",
+        "pattern": "step in (to do sth)",
+        "lines": [
+          {
+            "text": "介入困难局面以帮忙或接手",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0a5b25a49cd0f0b520de",
+          "target_locator": "record.constructions[1]",
+          "target_label": "step in (to do sth)"
+        }
+      },
+      {
+        "id": "construction:11e35101888862948f85",
+        "source_locator": "record.constructions[2]",
+        "pattern": "step down (as/from ...)",
+        "lines": [
+          {
+            "text": "辞去职位；退任",
+            "lang": "cn"
+          },
+          {
+            "text": "as 后接所任身份，from 后接职位。",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:11e35101888862948f85",
+          "target_locator": "record.constructions[2]",
+          "target_label": "step down (as/from ...)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4124,7 +4288,7 @@
     "ordinal": 4696,
     "word": "stereo",
     "source_owner_path": "content/lexical/words/by-ordinal/o4696.json",
-    "source_fingerprint": "553eedee9ce958522d8ffca2195e17d42d520b4d3efab433b54e83910fd786cb",
+    "source_fingerprint": "fc6ac989d4bd03f99b554f1f2f2a9d9c5347121b5a52e8ecd7e84c5ed53b2ef7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4149,9 +4313,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "立体声系统",
-        "definition_en": "a system of sound reproduction using two or more channels to give a three-dimensional effect",
-        "note": "",
+        "definition_cn": "立体声；立体声音响设备",
+        "definition_en": "sound reproduced through separate channels, or equipment that reproduces it",
+        "note": "in stereo 指以立体声方式；a stereo 指一套播放设备。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4166,13 +4330,26 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "stereo system"
             }
+          },
+          {
+            "id": "collocation:e1d6d7157d85891333b3",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "in stereo",
+            "meaning_cn": "以立体声方式",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e1d6d7157d85891333b3",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "in stereo"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:stereo:c824d74cf8be5ef6",
           "target_locator": "record.senses[0]",
-          "target_label": "立体声系统"
+          "target_label": "立体声；立体声音响设备"
         }
       },
       {
@@ -4208,7 +4385,7 @@
         "governing_pattern": "",
         "definition_cn": "立体照片",
         "definition_en": "a pair of photographs taken from slightly different angles that appear three-dimensional when viewed together",
-        "note": "",
+        "note": "摄影语境中的立体照片，不是立体声音响。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4537,22 +4714,23 @@
     "ordinal": 4699,
     "word": "steward",
     "source_owner_path": "content/lexical/words/by-ordinal/o4699.json",
-    "source_fingerprint": "7b07228ca426848ec5090a3d371157b92e980e0340a862b46fc372e5671749ef",
+    "source_fingerprint": "0ab131c0260b9daccce088c559724e228fcd28ac70671f57f4d3c1a312e79712",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3N"
+        "1V",
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "管理或服务他人的人",
-      "decision_cn": "",
+      "summary_cn": "受托照管：管理者、服务人员；管理或照管",
+      "decision_cn": "庄园/资源语境看管理照管，活动现场看服务与秩序；作动词接资源或事务时是承担管理责任。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "管理或服务他人的人"
+        "target_label": "受托照管：管理者、服务人员；管理或照管"
       }
     },
     "senses": [
@@ -4648,6 +4826,58 @@
           "target_locator": "record.senses[2]",
           "target_label": "（飞机上的）乘务员"
         }
+      },
+      {
+        "id": "sense:steward:eab6743470483c19",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（活动、比赛等的）服务或秩序管理员",
+        "definition_en": "a person who helps run an event and assists or directs people attending it",
+        "note": "conference/race 等活动语境提示现场工作人员。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b0351665b5ff87d8886b",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "a conference steward",
+            "meaning_cn": "会议现场工作人员",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:steward:eab6743470483c19",
+          "target_locator": "record.senses[3]",
+          "target_label": "（活动、比赛等的）服务或秩序管理员"
+        }
+      },
+      {
+        "id": "sense:steward:64cda70f79556610",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "steward sth",
+        "definition_cn": "管理；照管（受托的财产、资源或事务）",
+        "definition_en": "to manage or take care of property, resources, or affairs entrusted to one",
+        "note": "以承担照管责任为重点；可用于资源、财产或公共事务。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:069da20d7600aad5e4ee",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "steward resources responsibly",
+            "meaning_cn": "负责任地管理资源",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:steward:64cda70f79556610",
+          "target_locator": "record.senses[4]",
+          "target_label": "管理；照管（受托的财产、资源或事务）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4684,18 +4914,18 @@
     "ordinal": 4700,
     "word": "stick",
     "source_owner_path": "content/lexical/words/by-ordinal/o4700.json",
-    "source_fingerprint": "797d2974b15e31aab2fd3348c2b544844b04b22a8f7f20f59e56b71d3db2c350",
+    "source_fingerprint": "dbb8c192bc0a61a76ca86dabcbf2ef3ab96437fc72d5a5f78f42d3c72fe145c5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "4V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "棍棒；粘贴；坚持",
-      "decision_cn": "",
+      "decision_cn": "名词是棍棒；动词依宾语和位置判断：尖物刺入、表面粘贴、物件卡住或随手放置。人 + stick to + 计划/规则 表坚持、不偏离。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4734,10 +4964,10 @@
         "id": "sense:stick:4c0d420423d45175",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "stick sth in/into/through sth; stick sth on/to sth",
         "definition_cn": "刺入；粘贴",
         "definition_en": "to push a pointed object into something; to attach with glue or similar",
-        "note": "",
+        "note": "尖物 + in/into/through：刺入；邮票、标签等 + on/to：贴上。两个用法按物体和介词判断。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4760,23 +4990,23 @@
         "id": "sense:stick:c9b9afefb241566a",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "vi.; stick to sth",
         "definition_cn": "粘住；坚持",
         "definition_en": "to remain attached or fixed; to continue doing something despite difficulty",
-        "note": "",
+        "note": "实物作主语时可指黏住；人 + stick to + 计划/规则/主题 时指遵守或不偏离。黏住义可不带 to：The pieces will not stick。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:a9758fab0b2b7b1a4556",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "stick to one's plan",
-            "meaning_cn": "坚持计划",
+            "phrase": "stick to sth",
+            "meaning_cn": "坚持、遵守或不偏离计划、规则、主题或承诺",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:a9758fab0b2b7b1a4556",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "stick to one's plan"
+              "target_label": "stick to sth"
             }
           }
         ],
@@ -4785,6 +5015,58 @@
           "target_id": "sense:stick:c9b9afefb241566a",
           "target_locator": "record.senses[2]",
           "target_label": "粘住；坚持"
+        }
+      },
+      {
+        "id": "sense:stick:3a42ad26e6c27c8c",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "vi.; stick (in sth)",
+        "definition_cn": "卡住；固定住而不能移动",
+        "definition_en": "to become fixed so that movement is blocked",
+        "note": "门、抽屉、钥匙等作主语时，重点是不能移动，不要求有胶水。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:01c90b5b568b94558f93",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "The drawer sticks.",
+            "meaning_cn": "抽屉卡住了。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stick:3a42ad26e6c27c8c",
+          "target_locator": "record.senses[3]",
+          "target_label": "卡住；固定住而不能移动"
+        }
+      },
+      {
+        "id": "sense:stick:3822cddd7e71e361",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "stick sth + 地点副词/介词短语",
+        "definition_cn": "（随手或临时）放置",
+        "definition_en": "to put something in a place, often casually or temporarily",
+        "note": "非正式；地点补语说明放在哪里，不必有粘贴动作。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:4cae949c5949d90063e3",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "stick the bag under the desk",
+            "meaning_cn": "把包随手放到桌下",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stick:3822cddd7e71e361",
+          "target_locator": "record.senses[4]",
+          "target_label": "（随手或临时）放置"
         }
       }
     ],
@@ -4811,20 +5093,24 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:a74e0c3745abadb74e3f",
-        "source_locator": "record.constructions[0]",
-        "pattern": "stick to sth",
+        "id": "construction:2b917073acabd304da24",
+        "source_locator": "record.constructions[1]",
+        "pattern": "stick out / stick sth out",
         "lines": [
           {
-            "text": "坚持、遵守或不偏离计划、规则、主题或承诺",
+            "text": "伸出、突出；（非正式）显眼",
+            "lang": "cn"
+          },
+          {
+            "text": "身体部位或物体是伸出表面；在人群等背景中是显眼。",
             "lang": "cn"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:a74e0c3745abadb74e3f",
-          "target_locator": "record.constructions[0]",
-          "target_label": "stick to sth"
+          "target_id": "construction:2b917073acabd304da24",
+          "target_locator": "record.constructions[1]",
+          "target_label": "stick out / stick sth out"
         }
       }
     ],
@@ -4841,7 +5127,7 @@
     "ordinal": 4701,
     "word": "stiff",
     "source_owner_path": "content/lexical/words/by-ordinal/o4701.json",
-    "source_fingerprint": "a8b38155a2819f59e5df41b0531d65646769203f31d6f19c255d36f00dcbb81d",
+    "source_fingerprint": "d3fc57bfc118d0bd5d5d4f39937d5a953cad644701cdd6e4f9c8fdbbe2c2cc4b",
     "sense_lineage": [
       {
         "word_id": "word:stiff",
@@ -4865,13 +5151,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "坚硬的；僵硬的；严厉的；艰难的；强烈的；猛烈的",
-      "decision_cn": "",
+      "summary_cn": "不易弯曲或活动；阻力大、强度高",
+      "decision_cn": "身体或材料看活动/弯曲是否困难；竞争、惩罚、价格看难度或负担；风和酒看强度。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "坚硬的；僵硬的；严厉的；艰难的；强烈的；猛烈的"
+        "target_label": "不易弯曲或活动；阻力大、强度高"
       }
     },
     "senses": [
@@ -4882,7 +5168,7 @@
         "governing_pattern": "",
         "definition_cn": "坚硬的；僵硬的",
         "definition_en": "not moving or operating freely; rigid",
-        "note": "",
+        "note": "身体僵硬常伴活动不便；材料是不易弯曲。用于举止或表情时，可指拘谨、不自然。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4899,7 +5185,7 @@
         "governing_pattern": "",
         "definition_cn": "严厉的；艰难的",
         "definition_en": "severe or difficult",
-        "note": "",
+        "note": "stiff competition指竞争激烈；stiff penalties指严厉惩罚；stiff prices指昂贵价格。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4916,7 +5202,7 @@
         "governing_pattern": "",
         "definition_cn": "强烈的；猛烈的",
         "definition_en": "powerful; strong",
-        "note": "",
+        "note": "常见于风力或酒的浓烈，如a stiff wind、a stiff drink；不是所有“强大”对象都自然用stiff。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5024,7 +5310,7 @@
     "ordinal": 4702,
     "word": "still",
     "source_owner_path": "content/lexical/words/by-ordinal/o4702.json",
-    "source_fingerprint": "7bb637ebe03f320472ccce66e102143ed861692cb0e13ae8907a71a49c0f37fd",
+    "source_fingerprint": "3a4935aacf4b87d4aabb64857b8033304ee7ae0fbb6a56eceb6fd1700a500552",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5216,7 +5502,7 @@
         "id": "sense:still:70d9052ca89052a7",
         "source_locator": "record.senses[6]",
         "pos": "adverb",
-        "governing_pattern": "",
+        "governing_pattern": "still + comparative; better/worse still",
         "definition_cn": "还要；甚至更",
         "definition_en": "used to indicate an even greater degree or amount",
         "note": "",
@@ -5226,7 +5512,7 @@
             "id": "collocation:8f4b7dc703ca5b2fccbb",
             "source_locator": "record.senses[6].collocations[0]",
             "phrase": "still more",
-            "meaning_cn": "",
+            "meaning_cn": "还要更多",
             "kind": "usage_example",
             "repair": null
           },
@@ -5234,7 +5520,7 @@
             "id": "collocation:4a13b5ebcd0f7821a85d",
             "source_locator": "record.senses[6].collocations[1]",
             "phrase": "still better",
-            "meaning_cn": "",
+            "meaning_cn": "更好；还要好",
             "kind": "usage_example",
             "repair": null
           }
@@ -5253,14 +5539,14 @@
         "governing_pattern": "",
         "definition_cn": "（水等）无气的；不含气泡的",
         "definition_en": "not containing bubbles of gas; not sparkling",
-        "note": "",
+        "note": "饮料语境主要见于英式英语，与sparkling相对；湖水等语境的still water可指平静不流动的水。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:c158a256d93c43507d3e",
             "source_locator": "record.senses[7].collocations[0]",
             "phrase": "still water",
-            "meaning_cn": "",
+            "meaning_cn": "不含气泡的饮用水",
             "kind": "usage_example",
             "repair": null
           }
@@ -5340,7 +5626,7 @@
     "ordinal": 4703,
     "word": "stimulate",
     "source_owner_path": "content/lexical/words/by-ordinal/o4703.json",
-    "source_fingerprint": "f6e4c903d068996311366a974c136c5fcaa1ceb8b9aada50e3eac434cb9a5b16",
+    "source_fingerprint": "ec93c8ae8a6d498e866d5004435f3f1e0a19197a829009750af4a3c4b6346c47",
     "sense_lineage": [
       {
         "word_id": "word:stimulate",
@@ -5405,7 +5691,7 @@
         "id": "sense:stimulate:8d55dc1667b65fab",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: stimulate (sb); stimulate sb to do sth",
         "definition_cn": "激励，鼓舞",
         "definition_en": "to cause to be alert and energetic",
         "note": "",
@@ -5516,7 +5802,7 @@
     "ordinal": 4704,
     "word": "sting",
     "source_owner_path": "content/lexical/words/by-ordinal/o4704.json",
-    "source_fingerprint": "759660beb21f5d28d619564ed1fac1a53a4c32e91c96c016fc38ece2d6e9fe4e",
+    "source_fingerprint": "f2f0d926ea4e05a361757f97c37d27493c41e9fc49a31d49ab4d5f17b7ba1642",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5540,9 +5826,9 @@
         "id": "sense:sting:1b6e39ec8c045488",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "叮，刺，刺痛",
-        "definition_en": "to cause a sharp pain by pricking or wounding",
+        "governing_pattern": "I/T: a bee stings (sb); soap stings the eyes; the eyes sting",
+        "definition_cn": "叮，蜇；使刺痛；感到刺痛",
+        "definition_en": "to sting with a sharp point; to cause or feel a sharp, usually brief pain",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5559,14 +5845,14 @@
           "target_kind": "sense",
           "target_id": "sense:sting:1b6e39ec8c045488",
           "target_locator": "record.senses[0]",
-          "target_label": "叮，刺，刺痛"
+          "target_label": "叮，蜇；使刺痛；感到刺痛"
         }
       },
       {
         "id": "sense:sting:e900e8ed97535579",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I/T: a remark stings (sb)",
         "definition_cn": "刺痛（感情），使苦恼",
         "definition_en": "to cause emotional pain",
         "note": "",
@@ -5797,7 +6083,7 @@
     "ordinal": 4706,
     "word": "stir",
     "source_owner_path": "content/lexical/words/by-ordinal/o4706.json",
-    "source_fingerprint": "ab4f93605ef34aab7451bc2217388ee138c3da94cf70593093f4908116a7d068",
+    "source_fingerprint": "c336d14f4abbbb9bb0411328683eea4ed0b02a61a7bcc9a926498b1185413e1e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5821,7 +6107,7 @@
         "id": "sense:stir:365fcc738ec05142",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: stir (sth); stir sth into sth",
         "definition_cn": "搅拌",
         "definition_en": "to mix or move something with a circular motion",
         "note": "",
@@ -5834,19 +6120,6 @@
             "meaning_cn": "搅拌汤",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:dcce6870600eaccfa431",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "stir up + sth",
-            "meaning_cn": "激起，煽动",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:dcce6870600eaccfa431",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "stir up + sth"
-            }
           }
         ],
         "repair": {
@@ -5886,6 +6159,19 @@
               "target_locator": "record.senses[1].collocations[1]",
               "target_label": "stir up + emotions"
             }
+          },
+          {
+            "id": "collocation:dcce6870600eaccfa431",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "stir up + sth",
+            "meaning_cn": "激起，煽动",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:dcce6870600eaccfa431",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "stir up + sth"
+            }
           }
         ],
         "repair": {
@@ -5899,9 +6185,9 @@
         "id": "sense:stir:13326d039c8e5734",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + from",
-        "definition_cn": "走动；微动",
-        "definition_en": "to move slightly or begin to move",
+        "governing_pattern": "I/T: stir; stir in/from a place; a breeze stirs the leaves",
+        "definition_cn": "微动；开始活动；使轻轻移动",
+        "definition_en": "to move slightly, begin to move, or cause something to move slightly",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5936,7 +6222,7 @@
           "target_kind": "sense",
           "target_id": "sense:stir:13326d039c8e5734",
           "target_locator": "record.senses[2]",
-          "target_label": "走动；微动"
+          "target_label": "微动；开始活动；使轻轻移动"
         }
       },
       {
@@ -6183,7 +6469,7 @@
     "ordinal": 4708,
     "word": "stock",
     "source_owner_path": "content/lexical/words/by-ordinal/o4708.json",
-    "source_fingerprint": "c0cc8d8921460f488da4d587c36b731e85c49c6a750aa905d983783df0a10e73",
+    "source_fingerprint": "3dfa3c95b234e4ef3cc7ebb94dc7c30a89d36888ad0c559e68ceb49266e627bb",
     "sense_lineage": [
       {
         "word_id": "word:stock",
@@ -6195,8 +6481,9 @@
     ],
     "recall_map": {
       "parts": [
-        "(1+1)V",
-        "5N"
+        "1V",
+        "1A",
+        "6N"
       ],
       "density": "rich"
     },
@@ -6217,7 +6504,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "股票；股份",
-        "definition_en": "the capital raised by a corporation through the issue of shares",
+        "definition_en": "shares in a company, or the capital represented by those shares",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6250,9 +6537,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "库存；现货",
-        "definition_en": "the merchandise that a shop has on hand",
-        "note": "",
+        "definition_cn": "库存；现货；储备，存量",
+        "definition_en": "a supply of something kept for use or sale, including a shop’s inventory",
+        "note": "stock of food等不限商店货物；food stocks是食品储备，housing stock是住房存量。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6286,7 +6573,7 @@
           "target_kind": "sense",
           "target_id": "sense:stock:9fc83b9df0b0581b",
           "target_locator": "record.senses[1]",
-          "target_label": "库存；现货"
+          "target_label": "库存；现货；储备，存量"
         }
       },
       {
@@ -6313,7 +6600,7 @@
         "governing_pattern": "",
         "definition_cn": "声望；信誉",
         "definition_en": "the reputation and popularity a person has",
-        "note": "",
+        "note": "较正式：人的stock高低指其声望/受尊重程度，不是股票价格。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -6327,7 +6614,7 @@
         "id": "sense:stock:d223478f2bcf5d91",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt.: stock a shelf/shop with sth",
+        "governing_pattern": "vt.: stock goods; stock a shelf/shop with sth",
         "definition_cn": "进货；备有",
         "definition_en": "to supply or keep a supply of goods",
         "note": "",
@@ -6364,6 +6651,40 @@
           "target_id": "sense:stock:1915fe055832e145",
           "target_locator": "record.senses[5]",
           "target_label": "高汤；用肉、骨、蔬菜等慢煮制成的汤底"
+        }
+      },
+      {
+        "id": "sense:stock:143111c3a867a6b2",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "家畜；牲畜",
+        "definition_en": "farm animals kept collectively, such as cattle or sheep",
+        "note": "农业语境指一群饲养的牲畜，不是商店存货或股票。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stock:143111c3a867a6b2",
+          "target_locator": "record.senses[6]",
+          "target_label": "家畜；牲畜"
+        }
+      },
+      {
+        "id": "sense:stock:821601aefc02a3a3",
+        "source_locator": "record.senses[7]",
+        "pos": "adjective",
+        "governing_pattern": "before noun: a stock answer/phrase",
+        "definition_cn": "惯用的；老一套的；缺乏新意的",
+        "definition_en": "used habitually or conventionally rather than being original",
+        "note": "置于名词前；stock answer/phrase指套话、惯常答复，不是“库存的回答”。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stock:821601aefc02a3a3",
+          "target_locator": "record.senses[7]",
+          "target_label": "惯用的；老一套的；缺乏新意的"
         }
       }
     ],
@@ -6410,22 +6731,7 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:stock:e9d71281159446a9",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "进货；备有",
-        "definition_en": "to supply or keep a supply of goods",
-        "pattern": "stock(进货) 动词义：备有货物",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:stock:e9d71281159446a9",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "进货；备有"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:72cb0645bf6d0e8746ca",
@@ -6584,7 +6890,7 @@
     "ordinal": 4710,
     "word": "stomach",
     "source_owner_path": "content/lexical/words/by-ordinal/o4710.json",
-    "source_fingerprint": "bb8799708a73b84cea5c92d172c7b09551b50069c4a88ca2ffd7ce18181e423e",
+    "source_fingerprint": "d69be769a30b8a780dbed38cda75bf824e6ca2a5c80adfc860c9510bc2ceacac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6609,8 +6915,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "胃；消化器官",
-        "definition_en": "the organ in the body where food is digested",
+        "definition_cn": "胃；（日常用语）肚子，腹部",
+        "definition_en": "the digestive organ; in everyday usage, the front of the abdomen",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6640,7 +6946,7 @@
           "target_kind": "sense",
           "target_id": "sense:stomach:c463657bb98f55d9",
           "target_locator": "record.senses[0]",
-          "target_label": "胃；消化器官"
+          "target_label": "胃；（日常用语）肚子，腹部"
         }
       },
       {
@@ -6648,16 +6954,16 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "食欲；欲望",
-        "definition_en": "an appetite or desire for something",
-        "note": "",
+        "definition_cn": "食欲；愿望；承受不快事情的勇气或意愿",
+        "definition_en": "appetite or desire; willingness or courage to face something unpleasant",
+        "note": "have no stomach for常表示不愿或没有勇气面对争斗、暴力等令人不快的事；不能一概译成对某爱好不感兴趣。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:92452c2fb182864cbbe3",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "have no stomach for + sth",
-            "meaning_cn": "对…没有胃口/不感兴趣",
+            "meaning_cn": "不愿或没有勇气面对/承受某种不快的事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -6671,7 +6977,7 @@
           "target_kind": "sense",
           "target_id": "sense:stomach:030cbbc0cc855fff",
           "target_locator": "record.senses[1]",
-          "target_label": "食欲；欲望"
+          "target_label": "食欲；愿望；承受不快事情的勇气或意愿"
         }
       },
       {
@@ -6681,7 +6987,7 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "忍受；容忍；能吃得下",
         "definition_en": "to tolerate, accept, or be able to deal with something unpleasant or difficult; also to bear eating something",
-        "note": "",
+        "note": "常见于否定表达，表示无法接受或忍受令人不快的事。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6754,12 +7060,12 @@
     "ordinal": 4711,
     "word": "stone",
     "source_owner_path": "content/lexical/words/by-ordinal/o4711.json",
-    "source_fingerprint": "dde6359abb496fc85da07d0bf933d8cde2dc437e16f02057f584e980c5f19f87",
+    "source_fingerprint": "794ebada2dada53e06e227633c13aeb25aaa634af794d82c9ce01c0e70013a8d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
-        "5N"
+        "2V",
+        "6N"
       ],
       "density": "rich"
     },
@@ -6872,7 +7178,7 @@
         "governing_pattern": "",
         "definition_cn": "果核",
         "definition_en": "the hard seed of some fruits",
-        "note": "",
+        "note": "果核义主要为英式用法，美式通常用pit。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6898,7 +7204,7 @@
         "governing_pattern": "",
         "definition_cn": "英石（重量单位）",
         "definition_en": "a unit of weight equal to 14 pounds",
-        "note": "",
+        "note": "英国常用体重单位，1 stone = 14 pounds；数词后常用单数形式，如ten stone。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6946,6 +7252,40 @@
           "target_id": "sense:stone:ab265ff803555047",
           "target_locator": "record.senses[5]",
           "target_label": "向…扔石头"
+        }
+      },
+      {
+        "id": "sense:stone:f326d0dd178a5826",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（肾、胆等器官中的）结石",
+        "definition_en": "a hard deposit formed inside an organ such as a kidney or gallbladder",
+        "note": "器官名修饰时，如kidney stones，指体内结石，不是外来石子。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stone:f326d0dd178a5826",
+          "target_locator": "record.senses[6]",
+          "target_label": "（肾、胆等器官中的）结石"
+        }
+      },
+      {
+        "id": "sense:stone:9baac5e39bfc0396",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "vt.: stone fruit/cherries",
+        "definition_cn": "给（水果）去核",
+        "definition_en": "to remove the hard stone from fruit",
+        "note": "水果作宾语时指去核，区别向人或物扔石头；美式通常用pit。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:stone:9baac5e39bfc0396",
+          "target_locator": "record.senses[7]",
+          "target_label": "给（水果）去核"
         }
       }
     ],
@@ -7143,7 +7483,7 @@
     "ordinal": 4713,
     "word": "stoop",
     "source_owner_path": "content/lexical/words/by-ordinal/o4713.json",
-    "source_fingerprint": "45fda543dbef1e5fd6996100eb514781a52b80b764038e8b25f145553666172c",
+    "source_fingerprint": "25586dfbbeeda8d5d21128df2db9a56f1ab28fad186de589bce7f05335ab6355",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7201,7 +7541,7 @@
         "governing_pattern": "vi. + to",
         "definition_cn": "屈尊；堕落",
         "definition_en": "to lower oneself morally or degrade oneself",
-        "note": "",
+        "note": "stoop to sth/doing sth通常带不赞同评价，指降低标准去做不体面、不诚实等事；不是中性地弯腰做事。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7240,7 +7580,7 @@
         "governing_pattern": "",
         "definition_cn": "门廊；台阶",
         "definition_en": "a small porch or set of steps at the entrance of a house",
-        "note": "",
+        "note": "美式英语：房屋入口前的台阶或抬高的平台。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7294,7 +7634,7 @@
     "ordinal": 4714,
     "word": "stop",
     "source_owner_path": "content/lexical/words/by-ordinal/o4714.json",
-    "source_fingerprint": "d504dc8e197434ca224305dc0417c1e664988afd0a94c38cfc9d241c43737ac1",
+    "source_fingerprint": "9d30af350d5e5ce1c0885bfae890db2b144f397db6fc5af53b9adf1682aff864",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7343,6 +7683,19 @@
               "target_id": "collocation:5fae8579c1f98aae64cf",
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "stop doing sth"
+            }
+          },
+          {
+            "id": "collocation:stop:0ea94a7637e22acc",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "stop to do sth",
+            "meaning_cn": "暂停原先的活动，以便做另一件事；区别stop doing sth（停止该活动）",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:stop:0ea94a7637e22acc",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "stop to do sth"
             }
           }
         ],
@@ -7504,58 +7857,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:8c1f47b13ed3034f3c20",
-        "source_locator": "record.constructions[0]",
-        "pattern": "stop to do sth",
-        "lines": [
-          {
-            "text": "停下正在做的事，以便去做另一件事",
-            "lang": "cn"
-          },
-          {
-            "text": "contrasts with stop doing sth = cease that activity",
-            "lang": "en"
-          },
-          {
-            "text": "to pause another activity in order to do a new action",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:8c1f47b13ed3034f3c20",
-          "target_locator": "record.constructions[0]",
-          "target_label": "stop to do sth"
-        }
-      },
-      {
-        "id": "construction:5438a7c20d521731aeaf",
-        "source_locator": "record.constructions[1]",
-        "pattern": "stop doing sth vs stop to do sth",
-        "lines": [
-          {
-            "text": "stop doing = 停止该活动；stop to do = 暂停原活动以便去做另一件事",
-            "lang": "cn"
-          },
-          {
-            "text": "gerund means cease the activity; infinitive means pause another activity for a new purpose",
-            "lang": "en"
-          },
-          {
-            "text": "stop doing means cease that activity; stop to do means pause another activity in order to do something else",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:5438a7c20d521731aeaf",
-          "target_locator": "record.constructions[1]",
-          "target_label": "stop doing sth vs stop to do sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7719,7 +8021,7 @@
     "recall_map": {
       "parts": [
         "1V",
-        "(4+1)N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -7913,22 +8215,7 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:store:a6ba36ef65c320c4",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "储备；备用品",
-        "definition_en": "a supply of something available for future use",
-        "pattern": "a store of knowledge 丰富知识",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:store:a6ba36ef65c320c4",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "储备；备用品"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:7c6573c80136d205b34d",
@@ -8096,7 +8383,7 @@
     "ordinal": 4718,
     "word": "storm",
     "source_owner_path": "content/lexical/words/by-ordinal/o4718.json",
-    "source_fingerprint": "4815f07c964518025d8baca2ee3f5d07e1a786aace69791b29cfb3db90f5c0aa",
+    "source_fingerprint": "86b4d9a6d351f65b52c901050ff970d3501e1de3bf7b1e6dd0d6b60e42cc1d6f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8208,15 +8495,15 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "猛攻；攻占",
-        "definition_en": "to take by force",
-        "note": "",
+        "definition_en": "to attack or enter a place suddenly and forcefully, sometimes taking it by force",
+        "note": "描述突袭或强行进入，不保证已完全占领。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:49d0b48994b6742d801d",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "storm the castle",
-            "meaning_cn": "攻占城堡",
+            "meaning_cn": "猛攻城堡；强行攻入城堡",
             "kind": "usage_example",
             "repair": null
           }
@@ -8515,8 +8802,16 @@
     "ordinal": 4720,
     "word": "stove",
     "source_owner_path": "content/lexical/words/by-ordinal/o4720.json",
-    "source_fingerprint": "49e16f2610a6fc17498ac6d2edfeddb76632a3dad89ade9a1d4528ffc48d4fc7",
-    "sense_lineage": [],
+    "source_fingerprint": "87160fbed1429d077ade172101c71ee506f37a8e7d95ed07b799ac66e343de69",
+    "sense_lineage": [
+      {
+        "word_id": "word:stove",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:9357b541d330d1102b77",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -8576,7 +8871,7 @@
         "governing_pattern": "",
         "definition_cn": "任何加热装置",
         "definition_en": "any heating apparatus",
-        "note": "",
+        "note": "这里指供暖炉、加热炉或窑炉等设备；日常常指用燃料或电为房间供暖的炉子，不是任意能发热的物体。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8599,26 +8894,17 @@
         "id": "sense:stove:4d5d1a9110765d5e",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "用火炉加热或烹饪",
-        "definition_en": "to heat or cook with a stove",
-        "note": "",
+        "governing_pattern": "vt.: stove + material/article; Scottish: stove + meat/vegetables",
+        "definition_cn": "在炉内加热处理（陶瓷、金属制品等）；（苏格兰）炖煮",
+        "definition_en": "to process materials by heating in a stove; in Scottish usage, to stew food",
+        "note": "前一用法为工业加热处理，食物炖煮义带苏格兰地域条件；不要把stove默认当通用的烘烤或做饭动词。",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9357b541d330d1102b77",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "stove the bread",
-            "meaning_cn": "用火炉烤面包",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:stove:4d5d1a9110765d5e",
           "target_locator": "record.senses[2]",
-          "target_label": "用火炉加热或烹饪"
+          "target_label": "在炉内加热处理（陶瓷、金属制品等）；（苏格兰）炖煮"
         }
       }
     ],
@@ -8669,7 +8955,7 @@
     "ordinal": 4721,
     "word": "straight",
     "source_owner_path": "content/lexical/words/by-ordinal/o4721.json",
-    "source_fingerprint": "873f632ca1b03e1ab47767fa2d7137f7869ea6f5bcf3742d13fa1dd7eeb6403f",
+    "source_fingerprint": "d33cf31c9ef86c18365a9b41d8afd792977629bb86465865220e3fbe1dd36325",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8721,9 +9007,9 @@
         "source_locator": "record.senses[1]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "直接地",
-        "definition_en": "in a direct manner",
-        "note": "",
+        "definition_cn": "径直地；直接地；立即",
+        "definition_en": "in a direct line or manner; immediately, without an intervening delay or stop",
+        "note": "go straight home既可强调径直回家，也常指办完当前事就马上回家；由语境判断空间方向或时间顺序。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8739,7 +9025,7 @@
           "target_kind": "sense",
           "target_id": "sense:straight:ef6d908cb4f759ff",
           "target_locator": "record.senses[1]",
-          "target_label": "直接地"
+          "target_label": "径直地；直接地；立即"
         }
       },
       {
@@ -9015,23 +9301,23 @@
     "ordinal": 4723,
     "word": "strain",
     "source_owner_path": "content/lexical/words/by-ordinal/o4723.json",
-    "source_fingerprint": "db253514da1433416f907d07f0125c2a94267a399a9d04f766d43964ed16cb6a",
+    "source_fingerprint": "4e85a50d181b52b7d5ccf835708ec0ab9185a2f52b81b166f2d879cf401fb95c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "紧张，焦虑；拉紧，绷紧；扭伤，拉伤；应变，形变；品种，品系；负担、压力；对人、关系、系统或资源造成的压力",
-      "decision_cn": "",
+      "summary_cn": "承受压力或用力到极限；另指品系与过滤",
+      "decision_cn": "肌肉和资源看过度负荷；人为听清或看清而努力；a strain of生物指品系，厨房液体宾语则是过滤。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "紧张，焦虑；拉紧，绷紧；扭伤，拉伤；应变，形变；品种，品系；负担、压力；对人、关系、系统或资源造成的压力"
+        "target_label": "承受压力或用力到极限；另指品系与过滤"
       }
     },
     "senses": [
@@ -9071,9 +9357,9 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "拉紧，绷紧",
-        "definition_en": "to exert or stretch to the limit",
-        "note": "",
+        "definition_cn": "拉紧，绷紧；使承受过大压力；过度用力而拉伤",
+        "definition_en": "to stretch or put under excessive pressure; to injure through overuse",
+        "note": "strain a muscle是拉伤肌肉；strain resources是使资源承受过大压力。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9089,7 +9375,7 @@
           "target_kind": "sense",
           "target_id": "sense:strain:8bbe054c6558562d",
           "target_locator": "record.senses[1]",
-          "target_label": "拉紧，绷紧"
+          "target_label": "拉紧，绷紧；使承受过大压力；过度用力而拉伤"
         }
       },
       {
@@ -9174,7 +9460,7 @@
         "id": "sense:strain:3cf52dd2675155a0",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vi. + for/after",
+        "governing_pattern": "vi.: strain for/after sth; strain to do/hear/see sth",
         "definition_cn": "尽力，努力",
         "definition_en": "to make great efforts; to strive",
         "note": "",
@@ -9224,6 +9510,23 @@
           "target_id": "sense:strain:b8615d0551828e06",
           "target_locator": "record.senses[6]",
           "target_label": "负担、压力；对人、关系、系统或资源造成的压力"
+        }
+      },
+      {
+        "id": "sense:strain:2c0a4780d316e8fc",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "vt.: strain a liquid; strain sth through a sieve",
+        "definition_cn": "过滤；滤去（液体中的固体）",
+        "definition_en": "to separate liquid from solid pieces using a filter, cloth, or sieve",
+        "note": "宾语是汤汁、液体或食材时可指过滤，不是拉紧或努力。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:strain:2c0a4780d316e8fc",
+          "target_locator": "record.senses[7]",
+          "target_label": "过滤；滤去（液体中的固体）"
         }
       }
     ],
@@ -9303,7 +9606,7 @@
     "ordinal": 4724,
     "word": "strand",
     "source_owner_path": "content/lexical/words/by-ordinal/o4724.json",
-    "source_fingerprint": "d126b63fdeacd0e5782af3a5dfdb68e5f524166e0cf4e7af9b258c27cd7024ca",
+    "source_fingerprint": "79105437bd750a6c6eec741068c07cbc7d548c09cd8e35bd0d25b7ff96abc068",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9364,7 +9667,7 @@
         "governing_pattern": "",
         "definition_cn": "海滨，河岸",
         "definition_en": "a shore or beach, especially the area between high and low tide",
-        "note": "",
+        "note": "海滨/河岸义偏诗歌或文学用法。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9426,9 +9729,9 @@
         "id": "sense:strand:b6d03b1d14795de1",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使（船）搁浅",
-        "definition_en": "to cause a boat to run aground",
+        "governing_pattern": "I/T: strand a ship; a ship strands",
+        "definition_cn": "使（船等）搁浅；搁浅",
+        "definition_en": "to cause a boat to run aground, or for it to run aground",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9445,7 +9748,7 @@
           "target_kind": "sense",
           "target_id": "sense:strand:b6d03b1d14795de1",
           "target_locator": "record.senses[3]",
-          "target_label": "使（船）搁浅"
+          "target_label": "使（船等）搁浅；搁浅"
         }
       },
       {
@@ -9453,16 +9756,16 @@
         "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "弄断（绳等）",
-        "definition_en": "to break a rope or thread",
-        "note": "",
+        "definition_cn": "弄断（绳索等的）一股或数股",
+        "definition_en": "to break one or more component strands of a rope or cable",
+        "note": "这里的宾语是由多股组成的绳索等，不是任何线或细丝的断裂。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:strand:a72fb841d6535a8d",
           "target_locator": "record.senses[4]",
-          "target_label": "弄断（绳等）"
+          "target_label": "弄断（绳索等的）一股或数股"
         }
       },
       {
@@ -9518,7 +9821,7 @@
     "ordinal": 4725,
     "word": "strange",
     "source_owner_path": "content/lexical/words/by-ordinal/o4725.json",
-    "source_fingerprint": "a9a582e37ab962ed4485908bfa7e98a1ccf924847f13180a9d4a01e86122e5f5",
+    "source_fingerprint": "514c040676bd90013272dc0be8a4131340aac8db2a755229d5f7d04b9d98a72b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9578,7 +9881,7 @@
         "governing_pattern": "",
         "definition_cn": "陌生的，不熟悉的",
         "definition_en": "not familiar or known; not experienced before",
-        "note": "",
+        "note": "sth/place is strange to sb表示某事物或地方对某人而言陌生，to后是感到陌生的人；不要把主客体理解反。也可见sb is strange to sth表示某人对某物不熟悉，须按实际主语判断，不把两种方向混成一个机械槽位。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9661,7 +9964,12 @@
       "family": [
         {
           "target_word": "stranger",
-          "lines": [],
+          "lines": [
+            {
+              "text": "strange是形容词；stranger是表示陌生人的名词，由“不熟悉”义派生，不能原位互换词性。",
+              "lang": "cn"
+            }
+          ],
           "source_locator": "record.word_family[0]"
         }
       ]
@@ -9673,7 +9981,7 @@
     "ordinal": 4726,
     "word": "stranger",
     "source_owner_path": "content/lexical/words/by-ordinal/o4726.json",
-    "source_fingerprint": "e06d91eb2d9ea85493c90469262c5542c736775908ef068c876c0def4187f925",
+    "source_fingerprint": "52b13097a1c43f6096d176d3a8c1cd6ee5df3b82bf30e1fa01ab2614bae395ca",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9682,13 +9990,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "陌生人",
-      "decision_cn": "",
+      "summary_cn": "人与人不相识，或人对某地、某事不熟悉",
+      "decision_cn": "直接说 a stranger 通常是陌生人；to + 地点/经历把“不熟悉”的对象说出来，no stranger to 反过来表示熟悉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "陌生人"
+        "target_label": "人与人不相识，或人对某地、某事不熟悉"
       }
     },
     "senses": [
@@ -9709,19 +10017,6 @@
             "meaning_cn": "完全陌生的人",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:017c3b261c28d7c6a660",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "be a stranger to sth",
-            "meaning_cn": "对…不熟悉；从未经历过…",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:017c3b261c28d7c6a660",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "be a stranger to sth"
-            }
           }
         ],
         "repair": {
@@ -9736,9 +10031,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "门外汉；局外人",
+        "definition_cn": "对某地或某事不熟悉的人；门外汉",
         "definition_en": "a person who is not familiar with a particular place or activity",
-        "note": "",
+        "note": "a stranger here/to a place 指初来、不熟悉当地；be a stranger to sth 指缺乏经历，be no stranger to sth 则表示很熟悉。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9748,13 +10043,26 @@
             "meaning_cn": "对这个城市不熟悉的人",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:017c3b261c28d7c6a660",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "be a stranger to sth",
+            "meaning_cn": "对…不熟悉；从未经历过…",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:017c3b261c28d7c6a660",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "be a stranger to sth"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:stranger:a1bab638c7c650ec",
           "target_locator": "record.senses[1]",
-          "target_label": "门外汉；局外人"
+          "target_label": "对某地或某事不熟悉的人；门外汉"
         }
       }
     ],
@@ -10051,7 +10359,7 @@
     "ordinal": 4729,
     "word": "straw",
     "source_owner_path": "content/lexical/words/by-ordinal/o4729.json",
-    "source_fingerprint": "6347c3ed23cee3f39aadfdd53369561b1bbfdce9c6cbab337a0a374bb00ea0c2",
+    "source_fingerprint": "8cbd236d4f2c0d460af32752482c15a710fc07e5c2125e119478bb71ee27b301",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10250,6 +10558,27 @@
           "target_locator": "record.constructions[0]",
           "target_label": "straw man (argument)"
         }
+      },
+      {
+        "id": "construction:6b4f4a85e5f040eb81de",
+        "source_locator": "record.constructions[1]",
+        "pattern": "the last/final straw",
+        "lines": [
+          {
+            "text": "使人终于无法忍受的最后一件事",
+            "lang": "cn"
+          },
+          {
+            "text": "不一定是最严重的一件事，而是此前一连串问题之后触发反应的最后一件。",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6b4f4a85e5f040eb81de",
+          "target_locator": "record.constructions[1]",
+          "target_label": "the last/final straw"
+        }
       }
     ],
     "reference": {
@@ -10353,7 +10682,7 @@
     "ordinal": 4731,
     "word": "stream",
     "source_owner_path": "content/lexical/words/by-ordinal/o4731.json",
-    "source_fingerprint": "883f41a5e44ef2c60548cdf5d2fe15c48eafd7a9d12d1128024a5b936ded7e0f",
+    "source_fingerprint": "46d62ee13b4e6ce046577cbc724611da8823e8c0113be034b9c517bfb212d34b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10363,13 +10692,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "天然水流，小河；流动，涌出；趋势，潮流；连续流动之物，如人流、车流；飘扬，招展；通过互联网连续传输或播放音频/视频",
-      "decision_cn": "",
+      "summary_cn": "沿着一个方向接连不断地流动；由水流扩展到人、事物和数据",
+      "decision_cn": "自然地理中是溪流；人、车、事件是一股接续不断的流；音视频作宾语时是在线传输或播放，旗帜作主语时是迎风飘动。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "天然水流，小河；流动，涌出；趋势，潮流；连续流动之物，如人流、车流；飘扬，招展；通过互联网连续传输或播放音频/视频"
+        "target_label": "沿着一个方向接连不断地流动；由水流扩展到人、事物和数据"
       }
     },
     "senses": [
@@ -10862,7 +11191,7 @@
     "ordinal": 4734,
     "word": "strength",
     "source_owner_path": "content/lexical/words/by-ordinal/o4734.json",
-    "source_fingerprint": "8af56d2e8a97c23dfd57720bbfb5941f344582487f88d10dfdff1393953b6063",
+    "source_fingerprint": "36122177df51509cf20902dcdb9dbda480ee2ded8a4377edea28f71dc7b652af",
     "sense_lineage": [
       {
         "word_id": "word:strength",
@@ -10880,7 +11209,7 @@
     },
     "word_feel": {
       "summary_cn": "身体或精神上的力量；实力",
-      "decision_cn": "",
+      "decision_cn": "不可数 strength 看力量、实力或程度；谈个人或方案的 strengths 时是可数的长处；on the strength of 引出据以行动的依据。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -11066,7 +11395,7 @@
     "ordinal": 4735,
     "word": "strengthen",
     "source_owner_path": "content/lexical/words/by-ordinal/o4735.json",
-    "source_fingerprint": "40457df659025aa646d2f08a692238b42a2e7cbba46f4716d5b80416c3e524b0",
+    "source_fingerprint": "3f7db17ce06f88b667b98f317f1a18e15504d805bc976c753f8c99245919f7b6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11177,7 +11506,7 @@
           "target_word": "strength",
           "lines": [
             {
-              "text": "strengthen 是 strength 加 -en 的使役动词",
+              "text": "strength（力量、实力）加 -en 构成 strengthen：可及物表示使更强，也可不及物表示变强。",
               "lang": "cn"
             }
           ],

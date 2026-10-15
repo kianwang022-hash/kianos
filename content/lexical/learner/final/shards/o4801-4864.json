@@ -5,7 +5,7 @@
     "ordinal": 4801,
     "word": "summarise",
     "source_owner_path": "content/lexical/words/by-ordinal/o4801.json",
-    "source_fingerprint": "03fdcb73acc3eff0b12d92f2fbb444200f29548cec38130fb53ecf041e7a9fd6",
+    "source_fingerprint": "50c7aaf5eea7da376bcd1ce622d04ba000d6c333d247ae7b2beb828a5028246f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -28,7 +28,7 @@
         "id": "sense:summarise:ea62d5c878965907",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vi./vt.: summarise (sth)",
         "definition_cn": "概括，总结",
         "definition_en": "to give a summary of something",
         "note": "",
@@ -96,12 +96,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -112,23 +108,23 @@
     "ordinal": 4802,
     "word": "summary",
     "source_owner_path": "content/lexical/words/by-ordinal/o4802.json",
-    "source_fingerprint": "d095bc1fbc919f007ded97dd2ae65d26c612a04992812bcdb5d72c8ce69c0d48",
+    "source_fingerprint": "fa6500a8de03f130fab2cb9347577e3f438689e50188b25d7f1ad26c099cdf5b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
+        "2A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "主要观点的简要陈述",
-      "decision_cn": "",
+      "summary_cn": "概括要点；也可指省略通常程序、立即执行",
+      "decision_cn": "report 等选“简要”；dismissal、justice 等选“立即执行、未经通常程序”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "主要观点的简要陈述"
+        "target_label": "概括要点；也可指省略通常程序、立即执行"
       }
     },
     "senses": [
@@ -196,6 +192,32 @@
           "target_locator": "record.senses[1]",
           "target_label": "摘要的；简略的"
         }
+      },
+      {
+        "id": "sense:summary:63611d04d2a8457eebea",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "立即执行而不经通常程序的；草率的",
+        "definition_en": "done immediately without following the usual procedure",
+        "note": "通常置于名词前；修饰 dismissal、justice 等时指程序被省略，不是“摘要”。有时含贬义。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:52beb7c2465b5b71aa0a",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "summary dismissal",
+            "meaning_cn": "即时解雇",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:summary:63611d04d2a8457eebea",
+          "target_locator": "record.senses[2]",
+          "target_label": "立即执行而不经通常程序的；草率的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -230,7 +252,7 @@
     "ordinal": 4803,
     "word": "summer",
     "source_owner_path": "content/lexical/words/by-ordinal/o4803.json",
-    "source_fingerprint": "1f9da8a0df6bf87c7b54248b66e76f2c59dc0f2e8821d4edb2b51328b27c4cbb",
+    "source_fingerprint": "b5a60c46778ef3e9bf6316494f8397548bccf7c0d63e3cd3e6ae69e58dc203ea",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -319,7 +341,7 @@
         "id": "sense:summer:13cfefffd1d75f98",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + in/at",
+        "governing_pattern": "vi.: summer (in/at + place)",
         "definition_cn": "避暑；过夏天",
         "definition_en": "to spend the summer in a particular place",
         "note": "",
@@ -708,7 +730,7 @@
     "ordinal": 4806,
     "word": "sun",
     "source_owner_path": "content/lexical/words/by-ordinal/o4806.json",
-    "source_fingerprint": "ee2b2f2bce32626db1e560e3c4a3e6129dab83ef5e5c7a4e23b94b36447fc31b",
+    "source_fingerprint": "12d4f52adf51d95ea75cd3a6e780ab70a88b72279461bf3d080bb98dc834e318",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -718,13 +740,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "太阳",
+      "summary_cn": "太阳及其光热；晒太阳或使曝晒",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "太阳"
+        "target_label": "太阳及其光热；晒太阳或使曝晒"
       }
     },
     "senses": [
@@ -743,14 +765,6 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "the sun rises",
             "meaning_cn": "太阳升起",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:6d47c2bc7f4109651128",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "in the sun",
-            "meaning_cn": "在阳光下",
             "kind": "usage_example",
             "repair": null
           }
@@ -779,6 +793,14 @@
             "meaning_cn": "享受阳光",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:6d47c2bc7f4109651128",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "in the sun",
+            "meaning_cn": "在阳光下",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -794,7 +816,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "晒；使曝晒",
-        "definition_en": "expose one's body to the sun",
+        "definition_en": "to expose someone or something to sunlight",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -818,7 +840,7 @@
         "id": "sense:sun:e70dc4edb4a7583d",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + in",
+        "governing_pattern": "vi.: sun (in/on + place)",
         "definition_cn": "晒太阳",
         "definition_en": "to expose oneself to the sun",
         "note": "",
@@ -891,7 +913,7 @@
     "ordinal": 4807,
     "word": "sunday",
     "source_owner_path": "content/lexical/words/by-ordinal/o4807.json",
-    "source_fingerprint": "d171dcd37d67933442f1751c6e80499236878196c4b2ffa7b4e29b16e0358bc4",
+    "source_fingerprint": "a99f33f088286948e39c855a150995c3eb232d669e9d112f631cc7b25411aa74",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -920,15 +942,7 @@
         "definition_cn": "星期日",
         "definition_en": "the day of the week after Saturday and before Monday",
         "note": "",
-        "identity_overlay": {
-          "text": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:58f9b5cb53d1d3e2600b",
@@ -967,15 +981,7 @@
         "definition_cn": "星期日的；业余的",
         "definition_en": "of or relating to Sunday; amateur",
         "note": "",
-        "identity_overlay": {
-          "text": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:d8117b2ff103a48a3acf",
@@ -1001,15 +1007,7 @@
         "definition_cn": "度星期日",
         "definition_en": "spend Sunday",
         "note": "",
-        "identity_overlay": {
-          "text": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "Sunday is the canonical capitalized day name and derived ordinary uses such as Sunday morning/Sunday driver; lowercase is nonstandard or style-specific"
-          }
-        },
+        "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:1c04e00258df4edd79cf",
@@ -1187,12 +1185,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -1319,18 +1313,19 @@
     "ordinal": 4809,
     "word": "sunset",
     "source_owner_path": "content/lexical/words/by-ordinal/o4809.json",
-    "source_fingerprint": "eecf37651a01524b31185c4a653e8458f7261aa520a7eac63fae630e6a6a9d8a",
+    "source_fingerprint": "38504c1c524765a19e0a3575aefea24f0168ea3df3afb8eb31851d2c89bd3647",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
+        "1V",
+        "2A",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "日落",
-      "decision_cn": "",
+      "decision_cn": "天色选日落，产业/人生可指衰落；法律或协议语境选规定到期终止。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1457,6 +1452,54 @@
           "target_locator": "record.senses[3]",
           "target_label": "夕阳产业的，衰落的"
         }
+      },
+      {
+        "id": "sense:sunset:6d4469845d3c627f57a1",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "规定到期终止的",
+        "definition_en": "setting an end date or ending condition for a law or agreement",
+        "note": "商业、法律用法，主要用于美式英语，置于名词前。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:b76d419ae3e0be9f4968",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "sunset clause",
+            "meaning_cn": "规定到期失效或终止条件的条款",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b76d419ae3e0be9f4968",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "sunset clause"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sunset:6d4469845d3c627f57a1",
+          "target_locator": "record.senses[4]",
+          "target_label": "规定到期终止的"
+        }
+      },
+      {
+        "id": "sense:sunset:9ba9dd50a171c200a379",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "vi./vt.: a provision sunsets; sunset a provision",
+        "definition_cn": "（使法律、协议等）到期终止",
+        "definition_en": "for a law or agreement to expire, or to end it or let it expire",
+        "note": "商业、法律用法，主要用于美式英语；表示终止，不是“日落”。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sunset:9ba9dd50a171c200a379",
+          "target_locator": "record.senses[5]",
+          "target_label": "（使法律、协议等）到期终止"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1504,7 +1547,7 @@
     "ordinal": 4810,
     "word": "sunshine",
     "source_owner_path": "content/lexical/words/by-ordinal/o4810.json",
-    "source_fingerprint": "52dde1ae92d4e2c3d46a7197fe6829b70befd26bba0819c003ce920faf6d044e",
+    "source_fingerprint": "c3ac7cc936008529d3a0021ddcddcdf84817a4cc23fbcddf74b1a0b6e6f7627e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1513,13 +1556,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "阳光；阳光；晴朗有阳光的天气",
-      "decision_cn": "",
+      "summary_cn": "阳光与晴朗天气，也比喻带来欢乐",
+      "decision_cn": "光照强弱选光线；天气预报选晴朗状态；给生活带来 sunshine 指欢乐。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "阳光；阳光；晴朗有阳光的天气"
+        "target_label": "阳光与晴朗天气，也比喻带来欢乐"
       }
     },
     "senses": [
@@ -1554,9 +1597,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "阳光；晴朗有阳光的天气",
-        "definition_en": "sunlight, or sunny weather characterized by sunshine",
-        "note": "",
+        "definition_cn": "晴朗有阳光的天气",
+        "definition_en": "weather in which the sun is shining",
+        "note": "天气语境关注有日照的状态；与阳光义相连，须按上下文区分。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1572,7 +1615,7 @@
           "target_kind": "sense",
           "target_id": "sense:sunshine:6a1b127d79205612",
           "target_locator": "record.senses[1]",
-          "target_label": "阳光；晴朗有阳光的天气"
+          "target_label": "晴朗有阳光的天气"
         }
       },
       {
@@ -2181,7 +2224,7 @@
     "ordinal": 4815,
     "word": "superior",
     "source_owner_path": "content/lexical/words/by-ordinal/o4815.json",
-    "source_fingerprint": "e88b3f700c8aecda36c032a8623a86ee73409859b9c6877128cc7fb2a56ae0cc",
+    "source_fingerprint": "dc484115111198354fe1263309f4da9c13bfdb8db1976579a913d50651f02850",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2215,7 +2258,7 @@
             "id": "collocation:41a0386d5ad6ce17a867",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "be superior to + sth/sb",
-            "meaning_cn": "比……优越；优于",
+            "meaning_cn": "优于某人/某物；比较对象用 to，不用 than",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -2339,25 +2382,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:068d8a583689f3ae5ed4",
-        "source_locator": "record.constructions[0]",
-        "pattern": "superior to sb/sth",
-        "lines": [
-          {
-            "text": "优于、胜过某人/某物；英语通常用 to 而非 than",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:068d8a583689f3ae5ed4",
-          "target_locator": "record.constructions[0]",
-          "target_label": "superior to sb/sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3283,18 +3308,18 @@
     "ordinal": 4823,
     "word": "supply",
     "source_owner_path": "content/lexical/words/by-ordinal/o4823.json",
-    "source_fingerprint": "f1600f8c661b12c793aa9ae2f97e26776321c42c03122ed0b3ac660bd7559201",
+    "source_fingerprint": "2711de299b6e03539393e666f7b7a21072077d9aec7fd7e11c053e951ab203a2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "供给；提供；供应",
-      "decision_cn": "",
+      "decision_cn": "a supply of 看可用数量；供电/供水等看供应过程；复数 supplies 可直接指补给物资。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3348,7 +3373,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "供给，供应",
-        "definition_en": "the act of providing goods and services for sale",
+        "definition_en": "the act or process of providing something needed",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3441,6 +3466,32 @@
           "target_id": "sense:supply:05fa8cd195ff56ad",
           "target_locator": "record.senses[3]",
           "target_label": "替代，代理"
+        }
+      },
+      {
+        "id": "sense:supply:2df47f146f70db464965",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（复数 supplies）必需品；补给物资",
+        "definition_en": "needed materials such as food, fuel, equipment or medicines",
+        "note": "此义用复数 supplies；不是单纯指抽象的供应行为。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c41ccbe42ad8604b2450",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "emergency supplies",
+            "meaning_cn": "应急物资",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:supply:2df47f146f70db464965",
+          "target_locator": "record.senses[4]",
+          "target_label": "（复数 supplies）必需品；补给物资"
         }
       }
     ],
@@ -3550,23 +3601,23 @@
     "ordinal": 4824,
     "word": "support",
     "source_owner_path": "content/lexical/words/by-ordinal/o4824.json",
-    "source_fingerprint": "dcc1216a1a544e6fbc0cc13043ddde8f1d1fd2f304f301688aa1d607927a1e95",
+    "source_fingerprint": "a54f6a00cc8b9cf37f739954923b4966ce03721cbad5d92f583d608024ab4ef3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "4V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "支持、支撑；维持/供养；证据支持/证实；支持者等常见义",
-      "decision_cn": "",
+      "summary_cn": "给予支撑或帮助，使人、事物或观点站得住",
+      "decision_cn": "家人/生活费用选供养，实体选支撑；数据支持观点只增加可信度，不自动等于已证实。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "支持、支撑；维持/供养；证据支持/证实；支持者等常见义"
+        "target_label": "给予支撑或帮助，使人、事物或观点站得住"
       }
     },
     "senses": [
@@ -3733,6 +3784,32 @@
           "target_locator": "record.senses[5]",
           "target_label": "支持性证据；佐证"
         }
+      },
+      {
+        "id": "sense:support:0f708dea410b8c7756c0",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "vt.: support sb/oneself/life",
+        "definition_cn": "供养；维持生存或运作所需",
+        "definition_en": "to provide the resources needed for someone or something to live or continue",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:958ee29a48c018df862f",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "support a family",
+            "meaning_cn": "养家",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:support:0f708dea410b8c7756c0",
+          "target_locator": "record.senses[6]",
+          "target_label": "供养；维持生存或运作所需"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3804,7 +3881,7 @@
     "ordinal": 4825,
     "word": "suppose",
     "source_owner_path": "content/lexical/words/by-ordinal/o4825.json",
-    "source_fingerprint": "a68d4cbbf2521b4cdc3e6b9f79330dd30ef95d9daa4fef80e3498da8e7420418",
+    "source_fingerprint": "012f769d876efc775213690eccc23f487db35b9adb59dab25e2ebded47e9ecbb",
     "sense_lineage": [
       {
         "word_id": "word:suppose",
@@ -3835,7 +3912,7 @@
         "id": "sense:suppose:45d1373fdfae5328",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + that-clause",
+        "governing_pattern": "vi./vt.: suppose (that) + clause; I suppose",
         "definition_cn": "认为；猜想",
         "definition_en": "to think that something is likely true",
         "note": "",
@@ -3844,14 +3921,14 @@
           {
             "id": "collocation:be876cac6ea188480db8",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "suppose that + clause",
+            "phrase": "suppose (that) + clause",
             "meaning_cn": "认为...；猜想...",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:be876cac6ea188480db8",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "suppose that + clause"
+              "target_label": "suppose (that) + clause"
             }
           },
           {
@@ -3936,38 +4013,21 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "deep:constructions:suppose:14dfd2b2a860c72f",
-        "source_locator": "record.constructions[0]",
-        "pattern": "vt. + that-clause",
-        "lines": [
-          {
-            "text": "认为；猜想",
-            "lang": "cn"
-          },
-          {
-            "text": "suppose that + clause 认为...",
-            "lang": "cn"
-          },
-          {
-            "text": "to think that something is likely true",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "deep:constructions:suppose:14dfd2b2a860c72f",
-          "target_locator": "record.constructions[0]",
-          "target_label": "vt. + that-clause"
-        }
-      },
-      {
         "id": "construction:5ee0b5b5c1f28bef758f",
         "source_locator": "record.constructions[1]",
         "pattern": "be supposed to do/be",
         "lines": [
           {
-            "text": "应该；按规定/预期要；被认为应当",
+            "text": "按规定/约定应该；按传闻据称；过去式在未实现语境中可指本应如此",
             "lang": "cn"
+          },
+          {
+            "text": "规则或约定→应该；转述别人的看法→据称，非说话人亲自确认；was/were supposed to 在落空语境→本应但实际未发生。否定 not supposed to 在规定语境常表不允许。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be required or expected under a rule or plan, or generally believed to be true",
+            "lang": "en"
           }
         ],
         "repair": {
@@ -3986,7 +4046,7 @@
           "target_word": "think",
           "lines": [
             {
-              "text": "suppose 通常比 think 更试探、更依赖假设",
+              "text": "think 是常见的观点表达；suppose 可依现有信息推测，也常把意见或回应说得较试探、较含蓄。两者没有固定确信度等级；本 Relation 对比判断义，假设与义务构式仍由 suppose 自己的 Word 义项选择。",
               "lang": "cn"
             },
             {
@@ -4040,7 +4100,7 @@
     "ordinal": 4826,
     "word": "suppress",
     "source_owner_path": "content/lexical/words/by-ordinal/o4826.json",
-    "source_fingerprint": "3329664b3b45ef35a349d71d10f6ff353645f22d8d9d5ea839ce42be9b135261",
+    "source_fingerprint": "c71065ac3ccd116372913e69997f6b5993fed5a8fea9a2427959c51e14cd1044",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4104,7 +4164,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "抑制，忍住",
-        "definition_en": "to put out of one's consciousness",
+        "definition_en": "to hold back a feeling, reaction or memory, or prevent its expression",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4402,11 +4462,11 @@
     "ordinal": 4828,
     "word": "sure",
     "source_owner_path": "content/lexical/words/by-ordinal/o4828.json",
-    "source_fingerprint": "cef9860c62e32691dc4b13297f043a4ff20f9846d020ed39499430b9b8e9f3c2",
+    "source_fingerprint": "33c19a63a2165e5e394ca576195ce01767ade1f14bd8536cb494a22586b339ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3A",
+        "4A",
         "1ADV"
       ],
       "density": "rich"
@@ -4429,7 +4489,7 @@
         "governing_pattern": "",
         "definition_cn": "确信的；有把握的",
         "definition_en": "having no doubt; certain",
-        "note": "",
+        "note": "描述人的把握时，sure of/about sth 或 sure (that)... 表示确信；这本身不保证客观事实。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4446,21 +4506,8 @@
             }
           },
           {
-            "id": "collocation:458e8503777f765094be",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "be sure to do + sth",
-            "meaning_cn": "一定要做某事；必定做某事",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:458e8503777f765094be",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "be sure to do + sth"
-            }
-          },
-          {
             "id": "collocation:ba6d5a1731d173b7f72e",
-            "source_locator": "record.senses[0].collocations[2]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "I am sure of his honesty.",
             "meaning_cn": "我确信他的诚实。",
             "kind": "usage_example",
@@ -4564,6 +4611,37 @@
           "target_locator": "record.senses[3]",
           "target_label": "当然；确实"
         }
+      },
+      {
+        "id": "sense:sure:0490d7f218ce990f9adf",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "一定会发生的；必定会的",
+        "definition_en": "certain to happen or do something",
+        "note": "描述事情的必然性：be sure to do；祈使句 Be sure to do... 用于提醒“务必做”，不是陈述人的主观确信。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:458e8503777f765094be",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "be sure to do + sth",
+            "meaning_cn": "陈述句表示必定会；祈使句 Be sure to... 表示务必、别忘了",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:458e8503777f765094be",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "be sure to do + sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sure:0490d7f218ce990f9adf",
+          "target_locator": "record.senses[4]",
+          "target_label": "一定会发生的；必定会的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4607,23 +4685,6 @@
           "target_locator": "record.constructions[0]",
           "target_label": "make sure (that...) / make sure of sth"
         }
-      },
-      {
-        "id": "construction:a33c504ae945a200ea0e",
-        "source_locator": "record.constructions[1]",
-        "pattern": "be sure to do/be",
-        "lines": [
-          {
-            "text": "一定会做/是；务必做……",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:a33c504ae945a200ea0e",
-          "target_locator": "record.constructions[1]",
-          "target_label": "be sure to do/be"
-        }
       }
     ],
     "reference": {
@@ -4657,7 +4718,7 @@
     "ordinal": 4829,
     "word": "surface",
     "source_owner_path": "content/lexical/words/by-ordinal/o4829.json",
-    "source_fingerprint": "2eefcec7bbefb611df55e5ee8658a1affca5930732687e5472406d29b2869ed6",
+    "source_fingerprint": "c5b283362e87e86831ee460b828908fe8189dfcbff024861c96bcacb768f5d1e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4692,9 +4753,14 @@
             "id": "collocation:0333afab3fe170cae7d5",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "on the surface",
-            "meaning_cn": "表面上，外表上",
-            "kind": "usage_example",
-            "repair": null
+            "meaning_cn": "表面上；从外在看来（可能与更深层事实不同）",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:0333afab3fe170cae7d5",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "on the surface"
+            }
           },
           {
             "id": "collocation:cc3d1deff0f2e8b3830b",
@@ -4719,7 +4785,7 @@
         "governing_pattern": "",
         "definition_cn": "表面的，外观的",
         "definition_en": "relating to the surface; superficial",
-        "note": "",
+        "note": "surface mail 是按运输方式区分的陆海邮件，不是按邮资或挂号与否区分的普通邮件。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4734,7 +4800,7 @@
             "id": "collocation:940ef2ca496a4c327775",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "surface mail",
-            "meaning_cn": "平邮，普通邮件",
+            "meaning_cn": "陆路或海路寄送的邮件（非航空）",
             "kind": "usage_example",
             "repair": null
           }
@@ -4750,7 +4816,7 @@
         "id": "sense:surface:0c945750d9545395",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + from",
+        "governing_pattern": "vi.: surface (from + sth)",
         "definition_cn": "浮出水面，呈现",
         "definition_en": "to rise to the surface of water; to become visible or known",
         "note": "",
@@ -4790,7 +4856,7 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使成平面，使浮出水面",
+        "definition_cn": "给道路等铺面；使浮出水面",
         "definition_en": "to put a surface on something; to bring to the surface",
         "note": "",
         "identity_overlay": null,
@@ -4808,7 +4874,7 @@
           "target_kind": "sense",
           "target_id": "sense:surface:047d680999245560",
           "target_locator": "record.senses[3]",
-          "target_label": "使成平面，使浮出水面"
+          "target_label": "给道路等铺面；使浮出水面"
         }
       }
     ],
@@ -4845,25 +4911,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:d2606205ead784efb134",
-        "source_locator": "record.constructions[0]",
-        "pattern": "on the surface",
-        "lines": [
-          {
-            "text": "表面上；从外在看来（可能与更深层事实不同）",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:d2606205ead784efb134",
-          "target_locator": "record.constructions[0]",
-          "target_label": "on the surface"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4877,7 +4925,7 @@
     "ordinal": 4830,
     "word": "surge",
     "source_owner_path": "content/lexical/words/by-ordinal/o4830.json",
-    "source_fingerprint": "dda7a3ee4c1da9fec9f5e61f5a8489ab67e45d7cfc517b3776a33050280e3c87",
+    "source_fingerprint": "4df3f32c382f64b4f45a2cbd5de0639d2e8bfd382e683e69bd3979483de033bc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4932,7 +4980,7 @@
         "id": "sense:surge:4e7dd9ae40885f17",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + up",
+        "governing_pattern": "vi.: surge (up)",
         "definition_cn": "汹涌，澎湃",
         "definition_en": "to rise and move powerfully like waves",
         "note": "",
@@ -4963,7 +5011,7 @@
         "id": "sense:surge:dee233a9d5425230",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + forward",
+        "governing_pattern": "vi.: surge (forward/through + place)",
         "definition_cn": "猛冲，涌动",
         "definition_en": "to move suddenly and powerfully forward",
         "note": "",
@@ -5196,7 +5244,7 @@
     "ordinal": 4832,
     "word": "surgery",
     "source_owner_path": "content/lexical/words/by-ordinal/o4832.json",
-    "source_fingerprint": "256051735958a276e557ad1b7dc23fd4e340f3bda9609157da765c6f25682b1b",
+    "source_fingerprint": "1a4a3d2d07b30a968eecc9ee15817fdc850e23a2c39bc6994433ea165a2b1f1e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5224,29 +5272,7 @@
         "definition_en": "the branch of medical science that treats disease or injury by operative procedures",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:6036868cc57c827e781b",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "undergo surgery",
-            "meaning_cn": "接受手术",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:e909f80758c314285292",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "surgery on + body part",
-            "meaning_cn": "对某部位的手术",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:e909f80758c314285292",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "surgery on + body part"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:surgery:0b008055201a52e4",
@@ -5289,7 +5315,29 @@
         "definition_en": "a medical operation or procedure in which the body is cut or otherwise operated on to treat disease or injury",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:6036868cc57c827e781b",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "undergo surgery",
+            "meaning_cn": "接受手术",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:e909f80758c314285292",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "surgery on + body part",
+            "meaning_cn": "对某部位的手术",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e909f80758c314285292",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "surgery on + body part"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:surgery:b957008889955dd7",
@@ -5743,7 +5791,7 @@
     "ordinal": 4836,
     "word": "surprise",
     "source_owner_path": "content/lexical/words/by-ordinal/o4836.json",
-    "source_fingerprint": "51db4827049b68b1ace02c6c2b614f0eab28abd0d50e840538800cc89a4958bb",
+    "source_fingerprint": "126156ced800c122e47aaadbbe56a8f5d472a18e6d49072d95bb0dc853a60ef1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5847,7 +5895,7 @@
             "id": "collocation:4943eb2d9163bb0dec16",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "surprise sb with sth",
-            "meaning_cn": "用某物使某人惊喜",
+            "meaning_cn": "用某事或某物使某人感到意外或惊讶",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -6035,7 +6083,7 @@
     "ordinal": 4837,
     "word": "surrender",
     "source_owner_path": "content/lexical/words/by-ordinal/o4837.json",
-    "source_fingerprint": "2df5b5a9043d48af06b2fca0db3c122984206b571cc8dc4e78a8b871b67587ef",
+    "source_fingerprint": "4700fba0c990e0526e925d745a180869098841c8a378bc5498f67a6889c6643b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6059,9 +6107,9 @@
         "id": "sense:surrender:5e8b3554346758ab",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "vi.: surrender; surrender to sb/sth",
         "definition_cn": "投降；屈服",
-        "definition_en": "give up or agree to forgo to the power or possession of another",
+        "definition_en": "to stop resisting and accept defeat, or yield to an emotion or influence",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6069,7 +6117,7 @@
             "id": "collocation:a2b94cd1556a9ac8c1e4",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "surrender to + sb/sth",
-            "meaning_cn": "向某人/某物投降",
+            "meaning_cn": "向某人投降；屈服于某种力量或情感",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -6294,7 +6342,7 @@
     "ordinal": 4839,
     "word": "surroundings",
     "source_owner_path": "content/lexical/words/by-ordinal/o4839.json",
-    "source_fingerprint": "e98704c02ca13aba6541a8a54166df7e0faef4da0430015ff2c04ad31b1e3079",
+    "source_fingerprint": "a70c4b2ced47379b658b012e5091badb5a256273a0b6f849d6ea53619f6d36da",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6317,10 +6365,10 @@
         "id": "sense:surroundings:5cf28c0c8ece5382",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "plural noun: one's surroundings; the surroundings of sth",
         "definition_cn": "环境；周围的事物",
         "definition_en": "the conditions or area around a person or thing",
-        "note": "",
+        "note": "此环境义用复数形式 surroundings，作主语时与复数谓语搭配。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6529,26 +6577,26 @@
     "ordinal": 4841,
     "word": "survey",
     "source_owner_path": "content/lexical/words/by-ordinal/o4841.json",
-    "source_fingerprint": "5bb85aa595d0a48011af39681f1a44dbb11b429da71141d9c9b2628043dd4c8f",
+    "source_fingerprint": "0e229951199b437cd634ff1da202a013f867eb0e24a69a88b353b50409acf15b",
     "sense_lineage": [
       {
         "word_id": "word:survey",
         "target_kind": "sense",
         "from_target_id": "sense:survey:e4d141086c4953f0",
         "status": "merged",
-        "to_target_id": "sense:survey:8324a5636ebd52d0"
+        "to_target_id": "sense:survey:5cc0668a48045588"
       }
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "调查，考察；审视，纵览；测量，勘测",
-      "decision_cn": "",
+      "decision_cn": "问人群、意见或行为选调查；看现场选审视；量土地并作图选勘测。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6640,6 +6688,23 @@
           "target_id": "sense:survey:7e3e94c8ba1a527e",
           "target_locator": "record.senses[3]",
           "target_label": "测量，勘测"
+        }
+      },
+      {
+        "id": "sense:survey:adde05d1a064bdefa23f",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "vt.: survey people/their opinions or behaviour",
+        "definition_cn": "（通过询问）调查；调查人们的意见或行为",
+        "definition_en": "to gather information about people’s views or behaviour by asking questions",
+        "note": "宾语是人群、意见或行为时，可指询问调查；看现场是审视，量地形是勘测。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:survey:adde05d1a064bdefa23f",
+          "target_locator": "record.senses[4]",
+          "target_label": "（通过询问）调查；调查人们的意见或行为"
         }
       }
     ],
@@ -6771,19 +6836,15 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": [],
       "senses": [
         {
           "stable_sense_id": "sense:survey:e4d141086c4953f0",
           "status": "merged",
-          "merged_into_sense_id": "sense:survey:8324a5636ebd52d0",
+          "merged_into_sense_id": "sense:survey:5cc0668a48045588",
           "pos": "verb",
           "definition_cn": "测量土地",
           "definition_en": "to measure land as a profession",
@@ -6803,7 +6864,16 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 13755,
           "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json",
-          "reference_only": true
+          "reference_only": true,
+          "current_successor_correction_history": [
+            {
+              "task": "lexical-4801-4850",
+              "field": "merged_into_sense_id",
+              "before": "sense:survey:8324a5636ebd52d0",
+              "after": "sense:survey:5cc0668a48045588",
+              "reason": "Correct current successor to the same-POS land-measuring Sense; original wrong noun mapping is preserved here as historical evidence."
+            }
+          ]
         }
       ]
     }
@@ -6814,7 +6884,7 @@
     "ordinal": 4842,
     "word": "survival",
     "source_owner_path": "content/lexical/words/by-ordinal/o4842.json",
-    "source_fingerprint": "5cbc00c0879ff9440f6ae7dddb2e5c9651688fd35d5f3e91afadf2df58f339f6",
+    "source_fingerprint": "97c344e1941a67a3332d50050ab091c93d8a177aeb64e2317634f46789959f39",
     "sense_lineage": [
       {
         "word_id": "word:survival",
@@ -7113,7 +7183,7 @@
     "ordinal": 4844,
     "word": "susceptible",
     "source_owner_path": "content/lexical/words/by-ordinal/o4844.json",
-    "source_fingerprint": "eb965aac4daa7afdbd22eefce7525534a2926c680fff4c5a446745488a448bae",
+    "source_fingerprint": "4fe64ea9abf4fbfc91a9a7334cba18b0663116872cd0c38200b38a8bdb33369b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7167,17 +7237,17 @@
         "id": "sense:susceptible:ad25caeff3d55877",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "a. + of",
-        "definition_cn": "容许...的，能...的",
-        "definition_en": "capable of undergoing or being affected by something",
-        "note": "",
+        "governing_pattern": "be susceptible to/of + sth (e.g. interpretation/proof)",
+        "definition_cn": "可接受某种处理的（如解释、证明）",
+        "definition_en": "capable of undergoing a particular action or process, including interpretation or proof",
+        "note": "表示可作某种解释、证明等时为正式用法，通常作表语；of 形式尤见英式英语。这里强调能够接受某种处理，不是易受伤害。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:d186809424713c8eee25",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "susceptible of + sth",
-            "meaning_cn": "容许某物（如解释）",
+            "meaning_cn": "容许或可接受某种处理（如解释）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -7191,7 +7261,7 @@
           "target_kind": "sense",
           "target_id": "sense:susceptible:ad25caeff3d55877",
           "target_locator": "record.senses[1]",
-          "target_label": "容许...的，能...的"
+          "target_label": "可接受某种处理的（如解释、证明）"
         }
       },
       {
@@ -7244,7 +7314,7 @@
     "ordinal": 4845,
     "word": "suspect",
     "source_owner_path": "content/lexical/words/by-ordinal/o4845.json",
-    "source_fingerprint": "19779b63080a844464ef6808ac4609405811dee657efb7bf69415ac8cd2ade9f",
+    "source_fingerprint": "9f96e746d2973504ae5bba2a3c0c1d00f16c18e6116041ab26a178bee6fba9ca",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7300,9 +7370,9 @@
         "id": "sense:suspect:419e2679153d5bb5",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "suspect sb of sth/a crime",
-        "definition_cn": "怀疑（有罪）",
-        "definition_en": "to believe someone is guilty of a crime",
+        "governing_pattern": "vt.: suspect sb; suspect sb of sth/doing sth",
+        "definition_cn": "怀疑（某人做了坏事或犯了罪）",
+        "definition_en": "to think that someone has done something wrong or committed a crime",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7337,7 +7407,7 @@
           "target_kind": "sense",
           "target_id": "sense:suspect:419e2679153d5bb5",
           "target_locator": "record.senses[1]",
-          "target_label": "怀疑（有罪）"
+          "target_label": "怀疑（某人做了坏事或犯了罪）"
         }
       },
       {
@@ -7447,12 +7517,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -7702,11 +7768,11 @@
     "ordinal": 4847,
     "word": "suspicion",
     "source_owner_path": "content/lexical/words/by-ordinal/o4847.json",
-    "source_fingerprint": "db7a86459f74d1a074509295bd4456b75af34895e0ddc79862a0f1dca19f027e",
+    "source_fingerprint": "a4997827f556b87d475ab1af32f62f93fbd8343b66e5392fa59e275437797fb1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -7767,7 +7833,7 @@
         "governing_pattern": "",
         "definition_cn": "一点儿；微量",
         "definition_en": "a slight amount of something",
-        "note": "",
+        "note": "此义指程度或数量很小；on/under suspicion of 表涉嫌或被怀疑，不属微量义。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7789,6 +7855,23 @@
           "target_id": "sense:suspicion:ebe322febbc65ff8",
           "target_locator": "record.senses[1]",
           "target_label": "一点儿；微量"
+        }
+      },
+      {
+        "id": "sense:suspicion:00fc0b32a9ab77492ef0",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a suspicion that + clause; have a suspicion",
+        "definition_cn": "猜测；觉得某事可能属实",
+        "definition_en": "an unconfirmed belief that something may be true",
+        "note": "不必涉及坏事或犯罪；that 从句给出所猜测的内容。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:suspicion:00fc0b32a9ab77492ef0",
+          "target_locator": "record.senses[2]",
+          "target_label": "猜测；觉得某事可能属实"
         }
       }
     ],
@@ -7861,7 +7944,7 @@
     "ordinal": 4848,
     "word": "suspicious",
     "source_owner_path": "content/lexical/words/by-ordinal/o4848.json",
-    "source_fingerprint": "adeb0b051d1ecd39747ceb473b0afe6fe7d46b87ab2885890d1084954083e221",
+    "source_fingerprint": "d93b7530df6ec198b5c843f4fd22e53010a58069174f10f00e234691d5bccdaa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7902,14 +7985,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "be suspicious of + sb/sth"
             }
-          },
-          {
-            "id": "collocation:a5d800bc1427cf94f01a",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "suspicious behavior",
-            "meaning_cn": "可疑的行为",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -7934,6 +8009,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "suspicious package",
             "meaning_cn": "可疑包裹",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:a5d800bc1427cf94f01a",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "suspicious behavior",
+            "meaning_cn": "可疑的行为",
             "kind": "usage_example",
             "repair": null
           }
@@ -8019,7 +8102,7 @@
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(3+1)V"
+        "3V"
       ],
       "density": "rich"
     },
@@ -8162,22 +8245,7 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:sustain:316befed90ce14d3",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "遭受，蒙受",
-        "definition_en": "to suffer or experience something, especially injury or damage",
-        "pattern": "sustain injuries/damage",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:sustain:316befed90ce14d3",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "遭受，蒙受"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -8192,7 +8260,7 @@
     "ordinal": 4850,
     "word": "swallow",
     "source_owner_path": "content/lexical/words/by-ordinal/o4850.json",
-    "source_fingerprint": "a0078f12902279e184c16ffa97d85b47ff047877ab03a30e5450e8986ad00ca5",
+    "source_fingerprint": "8a843b30ea7fb9cab98c310e5e2c35199fdce3cc4361f676a8ac6f992f27fa3c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8216,7 +8284,7 @@
         "id": "sense:swallow:eda1d33f8d775391",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "vi./vt.: swallow; swallow sth",
         "definition_cn": "吞下，咽下（食物或饮料）",
         "definition_en": "to make food or drink go down your throat",
         "note": "",
@@ -8412,7 +8480,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e20051d7787107da1df8",
+        "source_locator": "record.constructions[0]",
+        "pattern": "swallow (up) sb/sth; swallow sb/sth up",
+        "lines": [
+          {
+            "text": "吞没、吞并；消耗掉（大量时间、金钱等）",
+            "lang": "cn"
+          },
+          {
+            "text": "实体或机构作宾语时指吞没或并入；资源作宾语时指消耗大量，不必全部耗尽。up 可省略；代词作宾语时用 swallow it/them up。",
+            "lang": "cn"
+          },
+          {
+            "text": "to engulf or absorb someone or something, or consume a large share of a resource",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e20051d7787107da1df8",
+          "target_locator": "record.constructions[0]",
+          "target_label": "swallow (up) sb/sth; swallow sb/sth up"
+        }
+      }
+    ],
     "reference": {
       "confusables": [
         {
@@ -8444,7 +8538,7 @@
     "ordinal": 4851,
     "word": "swamp",
     "source_owner_path": "content/lexical/words/by-ordinal/o4851.json",
-    "source_fingerprint": "555ce6f55dba2bc86c901ce9fb6cd73bacb53da95903adbf78db397b458a4dc0",
+    "source_fingerprint": "6dfae5e9256995e0212e6655f7c1927896bdda0b2ee64faf52f8a2753c67b565",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8494,8 +8588,8 @@
         "id": "sense:swamp:aa002ae2d3c855b9",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "淹没，浸没",
+        "governing_pattern": "I/T: swamp sth; a boat swamps/fills with water",
+        "definition_cn": "（使）淹没，浸没",
         "definition_en": "drench or submerge or be drenched or submerged",
         "note": "",
         "identity_overlay": null,
@@ -8518,7 +8612,7 @@
           "target_kind": "sense",
           "target_id": "sense:swamp:aa002ae2d3c855b9",
           "target_locator": "record.senses[1]",
-          "target_label": "淹没，浸没"
+          "target_label": "（使）淹没，浸没"
         }
       },
       {
@@ -8542,7 +8636,7 @@
         "id": "sense:swamp:639caf8cdca05d94",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt.: swamp sb/system/place with/by sth; be swamped with/by sth",
+        "governing_pattern": "vt.: swamp sb/sth (with sth); be swamped with/by sth",
         "definition_cn": "使不堪重负；使应接不暇；大量涌入",
         "definition_en": "to overwhelm a person, system, or place with more work, demand, information, or other things than can be dealt with easily",
         "note": "",
@@ -8551,14 +8645,14 @@
           {
             "id": "collocation:6e824099db762879cd18",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "be swamped with work/requests",
-            "meaning_cn": "被工作/请求压得应接不暇",
+            "phrase": "be swamped with/by sth",
+            "meaning_cn": "被大量工作、请求、信息等压得应接不暇（比喻，不指字面水淹）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:6e824099db762879cd18",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "be swamped with work/requests"
+              "target_label": "be swamped with/by sth"
             }
           }
         ],
@@ -8603,33 +8697,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:39dec4bfc4e419bf9a27",
-        "source_locator": "record.constructions[0]",
-        "pattern": "be swamped with/by sth",
-        "lines": [
-          {
-            "text": "被大量…压得应接不暇；被…淹没",
-            "lang": "cn"
-          },
-          {
-            "text": "figurative overload branch, not literal flooding",
-            "lang": "en"
-          },
-          {
-            "text": "to be overwhelmed by more work, demand, information, or other things than can be handled easily",
-            "lang": "en"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:39dec4bfc4e419bf9a27",
-          "target_locator": "record.constructions[0]",
-          "target_label": "be swamped with/by sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8643,7 +8711,7 @@
     "ordinal": 4852,
     "word": "swan",
     "source_owner_path": "content/lexical/words/by-ordinal/o4852.json",
-    "source_fingerprint": "920a384251ef69bc3d29f2b6ec86610a1d10fafcc239c54f3778f8f2ba64c32a",
+    "source_fingerprint": "a973ac56cb7317ae286cdb81e4744a8f28f8d727361ef88413c35c454fafdd38",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8693,7 +8761,7 @@
         "id": "sense:swan:22e7e5585ba45ebe",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + about/around",
+        "governing_pattern": "vi. usually + adv/prep: swan about/around; swan into/out of a place",
         "definition_cn": "闲荡，游荡",
         "definition_en": "to move about idly or aimlessly",
         "note": "BrE informal, often disapproving: move or travel around in a casual/self-important way",
@@ -8702,14 +8770,14 @@
           {
             "id": "collocation:8e8a2ca273bb72db14bf",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "swan about",
-            "meaning_cn": "闲荡",
+            "phrase": "swan around/about",
+            "meaning_cn": "（英式非正式，常贬义）悠闲或自以为是地四处晃荡",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:8e8a2ca273bb72db14bf",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "swan about"
+              "target_label": "swan around/about"
             }
           },
           {
@@ -8762,25 +8830,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:a26f8ae39bf9173409fe",
-        "source_locator": "record.constructions[0]",
-        "pattern": "swan around/about",
-        "lines": [
-          {
-            "text": "（英式非正式，常贬义）悠闲或自以为是地四处晃荡",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:a26f8ae39bf9173409fe",
-          "target_locator": "record.constructions[0]",
-          "target_label": "swan around/about"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8794,7 +8844,7 @@
     "ordinal": 4853,
     "word": "swarm",
     "source_owner_path": "content/lexical/words/by-ordinal/o4853.json",
-    "source_fingerprint": "9a5fa5536ba33ff6402caaef92a5555ed4a7801b088d3a75b3238c801af6bd63",
+    "source_fingerprint": "560b2738f0a6bb85467af07cfebf6c0f935a67e0bb4f642801fb3c7e9f3caa23",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8914,9 +8964,9 @@
         "id": "sense:swarm:83809ae68ee452fe",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "挤满，蜂拥而至",
-        "definition_en": "to fill or crowd a place",
+        "governing_pattern": "vt.: swarm a place; vi.: a place swarms/is swarming with sb/sth",
+        "definition_cn": "挤满；（地点）满是成群活动的人或东西",
+        "definition_en": "to crowd a place, or, of a place, to contain large numbers of people or things moving around",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8933,7 +8983,7 @@
           "target_kind": "sense",
           "target_id": "sense:swarm:83809ae68ee452fe",
           "target_locator": "record.senses[2]",
-          "target_label": "挤满，蜂拥而至"
+          "target_label": "挤满；（地点）满是成群活动的人或东西"
         }
       }
     ],
@@ -8970,7 +9020,26 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:4105fa0dfe5396738264",
+        "sense_id": "sense:swarm:83809ae68ee452fe",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a place is swarming with sb/sth",
+        "lines": [
+          {
+            "text": "某地挤满／遍布大量活动着的人或东西；地点作主语，with引出其中的人或物",
+            "lang": "cn"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:4105fa0dfe5396738264",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a place is swarming with sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -9006,12 +9075,12 @@
     "ordinal": 4854,
     "word": "sway",
     "source_owner_path": "content/lexical/words/by-ordinal/o4854.json",
-    "source_fingerprint": "6669bda951a68eaedafbbd74492866e0b827f2699b432f2a97753e32cd2900c4",
+    "source_fingerprint": "2e3f4ee680357e9b0ace75fe6d321a7960ef7f499e48dea32831d8fede0b2476",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -9030,9 +9099,9 @@
         "id": "sense:sway:5d7cb6527e1c5bd8",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "摇摆，摆动",
-        "definition_en": "to move slowly back and forth",
+        "governing_pattern": "I/T: sway (from side to side/back and forth); sway sth",
+        "definition_cn": "（使）摇摆，摆动",
+        "definition_en": "to move slowly from side to side or backwards and forwards, or cause something to do so",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9049,7 +9118,7 @@
           "target_kind": "sense",
           "target_id": "sense:sway:5d7cb6527e1c5bd8",
           "target_locator": "record.senses[0]",
-          "target_label": "摇摆，摆动"
+          "target_label": "（使）摇摆，摆动"
         }
       },
       {
@@ -9147,6 +9216,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "倾斜，歪"
         }
+      },
+      {
+        "id": "sense:sway:263ad86cf0ed0b652558",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "uncountable",
+        "definition_cn": "摇摆，摆动",
+        "definition_en": "a slow movement from side to side",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sway:263ad86cf0ed0b652558",
+          "target_locator": "record.senses[4]",
+          "target_label": "摇摆，摆动"
+        }
       }
     ],
     "pronunciation_support": {
@@ -9184,7 +9270,7 @@
     "ordinal": 4855,
     "word": "swear",
     "source_owner_path": "content/lexical/words/by-ordinal/o4855.json",
-    "source_fingerprint": "91a95292f0064cd2953ae67647b2ff77359a8e3685aea4125e844e1593a55962",
+    "source_fingerprint": "4dd67e4eed49ab9445f659e0b835c4712cffd51fadfdc13020a57bfd4ea8b30b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9208,9 +9294,9 @@
         "id": "sense:swear:66b24364fa9e54be",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "发誓；郑重承诺",
-        "definition_en": "to promise solemnly; to take an oath",
+        "governing_pattern": "I/T: swear; swear an oath; swear to do sth; swear (that) + clause",
+        "definition_cn": "发誓；郑重承诺；坚称属实",
+        "definition_en": "to make a solemn promise, take an oath, or firmly state that something is true",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9240,14 +9326,14 @@
           "target_kind": "sense",
           "target_id": "sense:swear:66b24364fa9e54be",
           "target_locator": "record.senses[0]",
-          "target_label": "发誓；郑重承诺"
+          "target_label": "发誓；郑重承诺；坚称属实"
         }
       },
       {
         "id": "sense:swear:90007b9cebea5346",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + at",
+        "governing_pattern": "vi.: swear; swear at sb",
         "definition_cn": "咒骂；说脏话",
         "definition_en": "to use offensive language; to curse",
         "note": "",
@@ -9370,23 +9456,23 @@
     "ordinal": 4856,
     "word": "sweat",
     "source_owner_path": "content/lexical/words/by-ordinal/o4856.json",
-    "source_fingerprint": "c4c8fba45a4c9848714fad039847571d05cdc9be783b037bae18941474ac90b9",
+    "source_fingerprint": "0268d47b89bae5d91a28bee7e376e1bb9cccf99844cef1c75b116991bf2fa730",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
-        "2N"
+        "4V",
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "汗、出汗；人体排汗为主；表面凝结水义较低频",
-      "decision_cn": "",
+      "summary_cn": "汗与出汗；也用来表达辛劳或焦虑",
+      "decision_cn": "谈身体或冷表面时指汗／凝结水；谈任务或困难时，sweat可指费力做事或担忧。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "汗、出汗；人体排汗为主；表面凝结水义较低频"
+        "target_label": "汗与出汗；也用来表达辛劳或焦虑"
       }
     },
     "senses": [
@@ -9395,7 +9481,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "水珠；水汽",
+        "definition_cn": "（冷表面凝结的）水珠",
         "definition_en": "condensation of moisture on a cold surface",
         "note": "",
         "identity_overlay": null,
@@ -9413,7 +9499,7 @@
           "target_kind": "sense",
           "target_id": "sense:sweat:e83e6534261f5fa5",
           "target_locator": "record.senses[0]",
-          "target_label": "水珠；水汽"
+          "target_label": "（冷表面凝结的）水珠"
         }
       },
       {
@@ -9497,6 +9583,57 @@
           "target_id": "sense:sweat:e2abc1383f735978",
           "target_locator": "record.senses[3]",
           "target_label": "汗；汗水"
+        }
+      },
+      {
+        "id": "sense:sweat:19d4e7ff74d96687dedd",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "I/T: sweat; sweat over/about sth; sweat sth",
+        "definition_cn": "（非正式）担忧，焦虑；为某事烦恼",
+        "definition_en": "to feel anxious or worry about something",
+        "note": "常见否定用法 Don't sweat it / Don't sweat the small stuff，意为不要担心／别为小事烦恼。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sweat:19d4e7ff74d96687dedd",
+          "target_locator": "record.senses[4]",
+          "target_label": "（非正式）担忧，焦虑；为某事烦恼"
+        }
+      },
+      {
+        "id": "sense:sweat:9c94f2195cff81c2fab2",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "vi.: sweat (over sth)",
+        "definition_cn": "（非正式）辛苦工作，费力做事",
+        "definition_en": "to work hard or put a great deal of effort into a task",
+        "note": "sweat over a task可表示费力完成；与担忧义由上下文区分。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sweat:9c94f2195cff81c2fab2",
+          "target_locator": "record.senses[5]",
+          "target_label": "（非正式）辛苦工作，费力做事"
+        }
+      },
+      {
+        "id": "sense:sweat:010e5cc9f88d4d5373d3",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "uncountable",
+        "definition_cn": "辛劳；艰苦努力",
+        "definition_en": "hard work or strenuous effort",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:sweat:010e5cc9f88d4d5373d3",
+          "target_locator": "record.senses[6]",
+          "target_label": "辛劳；艰苦努力"
         }
       }
     ],
@@ -9646,7 +9783,7 @@
     "ordinal": 4858,
     "word": "sweep",
     "source_owner_path": "content/lexical/words/by-ordinal/o4858.json",
-    "source_fingerprint": "d260f7d2bfc53de3b644f28e24841947dcddf67058aeb9f019998f8614f4b8e6",
+    "source_fingerprint": "3dc44b461b721f4fc11215c5201648adcde1dc2d017f9c345f4a629af1168e32",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9670,7 +9807,7 @@
         "id": "sense:sweep:ceb7276682ba5d18",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: sweep; sweep a surface; sweep dirt away/from sth",
         "definition_cn": "扫除；打扫",
         "definition_en": "to clean (a surface) by brushing away dirt",
         "note": "",
@@ -9709,7 +9846,7 @@
         "id": "sense:sweep:8cbc8655811c54d6",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: sweep a place; sweep across/through a place",
         "definition_cn": "席卷；横扫",
         "definition_en": "to move or spread quickly and powerfully",
         "note": "",
@@ -9722,6 +9859,19 @@
             "meaning_cn": "风靡全国",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:0011a3c9c0d110183ce0",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "sweep across + sth",
+            "meaning_cn": "席卷…",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:0011a3c9c0d110183ce0",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "sweep across + sth"
+            }
           }
         ],
         "repair": {
@@ -9735,9 +9885,9 @@
         "id": "sense:sweep:ed68b6b3e3dd5377",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + across/through",
+        "governing_pattern": "I/T: sweep across/through/past sth; eyes/lights sweep an area",
         "definition_cn": "掠过；扫视",
-        "definition_en": "to move swiftly and smoothly",
+        "definition_en": "to move quickly across or through an area, including when eyes or a beam of light pass over it",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9752,19 +9902,6 @@
               "target_id": "collocation:3bc60268d02b7b1317c1",
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "sweep through + sth"
-            }
-          },
-          {
-            "id": "collocation:0011a3c9c0d110183ce0",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "sweep across + sth",
-            "meaning_cn": "席卷…",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:0011a3c9c0d110183ce0",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "sweep across + sth"
             }
           }
         ],
@@ -9849,7 +9986,7 @@
     "ordinal": 4859,
     "word": "sweet",
     "source_owner_path": "content/lexical/words/by-ordinal/o4859.json",
-    "source_fingerprint": "783fc3b30d091e9f6bbf45763cbd822d9edc380789b9ce0c034add45f5c0c402",
+    "source_fingerprint": "191efd0bb13ff31a262ce5026802e82273161b03a21aa2dbe3d48cf19b15ffb5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9859,13 +9996,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "甜的",
+      "summary_cn": "味觉上的甜；也可形容令人愉快或亲切的感受",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "甜的"
+        "target_label": "味觉上的甜；也可形容令人愉快或亲切的感受"
       }
     },
     "senses": [
@@ -9908,9 +10045,9 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "和蔼的；温柔的",
-        "definition_en": "pleasant, kind, or gentle",
-        "note": "",
+        "definition_cn": "令人愉快的；甜美、悦耳或芳香的；和蔼、温柔的",
+        "definition_en": "pleasant or pleasing, including in sound or smell; attractive, kind, or gentle",
+        "note": "人或性情→和蔼、温柔；声音／气味→悦耳、芳香；经历、感受→愉快、令人满足。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9934,7 +10071,7 @@
           "target_kind": "sense",
           "target_id": "sense:sweet:c3978e0ba86c550b",
           "target_locator": "record.senses[1]",
-          "target_label": "和蔼的；温柔的"
+          "target_label": "令人愉快的；甜美、悦耳或芳香的；和蔼、温柔的"
         }
       },
       {
@@ -9944,7 +10081,7 @@
         "governing_pattern": "",
         "definition_cn": "糖果；甜食",
         "definition_en": "a sweet food, such as candy or dessert",
-        "note": "",
+        "note": "指糖果时主要为英式用法（美式通常candy）；英式sweet也可指餐后甜点，美式复数sweets可泛指甜食。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10019,7 +10156,7 @@
     "ordinal": 4860,
     "word": "swell",
     "source_owner_path": "content/lexical/words/by-ordinal/o4860.json",
-    "source_fingerprint": "7a6439834a21fceaa52b10e976ecd68ce9db2ed93d5de1cbfc82b823815fc19a",
+    "source_fingerprint": "f09847d5fed2bd6329216d290a4427aea144fb3a0d2abd117f5f54a30f248ea7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10044,9 +10181,9 @@
         "id": "sense:swell:ecb332036d745956",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi.",
-        "definition_cn": "膨胀；肿胀；增大",
-        "definition_en": "to become larger or increase in size, number, or intensity",
+        "governing_pattern": "I/T: swell (up); swell in size/number; swell sth; swell with pride",
+        "definition_cn": "（使）膨胀、肿胀或增大；（数量、声音等）增加、增强",
+        "definition_en": "to become or make something larger or greater in size, amount, or intensity",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10076,7 +10213,7 @@
           "target_kind": "sense",
           "target_id": "sense:swell:ecb332036d745956",
           "target_locator": "record.senses[0]",
-          "target_label": "膨胀；肿胀；增大"
+          "target_label": "（使）膨胀、肿胀或增大；（数量、声音等）增加、增强"
         }
       },
       {
@@ -10084,7 +10221,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "隆起；巨浪",
+        "definition_cn": "隆起；涌浪，海面的起伏",
         "definition_en": "a rounded elevation or a wave on the sea",
         "note": "",
         "identity_overlay": null,
@@ -10102,7 +10239,7 @@
           "target_kind": "sense",
           "target_id": "sense:swell:c7832bf43fd35cad",
           "target_locator": "record.senses[1]",
-          "target_label": "隆起；巨浪"
+          "target_label": "隆起；涌浪，海面的起伏"
         }
       },
       {
@@ -10112,7 +10249,7 @@
         "governing_pattern": "",
         "definition_cn": "极好的；一流的",
         "definition_en": "excellent; very good",
-        "note": "",
+        "note": "美式、旧式、非正式：表示“很好”，不作为中性正式写作中的通用excellent替换。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10177,7 +10314,7 @@
     "ordinal": 4861,
     "word": "swift",
     "source_owner_path": "content/lexical/words/by-ordinal/o4861.json",
-    "source_fingerprint": "539fb12c2dcc64461634f137a0a5fcecd64ea72f8f9f2d847a74448d14fd2f39",
+    "source_fingerprint": "08e50a17d520163a661073e1d97309e1eeabda8af081b8d084b894d1b1a1aede",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10237,7 +10374,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "褐雨燕",
+        "definition_cn": "雨燕",
         "definition_en": "a small bird with long wings that resembles a swallow and is noted for its rapid flight",
         "note": "",
         "identity_overlay": null,
@@ -10246,7 +10383,7 @@
           "target_kind": "sense",
           "target_id": "sense:swift:392e94612441570f",
           "target_locator": "record.senses[1]",
-          "target_label": "褐雨燕"
+          "target_label": "雨燕"
         }
       },
       {
@@ -10360,7 +10497,7 @@
     "ordinal": 4862,
     "word": "swim",
     "source_owner_path": "content/lexical/words/by-ordinal/o4862.json",
-    "source_fingerprint": "e89c26505c3c514488e890470440bc525c5e4dbc6da563c13cf3799ba517c816",
+    "source_fingerprint": "4bf285de3869c4637573273ed3d0005ee25504d1a95d98fd9bf6029925a8d6ab",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10449,23 +10586,23 @@
         "id": "sense:swim:635f77b4ed205745",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
+        "governing_pattern": "vi.: be swimming in/with a liquid",
         "definition_cn": "充溢；浸满",
         "definition_en": "to be covered with or full of a liquid",
-        "note": "",
+        "note": "以食物作主语时常含液体过多的负面意味，如油过多；with也可描述眼中满是泪水等，不把所有用法强标贬义。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:6c4b8a8df5cd079c4809",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "swim with + sth",
-            "meaning_cn": "充满某物",
+            "phrase": "be swimming in/with + a liquid",
+            "meaning_cn": "浸满、满是某种液体（用于食物时常指液体过多）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:6c4b8a8df5cd079c4809",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "swim with + sth"
+              "target_label": "be swimming in/with + a liquid"
             }
           }
         ],
@@ -10657,24 +10794,24 @@
     "ordinal": 4863,
     "word": "swing",
     "source_owner_path": "content/lexical/words/by-ordinal/o4863.json",
-    "source_fingerprint": "6e647778dd89d24ced7ea9bbe027458fe502b5e1cbc30f308a67e55ec23c5ea5",
+    "source_fingerprint": "d3596af9df28db25ecab89920d4d21cb4831f571070f6741a174a60ec6db8a1a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "1A",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "摇摆或摆动",
+      "summary_cn": "围绕支点摆动；也可指态度或形势的转变",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "摇摆或摆动"
+        "target_label": "围绕支点摆动；也可指态度或形势的转变"
       }
     },
     "senses": [
@@ -10682,9 +10819,9 @@
         "id": "sense:swing:f474779b6bfd5d0a",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + (on/from)",
+        "governing_pattern": "vi.: swing (back and forth); swing on/from sth; swing open/shut",
         "definition_cn": "摇摆，摆动",
-        "definition_en": "to move back and forth or from side to side while hanging",
+        "definition_en": "to move backwards and forwards or in a curving movement about a fixed point",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10700,7 +10837,7 @@
             "id": "collocation:9ad163992a806b04dbbd",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "swing from a branch",
-            "meaning_cn": "从树枝上荡下",
+            "meaning_cn": "悬在树枝上荡来荡去",
             "kind": "usage_example",
             "repair": null
           }
@@ -10846,6 +10983,23 @@
           "target_locator": "record.senses[5]",
           "target_label": "强节奏爵士音乐的"
         }
+      },
+      {
+        "id": "sense:swing:70a9b0d60f78fa63a0a9",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "I/T: swing from A to B; swing towards/against sb/sth; swing voters/opinion",
+        "definition_cn": "（使态度、形势、价格等）明显转变或摇摆",
+        "definition_en": "to change, or cause a change, from one position, condition, or opinion to another",
+        "note": "变化义与物理摆动区分：态度、价格、盈亏等作主语或宾语时通常指转变。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:swing:70a9b0d60f78fa63a0a9",
+          "target_locator": "record.senses[6]",
+          "target_label": "（使态度、形势、价格等）明显转变或摇摆"
+        }
       }
     ],
     "pronunciation_support": {
@@ -10893,14 +11047,14 @@
     "ordinal": 4864,
     "word": "switch",
     "source_owner_path": "content/lexical/words/by-ordinal/o4864.json",
-    "source_fingerprint": "c7219eda02e6541fe8c85bde17d887d453d694f3a8a9318b8f8449bf7ee3364e",
+    "source_fingerprint": "f46161fa9345354137eded2b7df4f11bc81243515d83a35af31156678a2bbc6b",
     "sense_lineage": [
       {
         "word_id": "word:switch",
         "target_kind": "sense",
         "from_target_id": "sense:switch:7358c073a83e50fe",
-        "status": "merged",
-        "to_target_id": "sense:switch:c60efabd57955168"
+        "status": "deprecated",
+        "to_target_id": null
       },
       {
         "word_id": "word:switch",
@@ -10913,14 +11067,14 @@
         "word_id": "word:switch",
         "target_kind": "sense",
         "from_target_id": "sense:switch:98c4221b3af85428",
-        "status": "merged",
-        "to_target_id": "sense:switch:c60efabd57955168"
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -10978,10 +11132,10 @@
         "id": "sense:switch:09618a95fa3c5b45",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "I/T: switch to/from sth; switch jobs/channels; switch sth from A to B; switch A and B",
+        "governing_pattern": "I/T: switch to/from sth; switch jobs/channels; switch sth from A to B; switch A and B; switch sth on/off",
         "definition_cn": "转变；切换；转换",
         "definition_en": "to change from one thing, state, activity, job, channel, or system to another, or to change an object/choice in this way",
-        "note": "",
+        "note": "switch a device on/off 指把设备打开／关闭；switch from A to B 指转换，switch A and B可指互换。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -10989,6 +11143,23 @@
           "target_id": "sense:switch:09618a95fa3c5b45",
           "target_locator": "record.senses[1]",
           "target_label": "转变；切换；转换"
+        }
+      },
+      {
+        "id": "sense:switch:74ba825097408673156a",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a switch from A to B; make a switch",
+        "definition_cn": "改变；转换；替换",
+        "definition_en": "a change from one thing, activity, or choice to another",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:switch:74ba825097408673156a",
+          "target_locator": "record.senses[2]",
+          "target_label": "改变；转换；替换"
         }
       }
     ],
@@ -11056,8 +11227,8 @@
       "senses": [
         {
           "stable_sense_id": "sense:switch:7358c073a83e50fe",
-          "status": "merged",
-          "merged_into_sense_id": "sense:switch:c60efabd57955168",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
           "pos": "noun",
           "definition_cn": "道岔",
           "definition_en": "railroad track having two movable rails and necessary connections; used to turn a train from one track to another or to store rolling stock",
@@ -11077,7 +11248,22 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 13833,
           "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json",
-          "reference_only": true
+          "reference_only": true,
+          "current_lifecycle_correction_history": [
+            {
+              "task": "lexical-4851-4900",
+              "sense_id": "sense:switch:7358c073a83e50fe",
+              "before": {
+                "status": "merged",
+                "merged_into_sense_id": "sense:switch:c60efabd57955168"
+              },
+              "after": {
+                "status": "deprecated",
+                "merged_into_sense_id": null
+              },
+              "reason": "Correct false current equivalence; original full owner and registry rows preserved in this exact proposal and history-before snapshot."
+            }
+          ]
         },
         {
           "stable_sense_id": "sense:switch:7805fa495bbb5bbd",
@@ -11106,8 +11292,8 @@
         },
         {
           "stable_sense_id": "sense:switch:98c4221b3af85428",
-          "status": "merged",
-          "merged_into_sense_id": "sense:switch:c60efabd57955168",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
           "pos": "noun",
           "definition_cn": "软枝；鞭子",
           "definition_en": "a flexible implement used as an instrument of punishment",
@@ -11127,7 +11313,22 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 13835,
           "source_path": "content/lexical/canonical/senses/shards/o4833-4864.json",
-          "reference_only": true
+          "reference_only": true,
+          "current_lifecycle_correction_history": [
+            {
+              "task": "lexical-4851-4900",
+              "sense_id": "sense:switch:98c4221b3af85428",
+              "before": {
+                "status": "merged",
+                "merged_into_sense_id": "sense:switch:c60efabd57955168"
+              },
+              "after": {
+                "status": "deprecated",
+                "merged_into_sense_id": null
+              },
+              "reason": "Correct false current equivalence; original full owner and registry rows preserved in this exact proposal and history-before snapshot."
+            }
+          ]
         }
       ]
     }

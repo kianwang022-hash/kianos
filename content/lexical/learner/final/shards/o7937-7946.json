@@ -74,7 +74,7 @@
     "ordinal": 7938,
     "word": "unregulated",
     "source_owner_path": "content/lexical/words/by-ordinal/o7938.json",
-    "source_fingerprint": "38545ad0c16710d33beb8da751b6805e21be3ca8c4912fec5ebad06896e6ba65",
+    "source_fingerprint": "f74bc7ca25e006498574e85192f19fe0b6a0f57e9fc16fa75c5ff1ee19d0f398",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -100,7 +100,7 @@
         "governing_pattern": "",
         "definition_cn": "未受监管的；不受官方规则、规章或监管机构控制管理的",
         "definition_en": "not controlled, governed, or subject to official rules, regulation, or regulatory oversight",
-        "note": "",
+        "note": "不限于官方监管；也可泛指未受调节或控制。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -156,7 +156,7 @@
     "ordinal": 7939,
     "word": "utilization",
     "source_owner_path": "content/lexical/words/by-ordinal/o7939.json",
-    "source_fingerprint": "20de8b5358d06b2f1ff728ffc6b150a5ea510ab19caf1ef031f439c2bbaeb075",
+    "source_fingerprint": "5b521be25f277fc0ee48a6c69b141e87ffe16505c06aa4750676446cbcf53664",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -230,12 +230,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -246,22 +242,22 @@
     "ordinal": 7940,
     "word": "validate",
     "source_owner_path": "content/lexical/words/by-ordinal/o7940.json",
-    "source_fingerprint": "04818273444730e41f2cab1266ee7b312ebd46b6a1736f02e19a362eed3de01b",
+    "source_fingerprint": "601d1d28a032955be2daae0e19c835c0542d97fa29d7ba298b4483b81a0a0b0b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V"
+        "2V"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使有效；使生效；确认",
-      "decision_cn": "",
+      "summary_cn": "确认真实有效、使正式生效；也可肯定价值",
+      "decision_cn": "先看宾语：数据或主张重在验证，文件或票证重在赋予效力，个人或事业重在认可其价值。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使有效；使生效；确认"
+        "target_label": "确认真实有效、使正式生效；也可肯定价值"
       }
     },
     "senses": [
@@ -272,7 +268,7 @@
         "governing_pattern": "",
         "definition_cn": "使有效；使生效；确认",
         "definition_en": "make valid or confirm the validity of",
-        "note": "",
+        "note": "数据、陈述或主张作宾语时是证实正确或有效；法律文件、票证等语境可指使正式生效或批准。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -280,6 +276,23 @@
           "target_id": "sense:validate:e0972b6e6b505427",
           "target_locator": "record.senses[0]",
           "target_label": "使有效；使生效；确认"
+        }
+      },
+      {
+        "id": "sense:validate:78c418241b4dc81a",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "validate sb/sth",
+        "definition_cn": "认可、肯定某人或某事的价值",
+        "definition_en": "to affirm that a person or something they do is worthwhile or valuable",
+        "note": "对人的经历、形象或事业作价值认可；与验证数据真伪的技术语境不同。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:validate:78c418241b4dc81a",
+          "target_locator": "record.senses[1]",
+          "target_label": "认可、肯定某人或某事的价值"
         }
       }
     ],
@@ -326,22 +339,22 @@
     "ordinal": 7941,
     "word": "validation",
     "source_owner_path": "content/lexical/words/by-ordinal/o7941.json",
-    "source_fingerprint": "c05b13f0e7c0fe845b7d960973c9b88b280064358ddccf1ec15afbb59dd40bda",
+    "source_fingerprint": "53f0066b527e44354bb23308fdcee9431ff9000c7adc19158a3bdb15cefc1b0b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "3N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "验证；确认数据、方法、模型等的有效性、准确性、可接受性或是否适合预定用途的过程",
-      "decision_cn": "",
+      "summary_cn": "确认有效或赋予正式效力；也可指价值认可",
+      "decision_cn": "数据、方法或模型指验证；法律文件重在正式效力；个人或生活方式重在被认可的价值。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "验证；确认数据、方法、模型等的有效性、准确性、可接受性或是否适合预定用途的过程"
+        "target_label": "确认有效或赋予正式效力；也可指价值认可"
       }
     },
     "senses": [
@@ -360,6 +373,40 @@
           "target_id": "sense:validation:63581e3501765852",
           "target_locator": "record.senses[0]",
           "target_label": "验证；确认数据、方法、模型等的有效性、准确性、可接受性或是否适合预定用途的过程"
+        }
+      },
+      {
+        "id": "sense:validation:36bc69060c81a66a",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "价值上的认可、肯定",
+        "definition_en": "affirmation that a person, activity, or way of life has worth",
+        "note": "在个人价值或生活方式语境指获得认可，不是技术数据校验。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:validation:36bc69060c81a66a",
+          "target_locator": "record.senses[1]",
+          "target_label": "价值上的认可、肯定"
+        }
+      },
+      {
+        "id": "sense:validation:73e87ec6430a7772",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "使具有法律效力或获得正式确认的行为",
+        "definition_en": "the act of giving legal force or official approval to something",
+        "note": "证件、协议等语境侧重正式生效或认可资格，不是判断统计模型是否准确。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:validation:73e87ec6430a7772",
+          "target_locator": "record.senses[2]",
+          "target_label": "使具有法律效力或获得正式确认的行为"
         }
       }
     ],
@@ -588,22 +635,22 @@
     "ordinal": 7944,
     "word": "violation",
     "source_owner_path": "content/lexical/words/by-ordinal/o7944.json",
-    "source_fingerprint": "1ff79f13b46c2dba5f96966c0435d25e9a49effd62a009bc02f6b6dc04d30c44",
+    "source_fingerprint": "34fbc48909af621c1bd805a1adc7df5d352d361cc8a95b7d9ef1101d8f7e540e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "3N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "违反；违背",
-      "decision_cn": "",
+      "summary_cn": "越过并侵犯应受保护的规则、权利或界限",
+      "decision_cn": "law/rule 指违反规定；人的身体语境可指性侵犯；墓地或神圣场所语境可指亵渎。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "违反；违背"
+        "target_label": "越过并侵犯应受保护的规则、权利或界限"
       }
     },
     "senses": [
@@ -622,6 +669,40 @@
           "target_id": "sense:violation:fcda976723d656c0",
           "target_locator": "record.senses[0]",
           "target_label": "违反；违背"
+        }
+      },
+      {
+        "id": "sense:violation:2a34ae2cf0b87869",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "侵犯身体，尤指性侵犯",
+        "definition_en": "an assault on someone’s bodily or sexual integrity",
+        "note": "叙述对人的侵害时可明确指性侵犯；不能一概弱化为普通违规。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:violation:2a34ae2cf0b87869",
+          "target_locator": "record.senses[1]",
+          "target_label": "侵犯身体，尤指性侵犯"
+        }
+      },
+      {
+        "id": "sense:violation:587d5aa82397e400",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "亵渎；对神圣场所或事物的侵犯",
+        "definition_en": "desecration of something regarded as sacred",
+        "note": "以墓地、宗教场所或神圣事物为对象时，侧重亵渎或破坏神圣性。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:violation:587d5aa82397e400",
+          "target_locator": "record.senses[2]",
+          "target_label": "亵渎；对神圣场所或事物的侵犯"
         }
       }
     ],

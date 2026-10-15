@@ -12,7 +12,10 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "换句话说",
-        "pattern": "in other words"
+        "pattern": "in other words",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:8e94df0cd16314628c34"
+        }
       },
       {
         "construction_id": "construction:3b3a20de0ddfc6e5b3ae",
@@ -28,7 +31,7 @@
       "core_clusters": [],
       "core_meaning_cn": "语言单位或简短话语",
       "core_meaning_en": "a unit of language or a brief statement",
-      "mental_model_cn": "语言单位或简短话语",
+      "mental_model_cn": "语言单位或简短话语；作动词时看如何选择措辞，如word a request或be worded carefully。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,7 +49,7 @@
         "collocations": [
           {
             "collocation_id": "collocation:8e94df0cd16314628c34",
-            "exam_value": "usage_example",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
               "sense:word:49cc2efe3d5555be:collocation:0"
             ],
@@ -136,13 +139,13 @@
         "collocations": [],
         "confidence": "medium",
         "definition_cn": "（计算机）字",
-        "definition_en": "a string of bits stored in computer memory",
+        "definition_en": "a group of bits treated as one unit by a computer for storage or processing",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:word:0021bb433a245805",
-        "sense_label_en": "a string of bits stored in computer memory",
+        "sense_label_en": "a group of bits treated as one unit by a computer for storage or processing",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -193,6 +196,27 @@
             "verification_status": "semantic_auditor_verified"
           }
         ]
+      },
+      {
+        "sense_id": "sense:word:a9f00dc1c40fa27c",
+        "definition_cn": "措辞；用特定词语表达",
+        "definition_en": "to express something using particular words",
+        "sense_label_en": "to express something using particular words",
+        "pos": "verb",
+        "governing_pattern": "word sth; be worded carefully",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:88de361b8640d294fe40",
+            "phrase": "word a request carefully",
+            "meaning_cn": "仔细斟酌请求的措辞",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -561,6 +585,13 @@
         "merged_into_sense_id": null,
         "source_row": 15515,
         "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json"
+      },
+      {
+        "sense_id": "sense:word:a9f00dc1c40fa27c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5441-5472.json",
+        "source_row": 15563
       }
     ],
     "active_collocations": [
@@ -568,7 +599,8 @@
       "collocation:38641bda82deb6d59bfd",
       "collocation:872cc755167f366e49ea",
       "collocation:8e94df0cd16314628c34",
-      "collocation:b45be51cd920061ede45"
+      "collocation:b45be51cd920061ede45",
+      "collocation:88de361b8640d294fe40"
     ],
     "facts": [],
     "collocations": [
@@ -596,6 +628,11 @@
         "id": "collocation:b45be51cd920061ede45",
         "source_row": 15286,
         "source_path": "content/lexical/canonical/collocations/shards/o5441-5472.json"
+      },
+      {
+        "id": "collocation:88de361b8640d294fe40",
+        "source_path": "content/lexical/canonical/collocations/shards/o5441-5472.json",
+        "source_row": 21619
       }
     ],
     "exam-mappings": [],

@@ -19,8 +19,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "下沉；沉没；使下沉；使沉没；减弱；衰退；投入（资金）",
-          "label_en": "to fall or descend to a lower place or level; to cause to sink; to become weaker or less; to invest (money) in something",
+          "label_cn": "下沉；沉没；使下沉；使沉没；减弱；衰退；逐渐陷入较差或低落的状态；投入（资金）",
+          "label_en": "to fall or descend to a lower place or level; to cause to sink; to become weaker or lower, or pass gradually into a less active or unhappy state; to invest (money) in something",
           "pos": "verb",
           "sense_ids": [
             "sense:sink:54a64f3502be596e",
@@ -138,16 +138,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "减弱；衰退",
-        "definition_en": "to become weaker or less",
-        "governing_pattern": "",
+        "definition_cn": "减弱；衰退；逐渐陷入较差或低落的状态",
+        "definition_en": "to become weaker or lower, or pass gradually into a less active or unhappy state",
+        "governing_pattern": "sink / sink to a level / sink into a state",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sink:cdc3c7a9815155b0",
-        "sense_label_en": "to become weaker or less",
+        "sense_label_en": "to become weaker or lower, or pass gradually into a less active or unhappy state",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "量值或力量作主语时是降低；into后接despair等状态时是逐渐陷入，不是该状态的数量减少。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sink-into",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -164,14 +171,42 @@
         "confidence": "medium",
         "definition_cn": "投入（资金）",
         "definition_en": "to invest (money) in something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "sink money/resources into sth",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sink:d3398bd9f5dc5cbb",
         "sense_label_en": "to invest (money) in something",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "常强调投入大量资源；不是保证获得回报。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sink-into",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:sink:9ea7997503b897bc",
+        "pos": "verb",
+        "definition_cn": "使失败；毁掉成功机会",
+        "definition_en": "to ruin a plan or prevent success",
+        "sense_label_en": "to ruin a plan or prevent success",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "sink a plan / sink sb’s chances",
+        "transitivity": "vt",
+        "usage_note": "抽象宾语如计划或机会时，不是实际沉船。",
+        "collocations": [],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sink_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "register": "informal"
       }
     ],
     "verification_summary": {
@@ -331,6 +366,12 @@
         "merged_into_sense_id": null,
         "source_row": 12587,
         "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json"
+      },
+      {
+        "sense_id": "sense:sink:9ea7997503b897bc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4457.json"
       }
     ],
     "active_collocations": [

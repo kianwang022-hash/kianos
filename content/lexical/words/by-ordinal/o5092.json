@@ -83,11 +83,27 @@
           "sense_ids": [
             "sense:train:5457a182d3a955d7"
           ]
+        },
+        {
+          "pos": "noun",
+          "sense_ids": [
+            "sense:train:66cb2b31b0565ba7"
+          ],
+          "label_cn": "相连的序列或队列",
+          "label_en": "a connected series or line"
+        },
+        {
+          "pos": "verb",
+          "sense_ids": [
+            "sense:train:3e3c8603e27658b7"
+          ],
+          "label_cn": "把器械或视线对准",
+          "label_en": "direct an instrument or gaze"
         }
       ],
-      "core_meaning_cn": "火车；接受训练；训练他人/动物",
-      "core_meaning_en": "train as railway vehicle; undergo training; train/teach a person or animal",
-      "mental_model_cn": "火车；接受训练；训练他人/动物",
+      "core_meaning_cn": "列车与一连串事物；动词可训练，也可把视线或器械对准目标",
+      "core_meaning_en": "a railway vehicle or connected sequence; to train skills or direct an instrument at a target",
+      "mental_model_cn": "train of thought/events 是连贯序列；train sb to do 是教会，train for 是备战；camera/eyes trained on 是对准，与技能训练分开。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -190,6 +206,49 @@
         "sense_label_en": "to teach or develop a person or animal's skills, behavior, or ability through instruction or practice",
         "sort_order": 999,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:train:66cb2b31b0565ba7",
+        "definition_cn": "一连串；行列；顺序",
+        "definition_en": "a series of connected things or events",
+        "sense_label_en": "a series of connected things or events",
+        "pos": "noun",
+        "governing_pattern": "a train of thoughts/events; a train of people/vehicles",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4427b43951d89b47aa15",
+            "phrase": "a train of thought/events",
+            "meaning_cn": "思路／一连串事件",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
+      },
+      {
+        "sense_id": "sense:train:3e3c8603e27658b7",
+        "definition_cn": "对准；瞄准",
+        "definition_en": "to aim or point something, such as a gun or camera, at a target",
+        "sense_label_en": "to aim or point something, such as a gun or camera, at a target",
+        "pos": "verb",
+        "governing_pattern": "train sth on sb/sth; be trained on sb/sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:fb05aff227d4d833fcd0",
+            "phrase": "train a camera on sth",
+            "meaning_cn": "把摄像机对准某物",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "usage_note": "正式用法；镜头、目光或枪口作宾语时是对准，不是训练技能。"
       }
     ],
     "verification_summary": {
@@ -292,8 +351,8 @@
   "reference_senses": [
     {
       "stable_sense_id": "sense:train:27daf90af48b5c32",
-      "status": "merged",
-      "merged_into_sense_id": "sense:train:ea2e5f129cbc5703",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
       "pos": "noun",
       "definition_cn": "（礼服的）拖裾",
       "definition_en": "the long back part of a gown that trails along the floor",
@@ -314,64 +373,14 @@
       "source_row": 14494,
       "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
       "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:train:3e3c8603e27658b7",
-      "status": "merged",
-      "merged_into_sense_id": "sense:train:ea2e5f129cbc5703",
-      "pos": "verb",
-      "definition_cn": "对准；瞄准",
-      "definition_en": "to aim or point something, such as a gun or camera, at a target",
-      "semantic_key": "c0925457d87ebd1248cbda69a01df9daabab9d91f5bc1770f5dd46622561e1ee",
-      "semantic_key_history": [
-        "e9005408fcdb51d4bdf3023f949d6b8590064f23536a0bbfc72f63db9647180c"
-      ],
-      "legacy_aliases": [
-        "train:l3:6"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "train:l3:6",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14496,
-      "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
-      "reference_only": true
-    },
-    {
-      "stable_sense_id": "sense:train:66cb2b31b0565ba7",
-      "status": "merged",
-      "merged_into_sense_id": "sense:train:ea2e5f129cbc5703",
-      "pos": "noun",
-      "definition_cn": "一连串；行列；顺序",
-      "definition_en": "a series of connected things or events",
-      "semantic_key": "ca08b1882f7f9cee0564caf112571ac91a339cf1b08b18a08031bbd827cef5cf",
-      "semantic_key_history": [
-        "0511302c1566ad8fc13443242e46d320caaea4695780e03e1118055f7c8ba056"
-      ],
-      "legacy_aliases": [
-        "train:l2:2"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "train:l2:2",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14498,
-      "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json",
-      "reference_only": true
     }
   ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:train:27daf90af48b5c32",
-        "status": "merged",
-        "merged_into_sense_id": "sense:train:ea2e5f129cbc5703",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
         "source_row": 14494,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
       },
@@ -384,8 +393,8 @@
       },
       {
         "sense_id": "sense:train:3e3c8603e27658b7",
-        "status": "merged",
-        "merged_into_sense_id": "sense:train:ea2e5f129cbc5703",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 14496,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
       },
@@ -398,8 +407,8 @@
       },
       {
         "sense_id": "sense:train:66cb2b31b0565ba7",
-        "status": "merged",
-        "merged_into_sense_id": "sense:train:ea2e5f129cbc5703",
+        "status": "active",
+        "merged_into_sense_id": null,
         "source_row": 14498,
         "source_path": "content/lexical/canonical/senses/shards/o5089-5120.json"
       },
@@ -416,7 +425,9 @@
       "collocation:708a556c553d6cbd0ca9",
       "collocation:d3d69c5c510bac4ae141",
       "collocation:dc62f0a0ab1ccbd1b318",
-      "collocation:e51baa93f765fc878223"
+      "collocation:e51baa93f765fc878223",
+      "collocation:4427b43951d89b47aa15",
+      "collocation:fb05aff227d4d833fcd0"
     ],
     "facts": [
       {
@@ -495,6 +506,16 @@
         "id": "collocation:e51baa93f765fc878223",
         "source_row": 21474,
         "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json"
+      },
+      {
+        "id": "collocation:4427b43951d89b47aa15",
+        "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json",
+        "source_row": 21476
+      },
+      {
+        "id": "collocation:fb05aff227d4d833fcd0",
+        "source_path": "content/lexical/canonical/collocations/shards/o5089-5120.json",
+        "source_row": 21477
       }
     ],
     "exam-mappings": [],

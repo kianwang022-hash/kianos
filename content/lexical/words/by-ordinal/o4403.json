@@ -11,14 +11,16 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "射击，射中；射杀；拍摄；发芽，快速生长",
-          "label_en": "hit with a missile from a weapon; kill by firing a missile; take photographs or make a film of something; grow or develop quickly",
+          "label_cn": "射击；向目标开枪/发射；射中；射杀；拍摄；发芽，快速生长；突然迅速移动；使突然迅速移动；射门；投篮等尝试得分",
+          "label_en": "to fire a weapon or projectile, or to hit a person or thing with a projectile; kill by firing a missile; take photographs or make a film of something; grow or develop quickly; to move abruptly and quickly, or make something move that way; to kick, hit or throw a ball in an attempt to score",
           "pos": "verb",
           "sense_ids": [
             "sense:shoot:ed92df5c26dd58e1",
             "sense:shoot:359a49191b515801",
             "sense:shoot:ff8bd7e557a450a4",
-            "sense:shoot:63343226a8905641"
+            "sense:shoot:63343226a8905641",
+            "sense:shoot:e974f586a44e46fa",
+            "sense:shoot:1ad6f429117d9056"
           ]
         },
         {
@@ -31,9 +33,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "射击，射中；射杀；拍摄；发芽，快速生长；芽，嫩枝；拍摄活动；摄影或影视拍摄的一次工作过程",
-      "core_meaning_en": "hit with a missile from a weapon; kill by firing a missile; take photographs or make a film of something; grow or develop quickly; a new branch or young growth on a plant; a photography or filming session",
-      "mental_model_cn": "射击，射中；射杀；拍摄；发芽，快速生长；芽，嫩枝；拍摄活动；摄影或影视拍摄的一次工作过程",
+      "core_meaning_cn": "迅速射出或冲向目标；另用于拍摄及植物嫩芽",
+      "core_meaning_en": "shooting or rapid directed movement, with filming and plant-growth branches",
+      "mental_model_cn": "武器语境区分shoot at的朝向与shoot sb的击中；球类语境是尝试得分，方向词提示迅速移动，camera/film提示拍摄，植物提示发芽或嫩枝。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -143,7 +145,7 @@
         "confidence": "medium",
         "definition_cn": "拍摄",
         "definition_en": "take photographs or make a film of something",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "shoot (a film/photo/scene)",
         "level": "L2",
         "lexical_identity_overlay": {
           "case_sensitive": false,
@@ -157,7 +159,13 @@
         "sense_id": "sense:shoot:ff8bd7e557a450a4",
         "sense_label_en": "take photographs or make a film of something",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shoot_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -222,8 +230,8 @@
             "legacy_source_object_ids": [
               "sense:shoot:240822c5c3215d8b:collocation:0"
             ],
-            "meaning_cn": "对目标的射击",
-            "phrase": "a shoot of the target"
+            "meaning_cn": "一次狩猎射击活动",
+            "phrase": "a game shoot"
           },
           {
             "collocation_id": "collocation:fb0c3fc0c5fce46656e4",
@@ -236,16 +244,22 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "射击，狩猎",
-        "definition_en": "the act of shooting at targets",
+        "definition_cn": "射击或狩猎活动",
+        "definition_en": "shooting or hunting occasion",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:shoot:240822c5c3215d8b",
-        "sense_label_en": "the act of shooting at targets",
+        "sense_label_en": "shooting or hunting occasion",
         "sort_order": 5,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shoot_2",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [],
@@ -260,6 +274,46 @@
         "sense_label_en": "a photography or filming session",
         "sort_order": 6,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:shoot:e974f586a44e46fa",
+        "pos": "verb",
+        "definition_cn": "突然迅速移动；使突然迅速移动",
+        "definition_en": "to move abruptly and quickly, or make something move that way",
+        "sense_label_en": "to move abruptly and quickly, or make something move that way",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "shoot + direction / shoot sth + direction",
+        "transitivity": "I/T",
+        "usage_note": "主语可为人、车辆、火焰或疼痛；方向补语提示移动，不要求开枪。",
+        "collocations": [],
+        "sort_order": 7,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shoot_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:shoot:1ad6f429117d9056",
+        "pos": "verb",
+        "definition_cn": "射门；投篮等尝试得分",
+        "definition_en": "to kick, hit or throw a ball in an attempt to score",
+        "sense_label_en": "to kick, hit or throw a ball in an attempt to score",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "shoot / shoot the ball / shoot at goal",
+        "transitivity": "I/T",
+        "usage_note": "球类比赛语境中并不意味着已经得分。",
+        "collocations": [],
+        "sort_order": 8,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shoot_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -684,6 +738,18 @@
         "merged_into_sense_id": null,
         "source_row": 12469,
         "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
+      },
+      {
+        "sense_id": "sense:shoot:e974f586a44e46fa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4403.json"
+      },
+      {
+        "sense_id": "sense:shoot:1ad6f429117d9056",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4403.json"
       }
     ],
     "active_collocations": [

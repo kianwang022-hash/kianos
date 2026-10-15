@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "冲，奔；匆忙地做",
-          "label_en": "to move or go somewhere very quickly; to do something very quickly, often too quickly",
+          "label_cn": "冲，奔；匆忙地做；催促某人草率行动",
+          "label_en": "to move or go somewhere very quickly; to act too quickly or push someone into doing so",
           "pos": "verb",
           "sense_ids": [
             "sense:rush:5ff30117c22c55f6",
@@ -20,17 +20,17 @@
           ]
         },
         {
-          "label_cn": "匆促，冲进",
-          "label_en": "a sudden rapid movement or a situation of hurrying",
+          "label_cn": "匆忙；突然的涌动；一阵强烈感受",
+          "label_en": "haste, a sudden surge or a strong burst of feeling",
           "pos": "noun",
           "sense_ids": [
             "sense:rush:ffdb7cb2310b5dab"
           ]
         }
       ],
-      "core_meaning_cn": "冲，匆忙",
-      "core_meaning_en": "to move or act quickly, or a sudden rapid movement",
-      "mental_model_cn": "冲，匆忙",
+      "core_meaning_cn": "带着急迫感快速行动、运送或涌起",
+      "core_meaning_en": "to move, act or send urgently; also a sudden surge",
+      "mental_model_cn": "无宾语常是自己赶快行动；rush sb/sth to是把对象急送某处，rush sb into doing是催促。a rush of feeling是感受涌起，in a rush才是赶时间。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -65,14 +65,21 @@
         "confidence": "medium",
         "definition_cn": "冲，奔",
         "definition_en": "to move or go somewhere very quickly",
-        "governing_pattern": "vi. + to/into/out of",
+        "governing_pattern": "rush / rush + direction / rush to do sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:rush:5ff30117c22c55f6",
         "sense_label_en": "to move or go somewhere very quickly",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "方向并不限于to/into/out of，也可用off、home等；不说明方向时可单用。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rush_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -96,16 +103,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "匆忙地做",
-        "definition_en": "to do something very quickly, often too quickly",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "匆忙地做；催促某人草率行动",
+        "definition_en": "to act too quickly or push someone into doing so",
+        "governing_pattern": "rush sth / rush into (doing) sth / rush sb into (doing) sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:rush:b45eb7264f665426",
-        "sense_label_en": "to do something very quickly, often too quickly",
+        "sense_label_en": "to act too quickly or push someone into doing so",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rush_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "usage_note": "主语自己草率行动用rush into；有被催促者时须加宾语sb。"
       },
       {
         "collocations": [
@@ -129,16 +143,43 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "匆促，冲进",
-        "definition_en": "a sudden rapid movement or a situation of hurrying",
+        "definition_cn": "匆忙；突然的涌动；一阵强烈感受",
+        "definition_en": "haste, a sudden surge or a strong burst of feeling",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:rush:ffdb7cb2310b5dab",
-        "sense_label_en": "a sudden rapid movement or a situation of hurrying",
+        "sense_label_en": "haste, a sudden surge or a strong burst of feeling",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rush_2",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "usage_note": "a rush of后可接情绪或液体等，表示突然涌起，不一定涉及赶时间。"
+      },
+      {
+        "sense_id": "sense:rush:0b29c3e7299af705",
+        "pos": "verb",
+        "definition_cn": "迅速送往；紧急运送",
+        "definition_en": "to take or send someone or something somewhere urgently",
+        "sense_label_en": "to take or send someone or something somewhere urgently",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "rush sb/sth to a place",
+        "transitivity": "vt",
+        "usage_note": "人或物是被运送对象；被动be rushed to hospital指被急送就医，不是病人自己冲去。",
+        "collocations": [],
+        "sort_order": 3,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/rush_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -634,6 +675,12 @@
         "merged_into_sense_id": null,
         "source_row": 11854,
         "source_path": "content/lexical/canonical/senses/shards/o4193-4224.json"
+      },
+      {
+        "sense_id": "sense:rush:0b29c3e7299af705",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4223.json"
       }
     ],
     "active_collocations": [

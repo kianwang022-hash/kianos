@@ -9,15 +9,25 @@ spec.loader.exec_module(builder)
 
 
 class PronunciationProjectionTest(unittest.TestCase):
-    def word(self, ordinal):
+    def word(self, ordinal, honor_form_decision=False):
         owner = builder.load(builder.WORDS / f"o{ordinal:04d}.json")
-        final = builder.compile_word(owner, builder.load(builder.DECISIONS))
-        self.assertEqual(final["reference"]["form"], builder.compile_form(owner["record"].get("form_identity")))
+        decisions = builder.load(builder.DECISIONS)
+        word_decision = (decisions.get("words") or {}).get(owner["word_id"]) or {}
+        final = builder.compile_word(owner, decisions)
+        expected_form = builder.compile_form(owner["record"].get("form_identity"))
+        form_decision = word_decision.get("form_identity")
+        if honor_form_decision and expected_form and (form_decision or {}).get("disposition") == "EXPLORE_ONLY":
+            expected_form.update(disposition="EXPLORE_ONLY", repair=None)
+        self.assertEqual(final["reference"]["form"], expected_form)
         # Reference/lifecycle dependencies are covered by the Reference projection tests.
         # Preserve the legacy IPA hash assertion for owners without those dependencies.
         has_lifecycle = any(r.get("status") and r["status"].lower() != "active" for r in owner.get("identity_refs", {}).get("collocations", []))
         if not owner.get("reference_senses") and not has_lifecycle and not final["sense_lineage"]:
-            self.assertEqual(final["source_fingerprint"], builder.sha256({"record": builder.hydrate_relations(owner, owner["record"])[0], "relation_paths": builder.hydrate_relations(owner, owner["record"])[1]}))
+            record, paths = builder.hydrate_relations(owner, owner["record"])
+            fingerprint_inputs = {"record": record, "relation_paths": paths}
+            if honor_form_decision and form_decision:
+                fingerprint_inputs["form_identity_decision"] = builder.clone(form_decision)
+            self.assertEqual(final["source_fingerprint"], builder.sha256(fingerprint_inputs))
         return final
 
     def readings(self, final, sense_id):
@@ -73,9 +83,35 @@ class PronunciationProjectionTest(unittest.TestCase):
         faultless = self.word(5809)["pronunciation_support"]["readings"][0]
         self.assertEqual(faultless["evidence_basis"], "derived_moby")
         self.assertEqual(faultless["locales"], [])
-        cigaret = self.word(807)["pronunciation_support"]["readings"][0]
+        cigaret_final = self.word(807, honor_form_decision=True)
+        cigaret = cigaret_final["pronunciation_support"]["readings"][0]
         self.assertFalse(cigaret["spelling_binding"]["direct_exact_cigaret_sound_claim"])
         self.assertEqual(cigaret["spelling_binding"]["source_surface"], "cigarette")
+
+    def test_cigaret_lookup_form_decision_and_fingerprint(self):
+        owner = builder.load(builder.WORDS / "o0807.json")
+        decisions = builder.load(builder.DECISIONS)
+        decided = builder.compile_word(owner, decisions)
+        decision = decisions["words"][owner["word_id"]]["form_identity"]
+        record, paths = builder.hydrate_relations(owner, owner["record"])
+        decided_fingerprint_inputs = {
+            "record": record,
+            "relation_paths": paths,
+            "form_identity_decision": builder.clone(decision),
+        }
+
+        expected_form = builder.compile_form(record.get("form_identity"))
+        expected_form.update(disposition="EXPLORE_ONLY", repair=None)
+        self.assertEqual(decided["reference"]["form"], expected_form)
+        self.assertEqual(decided["source_fingerprint"], builder.sha256(decided_fingerprint_inputs))
+
+        without_decision = builder.clone(decisions)
+        del without_decision["words"][owner["word_id"]]["form_identity"]
+        undecided = builder.compile_word(owner, without_decision)
+        undecided_fingerprint_inputs = {"record": record, "relation_paths": paths}
+        self.assertEqual(undecided["reference"]["form"], builder.compile_form(record.get("form_identity")))
+        self.assertEqual(undecided["source_fingerprint"], builder.sha256(undecided_fingerprint_inputs))
+        self.assertNotEqual(decided["source_fingerprint"], undecided["source_fingerprint"])
 
     def test_blank_has_no_invented_support(self):
         self.assertIsNone(self.word(5569)["pronunciation_support"])

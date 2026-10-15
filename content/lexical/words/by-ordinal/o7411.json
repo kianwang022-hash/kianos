@@ -30,9 +30,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "（比喻）惹恼；使不安；打乱某人的平静或自信；弄皱, 触怒, 洗(牌), 连续轻擂(鼓)；弄乱；使蓬起；使起皱，如羽毛、头发或表面",
+      "core_meaning_cn": "弄乱羽毛、头发或表面；比喻惹恼、扰乱平静；名词也指衣物褶边。",
       "core_meaning_en": "figurative: to upset, irritate, or disturb someone's calm or confidence; discompose; to disturb, fluff up, wrinkle, or disarrange something such as feathers, hair, or a surface",
-      "mental_model_cn": "（比喻）惹恼；使不安；打乱某人的平静或自信；弄皱, 触怒, 洗(牌), 连续轻擂(鼓)；弄乱；使蓬起；使起皱，如羽毛、头发或表面",
+      "mental_model_cn": "头发、羽毛或表面被ruffle是被弄乱；人被ruffle是平静受扰；衣服上的ruffles是褶边。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,6 +88,27 @@
             "role": "external_semantic_auditor",
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:ruffle:394f5160296d1700",
+        "pos": "noun",
+        "definition_cn": "衣服等的褶边；一侧打褶形成的荷叶边",
+        "definition_en": "a gathered or pleated strip of fabric used as a decorative edging",
+        "sense_label_en": "a gathered or pleated strip of fabric used as a decorative edging",
+        "level": "L2",
+        "sort_order": 4,
+        "collocations": [],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "source_evidence": [
+          {
+            "evidence_id": "source-fact:bcef92741bc3cc44f16f61d3",
+            "evidence_status": "source_checked",
+            "role": "current_dictionary_evidence",
+            "source_path": "https://www.merriam-webster.com/dictionary/ruffle",
+            "source_type": "general_dictionary"
           }
         ]
       }
@@ -410,7 +431,7 @@
       "status": "merged",
       "merged_into_sense_id": "sense:ruffle:cde26b22eb1a597d",
       "pos": "verb",
-      "definition_cn": "弄皱, 触怒, 洗(牌), 连续轻擂(鼓)",
+      "definition_cn": "使不安；扰乱平静",
       "definition_en": "discompose",
       "semantic_key": "1f5cbdc848c650bc792a2fe93f6c9aed174e19482a4e4471f2088e31cacf5019",
       "semantic_key_history": [],
@@ -419,7 +440,84 @@
       "updated_at": "2026-08-23T00:00:00+00:00",
       "source_row": 18788,
       "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json",
-      "reference_only": true
+      "reference_only": true,
+      "historical_reference_record": {
+        "stable_sense_id": "sense:ruffle:54c94a92b4ce5185",
+        "status": "merged",
+        "merged_into_sense_id": "sense:ruffle:cde26b22eb1a597d",
+        "pos": "verb",
+        "definition_cn": "弄皱, 触怒, 洗(牌), 连续轻擂(鼓)",
+        "definition_en": "discompose",
+        "semantic_key": "1f5cbdc848c650bc792a2fe93f6c9aed174e19482a4e4471f2088e31cacf5019",
+        "semantic_key_history": [],
+        "legacy_aliases": [],
+        "legacy_alias_history": [],
+        "updated_at": "2026-08-23T00:00:00+00:00",
+        "source_row": 18788,
+        "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json",
+        "reference_only": true
+      }
+    },
+    {
+      "stable_sense_id": "sense:ruffle:8634ce4cd478507c",
+      "status": "active",
+      "merged_into_sense_id": null,
+      "reference_only": true,
+      "pos": "verb",
+      "definition_cn": "快速翻动书页或拨动纸牌洗牌",
+      "definition_en": "to turn pages or pass cards rapidly through the fingers",
+      "register": "page/card handling",
+      "source_row": "UNALLOCATED",
+      "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json",
+      "source_evidence": [
+        {
+          "evidence_id": "source-fact:709013bca095dd44af5da160",
+          "source_path": "https://www.merriam-webster.com/dictionary/ruffle",
+          "role": "current_dictionary_evidence",
+          "evidence_status": "source_checked",
+          "source_type": "general_dictionary"
+        },
+        {
+          "evidence_id": "source-fact:6365fe37a38f0509653d64f9",
+          "source_path": "https://www.collinsdictionary.com/dictionary/english/ruffle",
+          "role": "current_dictionary_evidence",
+          "evidence_status": "source_checked",
+          "source_type": "general_dictionary"
+        }
+      ],
+      "placement_basis": "Preserve valid uses already embedded in the baseline Reference-only merged mixed gloss, now separated from discompose. No source marks these archaic. No default-active promotion or old-ID demotion.",
+      "historical_reference_origin": {
+        "stable_sense_id": "sense:ruffle:54c94a92b4ce5185",
+        "source_row": 18788,
+        "original_record_preserved_at": "reference_senses[0].historical_reference_record"
+      }
+    },
+    {
+      "stable_sense_id": "sense:ruffle:b85eac809d0ff89f",
+      "status": "active",
+      "merged_into_sense_id": null,
+      "reference_only": true,
+      "pos": "verb",
+      "definition_cn": "以低沉、连续的鼓点敲鼓",
+      "definition_en": "to beat a drum with a low repetitive beat",
+      "register": "drumming",
+      "source_row": "UNALLOCATED",
+      "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json",
+      "source_evidence": [
+        {
+          "evidence_id": "source-fact:bf93e3b034ec70d41a9b536a",
+          "source_path": "https://www.collinsdictionary.com/dictionary/english/ruffle",
+          "role": "current_dictionary_evidence",
+          "evidence_status": "source_checked",
+          "source_type": "general_dictionary"
+        }
+      ],
+      "placement_basis": "Preserve valid uses already embedded in the baseline Reference-only merged mixed gloss, now separated from discompose. No source marks these archaic. No default-active promotion or old-ID demotion.",
+      "historical_reference_origin": {
+        "stable_sense_id": "sense:ruffle:54c94a92b4ce5185",
+        "source_row": 18788,
+        "original_record_preserved_at": "reference_senses[0].historical_reference_record"
+      }
     }
   ],
   "identity_refs": {
@@ -444,6 +542,27 @@
         "merged_into_sense_id": null,
         "source_row": 18790,
         "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json"
+      },
+      {
+        "sense_id": "sense:ruffle:394f5160296d1700",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json",
+        "source_row": 18929
+      },
+      {
+        "sense_id": "sense:ruffle:8634ce4cd478507c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json",
+        "source_row": 18930
+      },
+      {
+        "sense_id": "sense:ruffle:b85eac809d0ff89f",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7393-7424.json",
+        "source_row": 18931
       }
     ],
     "active_collocations": [],

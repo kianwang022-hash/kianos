@@ -11,8 +11,45 @@
         "construction_id": "construction:9e7b08008a33d10ee967",
         "direction": "R+P",
         "level": "L1",
-        "meaning_cn": "用完；耗尽",
-        "pattern": "run out (of sth)"
+        "meaning_cn": "资源或时间耗尽；某人把某物用完",
+        "pattern": "a supply/time runs out / sb runs out of sth",
+        "boundary": "资源或时间作主语用run out；使用者作主语并说明所缺之物时用run out of sth。对象已知时使用者也可单说run out，不用被动来表示耗尽。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/run-out_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:run:08df27f80a750d29",
+        "pattern": "run into sb/sth",
+        "meaning_cn": "偶遇某人；碰上问题；撞上人或物",
+        "definition_en": "to meet by chance, encounter a difficulty or collide with something",
+        "boundary": "人物语境可指偶遇；trouble/problems表示遭遇困难，交通事故语境才是实体相撞。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/run-into",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:run:818159d486612378",
+        "pattern": "in the long run",
+        "meaning_cn": "从长远来看；最终",
+        "definition_en": "considering a long period and its eventual effects",
+        "boundary": "讨论长期结果的时间表达，不是在描述一场长距离跑步。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/long_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "content_hash": "8b4a12ce56c37021e71b57301fe323aa0d1688be703b959618d69654783a01a7",
@@ -38,9 +75,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "跑；运转；经营",
-      "core_meaning_en": "to move quickly on foot; to operate or manage",
-      "mental_model_cn": "跑；运转；经营",
+      "core_meaning_cn": "沿着过程推进：奔跑、运转、经营；也可流动、延伸或持续",
+      "core_meaning_en": "to move or carry on: running, operating, managing, flowing, extending or continuing",
+      "mental_model_cn": "人和距离看跑步，公司看经营，机器看运转；水看流动，路线看延伸，日期看持续。run low/dry看状态补语，run out与run out of由主语和资源槽位区分。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -108,14 +145,21 @@
         "confidence": "medium",
         "definition_cn": "跑；奔跑",
         "definition_en": "to move quickly on foot",
-        "governing_pattern": "vi.",
+        "governing_pattern": "run / run + distance",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:run:15782c6d66e2536e",
         "sense_label_en": "to move quickly on foot",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "usage_note": "奔跑可单用；距离可直接作宾语，如run five kilometres。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/run_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -156,14 +200,21 @@
         "confidence": "medium",
         "definition_cn": "参赛；竞选",
         "definition_en": "to compete in a race or election",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "run in a race/election / run a race / run for office",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:run:153db8d10db85d16",
         "sense_label_en": "to compete in a race or election",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "usage_note": "in引出参加的比赛或选举，for引出竞选职位；参加跑步比赛也可直接接race/marathon。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/run_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -243,6 +294,99 @@
           }
         ],
         "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:run:d41eafdb16a59017",
+        "pos": "verb",
+        "definition_cn": "（液体）流动；（鼻、眼等）流出液体；放出水",
+        "definition_en": "to flow or give out liquid, or make liquid flow",
+        "sense_label_en": "to flow or give out liquid, or make liquid flow",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "water runs / run water into sth / a nose runs",
+        "transitivity": "I/T",
+        "usage_note": "液体作主语指流动，鼻眼作主语指流出液体；人run water是放水，不是操作水。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:run:b2d3755720a86648",
+            "phrase": "run water into a container",
+            "meaning_cn": "往容器里放水",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/run_1",
+                "role": "semantic support; independently authored bounded correction"
+              }
+            ]
+          }
+        ],
+        "sort_order": 6,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/run_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:run:a9f4402c3131a474",
+        "pos": "verb",
+        "definition_cn": "延伸；沿某方向伸展或铺设",
+        "definition_en": "to extend along a route or make something extend in that way",
+        "sense_label_en": "to extend along a route or make something extend in that way",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "sth runs along/from/to ... / run sth from A to B",
+        "transitivity": "I/T",
+        "usage_note": "道路、线条或边界可作主语，并不真的在跑；run a cable指沿路线铺设电缆。",
+        "collocations": [],
+        "sort_order": 7,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/run_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:run:4646f6d0009c0268",
+        "pos": "verb",
+        "definition_cn": "持续，延续；在一段时间内有效",
+        "definition_en": "to continue or remain valid for a period",
+        "sense_label_en": "to continue or remain valid for a period",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "run for a period / run from A to B",
+        "transitivity": "vi",
+        "usage_note": "展览、课程或合同作主语时看持续日期和有效期限，不要求机械运转。",
+        "collocations": [],
+        "sort_order": 8,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/run_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:run:12b01d2be6a850a1",
+        "pos": "verb",
+        "definition_cn": "处于或变为某种状态",
+        "definition_en": "to be in or develop a particular state",
+        "sense_label_en": "to be in or develop a particular state",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "run + adjective",
+        "transitivity": "vi",
+        "usage_note": "常见run low/short是供应不足，run dry是干涸，feelings run high是情绪激烈；后项是形容词补语。",
+        "collocations": [],
+        "sort_order": 9,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/run_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -477,6 +621,30 @@
         "merged_into_sense_id": null,
         "source_row": 11850,
         "source_path": "content/lexical/canonical/senses/shards/o4193-4224.json"
+      },
+      {
+        "sense_id": "sense:run:d41eafdb16a59017",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4221.json"
+      },
+      {
+        "sense_id": "sense:run:a9f4402c3131a474",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4221.json"
+      },
+      {
+        "sense_id": "sense:run:4646f6d0009c0268",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4221.json"
+      },
+      {
+        "sense_id": "sense:run:12b01d2be6a850a1",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4221.json"
       }
     ],
     "active_collocations": [
@@ -484,13 +652,24 @@
       "collocation:088442352680eae96faa",
       "collocation:39ba68c89201f86f493b",
       "collocation:a080ccf43e037068d6e1",
-      "collocation:d67d7880ac9e098dd1d8"
+      "collocation:d67d7880ac9e098dd1d8",
+      "collocation:run:b2d3755720a86648"
     ],
     "facts": [
       {
         "id": "deep:secondary_senses:run:219cf0715158d809",
         "source_row": 1070,
         "source_path": "content/lexical/canonical/facts/shards/o4193-4224.json"
+      },
+      {
+        "id": "construction:run:08df27f80a750d29",
+        "source_path": "content/lexical/words/by-ordinal/o4221.json",
+        "object_type": "construction"
+      },
+      {
+        "id": "construction:run:818159d486612378",
+        "source_path": "content/lexical/words/by-ordinal/o4221.json",
+        "object_type": "construction"
       }
     ],
     "collocations": [
@@ -518,6 +697,11 @@
         "id": "collocation:d67d7880ac9e098dd1d8",
         "source_row": 18145,
         "source_path": "content/lexical/canonical/collocations/shards/o4193-4224.json"
+      },
+      {
+        "id": "collocation:run:b2d3755720a86648",
+        "source_path": "content/lexical/words/by-ordinal/o4221.json",
+        "sense_id": "sense:run:d41eafdb16a59017"
       }
     ],
     "exam-mappings": [],

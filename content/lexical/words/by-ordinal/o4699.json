@@ -10,9 +10,9 @@
     "content_hash": "454ea0f19bf0e68c966dece8b2454aa6ea11164ebbaf6a34f13703f343a71fad",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "管理或服务他人的人",
-      "core_meaning_en": "a person who manages or attends to others' needs",
-      "mental_model_cn": "管理或服务他人的人",
+      "core_meaning_cn": "受托照管：管理者、服务人员；管理或照管",
+      "core_meaning_en": "a person entrusted with care or management; to manage what is entrusted to one",
+      "mental_model_cn": "庄园/资源语境看管理照管，活动现场看服务与秩序；作动词接资源或事务时是承担管理责任。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -94,6 +94,60 @@
         "sense_label_en": "an attendant on an airplane",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:steward:eab6743470483c19",
+        "pos": "noun",
+        "definition_cn": "（活动、比赛等的）服务或秩序管理员",
+        "definition_en": "a person who helps run an event and assists or directs people attending it",
+        "sense_label_en": "a person who helps run an event and assists or directs people attending it",
+        "governing_pattern": "",
+        "usage_note": "conference/race 等活动语境提示现场工作人员。",
+        "level": "L2",
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b0351665b5ff87d8886b",
+            "phrase": "a conference steward",
+            "meaning_cn": "会议现场工作人员",
+            "exam_value": "usage_example"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_name": "Fresh bounded dictionary verification",
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/steward"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:steward:64cda70f79556610",
+        "pos": "verb",
+        "definition_cn": "管理；照管（受托的财产、资源或事务）",
+        "definition_en": "to manage or take care of property, resources, or affairs entrusted to one",
+        "sense_label_en": "to manage or take care of property, resources, or affairs entrusted to one",
+        "governing_pattern": "steward sth",
+        "usage_note": "以承担照管责任为重点；可用于资源、财产或公共事务。",
+        "level": "L2",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:069da20d7600aad5e4ee",
+            "phrase": "steward resources responsibly",
+            "meaning_cn": "负责任地管理资源",
+            "exam_value": "usage_example"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_name": "Fresh bounded dictionary verification",
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/steward"
+          },
+          {
+            "source_name": "Fresh bounded dictionary verification",
+            "source_locator": "https://www.collinsdictionary.com/dictionary/english/steward"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -228,12 +282,26 @@
         "merged_into_sense_id": null,
         "source_row": 13351,
         "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json"
+      },
+      {
+        "sense_id": "sense:steward:eab6743470483c19",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4699.json"
+      },
+      {
+        "sense_id": "sense:steward:64cda70f79556610",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4699.json"
       }
     ],
     "active_collocations": [
       "collocation:24d22837c2b6d8594ae6",
       "collocation:7732ef9e1765bcbc2141",
-      "collocation:d7224b177719cb320b55"
+      "collocation:d7224b177719cb320b55",
+      "collocation:b0351665b5ff87d8886b",
+      "collocation:069da20d7600aad5e4ee"
     ],
     "facts": [],
     "collocations": [
@@ -251,6 +319,20 @@
         "id": "collocation:d7224b177719cb320b55",
         "source_row": 18198,
         "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
+      },
+      {
+        "id": "collocation:b0351665b5ff87d8886b",
+        "source_path": "content/lexical/words/by-ordinal/o4699.json",
+        "sense_id": "sense:steward:eab6743470483c19",
+        "status": "active",
+        "source_locator": "record.senses[3].collocations[0]"
+      },
+      {
+        "id": "collocation:069da20d7600aad5e4ee",
+        "source_path": "content/lexical/words/by-ordinal/o4699.json",
+        "sense_id": "sense:steward:64cda70f79556610",
+        "status": "active",
+        "source_locator": "record.senses[4].collocations[0]"
       }
     ],
     "exam-mappings": [],

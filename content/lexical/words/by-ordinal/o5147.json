@@ -22,6 +22,24 @@
         "meaning_cn": "试着用某种做法，看是否有效",
         "pattern": "try doing sth",
         "source_sense_id": "sense:try:045fd7d7828c5296"
+      },
+      {
+        "construction_id": "construction:1e21a5788785fe0f6e20",
+        "pattern": "try sth on / try on sth; try it on",
+        "meaning_cn": "试穿；试戴",
+        "definition_en": "to put on clothing to check fit or appearance",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:try:045fd7d7828c5296"
+      },
+      {
+        "construction_id": "construction:e19e6aaaf97f9008e4a3",
+        "pattern": "try sth out / try out sth; try it out",
+        "meaning_cn": "试用；测试效果",
+        "definition_en": "to test how well something works",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:try:045fd7d7828c5296"
       }
     ],
     "content_hash": "e40205826cde3bad495b7f7b635e6571850f77bd7a60f13535665bf3f15ec922",
@@ -39,7 +57,7 @@
       ],
       "core_meaning_cn": "尝试；试图；试验；试用",
       "core_meaning_en": "to make an effort to do or achieve something; to test something to see if it works or is suitable",
-      "mental_model_cn": "尝试；试图；试验；试用",
+      "mental_model_cn": "try to do 看努力实现，try doing 看试方法；a try 是一次尝试；try on 试穿、try out 试用；法庭语境try是审理，try patience是考验耐心。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -77,6 +95,55 @@
         "sense_label_en": "to test something to see if it works or is suitable",
         "sort_order": 999,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:try:581247c6ff0e5713",
+        "definition_cn": "审判；审理",
+        "definition_en": "to examine a person or case in a court to reach a legal judgment",
+        "sense_label_en": "to examine a person or case in a court to reach a legal judgment",
+        "pos": "verb",
+        "governing_pattern": "try sb for an offence; try a case; be tried for sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [],
+        "confidence": "high",
+        "needs_human_review": 0
+      },
+      {
+        "sense_id": "sense:try:5682fd866d078c1d",
+        "definition_cn": "一次尝试；努力",
+        "definition_en": "an attempt to do something",
+        "sense_label_en": "an attempt to do something",
+        "pos": "noun",
+        "governing_pattern": "have a try; give sth a try",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:08e3ebd2f65ac37aeb85",
+            "phrase": "give sth a try",
+            "meaning_cn": "试试某事物",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
+      },
+      {
+        "sense_id": "sense:try:e76ae79db6bd392b",
+        "definition_cn": "使烦恼；考验耐心",
+        "definition_en": "to strain someone emotionally or test their patience",
+        "sense_label_en": "to strain someone emotionally or test their patience",
+        "pos": "verb",
+        "governing_pattern": "try sb; try sb's patience",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -391,31 +458,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:try:581247c6ff0e5713",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "审判；审理",
-      "definition_en": "to examine and judge a case in a court of law",
-      "semantic_key": "33c608a49503b6739fb41a25dc35aa5bab40a781fe029da124c4a65a60451e52",
-      "semantic_key_history": [
-        "0e7fca19541740bf440271b904af3699fc58ead9447fa368a27d7acdf3bdd612"
-      ],
-      "legacy_aliases": [
-        "try:l2:3"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "try:l2:3",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14675,
-      "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:try:94fd45dbd26e5fb7",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -452,7 +494,7 @@
       },
       {
         "sense_id": "sense:try:581247c6ff0e5713",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14675,
         "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json"
@@ -470,9 +512,25 @@
         "merged_into_sense_id": null,
         "source_row": 14677,
         "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json"
+      },
+      {
+        "sense_id": "sense:try:5682fd866d078c1d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json",
+        "source_row": 14702
+      },
+      {
+        "sense_id": "sense:try:e76ae79db6bd392b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json",
+        "source_row": 14703
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:08e3ebd2f65ac37aeb85"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -499,6 +557,11 @@
         "id": "collocation:e29cbdc03e353a69fde9",
         "source_row": 19170,
         "source_path": "content/lexical/canonical/collocations/shards/o5121-5152.json"
+      },
+      {
+        "id": "collocation:08e3ebd2f65ac37aeb85",
+        "source_path": "content/lexical/canonical/collocations/shards/o5121-5152.json",
+        "source_row": 21409
       }
     ],
     "exam-mappings": [],

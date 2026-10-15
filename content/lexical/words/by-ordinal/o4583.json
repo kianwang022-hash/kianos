@@ -12,20 +12,23 @@
         "direction": "R+P",
         "level": "L2",
         "meaning_cn": "（非正式）走神、发呆、注意力涣散",
-        "pattern": "space out"
+        "pattern": "space out",
+        "boundary": "不及物：人走神；与带宾语、表示拉开间隔的space sth out区分。"
       }
     ],
     "content_hash": "153a3f750aa7f289c30ed08b39c792bd86af60937c9d535e77bf508730d3080f",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "空间；太空；空地；空白；空间；余地",
-          "label_en": "the unlimited expanse in which everything exists; an empty area; an area reserved for a purpose",
+          "label_cn": "空间、空位及可用余地；时间间隔；自主空间",
+          "label_en": "physical space and room, a time interval, or personal freedom",
           "pos": "noun",
           "sense_ids": [
             "sense:space:89fb375ed9c955e2",
             "sense:space:1f806b68685d5610",
-            "sense:space:adca49911fea5037"
+            "sense:space:adca49911fea5037",
+            "sense:space:d878354118d6079b",
+            "sense:space:f84306aaa7b78912"
           ]
         },
         {
@@ -37,9 +40,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "区域或范围",
-      "core_meaning_en": "an area or expanse",
-      "mental_model_cn": "区域或范围",
+      "core_meaning_cn": "可容纳事物或留出活动余地的空间；也可指时间间隔",
+      "core_meaning_en": "physical room or extent, with extensions to time and personal freedom",
+      "mental_model_cn": "停车、纸面看空位；太空语境看地球以外；时间数量看时段；给某人space常指不受打扰的自主余地。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -73,15 +76,22 @@
         ],
         "confidence": "medium",
         "definition_cn": "空间；太空",
-        "definition_en": "the unlimited expanse in which everything exists",
+        "definition_en": "physical extent in which things exist, or the region beyond Earth's atmosphere",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:space:89fb375ed9c955e2",
-        "sense_label_en": "the unlimited expanse in which everything exists",
+        "sense_label_en": "physical extent in which things exist, or the region beyond Earth's atmosphere",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "in space 通常指在太空中；space and time 中是与时间相对的物理空间。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/space_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -173,14 +183,87 @@
         "confidence": "medium",
         "definition_cn": "隔开；分隔",
         "definition_en": "to arrange with spaces between",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "space sth (out/apart); space sth at intervals",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:space:9ada1b10da8856eb",
         "sense_label_en": "to arrange with spaces between",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "带宾语是把物件或事件在空间、时间上隔开；人作主语且无宾语的space out是走神。代词置中：space them out。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/space-out",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:space:d878354118d6079b",
+        "pos": "noun",
+        "definition_cn": "一段时间；时间间隔",
+        "definition_en": "a stretch or interval of time",
+        "sense_label_en": "a stretch or interval of time",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "a space of + duration",
+        "transitivity": "nonverb",
+        "usage_note": "常由时间长度识别，不表示物理空地。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:1f5cc81be9d693e8aec3",
+            "phrase": "in the space of + duration",
+            "meaning_cn": "在某段时间内",
+            "exam_value": "fixed_pattern",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/space_1",
+                "role": "bounded semantic support; independently authored lexical wording"
+              }
+            ]
+          }
+        ],
+        "sort_order": 4,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/space_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:space:f84306aaa7b78912",
+        "pos": "noun",
+        "definition_cn": "自主空间；不受干扰地思考或行动的余地",
+        "definition_en": "freedom to think or act without interference",
+        "sense_label_en": "freedom to think or act without interference",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "give sb space / need space",
+        "transitivity": "nonverb",
+        "usage_note": "给人space可指精神和行动上的自主余地。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:075720ac46c050b1a999",
+            "phrase": "give sb space",
+            "meaning_cn": "给某人独处、思考或自主行动的空间",
+            "exam_value": "fixed_pattern",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/space_1",
+                "role": "bounded semantic support; independently authored lexical wording"
+              }
+            ]
+          }
+        ],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/space_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -625,6 +708,18 @@
         "merged_into_sense_id": null,
         "source_row": 12965,
         "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json"
+      },
+      {
+        "sense_id": "sense:space:d878354118d6079b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4583.json"
+      },
+      {
+        "sense_id": "sense:space:f84306aaa7b78912",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4583.json"
       }
     ],
     "active_collocations": [
@@ -635,7 +730,9 @@
       "collocation:863ef4e8aaf295de4f2a",
       "collocation:a3c4c03071fa007bdb15",
       "collocation:af3502275054b6015f1b",
-      "collocation:fc46e844ecac953eaad7"
+      "collocation:fc46e844ecac953eaad7",
+      "collocation:1f5cc81be9d693e8aec3",
+      "collocation:075720ac46c050b1a999"
     ],
     "facts": [],
     "collocations": [
@@ -678,6 +775,14 @@
         "id": "collocation:fc46e844ecac953eaad7",
         "source_row": 21343,
         "source_path": "content/lexical/canonical/collocations/shards/o4577-4608.json"
+      },
+      {
+        "id": "collocation:1f5cc81be9d693e8aec3",
+        "source_path": "content/lexical/words/by-ordinal/o4583.json"
+      },
+      {
+        "id": "collocation:075720ac46c050b1a999",
+        "source_path": "content/lexical/words/by-ordinal/o4583.json"
       }
     ],
     "exam-mappings": [],

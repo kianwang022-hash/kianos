@@ -16,32 +16,42 @@
         "level": "L1",
         "meaning_cn": "总结；概括；归纳",
         "pattern": "sum up (sth)"
+      },
+      {
+        "construction_id": "construction:sum:cabc0c6bad6be3ff",
+        "pattern": "in sum",
+        "meaning_cn": "总之；概括起来",
+        "definition_en": "used to introduce a summary of the main point",
+        "boundary": "Formal discourse phrase; it summarizes an overall conclusion rather than an arithmetic total.",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "16b62fde52029c0fc99d8adc0c1fc5538a3e807b5a8173ff28a49a39a447c6d4",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "总和；总数；金额；款项",
-          "label_en": "the total amount resulting from the addition of numbers; a quantity of money",
+          "label_cn": "总和；金额；算术题",
+          "label_en": "an arithmetic total, an amount of money, or an arithmetic calculation",
           "pos": "noun",
           "sense_ids": [
             "sense:sum:d313d76bebe45dba",
-            "sense:sum:0726470c85675022"
+            "sense:sum:0726470c85675022",
+            "sense:sum:34a033249e41011a"
           ]
         },
         {
-          "label_cn": "合计；总结",
-          "label_en": "to find the total of numbers; to summarize",
+          "label_cn": "合计；求总和",
+          "label_en": "to calculate or find a total",
           "pos": "verb",
           "sense_ids": [
             "sense:sum:df69aca3e0ca5dc3"
           ]
         }
       ],
-      "core_meaning_cn": "总数；合计",
-      "core_meaning_en": "total amount or result of addition",
-      "mental_model_cn": "总数；合计",
+      "core_meaning_cn": "总和；一笔钱；计算",
+      "core_meaning_en": "a total, an amount of money, or an arithmetic calculation",
+      "mental_model_cn": "the sum of 看加总；a sum of money 看钱款；英式 do sums 指做算术。sum up 和正式的 in sum 转入总结论点。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,15 +74,6 @@
             ],
             "meaning_cn": "……的总和",
             "phrase": "the sum of + sth"
-          },
-          {
-            "collocation_id": "collocation:5da9e165df608885ac0b",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:sum:d313d76bebe45dba:collocation:1"
-            ],
-            "meaning_cn": "一大笔钱",
-            "phrase": "a large sum of money"
           }
         ],
         "confidence": "medium",
@@ -106,6 +107,15 @@
             ],
             "meaning_cn": "一笔钱",
             "phrase": "a sum of money"
+          },
+          {
+            "collocation_id": "collocation:5da9e165df608885ac0b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:sum:d313d76bebe45dba:collocation:1"
+            ],
+            "meaning_cn": "一大笔钱",
+            "phrase": "a large sum of money"
           }
         ],
         "confidence": "medium",
@@ -140,9 +150,24 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sum:df69aca3e0ca5dc3",
-        "sense_label_en": "to find the total of numbers; to summarize",
+        "sense_label_en": "to calculate or find the total of numbers or amounts",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:sum:34a033249e41011a",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "definition_cn": "算术题；计算",
+        "definition_en": "an arithmetic calculation or exercise",
+        "sense_label_en": "an arithmetic calculation or exercise",
+        "governing_pattern": "do sums",
+        "usage_note": "Chiefly British; often plural sums. This denotes calculations or exercises, not just their total result.",
+        "level": "L2",
+        "sort_order": 3,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": []
       }
     ],
     "verification_summary": {
@@ -492,6 +517,13 @@
         "merged_into_sense_id": null,
         "source_row": 13651,
         "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
+      },
+      {
+        "sense_id": "sense:sum:34a033249e41011a",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13656,
+        "source_path": "content/lexical/canonical/senses/shards/o4769-4800.json"
       }
     ],
     "active_collocations": [
@@ -501,7 +533,13 @@
       "collocation:b3bbf72450efc89b8bc8",
       "collocation:e2025541115d6dd83678"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:sum:cabc0c6bad6be3ff",
+        "source_row": 1162,
+        "source_path": "content/lexical/canonical/facts/shards/o4769-4800.json"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:468cfa6f4ec0c598acfb",

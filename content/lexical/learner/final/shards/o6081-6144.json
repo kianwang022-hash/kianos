@@ -326,7 +326,7 @@
     "ordinal": 6084,
     "word": "rapture",
     "source_owner_path": "content/lexical/words/by-ordinal/o6084.json",
-    "source_fingerprint": "c19f6c3b773e9fcf113a34ddc9ed40dbaa06b0111effa62c5cf47f3a60da2f61",
+    "source_fingerprint": "29c2b12cd87482d1233800bb83d1aa68a58de20bb38c6456cf70791086b2c720",
     "sense_lineage": [
       {
         "word_id": "word:rapture",
@@ -359,7 +359,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "兴高采烈；着迷；欢天喜地；狂喜",
-        "definition_en": "a state of being carried away by overwhelming emotion",
+        "definition_en": "a state of intense happiness, pleasure, or excitement",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -408,7 +408,23 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "raptures",
+            "condition": "expressions of great pleasure or enthusiasm",
+            "note": "抽象狂喜通常不可数；raptures复数常用于in raptures about/over sth，表示对某事欣喜若狂或赞不绝口。"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": [],
       "senses": [
         {
@@ -539,23 +555,23 @@
     "ordinal": 6086,
     "word": "rattle",
     "source_owner_path": "content/lexical/words/by-ordinal/o6086.json",
-    "source_fingerprint": "6bc14646601dc26b562cc7cd1c689c36edaa16eead7ed37433d361c87b518b57",
+    "source_fingerprint": "244ddc623a00c90aa360a89e5923f60a78d016a60c857190f8078121c5b4a71e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "发出格格声；嘎嘎作响",
+      "summary_cn": "（使）发出连续短促的碰撞声；（使）嘎嘎作响",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "发出格格声；嘎嘎作响"
+        "target_label": "（使）发出连续短促的碰撞声；（使）嘎嘎作响"
       }
     },
     "senses": [
@@ -563,9 +579,9 @@
         "id": "sense:rattle:b9ad170672a7524e",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "发出格格声；嘎嘎作响",
-        "definition_en": "to make a rapid series of short hard sounds",
+        "governing_pattern": "I: windows rattle; T: rattle keys",
+        "definition_cn": "（使）发出连续短促的碰撞声；（使）嘎嘎作响",
+        "definition_en": "to make or cause a rapid series of short hard knocking sounds",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -573,7 +589,7 @@
           "target_kind": "sense",
           "target_id": "sense:rattle:b9ad170672a7524e",
           "target_locator": "record.senses[0]",
-          "target_label": "发出格格声；嘎嘎作响"
+          "target_label": "（使）发出连续短促的碰撞声；（使）嘎嘎作响"
         }
       },
       {
@@ -609,6 +625,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "使紧张；使慌乱"
         }
+      },
+      {
+        "id": "sense:rattle:e63fb3039d11ca4c",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "连续短促的碰撞声；嘎嘎声",
+        "definition_en": "a rapid series of short hard knocking sounds",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:rattle:e63fb3039d11ca4c",
+          "target_locator": "record.senses[3]",
+          "target_label": "连续短促的碰撞声；嘎嘎声"
+        }
       }
     ],
     "pronunciation_support": {
@@ -642,7 +675,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:badf87232cebfb2422da",
+        "source_locator": "record.constructions[0]",
+        "pattern": "rattle sth off / rattle off sth",
+        "lines": [
+          {
+            "text": "快速说出或念出（名单、背熟的内容等）",
+            "lang": "cn"
+          },
+          {
+            "text": "to say or read out a list or something learned very quickly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:badf87232cebfb2422da",
+          "target_locator": "record.constructions[0]",
+          "target_label": "rattle sth off / rattle off sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1383,7 +1438,7 @@
     "ordinal": 6095,
     "word": "regiment",
     "source_owner_path": "content/lexical/words/by-ordinal/o6095.json",
-    "source_fingerprint": "4195b0650be477e9ad0bb3289aa562e2a5d0b87aa7386249aac0672f5e71c4fc",
+    "source_fingerprint": "8bccf2b74156fa3042845d466a0a95233e40b1428233d17191bb9a4ec34fa543",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1426,7 +1481,7 @@
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "组编成团；组织；严格管制",
-        "definition_en": "subject to rigid discipline, order, and systematization",
+        "definition_en": "to organize people into regiments or other groups, or to subject them to strict discipline and systematic control",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -1671,7 +1726,7 @@
     "ordinal": 6098,
     "word": "relegate",
     "source_owner_path": "content/lexical/words/by-ordinal/o6098.json",
-    "source_fingerprint": "d7773b7e812cb78957e5f5336f65122760c52d7174fc34521a484e8935084b8d",
+    "source_fingerprint": "4ed6b25165594034d42b2c35b91e5146dcb41ee4bce3404fe5f833c465013743",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1713,8 +1768,8 @@
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "驱逐；使降低地位；把...归类；把...委托给",
-        "definition_en": "refer to another person for decision or judgment",
-        "note": "Older/formal sense of referring a matter to another person for decision; lower/reference.",
+        "definition_en": "to banish; to assign to a lower or suitable position or category; or to refer a matter to someone else for action or judgment",
+        "note": "这些传统或正式用法包括放逐、归类和转交处理；日常常见的降到较低地位义见前一义项。relegate a matter to a committee指转交委员会处理。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -2086,7 +2141,7 @@
     "ordinal": 6102,
     "word": "residential",
     "source_owner_path": "content/lexical/words/by-ordinal/o6102.json",
-    "source_fingerprint": "ed3761efcf28a964254e69613cf1b90bbbc603af351223b4bbb5fa2dbcf375f5",
+    "source_fingerprint": "92f4df1d5629af72f2a26aa60d9f0a5147f565756f5feff9343942d21d7cc7d8",
     "sense_lineage": [
       {
         "word_id": "word:residential",
@@ -2098,13 +2153,13 @@
     ],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "住宅的；与居住有关的",
-      "decision_cn": "",
+      "decision_cn": "area/building看住宅用途；course/job看是否连同在当地住宿。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2128,6 +2183,23 @@
           "target_id": "sense:residential:067a61e0c2a95a0f",
           "target_locator": "record.senses[0]",
           "target_label": "住宅的；与居住有关的"
+        }
+      },
+      {
+        "id": "sense:residential:5a6a0c6646df0f43",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "提供住宿的；须在工作或学习地点居住的",
+        "definition_en": "involving living at the place where one works or studies",
+        "note": "用于course/job等语境，指在相关场所住宿，不只是建筑属于住宅用途。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:residential:5a6a0c6646df0f43",
+          "target_locator": "record.senses[1]",
+          "target_label": "提供住宿的；须在工作或学习地点居住的"
         }
       }
     ],
@@ -2427,7 +2499,7 @@
     "ordinal": 6105,
     "word": "retard",
     "source_owner_path": "content/lexical/words/by-ordinal/o6105.json",
-    "source_fingerprint": "fdcdd5f989785110d73c65d98c669e18c8ded77b898adae72578500bb67da569",
+    "source_fingerprint": "fb72b2b511ac038bdbb57936892c337aaed7f785f740cf805825f8342fc7ba96",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2436,13 +2508,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "延缓、阻碍（进展、生长或发展）（正式）；妨碍；延迟；使减速",
-      "decision_cn": "",
+      "summary_cn": "延缓、阻碍（进展、生长或发展）（正式）；延迟；变慢；进展受阻",
+      "decision_cn": "带直接宾语时是使其进展变慢；不及物时是事物本身延迟或变慢。指人的名词用法具有强烈冒犯性，不宜用来称呼他人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "延缓、阻碍（进展、生长或发展）（正式）；妨碍；延迟；使减速"
+        "target_label": "延缓、阻碍（进展、生长或发展）（正式）；延迟；变慢；进展受阻"
       }
     },
     "senses": [
@@ -2450,7 +2522,7 @@
         "id": "sense:retard:81bf6d5b6c0252bd",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "retard sth",
         "definition_cn": "延缓、阻碍（进展、生长或发展）（正式）",
         "definition_en": "formal: to delay or slow the progress, growth, or development of something",
         "note": "",
@@ -2468,7 +2540,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "妨碍；延迟；使减速",
+        "definition_cn": "延迟；变慢；进展受阻",
         "definition_en": "be delayed",
         "note": "",
         "identity_overlay": null,
@@ -2477,7 +2549,7 @@
           "target_kind": "sense",
           "target_id": "sense:retard:4fcf28c5268650fa",
           "target_locator": "record.senses[1]",
-          "target_label": "妨碍；延迟；使减速"
+          "target_label": "延迟；变慢；进展受阻"
         }
       }
     ],
@@ -2490,7 +2562,15 @@
           ],
           "applicability": [
             {
-              "surface": "retard"
+              "surface": "retard",
+              "sense_ids": [
+                "sense:retard:81bf6d5b6c0252bd",
+                "sense:retard:4fcf28c5268650fa"
+              ],
+              "pos": [
+                "verb"
+              ],
+              "scope_note": "Current two verb senses; existing second-syllable stress is supported by Cambridge and Merriam-Webster. Original source records remain historical."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2503,7 +2583,15 @@
           ],
           "applicability": [
             {
-              "surface": "retard"
+              "surface": "retard",
+              "pos": [
+                "noun"
+              ],
+              "excluded_sense_ids": [
+                "sense:retard:81bf6d5b6c0252bd",
+                "sense:retard:4fcf28c5268650fa"
+              ],
+              "scope_note": "Initial-stress person noun is offensive; retained as exact Form/source reference, not a pronunciation of the current two verb senses."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2516,7 +2604,15 @@
           ],
           "applicability": [
             {
-              "surface": "retard"
+              "surface": "retard",
+              "sense_ids": [
+                "sense:retard:81bf6d5b6c0252bd",
+                "sense:retard:4fcf28c5268650fa"
+              ],
+              "pos": [
+                "verb"
+              ],
+              "scope_note": "Current two verb senses; existing second-syllable stress is supported by Cambridge and Merriam-Webster. Original source records remain historical."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -2529,15 +2625,32 @@
           ],
           "applicability": [
             {
-              "surface": "retard"
+              "surface": "retard",
+              "pos": [
+                "noun"
+              ],
+              "excluded_sense_ids": [
+                "sense:retard:81bf6d5b6c0252bd",
+                "sense:retard:4fcf28c5268650fa"
+              ],
+              "scope_note": "Initial-stress person noun is offensive; retained as exact Form/source reference, not a pronunciation of the current two verb senses."
             }
           ],
           "evidence_basis": "source_ipa",
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:retard:4fcf28c5268650fa": [
+          0,
+          2
+        ],
+        "sense:retard:81bf6d5b6c0252bd": [
+          0,
+          2
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [],
@@ -2673,7 +2786,7 @@
     "ordinal": 6107,
     "word": "rig",
     "source_owner_path": "content/lexical/words/by-ordinal/o6107.json",
-    "source_fingerprint": "f258bf142e2ef93115b6e7b73841fdd04842f258f61393aef125ecc6f25af318",
+    "source_fingerprint": "41d84651681198f8e8b4e5a350181ba8b6ef1ffbd712ca48a7e7ddac37fca868",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2684,7 +2797,7 @@
     },
     "word_feel": {
       "summary_cn": "成套设备；装备",
-      "decision_cn": "",
+      "decision_cn": "选举/结果rig是暗中操纵；设备rig是装配，rig sth up强调临时拼装。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2776,7 +2889,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:70d68fd5477b3c89e814",
+        "source_locator": "record.constructions[0]",
+        "pattern": "rig sth up / rig up sth",
+        "lines": [
+          {
+            "text": "用手头材料临时搭起、拼装设备",
+            "lang": "cn"
+          },
+          {
+            "text": "to assemble equipment quickly, often for temporary use",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:70d68fd5477b3c89e814",
+          "target_locator": "record.constructions[0]",
+          "target_label": "rig sth up / rig up sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2877,7 +3012,7 @@
     "ordinal": 6109,
     "word": "ripple",
     "source_owner_path": "content/lexical/words/by-ordinal/o6109.json",
-    "source_fingerprint": "6257886c455569684ef765af866e5f2d76d89ee5e4f9905d913098ef41570732",
+    "source_fingerprint": "903a950fb2ff1abbe8b1cef2d6c567ff05a391e5ac5d3cccd78b7fac05503c56",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2888,7 +3023,7 @@
     },
     "word_feel": {
       "summary_cn": "涟漪；细浪",
-      "decision_cn": "",
+      "decision_cn": "水面看小波纹；声音/情绪逐渐传开看波动；a ripple effect指影响继续引出后续影响。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2968,7 +3103,29 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:279c9409b866b2e01cda",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a ripple effect (on sth)",
+        "lines": [
+          {
+            "text": "（对某事的）连锁反应；影响一层层扩散",
+            "lang": "cn"
+          },
+          {
+            "text": "a chain of effects spreading from an initial event",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:279c9409b866b2e01cda",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a ripple effect (on sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3808,18 +3965,18 @@
     "ordinal": 6118,
     "word": "scoff",
     "source_owner_path": "content/lexical/words/by-ordinal/o6118.json",
-    "source_fingerprint": "f650ef581b2cab070e1d6957ac43becb64ad1719d7a7f774cb761ad880c9f32f",
+    "source_fingerprint": "e2fd93188e19540fd4046eb097bb0499e83cf9f7c37f9e48fbbfa49b3b73f419",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "嘲笑；嘲弄；蔑视",
-      "decision_cn": "",
+      "decision_cn": "scoff at人/想法表示嘲弄，也可仅发不屑的声音；英式非正式scoff食物是很快吃掉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3834,7 +3991,7 @@
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "嘲笑；嘲弄；蔑视",
-        "definition_en": "to speak about someone or something in a scornful, mocking, or contemptuous way",
+        "definition_en": "to express scorn or disbelief by speech, laughter, or a dismissive sound",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3860,6 +4017,23 @@
           "target_id": "sense:scoff:97e827449d99506b",
           "target_locator": "record.senses[1]",
           "target_label": "嘲笑；讥讽"
+        }
+      },
+      {
+        "id": "sense:scoff:4b9d26a9bc0302e5",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "scoff + food",
+        "definition_cn": "（英式非正式）狼吞虎咽地吃；很快吃掉",
+        "definition_en": "British informal: to eat something quickly and eagerly",
+        "note": "食物作直接宾语；区别于scoff at对人或想法表示嘲弄。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:scoff:4b9d26a9bc0302e5",
+          "target_locator": "record.senses[2]",
+          "target_label": "（英式非正式）狼吞虎咽地吃；很快吃掉"
         }
       }
     ],
@@ -3915,7 +4089,7 @@
     "ordinal": 6119,
     "word": "scorch",
     "source_owner_path": "content/lexical/words/by-ordinal/o6119.json",
-    "source_fingerprint": "f232ee6d3a49a6a7f3745b393bac023d795e1c247f06df923abb5dc4a9f15f82",
+    "source_fingerprint": "718942463703817803a1a731e32c10d5ddb39381aeff1a86363106dd7743157f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3925,13 +4099,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "烧焦；烤焦；灼伤",
+      "summary_cn": "（使）表面烧焦、烤焦或灼伤",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "烧焦；烤焦；灼伤"
+        "target_label": "（使）表面烧焦、烤焦或灼伤"
       }
     },
     "senses": [
@@ -3940,8 +4114,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "烧焦；烤焦；灼伤",
-        "definition_en": "to burn the surface of something slightly or damage it with intense heat",
+        "definition_cn": "（使）表面烧焦、烤焦或灼伤",
+        "definition_en": "to burn slightly on the surface, or cause such damage through intense heat",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3949,7 +4123,7 @@
           "target_kind": "sense",
           "target_id": "sense:scorch:638aee6b1def5daf",
           "target_locator": "record.senses[0]",
-          "target_label": "烧焦；烤焦；灼伤"
+          "target_label": "（使）表面烧焦、烤焦或灼伤"
         }
       },
       {
@@ -4382,7 +4556,7 @@
     "ordinal": 6123,
     "word": "sedentary",
     "source_owner_path": "content/lexical/words/by-ordinal/o6123.json",
-    "source_fingerprint": "1c29b9fc9f3d6428597bc8b0e1e63d7a2c1af7f3efc447f56659fb2de7a2221d",
+    "source_fingerprint": "4d2c74216e84e214f76d9d0138b6f8d008703908364143ac34b2f7a23cbbf8a8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4407,7 +4581,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "久坐的；坐得多的；缺乏活动的",
-        "definition_en": "requiring sitting or little activity",
+        "definition_en": "involving much sitting or little physical activity",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4580,7 +4754,7 @@
     "ordinal": 6125,
     "word": "sermon",
     "source_owner_path": "content/lexical/words/by-ordinal/o6125.json",
-    "source_fingerprint": "d3b95eebdd2cf7bd7397b0143f62c39502d297b3dfe381b18ee7b2061035ffe2",
+    "source_fingerprint": "30f7df56e4ebded805db91dd2769013097e400169522986262fef6bcb8f6f710",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4589,13 +4763,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "说教；启示；布道",
-      "decision_cn": "",
+      "summary_cn": "布道；讲道；（常带不赞同的）道德说教",
+      "decision_cn": "宗教仪式中的sermon是讲道；抱怨某人的长篇劝诫时是带不赞同的说教，不是启示。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "说教；启示；布道"
+        "target_label": "布道；讲道；（常带不赞同的）道德说教"
       }
     },
     "senses": [
@@ -4623,7 +4797,7 @@
         "governing_pattern": "",
         "definition_cn": "说教；训诫；道德训斥",
         "definition_en": "a moralistic rebuke",
-        "note": "",
+        "note": "此比喻用法通常带不赞同，指冗长的道德说教；宗教讲道义本身不必带贬义。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4896,7 +5070,7 @@
     "ordinal": 6128,
     "word": "sheriff",
     "source_owner_path": "content/lexical/words/by-ordinal/o6128.json",
-    "source_fingerprint": "057cf13d293c37170c8bb0a10cb0a8b3e5e7dfcd786c880859cfdb29bba8feb5",
+    "source_fingerprint": "8847e3f2420354031a5022548d92774ad803d072707ceeb0d736b09d3ac58096",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4922,7 +5096,7 @@
         "governing_pattern": "",
         "definition_cn": "（主要美式）县级治安执法官员；苏格兰等地的 sheriff 职能不同",
         "definition_en": "chiefly US: an elected or appointed county officer responsible for law enforcement; other jurisdictions, including Scotland, have different sheriff offices",
-        "note": "The US county law-enforcement sense is learner-main; Scottish judicial/administrative senses are separate and lower.",
+        "note": "此处释义是美国县级执法官员；苏格兰的sheriff是司法职务，英格兰及威尔士相应职务主要具有礼仪性质，须按地区理解。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5091,22 +5265,23 @@
     "ordinal": 6130,
     "word": "shipwreck",
     "source_owner_path": "content/lexical/words/by-ordinal/o6130.json",
-    "source_fingerprint": "ce47c6109adf403a59f76a631e7bc4729a0aebb845b37a81fc69ba32abf4f527",
+    "source_fingerprint": "da2ba58d13ae32439fe45afc9963b57eef19290932dc076e62e1cbebc687113b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "遇难船；海难；海难、船难；船只在海上或事故中毁坏、沉没或失事",
-      "decision_cn": "",
+      "summary_cn": "沉船残骸；海难事件；（比喻）彻底失败或不可挽回的损失",
+      "decision_cn": "a shipwreck可看作沉船残骸或失事事件；be shipwrecked写人遭遇海难；比喻义看事业等彻底失败。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "遇难船；海难；海难、船难；船只在海上或事故中毁坏、沉没或失事"
+        "target_label": "沉船残骸；海难事件；（比喻）彻底失败或不可挽回的损失"
       }
     },
     "senses": [
@@ -5159,6 +5334,23 @@
           "target_id": "sense:shipwreck:d2dc307646d2ceed",
           "target_locator": "record.senses[2]",
           "target_label": "海难；船只失事/沉没的事件"
+        }
+      },
+      {
+        "id": "sense:shipwreck:dd60c2e6fced05a2",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "be shipwrecked (off/on + place)",
+        "definition_cn": "使遭遇海难；使船只失事",
+        "definition_en": "to cause a person to suffer a shipwreck or a ship to be wrecked",
+        "note": "常见被动，主语可为船员或旅客，不是说他们是沉船残骸。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:shipwreck:dd60c2e6fced05a2",
+          "target_locator": "record.senses[3]",
+          "target_label": "使遭遇海难；使船只失事"
         }
       }
     ],
@@ -5218,7 +5410,7 @@
     "ordinal": 6131,
     "word": "shortcut",
     "source_owner_path": "content/lexical/words/by-ordinal/o6131.json",
-    "source_fingerprint": "73e7f4d38020d8528ec9770121dda0ce530035693d168f083c132ccf6a13a16b",
+    "source_fingerprint": "bd9e369c373026b19cef653933b1d82d9b515d76537d55c57da2e84a2ff284e2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5227,13 +5419,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "捷径；最短路线；捷径；更快、更省事的做法；（计算机）快捷方式、快捷键",
+      "summary_cn": "捷径；比通常路线更短的近路；捷径；更快、更省事的做法；（计算机）快捷方式、快捷键",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "捷径；最短路线；捷径；更快、更省事的做法；（计算机）快捷方式、快捷键"
+        "target_label": "捷径；比通常路线更短的近路；捷径；更快、更省事的做法；（计算机）快捷方式、快捷键"
       }
     },
     "senses": [
@@ -5242,7 +5434,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "捷径；最短路线",
+        "definition_cn": "捷径；比通常路线更短的近路",
         "definition_en": "a route shorter than the usual one",
         "note": "",
         "identity_overlay": null,
@@ -5251,7 +5443,7 @@
           "target_kind": "sense",
           "target_id": "sense:shortcut:d0bd67e5b793545e",
           "target_locator": "record.senses[0]",
-          "target_label": "捷径；最短路线"
+          "target_label": "捷径；比通常路线更短的近路"
         }
       },
       {
@@ -5336,7 +5528,7 @@
     "ordinal": 6132,
     "word": "shortfall",
     "source_owner_path": "content/lexical/words/by-ordinal/o6132.json",
-    "source_fingerprint": "f9fe14b09efbe2e5207dd79a96d29d93458e716971e40fe86d6359643423c1f9",
+    "source_fingerprint": "b7e970e8470214f8d2cc60fe6a593d0d8886148243c2eaa0094950a288f33b6b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5359,10 +5551,10 @@
         "id": "sense:shortfall:d1e5057222ea5cbd",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "a shortfall in sth; a shortfall of + amount",
         "definition_cn": "不足；不足量",
-        "definition_en": "the property of being an amount by which something is less than expected or required",
-        "note": "",
+        "definition_en": "the amount by which something is below what is needed or expected",
+        "note": "in指不足的项目，of可给出差额数值；shortfall是不足量，不是已拥有的总量。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5504,7 +5696,7 @@
     "ordinal": 6134,
     "word": "shrill",
     "source_owner_path": "content/lexical/words/by-ordinal/o6134.json",
-    "source_fingerprint": "5f6a8bf977c39f6cde637c6c436f0bcdd2b44cc866b3ac6275f5dcab98d05ed5",
+    "source_fingerprint": "64ca3c6713f5e9c4d1589e4e8ef0c265ce378b81558cb51b9e8a1bb892c204ff",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5547,7 +5739,7 @@
         "governing_pattern": "",
         "definition_cn": "（颜色）刺眼的；鲜艳俗丽的",
         "definition_en": "of colors that are bright and gaudy",
-        "note": "Rare color-related use; lower/reference rather than learner-main.",
+        "note": "较少见的颜色用法，指鲜艳得刺眼或俗丽；声音语境则看音调尖锐刺耳。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5610,7 +5802,7 @@
     "ordinal": 6135,
     "word": "shrimp",
     "source_owner_path": "content/lexical/words/by-ordinal/o6135.json",
-    "source_fingerprint": "c7abcef01293756b132d9562ee2e26a185cc63eaf3272825386ea0c0f230153e",
+    "source_fingerprint": "f668ad0ac558b155832d4090ccff4aeb03ff23d7ca314cd04d7c0cd3898c8740",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5636,7 +5828,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "虾；小虾",
-        "definition_en": "small slender-bodied chiefly marine decapod crustaceans with a long tail and single pair of pincers; many species are edible",
+        "definition_en": "small slender-bodied chiefly marine decapod crustaceans with a long tail; many species are edible",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5727,17 +5919,17 @@
     "ordinal": 6136,
     "word": "shrine",
     "source_owner_path": "content/lexical/words/by-ordinal/o6136.json",
-    "source_fingerprint": "0d5233c77cdff7345ce6234cb2a1a463cbf9a8be493f5ff3ace876a4e7c32f42",
+    "source_fingerprint": "1a3cfc9113fa252ffb241a3a28a5f9f5a3c06c9ca8cde874f1c76aa03da62cb4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "圣地；神龛；庙",
-      "decision_cn": "",
+      "decision_cn": "宗教人物/圣物关联处是宗教圣地；名人或事件的纪念场所也可称shrine，不必是寺庙。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5761,6 +5953,23 @@
           "target_id": "sense:shrine:58706b335bbc5115",
           "target_locator": "record.senses[0]",
           "target_label": "圣地；神龛；庙"
+        }
+      },
+      {
+        "id": "sense:shrine:b427f855a4aa80a4",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a shrine to sb/sth",
+        "definition_cn": "纪念圣地；纪念某人或某事件的场所",
+        "definition_en": "a place treated with special respect because of its connection with a person or event",
+        "note": "可用于名人纪念地或布置纪念物的空间，不必有宗教崇拜。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:shrine:b427f855a4aa80a4",
+          "target_locator": "record.senses[1]",
+          "target_label": "纪念圣地；纪念某人或某事件的场所"
         }
       }
     ],
@@ -5917,7 +6126,7 @@
     "ordinal": 6138,
     "word": "sift",
     "source_owner_path": "content/lexical/words/by-ordinal/o6138.json",
-    "source_fingerprint": "c5dfd9d18c06f80e0e2cd66bcb7267ff5af8e3b689404d7f27d1bdbde08f653d",
+    "source_fingerprint": "e9e4f96ce6c07adf576d6b9b197b77210fa04cc832f7adce1d0a66bac90c0e0e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5942,7 +6151,7 @@
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "筛；筛分",
-        "definition_en": "to separate fine material from coarse material by passing it through a sieve",
+        "definition_en": "to pass material through a sieve to separate particles or break up lumps",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5957,10 +6166,10 @@
         "id": "sense:sift:8670992c3b285653",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "sift sth; sift through sth; sift sth out (from sth)",
         "definition_cn": "筛选；仔细审查",
         "definition_en": "to examine information or evidence carefully in order to find what is useful or important",
-        "note": "",
+        "note": "through后接需逐一审查的材料；out强调筛选出或排除某部分。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -6016,7 +6225,7 @@
     "ordinal": 6139,
     "word": "skeptical",
     "source_owner_path": "content/lexical/words/by-ordinal/o6139.json",
-    "source_fingerprint": "2da4f8d555bd8e13e8b4bb7b5f91b0adfaeb5ef5754c5872a669030deb5fd549",
+    "source_fingerprint": "1f0d9e5f10436d3189cf5402ea9ed3bc205504f20da2051b08d72e4606756e38",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6039,19 +6248,11 @@
         "id": "sense:skeptical:f83faf14d2ed5099",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "skeptical about/of sth",
         "definition_cn": "怀疑的；持怀疑态度的",
         "definition_en": "having doubts or not easily convinced that something is true, effective, or worthwhile",
         "note": "",
-        "identity_overlay": {
-          "text": "sceptical is a common BrE spelling; skeptical is the standard AmE spelling; same lexeme and meaning",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "sceptical is a common BrE spelling; skeptical is the standard AmE spelling; same lexeme and meaning"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -6106,12 +6307,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -6365,7 +6562,7 @@
     "ordinal": 6142,
     "word": "slumber",
     "source_owner_path": "content/lexical/words/by-ordinal/o6142.json",
-    "source_fingerprint": "f2d2331bcc4c8f877d8c76f8aaf26d783b77b621838f361dbb8a5bee9d338473",
+    "source_fingerprint": "a0096bd207c0f0cdcfb703be930a7133dcf60a48ab184da5f79c73769ca9f891",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6392,7 +6589,7 @@
         "governing_pattern": "",
         "definition_cn": "睡眠；微睡",
         "definition_en": "sleep, especially a light or peaceful sleep",
-        "note": "",
+        "note": "文学性用语；描写睡眠或安静休眠的状态，不是日常最中性的sleep。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -6409,7 +6606,7 @@
         "governing_pattern": "",
         "definition_cn": "睡眠；沉睡；处于静止状态",
         "definition_en": "to sleep or remain inactive",
-        "note": "",
+        "note": "文学性用语；描写睡眠或安静休眠的状态，不是日常最中性的sleep。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -6467,13 +6664,13 @@
     "ordinal": 6143,
     "word": "snail",
     "source_owner_path": "content/lexical/words/by-ordinal/o6143.json",
-    "source_fingerprint": "304f9e2bc0cfad32b592c458fcfde8f32025437300689eebfa7eb950e5850168",
+    "source_fingerprint": "41902e6ccb465d17b866e2fcd3651932e155a9491ab7f3922e0ad7e03a20db70",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "蜗牛",
@@ -6535,7 +6732,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:95746d9c4e33d8c4d5f5",
+        "source_locator": "record.constructions[0]",
+        "pattern": "at a snail's pace",
+        "lines": [
+          {
+            "text": "以极慢的速度；像蜗牛一样慢",
+            "lang": "cn"
+          },
+          {
+            "text": "extremely slowly",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:95746d9c4e33d8c4d5f5",
+          "target_locator": "record.constructions[0]",
+          "target_label": "at a snail's pace"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

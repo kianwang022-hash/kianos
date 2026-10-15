@@ -6,13 +6,29 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:scrape:5fb28f42505e9045",
+        "pattern": "scrape through (sth)",
+        "meaning_cn": "勉强通过；艰难过关",
+        "definition_en": "to succeed only with difficulty, especially in an examination",
+        "boundary": "强调只是勉强达到要求，不是轻松成功，也不是字面从狭缝擦过去。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/scrape-through",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      }
+    ],
     "content_hash": "1486987bd9ad247073fa999ac5a08003683b7e6e8082d4c5f229f7bc2acfcff2",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "刮，擦，擦伤；刮擦发出刺耳声；挖成，挖出；积蓄，攒钱",
-          "label_en": "to rub something against a rough surface, causing damage or removing a layer; to make a harsh noise by rubbing against a hard surface; to make or form by scraping; to save money with difficulty",
+          "label_cn": "刮，擦，擦伤；刮擦发出刺耳声；挖成，挖出；勉强凑集；艰难筹集（钱、人手等）",
+          "label_en": "to rub something against a rough surface, causing damage or removing a layer; to make a harsh rubbing noise against a hard surface, or to cause something to do so; to make or form by scraping; to obtain or gather money or other resources with difficulty",
           "pos": "verb",
           "sense_ids": [
             "sense:scrape:2ccd892fba7252a2",
@@ -22,18 +38,19 @@
           ]
         },
         {
-          "label_cn": "刮擦声；困境",
-          "label_en": "a harsh noise made by scraping; a difficult situation caused by one's own actions",
+          "label_cn": "刮擦声；困境；擦伤；刮痕",
+          "label_en": "a harsh noise made by scraping; a difficult situation caused by one's own actions; a shallow injury or surface mark caused by rough contact",
           "pos": "noun",
           "sense_ids": [
             "sense:scrape:e912cea87c235ca2",
-            "sense:scrape:3762e976348d5002"
+            "sense:scrape:3762e976348d5002",
+            "sense:scrape:64c429c28dafc83d"
           ]
         }
       ],
       "core_meaning_cn": "刮擦",
       "core_meaning_en": "to rub or cause to rub against a rough surface, or the result of such action",
-      "mental_model_cn": "刮擦",
+      "mental_model_cn": "实体接触看刮擦、声音或擦伤；together/up接资金等看勉强凑集，through考试看勉强过关；get into a scrape指惹上麻烦。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -100,15 +117,21 @@
         ],
         "confidence": "medium",
         "definition_cn": "刮擦发出刺耳声",
-        "definition_en": "to make a harsh noise by rubbing against a hard surface",
-        "governing_pattern": "vi. + against/along/on",
+        "definition_en": "to make a harsh rubbing noise against a hard surface, or to cause something to do so",
+        "governing_pattern": "scrape against/along/on sth; scrape sth on/along sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:scrape:9b3e86a2b5545d79",
-        "sense_label_en": "to make a harsh noise by rubbing against a hard surface",
+        "sense_label_en": "to make or cause a harsh rubbing noise",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vt/vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/scrape_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -195,16 +218,57 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "积蓄，攒钱",
-        "definition_en": "to save money with difficulty",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "勉强凑集；艰难筹集（钱、人手等）",
+        "definition_en": "to obtain or gather money or other resources with difficulty",
+        "governing_pattern": "scrape sth together/up; scrape together/up sth",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:scrape:932a5457c0105415",
-        "sense_label_en": "to save money with difficulty",
+        "sense_label_en": "to gather money or other resources with difficulty",
         "sort_order": 5,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "不只指长期攒钱，也可临时凑资金或人手；重点是取得足量很困难。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/scrape-together",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:scrape:64c429c28dafc83d",
+        "definition_cn": "擦伤；刮痕",
+        "definition_en": "a shallow injury or surface mark caused by rough contact",
+        "sense_label_en": "a shallow injury or surface mark caused by rough contact",
+        "pos": "noun",
+        "governing_pattern": "[C] a scrape; scrapes",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 6,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:scrape:01e5563815d3e869",
+            "exam_value": "usage_example",
+            "meaning_cn": "她膝盖上的擦伤",
+            "phrase": "a scrape on her knee",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/scrape_2",
+                "role": "bounded P1 semantic verification; independently authored learner wording"
+              }
+            ]
+          }
+        ],
+        "usage_note": "指刮擦造成的损伤或痕迹；与原名词刮擦声和惹出的困境区分。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/scrape_2",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -569,6 +633,12 @@
         "merged_into_sense_id": null,
         "source_row": 12062,
         "source_path": "content/lexical/canonical/senses/shards/o4289-4320.json"
+      },
+      {
+        "sense_id": "sense:scrape:64c429c28dafc83d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4298.json"
       }
     ],
     "active_collocations": [
@@ -579,7 +649,8 @@
       "collocation:766530197be6c8553df1",
       "collocation:82326aa810a49a7aaa8d",
       "collocation:891cf42b12935bc03bc9",
-      "collocation:f23da76f120c646fb392"
+      "collocation:f23da76f120c646fb392",
+      "collocation:scrape:01e5563815d3e869"
     ],
     "facts": [],
     "collocations": [
@@ -622,6 +693,12 @@
         "id": "collocation:f23da76f120c646fb392",
         "source_row": 20521,
         "source_path": "content/lexical/canonical/collocations/shards/o4289-4320.json"
+      },
+      {
+        "id": "collocation:scrape:01e5563815d3e869",
+        "sense_id": "sense:scrape:64c429c28dafc83d",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4298.json"
       }
     ],
     "exam-mappings": [],
@@ -645,6 +722,13 @@
         "id": "membership:17f1f25bb147769e54b7",
         "source_row": 17483,
         "source_path": "content/lexical/canonical/packs/shards/o4289-4320.json"
+      }
+    ],
+    "constructions": [
+      {
+        "id": "construction:scrape:5fb28f42505e9045",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4298.json"
       }
     ]
   },

@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "畜栏，厩；货摊，摊位；（飞机的）失速；剧院正厅前排座位",
-          "label_en": "a compartment for one animal in a stable; a booth or stand where goods are sold; a loss of lift in an aircraft causing a downward plunge; seats in the front part of a theater",
+          "label_cn": "畜栏，厩；货摊，摊位；（飞机的）失速；（英式，复数the stalls）剧院正厅的池座",
+          "label_en": "a compartment for one animal in a stable; a booth or stand where goods are sold; an aerodynamic loss of lift when the critical angle of attack is exceeded; in British English, the seats on the main floor of a theatre",
           "pos": "noun",
           "sense_ids": [
             "sense:stall:a9c0dad34c245b06",
@@ -22,8 +22,8 @@
           ]
         },
         {
-          "label_cn": "停顿；拖延；支吾；使（发动机）熄火；使停顿",
-          "label_en": "to stop or cause to stop making progress; to delay; to cause an engine or vehicle to stop running",
+          "label_cn": "停顿；拖延；支吾；（发动机、车辆）突然熄火；使熄火",
+          "label_en": "to stop or cause to stop making progress; to delay; for an engine or vehicle to stop running unexpectedly, or to cause this",
           "pos": "verb",
           "sense_ids": [
             "sense:stall:556d9f5e68e855f7",
@@ -129,16 +129,24 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "使（发动机）熄火；使停顿",
-        "definition_en": "to cause an engine or vehicle to stop running",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "（发动机、车辆）突然熄火；使熄火",
+        "definition_en": "for an engine or vehicle to stop running unexpectedly, or to cause this",
+        "governing_pattern": "I/T: an engine/car stalls; stall the engine/car",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:stall:7287fac2663a5c46",
-        "sense_label_en": "to cause an engine or vehicle to stop running",
+        "sense_label_en": "for an engine or vehicle to stop running unexpectedly, or to cause this",
         "sort_order": 3,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/us/dictionary/english/stall?topic=driving-and-operating-road-vehicles",
+            "source_section": "ENGINE I/T; delay; enclosed-space noun",
+            "accessed_at_utc": "2026-10-13T14:23:22Z",
+            "role": "semantic support; bounded independently authored correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -154,15 +162,24 @@
         ],
         "confidence": "medium",
         "definition_cn": "（飞机的）失速",
-        "definition_en": "a loss of lift in an aircraft causing a downward plunge",
+        "definition_en": "an aerodynamic loss of lift when the critical angle of attack is exceeded",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:stall:89a5cd3d1bf25549",
-        "sense_label_en": "a loss of lift in an aircraft causing a downward plunge",
+        "sense_label_en": "an aerodynamic loss of lift when the critical angle of attack is exceeded",
         "sort_order": 4,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "航空义指机翼升力下降；不等于发动机熄火，也不必然表示垂直俯冲。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.faa.gov/lessons_learned/small_airplane/accidents/N208TF",
+            "source_section": "aerodynamic stall occurs beyond critical angle of attack and decreases lift",
+            "accessed_at_utc": "2026-10-13T14:23:22Z",
+            "role": "semantic support; bounded independently authored correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -172,21 +189,29 @@
             "legacy_source_object_ids": [
               "sense:stall:d73f2d8c5a1d54c6:collocation:0"
             ],
-            "meaning_cn": "剧院正厅前排座位",
+            "meaning_cn": "剧院正厅池座",
             "phrase": "orchestra stalls"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "剧院正厅前排座位",
-        "definition_en": "seats in the front part of a theater",
-        "governing_pattern": "",
+        "definition_cn": "（英式，复数the stalls）剧院正厅的池座",
+        "definition_en": "in British English, the seats on the main floor of a theatre",
+        "governing_pattern": "plural: the stalls",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:stall:d73f2d8c5a1d54c6",
-        "sense_label_en": "seats in the front part of a theater",
+        "sense_label_en": "in British English, the seats on the main floor of a theatre",
         "sort_order": 5,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/english/stalls",
+            "source_section": "UK theatre main-floor seats; plural stalls",
+            "accessed_at_utc": "2026-10-13T14:23:22Z",
+            "role": "semantic support; bounded independently authored correction"
+          }
+        ]
       }
     ],
     "verification_summary": {

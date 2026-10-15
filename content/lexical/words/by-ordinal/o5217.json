@@ -20,6 +20,22 @@
         "level": "L2",
         "meaning_cn": "由某人决定或负责",
         "pattern": "be up to sb"
+      },
+      {
+        "construction_id": "construction:30b6ef4d8039013c4b31",
+        "pattern": "be/feel up to + noun/V-ing",
+        "meaning_cn": "有能力或精力胜任……",
+        "definition_en": "be capable or well enough to do something",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:a7f3341f579df62d54bc",
+        "pattern": "be up to sth; what is sb up to?",
+        "meaning_cn": "在做某事；常用于询问活动或怀疑在搞鬼",
+        "definition_en": "be doing something, sometimes secretly or with suspected bad intent",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "ad5506cae7cf3b19b7a5753a7e11b460036048a5bb7bc9c54d4cb4f5b37147e5",
@@ -51,9 +67,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "向上；在上面；在…上面；向…的较高处；向上的；上涨的；上涨的、增加的；运行中的、可用的或已到时间的",
-      "core_meaning_en": "toward or in a higher position; to a higher place on or in; moving or directed upward; higher or increased; operating/available, or having reached a stated time/state",
-      "mental_model_cn": "向上；在上面；在…上面；向…的较高处；向上的；上涨的；上涨的、增加的；运行中的、可用的或已到时间的",
+      "core_meaning_cn": "向更高位置或水平；部分固定结构表示状态或限度",
+      "core_meaning_en": "toward a higher position or level, with specific state and limit constructions",
+      "mental_model_cn": "方向/数值看上移；time is up看到期，system is up看运行；up to数量是上限，up to人是责任，up to任务看胜任，what ... up to看在做什么。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -77,14 +93,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "向上；在上面",
-        "definition_en": "toward or in a higher position",
+        "definition_cn": "向上；在高处；向更高数值或水平",
+        "definition_en": "toward or in a higher position, or toward a higher amount or level",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adverb",
         "sense_id": "sense:up:921a9c1593f552f8",
-        "sense_label_en": "toward or in a higher position",
+        "sense_label_en": "toward or in a higher position, or toward a higher amount or level",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -98,17 +114,23 @@
             ],
             "meaning_cn": "上楼梯",
             "phrase": "up the stairs"
+          },
+          {
+            "collocation_id": "collocation:af756d101ee55e2495c5",
+            "phrase": "up the road",
+            "meaning_cn": "沿路往前",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "在…上面；向…的较高处",
-        "definition_en": "to a higher place on or in",
+        "definition_cn": "向……较高处；沿着……往前",
+        "definition_en": "toward a higher place on something, or farther along a road or similar route",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "preposition",
         "sense_id": "sense:up:ecab378a5a5255e3",
-        "sense_label_en": "to a higher place on or in",
+        "sense_label_en": "toward a higher place on something, or farther along a road or similar route",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -153,16 +175,17 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "上涨的、增加的；运行中的、可用的或已到时间的",
-        "definition_en": "higher or increased; operating/available, or having reached a stated time/state",
+        "definition_cn": "上涨的；运转中的；（时间）已到期的",
+        "definition_en": "higher or increased; operating; or, of an allotted period, finished",
         "governing_pattern": "prices/systems/time are up",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:up:a356ab0e976cf820",
-        "sense_label_en": "higher or increased; operating/available, or having reached a stated time/state",
+        "sense_label_en": "higher or increased; operating; or, of an allotted period, finished",
         "sort_order": 4,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "time is up表示可用时间已结束，不是时间上涨；systems are up表示系统在运行。"
       }
     ],
     "verification_summary": {
@@ -417,7 +440,8 @@
     "active_collocations": [
       "collocation:643685725ddf86e36048",
       "collocation:893738092949240fca40",
-      "collocation:ce99df0d84b797923444"
+      "collocation:ce99df0d84b797923444",
+      "collocation:af756d101ee55e2495c5"
     ],
     "facts": [],
     "collocations": [
@@ -434,6 +458,11 @@
       {
         "id": "collocation:ce99df0d84b797923444",
         "source_row": 17463,
+        "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
+      },
+      {
+        "id": "collocation:af756d101ee55e2495c5",
+        "source_row": 21453,
         "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
       }
     ],

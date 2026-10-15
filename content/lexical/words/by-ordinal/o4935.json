@@ -11,35 +11,38 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "温柔的；体贴的；嫩的；柔软的；脆弱易受伤的",
-          "label_en": "gentle, kind, or caring; soft, delicate, or easily hurt or damaged",
+          "label_cn": "温柔、体贴；柔嫩、脆弱；身体部位触痛",
+          "label_en": "gentle or caring; soft or delicate; painful to touch",
           "pos": "adjective",
           "sense_ids": [
             "sense:tender:8514814304535b8a",
-            "sense:tender:104fb6413e5a5eb9"
+            "sense:tender:104fb6413e5a5eb9",
+            "sense:tender:b9a9de8f7bc35821ab1d"
           ]
         },
         {
-          "label_cn": "投标",
-          "label_en": "to make a formal offer to do a job at a stated price",
+          "label_cn": "正式提出、递交；投标",
+          "label_en": "formally presenting something, or bidding to do work",
           "pos": "verb",
           "sense_ids": [
-            "sense:tender:4b650be813035bc1"
+            "sense:tender:4b650be813035bc1",
+            "sense:tender:b376a8bc72ed5f3b4b7c"
           ]
         },
         {
-          "label_cn": "投标（书）；法定货币；法律上可用于付款的货币",
-          "label_en": "a formal offer to do a job at a stated price; money officially recognized as acceptable for payment; legal tender",
+          "label_cn": "投标（书）；法定货币；供应船或交通艇",
+          "label_en": "a formal bid; legal tender; a boat supplying or serving a larger ship",
           "pos": "noun",
           "sense_ids": [
             "sense:tender:4345590b62cc5a71",
-            "sense:tender:1ecc814ed8409254"
+            "sense:tender:1ecc814ed8409254",
+            "sense:tender:3aee7c285635521c"
           ]
         }
       ],
-      "core_meaning_cn": "温柔的；体贴的；投标；投标（书）；嫩的；柔软的；脆弱易受伤的；法定货币；法律上可用于付款的货币",
-      "core_meaning_en": "gentle, kind, or caring; to make a formal offer to do a job at a stated price; a formal offer to do a job at a stated price; soft, delicate, or easily hurt or damaged; money officially recognized as acceptable for payment; legal tender",
-      "mental_model_cn": "温柔的；体贴的；投标；投标（书）；嫩的；柔软的；脆弱易受伤的；法定货币；法律上可用于付款的货币",
+      "core_meaning_cn": "柔和或敏感；另有正式提出、投标，以及货币和航运的专门义",
+      "core_meaning_en": "gentleness or sensitivity; separately formal offering or bidding, with money and maritime noun uses",
+      "mental_model_cn": "人或照料方式可温柔，食物可嫩，身体部位可触痛；tender a resignation 是递交辞呈，tender for a contract 是投标。legal tender 指法定货币，航运中 a tender 可指接驳或供应小艇。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -175,6 +178,50 @@
         "sense_label_en": "money officially recognized as acceptable for payment; legal tender",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:tender:b376a8bc72ed5f3b4b7c",
+        "pos": "verb",
+        "definition_cn": "（正式）提出，递交，提供",
+        "definition_en": "to formally present or offer something",
+        "sense_label_en": "to formally present or offer something",
+        "governing_pattern": "vt.: tender sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3cd8b147c693a8abbe2c",
+            "phrase": "tender one's resignation",
+            "meaning_cn": "递交辞呈",
+            "exam_value": "fixed_pattern"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:tender:b9a9de8f7bc35821ab1d",
+        "pos": "adjective",
+        "definition_cn": "（身体部位）一碰就痛的，触痛的",
+        "definition_en": "sensitive or painful when touched, especially a part of the body",
+        "sense_label_en": "sensitive or painful when touched, especially a part of the body",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 7,
+        "collocations": [
+          {
+            "collocation_id": "collocation:228e70e63460661a6d49",
+            "phrase": "tender to the touch",
+            "meaning_cn": "触碰时疼痛",
+            "exam_value": "usage_example"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -735,13 +782,29 @@
         "merged_into_sense_id": null,
         "source_row": 14120,
         "source_path": "content/lexical/canonical/senses/shards/o4929-4960.json"
+      },
+      {
+        "sense_id": "sense:tender:b376a8bc72ed5f3b4b7c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14121,
+        "source_path": "content/lexical/canonical/senses/shards/o4929-4960.json"
+      },
+      {
+        "sense_id": "sense:tender:b9a9de8f7bc35821ab1d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14122,
+        "source_path": "content/lexical/canonical/senses/shards/o4929-4960.json"
       }
     ],
     "active_collocations": [
       "collocation:10620836fb2ff21b1a74",
       "collocation:60bbff93f71750c35872",
       "collocation:60eadd526bd909110cac",
-      "collocation:88323c46575420454027"
+      "collocation:88323c46575420454027",
+      "collocation:3cd8b147c693a8abbe2c",
+      "collocation:228e70e63460661a6d49"
     ],
     "facts": [],
     "collocations": [
@@ -763,6 +826,16 @@
       {
         "id": "collocation:88323c46575420454027",
         "source_row": 11563,
+        "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json"
+      },
+      {
+        "id": "collocation:3cd8b147c693a8abbe2c",
+        "source_row": 21455,
+        "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json"
+      },
+      {
+        "id": "collocation:228e70e63460661a6d49",
+        "source_row": 21456,
         "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json"
       }
     ],

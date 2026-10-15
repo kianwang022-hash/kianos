@@ -136,15 +136,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:419a219f976dacd28008",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:shower:6f88b0d12f825867:collocation:0"
-            ],
-            "meaning_cn": "大量落在某物上",
-            "phrase": "shower down on + sth"
-          },
-          {
             "collocation_id": "collocation:82a8fe8033b525e34237",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -157,14 +148,20 @@
         "confidence": "medium",
         "definition_cn": "下阵雨",
         "definition_en": "to rain briefly",
-        "governing_pattern": "vi. + over/on",
+        "governing_pattern": "it showers / shower over/on a place",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:shower:6f88b0d12f825867",
         "sense_label_en": "to rain briefly",
         "sort_order": 3,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/shower",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -181,14 +178,70 @@
         "confidence": "medium",
         "definition_cn": "大量给予",
         "definition_en": "to give someone a lot of something",
-        "governing_pattern": "vt. + object + with",
+        "governing_pattern": "shower sb with sth / shower sth on sb",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:shower:727fd2eae4425dac",
         "sense_label_en": "to give someone a lot of something",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shower_2",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:shower:b7e425fb57773a3b",
+        "pos": "verb",
+        "definition_cn": "洗淋浴",
+        "definition_en": "to wash oneself under running shower water",
+        "sense_label_en": "to wash oneself under running shower water",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "shower",
+        "transitivity": "vi",
+        "usage_note": "人作主语、洗浴语境时是不及物动作，不是下阵雨。",
+        "collocations": [],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shower_2",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:shower:030430968b7aa8dd",
+        "pos": "verb",
+        "definition_cn": "（大量小物体）纷纷落下；使大量小物体落到某人身上",
+        "definition_en": "to fall in many small pieces, or cause small things to fall over someone",
+        "sense_label_en": "to fall in many small pieces, or cause small things to fall over someone",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "shower (down) on sb/sth / shower sb with sth",
+        "transitivity": "I/T",
+        "usage_note": "碎片、灰尘、米粒等是落下的东西；不等于天气下阵雨。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:419a219f976dacd28008",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:shower:6f88b0d12f825867:collocation:0"
+            ],
+            "meaning_cn": "大量落在某物上",
+            "phrase": "shower down on + sth"
+          }
+        ],
+        "sort_order": 6,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shower_2",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -353,6 +406,18 @@
         "merged_into_sense_id": null,
         "source_row": 12465,
         "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
+      },
+      {
+        "sense_id": "sense:shower:b7e425fb57773a3b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4416.json"
+      },
+      {
+        "sense_id": "sense:shower:030430968b7aa8dd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4416.json"
       }
     ],
     "active_collocations": [

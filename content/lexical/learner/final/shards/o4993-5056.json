@@ -208,7 +208,7 @@
     "ordinal": 4995,
     "word": "those",
     "source_owner_path": "content/lexical/words/by-ordinal/o4995.json",
-    "source_fingerprint": "0cc35c5f6d468ea5650c7200647eb362cac9869b3eec6064419b9a57304e29ef",
+    "source_fingerprint": "9ab89ddb7094878a490fb3617f1cdc185df656049f8ba45f7b4c60dfc2daec11",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -250,14 +250,6 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "those who"
             }
-          },
-          {
-            "id": "collocation:515b17fc717beca9427a",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "those books",
-            "meaning_cn": "那些书",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -276,7 +268,16 @@
         "definition_en": "demonstrative determiner used before a plural noun",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:515b17fc717beca9427a",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "those books",
+            "meaning_cn": "那些书",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:those:a9e854dca6196b24",
@@ -340,7 +341,7 @@
     "ordinal": 4996,
     "word": "though",
     "source_owner_path": "content/lexical/words/by-ordinal/o4996.json",
-    "source_fingerprint": "b35d7b9a548692a9fa626a4c40d43147feafece351bec3e5fbcd7552b2d954d7",
+    "source_fingerprint": "5fae178a8c7107e0b5c6cd3c904fa3a8a7dae2a0ef766f37fffedeb2a95ddb9b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -351,7 +352,7 @@
     },
     "word_feel": {
       "summary_cn": "虽然；然而",
-      "decision_cn": "",
+      "decision_cn": "Though + 从句引出让步事实；分句末的 though 回头补一句“不过”。even though 加强事实让步，不表示假设条件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -367,7 +368,7 @@
         "governing_pattern": "",
         "definition_cn": "虽然，尽管",
         "definition_en": "despite the fact that; although",
-        "note": "",
+        "note": "even though 引入被当作事实的让步；表示假设的“即使”通常用 even if。这里只校准本词 even though 的适用条件，不新建跨词 Relation。",
         "identity_overlay": null,
         "usage": [
           {
@@ -387,9 +388,14 @@
             "id": "collocation:04083cc1089ab916bc60",
             "source_locator": "record.senses[0].collocations[1]",
             "phrase": "even though",
-            "meaning_cn": "即使，尽管",
-            "kind": "usage_example",
-            "repair": null
+            "meaning_cn": "尽管；虽然（强调与已知事实相反的结果）",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:04083cc1089ab916bc60",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "even though"
+            }
           }
         ],
         "repair": {
@@ -406,20 +412,20 @@
         "governing_pattern": "",
         "definition_cn": "然而，可是",
         "definition_en": "however (used to introduce a contrast)",
-        "note": "",
+        "note": "副词 though 常放在句末，也可插入分句内部；不要把句首的 Though + 从句误读成独立转折副词。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:d2cd128342d1051300a3",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "though, ...",
-            "meaning_cn": "然而，……",
+            "phrase": "..., though",
+            "meaning_cn": "不过；可是（通常置于句末或分句末）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d2cd128342d1051300a3",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "though, ..."
+              "target_label": "..., though"
             }
           }
         ],
@@ -807,7 +813,7 @@
     "ordinal": 4998,
     "word": "thoughtful",
     "source_owner_path": "content/lexical/words/by-ordinal/o4998.json",
-    "source_fingerprint": "7bcc6faced62366a37765f0c27183c0aa01b169a2299929179f3804a3c0e31ca",
+    "source_fingerprint": "c77b2c3763e116e78a672e6a3c29c344a7b8edb18bcb070dc17ff8c4181e4d4f",
     "sense_lineage": [
       {
         "word_id": "word:thoughtful",
@@ -846,9 +852,9 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "深思熟虑的；经过认真思考的",
-        "definition_en": "showing careful, serious, or reflective thought",
-        "note": "",
+        "definition_cn": "深思熟虑的；沉思的，若有所思的",
+        "definition_en": "showing careful thought, or absorbed in thought",
+        "note": "修饰 analysis / answer 常指经过认真思考；形容人或神情也可指沉思、若有所思。是否“体贴”须看关照他人的语境。",
         "identity_overlay": null,
         "usage": [
           {
@@ -882,7 +888,7 @@
           "target_kind": "sense",
           "target_id": "sense:thoughtful:227184ada1f557c1",
           "target_locator": "record.senses[0]",
-          "target_label": "深思熟虑的；经过认真思考的"
+          "target_label": "深思熟虑的；沉思的，若有所思的"
         }
       },
       {
@@ -1016,7 +1022,7 @@
     "ordinal": 4999,
     "word": "thousand",
     "source_owner_path": "content/lexical/words/by-ordinal/o4999.json",
-    "source_fingerprint": "afe02677c208950819046a046341d7a184236415dbd5f856d6e7807c5509ef19",
+    "source_fingerprint": "4dab14c1696ba8fb8b30dcb6f7db4ac7032b63ce71d4724f3cf8637ee0ee03c9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1028,7 +1034,7 @@
     },
     "word_feel": {
       "summary_cn": "数字一千",
-      "decision_cn": "",
+      "decision_cn": "确数看数词：two thousand 不加 s；概数看复数框架：thousands of。a thousand times 也可夸张表示次数很多。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1041,28 +1047,15 @@
         "id": "sense:thousand:36467457b5375944",
         "source_locator": "record.senses[0]",
         "pos": "numeral",
-        "governing_pattern": "",
+        "governing_pattern": "a/one/two/... thousand + plural noun",
         "definition_cn": "千（数字）",
         "definition_en": "the cardinal number 1000",
-        "note": "",
+        "note": "具体数词后 thousand 不加 -s：two thousand books。指定集合可接 of，如 two thousand of these books；不能据此写 two thousands books。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:d2e4fda66b3c1766274f",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "thousands of + sth",
-            "meaning_cn": "数以千计的",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:d2e4fda66b3c1766274f",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "thousands of + sth"
-            }
-          },
-          {
             "id": "collocation:3e2a03cf1be46080d287",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a thousand",
             "meaning_cn": "一千",
             "kind": "usage_example",
@@ -1106,15 +1099,28 @@
         "id": "sense:thousand:1c7b46b3cbe15dbf",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "thousands of + plural noun",
         "definition_cn": "许许多多",
         "definition_en": "a large number",
-        "note": "",
+        "note": "不说确切数量时用复数 thousands of，表示数以千计的；区别于 two thousand 等确数。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:77db75585eaccf00b764",
+            "id": "collocation:d2e4fda66b3c1766274f",
             "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "thousands of + sth",
+            "meaning_cn": "数以千计的",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:d2e4fda66b3c1766274f",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "thousands of + sth"
+            }
+          },
+          {
+            "id": "collocation:77db75585eaccf00b764",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "thousands of people",
             "meaning_cn": "成千上万的人",
             "kind": "usage_example",
@@ -1161,23 +1167,31 @@
     "ordinal": 5000,
     "word": "thread",
     "source_owner_path": "content/lexical/words/by-ordinal/o5000.json",
-    "source_fingerprint": "2f3be5fe5b9f106db651dd0e54496dd57c00440efe3b766f7d8bf0756c0f8316",
-    "sense_lineage": [],
+    "source_fingerprint": "0d3d47efae98d00946b580013b7189d8a0926d9544b809847695aad92a2fae63",
+    "sense_lineage": [
+      {
+        "word_id": "word:thread",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:614cff8e65edf16a8baf",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "细线；线索",
-      "decision_cn": "",
+      "summary_cn": "细线及相连的脉络；螺纹；把线穿过或在窄处穿行",
+      "decision_cn": "实体是一根细线；抽象可是一条持续的思路、消息串或执行线程。动词看宾语：thread a needle 是给针穿线，thread wire through a hole 是把线穿过；人穿行则用 through/between。螺丝等旋拧固定的语境则指螺纹。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "细线；线索"
+        "target_label": "细线及相连的脉络；螺纹；把线穿过或在窄处穿行"
       }
     },
     "senses": [
@@ -1229,10 +1243,10 @@
         "id": "sense:thread:e3515c3ed7b3549d",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "穿针，穿线",
-        "definition_en": "to pass a thread through the eye of a needle",
-        "note": "",
+        "governing_pattern": "thread + needle + (with thread); thread + thread/wire + through + opening",
+        "definition_cn": "把线等穿过孔洞；给针穿线",
+        "definition_en": "pass a long thin object through an opening, or put thread through a needle",
+        "note": "宾语是 needle 时表示给针穿上线；宾语是 thread/wire 时表示把该物穿过孔洞。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1253,7 +1267,7 @@
           "target_kind": "sense",
           "target_id": "sense:thread:e3515c3ed7b3549d",
           "target_locator": "record.senses[1]",
-          "target_label": "穿针，穿线"
+          "target_label": "把线等穿过孔洞；给针穿线"
         }
       },
       {
@@ -1330,10 +1344,10 @@
         "id": "sense:thread:5da36ca770cd5841",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "thread + through/between + sth; thread one's way + through/between + sth",
         "definition_cn": "穿过，挤过",
         "definition_en": "to make one's way through a narrow or crowded space",
-        "note": "",
+        "note": "可直接表示主体在狭窄空间穿行（vi.），也可用 thread one's way ...；不应标成只接直接宾语的 vt。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1366,26 +1380,38 @@
         "definition_en": "a unit of execution in computing",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:614cff8e65edf16a8baf",
-            "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "multithreading",
-            "meaning_cn": "多线程",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:614cff8e65edf16a8baf",
-              "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "multithreading"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:thread:1ea3381a6c925552",
           "target_locator": "record.senses[5]",
           "target_label": "线程"
+        }
+      },
+      {
+        "id": "sense:thread:773b3e5e2937a3a3",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "螺纹",
+        "definition_en": "a spiral ridge on a screw that enables it to fasten by turning",
+        "note": "螺丝、螺母等旋拧固定的语境选择螺纹义；不是缝纫线或计算机线程。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:0b07b8a9dff5bdcdecb6",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "a damaged screw thread",
+            "meaning_cn": "受损的螺纹",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:thread:773b3e5e2937a3a3",
+          "target_locator": "record.senses[6]",
+          "target_label": "螺纹"
         }
       }
     ],
@@ -1436,7 +1462,22 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "multithreading",
+          "lines": [
+            {
+              "text": "多线程：让程序中的多个线程分别执行任务",
+              "lang": "cn"
+            },
+            {
+              "text": "multi- 表多个；由 computing thread 的线程义形成派生名词，不是 thread 的搭配短语。",
+              "lang": "cn"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        }
+      ]
     }
   },
   {
@@ -1445,7 +1486,7 @@
     "ordinal": 5001,
     "word": "threat",
     "source_owner_path": "content/lexical/words/by-ordinal/o5001.json",
-    "source_fingerprint": "a317ac3ec05f515ec9a03490fad4e159261c3b9d98bd016a624349c927458674",
+    "source_fingerprint": "00fb436eacb25610021488db2931d4bb988f3c87684ae37a3a94a0590cc57f82",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1454,13 +1495,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "威胁",
-      "decision_cn": "",
+      "summary_cn": "威胁：伤害的警告、风险或危险来源",
+      "decision_cn": "说出伤害后果是恐吓；threat of rain/war 是坏事可能发生；a threat to sb/sth 点明谁面临危险。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "威胁"
+        "target_label": "威胁：伤害的警告、风险或危险来源"
       }
     },
     "senses": [
@@ -1481,19 +1522,6 @@
             "meaning_cn": "发出威胁",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:1f198576c5c46328825a",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "threat of + sth",
-            "meaning_cn": "……的威胁",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:1f198576c5c46328825a",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "threat of + sth"
-            }
           }
         ],
         "repair": {
@@ -1508,9 +1536,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "威胁（指人或事物）",
-        "definition_en": "a person or thing that is likely to cause harm or danger",
-        "note": "",
+        "definition_cn": "（坏事发生的）风险；可能造成危害的人或事物",
+        "definition_en": "the risk of something harmful happening, or a person or thing that may cause harm",
+        "note": "threat of + 不利事件可表示其发生的风险，不必有人出言恐吓；a threat to sb/sth 则指出受威胁的对象。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1525,13 +1553,26 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "a threat to + sth/sb"
             }
+          },
+          {
+            "id": "collocation:1f198576c5c46328825a",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "threat of + sth",
+            "meaning_cn": "某种坏事发生的风险；语境中也可指以该后果相恐吓",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:1f198576c5c46328825a",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "threat of + sth"
+            }
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:threat:7ecf3898edc15c49",
           "target_locator": "record.senses[1]",
-          "target_label": "威胁（指人或事物）"
+          "target_label": "（坏事发生的）风险；可能造成危害的人或事物"
         }
       }
     ],
@@ -1580,22 +1621,22 @@
     "ordinal": 5002,
     "word": "threaten",
     "source_owner_path": "content/lexical/words/by-ordinal/o5002.json",
-    "source_fingerprint": "490f1532c21ef9a46db757623324e531f6e9b2303815b8341453aab74e8d99cd",
+    "source_fingerprint": "059a8121879cb20c26610641137840dedea06f361cb03de1c5f0f4d0a0406ad4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "威胁、扬言伤害或造成不利后果；预示（坏事）",
-      "decision_cn": "",
+      "summary_cn": "让不利后果逼近：扬言、危及，或预示坏事",
+      "decision_cn": "人作主语可扬言；疾病/变化 threaten 生存或工作是危及；坏事 threatens to happen 表示可能发生。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "威胁、扬言伤害或造成不利后果；预示（坏事）"
+        "target_label": "让不利后果逼近：扬言、危及，或预示坏事"
       }
     },
     "senses": [
@@ -1604,8 +1645,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "I/T: threaten sb; threaten sb with sth; threaten to do sth",
-        "definition_cn": "威胁、扬言伤害或造成不利后果",
-        "definition_en": "to threaten or state an intention to harm or cause an adverse consequence",
+        "definition_cn": "威胁；扬言将伤害或造成不利后果",
+        "definition_en": "to say or signal that one will harm someone or cause an unwelcome consequence",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1640,17 +1681,17 @@
           "target_kind": "sense",
           "target_id": "sense:threaten:d7756159186b5fb1",
           "target_locator": "record.senses[0]",
-          "target_label": "威胁、扬言伤害或造成不利后果"
+          "target_label": "威胁；扬言将伤害或造成不利后果"
         }
       },
       {
         "id": "sense:threaten:472a403c25ba5394",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "预示（坏事）",
-        "definition_en": "to be a sign that something bad is likely to happen",
-        "note": "",
+        "governing_pattern": "I/T: a storm threatens; threaten rain; sth threatens to do sth",
+        "definition_cn": "预示坏事；坏事有发生或加剧的可能",
+        "definition_en": "to indicate that something bad may happen, or to seem likely to happen",
+        "note": "坏事或形势作主语时，threaten to do 常表示某种坏结果可能发生，不是主语在发出有意恐吓。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1666,7 +1707,33 @@
           "target_kind": "sense",
           "target_id": "sense:threaten:472a403c25ba5394",
           "target_locator": "record.senses[1]",
-          "target_label": "预示（坏事）"
+          "target_label": "预示坏事；坏事有发生或加剧的可能"
+        }
+      },
+      {
+        "id": "sense:threaten:ce0e3a9c4889f362",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "threaten sb/sth",
+        "definition_cn": "危及；使有遭受伤害或损失的危险",
+        "definition_en": "to put someone or something at risk of harm or loss",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:52bbbfa88f1fc1895e5d",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "threaten jobs / threaten survival",
+            "meaning_cn": "危及就业／生存",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:threaten:ce0e3a9c4889f362",
+          "target_locator": "record.senses[2]",
+          "target_label": "危及；使有遭受伤害或损失的危险"
         }
       }
     ],
@@ -2291,7 +2358,7 @@
     "ordinal": 5007,
     "word": "thrive",
     "source_owner_path": "content/lexical/words/by-ordinal/o5007.json",
-    "source_fingerprint": "10a40839a95376ba4703a9d2e577cf56c31c75973dea53345aac6245b8f19daa",
+    "source_fingerprint": "35b80190b4c274dc4fff165c7ad9a1887e1fc0f56308a44a4778b97dc48fea38",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2314,7 +2381,7 @@
         "id": "sense:thrive:4fa3b505b09359f1",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + on",
+        "governing_pattern": "vi.; thrive (in/under suitable conditions); thrive on sth",
         "definition_cn": "繁荣；兴旺；茁壮成长",
         "definition_en": "to grow, develop, or be successful",
         "note": "",
@@ -2640,24 +2707,24 @@
     "ordinal": 5010,
     "word": "through",
     "source_owner_path": "content/lexical/words/by-ordinal/o5010.json",
-    "source_fingerprint": "3fd9b0f2e071ca440915ac27ac944acfa1423a9ee07678e2b4e7c418006025d3",
+    "source_fingerprint": "23843949fc12c2fe0c7aa4a2fe6606b97a7c3e62b38958e2df36431bf4e8944b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
         "1ADV",
-        "2PREP"
+        "3PREP"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "穿过；通过",
-      "decision_cn": "",
+      "summary_cn": "穿行到另一端；贯穿过程，也可表示途径或原因",
+      "decision_cn": "through a place/time 是穿过或贯穿；read it through 中无后接宾语，表示从头到尾；through a method/cause 表途径或原因。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "穿过；通过"
+        "target_label": "穿行到另一端；贯穿过程，也可表示途径或原因"
       }
     },
     "senses": [
@@ -2717,14 +2784,6 @@
             "meaning_cn": "通读",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:9bac050e94abef07883b",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "He slept through the night.",
-            "meaning_cn": "他睡了一整夜。",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -2738,10 +2797,10 @@
         "id": "sense:through:bbe0514708be5468",
         "source_locator": "record.senses[2]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "直达的；对穿的",
-        "definition_en": "continuing without stops or changes; direct",
-        "note": "",
+        "governing_pattern": "before a noun: a through train/bus",
+        "definition_cn": "直达的（旅客无需换乘）",
+        "definition_en": "taking passengers to their destination without requiring a change of vehicle",
+        "note": "a through train/bus 指不用换乘，不保证中途一站不停。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2757,7 +2816,7 @@
           "target_kind": "sense",
           "target_id": "sense:through:bbe0514708be5468",
           "target_locator": "record.senses[2]",
-          "target_label": "直达的；对穿的"
+          "target_label": "直达的（旅客无需换乘）"
         }
       },
       {
@@ -2775,6 +2834,40 @@
           "target_id": "sense:through:9df0a234e10c5212",
           "target_locator": "record.senses[3]",
           "target_label": "通过；由于；凭借"
+        }
+      },
+      {
+        "id": "sense:through:9e73f826f0aef9f4",
+        "source_locator": "record.senses[4]",
+        "pos": "preposition",
+        "governing_pattern": "through + period of time",
+        "definition_cn": "贯穿某段时间；从开始到结束",
+        "definition_en": "during a period from its beginning to its end",
+        "note": "美式英语日期或范围 A through B 包含终点 B，如 Monday through Friday 包括周五；不是只到周五之前。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:9bac050e94abef07883b",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "He slept through the night.",
+            "meaning_cn": "他睡了一整夜。",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:e822f90290e6341c7e9f",
+            "source_locator": "record.senses[4].collocations[1]",
+            "phrase": "Monday through Friday",
+            "meaning_cn": "星期一至星期五（美式，含周五）",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:through:9e73f826f0aef9f4",
+          "target_locator": "record.senses[4]",
+          "target_label": "贯穿某段时间；从开始到结束"
         }
       }
     ],
@@ -2811,7 +2904,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:853c10e78ac16a3c851a",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be through (with sth)",
+        "lines": [
+          {
+            "text": "做完；用完；（某件事）结束",
+            "lang": "cn"
+          },
+          {
+            "text": "非正式：with 可引出已经做完或用完的事情/物品；这是完成义，不是直达列车义。",
+            "lang": "cn"
+          },
+          {
+            "text": "to have finished doing or using something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:853c10e78ac16a3c851a",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be through (with sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2938,8 +3057,16 @@
     "ordinal": 5012,
     "word": "throw",
     "source_owner_path": "content/lexical/words/by-ordinal/o5012.json",
-    "source_fingerprint": "7a36a7dbd292bb31f86e1b62f4df7f8c4b5db44c798b4067d204cdaa881b6589",
-    "sense_lineage": [],
+    "source_fingerprint": "389efd7b22a03994a2dd6f6909f2e0ab49d06a4800e98480c4d45dbd9ed95e80",
+    "sense_lineage": [
+      {
+        "word_id": "word:throw",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:bae7c42336a34657c9b0",
+        "status": "merged",
+        "to_target_id": "collocation:cfcb90bc2fc3a81b58d8"
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V",
@@ -2948,13 +3075,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "投掷",
-      "decision_cn": "",
+      "summary_cn": "投掷或使突然移位；小品词还可选出穿脱、丢弃和摆脱",
+      "decision_cn": "to sb 是传给、at sb 是朝其投去；on/off clothes 选穿脱，away 选丢弃；throw light on、throw a party 等整块理解。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "投掷"
+        "target_label": "投掷或使突然移位；小品词还可选出穿脱、丢弃和摆脱"
       }
     },
     "senses": [
@@ -2992,19 +3119,6 @@
               "target_id": "collocation:06009b6fd622ed468579",
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "throw + sth + at + sb/sth"
-            }
-          },
-          {
-            "id": "collocation:bae7c42336a34657c9b0",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "throw away + sth",
-            "meaning_cn": "扔掉某物",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:bae7c42336a34657c9b0",
-              "target_locator": "record.senses[0].collocations[2]",
-              "target_label": "throw away + sth"
             }
           }
         ],
@@ -3076,10 +3190,10 @@
         "id": "sense:throw:b2c037f83d2859f4",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "throw clothes on/off; throw on/off clothes; throw them on/off",
         "definition_cn": "匆匆穿上或脱下",
         "definition_en": "to put on or take off clothing quickly or carelessly",
-        "note": "",
+        "note": "衣服义由小品词决定：on 穿上、off 脱下；仅 throw clothes 通常只是扔衣服。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3120,10 +3234,10 @@
         "id": "sense:throw:fb96e4fd5bfc5d3b",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "throw sth away / throw sth off; throw it away / throw it off",
         "definition_cn": "抛弃，摆脱",
         "definition_en": "to get rid of something or free yourself from something",
-        "note": "",
+        "note": "away 丢弃不需要的东西；off 摆脱疾病、束缚等。代词宾语放在 throw 与小品词之间。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3142,14 +3256,14 @@
           {
             "id": "collocation:cfcb90bc2fc3a81b58d8",
             "source_locator": "record.senses[4].collocations[1]",
-            "phrase": "throw away sth",
-            "meaning_cn": "扔掉、丢弃某物",
+            "phrase": "throw sth away / throw away sth; throw it away",
+            "meaning_cn": "扔掉、丢弃不需要的东西；代词宾语放在 throw 与 away 之间",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:cfcb90bc2fc3a81b58d8",
               "target_locator": "record.senses[4].collocations[1]",
-              "target_label": "throw away sth"
+              "target_label": "throw sth away / throw away sth; throw it away"
             }
           }
         ],
@@ -3477,7 +3591,7 @@
     "ordinal": 5014,
     "word": "thumb",
     "source_owner_path": "content/lexical/words/by-ordinal/o5014.json",
-    "source_fingerprint": "b2f512dfcb5fb39713318a43ed236c889f8423a2fd77fad85ea850a7bd1963e2",
+    "source_fingerprint": "559341503e374098deb9d38bfc84f31aebc44c88c90d5975a94512a555bcc5eb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3518,10 +3632,10 @@
         "id": "sense:thumb:7ace514a4b9f5838",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: thumb pages; thumb through a book/report",
         "definition_cn": "用拇指翻动（书页）",
         "definition_en": "to turn over pages with or as if with the thumb",
-        "note": "",
+        "note": "thumb through sth 是快速翻阅、只看部分内容；through 后才接书/报告，不把它当 thumb 的直接宾语。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3558,14 +3672,14 @@
           {
             "id": "collocation:80660e4ddc2d5163fbb8",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "thumb for + sth",
-            "meaning_cn": "为某物竖起拇指（搭车）",
+            "phrase": "thumb for a ride",
+            "meaning_cn": "竖拇指请求搭便车（宾语不是任意事物）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:80660e4ddc2d5163fbb8",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "thumb for + sth"
+              "target_label": "thumb for a ride"
             }
           },
           {
@@ -3989,7 +4103,7 @@
     "ordinal": 5017,
     "word": "thus",
     "source_owner_path": "content/lexical/words/by-ordinal/o5017.json",
-    "source_fingerprint": "b6b17f9cd69f2a45fac69b19315eef751f12a6da84f6da785c385e3a1994b287",
+    "source_fingerprint": "1959e05b652851ba5d5b03a332e79133d6cb1c8c7d22e512be89464561eaed4c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4013,16 +4127,16 @@
         "source_locator": "record.senses[0]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "以这种方式或方式",
+        "definition_cn": "如此；以这种方式",
         "definition_en": "in this way or manner",
-        "note": "",
+        "note": "thus far 是整体短语“到目前为止／到这个程度”，不可逐字套用“以这种方式”或“因此”。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:42fbd12142d8dd881797",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "thus far",
-            "meaning_cn": "到目前为止",
+            "meaning_cn": "到目前为止；到这个程度（整个短语的含义）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -4036,7 +4150,7 @@
           "target_kind": "sense",
           "target_id": "sense:thus:c23ec563363255f3",
           "target_locator": "record.senses[0]",
-          "target_label": "以这种方式或方式"
+          "target_label": "如此；以这种方式"
         }
       },
       {
@@ -4337,7 +4451,7 @@
     "ordinal": 5019,
     "word": "ticket",
     "source_owner_path": "content/lexical/words/by-ordinal/o5019.json",
-    "source_fingerprint": "63ebb52b1ecdc5e6256eb629f07dfb554ef57ac961fddec5c51fa722f6b79d4f",
+    "source_fingerprint": "dee232b050c8ff506a2f5e46ca726b107d317e2f6ae9cfa8b19e159e961c1fa0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4363,8 +4477,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "票；入场券",
-        "definition_en": "a printed piece of paper or card that shows you have paid to enter a place or travel",
-        "note": "",
+        "definition_en": "a paper or electronic record that entitles someone to travel, enter a place, or take part in an activity",
+        "note": "票可以是纸质或电子形式，也可以免费获得；它证明使用或入场资格，不必证明已付款。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4518,7 +4632,7 @@
     "ordinal": 5020,
     "word": "tide",
     "source_owner_path": "content/lexical/words/by-ordinal/o5020.json",
-    "source_fingerprint": "4238a06e9b5561a1a129f199a2cc3a37af4dc4acf25cf2ea080b6e2eb93f91ab",
+    "source_fingerprint": "2218411aabb80f4172623c864c7a92a72cf25c328ee85439f1c59986771f8133",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4634,14 +4748,14 @@
           {
             "id": "collocation:1a9b9969fff436284a38",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "tide over",
-            "meaning_cn": "渡过；克服",
+            "phrase": "tide sb/sth over",
+            "meaning_cn": "帮助某人或某事物暂时渡过难关",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:1a9b9969fff436284a38",
               "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "tide over"
+              "target_label": "tide sb/sth over"
             }
           }
         ],
@@ -4714,23 +4828,23 @@
     "ordinal": 5021,
     "word": "tidy",
     "source_owner_path": "content/lexical/words/by-ordinal/o5021.json",
-    "source_fingerprint": "43e27809770e9747b63a188df52c61154b566bf5c62f006dccc201c097403f05",
+    "source_fingerprint": "72dd9b5417588b181a2938d7cc95fb4b6858f8f2667822582839587c484baebb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "1A"
+        "2A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "整洁；整理",
-      "decision_cn": "",
+      "summary_cn": "整洁、整理；修饰钱款时表示数额可观",
+      "decision_cn": "房间或外观语境是整齐，动作是整理；a tidy sum/profit 选金额可观义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "整洁；整理"
+        "target_label": "整洁、整理；修饰钱款时表示数额可观"
       }
     },
     "senses": [
@@ -4810,6 +4924,37 @@
           "target_id": "sense:tidy:d947aab6e39b5b5a",
           "target_locator": "record.senses[1]",
           "target_label": "整理；收拾"
+        }
+      },
+      {
+        "id": "sense:tidy:48f60d32a1c88fcd",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "before a noun: a tidy sum/profit",
+        "definition_cn": "（钱款、收益）相当多的",
+        "definition_en": "fairly large in amount, especially of money",
+        "note": "非正式用法；钱款/收益前的 tidy 不是“整洁的”。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:8c2428faf3bf55686aa1",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a tidy sum/profit",
+            "meaning_cn": "一大笔钱／可观利润",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8c2428faf3bf55686aa1",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "a tidy sum/profit"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tidy:48f60d32a1c88fcd",
+          "target_locator": "record.senses[2]",
+          "target_label": "（钱款、收益）相当多的"
         }
       }
     ],
@@ -5282,8 +5427,23 @@
     "ordinal": 5024,
     "word": "tight",
     "source_owner_path": "content/lexical/words/by-ordinal/o5024.json",
-    "source_fingerprint": "abf672cc59d2bdd0bf63d3e65f7548f43fa5a25205c6662183e36e2986ee71b2",
-    "sense_lineage": [],
+    "source_fingerprint": "c089b0a2abb13a4d9187d139b5504779f774c3fbf71393fdcb4490e5b2ee30dd",
+    "sense_lineage": [
+      {
+        "word_id": "word:tight",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:146acd217b87a3364482",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:tight",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:54e7b362c4499c12bbc8",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "5A",
@@ -5292,13 +5452,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "紧的；牢固的",
-      "decision_cn": "",
+      "summary_cn": "紧到少有空隙或余量：牢固、贴身、密闭，也可指资源紧缺或控制严格",
+      "decision_cn": "衣物看贴身，封口看不漏；钱/时间看余量少，security/control 看限制严；副词 hold/shut tight 是牢牢或紧紧地。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "紧的；牢固的"
+        "target_label": "紧到少有空隙或余量：牢固、贴身、密闭，也可指资源紧缺或控制严格"
       }
     },
     "senses": [
@@ -5377,22 +5537,14 @@
         "governing_pattern": "",
         "definition_cn": "密封的；不漏的",
         "definition_en": "closed or sealed so that no air or liquid can pass through",
-        "note": "",
+        "note": "tight seal 指密闭、不漏；airtight 和 watertight 是含 tight 的独立复合形容词，见词族，不把它们当作单词 tight 的直接搭配。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:54e7b362c4499c12bbc8",
+            "id": "collocation:93905be3258c6f14dda5",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "airtight container",
-            "meaning_cn": "密封容器",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:146acd217b87a3364482",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "watertight seal",
-            "meaning_cn": "水密密封",
+            "phrase": "a tight seal",
+            "meaning_cn": "严密、不漏的封口",
             "kind": "usage_example",
             "repair": null
           }
@@ -5443,9 +5595,9 @@
         "source_locator": "record.senses[4]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "（资金）紧缺的；银根紧的",
-        "definition_en": "scarce and therefore expensive to borrow (of money or financial conditions)",
-        "note": "",
+        "definition_cn": "（钱、时间、空间等）紧缺的；（信贷）难以获得或借贷成本高的",
+        "definition_en": "available in very limited amounts; of credit, difficult or costly to obtain",
+        "note": "money/time/a budget/a schedule 紧表示余量小，不专指银行借贷；tight credit/money 在金融语境可指融资难。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5463,13 +5615,29 @@
             "meaning_cn": "信贷紧缩",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:ee2d0e47a688ec9f38d6",
+            "source_locator": "record.senses[4].collocations[2]",
+            "phrase": "a tight budget / money is tight",
+            "meaning_cn": "预算有限／手头紧",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:3319e189bd8f19c5bdc1",
+            "source_locator": "record.senses[4].collocations[3]",
+            "phrase": "a tight schedule / time is tight",
+            "meaning_cn": "日程紧凑／时间紧",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tight:10fd1727363856d8",
           "target_locator": "record.senses[4]",
-          "target_label": "（资金）紧缺的；银根紧的"
+          "target_label": "（钱、时间、空间等）紧缺的；（信贷）难以获得或借贷成本高的"
         }
       },
       {
@@ -5543,7 +5711,28 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [
+        {
+          "target_word": "airtight",
+          "lines": [
+            {
+              "text": "airtight = 气密的；不透气的；airtight container：密封容器。这是复合词，不是单独 tight 的直接搭配。",
+              "lang": "cn"
+            }
+          ],
+          "source_locator": "record.word_family[0]"
+        },
+        {
+          "target_word": "watertight",
+          "lines": [
+            {
+              "text": "watertight = 水密的；不漏水的；watertight seal：水密密封。这是复合词，不是单独 tight 的直接搭配。",
+              "lang": "cn"
+            }
+          ],
+          "source_locator": "record.word_family[1]"
+        }
+      ]
     }
   },
   {
@@ -6248,23 +6437,23 @@
     "ordinal": 5029,
     "word": "time",
     "source_owner_path": "content/lexical/words/by-ordinal/o5029.json",
-    "source_fingerprint": "2c1f384f200a7bd372013e23412e3217bd6829bf809e3bcdca98fab148f0a8f1",
+    "source_fingerprint": "8fcb66814b65da74be831ffd3ee650e6341d4bffeb9f761e7bd649c07262c038",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "时间；时机",
-      "decision_cn": "",
+      "summary_cn": "时间、时刻或次数；动词可计时，也可安排时机",
+      "decision_cn": "how much time 看时长，what time 看时刻，three times 数次数；time a race 量耗时，time a departure 选出发时机。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "时间；时机"
+        "target_label": "时间、时刻或次数；动词可计时，也可安排时机"
       }
     },
     "senses": [
@@ -6281,10 +6470,15 @@
           {
             "id": "collocation:8a4c774dd70269e30cc9",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "spend time",
-            "meaning_cn": "花费时间",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "spend time doing sth / on sth",
+            "meaning_cn": "花时间做某事／在某事上",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8a4c774dd70269e30cc9",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "spend time doing sth / on sth"
+            }
           },
           {
             "id": "collocation:0323de0362ae3553f710",
@@ -6413,6 +6607,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "计时；测定时间"
         }
+      },
+      {
+        "id": "sense:time:01b6db84f0134f01",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "time sth (for sth); time sth to do sth",
+        "definition_cn": "为……安排时机；使在特定或合适的时候发生",
+        "definition_en": "to arrange when something happens, especially to make the timing suitable",
+        "note": "time a race 可计量耗时；time a departure/release 是选择其发生时机。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:time:01b6db84f0134f01",
+          "target_locator": "record.senses[4]",
+          "target_label": "为……安排时机；使在特定或合适的时候发生"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6486,6 +6697,28 @@
           "target_id": "construction:f36e37ab5660b21c0c66",
           "target_locator": "record.constructions[2]",
           "target_label": "by the time + clause"
+        }
+      },
+      {
+        "id": "construction:147982700736facc70ab",
+        "sense_id": "sense:time:1a8408a647425a6a",
+        "source_locator": "record.constructions[3]",
+        "pattern": "It's time (for sb) to do sth",
+        "lines": [
+          {
+            "text": "到了（某人）该做某事的时候",
+            "lang": "cn"
+          },
+          {
+            "text": "the appropriate moment to do something has arrived",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:147982700736facc70ab",
+          "target_locator": "record.constructions[3]",
+          "target_label": "It's time (for sb) to do sth"
         }
       }
     ],
@@ -7000,7 +7233,7 @@
     "ordinal": 5034,
     "word": "tip",
     "source_owner_path": "content/lexical/words/by-ordinal/o5034.json",
-    "source_fingerprint": "86ac1ab845411a37334128023f59b014a892f1b5d57e075195035e13e2176871",
+    "source_fingerprint": "bd461e0623155a2104d94963c866b1deb7e0e9c1baed45fb2cc164fbc5645119",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7034,9 +7267,14 @@
             "id": "collocation:92a568ffb5cf513134b8",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "the tip of the iceberg",
-            "meaning_cn": "冰山一角",
-            "kind": "usage_example",
-            "repair": null
+            "meaning_cn": "冰山一角：已经显现的小部分，背后还有大得多的未显部分（常指问题）",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:92a568ffb5cf513134b8",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "the tip of the iceberg"
+            }
           }
         ],
         "repair": {
@@ -7217,7 +7455,7 @@
     "ordinal": 5035,
     "word": "tire",
     "source_owner_path": "content/lexical/words/by-ordinal/o5035.json",
-    "source_fingerprint": "b160ef376e52ebcffa5cf284cf055146e7c77b1c7569553d90f9365194e262b6",
+    "source_fingerprint": "2f7c712c8e76f1ca5ca1d76dba35057ededb490cccf92d755d9d44f92bb74756",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7227,13 +7465,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "轮胎；使疲劳，厌倦",
-      "decision_cn": "",
+      "summary_cn": "轮胎；（使）疲倦，或对某事厌倦",
+      "decision_cn": "轮胎；使疲劳，厌倦",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "轮胎；使疲劳，厌倦"
+        "target_label": "轮胎；（使）疲倦，或对某事厌倦"
       }
     },
     "senses": [
@@ -7306,9 +7544,9 @@
         "id": "sense:tire:9e619e17300b5244",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "使疲倦，使疲劳",
-        "definition_en": "to exhaust or get tired through overuse or great strain or stress",
+        "governing_pattern": "I/T: tire; tire sb; tire sb/oneself out",
+        "definition_cn": "（使）疲倦；（使）疲劳",
+        "definition_en": "to become tired or make someone tired",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7330,7 +7568,7 @@
           "target_kind": "sense",
           "target_id": "sense:tire:9e619e17300b5244",
           "target_locator": "record.senses[2]",
-          "target_label": "使疲倦，使疲劳"
+          "target_label": "（使）疲倦；（使）疲劳"
         }
       }
     ],
@@ -7400,7 +7638,7 @@
     "ordinal": 5036,
     "word": "tired",
     "source_owner_path": "content/lexical/words/by-ordinal/o5036.json",
-    "source_fingerprint": "b7c728c6c4acba21c9e97fabac7f7d7ee17163d1b3b850c8ff3dcb5c3c1f001a",
+    "source_fingerprint": "7a0d28fc7981d0df3bae48f30ee05fd4644e19aaa9bf090e1282fd53e8739b85",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7409,13 +7647,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "感到需要休息或睡眠",
-      "decision_cn": "",
+      "summary_cn": "人可疲倦或厌倦；说法、做法也可因反复使用而陈旧乏味",
+      "decision_cn": "人/身体 tired 是累；be tired of 是厌倦；tired excuse/joke 评价说法因重复而乏味，不是它需要睡觉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "感到需要休息或睡眠"
+        "target_label": "人可疲倦或厌倦；说法、做法也可因反复使用而陈旧乏味"
       }
     },
     "senses": [
@@ -7803,7 +8041,7 @@
     "ordinal": 5039,
     "word": "title",
     "source_owner_path": "content/lexical/words/by-ordinal/o5039.json",
-    "source_fingerprint": "c6ee67c41fbffabac5aecadd6b3f136a5a1fb6253a5fadca1baf0e7a09ddf50f",
+    "source_fingerprint": "88d83cae1ebbfad9510adddd061447ad427818cd32b47371c17a773e79198372",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7813,13 +8051,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "名称或标题",
-      "decision_cn": "",
+      "summary_cn": "标明作品、身份或资格的名称；也指所有权和冠军资格",
+      "decision_cn": "book/movie 看作品名，job/rank 看职务或称号；title to property 是产权，win/defend a title 是夺冠或卫冕。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "名称或标题"
+        "target_label": "标明作品、身份或资格的名称；也指所有权和冠军资格"
       }
     },
     "senses": [
@@ -7854,9 +8092,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "头衔，称号（如先生、将军等）",
-        "definition_en": "a word or phrase used before a person's name to show rank, profession, etc.",
-        "note": "",
+        "definition_cn": "头衔；称号；职务名称",
+        "definition_en": "a name or label showing a person’s rank, role, job, or status",
+        "note": "Mr/Dr 等可置于姓名前；job title 也指职位名称，不要求出现在人名前。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7872,7 +8110,7 @@
           "target_kind": "sense",
           "target_id": "sense:title:13a7f17641075bf2",
           "target_locator": "record.senses[1]",
-          "target_label": "头衔，称号（如先生、将军等）"
+          "target_label": "头衔；称号；职务名称"
         }
       },
       {
@@ -8021,7 +8259,7 @@
     "ordinal": 5040,
     "word": "to",
     "source_owner_path": "content/lexical/words/by-ordinal/o5040.json",
-    "source_fingerprint": "3f359afc688e42d5a3f411691a4c58819ef36a52cd3c59be36193ce2a15fa7e4",
+    "source_fingerprint": "5ed38be6952368c6fe1c29507970b39201c7abe79955ccdf7fc10ff1838dc22b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8032,13 +8270,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "表示方向或朝向某地或某物；用于表示动词的间接宾语；不定式标记，置于动词原形前；向前",
-      "decision_cn": "",
+      "summary_cn": "指向目的地或接受者；也标不定式；门后的副词 to 表关上",
+      "decision_cn": "to + 地点/接受者是介词；to + 原形是动词不定式。固定搭配中的介词 to 可接 doing；push the door to 则是把门关上。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "表示方向或朝向某地或某物；用于表示动词的间接宾语；不定式标记，置于动词原形前；向前"
+        "target_label": "指向目的地或接受者；也标不定式；门后的副词 to 表关上"
       }
     },
     "senses": [
@@ -8101,7 +8339,7 @@
         "governing_pattern": "particle / infinitive marker + base verb",
         "definition_cn": "不定式标记，置于动词原形前",
         "definition_en": "the infinitive marker used before the base form of a verb",
-        "note": "Infinitival to is a particle/infinitive marker here, not a preposition",
+        "note": "不定式标记 to 后接动词原形；介词 to 后接名词、代词或 doing，如 look forward to seeing sb。不能只见 to 就一律接原形。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8129,9 +8367,9 @@
         "id": "sense:to:498c2a2ac999554f",
         "source_locator": "record.senses[3]",
         "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "向前",
-        "definition_en": "in a forward direction",
+        "governing_pattern": "push/pull the door to",
+        "definition_cn": "（门等）关上；处于关闭状态",
+        "definition_en": "into or in a closed position, especially of a door",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8148,7 +8386,7 @@
           "target_kind": "sense",
           "target_id": "sense:to:498c2a2ac999554f",
           "target_locator": "record.senses[3]",
-          "target_label": "向前"
+          "target_label": "（门等）关上；处于关闭状态"
         }
       }
     ],
@@ -8402,9 +8640,9 @@
         "boundary": "",
         "boundaries": [
           {
-            "surface": "to + noun/pronoun",
+            "surface": "to + noun/pronoun/-ing form",
             "condition": "preposition",
-            "note": "prepositional to"
+            "note": "prepositional to takes a noun phrase or an -ing form where the governing expression requires it, as in look forward to doing"
           },
           {
             "surface": "to + base verb",
@@ -8429,7 +8667,7 @@
     "ordinal": 5041,
     "word": "toast",
     "source_owner_path": "content/lexical/words/by-ordinal/o5041.json",
-    "source_fingerprint": "41e626e65e20d24bd38c3842af2027e8670f65c03c10a57a0555662a3099efc6",
+    "source_fingerprint": "8729d644c07ad84b30b2909142e59fb4e27263008f759fd0cf2cb3bb44fbdcf2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8439,13 +8677,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "烤面包，吐司；烤，烘；为...干杯，敬酒；受敬仰的人，名人；祝酒；为某人或某事举杯致意的行为或提议",
-      "decision_cn": "",
+      "summary_cn": "烤面包或烘烤；另有举杯致意、祝酒及备受赞誉的人",
+      "decision_cn": "吃的 toast 不可数；a toast to sb 是一次祝酒，动词 toast sb 直接接对象；the toast of a place 是当地备受赞誉的人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "烤面包，吐司；烤，烘；为...干杯，敬酒；受敬仰的人，名人；祝酒；为某人或某事举杯致意的行为或提议"
+        "target_label": "烤面包或烘烤；另有举杯致意、祝酒及备受赞誉的人"
       }
     },
     "senses": [
@@ -8456,7 +8694,7 @@
         "governing_pattern": "",
         "definition_cn": "烤面包，吐司",
         "definition_en": "sliced bread browned by heat",
-        "note": "",
+        "note": "食物义 toast 通常不可数；一片说 a slice/piece of toast。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8505,10 +8743,10 @@
         "id": "sense:toast:23410e9e8c085483",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "toast sb/sth",
         "definition_cn": "为...干杯，敬酒",
         "definition_en": "to drink in honor of or to express a wish for someone",
-        "note": "",
+        "note": "动词直接接祝酒对象，如 toast the winner；名词结构是 a toast to sb/sth，不把名词的 to 机械搬到动词后。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -8556,7 +8794,7 @@
         "governing_pattern": "a toast to sb/sth",
         "definition_cn": "祝酒；为某人或某事举杯致意的行为或提议",
         "definition_en": "a toast: an act or proposal of drinking in someone's or something's honor",
-        "note": "",
+        "note": "祝酒行为可数：a toast / several toasts；与不可数的烤面包义按语境区分。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -8875,7 +9113,7 @@
     "ordinal": 5044,
     "word": "toe",
     "source_owner_path": "content/lexical/words/by-ordinal/o5044.json",
-    "source_fingerprint": "82242745495ff0ab8eb560dacd66eb6d85cf1a6258975ab76e7dc84544466879",
+    "source_fingerprint": "58f1f9553d906d748add25bfb6036bcfbb8d849bf45b9b4e48b672208f56ffe9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8977,17 +9215,17 @@
         "id": "sense:toe:65194c1fd2fd5409",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "动脚尖",
-        "definition_en": "to move the toes",
-        "note": "",
+        "governing_pattern": "vi.: toe in/inwards; toe out/outwards",
+        "definition_cn": "（行走时）脚尖朝某个方向",
+        "definition_en": "to walk with the toes pointing in a particular direction",
+        "note": "此不及物义需方向条件，不能把任意动一动脚趾都说成 toe。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:toe:65194c1fd2fd5409",
           "target_locator": "record.senses[3]",
-          "target_label": "动脚尖"
+          "target_label": "（行走时）脚尖朝某个方向"
         }
       }
     ],
@@ -9222,7 +9460,7 @@
     "ordinal": 5046,
     "word": "toil",
     "source_owner_path": "content/lexical/words/by-ordinal/o5046.json",
-    "source_fingerprint": "95509a06ea3e3e1151f7fd0718f7b4acd6b1f5f76ececdcaa303446b6a939e3f",
+    "source_fingerprint": "075cb277cfd623dae5c1286b25e9b04470f2efcfac066d5d4e811cf3c32cc13e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9248,7 +9486,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "辛苦，苦工",
-        "definition_en": "productive work (especially physical work done for wages)",
+        "definition_en": "hard and tiring work, often involving sustained effort",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9429,7 +9667,7 @@
     "ordinal": 5047,
     "word": "toilet",
     "source_owner_path": "content/lexical/words/by-ordinal/o5047.json",
-    "source_fingerprint": "c5fe1049010d160524bb3ff4db7052a0832c7adf468638e821a9c0d1a4ae9fe6",
+    "source_fingerprint": "613afd3954377fc0c177610cc24af6ad8521bacba9e0d089aca5eb3ba57b3fa7",
     "sense_lineage": [
       {
         "word_id": "word:toilet",
@@ -10142,7 +10380,7 @@
     "ordinal": 5051,
     "word": "tolerate",
     "source_owner_path": "content/lexical/words/by-ordinal/o5051.json",
-    "source_fingerprint": "76d33e2857e2dedfdcb3a3904187de778fd7b987b3b8b1c15a5c0e7e13425cf2",
+    "source_fingerprint": "72afb903265cd8cfb5f23e6c116dbe1ecb86c21ff5fde47b2a5556cc69afcfe4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10151,13 +10389,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "容忍；忍受不愉快、困难或不理想的事物；耐受（药物、毒物等）",
-      "decision_cn": "",
+      "summary_cn": "允许或承受不理想的事物继续存在；身体也可耐受不利条件",
+      "decision_cn": "行为/异见语境是容忍而未必赞同；身体、药物或环境语境看能否承受而不受严重影响。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "容忍；忍受不愉快、困难或不理想的事物；耐受（药物、毒物等）"
+        "target_label": "允许或承受不理想的事物继续存在；身体也可耐受不利条件"
       }
     },
     "senses": [
@@ -10165,10 +10403,10 @@
         "id": "sense:tolerate:a349cbde6833583b",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "tolerate sb/sth; tolerate doing sth",
         "definition_cn": "容忍；忍受不愉快、困难或不理想的事物",
-        "definition_en": "to tolerate, endure, or put up with something unpleasant, difficult, or undesirable",
-        "note": "",
+        "definition_en": "to accept or endure something disliked, difficult, or contrary to one's beliefs",
+        "note": "容忍不等于赞成；行为作宾语用 -ing，如 tolerate being interrupted，不用 tolerate to do。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10266,7 +10504,7 @@
     "ordinal": 5052,
     "word": "toll",
     "source_owner_path": "content/lexical/words/by-ordinal/o5052.json",
-    "source_fingerprint": "7c5e5786817b0e6d58da5a6cd0d68865dc4b5563662b36d349809c2bba5707ff",
+    "source_fingerprint": "112448bb6be84bc00d9f774c95290b2b79019f24b99af67f288bd08c8d662613",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10389,9 +10627,9 @@
         "id": "sense:toll:568c0deac0d755a4",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "敲钟，鸣钟",
-        "definition_en": "to ring a bell slowly, especially for a death or funeral",
+        "governing_pattern": "I/T: a bell tolls; toll a bell; a bell tolls the hour",
+        "definition_cn": "（使大钟）缓慢反复鸣响",
+        "definition_en": "to ring a large bell slowly and repeatedly, or for such a bell to ring",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10408,7 +10646,7 @@
           "target_kind": "sense",
           "target_id": "sense:toll:568c0deac0d755a4",
           "target_locator": "record.senses[3]",
-          "target_label": "敲钟，鸣钟"
+          "target_label": "（使大钟）缓慢反复鸣响"
         }
       },
       {

@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "紧的；牢固的；紧身的；密封的；不漏的；严厉的；严格的；（资金）紧缺的；银根紧的",
-          "label_en": "held or fixed firmly and not easily moved; fitting very closely to the body; closed or sealed so that no air or liquid can pass through; strict or severe in rules or control; scarce and therefore expensive to borrow (of money or financial conditions)",
+          "label_cn": "紧的；牢固的；紧身的；密封的；不漏的；严厉的；严格的；（钱、时间、空间等）紧缺的；（信贷）难以获得或借贷成本高的",
+          "label_en": "held or fixed firmly and not easily moved; fitting very closely to the body; closed or sealed so that no air or liquid can pass through; strict or severe in rules or control; available in very limited amounts; of credit, difficult or costly to obtain",
           "pos": "adjective",
           "sense_ids": [
             "sense:tight:ec8a256940f552da",
@@ -31,9 +31,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "紧的；牢固的",
-      "core_meaning_en": "firmly held or fixed; not loose",
-      "mental_model_cn": "紧的；牢固的",
+      "core_meaning_cn": "紧到少有空隙或余量：牢固、贴身、密闭，也可指资源紧缺或控制严格",
+      "core_meaning_en": "close or firm with little gap or spare capacity; also limited in resources or strongly controlled",
+      "mental_model_cn": "衣物看贴身，封口看不漏；钱/时间看余量少，security/control 看限制严；副词 hold/shut tight 是牢牢或紧紧地。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -113,22 +113,10 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:54e7b362c4499c12bbc8",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:tight:35a94da2a1815738:collocation:0"
-            ],
-            "meaning_cn": "密封容器",
-            "phrase": "airtight container"
-          },
-          {
-            "collocation_id": "collocation:146acd217b87a3364482",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:tight:35a94da2a1815738:collocation:1"
-            ],
-            "meaning_cn": "水密密封",
-            "phrase": "watertight seal"
+            "collocation_id": "collocation:93905be3258c6f14dda5",
+            "phrase": "a tight seal",
+            "meaning_cn": "严密、不漏的封口",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
@@ -141,7 +129,8 @@
         "sense_id": "sense:tight:35a94da2a1815738",
         "sense_label_en": "closed or sealed so that no air or liquid can pass through",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "tight seal 指密闭、不漏；airtight 和 watertight 是含 tight 的独立复合形容词，见词族，不把它们当作单词 tight 的直接搭配。"
       },
       {
         "collocations": [
@@ -195,19 +184,32 @@
             ],
             "meaning_cn": "信贷紧缩",
             "phrase": "tight credit"
+          },
+          {
+            "collocation_id": "collocation:ee2d0e47a688ec9f38d6",
+            "phrase": "a tight budget / money is tight",
+            "meaning_cn": "预算有限／手头紧",
+            "exam_value": "usage_example"
+          },
+          {
+            "collocation_id": "collocation:3319e189bd8f19c5bdc1",
+            "phrase": "a tight schedule / time is tight",
+            "meaning_cn": "日程紧凑／时间紧",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "（资金）紧缺的；银根紧的",
-        "definition_en": "scarce and therefore expensive to borrow (of money or financial conditions)",
+        "definition_cn": "（钱、时间、空间等）紧缺的；（信贷）难以获得或借贷成本高的",
+        "definition_en": "available in very limited amounts; of credit, difficult or costly to obtain",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:tight:10fd1727363856d8",
-        "sense_label_en": "scarce and therefore expensive to borrow (of money or financial conditio",
+        "sense_label_en": "available in very limited amounts; of credit, difficult or costly to obtain",
         "sort_order": 4,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "money/time/a budget/a schedule 紧表示余量小，不专指银行借贷；tight credit/money 在金融语境可指融资难。"
       },
       {
         "collocations": [
@@ -259,7 +261,52 @@
       "runtime_model_calls": false
     },
     "word": "tight",
-    "word_family": [],
+    "word_family": [
+      {
+        "fact_id": "family:tight:airtight",
+        "module": "word_family",
+        "target_word": "airtight",
+        "source_sense_id": "sense:tight:35a94da2a1815738",
+        "boundary": "airtight = 气密的；不透气的；airtight container：密封容器。这是复合词，不是单独 tight 的直接搭配。",
+        "preserved_source_collocation": {
+          "collocation_id": "collocation:54e7b362c4499c12bbc8",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:tight:35a94da2a1815738:collocation:0"
+          ],
+          "meaning_cn": "密封容器",
+          "phrase": "airtight container"
+        },
+        "direction": "R",
+        "publication_status": "publishable",
+        "target_sense_id": null,
+        "legacy_source_object_ids": [
+          "sense:tight:35a94da2a1815738:collocation:0"
+        ]
+      },
+      {
+        "fact_id": "family:tight:watertight",
+        "module": "word_family",
+        "target_word": "watertight",
+        "source_sense_id": "sense:tight:35a94da2a1815738",
+        "boundary": "watertight = 水密的；不漏水的；watertight seal：水密密封。这是复合词，不是单独 tight 的直接搭配。",
+        "preserved_source_collocation": {
+          "collocation_id": "collocation:146acd217b87a3364482",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:tight:35a94da2a1815738:collocation:1"
+          ],
+          "meaning_cn": "水密密封",
+          "phrase": "watertight seal"
+        },
+        "direction": "R",
+        "publication_status": "publishable",
+        "target_sense_id": null,
+        "legacy_source_object_ids": [
+          "sense:tight:35a94da2a1815738:collocation:1"
+        ]
+      }
+    ],
     "word_id": "word:tight",
     "form_identity": {
       "headword_pronunciations": [
@@ -695,9 +742,7 @@
     ],
     "active_collocations": [
       "collocation:130700d3b4e8f8558a11",
-      "collocation:146acd217b87a3364482",
       "collocation:53a7245c9ee23de9861f",
-      "collocation:54e7b362c4499c12bbc8",
       "collocation:786b9cbca6b10ba7bda8",
       "collocation:a607036ac696b85eeb5d",
       "collocation:aa6c416ce098e59bc29f",
@@ -705,9 +750,23 @@
       "collocation:c6390776f4e829e58ed4",
       "collocation:e4942aa393e10fde893f",
       "collocation:e87b5df4b21e5a5aa66d",
-      "collocation:f3d8d1eacda1336bd7f6"
+      "collocation:f3d8d1eacda1336bd7f6",
+      "collocation:93905be3258c6f14dda5",
+      "collocation:ee2d0e47a688ec9f38d6",
+      "collocation:3319e189bd8f19c5bdc1"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "family:tight:airtight",
+        "source_path": "content/lexical/canonical/facts/shards/o4993-5024.json",
+        "source_row": 1201
+      },
+      {
+        "id": "family:tight:watertight",
+        "source_path": "content/lexical/canonical/facts/shards/o4993-5024.json",
+        "source_row": 1202
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:130700d3b4e8f8558a11",
@@ -717,7 +776,9 @@
       {
         "id": "collocation:146acd217b87a3364482",
         "source_row": 1691,
-        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json",
+        "status": "deprecated",
+        "merged_into_id": null
       },
       {
         "id": "collocation:53a7245c9ee23de9861f",
@@ -727,7 +788,9 @@
       {
         "id": "collocation:54e7b362c4499c12bbc8",
         "source_row": 7158,
-        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json",
+        "status": "deprecated",
+        "merged_into_id": null
       },
       {
         "id": "collocation:786b9cbca6b10ba7bda8",
@@ -768,6 +831,21 @@
         "id": "collocation:f3d8d1eacda1336bd7f6",
         "source_row": 20653,
         "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:93905be3258c6f14dda5",
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json",
+        "source_row": 21559
+      },
+      {
+        "id": "collocation:ee2d0e47a688ec9f38d6",
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json",
+        "source_row": 21560
+      },
+      {
+        "id": "collocation:3319e189bd8f19c5bdc1",
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json",
+        "source_row": 21561
       }
     ],
     "exam-mappings": [],

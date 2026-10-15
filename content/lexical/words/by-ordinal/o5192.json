@@ -6,7 +6,17 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:2ddecf2f36dd04e95786",
+        "pattern": "on the understanding that + clause",
+        "meaning_cn": "以约定……为条件；在……的共识下",
+        "definition_en": "on an agreed condition or assurance",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:understanding:045c460a431c52b8"
+      }
+    ],
     "content_hash": "44d6401a6d940ed3a4b14dc003c3482c5d539b390ebe4a6dcc73b2c8112a4e96",
     "core_concept": {
       "core_clusters": [
@@ -20,8 +30,8 @@
           ]
         },
         {
-          "label_cn": "有理解力的；宽容的",
-          "label_en": "characterized by understanding based on comprehension and discernment and empathy",
+          "label_cn": "体谅人的；善解人意的；宽容的",
+          "label_en": "able and willing to appreciate other people’s feelings and difficulties",
           "pos": "adjective",
           "sense_ids": [
             "sense:understanding:2e27b6f1f86c559b"
@@ -30,7 +40,7 @@
       ],
       "core_meaning_cn": "理解",
       "core_meaning_en": "the ability to comprehend or the state of comprehending",
-      "mental_model_cn": "理解",
+      "mental_model_cn": "understanding of a subject看知识领悟；show understanding看体谅；reach an understanding看协议；on the understanding that...把约定条件接到行动。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -72,7 +82,8 @@
         "sense_id": "sense:understanding:25b586d2875d54d6",
         "sense_label_en": "the cognitive condition of someone who understands",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "my understanding is that...常指我的理解或据我所知，不是对事实的保证。"
       },
       {
         "collocations": [
@@ -111,16 +122,37 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "有理解力的；宽容的",
-        "definition_en": "characterized by understanding based on comprehension and discernment and empathy",
+        "definition_cn": "体谅人的；善解人意的；宽容的",
+        "definition_en": "able and willing to appreciate other people’s feelings and difficulties",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:understanding:2e27b6f1f86c559b",
-        "sense_label_en": "characterized by understanding based on comprehension and discernment an",
+        "sense_label_en": "able and willing to appreciate other people’s feelings and difficulties",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:understanding:aed66db329777778",
+        "definition_cn": "体谅；同情性的理解",
+        "definition_en": "sympathetic awareness of another person’s feelings or circumstances",
+        "sense_label_en": "sympathetic awareness of another person’s feelings or circumstances",
+        "pos": "noun",
+        "governing_pattern": "show understanding; understanding of/for sb",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:40dc6842311d67a2214a",
+            "phrase": "show understanding",
+            "meaning_cn": "表现出体谅",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -404,13 +436,21 @@
         "merged_into_sense_id": null,
         "source_row": 14804,
         "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json"
+      },
+      {
+        "sense_id": "sense:understanding:aed66db329777778",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14860,
+        "source_path": "content/lexical/canonical/senses/shards/o5185-5216.json"
       }
     ],
     "active_collocations": [
       "collocation:45b78aec540c9509cd4c",
       "collocation:95a618191b373e06e55f",
       "collocation:c22bc3c8aea4c161a85a",
-      "collocation:d744128431e992d41632"
+      "collocation:d744128431e992d41632",
+      "collocation:40dc6842311d67a2214a"
     ],
     "facts": [],
     "collocations": [
@@ -432,6 +472,11 @@
       {
         "id": "collocation:d744128431e992d41632",
         "source_row": 18212,
+        "source_path": "content/lexical/canonical/collocations/shards/o5185-5216.json"
+      },
+      {
+        "id": "collocation:40dc6842311d67a2214a",
+        "source_row": 21567,
         "source_path": "content/lexical/canonical/collocations/shards/o5185-5216.json"
       }
     ],

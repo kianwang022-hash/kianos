@@ -3,7 +3,7 @@
   "relation_id": "deep:semantic_contrast:spoil:37f0c4ccbb5aee29",
   "canonical_record": null,
   "fact_record": {
-    "boundary": "spoil foregrounds the damaging result of overindulgence; indulge sb foregrounds gratifying or being over-lenient toward the person",
+    "boundary": "spoil强调过度纵容造成宠坏的结果；indulge sb强调迁就、满足，不必断言已宠坏。",
     "codex_boundary_corrected": true,
     "codex_disposition": "explicit_promote",
     "codex_disposition_status": "resolved",
@@ -14,7 +14,7 @@
       "shared_synset": "02576182-v",
       "source_definition": "to treat someone, especially a child, too indulgently, so that they become selfish or undisciplined",
       "source_sense_id": "sense:spoil:94ff17e2a2d05635",
-      "target_definition": "to enjoy something to excess",
+      "target_definition": "to pamper someone or allow them excessive gratification; to be over-lenient toward someone",
       "target_sense_id": "sense:indulge:051098bcce72c6ce",
       "target_word": "indulge"
     },
@@ -98,7 +98,7 @@
       "field": "semantic_neighbors",
       "index": 0,
       "payload": {
-        "boundary": "spoil foregrounds the damaging result of overindulgence; indulge sb foregrounds gratifying or being over-lenient toward the person",
+        "boundary": "spoil强调过度纵容造成宠坏的结果；indulge sb强调迁就、满足，不必断言已宠坏。",
         "codex_reviewed": true,
         "definition_cn": null,
         "definition_en": null,
@@ -142,6 +142,29 @@
         ],
         "verification_status": "verified",
         "writing_safe": false
+      }
+    },
+    {
+      "source_word_id": "word:indulge",
+      "source_ordinal": 2513,
+      "field": "semantic_neighbors",
+      "index": 0,
+      "payload": {
+        "fact_id": "deep:semantic_contrast:spoil:37f0c4ccbb5aee29",
+        "module": "semantic_contrast",
+        "source_sense_id": "sense:indulge:051098bcce72c6ce",
+        "target_sense_id": "sense:spoil:94ff17e2a2d05635",
+        "target_word": "spoil",
+        "boundary": "spoil强调过度纵容造成宠坏的结果；indulge sb强调迁就、满足，不必断言已宠坏。",
+        "shared_definition": "treat with excessive indulgence",
+        "direction": "C",
+        "source_evidence_objects": [
+          {
+            "source": "Current natural owners o4627 and o2513",
+            "source_sense_id": "sense:indulge:051098bcce72c6ce",
+            "target_sense_id": "sense:spoil:94ff17e2a2d05635"
+          }
+        ]
       }
     }
   ],

@@ -21,9 +21,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "交通；通行；交通量；通信量；传输量；贸易；交易（尤指非法的）",
-      "core_meaning_en": "the movement of vehicles or people along roads, or the amount of such movement; the amount of data or messages sent over a communication system; trade, especially illegal trade",
-      "mental_model_cn": "交通；通行；交通量；通信量；传输量；贸易；交易（尤指非法的）",
+      "core_meaning_cn": "车辆、人或信息的流动量；也指非法交易及贩运",
+      "core_meaning_en": "movement of vehicles, people, or data; also illicit trade and trafficking",
+      "mental_model_cn": "road traffic 是交通，network traffic 是传输量；traffic in goods/traffic people 是动词非法交易或贩运，不是“使通行”。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -75,6 +75,28 @@
         "sense_label_en": "trade, especially illegal trade",
         "sort_order": 999,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:traffic:c476c6f82745557b",
+        "definition_cn": "非法贩卖、交易；贩运人口",
+        "definition_en": "to trade illegally in goods, or to move or sell people for exploitation",
+        "sense_label_en": "to trade illegally in goods, or to move or sell people for exploitation",
+        "pos": "verb",
+        "governing_pattern": "I: traffic in goods; T: traffic people",
+        "transitivity": "I/T",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:1b40597841260e12b660",
+            "phrase": "traffic in illegal goods",
+            "meaning_cn": "非法买卖货物",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "usage_note": "traffic in + 货品选非法交易；people 可作直接宾语。分词/过去式为 trafficking / trafficked，但不扩发音。"
       }
     ],
     "verification_summary": {
@@ -233,31 +255,6 @@
   "relation_refs": [],
   "reference_senses": [
     {
-      "stable_sense_id": "sense:traffic:c476c6f82745557b",
-      "status": "deprecated",
-      "merged_into_sense_id": null,
-      "pos": "verb",
-      "definition_cn": "做非法买卖；交易",
-      "definition_en": "to trade illegally",
-      "semantic_key": "4008ca10c75cbb82dd5a400b8f9ee383e78120c022accc7cc2a6cf76779b81b3",
-      "semantic_key_history": [
-        "e71cd8b11fbd58411a3f825e7d201355d1c9dc858e48b244f3804f66e2320aee"
-      ],
-      "legacy_aliases": [
-        "traffic:l2:4"
-      ],
-      "legacy_alias_history": [
-        {
-          "legacy_sense_id": "traffic:l2:4",
-          "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-        }
-      ],
-      "updated_at": "2026-09-09T00:00:00Z",
-      "source_row": 14483,
-      "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
-      "reference_only": true
-    },
-    {
       "stable_sense_id": "sense:traffic:cda981b2d405562e",
       "status": "deprecated",
       "merged_into_sense_id": null,
@@ -308,7 +305,7 @@
       },
       {
         "sense_id": "sense:traffic:c476c6f82745557b",
-        "status": "deprecated",
+        "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14483,
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
@@ -321,7 +318,9 @@
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:1b40597841260e12b660"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -358,6 +357,11 @@
         "id": "collocation:e932467df43564ae9b37",
         "source_row": 19760,
         "source_path": "content/lexical/canonical/collocations/shards/o5057-5088.json"
+      },
+      {
+        "id": "collocation:1b40597841260e12b660",
+        "source_path": "content/lexical/canonical/collocations/shards/o5057-5088.json",
+        "source_row": 21618
       }
     ],
     "exam-mappings": [],
