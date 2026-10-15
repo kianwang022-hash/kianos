@@ -11,17 +11,18 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "矛，枪；鱼叉",
-          "label_en": "a long pointed rod used as a weapon or tool; an implement with a shaft and barbed point used for catching fish",
+          "label_cn": "矛与鱼叉；尖长植物嫩茎",
+          "label_en": "a spear or fishing implement; a pointed plant shoot",
           "pos": "noun",
           "sense_ids": [
             "sense:spear:18a5b415de6d5012",
-            "sense:spear:d4e2954c504057d3"
+            "sense:spear:d4e2954c504057d3",
+            "sense:spear:ceda4015aa3f8633"
           ]
         },
         {
-          "label_cn": "用矛刺；像矛一样刺出",
-          "label_en": "pierce with a spear; thrust up like a spear",
+          "label_cn": "用尖物刺或叉起；像矛一样刺出",
+          "label_en": "to pierce with a pointed object or thrust out like a spear",
           "pos": "verb",
           "sense_ids": [
             "sense:spear:6cea7758394757b1",
@@ -29,9 +30,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "长矛；用矛刺",
-      "core_meaning_en": "a long pointed weapon or tool; to pierce with such",
-      "mental_model_cn": "长矛；用矛刺",
+      "core_meaning_cn": "尖长的形态，以及用尖物刺穿的动作",
+      "core_meaning_en": "a long pointed form, or piercing with a pointed object",
+      "mental_model_cn": "工具语境看矛或鱼叉；植物、菜肴语境看尖长嫩茎；动词看用尖物刺穿或叉起。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -79,16 +80,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "用矛刺",
-        "definition_en": "pierce with a spear",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "用矛或其他尖物刺、叉起",
+        "definition_en": "to pierce or pick up with a spear or another pointed object",
+        "governing_pattern": "spear sb/sth (with a pointed object)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:spear:6cea7758394757b1",
-        "sense_label_en": "pierce with a spear",
+        "sense_label_en": "to pierce or pick up with a spear or another pointed object",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "器具可为长矛、鱼叉或餐叉；不局限于武器。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spear_2",
+            "role": "pointed-object extension"
+          }
+        ]
       },
       {
         "collocations": [
@@ -127,6 +135,39 @@
         "sense_label_en": "thrust up like a spear",
         "sort_order": 3,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:spear:ceda4015aa3f8633",
+        "pos": "noun",
+        "definition_cn": "（芦笋等的）尖长嫩茎；嫩芽",
+        "definition_en": "a long pointed plant shoot",
+        "sense_label_en": "a long pointed plant shoot",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "asparagus spears",
+        "transitivity": "nonverb",
+        "usage_note": "植物或菜肴语境，按尖长形状命名。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:70a363f73e9a694ec358",
+            "phrase": "asparagus spears",
+            "meaning_cn": "芦笋嫩茎",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spear_1",
+                "role": "bounded semantic support; independently authored lexical wording"
+              }
+            ]
+          }
+        ],
+        "sort_order": 4,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spear_1",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -423,12 +464,19 @@
         "merged_into_sense_id": null,
         "source_row": 12996,
         "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json"
+      },
+      {
+        "sense_id": "sense:spear:ceda4015aa3f8633",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4593.json"
       }
     ],
     "active_collocations": [
       "collocation:093a0829081118e2d120",
       "collocation:8e52b5b58180716797be",
-      "collocation:b44bb8a757afe3ede778"
+      "collocation:b44bb8a757afe3ede778",
+      "collocation:70a363f73e9a694ec358"
     ],
     "facts": [],
     "collocations": [
@@ -446,6 +494,10 @@
         "id": "collocation:b44bb8a757afe3ede778",
         "source_row": 15281,
         "source_path": "content/lexical/canonical/collocations/shards/o4577-4608.json"
+      },
+      {
+        "id": "collocation:70a363f73e9a694ec358",
+        "source_path": "content/lexical/words/by-ordinal/o4593.json"
       }
     ],
     "exam-mappings": [],

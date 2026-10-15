@@ -20,7 +20,11 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "一定会做/是；务必做……",
-        "pattern": "be sure to do/be"
+        "pattern": "be sure to do/be",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:458e8503777f765094be",
+          "reason": "The complete declarative certainty and imperative reminder distinction survives in the new objective Sense, its usage note, and exact existing child."
+        }
       }
     ],
     "content_hash": "b9a2130a1aff7cc496930ba7c5663c8960b7099ac515f302698df8b15bc6762d",
@@ -72,15 +76,6 @@
             "phrase": "be sure of + sth"
           },
           {
-            "collocation_id": "collocation:458e8503777f765094be",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:sure:ad5b98a35ee25926:collocation:1"
-            ],
-            "meaning_cn": "一定要做某事；必定做某事",
-            "phrase": "be sure to do + sth"
-          },
-          {
             "collocation_id": "collocation:ba6d5a1731d173b7f72e",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -100,7 +95,8 @@
         "sense_id": "sense:sure:ad5b98a35ee25926",
         "sense_label_en": "having no doubt; certain",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "描述人的把握时，sure of/about sth 或 sure (that)... 表示确信；这本身不保证客观事实。"
       },
       {
         "collocations": [
@@ -182,6 +178,31 @@
         "sense_label_en": "certainly; indeed",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:sure:0490d7f218ce990f9adf",
+        "pos": "adjective",
+        "definition_cn": "一定会发生的；必定会的",
+        "definition_en": "certain to happen or do something",
+        "sense_label_en": "certain to happen or do something",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 4,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:458e8503777f765094be",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:sure:ad5b98a35ee25926:collocation:1"
+            ],
+            "meaning_cn": "陈述句表示必定会；祈使句 Be sure to... 表示务必、别忘了",
+            "phrase": "be sure to do + sth"
+          }
+        ],
+        "usage_note": "描述事情的必然性：be sure to do；祈使句 Be sure to do... 用于提醒“务必做”，不是陈述人的主观确信。"
       }
     ],
     "verification_summary": {
@@ -361,6 +382,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 13721,
+        "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json"
+      },
+      {
+        "sense_id": "sense:sure:0490d7f218ce990f9adf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 13740,
         "source_path": "content/lexical/canonical/senses/shards/o4801-4832.json"
       }
     ],

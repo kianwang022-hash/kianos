@@ -15,7 +15,34 @@
         "level": "L2",
         "meaning_cn": "与事实、证据或另一说法一致/相符",
         "pattern": "square with sth",
-        "source_sense_id": "sense:square:6807d0f396f01eaa"
+        "source_sense_id": "sense:square:6807d0f396f01eaa",
+        "presentation_merge": {
+          "merge_id": "presentation-merge:square:f5c18854879705b7",
+          "mode": "MERGE_PRESENTATION",
+          "surviving_object_id": "collocation:49b3602fc7d903cfedef",
+          "metadata_tags": [
+            "construction",
+            "collocation",
+            "writing"
+          ]
+        }
+      },
+      {
+        "construction_id": "construction:square:e3479dde7241ccc9",
+        "pattern": "number + square + length units / number + length units + square",
+        "meaning_cn": "前者报面积；后者报正方形每边长度",
+        "definition_en": "the first pattern measures area; the second gives each side of a square",
+        "boundary": "4 square metres是4平方米，未说明形状；4 metres square是每边4米的正方形，面积16平方米。square的位置改变所报的量。",
+        "level": "L2",
+        "direction": "R+D+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/square_1",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "measurement senses 3–4"
+          }
+        ]
       }
     ],
     "content_hash": "8d3db98946d8b81e338ce9b1429328cdcca32ed299f96e558d46cc6c483f309e",
@@ -49,9 +76,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "正方形；方形；平方；二次幂；广场；街区；正方形的；方形的；正直的；公正的；与……一致、相符或相容",
-      "core_meaning_en": "a plane rectangle with four equal sides and four right angles; the product of a number multiplied by itself; an open area in a town, often surrounded by buildings; having four equal sides and right angles; honest and fair; to be consistent, compatible, or in agreement with something",
-      "mental_model_cn": "正方形；方形；平方；二次幂；广场；街区；正方形的；方形的；正直的；公正的；与……一致、相符或相容",
+      "core_meaning_cn": "几何中的方形、平方及广场；引申为公正或彼此相符",
+      "core_meaning_en": "a square shape, a number multiplied by itself, or a town plaza; also fair or consistent",
+      "mental_model_cn": "数字语境看平方或面积，城镇语境看广场；交易评价可指公正，square with表示相符。不能把这些分支仅按方形直译；测量中还要看square的位置。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -196,15 +223,24 @@
         ],
         "confidence": "medium",
         "definition_cn": "使成方形；使平方；使一致",
-        "definition_en": "to make something square or multiply a number by itself",
-        "governing_pattern": "vt. + object",
+        "definition_en": "make something square, multiply a number by itself, or make one thing consistent with another",
+        "governing_pattern": "square + object/number; square + A + with + B",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:square:063dc4756b4a5c38",
-        "sense_label_en": "to make something square or multiply a number by itself",
+        "sense_label_en": "make square, calculate the second power, or reconcile",
         "sort_order": 5,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "数字宾语是求平方；在A with B框架中，A和B是要调和的事实、要求或看法。与不及物square with的“本身相符”分开。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/square-with",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "consistency phrasal verb"
+          }
+        ]
       },
       {
         "collocations": [
@@ -466,7 +502,13 @@
       "collocation:99a60d30341af0bbe9d1",
       "collocation:fdbe49ceb39a284be136"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:square:e3479dde7241ccc9",
+        "source_path": "content/lexical/words/by-ordinal/o4644.json",
+        "object_type": "construction"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:1e4fb68013e811924551",

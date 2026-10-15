@@ -615,15 +615,7 @@
         "definition_cn": "组织；整理",
         "definition_en": "to arrange people or things in an ordered or systematic way",
         "note": "",
-        "identity_overlay": {
-          "text": "organize is the common AmE spelling; organise is the common BrE spelling; same verb identity",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "organize is the common AmE spelling; organise is the common BrE spelling; same verb identity"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -640,15 +632,7 @@
         "definition_cn": "组织；筹办",
         "definition_en": "to plan and coordinate an activity, event, or group",
         "note": "",
-        "identity_overlay": {
-          "text": "organize is the common AmE spelling; organise is the common BrE spelling; same verb identity",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "organize is the common AmE spelling; organise is the common BrE spelling; same verb identity"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -705,7 +689,7 @@
     "ordinal": 5577,
     "word": "ought",
     "source_owner_path": "content/lexical/words/by-ordinal/o5577.json",
-    "source_fingerprint": "523a2eed6e514c64e1d72da3a581f8382da3adcd7eb26a867f258e1f14d0dd39",
+    "source_fingerprint": "30010574fce6882d33d73c0e92c22a5f5892fd71474be567508c1fbb94a2725e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -731,7 +715,7 @@
         "governing_pattern": "ought to + base verb",
         "definition_cn": "应该；表示责任、建议或合宜",
         "definition_en": "modal used with to + base verb to express duty, advice, or what is right",
-        "note": "modal verb",
+        "note": "一般否定用ought not to，疑问用Ought + subject + to...?，不用do/does/did支撑；实际日常疑问或否定常选should。完成式的回顾义见Construction；原预期义不合并。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -980,6 +964,48 @@
           "target_locator": "record.constructions[1]",
           "target_label": "ought not to + base verb"
         }
+      },
+      {
+        "id": "construction:a29098c1ffb8a58b676c",
+        "source_locator": "record.constructions[2]",
+        "pattern": "ought (not) to have + past participle（回顾过去的责任/建议）",
+        "lines": [
+          {
+            "text": "本应该做而未做；或本不应该做却做了，常含遗憾或责备",
+            "lang": "cn"
+          },
+          {
+            "text": "used to look back at what should or should not have been done",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:a29098c1ffb8a58b676c",
+          "target_locator": "record.constructions[2]",
+          "target_label": "ought (not) to have + past participle（回顾过去的责任/建议）"
+        }
+      },
+      {
+        "id": "construction:c21704e287928a2ade64",
+        "source_locator": "record.constructions[3]",
+        "pattern": "ought to have + past participle（推测已完成）",
+        "lines": [
+          {
+            "text": "按预期应该已经做了；不必含遗憾或断言没有做到",
+            "lang": "cn"
+          },
+          {
+            "text": "used to express an expectation that something has already happened",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c21704e287928a2ade64",
+          "target_locator": "record.constructions[3]",
+          "target_label": "ought to have + past participle（推测已完成）"
+        }
       }
     ],
     "reference": {
@@ -995,13 +1021,13 @@
     "ordinal": 5578,
     "word": "outskirt",
     "source_owner_path": "content/lexical/words/by-ordinal/o5578.json",
-    "source_fingerprint": "8a809130533b8bd2cf91d1236fdecd060097637f715ffa3c3641582dcf92cabc",
+    "source_fingerprint": "38e7ce27abdd2242c31ebe5e5007939498380f3a0093aa53bf56a9c4a9ea5b82",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "市郊；郊区（通常用复数）",
@@ -1073,7 +1099,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:4baf3e260fd453fb76c7",
+        "source_locator": "record.constructions[0]",
+        "pattern": "on the outskirts of + town/city",
+        "lines": [
+          {
+            "text": "在……市郊；在城镇外围",
+            "lang": "cn"
+          },
+          {
+            "text": "in the outer area of a town or city",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:4baf3e260fd453fb76c7",
+          "target_locator": "record.constructions[0]",
+          "target_label": "on the outskirts of + town/city"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1087,7 +1135,7 @@
     "ordinal": 5579,
     "word": "overdue",
     "source_owner_path": "content/lexical/words/by-ordinal/o5579.json",
-    "source_fingerprint": "28212fe7e65793a3f6ab356670d25d3e2dadbccac843e4c6c1d333cdc86fce4c",
+    "source_fingerprint": "0deda96731092ecc9656a3ac45904f9162da7f4959e34b293278c5cbee9039b4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1096,13 +1144,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "逾期的；过期未完成的",
+      "summary_cn": "逾期的；早该发生或完成的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "逾期的；过期未完成的"
+        "target_label": "逾期的；早该发生或完成的"
       }
     },
     "senses": [
@@ -1110,17 +1158,17 @@
         "id": "sense:overdue:276e8be8e00155ce",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "逾期的；过期未完成的",
-        "definition_en": "not done, paid, returned, or completed by the expected or required time",
-        "note": "",
+        "governing_pattern": "overdue payment/book; long overdue; overdue for sth",
+        "definition_cn": "逾期的；早该发生或完成的",
+        "definition_en": "later than expected, required, or needed, whether for an event, action, payment, or return",
+        "note": "long overdue也可说某种改变、认可等早该发生，并不一定有正式截止日期；overdue for promotion指早该晋升。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:overdue:276e8be8e00155ce",
           "target_locator": "record.senses[0]",
-          "target_label": "逾期的；过期未完成的"
+          "target_label": "逾期的；早该发生或完成的"
         }
       }
     ],
@@ -1442,7 +1490,7 @@
     "ordinal": 5583,
     "word": "parlor",
     "source_owner_path": "content/lexical/words/by-ordinal/o5583.json",
-    "source_fingerprint": "aa6625c23f8fc569300bfead25d4a783509269e8d0c6ac0288c8f5aee8051148",
+    "source_fingerprint": "e50f807fd8cb5aff9fd1c2e479655e551dc7df0b75322ff78161616708339c12",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1548,12 +1596,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -1679,7 +1723,7 @@
     "ordinal": 5585,
     "word": "pipeline",
     "source_owner_path": "content/lexical/words/by-ordinal/o5585.json",
-    "source_fingerprint": "e89265180c1a83caa9d6ca3416a0f4d961a7b98a8c1cfa1d1a133ca08aa69d70",
+    "source_fingerprint": "4f26bf5cf615bba230dff6ae637048c40a58d1fec7c063ac44be204b7bcd8910",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1764,7 +1808,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:31cc8cab27b9fe48aa0c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in the pipeline",
+        "lines": [
+          {
+            "text": "在筹划或开发中；尚待推出或完成",
+            "lang": "cn"
+          },
+          {
+            "text": "being planned or developed for future completion",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:31cc8cab27b9fe48aa0c",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in the pipeline"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1778,7 +1844,7 @@
     "ordinal": 5586,
     "word": "pluck",
     "source_owner_path": "content/lexical/words/by-ordinal/o5586.json",
-    "source_fingerprint": "0e9fac0b17b99312394f2ffd394840a1dd4e739418ae5776438c940136734221",
+    "source_fingerprint": "249d48d2f4ba5652142cd02a9c8e6f0bbc518e127428b1ac1be87943008c16de",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1788,13 +1854,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "拔、摘、拉、拨；迅速或突然地拉取/摘取",
-      "decision_cn": "",
+      "summary_cn": "拔；摘；迅速拉取；拨弦",
+      "decision_cn": "拔毛或摘取看取下；pluck the strings看拨弦发声，不是拔除琴弦。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "拔、摘、拉、拨；迅速或突然地拉取/摘取"
+        "target_label": "拔；摘；迅速拉取；拨弦"
       }
     },
     "senses": [
@@ -1802,17 +1868,17 @@
         "id": "sense:pluck:b557c5df5b1d5944",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "拔、摘、拉、拨；迅速或突然地拉取/摘取",
-        "definition_en": "to pull, pick, or remove something quickly or sharply, such as feathers, fruit, or a string",
-        "note": "",
+        "governing_pattern": "pluck feathers; pluck sth from ...; pluck (at) the strings",
+        "definition_cn": "拔；摘；迅速拉取；拨弦",
+        "definition_en": "to pull or pick something sharply, remove feathers, or pull and release an instrument string to make a sound",
+        "note": "拨弦是拉动后放开弦使其发声，不是把弦拔掉；拔毛、摘取等读法及原Construction保留。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:pluck:b557c5df5b1d5944",
           "target_locator": "record.senses[0]",
-          "target_label": "拔、摘、拉、拨；迅速或突然地拉取/摘取"
+          "target_label": "拔；摘；迅速拉取；拨弦"
         }
       },
       {
@@ -2186,17 +2252,17 @@
     "ordinal": 5590,
     "word": "pudding",
     "source_owner_path": "content/lexical/words/by-ordinal/o5590.json",
-    "source_fingerprint": "a612d0797fca9968d58021b3d71cb4173f42a4788ddeee2fd7b0461d9b2237ec",
+    "source_fingerprint": "9f885c57867efb7fa75c8efe00eea77f5ee218535c8c3fc9ec51602f411ae2ed",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "布丁；甜点",
-      "decision_cn": "",
+      "decision_cn": "通常看甜布丁或英式餐后甜点；steak and kidney pudding等咸味菜肴不应译成甜点。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2220,6 +2286,23 @@
           "target_id": "sense:pudding:f47898639fd2507b",
           "target_locator": "record.senses[0]",
           "target_label": "布丁；甜点"
+        }
+      },
+      {
+        "id": "sense:pudding:c8d8e46549f48d5d",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "steak and kidney pudding",
+        "definition_cn": "（英式）咸味布丁类菜肴",
+        "definition_en": "a savoury dish made with flour or pastry and containing or accompanying meat",
+        "note": "这里不是餐后甜点；原甜布丁及英式dessert泛称保留。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:pudding:c8d8e46549f48d5d",
+          "target_locator": "record.senses[1]",
+          "target_label": "（英式）咸味布丁类菜肴"
         }
       }
     ],
@@ -2257,7 +2340,7 @@
     "ordinal": 5591,
     "word": "radish",
     "source_owner_path": "content/lexical/words/by-ordinal/o5591.json",
-    "source_fingerprint": "fbc94b3f811d309bacb04d908a12fdb8dfb5241e99a64f2cdf8a7d0bae54e133",
+    "source_fingerprint": "3f65b9ba9979ffc722022d5223c17d5893458fe4af90ef3783ace6585b4071b1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2266,13 +2349,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "小萝卜；樱桃萝卜",
+      "summary_cn": "萝卜（如小萝卜、樱桃萝卜等）",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "小萝卜；樱桃萝卜"
+        "target_label": "萝卜（如小萝卜、樱桃萝卜等）"
       }
     },
     "senses": [
@@ -2281,16 +2364,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "小萝卜；樱桃萝卜",
-        "definition_en": "a small root vegetable with crisp flesh, often red or white",
-        "note": "",
+        "definition_cn": "萝卜（如小萝卜、樱桃萝卜等）",
+        "definition_en": "a root vegetable with crisp flesh, often red or white, whose size and shape vary by variety",
+        "note": "常见沙拉语境可指小萝卜或樱桃萝卜；daikon等较大的白萝卜也属于radish，不把small当作整个类别的必要条件。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:radish:bae246298654522d",
           "target_locator": "record.senses[0]",
-          "target_label": "小萝卜；樱桃萝卜"
+          "target_label": "萝卜（如小萝卜、樱桃萝卜等）"
         }
       }
     ],
@@ -2425,17 +2508,18 @@
     "ordinal": 5593,
     "word": "railroad",
     "source_owner_path": "content/lexical/words/by-ordinal/o5593.json",
-    "source_fingerprint": "cef8f7166a02595cc93af09be969dae687ea20813feea78152b67f03cb873411",
+    "source_fingerprint": "87a9a367c087e2bb021b8df5b042ded282f2aa7024f2b8a2fb66d00b31f06e7c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "铁路；铁路系统",
-      "decision_cn": "",
+      "decision_cn": "铁路设施或公司看noun；railroad sb into doing/railroad sth through看强迫、强行推进，常含不公正意味。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2459,6 +2543,23 @@
           "target_id": "sense:railroad:0e36e363fc98525d",
           "target_locator": "record.senses[0]",
           "target_label": "铁路；铁路系统"
+        }
+      },
+      {
+        "id": "sense:railroad:43792ca4244727a0",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "railroad sb into doing sth; railroad sth through",
+        "definition_cn": "（尤指仓促或不公正地）强迫；强行推进",
+        "definition_en": "to pressure someone into an action or force something to happen, especially hastily or unfairly",
+        "note": "be railroaded into doing sth指被强迫去做，不是被送上铁路；原美式铁路noun及railway关系保留。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:railroad:43792ca4244727a0",
+          "target_locator": "record.senses[1]",
+          "target_label": "（尤指仓促或不公正地）强迫；强行推进"
         }
       }
     ],
@@ -2567,15 +2668,7 @@
         "definition_cn": "意识到；认识到",
         "definition_en": "to become aware of or understand a fact or situation",
         "note": "",
-        "identity_overlay": {
-          "text": "realise and realize are regional spelling variants of the same lexeme; realise is common BrE, while realize is common AmE and also accepted in some BrE styles",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "realise and realize are regional spelling variants of the same lexeme; realise is common BrE, while realize is common AmE and also accepted in some BrE styles"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -2592,15 +2685,7 @@
         "definition_cn": "实现；使成为现实",
         "definition_en": "to make something hoped for or imagined become real; to achieve",
         "note": "",
-        "identity_overlay": {
-          "text": "realise and realize are regional spelling variants of the same lexeme; realise is common BrE, while realize is common AmE and also accepted in some BrE styles",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "realise and realize are regional spelling variants of the same lexeme; realise is common BrE, while realize is common AmE and also accepted in some BrE styles"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -2617,15 +2702,7 @@
         "definition_cn": "变现资产；实现/获得利润或货币回报",
         "definition_en": "finance/business: to convert assets into money or obtain a monetary return or profit",
         "note": "",
-        "identity_overlay": {
-          "text": "realise and realize are regional spelling variants of the same lexeme; realise is common BrE, while realize is common AmE and also accepted in some BrE styles",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[2].lexical_identity_overlay",
-            "target_label": "realise and realize are regional spelling variants of the same lexeme; realise is common BrE, while realize is common AmE and also accepted in some BrE styles"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -2670,17 +2747,17 @@
     "ordinal": 5595,
     "word": "receiver",
     "source_owner_path": "content/lexical/words/by-ordinal/o5595.json",
-    "source_fingerprint": "c2f5a4ed9c5e509050a051fb29600e6053fe4da84ba737a37adf3b862d9bd05a",
+    "source_fingerprint": "db37fd554dfc9c676794730ee26f4399d2b520b01dbd932cc9169c700c9ff740",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "接收者；接收器",
-      "decision_cn": "",
+      "decision_cn": "信号或物品看接收者/设备；电话看听筒；公司无力偿债且appoint/call in receivers看接管人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2721,6 +2798,23 @@
           "target_id": "sense:receiver:0b17a43997a75a6d",
           "target_locator": "record.senses[1]",
           "target_label": "电话听筒"
+        }
+      },
+      {
+        "id": "sense:receiver:56d3f0c41c86d705",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "appoint a receiver; in the hands of the receiver",
+        "definition_cn": "（企业无力偿债时的）接管人",
+        "definition_en": "a person officially appointed to handle the affairs or assets of a company that cannot pay its debts",
+        "note": "企业债务语境的职务名称，不是信号接收器；仅作阅读释义，具体权限因制度而异。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:receiver:56d3f0c41c86d705",
+          "target_locator": "record.senses[2]",
+          "target_label": "（企业无力偿债时的）接管人"
         }
       }
     ],
@@ -2785,15 +2879,7 @@
         "definition_cn": "认出；识别",
         "definition_en": "to identify someone or something from previous knowledge or experience",
         "note": "",
-        "identity_overlay": {
-          "text": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -2810,15 +2896,7 @@
         "definition_cn": "承认；认可",
         "definition_en": "to acknowledge or accept the existence, truth, importance, or legal status of something",
         "note": "",
-        "identity_overlay": {
-          "text": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[1].lexical_identity_overlay",
-            "target_label": "recognise and recognize are regional spelling variants of the same lexeme; recognise is common BrE, recognize common AmE"
-          }
-        },
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -3148,17 +3226,18 @@
     "ordinal": 5599,
     "word": "rotary",
     "source_owner_path": "content/lexical/words/by-ordinal/o5599.json",
-    "source_fingerprint": "dbc69da8fa17367e98dd81cbb304360b2c43460680c76a585e32860fe14835ee",
+    "source_fingerprint": "1923b93613d30c038a1534e46b997d3da382fcc7748d95641b77d6ef7250db41",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A"
+        "1A",
+        "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "旋转的；转动式的",
-      "decision_cn": "",
+      "decision_cn": "修饰机器看旋转式；道路语境的a rotary是美式交通环岛，不是旋转动作。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3182,6 +3261,23 @@
           "target_id": "sense:rotary:75000a8e43c95a94",
           "target_locator": "record.senses[0]",
           "target_label": "旋转的；转动式的"
+        }
+      },
+      {
+        "id": "sense:rotary:741db1e573614992",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a rotary",
+        "definition_cn": "（美式）环形交叉路口；交通环岛",
+        "definition_en": "a road junction where traffic travels around a central circular area, especially in American English",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:rotary:741db1e573614992",
+          "target_locator": "record.senses[1]",
+          "target_label": "（美式）环形交叉路口；交通环岛"
         }
       }
     ],
@@ -3379,22 +3475,22 @@
     "ordinal": 5602,
     "word": "shilling",
     "source_owner_path": "content/lexical/words/by-ordinal/o5602.json",
-    "source_fingerprint": "5a04f23a7d38d5f69d6777001ff75e29e746b022a046fb1839fdbe4e2bf4b107",
+    "source_fingerprint": "6a058002d99c266f0e9324886f161b055a80c24e613de0169c5478097884e6bc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "先令（旧英国货币）",
-      "decision_cn": "",
+      "summary_cn": "先令：可指旧英币，也可指东非国家的货币单位",
+      "decision_cn": "看国家和时代：旧英国的一先令为一英镑的二十分之一；现代东非价格中的shilling不是已废旧币。不同国家的先令不是同一种货币。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "先令（旧英国货币）"
+        "target_label": "先令：可指旧英币，也可指东非国家的货币单位"
       }
     },
     "senses": [
@@ -3413,6 +3509,23 @@
           "target_id": "sense:shilling:b43d71b81a6c5326",
           "target_locator": "record.senses[0]",
           "target_label": "先令（旧英国货币）"
+        }
+      },
+      {
+        "id": "sense:shilling:159442c1429a6476",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "先令（肯尼亚、坦桑尼亚、乌干达、索马里等国的货币单位）",
+        "definition_en": "a currency unit used in several East African countries, including Kenya, Tanzania, Uganda and Somalia",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:shilling:159442c1429a6476",
+          "target_locator": "record.senses[1]",
+          "target_label": "先令（肯尼亚、坦桑尼亚、乌干达、索马里等国的货币单位）"
         }
       }
     ],
@@ -3549,7 +3662,7 @@
     "ordinal": 5604,
     "word": "slit",
     "source_owner_path": "content/lexical/words/by-ordinal/o5604.json",
-    "source_fingerprint": "9615ffaba51af55eae31230b2ba8f6e325b35e1a425eee5f529d9a73460d5eb7",
+    "source_fingerprint": "a155c1b65c58650507ce07a5bd1b87f31e7e1e968a67145dc9127127936e6207",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3590,8 +3703,8 @@
         "id": "sense:slit:f93c887aa562593a",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "纵向切开；割开",
+        "governing_pattern": "slit sth; slit sth open / slit open sth",
+        "definition_cn": "割开一道狭长口子；切开",
         "definition_en": "to make a long, narrow cut in something",
         "note": "",
         "identity_overlay": null,
@@ -3600,7 +3713,7 @@
           "target_kind": "sense",
           "target_id": "sense:slit:f93c887aa562593a",
           "target_locator": "record.senses[1]",
-          "target_label": "纵向切开；割开"
+          "target_label": "割开一道狭长口子；切开"
         }
       }
     ],
@@ -3639,7 +3752,23 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "slit; slit; slit; slitting",
+            "condition": "verb inflection: base; past tense; past participle; present participle",
+            "note": "普通动词过去式、过去分词仍为slit；现在分词slitting双写t。"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -4345,11 +4474,12 @@
     "ordinal": 5613,
     "word": "synthetic",
     "source_owner_path": "content/lexical/words/by-ordinal/o5613.json",
-    "source_fingerprint": "a150c75442300370b1acc2b519df0e3c0c1bfaba38dd37f9a8c67df3a1d274fa",
+    "source_fingerprint": "85baf0a88f4ad97ecdee6f19570e12967917d5437fb56b61ae5fe3409d3d5d3a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "2A",
+        "1N"
       ],
       "density": "rich"
     },
@@ -4396,6 +4526,23 @@
           "target_id": "sense:synthetic:2e813e32ea5f5875",
           "target_locator": "record.senses[1]",
           "target_label": "综合的；合成性的"
+        }
+      },
+      {
+        "id": "sense:synthetic:582a30320ba6e576",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "合成材料；人造物质（常用复数synthetics）",
+        "definition_en": "an artificially produced material or substance, often referred to in the plural",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:synthetic:582a30320ba6e576",
+          "target_locator": "record.senses[2]",
+          "target_label": "合成材料；人造物质（常用复数synthetics）"
         }
       }
     ],
@@ -4526,7 +4673,7 @@
     "ordinal": 5615,
     "word": "throng",
     "source_owner_path": "content/lexical/words/by-ordinal/o5615.json",
-    "source_fingerprint": "33afea951039a1342392a1a47dba474f2d1eec5f8f1da91ad3a9f80d2d1b5d31",
+    "source_fingerprint": "241bf6d1a5270da35ea9f6f558956e44016dce3cc92ef91cebcda6a89bc5d782",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4567,9 +4714,9 @@
         "id": "sense:throng:72fd6ad378255fbb",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "群集；蜂拥",
-        "definition_en": "to gather or move in a large, crowded group",
+        "governing_pattern": "people throng a place; a place is thronged with people; throng around/into ...",
+        "definition_cn": "群集；蜂拥；挤满某处",
+        "definition_en": "to gather or move in large numbers, or fill a place as a crowd",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4577,7 +4724,7 @@
           "target_kind": "sense",
           "target_id": "sense:throng:72fd6ad378255fbb",
           "target_locator": "record.senses[1]",
-          "target_label": "群集；蜂拥"
+          "target_label": "群集；蜂拥；挤满某处"
         }
       }
     ],
@@ -4615,13 +4762,14 @@
     "ordinal": 5616,
     "word": "timetable",
     "source_owner_path": "content/lexical/words/by-ordinal/o5616.json",
-    "source_fingerprint": "78bf224bf355e45a1fde317ca9aaf1e81062cf3c234bce54941483aca0839c42",
+    "source_fingerprint": "ab190e2fbab4d7e3aea8b54a24754cee32e97eef7a7946eb6d42b82210aea124",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "时间表；时刻表",
@@ -4649,6 +4797,23 @@
           "target_id": "sense:timetable:8ff5fb29ac4b5044",
           "target_locator": "record.senses[0]",
           "target_label": "时间表；时刻表"
+        }
+      },
+      {
+        "id": "sense:timetable:37cfdccbed93697e",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "timetable sth; be timetabled for + time",
+        "definition_cn": "（英式）为……安排时间；把……列入时间表",
+        "definition_en": "to arrange a time for an event or activity",
+        "note": "英式用法，常见被动形式；timetabled classes指已排定时间的课。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:timetable:37cfdccbed93697e",
+          "target_locator": "record.senses[1]",
+          "target_label": "（英式）为……安排时间；把……列入时间表"
         }
       }
     ],
@@ -5399,7 +5564,7 @@
     "ordinal": 5625,
     "word": "utility",
     "source_owner_path": "content/lexical/words/by-ordinal/o5625.json",
-    "source_fingerprint": "72b844b4c5d38e0297f91d3932a507bca7007e180ebe21d00c1d1e6e31a5ab19",
+    "source_fingerprint": "2147b623ecd26f098cc059d64250e5c62e0cbe30810089ece923f8ab2e8a19c7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5408,13 +5573,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "效用；实用性；公用事业公司；实用程序；工具程序；效用；消费商品/服务或选择结果带来的满足、价值或有用程度（经济学）",
+      "summary_cn": "效用；实用性；公用服务及其供应公司；实用程序；工具程序；效用；消费商品/服务或选择结果带来的满足、价值或有用程度（经济学）",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "效用；实用性；公用事业公司；实用程序；工具程序；效用；消费商品/服务或选择结果带来的满足、价值或有用程度（经济学）"
+        "target_label": "效用；实用性；公用服务及其供应公司；实用程序；工具程序；效用；消费商品/服务或选择结果带来的满足、价值或有用程度（经济学）"
       }
     },
     "senses": [
@@ -5440,16 +5605,16 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "公用事业公司",
-        "definition_en": "an organization that supplies an essential public service such as electricity, gas, or water",
-        "note": "",
+        "definition_cn": "水、电、燃气等公用服务；提供这类服务的公司",
+        "definition_en": "an essential public service such as water, electricity or gas, or a company supplying it",
+        "note": "utilities可指各项公用服务或供应公司；rent plus utilities中的utilities通常指水电燃气等服务费用，不能只译作公司。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:utility:fd2720260d6859b9",
           "target_locator": "record.senses[1]",
-          "target_label": "公用事业公司"
+          "target_label": "水、电、燃气等公用服务；提供这类服务的公司"
         }
       },
       {
@@ -5759,7 +5924,7 @@
     "ordinal": 5629,
     "word": "vine",
     "source_owner_path": "content/lexical/words/by-ordinal/o5629.json",
-    "source_fingerprint": "a7104c767aca65734910d70ed81ec774678c4d6791bfe0fc3b18ddca9f5c9197",
+    "source_fingerprint": "a95815e48d2657df4b895f989e8401a31364721d81727ce8e24702f69bd44bd3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5783,16 +5948,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "藤本植物；藤蔓",
-        "definition_en": "a plant with a long, weak stem that climbs or trails along a surface",
-        "note": "",
+        "definition_cn": "藤本植物，尤指葡萄藤；这种植物的藤茎",
+        "definition_en": "a climbing or trailing plant, especially a grape plant, or its long flexible stem",
+        "note": "除泛指攀缘或蔓生植物外，葡萄种植、酿酒语境中的vine常特指葡萄藤；不是所有vine都结葡萄。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:vine:380381910c3d54ae",
           "target_locator": "record.senses[0]",
-          "target_label": "藤本植物；藤蔓"
+          "target_label": "藤本植物，尤指葡萄藤；这种植物的藤茎"
         }
       }
     ],
@@ -5936,17 +6101,17 @@
     "ordinal": 5631,
     "word": "wavelength",
     "source_owner_path": "content/lexical/words/by-ordinal/o5631.json",
-    "source_fingerprint": "f8c3f047b87fcb765590599361f9a51a581679c4f1df11872d1535635a32c9dd",
+    "source_fingerprint": "62a8a595679aa0303b954f4ad8d6b1e47a8e596b40f8507ae68659d26405f123",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "波长",
-      "decision_cn": "",
+      "decision_cn": "物理语境看相邻波的对应点间距；人际语境的on the same/different wavelength整块理解为思路是否合拍。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6034,7 +6199,29 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:33dec76e61c297e9d013",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be on the same wavelength (as sb)",
+        "lines": [
+          {
+            "text": "与某人想法相近、彼此容易理解；on a different wavelength则指思路不同、难以互相理解",
+            "lang": "cn"
+          },
+          {
+            "text": "to think in a similar way and understand each other; a different wavelength signals a mismatch",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:33dec76e61c297e9d013",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be on the same wavelength (as sb)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],

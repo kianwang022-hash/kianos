@@ -10,7 +10,7 @@
     "content_hash": "43749535523c2070d22ed3c6088f585e40a23524c53c6dc96ff1a681514ac509",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "无人出席的, 无随员的, 无侍从的, 无伴的, 未被注意的",
+      "core_meaning_cn": "缺少照看、陪伴或注意：人和物可无人照管，信号或事务可未受理会；会议也可无人出席。",
       "core_meaning_en": "not watched",
       "mental_model_cn": "",
       "mental_model_en": ""
@@ -50,8 +50,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "无人陪同的；无护卫/随员的",
-        "definition_en": "lacking accompaniment or a guard or escort",
+        "definition_cn": "无人陪同的；无护卫或随员的；未伴随某种现象、后果的",
+        "definition_en": "without accompanying people, a guard or escort, or an associated effect or result",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -59,7 +59,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:unattended:49eb11a705bb5574",
-        "sense_label_en": "lacking accompaniment or a guard or escort",
+        "sense_label_en": "without accompanying people, a guard or escort, or an associated effect or result",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -68,6 +68,40 @@
             "role": "external_semantic_auditor",
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
+          }
+        ],
+        "governing_pattern": "unattended by sb/sth",
+        "usage_note": "by后若为thunder等现象，指未伴有该现象；若为人，指无人陪同。"
+      },
+      {
+        "sense_id": "sense:unattended:neglected_unheeded",
+        "pos": "adjective",
+        "definition_cn": "未被理会的；未受处理或照料的",
+        "definition_en": "ignored, unheeded, or left without necessary attention",
+        "sense_label_en": "ignored, unheeded, or left without necessary attention",
+        "usage_note": "warning/signal看未被理会；task/matter看尚未处理，不译成无人陪伴。",
+        "governing_pattern": "leave sth unattended; leave sth unattended to",
+        "collocations": [],
+        "sort_order": 3,
+        "level": "L2",
+        "depth": "full_card",
+        "confidence": "high",
+        "source_evidence": [
+          {
+            "source_type": "current_dictionary",
+            "source_path": "https://www.collinsdictionary.com/dictionary/english/unattended",
+            "evidence_status": "supplemental_current_body_checked",
+            "source_capture": {
+              "file": "part-b/source-unattended.json",
+              "url": "https://www.collinsdictionary.com/dictionary/english/unattended",
+              "file_sha256": "db5e084ce64fde21ca9308c86a8d8f9ff858e44a8fa1b8923940e2697e4869a6",
+              "char_start": 7312,
+              "char_end_exclusive": 7608,
+              "byte_start": 8020,
+              "byte_end_exclusive": 8349,
+              "span_sha256": "0bd0cc5fc8a1a21a4d04c0188bd227490e1c8b1934100654251f123d669f6472",
+              "representation": "Exact original web tool response JSON-decoded string; half-open Unicode character and UTF-8 byte offsets. Supplemental current primary evidence; not historical-source recovery."
+            }
           }
         ]
       }
@@ -256,7 +290,41 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "pos": "adjective",
+      "definition_cn": "无人出席或观看的",
+      "definition_en": "having no audience or people in attendance",
+      "sense_label_en": "having no audience or people in attendance",
+      "usage_note": "保原Core无人出席的真实较低优先义；会议/演出对象选此义，置Reference，不让它取代无人照看入口。",
+      "governing_pattern": "",
+      "collocations": [],
+      "sort_order": 4,
+      "level": "L2",
+      "depth": "reference_only",
+      "confidence": "high",
+      "source_evidence": [
+        {
+          "source_type": "current_dictionary",
+          "source_path": "https://www.collinsdictionary.com/dictionary/english/unattended",
+          "evidence_status": "supplemental_current_body_checked",
+          "source_capture": {
+            "file": "part-b/source-unattended.json",
+            "url": "https://www.collinsdictionary.com/dictionary/english/unattended",
+            "file_sha256": "db5e084ce64fde21ca9308c86a8d8f9ff858e44a8fa1b8923940e2697e4869a6",
+            "char_start": 6567,
+            "char_end_exclusive": 6744,
+            "byte_start": 7203,
+            "byte_end_exclusive": 7404,
+            "span_sha256": "0650a548beda8a324e574a443352e468cf51c3ba8804f403007d99ec680b298c",
+            "representation": "Exact original web tool response JSON-decoded string; half-open Unicode character and UTF-8 byte offsets. Supplemental current primary evidence; not historical-source recovery."
+          }
+        }
+      ],
+      "reference_only": true,
+      "stable_sense_id": "sense:unattended:without_audience"
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -272,6 +340,20 @@
         "merged_into_sense_id": null,
         "source_row": 19149,
         "source_path": "content/lexical/canonical/senses/shards/o7617-7648.json"
+      },
+      {
+        "sense_id": "sense:unattended:neglected_unheeded",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7617-7648.json",
+        "source_row": 19550
+      },
+      {
+        "sense_id": "sense:unattended:without_audience",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7617-7648.json",
+        "source_row": 19551
       }
     ],
     "active_collocations": [],

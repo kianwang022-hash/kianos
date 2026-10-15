@@ -10,9 +10,9 @@
     "content_hash": "0f469d131dadd9f89f90add57e6458463e2d577740cf5d228fd500570c3a1f6f",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "敏感/灵敏；善解人意；身体部位易刺激/疼痛；敏感信息或话题",
-      "core_meaning_en": "responsive/sensitive; considerate; physically tender; confidential information or delicate topics",
-      "mental_model_cn": "敏感/灵敏；善解人意；身体部位易刺激/疼痛；敏感信息或话题",
+      "core_meaning_cn": "对刺激或他人感受反应敏锐；易受伤；需谨慎处理",
+      "core_meaning_en": "responsive, perceptive or easily upset; requiring careful handling",
+      "mental_model_cn": "光、温度或设备语境看反应灵敏，others’ feelings看体谅；about个人话题或to criticism看情绪易受伤；身体部位看刺激疼痛，信息/议题看谨慎处理。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -72,15 +72,21 @@
         ],
         "confidence": "medium",
         "definition_cn": "善解人意的，体谅的",
-        "definition_en": "being susceptible to the attitudes, feelings, or circumstances of others",
-        "governing_pattern": "",
+        "definition_en": "aware of and considerate toward other people’s feelings or needs",
+        "governing_pattern": "sensitive to sb/sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:sensitive:8e027b0ada2050b9",
-        "sense_label_en": "being susceptible to the attitudes, feelings, or circumstances of others",
+        "sense_label_en": "understanding and considerate toward others",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sensitive",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -162,6 +168,40 @@
         "sense_label_en": "of a subject or issue: requiring care or tact, or likely to cause strong reactions",
         "sort_order": 4,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:sensitive:0a00dd353c469b55",
+        "definition_cn": "（情感上）容易受伤、容易介意的",
+        "definition_en": "easily hurt, offended or upset by what others say or do",
+        "sense_label_en": "easily hurt, offended or upset by what others say or do",
+        "pos": "adjective",
+        "governing_pattern": "sensitive about sth; sensitive to criticism",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 5,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:sensitive:e9511485e250eaa1",
+            "exam_value": "usage_example",
+            "meaning_cn": "对自己的外貌很在意",
+            "phrase": "sensitive about one's appearance",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sensitive",
+                "role": "bounded P1 semantic verification; independently authored learner wording"
+              }
+            ]
+          }
+        ],
+        "usage_note": "about后常接本人介意的话题，to后可接使其受伤的刺激或批评；此义与体谅他人的品质不同。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sensitive",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -388,6 +428,12 @@
         "merged_into_sense_id": null,
         "source_row": 12233,
         "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
+      },
+      {
+        "sense_id": "sense:sensitive:0a00dd353c469b55",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4344.json"
       }
     ],
     "active_collocations": [
@@ -397,7 +443,8 @@
       "collocation:a45cc7e9c5e971092477",
       "collocation:ecf97b7625b22cea8f40",
       "collocation:efe4e5cbcc341ad14e63",
-      "collocation:fd3a58d7b60cf5c2fdb0"
+      "collocation:fd3a58d7b60cf5c2fdb0",
+      "collocation:sensitive:e9511485e250eaa1"
     ],
     "facts": [],
     "collocations": [
@@ -435,6 +482,12 @@
         "id": "collocation:a45cc7e9c5e971092477",
         "source_row": 21515,
         "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
+      },
+      {
+        "id": "collocation:sensitive:e9511485e250eaa1",
+        "sense_id": "sense:sensitive:0a00dd353c469b55",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4344.json"
       }
     ],
     "exam-mappings": [],

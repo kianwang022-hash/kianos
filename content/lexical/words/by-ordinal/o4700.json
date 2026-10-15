@@ -13,7 +13,31 @@
         "level": "L1",
         "meaning_cn": "坚持、遵守或不偏离计划、规则、主题或承诺",
         "pattern": "stick to sth",
-        "source_sense_id": "sense:stick:c9b9afefb241566a"
+        "source_sense_id": "sense:stick:c9b9afefb241566a",
+        "presentation_merge": {
+          "surviving_object_id": "collocation:a9758fab0b2b7b1a4556",
+          "reason": "One normalized stick to sth pattern and its meaning remain directly under the existing persistence sense; the broader canonical Construction is retained without duplicate Final display."
+        },
+        "sense_id": "sense:stick:c9b9afefb241566a"
+      },
+      {
+        "construction_id": "construction:2b917073acabd304da24",
+        "pattern": "stick out / stick sth out",
+        "meaning_cn": "伸出、突出；（非正式）显眼",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/dictionary/english/stick"
+          },
+          {
+            "source_locator": "https://www.oxfordlearnersdictionaries.com/us/definition/english/stick_1"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/dictionary/english/stick-out"
+          }
+        ],
+        "boundary": "身体部位或物体是伸出表面；在人群等背景中是显眼。"
       }
     ],
     "content_hash": "e2c5e84b89344c2d9252fa41b110d28424fad585fe0537d3ebd942ec156b0184",
@@ -39,7 +63,7 @@
       ],
       "core_meaning_cn": "棍棒；粘贴；坚持",
       "core_meaning_en": "a thin piece of wood; to attach or become attached; to persist",
-      "mental_model_cn": "棍棒；粘贴；坚持",
+      "mental_model_cn": "名词是棍棒；动词依宾语和位置判断：尖物刺入、表面粘贴、物件卡住或随手放置。人 + stick to + 计划/规则 表坚持、不偏离。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -89,14 +113,15 @@
         "confidence": "medium",
         "definition_cn": "刺入；粘贴",
         "definition_en": "to push a pointed object into something; to attach with glue or similar",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "stick sth in/into/through sth; stick sth on/to sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:stick:4c0d420423d45175",
         "sense_label_en": "to push a pointed object into something; to attach with glue or similar",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "尖物 + in/into/through：刺入；邮票、标签等 + on/to：贴上。两个用法按物体和介词判断。"
       },
       {
         "collocations": [
@@ -106,21 +131,80 @@
             "legacy_source_object_ids": [
               "sense:stick:c9b9afefb241566a:collocation:0"
             ],
-            "meaning_cn": "坚持计划",
-            "phrase": "stick to one's plan"
+            "meaning_cn": "坚持、遵守或不偏离计划、规则、主题或承诺",
+            "phrase": "stick to sth"
           }
         ],
         "confidence": "medium",
         "definition_cn": "粘住；坚持",
         "definition_en": "to remain attached or fixed; to continue doing something despite difficulty",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "vi.; stick to sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:stick:c9b9afefb241566a",
         "sense_label_en": "to remain attached or fixed; to continue doing something despite difficu",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "实物作主语时可指黏住；人 + stick to + 计划/规则/主题 时指遵守或不偏离。黏住义可不带 to：The pieces will not stick。"
+      },
+      {
+        "sense_id": "sense:stick:3a42ad26e6c27c8c",
+        "pos": "verb",
+        "definition_cn": "卡住；固定住而不能移动",
+        "definition_en": "to become fixed so that movement is blocked",
+        "sense_label_en": "to become fixed so that movement is blocked",
+        "governing_pattern": "vi.; stick (in sth)",
+        "usage_note": "门、抽屉、钥匙等作主语时，重点是不能移动，不要求有胶水。",
+        "level": "L2",
+        "sort_order": 3,
+        "collocations": [
+          {
+            "collocation_id": "collocation:01c90b5b568b94558f93",
+            "phrase": "The drawer sticks.",
+            "meaning_cn": "抽屉卡住了。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_name": "Fresh bounded dictionary verification",
+            "source_locator": "https://dictionary.cambridge.org/dictionary/english/stick"
+          },
+          {
+            "source_name": "Fresh bounded dictionary verification",
+            "source_locator": "https://www.oxfordlearnersdictionaries.com/us/definition/english/stick_1"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:stick:3822cddd7e71e361",
+        "pos": "verb",
+        "definition_cn": "（随手或临时）放置",
+        "definition_en": "to put something in a place, often casually or temporarily",
+        "sense_label_en": "to put something in a place, often casually or temporarily",
+        "governing_pattern": "stick sth + 地点副词/介词短语",
+        "usage_note": "非正式；地点补语说明放在哪里，不必有粘贴动作。",
+        "level": "L2",
+        "sort_order": 4,
+        "collocations": [
+          {
+            "collocation_id": "collocation:4cae949c5949d90063e3",
+            "phrase": "stick the bag under the desk",
+            "meaning_cn": "把包随手放到桌下",
+            "exam_value": "usage_example"
+          }
+        ],
+        "source_evidence": [
+          {
+            "source_name": "Fresh bounded dictionary verification",
+            "source_locator": "https://dictionary.cambridge.org/dictionary/english/stick"
+          },
+          {
+            "source_name": "Fresh bounded dictionary verification",
+            "source_locator": "https://www.oxfordlearnersdictionaries.com/us/definition/english/stick_1"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -368,14 +452,35 @@
         "merged_into_sense_id": null,
         "source_row": 13354,
         "source_path": "content/lexical/canonical/senses/shards/o4673-4704.json"
+      },
+      {
+        "sense_id": "sense:stick:3a42ad26e6c27c8c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4700.json"
+      },
+      {
+        "sense_id": "sense:stick:3822cddd7e71e361",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4700.json"
       }
     ],
     "active_collocations": [
       "collocation:78cc7c7bc1d67e40bd13",
       "collocation:870cc7cb055e04702a2b",
-      "collocation:a9758fab0b2b7b1a4556"
+      "collocation:a9758fab0b2b7b1a4556",
+      "collocation:01c90b5b568b94558f93",
+      "collocation:4cae949c5949d90063e3"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:2b917073acabd304da24",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4700.json",
+        "source_locator": "record.constructions[1]"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:78cc7c7bc1d67e40bd13",
@@ -391,6 +496,20 @@
         "id": "collocation:a9758fab0b2b7b1a4556",
         "source_row": 14355,
         "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
+      },
+      {
+        "id": "collocation:01c90b5b568b94558f93",
+        "source_path": "content/lexical/words/by-ordinal/o4700.json",
+        "sense_id": "sense:stick:3a42ad26e6c27c8c",
+        "status": "active",
+        "source_locator": "record.senses[3].collocations[0]"
+      },
+      {
+        "id": "collocation:4cae949c5949d90063e3",
+        "source_path": "content/lexical/words/by-ordinal/o4700.json",
+        "sense_id": "sense:stick:3822cddd7e71e361",
+        "status": "active",
+        "source_locator": "record.senses[4].collocations[0]"
       }
     ],
     "exam-mappings": [],

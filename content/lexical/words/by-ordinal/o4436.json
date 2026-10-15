@@ -10,10 +10,32 @@
     "content_hash": "f99401a30299501206c902367ed9ebf7d572907a66a8a1ba68fc123e82851656",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "在意义、程度或证据上足以值得注意",
-      "core_meaning_en": "strong enough in meaning, size, or evidence to deserve attention",
-      "mental_model_cn": "significant 是“从背景噪声中凸显出来”：重要、显著，或达到统计标准。",
-      "mental_model_en": "A significant signal rises above noise: it matters, is noticeable, or passes a statistical threshold."
+      "core_meaning_cn": "重要、程度可观，或在特定语境中具有意义",
+      "core_meaning_en": "important, noticeably large, or meaningful in a specific context",
+      "mental_model_cn": "贡献或作用可说“重要”，增幅或数量可说“相当大”；统计语境看检验标准，不能推出实际重要。a significant look 则是眼神传达了未明说的意思。",
+      "mental_model_en": "Select by context: importance, noticeable size, a statistical criterion, or an implied message.",
+      "source_evidence": [
+        {
+          "evidence_id": "source:4450:significant",
+          "source_type": "primary_public_source",
+          "url": "https://www.oxfordlearnersdictionaries.com/definition/english/significant",
+          "accessed_at_utc": "2026-10-13T00:00:46Z",
+          "raw_local_path": "public-source-raw/web-07.json",
+          "raw_sha256": "bd5f8f92f98d38d5e59201fa8e538235a5bb6865ccfdea6f48dde6519f774ca9",
+          "excerpt": "a significant look",
+          "supports": "Existing important, noticeably large, statistical and meaningful-look senses are valid."
+        },
+        {
+          "evidence_id": "source:4450:asa",
+          "source_type": "primary_public_source",
+          "url": "https://magazine.amstat.org/blog/2021/08/01/task-force-statement-p-value/",
+          "accessed_at_utc": "2026-10-13T00:03:47Z",
+          "raw_local_path": "public-source-raw/web-13.json",
+          "raw_sha256": "aebe59cf0bc092668000b5dfa8af6274a423e063ce12b1a3204b30f1239646dc",
+          "excerpt": "not necessarily as measures of practical significance",
+          "supports": "Statistical significance does not establish effect size or practical importance; interpret relative to model and sampling variability."
+        }
+      ]
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -31,8 +53,8 @@
             "legacy_source_object_ids": [
               "sense:significant:4045950d3d44500c:collocation:0"
             ],
-            "meaning_cn": "重要的；意义重大的",
-            "meaning_en": "having an important effect, meaning, or consequence",
+            "meaning_cn": "重大贡献",
+            "meaning_en": "an important contribution",
             "phrase": "significant contribution"
           },
           {
@@ -41,8 +63,8 @@
             "legacy_source_object_ids": [
               "sense:significant:4045950d3d44500c:collocation:1"
             ],
-            "meaning_cn": "重要的；意义重大的",
-            "meaning_en": "having an important effect, meaning, or consequence",
+            "meaning_cn": "重要作用",
+            "meaning_en": "an important role",
             "phrase": "significant role"
           }
         ],
@@ -85,8 +107,8 @@
             "legacy_source_object_ids": [
               "sense:significant:d3ed29ffafff5ea0:collocation:0"
             ],
-            "meaning_cn": "显著的；相当大的",
-            "meaning_en": "large or clear enough to be noticed",
+            "meaning_cn": "显著差异（一般语境）",
+            "meaning_en": "a noticeable or substantial difference in a general, non-statistical context",
             "phrase": "significant difference"
           },
           {
@@ -95,8 +117,8 @@
             "legacy_source_object_ids": [
               "sense:significant:d3ed29ffafff5ea0:collocation:1"
             ],
-            "meaning_cn": "显著的；相当大的",
-            "meaning_en": "large or clear enough to be noticed",
+            "meaning_cn": "显著增加",
+            "meaning_en": "a noticeable or substantial increase",
             "phrase": "significant increase"
           }
         ],
@@ -172,8 +194,19 @@
           {
             "role": "local_evidence",
             "source": "ai_curated_mvp_v1"
+          },
+          {
+            "evidence_id": "source:4450:asa",
+            "source_type": "primary_public_source",
+            "url": "https://magazine.amstat.org/blog/2021/08/01/task-force-statement-p-value/",
+            "accessed_at_utc": "2026-10-13T00:03:47Z",
+            "raw_local_path": "public-source-raw/web-13.json",
+            "raw_sha256": "aebe59cf0bc092668000b5dfa8af6274a423e063ce12b1a3204b30f1239646dc",
+            "excerpt": "not necessarily as measures of practical significance",
+            "supports": "Statistical significance does not establish effect size or practical importance; interpret relative to model and sampling variability."
           }
-        ]
+        ],
+        "usage_note": "statistically significant 只就所用统计模型与检验标准作判断，不自动表示效应大、实际重要或结论已被证明。"
       },
       {
         "collocations": [
@@ -183,8 +216,8 @@
             "legacy_source_object_ids": [
               "sense:significant:a0b63dc175d652e3:collocation:0"
             ],
-            "meaning_cn": "意味深长的",
-            "meaning_en": "suggesting a meaning beyond what is directly stated",
+            "meaning_cn": "意味深长的眼神",
+            "meaning_en": "a look conveying an unstated meaning",
             "phrase": "a significant look"
           }
         ],

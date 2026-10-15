@@ -10,9 +10,9 @@
     "content_hash": "0a83a4c350ff8cc03b975d8f3d008d5109f7ccb6ff47aac9484bc32b36a22f16",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "打碎",
-      "core_meaning_en": "break into many pieces",
-      "mental_model_cn": "打碎",
+      "core_meaning_cn": "碎成小片；彻底击碎希望或给人精神重击",
+      "core_meaning_en": "to break into pieces, destroy hopes or devastate someone",
+      "mental_model_cn": "玻璃等作主语或宾语看碎裂；hopes/confidence看彻底破坏；人作宾语或be shattered by坏消息看极度震惊与难过。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -45,17 +45,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "打碎；粉碎",
-        "definition_en": "to break something into many pieces",
-        "governing_pattern": "I/T: shatter the window/glass; the glass/window shattered",
+        "definition_cn": "突然碎裂；使碎成许多小片",
+        "definition_en": "to break suddenly into many small pieces, or cause something to do so",
+        "governing_pattern": "shatter (sth) (into pieces)",
         "level": "L1",
         "needs_human_review": 0,
         "normalized_core": "break/be broken into many pieces",
         "pos": "verb",
         "sense_id": "sense:shatter:d375c087865f5a47",
-        "sense_label_en": "to break something into many pieces",
+        "sense_label_en": "to break or make something break into small pieces",
         "sort_order": 0,
-        "transitivity": "I/T"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shatter",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -72,14 +78,41 @@
         "confidence": "medium",
         "definition_cn": "破坏；摧毁",
         "definition_en": "to destroy or damage severely",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "shatter hopes/beliefs/confidence; hopes/a world shatter",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:shatter:13b72848f5115f28",
         "sense_label_en": "to destroy or damage severely",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "vt/vi",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shatter",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:shatter:3878321b7dc71607",
+        "definition_cn": "使极度震惊、难过；使精神崩溃",
+        "definition_en": "to leave someone deeply shocked and distressed",
+        "sense_label_en": "to leave someone deeply shocked and distressed",
+        "pos": "verb",
+        "governing_pattern": "shatter sb; be shattered by news/an event",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 2,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [],
+        "usage_note": "人作宾语时通常是精神受到重击，不是身体碎裂。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shatter",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -325,6 +358,12 @@
         "merged_into_sense_id": null,
         "source_row": 12341,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:shatter:3878321b7dc71607",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4382.json"
       }
     ],
     "active_collocations": [

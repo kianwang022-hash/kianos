@@ -10,9 +10,9 @@
     "content_hash": "f6b4b7d386cf000891fad401cb4cc7397c9628c6afcbd9123a9391f5e089d72d",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "专家",
-      "core_meaning_en": "a person who is an expert in a particular field",
-      "mental_model_cn": "专家",
+      "core_meaning_cn": "专门领域的专家或专业性质",
+      "core_meaning_en": "an expert in a field, or involving specialized expertise",
+      "mental_model_cn": "独立名词通常指专家，医疗语境可指专科医生；置于knowledge/equipment等名词前则说明专业性。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -82,6 +82,51 @@
         "sense_label_en": "a doctor who deals with a particular area of medicine",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:specialist:911af044d90bbed9",
+        "pos": "adjective",
+        "definition_cn": "专业的；专门领域的；需专业知识的",
+        "definition_en": "requiring or involving expertise in a particular field",
+        "sense_label_en": "requiring or involving expertise in a particular field",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "specialist + noun",
+        "transitivity": "nonverb",
+        "usage_note": "通常置于名词前，说明知识、技能、设备或服务的专业性。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:6daa0b914b187211dfcb",
+            "phrase": "specialist knowledge",
+            "meaning_cn": "专业知识",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/specialist_2",
+                "role": "bounded semantic support; independently authored lexical wording"
+              }
+            ]
+          },
+          {
+            "collocation_id": "collocation:cb4a34a37f005e7de992",
+            "phrase": "specialist equipment",
+            "meaning_cn": "专业设备；专用设备",
+            "exam_value": "usage_example",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/specialist_2",
+                "role": "bounded semantic support; independently authored lexical wording"
+              }
+            ]
+          }
+        ],
+        "sort_order": 2,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/specialist_2",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -124,7 +169,7 @@
         ],
         "label_en": null,
         "level": null,
-        "meaning_cn": null,
+        "meaning_cn": "specialist 指专攻特定领域的人；对应的 special 强调特定用途或领域，并非单纯“特别好”。",
         "module": "word_family",
         "pattern": null,
         "pos": null,
@@ -506,12 +551,20 @@
         "merged_into_sense_id": null,
         "source_row": 13003,
         "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json"
+      },
+      {
+        "sense_id": "sense:specialist:911af044d90bbed9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4596.json"
       }
     ],
     "active_collocations": [
       "collocation:1df2955909216618da23",
       "collocation:3dfa21dc3b95c02cfdc1",
-      "collocation:5066fd7cdd698eeda53d"
+      "collocation:5066fd7cdd698eeda53d",
+      "collocation:6daa0b914b187211dfcb",
+      "collocation:cb4a34a37f005e7de992"
     ],
     "facts": [
       {
@@ -535,6 +588,14 @@
         "id": "collocation:5066fd7cdd698eeda53d",
         "source_row": 6783,
         "source_path": "content/lexical/canonical/collocations/shards/o4577-4608.json"
+      },
+      {
+        "id": "collocation:6daa0b914b187211dfcb",
+        "source_path": "content/lexical/words/by-ordinal/o4596.json"
+      },
+      {
+        "id": "collocation:cb4a34a37f005e7de992",
+        "source_path": "content/lexical/words/by-ordinal/o4596.json"
       }
     ],
     "exam-mappings": [],

@@ -20,18 +20,19 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "威胁、扬言伤害或造成不利后果；预示（坏事）",
-          "label_en": "to threaten or state an intention to harm or cause an adverse consequence; to be a sign that something bad is likely to happen",
+          "label_cn": "威胁；扬言将伤害或造成不利后果；预示坏事；坏事有发生或加剧的可能；危及；使有遭受伤害或损失的危险",
+          "label_en": "to say or signal that one will harm someone or cause an unwelcome consequence; to indicate that something bad may happen, or to seem likely to happen; to put someone or something at risk of harm or loss",
           "pos": "verb",
           "sense_ids": [
             "sense:threaten:d7756159186b5fb1",
-            "sense:threaten:472a403c25ba5394"
+            "sense:threaten:472a403c25ba5394",
+            "sense:threaten:ce0e3a9c4889f362"
           ]
         }
       ],
-      "core_meaning_cn": "威胁、扬言伤害或造成不利后果；预示（坏事）",
-      "core_meaning_en": "to threaten or state an intention to harm or cause an adverse consequence; to be a sign that something bad is likely to happen",
-      "mental_model_cn": "威胁、扬言伤害或造成不利后果；预示（坏事）",
+      "core_meaning_cn": "让不利后果逼近：扬言、危及，或预示坏事",
+      "core_meaning_en": "to announce harm, put something in danger, or signal that a bad event is likely",
+      "mental_model_cn": "人作主语可扬言；疾病/变化 threaten 生存或工作是危及；坏事 threatens to happen 表示可能发生。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -67,14 +68,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "威胁、扬言伤害或造成不利后果",
-        "definition_en": "to threaten or state an intention to harm or cause an adverse consequence",
+        "definition_cn": "威胁；扬言将伤害或造成不利后果",
+        "definition_en": "to say or signal that one will harm someone or cause an unwelcome consequence",
         "governing_pattern": "I/T: threaten sb; threaten sb with sth; threaten to do sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:threaten:d7756159186b5fb1",
-        "sense_label_en": "to threaten or state an intention to harm or cause an adverse consequence",
+        "sense_label_en": "to say or signal that one will harm someone or cause an unwelcome consequence",
         "sort_order": 0,
         "transitivity": "I/T"
       },
@@ -91,16 +92,38 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "预示（坏事）",
-        "definition_en": "to be a sign that something bad is likely to happen",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "预示坏事；坏事有发生或加剧的可能",
+        "definition_en": "to indicate that something bad may happen, or to seem likely to happen",
+        "governing_pattern": "I/T: a storm threatens; threaten rain; sth threatens to do sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:threaten:472a403c25ba5394",
-        "sense_label_en": "to be a sign that something bad is likely to happen",
+        "sense_label_en": "to indicate that something bad may happen, or to seem likely to happen",
         "sort_order": 1,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "usage_note": "坏事或形势作主语时，threaten to do 常表示某种坏结果可能发生，不是主语在发出有意恐吓。"
+      },
+      {
+        "sense_id": "sense:threaten:ce0e3a9c4889f362",
+        "definition_cn": "危及；使有遭受伤害或损失的危险",
+        "definition_en": "to put someone or something at risk of harm or loss",
+        "sense_label_en": "to put someone or something at risk of harm or loss",
+        "pos": "verb",
+        "governing_pattern": "threaten sb/sth",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:52bbbfa88f1fc1895e5d",
+            "phrase": "threaten jobs / threaten survival",
+            "meaning_cn": "危及就业／生存",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -245,12 +268,20 @@
         "merged_into_sense_id": null,
         "source_row": 14217,
         "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json"
+      },
+      {
+        "sense_id": "sense:threaten:ce0e3a9c4889f362",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json",
+        "source_row": 14287
       }
     ],
     "active_collocations": [
       "collocation:4969be677d781648e872",
       "collocation:a62cc5b508661fb35f35",
-      "collocation:ad2913920513a944db13"
+      "collocation:ad2913920513a944db13",
+      "collocation:52bbbfa88f1fc1895e5d"
     ],
     "facts": [
       {
@@ -274,6 +305,11 @@
         "id": "collocation:ad2913920513a944db13",
         "source_row": 14671,
         "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:52bbbfa88f1fc1895e5d",
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json",
+        "source_row": 21556
       }
     ],
     "exam-mappings": [],

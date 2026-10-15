@@ -26,14 +26,30 @@
           }
         ],
         "source_sense_id": "sense:touch:ca9d8a3218745d9d"
+      },
+      {
+        "construction_id": "construction:a93e2945ec5463bd8daa",
+        "pattern": "get/keep/stay in touch with sb; lose touch with sb",
+        "meaning_cn": "与某人取得／保持／失去联系",
+        "definition_en": "to start, maintain, or lose communication with someone",
+        "direction": "R+P",
+        "level": "L2"
+      },
+      {
+        "construction_id": "construction:59154349365af2c389a4",
+        "pattern": "be in/out of touch with sth",
+        "meaning_cn": "了解／不了解某方面的近况或现实",
+        "definition_en": "to have or lack up-to-date knowledge of a situation",
+        "direction": "R+P",
+        "level": "L2"
       }
     ],
     "content_hash": "21a8ce4236807adf54d259c282e07cccb06d7f6d6c781ee68014e59b37657fa6",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "触摸，碰；感动，触动；简要提及、涉及",
-          "label_en": "to put your hand or fingers on something; to affect someone's emotions, especially with sympathy or gratitude; to briefly mention or deal with something",
+          "label_cn": "触摸；接触；（两个物体）相接；感动，触动；简要提及、涉及",
+          "label_en": "to put a body part against something, or to be in contact with it; to affect someone's emotions, especially with sympathy or gratitude; to briefly mention or deal with something",
           "pos": "verb",
           "sense_ids": [
             "sense:touch:ca8bb4a1fb4e5d25",
@@ -42,8 +58,8 @@
           ]
         },
         {
-          "label_cn": "接触，触摸；少许，一点",
-          "label_en": "the act of touching or being touched; a small amount of something",
+          "label_cn": "触摸；接触；触觉；少许，一点",
+          "label_en": "physical contact, an act of touching, or the ability to feel through contact; a small amount of something",
           "pos": "noun",
           "sense_ids": [
             "sense:touch:ff76962741f25079",
@@ -51,9 +67,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "触摸，碰；接触，触摸；感动，触动；少许，一点；简要提及、涉及",
-      "core_meaning_en": "to put your hand or fingers on something; the act of touching or being touched; to affect someone's emotions, especially with sympathy or gratitude; a small amount of something; to briefly mention or deal with something",
-      "mental_model_cn": "触摸，碰；接触，触摸；感动，触动；少许，一点；简要提及、涉及",
+      "core_meaning_cn": "接触可到物体、感觉或话题；名词还可指少许、本领和点缀",
+      "core_meaning_en": "contact with things, feelings, or a subject; also a small amount, skill, or detail",
+      "mental_model_cn": "物体touch是相接，人被touched是感动；touch on接话题；in touch看联系或知情，lose one's touch看本领，finishing touches是最后润色。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -83,21 +99,21 @@
             "legacy_source_object_ids": [
               "sense:touch:ca8bb4a1fb4e5d25:collocation:1"
             ],
-            "meaning_cn": "按按钮",
+            "meaning_cn": "触碰按钮",
             "phrase": "touch the button"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "触摸，碰",
-        "definition_en": "to put your hand or fingers on something",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "触摸；接触；（两个物体）相接",
+        "definition_en": "to put a body part against something, or to be in contact with it",
+        "governing_pattern": "I/T: touch sb/sth; two things touch",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:touch:ca8bb4a1fb4e5d25",
-        "sense_label_en": "to put your hand or fingers on something",
+        "sense_label_en": "to put a body part against something, or to be in contact with it",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -109,17 +125,23 @@
             ],
             "meaning_cn": "轻轻的触摸",
             "phrase": "a gentle touch"
+          },
+          {
+            "collocation_id": "collocation:0f39fb4cffceea57884d",
+            "phrase": "the sense of touch",
+            "meaning_cn": "触觉",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "接触，触摸",
-        "definition_en": "the act of touching or being touched",
+        "definition_cn": "触摸；接触；触觉",
+        "definition_en": "physical contact, an act of touching, or the ability to feel through contact",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:touch:ff76962741f25079",
-        "sense_label_en": "the act of touching or being touched",
+        "sense_label_en": "physical contact, an act of touching, or the ability to feel through contact",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -184,6 +206,48 @@
         "sense_label_en": "to briefly mention or deal with something",
         "sort_order": 999,
         "transitivity": "vi"
+      },
+      {
+        "sense_id": "sense:touch:50ce325441c85129",
+        "definition_cn": "做事的本领；特有的处理方式",
+        "definition_en": "skill or a distinctive way of doing something",
+        "sense_label_en": "skill or a distinctive way of doing something",
+        "pos": "noun",
+        "governing_pattern": "have/lose one's touch",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:176eab54b109989422d4",
+            "phrase": "lose one's touch",
+            "meaning_cn": "失去原有的本领",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
+      },
+      {
+        "sense_id": "sense:touch:2edaede49959be0c",
+        "definition_cn": "点缀；使整体更完善的小细节",
+        "definition_en": "a small feature added to improve an overall effect",
+        "sense_label_en": "a small feature added to improve an overall effect",
+        "pos": "noun",
+        "governing_pattern": "a nice/personal touch; finishing touches",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:37a698d7f3a2f89d47f7",
+            "phrase": "put the finishing touches to sth",
+            "meaning_cn": "给某事物作最后润色",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -535,6 +599,20 @@
         "merged_into_sense_id": null,
         "source_row": 14431,
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
+      },
+      {
+        "sense_id": "sense:touch:50ce325441c85129",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
+        "source_row": 14491
+      },
+      {
+        "sense_id": "sense:touch:2edaede49959be0c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
+        "source_row": 14492
       }
     ],
     "active_collocations": [
@@ -542,7 +620,10 @@
       "collocation:572eea27556e70a915a4",
       "collocation:67ad0fc9b010a5e045bd",
       "collocation:6c8a68d012357dbbfa0c",
-      "collocation:e47525ebdc1c9bc0378a"
+      "collocation:e47525ebdc1c9bc0378a",
+      "collocation:0f39fb4cffceea57884d",
+      "collocation:176eab54b109989422d4",
+      "collocation:37a698d7f3a2f89d47f7"
     ],
     "facts": [],
     "collocations": [
@@ -575,6 +656,21 @@
         "id": "collocation:e47525ebdc1c9bc0378a",
         "source_row": 19342,
         "source_path": "content/lexical/canonical/collocations/shards/o5057-5088.json"
+      },
+      {
+        "id": "collocation:0f39fb4cffceea57884d",
+        "source_path": "content/lexical/canonical/collocations/shards/o5057-5088.json",
+        "source_row": 21611
+      },
+      {
+        "id": "collocation:176eab54b109989422d4",
+        "source_path": "content/lexical/canonical/collocations/shards/o5057-5088.json",
+        "source_row": 21612
+      },
+      {
+        "id": "collocation:37a698d7f3a2f89d47f7",
+        "source_path": "content/lexical/canonical/collocations/shards/o5057-5088.json",
+        "source_row": 21613
       }
     ],
     "exam-mappings": [],

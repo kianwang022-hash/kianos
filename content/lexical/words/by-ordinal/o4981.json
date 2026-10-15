@@ -11,14 +11,15 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "厚的；粗的；稠密的；茂密的；浓的；黏稠的；（黑暗）浓重的",
-          "label_en": "not thin; of relatively great extent from one surface to the opposite; having component parts closely crowded together; relatively dense in consistency; (of darkness) very intense",
+          "label_cn": "厚的；粗的；稠密的；茂密的；浓的；黏稠的；（黑暗）浓重的；（冒犯）愚钝的",
+          "label_en": "not thin; of relatively great extent from one surface to the opposite; having component parts closely crowded together; relatively dense in consistency; (of darkness) very intense; slow to understand (offensive)",
           "pos": "adjective",
           "sense_ids": [
             "sense:thick:f85a63414b615254",
             "sense:thick:fa63f023ecf65024",
             "sense:thick:a438084d6e0c5cb8",
-            "sense:thick:664ae951b6a150c4"
+            "sense:thick:664ae951b6a150c4",
+            "sense:thick:ae06385432d8432b"
           ]
         },
         {
@@ -40,7 +41,7 @@
       ],
       "core_meaning_cn": "厚的；浓的",
       "core_meaning_en": "having a large distance between opposite sides; dense",
-      "mental_model_cn": "厚的；浓的",
+      "mental_model_cn": "先看对象：书/墙看厚度，树/头发/雾看密度，汤/油漆看黏稠度；in the thick of 指事件最密集或最激烈的部分。评价人的理解能力时还可指“笨”，属非正式且冒犯的说法。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -103,30 +104,6 @@
             ],
             "meaning_cn": "密集的人群",
             "phrase": "thick crowd"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "稠密的；茂密的",
-        "definition_en": "having component parts closely crowded together",
-        "governing_pattern": "",
-        "level": "L1",
-        "needs_human_review": 0,
-        "pos": "adjective",
-        "sense_id": "sense:thick:fa63f023ecf65024",
-        "sense_label_en": "having component parts closely crowded together",
-        "sort_order": 1,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:bc8d2955fa0b0ab70173",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:thick:a438084d6e0c5cb8:collocation:0"
-            ],
-            "meaning_cn": "浓汤",
-            "phrase": "thick soup"
           },
           {
             "collocation_id": "collocation:597a0de95a20beac3b84",
@@ -139,16 +116,42 @@
           }
         ],
         "confidence": "medium",
+        "definition_cn": "稠密的；茂密的；（雾、烟等）浓密的",
+        "definition_en": "having component parts closely crowded together",
+        "governing_pattern": "",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:thick:fa63f023ecf65024",
+        "sense_label_en": "having component parts closely crowded together",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "usage_note": "trees / hair / crowds 看密集程度；fog / smoke 看遮挡视线的密度，不是液体黏稠度。"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:bc8d2955fa0b0ab70173",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:thick:a438084d6e0c5cb8:collocation:0"
+            ],
+            "meaning_cn": "浓汤",
+            "phrase": "thick soup"
+          }
+        ],
+        "confidence": "medium",
         "definition_cn": "浓的；黏稠的",
-        "definition_en": "relatively dense in consistency",
+        "definition_en": "having a consistency that does not flow easily",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:thick:a438084d6e0c5cb8",
-        "sense_label_en": "relatively dense in consistency",
+        "sense_label_en": "having a consistency that does not flow easily",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "soup、sauce、paint 等液体看流动是否容易。"
       },
       {
         "collocations": [
@@ -221,6 +224,25 @@
         "sense_label_en": "the most intense or crowded part",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:thick:ae06385432d8432b",
+        "pos": "adjective",
+        "definition_cn": "（非正式、冒犯）愚钝的；笨的",
+        "definition_en": "slow to understand, said insultingly",
+        "sense_label_en": "slow to understand, said insultingly",
+        "level": "L2",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "collocations": [
+          {
+            "collocation_id": "collocation:a767050923f5d214acc3",
+            "phrase": "He isn't thick.",
+            "meaning_cn": "他并不笨。",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "用于评价人的理解能力；带侮辱意味，主要需识别/辨别，不宜当中性称呼主动使用。"
       }
     ],
     "verification_summary": {
@@ -459,6 +481,13 @@
         "merged_into_sense_id": null,
         "source_row": 14159,
         "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
+      },
+      {
+        "sense_id": "sense:thick:ae06385432d8432b",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json",
+        "source_row": 14194
       }
     ],
     "active_collocations": [
@@ -470,7 +499,8 @@
       "collocation:bc8d2955fa0b0ab70173",
       "collocation:d9060d9a724da2c43c6e",
       "collocation:e873ff90956ba51ee848",
-      "collocation:ea266446910960a7176c"
+      "collocation:ea266446910960a7176c",
+      "collocation:a767050923f5d214acc3"
     ],
     "facts": [],
     "collocations": [
@@ -518,6 +548,11 @@
         "id": "collocation:ea266446910960a7176c",
         "source_row": 19837,
         "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json"
+      },
+      {
+        "id": "collocation:a767050923f5d214acc3",
+        "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json",
+        "source_row": 21543
       }
     ],
     "exam-mappings": [],

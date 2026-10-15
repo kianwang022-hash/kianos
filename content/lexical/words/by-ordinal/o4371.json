@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "阴影，影子；少许，微量",
-          "label_en": "a dark shape made on a surface when something is between light and that surface; a slight trace or hint",
+          "label_cn": "影子；阴暗处；少许，微量",
+          "label_en": "a dark shape cast by an object, or an area of darkness; a slight trace or hint",
           "pos": "noun",
           "sense_ids": [
             "sense:shadow:d07405128bbb59f0",
@@ -29,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "阴影；尾随",
-      "core_meaning_en": "dark shape or area caused by blocking light; also to follow secretly",
-      "mental_model_cn": "阴影；尾随",
+      "core_meaning_cn": "挡光留下影子或暗处；可比喻持续笼罩的影响",
+      "core_meaning_en": "a dark shape or area, with extensions to close following and powerful influence",
+      "mental_model_cn": "物理遮光看影子或暗处；shadow of fear等抽象语境看笼罩影响；跟踪嫌疑人与跟岗学习都可用shadow，但目的与是否秘密不同。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,16 +64,23 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "阴影，影子",
-        "definition_en": "a dark shape made on a surface when something is between light and that surface",
+        "definition_cn": "影子；阴暗处",
+        "definition_en": "a dark shape cast by an object, or an area of darkness",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:shadow:d07405128bbb59f0",
-        "sense_label_en": "a dark shape made on a surface when something is between light and that ",
+        "sense_label_en": "a dark shape cast by an object, or an area of darkness",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shadow_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "usage_note": "可数强调投下的影子；不可数in shadow或复数in the shadows可指看不清的阴暗处。"
       },
       {
         "collocations": [
@@ -121,7 +128,14 @@
         "sense_id": "sense:shadow:e70443a3b70f59fe",
         "sense_label_en": "to follow and watch someone secretly",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "跟踪监视时通常秘密进行；另见工作跟岗义，该义无需隐瞒。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shadow_2",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -146,6 +160,46 @@
         "sense_label_en": "to cast a shadow over; to darken",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:shadow:0cacd16b02b70efa",
+        "pos": "verb",
+        "definition_cn": "跟岗观察；随同学习工作",
+        "definition_en": "to accompany someone at work in order to learn how the job is done",
+        "sense_label_en": "to accompany someone at work in order to learn how the job is done",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "shadow sb at work",
+        "transitivity": "vt",
+        "usage_note": "学习者公开跟随工作人员，不应误读为秘密尾随嫌疑人。",
+        "collocations": [],
+        "sort_order": 4,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shadow_2",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:shadow:e8ea9ab036b522e8",
+        "pos": "noun",
+        "definition_cn": "强烈影响；笼罩性的阴影",
+        "definition_en": "a powerful influence, often a negative or limiting one",
+        "sense_label_en": "a powerful influence, often a negative or limiting one",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "the shadow of sb/sth / cast a shadow over sth",
+        "transitivity": "nonverb",
+        "usage_note": "前任、恐惧或过去事件等引出持续影响；并非真实的光学影子。",
+        "collocations": [],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shadow_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -553,6 +607,18 @@
         "merged_into_sense_id": null,
         "source_row": 12298,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:shadow:0cacd16b02b70efa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4371.json"
+      },
+      {
+        "sense_id": "sense:shadow:e8ea9ab036b522e8",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4371.json"
       }
     ],
     "active_collocations": [

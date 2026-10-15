@@ -12,7 +12,12 @@
         "direction": "R+P",
         "level": "L1",
         "meaning_cn": "就…而言；从…方面来看",
-        "pattern": "in terms of sth"
+        "pattern": "in terms of sth",
+        "legacy_source_object_ids": [
+          "collocation:8d73410c7b08c0abb67c",
+          "sense:term:17ec9f77794f5e75:collocation:1"
+        ],
+        "boundary": "固定复数 terms；后接讨论的方面，整体表示“就……而言”，不作为“术语”义下的一般例词。"
       },
       {
         "boundary": "psychological acceptance/dealing construction; distinct from negotiated terms and conditions",
@@ -28,14 +33,15 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "术语；专有名词；期限；学期；任期；条件；条款；（数学）项",
-          "label_en": "a word or expression used for a particular thing; a limited period of time; conditions or requirements in an agreement; a quantity in a mathematical expression",
+          "label_cn": "词语或术语；特定期限；协议条件；人际关系；数学中的项",
+          "label_en": "a term naming a concept, a period, conditions or interpersonal relations, or a mathematical term",
           "pos": "noun",
           "sense_ids": [
             "sense:term:17ec9f77794f5e75",
             "sense:term:ca8f120242145267",
             "sense:term:698a79ebd4b45ff4",
-            "sense:term:fdec0a311d965815"
+            "sense:term:fdec0a311d965815",
+            "sense:term:f37d0087bacf9f2068cd"
           ]
         },
         {
@@ -47,9 +53,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "术语；期限",
-      "core_meaning_en": "a word or expression; a period of time",
-      "mental_model_cn": "术语；期限",
+      "core_meaning_cn": "指称概念的词语；另可指约定的时间、条件或人际关系",
+      "core_meaning_en": "a word naming a concept; a period; or, often plural, conditions or relations",
+      "mental_model_cn": "语言语境看称谓或术语；学业、任职看期限；协议中的 terms 看条款，on good/bad terms 看关系；in terms of 与 come to terms with 要整体取义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -62,9 +68,9 @@
     ],
     "secondary_senses": [
       {
-        "boundary": "terms and conditions 条款和条件",
+        "boundary": "通常用复数 terms；terms and conditions 表协议的条款和条件。",
         "codex_reviewed": false,
-        "definition_cn": "条件；条款",
+        "definition_cn": "（通常用复数 terms）条件；条款",
         "definition_en": "conditions or requirements in an agreement",
         "dimensions": {},
         "direction": "R+P",
@@ -111,19 +117,10 @@
             ],
             "meaning_cn": "技术术语",
             "phrase": "technical term"
-          },
-          {
-            "collocation_id": "collocation:8d73410c7b08c0abb67c",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:term:17ec9f77794f5e75:collocation:1"
-            ],
-            "meaning_cn": "就……而言；在……方面",
-            "phrase": "in terms of"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "术语；专有名词",
+        "definition_cn": "词语；称谓；（特定领域的）术语",
         "definition_en": "a word or expression used for a particular thing",
         "governing_pattern": "",
         "level": "L1",
@@ -180,9 +177,9 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "条件；条款",
+        "definition_cn": "（通常用复数 terms）条件；条款",
         "definition_en": "conditions or requirements in an agreement",
-        "governing_pattern": "",
+        "governing_pattern": "usually plural: terms; terms of an agreement",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
@@ -196,7 +193,7 @@
         "confidence": "medium",
         "definition_cn": "称；呼",
         "definition_en": "to call or name something in a particular way",
-        "governing_pattern": "",
+        "governing_pattern": "vt.: term A B; A is termed B",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
@@ -237,6 +234,28 @@
         "sense_label_en": "a quantity in a mathematical expression",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:term:f37d0087bacf9f2068cd",
+        "pos": "noun",
+        "definition_cn": "（复数 terms）人与人之间的关系",
+        "definition_en": "the quality or state of relations between people",
+        "sense_label_en": "the quality or state of relations between people",
+        "governing_pattern": "plural: on ... terms (with sb)",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 5,
+        "collocations": [
+          {
+            "collocation_id": "collocation:3deec83dc54f9e099504",
+            "phrase": "be on good/bad terms with sb",
+            "meaning_cn": "与某人关系好／不好",
+            "exam_value": "fixed_pattern"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -745,16 +764,23 @@
         "merged_into_sense_id": null,
         "source_row": 14065,
         "source_path": "content/lexical/canonical/senses/shards/o4929-4960.json"
+      },
+      {
+        "sense_id": "sense:term:f37d0087bacf9f2068cd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14124,
+        "source_path": "content/lexical/canonical/senses/shards/o4929-4960.json"
       }
     ],
     "active_collocations": [
       "collocation:2f4056cb9637ef8d210f",
       "collocation:41c0e0d78eabb775e3bd",
       "collocation:7e54c698e1c17589ed43",
-      "collocation:8d73410c7b08c0abb67c",
       "collocation:cbed4715ee57fcf9078b",
       "collocation:d9f04bd9f19820a30e59",
-      "collocation:fce8549d5fa2dc7179e1"
+      "collocation:fce8549d5fa2dc7179e1",
+      "collocation:3deec83dc54f9e099504"
     ],
     "facts": [
       {
@@ -782,7 +808,9 @@
       {
         "id": "collocation:8d73410c7b08c0abb67c",
         "source_row": 11992,
-        "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json",
+        "status": "retired",
+        "merged_into_id": null
       },
       {
         "id": "collocation:ca7ba6424e67a0e6789a",
@@ -802,6 +830,11 @@
       {
         "id": "collocation:fce8549d5fa2dc7179e1",
         "source_row": 21393,
+        "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json"
+      },
+      {
+        "id": "collocation:3deec83dc54f9e099504",
+        "source_row": 21457,
         "source_path": "content/lexical/canonical/collocations/shards/o4929-4960.json"
       }
     ],

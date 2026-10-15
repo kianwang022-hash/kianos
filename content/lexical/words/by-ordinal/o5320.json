@@ -19,16 +19,17 @@
           ]
         },
         {
-          "label_cn": "空的；无效的",
-          "label_en": "containing nothing; empty; not legally valid",
+          "label_cn": "空的；空无的；无效的；无法律效力的",
+          "label_en": "containing nothing; empty; not legally valid; having no legal force",
           "pos": "adjective",
           "sense_ids": [
-            "sense:void:81aed3effde553c1"
+            "sense:void:81aed3effde553c1",
+            "sense:void:cdc6481b1b5350ae"
           ]
         },
         {
-          "label_cn": "清空；排泄；使无效；取消",
-          "label_en": "to make empty or clear; to empty out; to make legally invalid; to nullify",
+          "label_cn": "清空；（身体）排泄；使无效；取消",
+          "label_en": "to empty something or discharge bodily waste; also, in older usage, to vacate a place; to make legally invalid; to nullify",
           "pos": "verb",
           "sense_ids": [
             "sense:void:dae7764ddf6e51f4",
@@ -104,7 +105,7 @@
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:void:81aed3effde553c1",
-        "sense_label_en": "containing nothing; empty; not legally valid",
+        "sense_label_en": "containing nothing; empty",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -117,20 +118,28 @@
               "sense:void:dae7764ddf6e51f4:collocation:0"
             ],
             "meaning_cn": "清空房间",
-            "phrase": "void a room"
+            "phrase": "void a room",
+            "usage_note": "可指清空房间；若取vacate（离开、腾空某处）读法，属古旧用法。现代清空场景通常用empty/clear；原例保留。"
+          },
+          {
+            "collocation_id": "collocation:3656748bba6400be3057",
+            "phrase": "void the bladder",
+            "meaning_cn": "排空膀胱（排尿）",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "清空；排泄",
-        "definition_en": "to make empty or clear; to empty out",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "清空；（身体）排泄",
+        "definition_en": "to empty something or discharge bodily waste; also, in older usage, to vacate a place",
+        "governing_pattern": "T: void a container/room; void the bladder; I: void (排泄); archaic vacate reading: void a place",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:void:dae7764ddf6e51f4",
-        "sense_label_en": "to make empty or clear; to empty out",
+        "sense_label_en": "to empty something or discharge bodily waste; also, in older usage, to vacate a place",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "usage_note": "void表示离开、腾空某处（vacate）的读法属古旧用法；清空容器或房间的意义仍保留，现代通常用empty/clear。排泄义可及物或不及物。不能把所有room-clearing用法一概标为古旧。"
       },
       {
         "collocations": [
@@ -800,7 +809,8 @@
       "collocation:bac82ed1f1c560da35c9",
       "collocation:bf04fad247fcafaa0f9f",
       "collocation:c7687852f7befcc396a7",
-      "collocation:d56affa58db67de00621"
+      "collocation:d56affa58db67de00621",
+      "collocation:3656748bba6400be3057"
     ],
     "facts": [],
     "collocations": [
@@ -838,6 +848,11 @@
         "id": "collocation:c7687852f7befcc396a7",
         "source_row": 21392,
         "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      },
+      {
+        "id": "collocation:3656748bba6400be3057",
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json",
+        "source_row": 21396
       }
     ],
     "exam-mappings": [],

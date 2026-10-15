@@ -11,14 +11,16 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "紧张；焦虑；拉紧；张力；（艺术或文学中的）张力；对立统一；（物理）张力；拉力",
-          "label_en": "a state of mental or emotional strain or suspense; the physical condition of being stretched or strained; a balance between and interplay of opposing elements or tendencies (especially in art or literature); (physics) a stress that produces an elongation of an elastic physical body",
+          "label_cn": "心理或关系的紧张；身体绷紧与机械张力；艺术中的对立张力；电压（high-tension 等组合）",
+          "label_en": "mental or relational strain, physical tension, and opposing elements in art; electrical voltage in high-tension compounds",
           "pos": "noun",
           "sense_ids": [
             "sense:tension:5b4f5e38112e53b4",
             "sense:tension:df199d6c1c095b10",
             "sense:tension:627f7014a83f5336",
-            "sense:tension:d7b96514dff25929"
+            "sense:tension:d7b96514dff25929",
+            "sense:tension:8e629ecffdf15625",
+            "sense:tension:e616186aaa9179a4ae06"
           ]
         },
         {
@@ -32,7 +34,7 @@
       ],
       "core_meaning_cn": "紧张；张力/拉力；相互对立因素之间的张力",
       "core_meaning_en": "tension as mental/relational strain or physical stretching force/state",
-      "mental_model_cn": "紧张；张力/拉力；相互对立因素之间的张力",
+      "mental_model_cn": "心理或关系语境看紧张与对立；绳索、肌肉看绷紧；艺术看对立因素的张力。high-tension wire 中的 tension 指电压。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,15 +57,6 @@
             ],
             "meaning_cn": "缓解紧张",
             "phrase": "ease the tension"
-          },
-          {
-            "collocation_id": "collocation:c1c9228b99b151355d25",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:tension:5b4f5e38112e53b4:collocation:1"
-            ],
-            "meaning_cn": "A和B之间的紧张关系",
-            "phrase": "tension between A and B"
           }
         ],
         "confidence": "medium",
@@ -154,15 +147,6 @@
             ],
             "meaning_cn": "张力",
             "phrase": "tension force"
-          },
-          {
-            "collocation_id": "collocation:b283a497cfa79f637906",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:tension:d7b96514dff25929:collocation:1"
-            ],
-            "meaning_cn": "高压线",
-            "phrase": "high-tension wire"
           }
         ],
         "confidence": "medium",
@@ -211,7 +195,17 @@
         "transitivity": "vt"
       },
       {
-        "collocations": [],
+        "collocations": [
+          {
+            "collocation_id": "collocation:c1c9228b99b151355d25",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:tension:5b4f5e38112e53b4:collocation:1"
+            ],
+            "meaning_cn": "A和B之间的紧张关系",
+            "phrase": "tension between A and B"
+          }
+        ],
         "confidence": "medium",
         "definition_cn": "紧张关系；敌对情绪",
         "definition_en": "strained or hostile relations between people, groups, or countries",
@@ -231,6 +225,31 @@
             "source_operation_id": "operation:8fc3f02d70f76815fe92",
             "source_operation_sha256": "db6b230e2782f006c8fe54e61e59e98cc39cb23d8c19c79f695c1060d723b34d",
             "verification_status": "auditor_verified"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:tension:e616186aaa9179a4ae06",
+        "pos": "noun",
+        "definition_cn": "（电学）电压；电势差（尤见 high-tension 等组合）",
+        "definition_en": "electrical voltage or potential difference, especially in compounds such as high-tension",
+        "sense_label_en": "electrical voltage or potential difference, especially in compounds such as high-tension",
+        "governing_pattern": "",
+        "transitivity": "nonverb",
+        "level": "L3",
+        "direction": "R+P",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "sort_order": 6,
+        "collocations": [
+          {
+            "collocation_id": "collocation:b283a497cfa79f637906",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:tension:d7b96514dff25929:collocation:1"
+            ],
+            "meaning_cn": "高压线",
+            "phrase": "high-tension wire"
           }
         ]
       }
@@ -472,6 +491,13 @@
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": 14054,
+        "source_path": "content/lexical/canonical/senses/shards/o4929-4960.json"
+      },
+      {
+        "sense_id": "sense:tension:e616186aaa9179a4ae06",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14123,
         "source_path": "content/lexical/canonical/senses/shards/o4929-4960.json"
       }
     ],

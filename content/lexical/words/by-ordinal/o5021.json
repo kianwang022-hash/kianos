@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "整洁的；整齐的",
-          "label_en": "neat and orderly in appearance or habits",
+          "label_cn": "整洁的；整齐的；（钱款、收益）相当多的",
+          "label_en": "neat and orderly in appearance or habits; fairly large in amount, especially of money",
           "pos": "adjective",
           "sense_ids": [
-            "sense:tidy:bb349239874b583d"
+            "sense:tidy:bb349239874b583d",
+            "sense:tidy:48f60d32a1c88fcd"
           ]
         },
         {
@@ -27,9 +28,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "整洁；整理",
-      "core_meaning_en": "neat and orderly; to make neat",
-      "mental_model_cn": "整洁；整理",
+      "core_meaning_cn": "整洁、整理；修饰钱款时表示数额可观",
+      "core_meaning_en": "neat or to make neat; before a money amount, fairly large",
+      "mental_model_cn": "房间或外观语境是整齐，动作是整理；a tidy sum/profit 选金额可观义。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -105,6 +106,28 @@
         "sense_label_en": "to make something neat and orderly",
         "sort_order": 1,
         "transitivity": "I/T"
+      },
+      {
+        "sense_id": "sense:tidy:48f60d32a1c88fcd",
+        "definition_cn": "（钱款、收益）相当多的",
+        "definition_en": "fairly large in amount, especially of money",
+        "sense_label_en": "fairly large in amount, especially of money",
+        "pos": "adjective",
+        "governing_pattern": "before a noun: a tidy sum/profit",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:8c2428faf3bf55686aa1",
+            "phrase": "a tidy sum/profit",
+            "meaning_cn": "一大笔钱／可观利润",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "usage_note": "非正式用法；钱款/收益前的 tidy 不是“整洁的”。"
       }
     ],
     "verification_summary": {
@@ -767,13 +790,21 @@
         "merged_into_sense_id": null,
         "source_row": 14271,
         "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json"
+      },
+      {
+        "sense_id": "sense:tidy:48f60d32a1c88fcd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json",
+        "source_row": 14289
       }
     ],
     "active_collocations": [
       "collocation:4feb410cc9775d5a06b3",
       "collocation:b6202c5cfe4e27bff146",
       "collocation:bf233580a1ba96543185",
-      "collocation:fc5ab2146ae8112c6f95"
+      "collocation:fc5ab2146ae8112c6f95",
+      "collocation:8c2428faf3bf55686aa1"
     ],
     "facts": [],
     "collocations": [
@@ -801,6 +832,11 @@
         "id": "collocation:fc5ab2146ae8112c6f95",
         "source_row": 21554,
         "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:8c2428faf3bf55686aa1",
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json",
+        "source_row": 21558
       }
     ],
     "exam-mappings": [],

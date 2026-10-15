@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "真空；真空吸尘器",
-          "label_en": "a space with no matter; a machine that cleans by suction",
+          "label_cn": "真空；物质极少或没有物质的空间；真空吸尘器",
+          "label_en": "a space with little or no matter, including one from which most air has been removed; a machine that cleans by suction",
           "pos": "noun",
           "sense_ids": [
             "sense:vacuum:b388c8caf1985fcd",
@@ -36,9 +36,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "真空或吸尘器",
-      "core_meaning_en": "a space devoid of matter or a device that cleans by suction",
-      "mental_model_cn": "真空或吸尘器",
+      "core_meaning_cn": "真空及其引申的缺位；吸尘设备或清扫动作",
+      "core_meaning_en": "a near-empty space or absence; a suction cleaner or its use",
+      "mental_model_cn": "物理空间看真空；power/security看缺位；设备名词或及物动作看吸尘。in a vacuum也可说脱离周围影响，未必是在批评不切实际。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -57,19 +57,19 @@
             "legacy_source_object_ids": [
               "sense:vacuum:b388c8caf1985fcd:collocation:0"
             ],
-            "meaning_cn": "在真空中；脱离实际",
+            "meaning_cn": "在真空中；孤立于周围环境或影响之外",
             "phrase": "in a vacuum"
           }
         ],
         "confidence": "medium",
-        "definition_cn": "真空",
-        "definition_en": "a space with no matter",
+        "definition_cn": "真空；物质极少或没有物质的空间",
+        "definition_en": "a space with little or no matter, including one from which most air has been removed",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:vacuum:b388c8caf1985fcd",
-        "sense_label_en": "a space with no matter",
+        "sense_label_en": "a space with little or no matter, including one from which most air has been removed",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -112,14 +112,14 @@
         "confidence": "medium",
         "definition_cn": "用吸尘器打扫",
         "definition_en": "to clean with a vacuum cleaner",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: vacuum (sth)",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:vacuum:4129f5bdecd8542f",
         "sense_label_en": "to clean with a vacuum cleaner",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "I/T"
       },
       {
         "collocations": [
@@ -144,6 +144,27 @@
         "sense_label_en": "relating to or using a vacuum",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:vacuum:ba20fd672cba7706",
+        "definition_cn": "真空状态；某种必要事物的缺失",
+        "definition_en": "a situation in which something needed is absent",
+        "sense_label_en": "a situation in which something needed is absent",
+        "pos": "noun",
+        "governing_pattern": "a power/security vacuum; fill a vacuum",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:42d7417f132af2c818fa",
+            "phrase": "a power vacuum",
+            "meaning_cn": "权力真空",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -320,13 +341,21 @@
         "merged_into_sense_id": null,
         "source_row": 14919,
         "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
+      },
+      {
+        "sense_id": "sense:vacuum:ba20fd672cba7706",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14952,
+        "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
       }
     ],
     "active_collocations": [
       "collocation:2d099aef5201ce66cca0",
       "collocation:51a26b4879dfd0b22e6f",
       "collocation:8a82c837b66f0d5a1a59",
-      "collocation:a3b9edbd0a67a8f50194"
+      "collocation:a3b9edbd0a67a8f50194",
+      "collocation:42d7417f132af2c818fa"
     ],
     "facts": [],
     "collocations": [
@@ -348,6 +377,11 @@
       {
         "id": "collocation:a3b9edbd0a67a8f50194",
         "source_row": 13907,
+        "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
+      },
+      {
+        "id": "collocation:42d7417f132af2c818fa",
+        "source_row": 21461,
         "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
       }
     ],

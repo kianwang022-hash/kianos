@@ -6,7 +6,25 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:spot:c1ce4ccb51b47969",
+        "pattern": "put + sb + on the spot",
+        "meaning_cn": "用难题或突然的要求使某人难堪、难以应对",
+        "definition_en": "put someone in an awkward position by demanding an answer or action",
+        "boundary": "put后的人是承受压力者；与on the spot单独表示当场、在现场或原地不同。",
+        "level": "L2",
+        "direction": "R+D+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spot_1",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "senses 6, 9; idioms on the spot and put somebody on the spot"
+          }
+        ]
+      }
+    ],
     "content_hash": "80f6f341fa900d305fab15bca73b3586842a59a2ad316940594f49c9ffff3fcf",
     "core_concept": {
       "core_clusters": [
@@ -53,8 +71,8 @@
       {
         "boundary": "spot market 现货市场",
         "codex_reviewed": false,
-        "definition_cn": "现货的；现场的",
-        "definition_en": "relating to immediate cash payment or on-site",
+        "definition_cn": "现货的；现场的；（检查等）抽样的",
+        "definition_en": "for immediate delivery or payment; done at a particular place; limited to a sample",
         "dimensions": {},
         "direction": "R+P",
         "evidence": [
@@ -69,7 +87,7 @@
         ],
         "fact_id": "deep:secondary_senses:spot:92c59697440d92b0",
         "family_sources": [],
-        "label_en": "relating to immediate cash payment or on-site",
+        "label_en": "for immediate delivery or payment; done locally or by sampling",
         "level": "L2",
         "meaning_cn": null,
         "module": "secondary_senses",
@@ -85,7 +103,15 @@
           "reading"
         ],
         "verification_status": "verified",
-        "writing_safe": true
+        "writing_safe": true,
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/spot",
+            "accessed_at_utc": "2026-10-13T14:03:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "adjective senses 1a–c and 2"
+          }
+        ]
       }
     ],
     "semantic_neighbors": [],
@@ -145,7 +171,16 @@
         "sense_id": "sense:spot:bf4fe0452f6b5215",
         "sense_label_en": "a particular place or location",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "on the spot可表示当场立即、在事情发生的现场，或原地不动；由动作和场景选义。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spot_1",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "senses 6, 9; idioms on the spot and put somebody on the spot"
+          }
+        ]
       },
       {
         "collocations": [
@@ -202,16 +237,25 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "现货的；现场的",
-        "definition_en": "relating to immediate cash payment or on-site",
+        "definition_cn": "现货的；现场的；（检查等）抽样的",
+        "definition_en": "for immediate delivery or payment; done at a particular place; limited to a sample",
         "governing_pattern": "",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:spot:438467172f775d36",
-        "sense_label_en": "relating to immediate cash payment or on-site",
+        "sense_label_en": "for immediate delivery or payment; done locally or by sampling",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "market、price等商业语境指现货或即期交易；spot check是突然、不预告地查部分对象，不能仅按“现场检查”理解。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/spot",
+            "accessed_at_utc": "2026-10-13T14:03:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "adjective senses 1a–c and 2"
+          }
+        ]
       },
       {
         "collocations": [
@@ -228,14 +272,45 @@
         "confidence": "medium",
         "definition_cn": "少量",
         "definition_en": "a small amount of something",
-        "governing_pattern": "",
+        "governing_pattern": "a spot of + sth",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:spot:c8b41fa7532e504d",
         "sense_label_en": "a small amount of something",
         "sort_order": 4,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "表示少量时常见于英式非正式表达，如饮食、购物或一点麻烦的语境。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spot_1",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "senses 6, 9; idioms on the spot and put somebody on the spot"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:spot:970bbc9030735fd9",
+        "pos": "noun",
+        "definition_cn": "（比赛、排名或团队中的）位置；名次；席位",
+        "definition_en": "a place in a ranking, competition, programme, or team",
+        "sense_label_en": "a place in a ranking, competition, programme, or team",
+        "level": "L2",
+        "direction": "R+D",
+        "governing_pattern": "a spot on/in + team/list; the top spot",
+        "transitivity": "nonverb",
+        "usage_note": "团队、名单和比赛语境看资格或名次；earn a spot on the team是取得入队名额，不是获得一块地点。",
+        "collocations": [],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/spot_1",
+            "accessed_at_utc": "2026-10-13T14:00:00Z",
+            "role": "semantic support; independently authored bounded correction",
+            "source_section": "senses 6, 9; idioms on the spot and put somebody on the spot"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -533,6 +608,12 @@
         "merged_into_sense_id": null,
         "source_row": 13128,
         "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json"
+      },
+      {
+        "sense_id": "sense:spot:970bbc9030735fd9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4635.json"
       }
     ],
     "active_collocations": [
@@ -550,6 +631,11 @@
         "id": "deep:secondary_senses:spot:92c59697440d92b0",
         "source_row": 1128,
         "source_path": "content/lexical/canonical/facts/shards/o4609-4640.json"
+      },
+      {
+        "id": "construction:spot:c1ce4ccb51b47969",
+        "source_path": "content/lexical/words/by-ordinal/o4635.json",
+        "object_type": "construction"
       }
     ],
     "collocations": [

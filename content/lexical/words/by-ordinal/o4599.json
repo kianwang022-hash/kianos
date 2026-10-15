@@ -20,11 +20,12 @@
           ]
         },
         {
-          "label_cn": "特效药",
-          "label_en": "a medicine effective against a particular disease",
+          "label_cn": "具体细节（specifics）；特效药（专业义）",
+          "label_en": "details, usually specifics; a remedy for a disease",
           "pos": "noun",
           "sense_ids": [
-            "sense:specific:4ba0d283990150bc"
+            "sense:specific:4ba0d283990150bc",
+            "sense:specific:806701c8cb3679c3"
           ]
         }
       ],
@@ -58,14 +59,21 @@
         "confidence": "medium",
         "definition_cn": "具体的；明确的；确切的",
         "definition_en": "clearly and exactly stated or defined; detailed rather than vague",
-        "governing_pattern": "",
+        "governing_pattern": "be specific about sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:specific:31ccbf9cc9605e80",
         "sense_label_en": "clearly defined or particular; not general",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "about引出需要明确说明的事项；to引出专属对象时转入特有/限定义。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/specific",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -113,6 +121,39 @@
         "sense_label_en": "a medicine effective against a particular disease",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:specific:806701c8cb3679c3",
+        "pos": "noun",
+        "definition_cn": "（复数specifics）具体细节；详情",
+        "definition_en": "particular details of a matter",
+        "sense_label_en": "particular details of a matter",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "the specifics (of sth)",
+        "transitivity": "nonverb",
+        "usage_note": "常用复数specifics；与单数名词specific的特效药义区分。",
+        "collocations": [
+          {
+            "collocation_id": "collocation:6623b49d2989b421cea9",
+            "phrase": "the specifics of sth",
+            "meaning_cn": "某事的具体细节",
+            "exam_value": "fixed_pattern",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/specifics",
+                "role": "bounded semantic support; independently authored lexical wording"
+              }
+            ]
+          }
+        ],
+        "sort_order": 3,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/specifics",
+            "role": "bounded semantic support; independently authored lexical wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -418,12 +459,19 @@
         "merged_into_sense_id": null,
         "source_row": 13010,
         "source_path": "content/lexical/canonical/senses/shards/o4577-4608.json"
+      },
+      {
+        "sense_id": "sense:specific:806701c8cb3679c3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4599.json"
       }
     ],
     "active_collocations": [
       "collocation:3a8058fcc2904b673d5b",
       "collocation:8ee5478095f7e31b02ff",
-      "collocation:922341a6dae4ebb19083"
+      "collocation:922341a6dae4ebb19083",
+      "collocation:6623b49d2989b421cea9"
     ],
     "facts": [],
     "collocations": [
@@ -441,6 +489,10 @@
         "id": "collocation:922341a6dae4ebb19083",
         "source_row": 12410,
         "source_path": "content/lexical/canonical/collocations/shards/o4577-4608.json"
+      },
+      {
+        "id": "collocation:6623b49d2989b421cea9",
+        "source_path": "content/lexical/words/by-ordinal/o4599.json"
       }
     ],
     "exam-mappings": [],

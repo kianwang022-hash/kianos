@@ -20,6 +20,21 @@
         "level": "L1",
         "meaning_cn": "有点、某种程度上；可以说是",
         "pattern": "sort of"
+      },
+      {
+        "construction_id": "construction:sort:5df3a310b0c95780",
+        "pattern": "be/feel out of sorts",
+        "meaning_cn": "有些不舒服；心情不佳",
+        "definition_en": "to feel slightly unwell or unhappy",
+        "boundary": "out of sorts是人的身体或情绪状态，不是物品没有分类。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/english/be-out-of-sorts",
+            "role": "P3-requested semantic correction checked by P1"
+          }
+        ]
       }
     ],
     "content_hash": "8050f49d08a106683c81d37304d4b5f285bd9e552e67297599666ecf5b2f3f60",
@@ -138,15 +153,26 @@
         ],
         "confidence": "medium",
         "definition_cn": "交往；协调",
-        "definition_en": "to have a friendly relationship or be in agreement with someone",
-        "governing_pattern": "vi. + with",
+        "definition_en": "to associate with people or to agree or harmonize with someone or something",
+        "governing_pattern": "sort with sb / sort (well/badly) with sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sort:cc22456e566a5d2c",
-        "sense_label_en": "to have a friendly relationship or be in agreement with someone",
+        "sense_label_en": "to associate with people or to agree or harmonize with someone or something",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "交往义指与某类人相处；相符义也可比较事物。Collins将交往标为古旧或方言、相符标为古旧；Merriam-Webster仍收录而未加此标签。以识别为主，不作为现代通用写作的首选表达。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/sort",
+            "role": "semantic support for this bounded authored correction"
+          },
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/sort",
+            "role": "register scope; retain cross-dictionary disagreement"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -375,7 +401,13 @@
       "collocation:6f8623ef9c0cf8c8a007",
       "collocation:de7a6e3647378640bc38"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:sort:5df3a310b0c95780",
+        "source_path": "content/lexical/words/by-ordinal/o4571.json",
+        "object_type": "construction"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:07f3fbdfe1714f91d354",

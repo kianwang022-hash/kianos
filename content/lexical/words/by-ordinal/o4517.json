@@ -6,7 +6,23 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:snap:9b81fb584f5128d8",
+        "pattern": "snap sth up",
+        "meaning_cn": "抢购；迅速取得",
+        "definition_en": "to buy or obtain something before others can",
+        "boundary": "常用于有吸引力的便宜货、机会或人才，up是关键组成。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/snap-up",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      }
+    ],
     "content_hash": "2e1dd854c3e6eb3e5f5927e9fc2717a70388dce781c6b5e46d5117f9da78e3c7",
     "core_concept": {
       "core_clusters": [
@@ -31,9 +47,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "猛咬；扑咬；折断；啪地断开；快拍；拍照；劈啪声；断裂声；寒潮；一段寒冷天气；厉声说、没好气地回答",
-      "core_meaning_en": "to try to bite something suddenly; to break suddenly with a sharp sound; to take a photograph quickly; a sudden sharp sound, especially of something breaking; a short period of cold weather; to speak or respond sharply or angrily",
-      "mental_model_cn": "猛咬；扑咬；折断；啪地断开；快拍；拍照；劈啪声；断裂声；寒潮；一段寒冷天气；厉声说、没好气地回答",
+      "core_meaning_cn": "突然、短促而有力的动作或变化",
+      "core_meaning_en": "a sudden, sharp action or change",
+      "mental_model_cn": "细枝可啪地折断，盖子可啪地合上；人可厉声说，动物可扑咬，镜头可快拍。snap decision强调仓促，cold snap是一阵寒冷天气。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -83,14 +99,20 @@
         "confidence": "medium",
         "definition_cn": "折断；啪地断开",
         "definition_en": "to break suddenly with a sharp sound",
-        "governing_pattern": "",
+        "governing_pattern": "snap / snap sth / snap (sth) off / snap sth in two",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:snap:2456ff4165d7548d",
         "sense_label_en": "to break suddenly with a sharp sound",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/snap_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -107,14 +129,20 @@
         "confidence": "medium",
         "definition_cn": "快拍；拍照",
         "definition_en": "to take a photograph quickly",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "snap sth / snap away",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:snap:0a5bdfc398115262",
         "sense_label_en": "to take a photograph quickly",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/snap_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -203,14 +231,40 @@
         "confidence": "medium",
         "definition_cn": "厉声说、没好气地回答",
         "definition_en": "to speak or respond sharply or angrily",
-        "governing_pattern": "vi.: snap at sb; snap back",
+        "governing_pattern": "snap (at sb) / snap back / snap a reply / snap + direct speech",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:snap:2d1cc4719aed0441",
         "sense_label_en": "to speak or respond sharply or angrily",
         "sort_order": 6,
-        "transitivity": "vi"
+        "transitivity": "I/T",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/snap_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:snap:34bde3b96b1e6bee",
+        "pos": "verb",
+        "definition_cn": "（使）迅速啪地打开、合上或到位",
+        "definition_en": "to move, or make something move, quickly into position",
+        "sense_label_en": "to move, or make something move, quickly into position",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "snap open/shut / snap sth open/shut / snap together",
+        "transitivity": "I/T",
+        "usage_note": "盖子合上不等于断裂；形容词表动作结果。",
+        "collocations": [],
+        "sort_order": 7,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/snap_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -676,6 +730,12 @@
         "merged_into_sense_id": null,
         "source_row": 12854,
         "source_path": "content/lexical/canonical/senses/shards/o4513-4544.json"
+      },
+      {
+        "sense_id": "sense:snap:34bde3b96b1e6bee",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4517.json"
       }
     ],
     "active_collocations": [
@@ -687,7 +747,13 @@
       "collocation:9feb4c42abf178ae39b2",
       "collocation:d354173e906f49c67803"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:snap:9b81fb584f5128d8",
+        "source_path": "content/lexical/words/by-ordinal/o4517.json",
+        "object_type": "construction"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:181eb8a853b079bf6389",

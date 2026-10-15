@@ -11,17 +11,18 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "技术的；专业的；涉及专门知识、科学或技术细节的",
-          "label_en": "technical or specialist; involving specialized, scientific, or technological knowledge or details",
           "pos": "adjective",
           "sense_ids": [
-            "sense:technical:08d2c3837bfe5a4d"
-          ]
+            "sense:technical:08d2c3837bfe5a4d",
+            "sense:technical:d6e2b7fef8a9da77d3eb"
+          ],
+          "label_cn": "技术的；专业的；涉及专门知识、科学或技术细节的；涉及法律或规则细节的；按严格规则或字面解释成立的，而非实质上的",
+          "label_en": "involving the skills or specialized knowledge needed in a subject, activity, science, or technology; concerning precise legal or procedural requirements, or true under a strict reading of rules rather than in substance"
         }
       ],
-      "core_meaning_cn": "技术的；专业的；涉及专门知识、科学或技术细节的",
-      "core_meaning_en": "technical or specialist; involving specialized, scientific, or technological knowledge or details",
-      "mental_model_cn": "技术的；专业的；涉及专门知识、科学或技术细节的",
+      "core_meaning_cn": "技术的；专业的；涉及规则细节或按严格规则成立的",
+      "core_meaning_en": "involving specialized knowledge or skill; concerning formal details or true by strict rules rather than in substance",
+      "mental_model_cn": "技术的；专业的；涉及规则细节或按严格规则成立的",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,15 +56,29 @@
         ],
         "confidence": "medium",
         "definition_cn": "技术的；专业的；涉及专门知识、科学或技术细节的",
-        "definition_en": "technical or specialist; involving specialized, scientific, or technological knowledge or details",
+        "definition_en": "involving the skills or specialized knowledge needed in a subject, activity, science, or technology",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:technical:08d2c3837bfe5a4d",
-        "sense_label_en": "technical or specialist; involving specialized, scientific, or technological knowledge or details",
+        "sense_label_en": "involving the skills or specialized knowledge needed in a subject, activity, science, or technology",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:technical:d6e2b7fef8a9da77d3eb",
+        "pos": "adjective",
+        "level": "L2",
+        "definition_cn": "涉及法律或规则细节的；按严格规则或字面解释成立的，而非实质上的",
+        "definition_en": "concerning precise legal or procedural requirements, or true under a strict reading of rules rather than in substance",
+        "sense_label_en": "concerning precise legal or procedural requirements, or true under a strict reading of rules rather than in substance",
+        "governing_pattern": "before a noun: technical details / a technical breach / a technical victory",
+        "transitivity": "nonverb",
+        "sort_order": 1,
+        "collocations": [],
+        "confidence": "medium",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -259,6 +274,13 @@
         "status": "merged",
         "merged_into_sense_id": "sense:technical:08d2c3837bfe5a4d",
         "source_row": 13981,
+        "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
+      },
+      {
+        "sense_id": "sense:technical:d6e2b7fef8a9da77d3eb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14029,
         "source_path": "content/lexical/canonical/senses/shards/o4897-4928.json"
       }
     ],

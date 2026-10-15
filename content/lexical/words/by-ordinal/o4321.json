@@ -19,7 +19,7 @@
           ]
         },
         {
-          "label_cn": "在（某处）播种；结籽；脱籽；为（企业）提供启动资金",
+          "label_cn": "在（某处）播种；结籽；散落种子；为（企业）提供启动资金",
           "label_en": "to sow (an area) with seeds; to produce seeds; to shed seeds; to help (an enterprise) in its early stages by providing seed money",
           "pos": "verb",
           "sense_ids": [
@@ -29,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "植物的繁殖单位，或播种、结籽",
-      "core_meaning_en": "the unit of reproduction of a plant, or to sow or produce seeds",
-      "mental_model_cn": "植物的繁殖单位，或播种、结籽",
+      "core_meaning_cn": "植物繁殖的起点，可比喻事物萌芽；动词须区分播种、结籽与去籽",
+      "core_meaning_en": "a plant’s reproductive starting point or a beginning; also distinct sowing, seeding and removal uses",
+      "mental_model_cn": "地块作动词宾语是播种，植物作主语是结籽，烹饪中的水果作宾语可是去籽；抽象事物的seeds是萌芽，赛事中seed及be seeded指种子排序。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -93,7 +93,7 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "结籽；脱籽",
+        "definition_cn": "结籽；散落种子",
         "definition_en": "to produce seeds; to shed seeds",
         "governing_pattern": "",
         "level": "L2",
@@ -102,7 +102,14 @@
         "sense_id": "sense:seed:6dfc8846478d522d",
         "sense_label_en": "to produce seeds; to shed seeds",
         "sort_order": 2,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "植物作主语的不及物用法是产生或散落种子，不是人给水果去籽。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/seed",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -127,6 +134,86 @@
         "sense_label_en": "to help (an enterprise) in its early stages by providing seed money",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:seed:b951f80cbe8b0a38",
+        "pos": "noun",
+        "definition_cn": "萌芽；起因",
+        "definition_en": "an early beginning or cause that later develops",
+        "sense_label_en": "an early beginning or cause that later develops",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "the seeds of sth",
+        "transitivity": "nonverb",
+        "usage_note": "常用复数；doubt、rebellion等抽象词跟在of后，指开始发展起来的苗头。",
+        "collocations": [],
+        "sort_order": 4,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/seed_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:seed:6a4b75ef082e9b19",
+        "pos": "noun",
+        "definition_cn": "种子选手",
+        "definition_en": "a highly ranked competitor placed in a tournament draw to avoid other leading competitors early on",
+        "sense_label_en": "a highly ranked competitor placed in a tournament draw to avoid other leading competitors early on",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "the top/number one seed",
+        "transitivity": "nonverb",
+        "usage_note": "赛事语境中指获种子排序的选手，不是植物种子。",
+        "collocations": [],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/seed_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:seed:04f7e3a9803b03b4",
+        "pos": "verb",
+        "definition_cn": "把选手列为种子选手；给出种子排名",
+        "definition_en": "to give a competitor a seeded position in a tournament",
+        "sense_label_en": "to give a competitor a seeded position in a tournament",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "be seeded + rank",
+        "transitivity": "vt",
+        "usage_note": "常用被动，数字表示赛事种子排名，不是比赛最后名次。",
+        "collocations": [],
+        "sort_order": 6,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/seed_2",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:seed:e9ed02b557275d52",
+        "pos": "verb",
+        "definition_cn": "除去水果或蔬菜的籽",
+        "definition_en": "to take the seeds out of a fruit or vegetable",
+        "sense_label_en": "to take the seeds out of a fruit or vegetable",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "seed fruit/peppers",
+        "transitivity": "vt",
+        "usage_note": "食物作宾语时可指去籽，方向与在地里播种相反；须看宾语和烹饪语境。",
+        "collocations": [],
+        "sort_order": 7,
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/seed",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -303,6 +390,30 @@
         "merged_into_sense_id": null,
         "source_row": 12145,
         "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
+      },
+      {
+        "sense_id": "sense:seed:b951f80cbe8b0a38",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4321.json"
+      },
+      {
+        "sense_id": "sense:seed:6a4b75ef082e9b19",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4321.json"
+      },
+      {
+        "sense_id": "sense:seed:04f7e3a9803b03b4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4321.json"
+      },
+      {
+        "sense_id": "sense:seed:e9ed02b557275d52",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4321.json"
       }
     ],
     "active_collocations": [

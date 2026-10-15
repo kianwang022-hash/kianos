@@ -6,7 +6,16 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:db66652e1d614b2f6cb1",
+        "pattern": "leave sb in the lurch",
+        "meaning_cn": "在某人处境困难、需要帮助时弃之不顾",
+        "definition_en": "abandon someone when they are in difficulty and need help",
+        "direction": "R+P",
+        "level": "L2"
+      }
+    ],
     "content_hash": "fde95a4f029c1e927178c8625760d36efe59283211409b4c8e4e4f1703fb8f86",
     "core_concept": {
       "core_clusters": [
@@ -30,9 +39,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "惨败, 倾斜, 挫折, 举步蹒跚, 徘徊；突然的踉跄、猛冲或摇晃；突然踉跄、猛冲或摇晃移动；（比喻）突然的变化、动荡或陷入危机",
-      "core_meaning_en": "an unsteady uneven gait; abrupt up-and-down motion (as caused by a ship or other conveyance); a sudden uncontrolled movement to one side, forward, or up and down; to move suddenly and unsteadily, often to one side or forward; figurative: a sudden change, movement, or shift into difficulty or crisis",
-      "mental_model_cn": "惨败, 倾斜, 挫折, 举步蹒跚, 徘徊；突然的踉跄、猛冲或摇晃；突然踉跄、猛冲或摇晃移动；（比喻）突然的变化、动荡或陷入危机",
+      "core_meaning_cn": "突然失稳地晃动或转向；也指局势动荡转变",
+      "core_meaning_en": "a sudden unsteady movement or uncontrolled change",
+      "mental_model_cn": "身体、船车看晃动；局势或政策可突然转变；leave sb in the lurch 是在困难时弃人不顾。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -132,6 +141,27 @@
         "sense_label_en": "figurative: a sudden change, movement, or shift into difficulty or crisis",
         "sort_order": 6,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:lurch:17956f227638c45e",
+        "definition_cn": "（局势、行动或态度）突然且失控地转变",
+        "definition_en": "to shift abruptly and without control between courses of action or situations",
+        "sense_label_en": "to shift abruptly and without control between courses of action or situations",
+        "pos": "verb",
+        "level": "L2",
+        "sort_order": 99,
+        "governing_pattern": "lurch from sth to sth; lurch between A and B",
+        "collocations": [],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_path": "https://www.collinsdictionary.com/dictionary/english/lurch",
+            "evidence_status": "supplemental_primary_source_read",
+            "reviewed_at": "2026-10-14"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -584,7 +614,7 @@
       "status": "deprecated",
       "merged_into_sense_id": null,
       "pos": "noun",
-      "definition_cn": "惨败, 倾斜, 挫折, 举步蹒跚, 徘徊",
+      "definition_cn": "（旧时牌戏，尤指克里比奇牌戏）以悬殊分差惨败",
       "definition_en": "a decisive defeat in a game (especially in cribbage)",
       "semantic_key": "215d922eafc094fa43ce8098455fff4e76a373d6ca031b61472f922e1f4ebe2e",
       "semantic_key_history": [],
@@ -593,7 +623,48 @@
       "updated_at": "2026-09-14T00:00:00Z",
       "source_row": 18294,
       "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
-      "reference_only": true
+      "reference_only": true,
+      "historical_reference_record": {
+        "stable_sense_id": "sense:lurch:fcfac99df1c9569d",
+        "status": "deprecated",
+        "merged_into_sense_id": null,
+        "pos": "noun",
+        "definition_cn": "惨败, 倾斜, 挫折, 举步蹒跚, 徘徊",
+        "definition_en": "a decisive defeat in a game (especially in cribbage)",
+        "semantic_key": "215d922eafc094fa43ce8098455fff4e76a373d6ca031b61472f922e1f4ebe2e",
+        "semantic_key_history": [],
+        "legacy_aliases": [],
+        "legacy_alias_history": [],
+        "updated_at": "2026-09-14T00:00:00Z",
+        "source_row": 18294,
+        "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
+        "reference_only": true
+      },
+      "usage_note": "历史牌戏义，不是一般徘徊或摇晃；原记录完整保留，deprecated 不变。"
+    },
+    {
+      "definition_cn": "（古旧或方言）鬼祟徘徊；潜行窥伺",
+      "definition_en": "to prowl or move about furtively",
+      "sense_label_en": "to prowl or move about furtively",
+      "pos": "verb",
+      "level": "L2",
+      "sort_order": 99,
+      "governing_pattern": "",
+      "collocations": [],
+      "confidence": "high",
+      "needs_human_review": 0,
+      "source_evidence": [
+        {
+          "source_type": "learner_dictionary",
+          "source_path": "https://www.collinsdictionary.com/dictionary/english/lurch",
+          "evidence_status": "supplemental_primary_source_read",
+          "reviewed_at": "2026-10-14"
+        }
+      ],
+      "stable_sense_id": "sense:lurch:88de1ad2cc3caa33",
+      "reference_only": true,
+      "status": "active",
+      "usage_note": "旧 Core 徘徊相关的历史义留作 Reference，不与现代突然晃动混读。"
     }
   ],
   "identity_refs": {
@@ -639,6 +710,20 @@
         "merged_into_sense_id": null,
         "source_row": 18331,
         "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json"
+      },
+      {
+        "sense_id": "sense:lurch:17956f227638c45e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
+        "source_row": 18339
+      },
+      {
+        "sense_id": "sense:lurch:88de1ad2cc3caa33",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
+        "source_row": 18340
       }
     ],
     "active_collocations": [],

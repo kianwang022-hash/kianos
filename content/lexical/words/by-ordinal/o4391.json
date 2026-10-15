@@ -6,17 +6,49 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:shell:d37619a3e393948a",
+        "pattern": "come out of one’s shell; retreat/withdraw into one’s shell",
+        "meaning_cn": "不再拘谨、愿意交往；退缩封闭自己",
+        "definition_en": "to become more socially confident, or to withdraw from social contact",
+        "boundary": "人作主语时是社交行为变化；out of与into方向相反，不是身体离开或进入实物外壳。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shell_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:shell:2fa01b9a8440bdb5",
+        "pattern": "shell out (money) (for sth); shell money out (for sth)",
+        "meaning_cn": "掏出一大笔钱支付",
+        "definition_en": "to pay a substantial amount of money",
+        "boundary": "非正式用法，for后接购买的东西或付款目的；out不可按去壳的动作理解。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shell-out",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      }
+    ],
     "content_hash": "6c4019608dac788694f28d528e4a1db277280f19c80f1d2edfcc42a0de7bd130",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "壳，贝壳，蛋壳，坚果壳；炮弹",
-          "label_en": "the hard outer covering of an animal, egg, or nut; a metal case filled with explosive, fired from a large gun",
+          "label_cn": "壳，贝壳，蛋壳，坚果壳；炮弹；（建筑物、车辆等的）外壳、外部框架",
+          "label_en": "the hard outer covering of an animal, egg, or nut; a metal case filled with explosive, fired from a large gun; the outer structure of a building, vehicle or other object, especially without its interior contents",
           "pos": "noun",
           "sense_ids": [
             "sense:shell:7e0d121f056f5926",
-            "sense:shell:aef933d7953b5c44"
+            "sense:shell:aef933d7953b5c44",
+            "sense:shell:03c52086d285d063"
           ]
         },
         {
@@ -29,9 +61,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "壳；炮弹；去壳",
-      "core_meaning_en": "the hard outer covering of an animal, egg, or nut; also a projectile or to remove the covering",
-      "mental_model_cn": "壳；炮弹；去壳",
+      "core_meaning_cn": "包在外面的壳或框架；炮弹；去壳或炮击",
+      "core_meaning_en": "an outer covering or structure; an explosive projectile; to remove a covering or bombard",
+      "mental_model_cn": "蛋、坚果看天然壳，建筑或车辆看外部框架，军事语境看炮弹/炮击；shell peas看去壳，人的shell看社交防备，shell out看掏钱。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -146,6 +178,27 @@
         "sense_label_en": "to fire shells at something",
         "sort_order": 3,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:shell:03c52086d285d063",
+        "definition_cn": "（建筑物、车辆等的）外壳、外部框架",
+        "definition_en": "the outer structure of a building, vehicle or other object, especially without its interior contents",
+        "sense_label_en": "the outer structure of a building, vehicle or other object, especially without its interior contents",
+        "pos": "noun",
+        "governing_pattern": "the shell of a building; an empty/burnt-out shell; a car body shell",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 4,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [],
+        "usage_note": "外部结构尚在而内部空缺时常用empty/burnt-out shell，不能只理解为动物的硬壳。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shell_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -358,6 +411,12 @@
         "merged_into_sense_id": null,
         "source_row": 12371,
         "source_path": "content/lexical/canonical/senses/shards/o4385-4416.json"
+      },
+      {
+        "sense_id": "sense:shell:03c52086d285d063",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4391.json"
       }
     ],
     "active_collocations": [
@@ -416,6 +475,18 @@
         "id": "membership:ecfeb5abe53f72adae9d",
         "source_row": 17569,
         "source_path": "content/lexical/canonical/packs/shards/o4385-4416.json"
+      }
+    ],
+    "constructions": [
+      {
+        "id": "construction:shell:d37619a3e393948a",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4391.json"
+      },
+      {
+        "id": "construction:shell:2fa01b9a8440bdb5",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4391.json"
       }
     ]
   },

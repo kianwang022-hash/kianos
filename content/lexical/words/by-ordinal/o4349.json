@@ -11,8 +11,8 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "按特定顺序排列的一系列事物；电影中表现一系列相关事件的片段；音乐中反复出现的旋律片段",
-          "label_en": "a series of things arranged in a particular order; a part of a film showing a series of related events; a repeated melodic phrase in music",
+          "label_cn": "有顺序的一系列事物；先后顺序；电影中表现一系列相关事件的片段；（音乐）模进：乐句或和声型在不同音高重复",
+          "label_en": "an ordered series of things or events, or the order in which they occur; a part of a film showing a series of related events; repetition of a melodic phrase or harmonic pattern at successively different pitches",
           "pos": "noun",
           "sense_ids": [
             "sense:sequence:c45603f3ded65a8d",
@@ -21,17 +21,18 @@
           ]
         },
         {
-          "label_cn": "将某物按顺序排列",
-          "label_en": "to arrange something in a sequence",
+          "label_cn": "将某物按顺序排列；测定（DNA、蛋白质等的）序列",
+          "label_en": "to arrange something in a sequence; to determine the order of the units in DNA, a protein or another biological molecule",
           "pos": "verb",
           "sense_ids": [
-            "sense:sequence:07ab46f28abd5cbd"
+            "sense:sequence:07ab46f28abd5cbd",
+            "sense:sequence:6f43d91b183532e2"
           ]
         }
       ],
       "core_meaning_cn": "按顺序排列或连续发生",
       "core_meaning_en": "an ordered arrangement or succession",
-      "mental_model_cn": "按顺序排列或连续发生",
+      "mental_model_cn": "a sequence of着眼一系列，in/out of sequence着眼顺序；电影中指连贯片段，音乐中指不同音高的模进；动词接数据看排序，接DNA/蛋白质看测定已有顺序。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -64,16 +65,22 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "按特定顺序排列的一系列事物",
-        "definition_en": "a series of things arranged in a particular order",
-        "governing_pattern": "",
+        "definition_cn": "有顺序的一系列事物；先后顺序",
+        "definition_en": "an ordered series of things or events, or the order in which they occur",
+        "governing_pattern": "a sequence of sth; in/out of sequence",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:sequence:c45603f3ded65a8d",
-        "sense_label_en": "a series of things arranged in a particular order",
+        "sense_label_en": "an ordered series or the order of its elements",
         "sort_order": 0,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sequence_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -126,16 +133,56 @@
       {
         "collocations": [],
         "confidence": "medium",
-        "definition_cn": "音乐中反复出现的旋律片段",
-        "definition_en": "a repeated melodic phrase in music",
+        "definition_cn": "（音乐）模进：乐句或和声型在不同音高重复",
+        "definition_en": "repetition of a melodic phrase or harmonic pattern at successively different pitches",
         "governing_pattern": "",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "noun",
         "sense_id": "sense:sequence:98b57405fde55659",
-        "sense_label_en": "a repeated melodic phrase in music",
+        "sense_label_en": "musical repetition of a pattern at different pitch levels",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/sequence",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:sequence:6f43d91b183532e2",
+        "definition_cn": "测定（DNA、蛋白质等的）序列",
+        "definition_en": "to determine the order of the units in DNA, a protein or another biological molecule",
+        "sense_label_en": "to determine the order of the units in DNA, a protein or another biological molecule",
+        "pos": "verb",
+        "governing_pattern": "sequence DNA/a genome/a protein",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 4,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:sequence:852fc91da2707adb",
+            "exam_value": "usage_example",
+            "meaning_cn": "测定一个植物基因组的序列",
+            "phrase": "sequence a plant genome",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sequence_2",
+                "role": "bounded P1 semantic verification; independently authored learner wording"
+              }
+            ]
+          }
+        ],
+        "usage_note": "科学报道中的sequence指查明原有组成单位的顺序，不能按普通排序义理解为重新排列它们。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sequence_2",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -451,13 +498,20 @@
         "merged_into_sense_id": null,
         "source_row": 12220,
         "source_path": "content/lexical/canonical/senses/shards/o4321-4352.json"
+      },
+      {
+        "sense_id": "sense:sequence:6f43d91b183532e2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4349.json"
       }
     ],
     "active_collocations": [
       "collocation:152be2b773e3520c5900",
       "collocation:478be51e95475c968fd8",
       "collocation:5e613d3ed067cf454df4",
-      "collocation:8d3f833e1f9398e87a2f"
+      "collocation:8d3f833e1f9398e87a2f",
+      "collocation:sequence:852fc91da2707adb"
     ],
     "facts": [],
     "collocations": [
@@ -480,6 +534,12 @@
         "id": "collocation:8d3f833e1f9398e87a2f",
         "source_row": 11981,
         "source_path": "content/lexical/canonical/collocations/shards/o4321-4352.json"
+      },
+      {
+        "id": "collocation:sequence:852fc91da2707adb",
+        "sense_id": "sense:sequence:6f43d91b183532e2",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4349.json"
       }
     ],
     "exam-mappings": [],

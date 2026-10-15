@@ -6,16 +6,29 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:853c10e78ac16a3c851a",
+        "module": "constructions",
+        "pattern": "be through (with sth)",
+        "meaning_cn": "做完；用完；（某件事）结束",
+        "definition_en": "to have finished doing or using something",
+        "boundary": "非正式：with 可引出已经做完或用完的事情/物品；这是完成义，不是直达列车义。",
+        "direction": "R+P",
+        "level": "L2",
+        "publication_status": "publishable"
+      }
+    ],
     "content_hash": "e83cede3957eeea4c05db97e32322b0551b2f0d98daad7a9ef287d6a9e2ebc00",
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "穿过；通过",
-          "label_en": "from one end or side to the other",
+          "label_cn": "穿过；通过；贯穿某段时间；从开始到结束",
+          "label_en": "from one end or side to the other; during a period from its beginning to its end",
           "pos": "preposition",
           "sense_ids": [
-            "sense:through:bb83f9ae865c5c28"
+            "sense:through:bb83f9ae865c5c28",
+            "sense:through:9e73f826f0aef9f4"
           ]
         },
         {
@@ -27,17 +40,17 @@
           ]
         },
         {
-          "label_cn": "直达的；对穿的",
-          "label_en": "continuing without stops or changes; direct",
+          "label_cn": "直达的（旅客无需换乘）",
+          "label_en": "taking passengers to their destination without requiring a change of vehicle",
           "pos": "adjective",
           "sense_ids": [
             "sense:through:bbe0514708be5468"
           ]
         }
       ],
-      "core_meaning_cn": "穿过；通过",
-      "core_meaning_en": "from one side to the other; by means of",
-      "mental_model_cn": "穿过；通过",
+      "core_meaning_cn": "穿行到另一端；贯穿过程，也可表示途径或原因",
+      "core_meaning_en": "from one side or beginning to the other end; also by a means or because of something",
+      "mental_model_cn": "through a place/time 是穿过或贯穿；read it through 中无后接宾语，表示从头到尾；through a method/cause 表途径或原因。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -93,15 +106,6 @@
             ],
             "meaning_cn": "通读",
             "phrase": "read through"
-          },
-          {
-            "collocation_id": "collocation:9bac050e94abef07883b",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:through:0caa939e1a0f5109:collocation:1"
-            ],
-            "meaning_cn": "他睡了一整夜。",
-            "phrase": "He slept through the night."
           }
         ],
         "confidence": "medium",
@@ -129,16 +133,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "直达的；对穿的",
-        "definition_en": "continuing without stops or changes; direct",
-        "governing_pattern": "",
+        "definition_cn": "直达的（旅客无需换乘）",
+        "definition_en": "taking passengers to their destination without requiring a change of vehicle",
+        "governing_pattern": "before a noun: a through train/bus",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "adjective",
         "sense_id": "sense:through:bbe0514708be5468",
-        "sense_label_en": "continuing without stops or changes; direct",
+        "sense_label_en": "taking passengers to their destination without requiring a change of vehicle",
         "sort_order": 2,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "a through train/bus 指不用换乘，不保证中途一站不停。"
       },
       {
         "collocations": [],
@@ -161,6 +166,37 @@
             "verification_status": "auditor_verified"
           }
         ]
+      },
+      {
+        "sense_id": "sense:through:9e73f826f0aef9f4",
+        "definition_cn": "贯穿某段时间；从开始到结束",
+        "definition_en": "during a period from its beginning to its end",
+        "sense_label_en": "during a period from its beginning to its end",
+        "pos": "preposition",
+        "governing_pattern": "through + period of time",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:9bac050e94abef07883b",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:through:0caa939e1a0f5109:collocation:1"
+            ],
+            "meaning_cn": "他睡了一整夜。",
+            "phrase": "He slept through the night."
+          },
+          {
+            "collocation_id": "collocation:e822f90290e6341c7e9f",
+            "phrase": "Monday through Friday",
+            "meaning_cn": "星期一至星期五（美式，含周五）",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "usage_note": "美式英语日期或范围 A through B 包含终点 B，如 Monday through Friday 包括周五；不是只到周五之前。"
       }
     ],
     "verification_summary": {
@@ -454,6 +490,13 @@
         "merged_into_sense_id": null,
         "source_row": 14235,
         "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json"
+      },
+      {
+        "sense_id": "sense:through:9e73f826f0aef9f4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json",
+        "source_row": 14288
       }
     ],
     "active_collocations": [
@@ -461,7 +504,8 @@
       "collocation:997ff86e4e52b3ae2316",
       "collocation:9bac050e94abef07883b",
       "collocation:a35cc0d3848c8edc1f19",
-      "collocation:fbed107ca6ab3153fd61"
+      "collocation:fbed107ca6ab3153fd61",
+      "collocation:e822f90290e6341c7e9f"
     ],
     "facts": [],
     "collocations": [
@@ -489,6 +533,11 @@
         "id": "collocation:fbed107ca6ab3153fd61",
         "source_row": 21313,
         "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:e822f90290e6341c7e9f",
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json",
+        "source_row": 21557
       }
     ],
     "exam-mappings": [],

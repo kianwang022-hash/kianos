@@ -13,14 +13,29 @@
         "level": "L2",
         "meaning_cn": "（英式等用法）参加考试",
         "pattern": "sit an exam / sit for an exam"
+      },
+      {
+        "construction_id": "construction:sit:61b0fa97b8320181",
+        "pattern": "sit on the fence",
+        "meaning_cn": "持观望态度；不选边或不作决定",
+        "definition_en": "to avoid taking a side or making a decision",
+        "boundary": "争论或决策语境的比喻，不要求坐在实体栅栏上。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sit",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "content_hash": "3d19d73ca4cf17af2fe4f0c6c83ab81a8526809281a182f7ee2ebbf06ec6f6cb",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "坐",
-      "core_meaning_en": "to be seated",
-      "mental_model_cn": "坐",
+      "core_meaning_cn": "坐着或停留在某位置；由此延伸到就职和开会",
+      "core_meaning_en": "being seated or remaining in a position, with official-role and session uses",
+      "mental_model_cn": "人可坐着，也可sit on a committee任职；机构作主语可指开会。事物则指位于或保持某状态，考试及观望短语按各自框架判断。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,14 +70,21 @@
         "confidence": "medium",
         "definition_cn": "坐，就座",
         "definition_en": "to rest with the body supported by the buttocks",
-        "governing_pattern": "vi. + down",
+        "governing_pattern": "sit / sit + place or manner / sit doing sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sit:d022dce1d7ea5e67",
         "sense_label_en": "to rest with the body supported by the buttocks",
         "sort_order": 0,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "down表示坐下动作而非必需补语；sit doing可表坐着做某事。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sit",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -160,14 +182,40 @@
         "confidence": "medium",
         "definition_cn": "使就座",
         "definition_en": "to cause to be seated",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "sit sb + place / sit sb down",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sit:4db4a27e07ab5189",
         "sense_label_en": "to cause to be seated",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sit",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:sit:cd229eb4bc351fa4",
+        "pos": "verb",
+        "definition_cn": "担任职务；作为委员会等的成员任职",
+        "definition_en": "to hold an official position or membership",
+        "sense_label_en": "to hold an official position or membership",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "sit on a committee / sit as a judge",
+        "transitivity": "vi",
+        "usage_note": "人作主语、on接机构或as接身份时是任职；机构作主语的开会义另保。",
+        "collocations": [],
+        "sort_order": 5,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sit",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -611,6 +659,12 @@
         "merged_into_sense_id": null,
         "source_row": 12602,
         "source_path": "content/lexical/canonical/senses/shards/o4449-4480.json"
+      },
+      {
+        "sense_id": "sense:sit:cd229eb4bc351fa4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4462.json"
       }
     ],
     "active_collocations": [
@@ -622,7 +676,13 @@
       "collocation:dd094de0afdd3887ea4c",
       "collocation:f863b8d781b138d88dda"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:sit:61b0fa97b8320181",
+        "source_path": "content/lexical/words/by-ordinal/o4462.json",
+        "object_type": "construction"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:1a354fe15beee557c74a",

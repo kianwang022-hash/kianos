@@ -20,8 +20,8 @@
           ]
         },
         {
-          "label_cn": "用火炉加热或烹饪",
-          "label_en": "to heat or cook with a stove",
+          "label_cn": "在炉内加热处理（陶瓷、金属制品等）；（苏格兰）炖煮",
+          "label_en": "to process materials by heating in a stove; in Scottish usage, to stew food",
           "pos": "verb",
           "sense_ids": [
             "sense:stove:4d5d1a9110765d5e"
@@ -96,31 +96,45 @@
         "sense_id": "sense:stove:ca2e71e0fde1574d",
         "sense_label_en": "any heating apparatus",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "这里指供暖炉、加热炉或窑炉等设备；日常常指用燃料或电为房间供暖的炉子，不是任意能发热的物体。",
+        "source_evidence": [
+          {
+            "source_url": "https://dictionary.cambridge.org/dictionary/english/stove",
+            "source_section": "Heating noun: fuel/electric equipment heating a place",
+            "accessed_at_utc": "2026-10-13T14:54:00Z",
+            "role": "bounded correction with current/history separation"
+          },
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/stove",
+            "source_section": "British noun 2 includes heating apparatus such as a kiln; original broad definition preserved, typical referents clarified",
+            "accessed_at_utc": "2026-10-13T14:54:00Z",
+            "role": "bounded correction with current/history separation"
+          }
+        ]
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:9357b541d330d1102b77",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:stove:4d5d1a9110765d5e:collocation:0"
-            ],
-            "meaning_cn": "用火炉烤面包",
-            "phrase": "stove the bread"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
-        "definition_cn": "用火炉加热或烹饪",
-        "definition_en": "to heat or cook with a stove",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "在炉内加热处理（陶瓷、金属制品等）；（苏格兰）炖煮",
+        "definition_en": "to process materials by heating in a stove; in Scottish usage, to stew food",
+        "governing_pattern": "vt.: stove + material/article; Scottish: stove + meat/vegetables",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:stove:4d5d1a9110765d5e",
-        "sense_label_en": "to heat or cook with a stove",
+        "sense_label_en": "to process materials by heating in a stove; in Scottish usage, to stew food",
         "sort_order": 2,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "前一用法为工业加热处理，食物炖煮义带苏格兰地域条件；不要把stove默认当通用的烘烤或做饭动词。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.collinsdictionary.com/dictionary/english/stove",
+            "source_section": "British English 1, transitive senses 3 (industrial processing by heating) and 4 (Scottish stew)",
+            "accessed_at_utc": "2026-10-13T14:54:00Z",
+            "role": "bounded correction with current/history separation"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -378,7 +392,69 @@
           ]
         }
       ]
-    }
+    },
+    "content_history": [
+      {
+        "event": "withdraw_unsupported_current_example",
+        "recorded_at_utc": "2026-10-13T14:54:00Z",
+        "status": "HISTORY_ONLY_NOT_CURRENT_SEMANTIC_TRUTH",
+        "word_id": "word:stove",
+        "source_sense_id": "sense:stove:4d5d1a9110765d5e",
+        "withdrawn_collocation_id": "collocation:9357b541d330d1102b77",
+        "reason": "No publisher evidence supports the original generic baking-bread example; valid industrial/Scottish verb remains active with corrected conditions.",
+        "previous_sense": {
+          "collocations": [
+            {
+              "collocation_id": "collocation:9357b541d330d1102b77",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:stove:4d5d1a9110765d5e:collocation:0"
+              ],
+              "meaning_cn": "用火炉烤面包",
+              "phrase": "stove the bread"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "用火炉加热或烹饪",
+          "definition_en": "to heat or cook with a stove",
+          "governing_pattern": "vt. + object",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:stove:4d5d1a9110765d5e",
+          "sense_label_en": "to heat or cook with a stove",
+          "sort_order": 2,
+          "transitivity": "vt"
+        },
+        "previous_identity_ref": {
+          "id": "collocation:9357b541d330d1102b77",
+          "source_row": 12513,
+          "source_path": "content/lexical/canonical/collocations/shards/o4705-4736.json"
+        },
+        "previous_registry_row": {
+          "anchor_ordinal": 4720,
+          "record": {
+            "collocation_id": "collocation:9357b541d330d1102b77",
+            "created_by": "lexicalos_v1_initial_identity_migration",
+            "current_value_hash": "98d3d37a6222b10b61ee168bcba9b41523a77bc94f6fd4728cefeab631e623b2",
+            "legacy_source_object_ids": [
+              "sense:stove:4d5d1a9110765d5e:collocation:0"
+            ],
+            "record_type": "collocation_identity",
+            "schema_version": "kianos_collocation_identity_v1",
+            "sense_id": "sense:stove:4d5d1a9110765d5e",
+            "status": "active",
+            "word_id": "word:stove"
+          },
+          "source_row": 12513
+        },
+        "source_owner_path": "content/lexical/words/by-ordinal/o4720.json",
+        "source_owner_locator": "record.senses[2]",
+        "evidence_urls": [
+          "https://www.collinsdictionary.com/dictionary/english/stove"
+        ]
+      }
+    ]
   },
   "relation_refs": [],
   "reference_senses": [],
@@ -407,7 +483,6 @@
       }
     ],
     "active_collocations": [
-      "collocation:9357b541d330d1102b77",
       "collocation:ad0890420c53070c7c3c",
       "collocation:b38e377792f06983e429",
       "collocation:b5f75bda09c49c99de48"
@@ -417,7 +492,12 @@
       {
         "id": "collocation:9357b541d330d1102b77",
         "source_row": 12513,
-        "source_path": "content/lexical/canonical/collocations/shards/o4705-4736.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o4705-4736.json",
+        "status": "deprecated",
+        "sense_id": "sense:stove:4d5d1a9110765d5e",
+        "merged_into_id": null,
+        "history_owner_path": "content/lexical/words/by-ordinal/o4720.json",
+        "history_source_locator": "record.content_history[0].previous_sense.collocations[0]"
       },
       {
         "id": "collocation:ad0890420c53070c7c3c",

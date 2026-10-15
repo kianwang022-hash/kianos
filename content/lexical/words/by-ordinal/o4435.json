@@ -10,10 +10,32 @@
     "content_hash": "b15a46679e7d95490d4459b254c7c4b8ee6be388a9edc77c37fcb9e14911530f",
     "core_concept": {
       "core_clusters": [],
-      "core_meaning_cn": "重要性；意义",
-      "core_meaning_en": "the importance or meaning of something",
-      "mental_model_cn": "重要性；意义",
-      "mental_model_en": ""
+      "core_meaning_cn": "重要性或所表达的意义；统计语境另指显著性",
+      "core_meaning_en": "importance or conveyed meaning; in statistics, significance under a stated model",
+      "mental_model_cn": "问事情有多重要时选“重要性”，问符号或举动说明什么时选“含义”；statistical significance 不能直接译解为实际重要性。",
+      "mental_model_en": "",
+      "source_evidence": [
+        {
+          "evidence_id": "source:4450:significance",
+          "source_type": "primary_public_source",
+          "url": "https://www.oxfordlearnersdictionaries.com/definition/english/significance",
+          "accessed_at_utc": "2026-10-12T23:57:45Z",
+          "raw_local_path": "public-source-raw/web-04.json",
+          "raw_sha256": "33a10f2fece7aa36709682e43fc2110dbd7d8fc10890e0d6ad6428029a42e985",
+          "excerpt": "statistical significance",
+          "supports": "Ordinary importance/meaning and statistical significance coexist."
+        },
+        {
+          "evidence_id": "source:4450:asa",
+          "source_type": "primary_public_source",
+          "url": "https://magazine.amstat.org/blog/2021/08/01/task-force-statement-p-value/",
+          "accessed_at_utc": "2026-10-13T00:03:47Z",
+          "raw_local_path": "public-source-raw/web-13.json",
+          "raw_sha256": "aebe59cf0bc092668000b5dfa8af6274a423e063ce12b1a3204b30f1239646dc",
+          "excerpt": "not necessarily as measures of practical significance",
+          "supports": "Statistical significance does not establish effect size or practical importance; interpret relative to model and sampling variability."
+        }
+      ]
     },
     "exam_paraphrases": [],
     "needs_delta_review": true,
@@ -82,6 +104,44 @@
         "sense_label_en": "the meaning or message that is conveyed or implied",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:significance:73dcf89f2f4ea475",
+        "definition_cn": "统计显著性",
+        "definition_en": "a statistical assessment of how incompatible observed results are with a specified null model, using a chosen criterion",
+        "sense_label_en": "a statistical assessment of how incompatible observed results are with a specified null model, using a chosen criterion",
+        "pos": "noun",
+        "transitivity": "nonverb",
+        "governing_pattern": "statistical significance; a significance level",
+        "level": "L2",
+        "sort_order": 1002,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [],
+        "domain_tag": "statistics",
+        "usage_note": "研究结果的 statistical significance 不等于效应很大或实际很重要；解释须联系统计模型、检验标准与研究情境。",
+        "source_evidence": [
+          {
+            "evidence_id": "source:4450:significance",
+            "source_type": "primary_public_source",
+            "url": "https://www.oxfordlearnersdictionaries.com/definition/english/significance",
+            "accessed_at_utc": "2026-10-12T23:57:45Z",
+            "raw_local_path": "public-source-raw/web-04.json",
+            "raw_sha256": "33a10f2fece7aa36709682e43fc2110dbd7d8fc10890e0d6ad6428029a42e985",
+            "excerpt": "statistical significance",
+            "supports": "Ordinary importance/meaning and statistical significance coexist."
+          },
+          {
+            "evidence_id": "source:4450:asa",
+            "source_type": "primary_public_source",
+            "url": "https://magazine.amstat.org/blog/2021/08/01/task-force-statement-p-value/",
+            "accessed_at_utc": "2026-10-13T00:03:47Z",
+            "raw_local_path": "public-source-raw/web-13.json",
+            "raw_sha256": "aebe59cf0bc092668000b5dfa8af6274a423e063ce12b1a3204b30f1239646dc",
+            "excerpt": "not necessarily as measures of practical significance",
+            "supports": "Statistical significance does not establish effect size or practical importance; interpret relative to model and sampling variability."
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -227,6 +287,12 @@
         "merged_into_sense_id": null,
         "source_row": 12525,
         "source_path": "content/lexical/canonical/senses/shards/o4417-4448.json"
+      },
+      {
+        "sense_id": "sense:significance:73dcf89f2f4ea475",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4435.json"
       }
     ],
     "active_collocations": [

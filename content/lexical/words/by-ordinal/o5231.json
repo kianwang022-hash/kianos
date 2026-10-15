@@ -29,6 +29,24 @@
         "level": "L1",
         "meaning_cn": "过去常常做……；过去曾处于某状态（现在通常不再如此）",
         "pattern": "used to + base verb"
+      },
+      {
+        "construction_id": "construction:77fa14af6e52a49c7cee",
+        "pattern": "use sth up; use it up",
+        "meaning_cn": "把某物全部用完",
+        "definition_en": "consume the whole supply of something",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:use:c397c46e97f15de9"
+      },
+      {
+        "construction_id": "construction:5fa1584844ca675ba9d8",
+        "pattern": "it is no use + V-ing",
+        "meaning_cn": "做某事没有用；不会产生预期效果",
+        "definition_en": "doing something is pointless because it will not achieve the intended result",
+        "direction": "R+P",
+        "level": "L2",
+        "source_sense_id": "sense:use:a5d9a873f7bb7ac0"
       }
     ],
     "content_hash": "926667edb5584d95b4c2e11aeaa244c1ee5de67b79fb615754e85fc706f9b283",
@@ -51,9 +69,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "使用，利用；使用/用法",
-      "core_meaning_en": "to employ something for a purpose; the act or manner of using",
-      "mental_model_cn": "使用，利用；使用/用法",
+      "core_meaning_cn": "让资源发挥用途；也指用途、使用权或对人的利用",
+      "core_meaning_en": "employ a resource; its purpose, usefulness or availability; exploit a person",
+      "mental_model_cn": "工具作宾语看使用；人作宾语留意谋私利；of use看效用，the use of身体部位看能力；used to do、be used to do和be/get used to doing分别看过去习惯、用途与习惯于。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -355,14 +373,15 @@
         "confidence": "medium",
         "definition_cn": "使用，利用",
         "definition_en": "to employ something for a particular purpose",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "use sth to do sth; use sth for sth/V-ing; use sth as sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:use:c397c46e97f15de9",
         "sense_label_en": "to employ something for a particular purpose",
         "sort_order": 0,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "被动be used to do表示被用来做；与现有be/get used to + n/V-ing（习惯于）区分。"
       },
       {
         "collocations": [
@@ -396,6 +415,63 @@
         "sense_label_en": "the act of using something",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:use:2d4ab7fe8384a6d6",
+        "definition_cn": "利用（他人）谋私利",
+        "definition_en": "to take advantage of someone for one’s own benefit",
+        "sense_label_en": "to take advantage of someone for one’s own benefit",
+        "pos": "verb",
+        "governing_pattern": "use sb (for sth)",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "usage_note": "通常含贬义：把人当作达到自己目的的手段。"
+      },
+      {
+        "sense_id": "sense:use:a5d9a873f7bb7ac0",
+        "definition_cn": "用途；用处；效用",
+        "definition_en": "a purpose something can serve, or the benefit it offers",
+        "sense_label_en": "a purpose something can serve, or the benefit it offers",
+        "pos": "noun",
+        "governing_pattern": "a use for sth; be of use",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:62b480a116dd2142bec6",
+            "phrase": "be of use",
+            "meaning_cn": "有用处",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
+      },
+      {
+        "sense_id": "sense:use:d7b15bb05865a99e",
+        "definition_cn": "使用能力；使用权",
+        "definition_en": "the ability or permission to use something",
+        "sense_label_en": "the ability or permission to use something",
+        "pos": "noun",
+        "governing_pattern": "have/lose the use of sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:499c35f82f54f919f3ad",
+            "phrase": "lose the use of one’s legs",
+            "meaning_cn": "失去双腿活动能力",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -472,13 +548,36 @@
         "merged_into_sense_id": null,
         "source_row": 14901,
         "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
+      },
+      {
+        "sense_id": "sense:use:2d4ab7fe8384a6d6",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14949,
+        "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
+      },
+      {
+        "sense_id": "sense:use:a5d9a873f7bb7ac0",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14950,
+        "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
+      },
+      {
+        "sense_id": "sense:use:d7b15bb05865a99e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": 14951,
+        "source_path": "content/lexical/canonical/senses/shards/o5217-5248.json"
       }
     ],
     "active_collocations": [
       "collocation:1ea763892e715b3e4aad",
       "collocation:6e4165f00bba44503fb9",
       "collocation:992713768b390430fa1d",
-      "collocation:dbb2e7cf012b383686bd"
+      "collocation:dbb2e7cf012b383686bd",
+      "collocation:62b480a116dd2142bec6",
+      "collocation:499c35f82f54f919f3ad"
     ],
     "facts": [
       {
@@ -516,6 +615,16 @@
       {
         "id": "collocation:dbb2e7cf012b383686bd",
         "source_row": 18591,
+        "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
+      },
+      {
+        "id": "collocation:62b480a116dd2142bec6",
+        "source_row": 21459,
+        "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
+      },
+      {
+        "id": "collocation:499c35f82f54f919f3ad",
+        "source_row": 21460,
         "source_path": "content/lexical/canonical/collocations/shards/o5217-5248.json"
       }
     ],

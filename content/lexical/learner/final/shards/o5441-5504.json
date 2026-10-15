@@ -318,7 +318,7 @@
     "ordinal": 5443,
     "word": "with",
     "source_owner_path": "content/lexical/words/by-ordinal/o5443.json",
-    "source_fingerprint": "d41087f4b0579f26b57a80f0d96163572eb3d21f122d0a4cf5228b48fc10bcdf",
+    "source_fingerprint": "a856d7e14e4f6a1ad539df6d5cf661e6033f5cd80d045b408d7e6048a6990aff",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -529,7 +529,33 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:with:bfb55e3f195cf941",
+        "source_locator": "record.constructions[0]",
+        "pattern": "with + sb/sth + adjective / prepositional phrase / -ing / past participle",
+        "lines": [
+          {
+            "text": "表示伴随情形或背景原因；with后的名词/代词是随后状态或动作的主体，可以与主句主语不同。-ing通常表主动，过去分词通常表被动或结果。",
+            "lang": "cn"
+          },
+          {
+            "text": "with the door open（门开着：形容词）；with a bag on her back（背上有包：介词短语）；with rain falling（雨正下着：主动分词）；with the work finished（工作已完成：过去分词）。",
+            "lang": "cn"
+          },
+          {
+            "text": "introduces a background circumstance with its own subject and a description of that subject’s state, position, or action",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:with:bfb55e3f195cf941",
+          "target_locator": "record.constructions[0]",
+          "target_label": "with + sb/sth + adjective / prepositional phrase / -ing / past participle"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -714,7 +740,7 @@
     "ordinal": 5445,
     "word": "withhold",
     "source_owner_path": "content/lexical/words/by-ordinal/o5445.json",
-    "source_fingerprint": "27b6501a0fdde5073e69ce86a99858a2ebedce4caf3e01704ba18c565ebb74fd",
+    "source_fingerprint": "5d23d6b29804fb40cf2ce40c40d01cb30e168ade0d67772980c3be7d21894e98",
     "sense_lineage": [
       {
         "word_id": "word:withhold",
@@ -771,7 +797,7 @@
             "id": "collocation:77ef0ed7c536c74c1e56",
             "source_locator": "record.senses[0].collocations[2]",
             "phrase": "withhold + sth from + sb",
-            "meaning_cn": "对某人隐瞒某物",
+            "meaning_cn": "不把某物给予某人；扣留应给之物或向某人隐瞒信息（如付款、同意、信息）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -848,25 +874,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:85f3c1f5b13d16ebddbc",
-        "source_locator": "record.constructions[0]",
-        "pattern": "withhold sth from sb",
-        "lines": [
-          {
-            "text": "拒绝给予/隐瞒某人某物（如信息、付款、同意）",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:85f3c1f5b13d16ebddbc",
-          "target_locator": "record.constructions[0]",
-          "target_label": "withhold sth from sb"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1430,12 +1438,12 @@
     "ordinal": 5449,
     "word": "witness",
     "source_owner_path": "content/lexical/words/by-ordinal/o5449.json",
-    "source_fingerprint": "e449d5c1900a86dd6119a7360956df290a2cbbfc356b0cf5cfca6c365e52f457",
+    "source_fingerprint": "62b9dd6d39fbf333907802a3285c5096f7591636ac516157a948317971c65006",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -1455,8 +1463,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "目击者；证人",
-        "definition_en": "a person who sees an event and reports what happened",
+        "definition_cn": "目击者；提供证据的证人；在场见证某行为的人",
+        "definition_en": "a person who sees an event, gives evidence about what they know, or is present to confirm that an act is properly done",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1491,7 +1499,7 @@
           "target_kind": "sense",
           "target_id": "sense:witness:db6a0511c9b557bf",
           "target_locator": "record.senses[0]",
-          "target_label": "目击者；证人"
+          "target_label": "目击者；提供证据的证人；在场见证某行为的人"
         }
       },
       {
@@ -1576,21 +1584,7 @@
         "definition_en": "testimony by word or deed to your religious faith",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:c3f0530a4dd13f79b486",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "bear witness to + sth",
-            "meaning_cn": "为…作证；证明",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:c3f0530a4dd13f79b486",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "bear witness to + sth"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:witness:13454ff41bcb543e",
@@ -1613,6 +1607,37 @@
           "target_id": "sense:witness:418802d4799f5db5",
           "target_locator": "record.senses[4]",
           "target_label": "见证；经历（某时期/地方发生的变化）"
+        }
+      },
+      {
+        "id": "sense:witness:cbddc30b18b735b8",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "bear witness to sth",
+        "definition_cn": "证言；证据；证明",
+        "definition_en": "evidence or testimony showing that something is true",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:c3f0530a4dd13f79b486",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "bear witness to + sth",
+            "meaning_cn": "为…作证；证明",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:c3f0530a4dd13f79b486",
+              "target_locator": "record.senses[5].collocations[0]",
+              "target_label": "bear witness to + sth"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:witness:cbddc30b18b735b8",
+          "target_locator": "record.senses[5]",
+          "target_label": "证言；证据；证明"
         }
       }
     ],
@@ -1947,7 +1972,7 @@
     "ordinal": 5452,
     "word": "wonder",
     "source_owner_path": "content/lexical/words/by-ordinal/o5452.json",
-    "source_fingerprint": "885e0a59bb110ec8d9751a23b0e2ec5c2947f652b4466b426bdf72210f83cfeb",
+    "source_fingerprint": "de2ba1d5384c52d11ff6635014e3cf52a6f6e78258b3d2bc37466ba99bd5ebc5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1971,10 +1996,10 @@
         "id": "sense:wonder:94a3212aded75cc6",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + whether/if/what/why等从句",
+        "governing_pattern": "wonder about sth; wonder whether/if/wh- + clause",
         "definition_cn": "想知道",
         "definition_en": "to want to know something",
-        "note": "",
+        "note": "I was wondering if...也可用来委婉提出请求或邀请。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2037,10 +2062,15 @@
           {
             "id": "collocation:e391f0b5fee61504eafd",
             "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "no wonder",
-            "meaning_cn": "难怪",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "(it is) no wonder (that) + clause",
+            "meaning_cn": "……不足为奇；难怪……",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e391f0b5fee61504eafd",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "(it is) no wonder (that) + clause"
+            }
           }
         ],
         "repair": {
@@ -2083,7 +2113,7 @@
         "governing_pattern": "vi. + at",
         "definition_cn": "感到惊讶",
         "definition_en": "to feel surprised or amazed",
-        "note": "",
+        "note": "表示惊讶的wonder at较正式。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2142,23 +2172,6 @@
     },
     "secondary_senses": [],
     "constructions": [
-      {
-        "id": "construction:c9f1f2fe054951e7b9b2",
-        "source_locator": "record.constructions[0]",
-        "pattern": "wonder if/whether + clause",
-        "lines": [
-          {
-            "text": "想知道是否……",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:c9f1f2fe054951e7b9b2",
-          "target_locator": "record.constructions[0]",
-          "target_label": "wonder if/whether + clause"
-        }
-      },
       {
         "id": "construction:b3297d0de642614864e7",
         "source_locator": "record.constructions[1]",
@@ -2846,17 +2859,18 @@
     "ordinal": 5457,
     "word": "word",
     "source_owner_path": "content/lexical/words/by-ordinal/o5457.json",
-    "source_fingerprint": "e5fae2184652e7fa79557f5b512ce9697c6010c8236cdd3bb866dcc3b1ae19bb",
+    "source_fingerprint": "6b3a3410da67da7b679f60f73d4fcb30accd3110eab94abcbb773e722ee396ea",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "6N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "语言单位或简短话语",
-      "decision_cn": "",
+      "decision_cn": "语言单位或简短话语；作动词时看如何选择措辞，如word a request或be worded carefully。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2880,8 +2894,13 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "in other words",
             "meaning_cn": "换句话说",
-            "kind": "usage_example",
-            "repair": null
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8e94df0cd16314628c34",
+              "target_locator": "record.senses[0].collocations[0]",
+              "target_label": "in other words"
+            }
           },
           {
             "id": "collocation:1a9b86b4dcd002423312",
@@ -2975,7 +2994,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "（计算机）字",
-        "definition_en": "a string of bits stored in computer memory",
+        "definition_en": "a group of bits treated as one unit by a computer for storage or processing",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3019,6 +3038,32 @@
           "target_locator": "record.senses[5]",
           "target_label": "诺言；保证"
         }
+      },
+      {
+        "id": "sense:word:a9f00dc1c40fa27c",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "word sth; be worded carefully",
+        "definition_cn": "措辞；用特定词语表达",
+        "definition_en": "to express something using particular words",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:88de361b8640d294fe40",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "word a request carefully",
+            "meaning_cn": "仔细斟酌请求的措辞",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:word:a9f00dc1c40fa27c",
+          "target_locator": "record.senses[6]",
+          "target_label": "措辞；用特定词语表达"
+        }
       }
     ],
     "pronunciation_support": {
@@ -3056,23 +3101,6 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:e72c844ee9f9480b0d9c",
-        "source_locator": "record.constructions[0]",
-        "pattern": "in other words",
-        "lines": [
-          {
-            "text": "换句话说",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:e72c844ee9f9480b0d9c",
-          "target_locator": "record.constructions[0]",
-          "target_label": "in other words"
-        }
-      },
-      {
         "id": "construction:3b3a20de0ddfc6e5b3ae",
         "source_locator": "record.constructions[1]",
         "pattern": "by word of mouth / word of mouth",
@@ -3103,7 +3131,7 @@
     "ordinal": 5458,
     "word": "work",
     "source_owner_path": "content/lexical/words/by-ordinal/o5458.json",
-    "source_fingerprint": "289dd13e4dee7da02e11ba7bc6a6b2eaaacc819103c5d28cc343de56445738e3",
+    "source_fingerprint": "2bb75ba0b165a9cccfef4702ca54c12a76264d0738cb1b479acd05a809923243",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3130,7 +3158,7 @@
         "governing_pattern": "",
         "definition_cn": "工作；劳动",
         "definition_en": "activity involving mental or physical effort done to achieve a purpose",
-        "note": "",
+        "note": "表示工作或劳动活动时通常不可数；一份职位通常用a job，不用a work。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3212,7 +3240,7 @@
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "运转；起作用",
-        "definition_en": "to function or operate properly",
+        "definition_en": "to function or operate properly, or have the intended effect",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3256,9 +3284,18 @@
         "governing_pattern": "",
         "definition_cn": "作品；成果；著作",
         "definition_en": "a product, creation, or piece of work, especially artistic, literary, or intellectual",
-        "note": "",
+        "note": "指一件艺术、文学等作品时可数，可说a work或works。",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:59c55824d2e28a85225d",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "a work of art",
+            "meaning_cn": "一件艺术作品",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:work:c6bcc536e0275042",
@@ -3398,7 +3435,7 @@
           "target_word": "walk",
           "lines": [
             {
-              "text": "work 指工作；walk 指步行",
+              "text": "work 指工作；walk 指步行。两词不是同音词，不能把拼写相近当作发音相同。",
               "lang": "cn"
             }
           ],
@@ -3785,7 +3822,7 @@
     "ordinal": 5462,
     "word": "world",
     "source_owner_path": "content/lexical/words/by-ordinal/o5462.json",
-    "source_fingerprint": "9298105f98e2ca66b619eb868d1343531ed4aefaf3f979cd89b2f33295959f79",
+    "source_fingerprint": "f2fd17c1c5c3f492515190d347c931afec7828259d8814f81c63fe5cddb3aed0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3838,6 +3875,19 @@
               "target_id": "collocation:2988a62533f278fc041a",
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "in the world"
+            }
+          },
+          {
+            "id": "collocation:9a5e8b24cd4e4c704d89",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "the world over",
+            "meaning_cn": "全世界",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:9a5e8b24cd4e4c704d89",
+              "target_locator": "record.senses[0].collocations[2]",
+              "target_label": "the world over"
             }
           }
         ],
@@ -3896,21 +3946,7 @@
         "definition_en": "people in general",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:9a5e8b24cd4e4c704d89",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "the world over",
-            "meaning_cn": "全世界",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:9a5e8b24cd4e4c704d89",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "the world over"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:world:66cc2808d42b5fac",
@@ -4111,7 +4147,7 @@
     "ordinal": 5464,
     "word": "worm",
     "source_owner_path": "content/lexical/words/by-ordinal/o5464.json",
-    "source_fingerprint": "fadc4ea1cd52067b80752b3d790cdc3020053b4abd2052e0f5fef88440f66c0e",
+    "source_fingerprint": "f350fd65c9da70ae3c5970864144454b67cf3daf487c60349baade3fba9d96fa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4215,7 +4251,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "螺纹；蜗杆",
-        "definition_en": "a screw thread on a gear",
+        "definition_en": "a screw thread, or a rotating shaft with a helical thread that engages a toothed wheel or rack",
         "note": "Mechanical worm-gear sense.",
         "identity_overlay": null,
         "usage": [
@@ -4313,7 +4349,7 @@
     "ordinal": 5465,
     "word": "worry",
     "source_owner_path": "content/lexical/words/by-ordinal/o5465.json",
-    "source_fingerprint": "7875476835f7bb2294d3eb18902684d052d7cfbf724514e19a2d510a21297e40",
+    "source_fingerprint": "9ad0c1f30bbb2a9b14ccbf08a01b982591aea6395d68797859d4bee7a1a9b13d",
     "sense_lineage": [
       {
         "word_id": "word:worry",
@@ -4402,9 +4438,9 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "担心，忧虑",
-        "definition_en": "a strong feeling of anxiety",
-        "note": "",
+        "definition_cn": "担心；忧虑；令人担忧的事",
+        "definition_en": "a feeling of anxiety, or a problem or concern that causes it",
+        "note": "情绪可作不可数或可数名词；具体令人担忧的事情可数，如health worries。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4422,13 +4458,21 @@
             "meaning_cn": "忧虑的皱纹",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:c50ed480bc506d28652c",
+            "source_locator": "record.senses[2].collocations[2]",
+            "phrase": "health worries",
+            "meaning_cn": "健康方面的忧虑或问题",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:worry:53be001a5a305357",
           "target_locator": "record.senses[2]",
-          "target_label": "担心，忧虑"
+          "target_label": "担心；忧虑；令人担忧的事"
         }
       }
     ],
@@ -4485,23 +4529,6 @@
           "target_id": "construction:fadc1c5496919989f9fb",
           "target_locator": "record.constructions[1]",
           "target_label": "worry that + clause"
-        }
-      },
-      {
-        "id": "construction:8dcf0a34b0343ce74779",
-        "source_locator": "record.constructions[2]",
-        "pattern": "worry sb",
-        "lines": [
-          {
-            "text": "使某人担心/烦恼",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:8dcf0a34b0343ce74779",
-          "target_locator": "record.constructions[2]",
-          "target_label": "worry sb"
         }
       }
     ],
@@ -4710,7 +4737,7 @@
     "ordinal": 5467,
     "word": "worth",
     "source_owner_path": "content/lexical/words/by-ordinal/o5467.json",
-    "source_fingerprint": "445c69cf50a1ba8c0687d958d298118e4782e684290ea032cccc297ae143d69a",
+    "source_fingerprint": "59ac9bbe53b62b4673348cdc44845aa9f14effc5b4324f8b7530764d208c5cc4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4734,10 +4761,10 @@
         "id": "sense:worth:7cc12a7450315125",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "be worth + amount/noun/pronoun",
+        "governing_pattern": "",
         "definition_cn": "值...钱的",
         "definition_en": "having a particular value, especially in money",
-        "note": "",
+        "note": "worth作形容词用于be/seem等后，不放在名词前。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4776,7 +4803,7 @@
         "governing_pattern": "a. + doing",
         "definition_cn": "值得的",
         "definition_en": "deserving of something, such as time, effort, or attention",
-        "note": "",
+        "note": "worth后接V-ing，不用to do；The book is worth reading中书是被读的对象，主动形式可有被动理解。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4911,23 +4938,6 @@
           "target_locator": "record.constructions[0]",
           "target_label": "be worth + amount/noun/pronoun"
         }
-      },
-      {
-        "id": "construction:f07743c98be249b3b325",
-        "source_locator": "record.constructions[1]",
-        "pattern": "be worth + V-ing",
-        "lines": [
-          {
-            "text": "值得做……",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:f07743c98be249b3b325",
-          "target_locator": "record.constructions[1]",
-          "target_label": "be worth + V-ing"
-        }
       }
     ],
     "reference": {
@@ -4943,7 +4953,7 @@
     "ordinal": 5468,
     "word": "worthwhile",
     "source_owner_path": "content/lexical/words/by-ordinal/o5468.json",
-    "source_fingerprint": "683c3e4a822a28e5210f07bcfe08a818f4aca19a1dc79e04e3b325dd32c7edf0",
+    "source_fingerprint": "e4dfbbf18fbb57de33ed8f73db042fd6a250ef0dc2f3706c7fdb7a2659a655b2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5113,7 +5123,7 @@
       {
         "id": "construction:d3daadac9cf229ecce24",
         "source_locator": "record.constructions[0]",
-        "pattern": "it is worthwhile to do sth",
+        "pattern": "it is worthwhile + to-infinitive/V-ing",
         "lines": [
           {
             "text": "做某事是值得的",
@@ -5124,7 +5134,7 @@
           "target_kind": "construction",
           "target_id": "construction:d3daadac9cf229ecce24",
           "target_locator": "record.constructions[0]",
-          "target_label": "it is worthwhile to do sth"
+          "target_label": "it is worthwhile + to-infinitive/V-ing"
         }
       },
       {
@@ -5158,7 +5168,7 @@
     "ordinal": 5469,
     "word": "worthy",
     "source_owner_path": "content/lexical/words/by-ordinal/o5469.json",
-    "source_fingerprint": "5989e3cdea9ccffadab066f7caf9f6ad5a70d8faad8014c80ba7c8c701a0830b",
+    "source_fingerprint": "184946ccfc5f6165cfb0712211e9da859ebafcfa79f533b4f2af384fed622763",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5185,7 +5195,7 @@
         "governing_pattern": "a. + of",
         "definition_cn": "值得的；应得的",
         "definition_en": "deserving something, such as attention, respect, or praise",
-        "note": "",
+        "note": "较正式，常接of说明值得获得的注意、尊重等。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5221,7 +5231,7 @@
         "id": "sense:worthy:fbfe4c60587d5c05",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "usually before a noun: a worthy cause/person",
         "definition_cn": "有价值的；可敬的",
         "definition_en": "having worth or merit; honorable and admirable",
         "note": "",
@@ -5317,7 +5327,7 @@
     "ordinal": 5470,
     "word": "would",
     "source_owner_path": "content/lexical/words/by-ordinal/o5470.json",
-    "source_fingerprint": "3071907c5ce766ff7ba78df2dab84fc49775937280e9800553c5a045678ae391",
+    "source_fingerprint": "128e077c6a3aa1c0e2c519e24dc2d004e34597055f3f025a3d70376ec8e2ce4f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5327,7 +5337,7 @@
     },
     "word_feel": {
       "summary_cn": "将，愿意",
-      "decision_cn": "",
+      "decision_cn": "过去叙述中的将来、假设结果、过去反复动作及礼貌意愿按上下文区分；习惯would通常描述反复动作，不泛指过去状态；wouldn’t也可表示不肯。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5340,36 +5350,36 @@
         "id": "sense:would:f1495224cc8a5490",
         "source_locator": "record.senses[0]",
         "pos": "modal",
-        "governing_pattern": "",
-        "definition_cn": "would：用于假设/条件结果、过去反复习惯、礼貌愿望或偏好等",
-        "definition_en": "modal used for hypothetical or conditional results, repeated past habits, polite desires, and preferences; also traditionally the past form of will",
+        "governing_pattern": "would + base verb; would not/wouldn’t + base verb",
+        "definition_cn": "would：过去将来、假设或条件结果、过去反复动作、意愿或拒绝，以及礼貌愿望或偏好",
+        "definition_en": "a modal for future-in-the-past, hypothetical results, repeated past actions, willingness or refusal, and polite wishes or preferences",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:243fedfae88507304d1a",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "would like + to do",
-            "meaning_cn": "想要做某事",
+            "phrase": "would like + noun/to do",
+            "meaning_cn": "想要某物或做某事（礼貌）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:243fedfae88507304d1a",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "would like + to do"
+              "target_label": "would like + noun/to do"
             }
           },
           {
             "id": "collocation:975e6d332d9658798aa5",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "would rather + do",
-            "meaning_cn": "宁愿做某事",
+            "phrase": "would rather (not) do A (than do B)",
+            "meaning_cn": "宁愿（不）做A（而不做B）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:975e6d332d9658798aa5",
               "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "would rather + do"
+              "target_label": "would rather (not) do A (than do B)"
             }
           },
           {
@@ -5390,7 +5400,7 @@
           "target_kind": "sense",
           "target_id": "sense:would:f1495224cc8a5490",
           "target_locator": "record.senses[0]",
-          "target_label": "would：用于假设/条件结果、过去反复习惯、礼貌愿望或偏好等"
+          "target_label": "would：过去将来、假设或条件结果、过去反复动作、意愿或拒绝，以及礼貌愿望或偏好"
         }
       }
     ],
@@ -5521,37 +5531,24 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:e7ad8d69c13f8d5b1d64",
-        "source_locator": "record.constructions[0]",
-        "pattern": "would like + noun/to do",
+        "id": "construction:7c194054c77881e3149e",
+        "source_locator": "record.constructions[2]",
+        "pattern": "would rather + sb + past simple/past perfect",
         "lines": [
           {
-            "text": "想要……/想做……（礼貌）",
+            "text": "宁愿另一个人……；过去式常指现在或将来偏好，过去完成时指过去的反事实愿望",
             "lang": "cn"
+          },
+          {
+            "text": "a preference about another person: past simple for present or future, past perfect for an unreal past",
+            "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:e7ad8d69c13f8d5b1d64",
-          "target_locator": "record.constructions[0]",
-          "target_label": "would like + noun/to do"
-        }
-      },
-      {
-        "id": "construction:49d84045458324cfe6aa",
-        "source_locator": "record.constructions[1]",
-        "pattern": "would rather + base verb",
-        "lines": [
-          {
-            "text": "宁愿做……",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:49d84045458324cfe6aa",
-          "target_locator": "record.constructions[1]",
-          "target_label": "would rather + base verb"
+          "target_id": "construction:7c194054c77881e3149e",
+          "target_locator": "record.constructions[2]",
+          "target_label": "would rather + sb + past simple/past perfect"
         }
       }
     ],
@@ -6413,18 +6410,18 @@
     "ordinal": 5474,
     "word": "wrench",
     "source_owner_path": "content/lexical/words/by-ordinal/o5474.json",
-    "source_fingerprint": "2b8294fb81f01c116858be0aa3b552af8adca2fd6b50f33d9e2e5fb9adb8c9d7",
+    "source_fingerprint": "f3d760a9b0eab51d2d619c2b6b1cb41a5f257a932f07aec95fc60744b48e8eff",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "猛扭或扳手",
-      "decision_cn": "",
+      "decision_cn": "猛扭或扳手；离开亲近的人或地方时，a wrench指难舍的痛苦，不是工具或身体扭伤。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6575,6 +6572,32 @@
           "target_locator": "record.senses[3]",
           "target_label": "曲解；歪曲"
         }
+      },
+      {
+        "id": "sense:wrench:f686f4c0445da2e3",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "usually singular: a wrench to leave",
+        "definition_cn": "离别造成的痛苦；难舍之情",
+        "definition_en": "distress caused by leaving a person or place one loves",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:2159958fcc84afabf0bb",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "leaving home is a wrench",
+            "meaning_cn": "离家令人难舍",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:wrench:f686f4c0445da2e3",
+          "target_locator": "record.senses[4]",
+          "target_label": "离别造成的痛苦；难舍之情"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6612,12 +6635,12 @@
     "ordinal": 5475,
     "word": "wrinkle",
     "source_owner_path": "content/lexical/words/by-ordinal/o5475.json",
-    "source_fingerprint": "c5eeee674f10d0441b70a28d8dc3c1d94a8f387b72ebff80b7df1025e17305ed",
+    "source_fingerprint": "1a1e161787a950dc42d580687d3a8d7b670a05390b1bc508ab3425b9c7baede4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -6773,6 +6796,37 @@
           "target_id": "sense:wrinkle:ad69be97745c5997",
           "target_locator": "record.senses[3]",
           "target_label": "妙计；新方法"
+        }
+      },
+      {
+        "id": "sense:wrinkle:5239157f791ec081",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "小问题；小障碍",
+        "definition_en": "a minor problem or difficulty that needs to be resolved",
+        "note": "非正式；此处不是皮肤皱纹，也不是妙计或新方法。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:e6ea93a5d504fd7d2a79",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "iron out the wrinkles",
+            "meaning_cn": "解决细小问题",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:e6ea93a5d504fd7d2a79",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "iron out the wrinkles"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:wrinkle:5239157f791ec081",
+          "target_locator": "record.senses[4]",
+          "target_label": "小问题；小障碍"
         }
       }
     ],
@@ -6939,7 +6993,7 @@
     "ordinal": 5477,
     "word": "write",
     "source_owner_path": "content/lexical/words/by-ordinal/o5477.json",
-    "source_fingerprint": "726ef0ba776bd6f3226043c24705a404b44687f929a7397bd48d7069a18dabb3",
+    "source_fingerprint": "b191eecef3687515d9f9891c8b6d135c9983818ca726e07d42a22da11246ab89",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6962,7 +7016,7 @@
         "id": "sense:write:4fcddd4116f65ce4",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "write (sth); write in/on/with sth",
         "definition_cn": "写；书写",
         "definition_en": "to form letters, words, or symbols on a surface",
         "note": "",
@@ -7002,8 +7056,8 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "I/T: write a novel/article; write about sth",
-        "definition_cn": "写作；著述",
-        "definition_en": "to compose a literary work, such as a book or poem",
+        "definition_cn": "写作；著述；创作（文字、音乐或程序）",
+        "definition_en": "to produce a text, piece of music, or computer program in written form",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7033,17 +7087,17 @@
           "target_kind": "sense",
           "target_id": "sense:write:ef4e4a17a0ce5aa0",
           "target_locator": "record.senses[1]",
-          "target_label": "写作；著述"
+          "target_label": "写作；著述；创作（文字、音乐或程序）"
         }
       },
       {
         "id": "sense:write:6802bd6ce22657d4",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "write (to) sb; write sb a letter",
         "definition_cn": "写信给某人",
         "definition_en": "to communicate with someone by sending a letter or message",
-        "note": "",
+        "note": "直接write sb表示写信给某人主要用于北美英语；write to sb与write sb a letter均可用。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7172,7 +7226,7 @@
     "ordinal": 5478,
     "word": "writer",
     "source_owner_path": "content/lexical/words/by-ordinal/o5478.json",
-    "source_fingerprint": "7123dd71c4d7f52086fdba023b34d6f6e60d9aa990a6f1d9d9fd1e4a4a4fbe68",
+    "source_fingerprint": "70454653eee5f495795868fed5fbad3877be3daa58e1626a90ca97802013f278",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7197,7 +7251,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "作家，作者",
-        "definition_en": "a person who writes professionally, such as an author or journalist",
+        "definition_en": "a person who writes, especially professionally, or who wrote a particular text",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7276,12 +7330,12 @@
     "ordinal": 5479,
     "word": "wrong",
     "source_owner_path": "content/lexical/words/by-ordinal/o5479.json",
-    "source_fingerprint": "9e2fd7f3f0a9a9ba8ff93adfb6a08b3b6cfffa8f227258887c05ac9bc73b5bba",
+    "source_fingerprint": "d9b3e0231a8a75d46d229421dc00abeb01f53f5d5f9a9f1d0974267e7947cfc1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2A",
+        "3A",
         "1N",
         "1ADV"
       ],
@@ -7489,6 +7543,23 @@
           "target_locator": "record.senses[4]",
           "target_label": "冤枉；不公正地对待"
         }
+      },
+      {
+        "id": "sense:wrong:bbb8a4d730662637",
+        "source_locator": "record.senses[5]",
+        "pos": "adjective",
+        "governing_pattern": "something is wrong with sb/sth; what is wrong?",
+        "definition_cn": "有毛病的；不正常的；不对劲的",
+        "definition_en": "not functioning correctly or not as it should be",
+        "note": "看人或事物是否出了问题，可指故障、不适或烦恼，不等同于事实错误或道德不当。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:wrong:bbb8a4d730662637",
+          "target_locator": "record.senses[5]",
+          "target_label": "有毛病的；不正常的；不对劲的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7524,25 +7595,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:287d723ec718fd275e06",
-        "source_locator": "record.constructions[0]",
-        "pattern": "it is wrong to do sth",
-        "lines": [
-          {
-            "text": "做某事是不对的/错误的",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:287d723ec718fd275e06",
-          "target_locator": "record.constructions[0]",
-          "target_label": "it is wrong to do sth"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8051,7 +8104,7 @@
     "ordinal": 5483,
     "word": "yearly",
     "source_owner_path": "content/lexical/words/by-ordinal/o5483.json",
-    "source_fingerprint": "ceb732842bd9004e7ecb84e007e341de93ae7fa205ac10fba9ea489521751490",
+    "source_fingerprint": "f245f75e96f202e71d1970310b88dbdcabda2398737165a2b4455b10db3a8755",
     "sense_lineage": [
       {
         "word_id": "word:yearly",
@@ -8069,13 +8122,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "每年的，一年一度的；每年，一年一次",
+      "summary_cn": "每年的；一年一度的；按一年计算或适用一年的；每年，一年一次",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "每年的，一年一度的；每年，一年一次"
+        "target_label": "每年的；一年一度的；按一年计算或适用一年的；每年，一年一次"
       }
     },
     "senses": [
@@ -8084,9 +8137,9 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "每年的，一年一度的",
-        "definition_en": "occurring or payable every year",
-        "note": "",
+        "definition_cn": "每年的；一年一度的；按一年计算或适用一年的",
+        "definition_en": "occurring every year, or paid, calculated, or valid for one year",
+        "note": "yearly income指一年的收入总额，不说明工资必须一年只支付一次。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8102,7 +8155,7 @@
           "target_kind": "sense",
           "target_id": "sense:yearly:0f56ecee188751cc",
           "target_locator": "record.senses[0]",
-          "target_label": "每年的，一年一度的"
+          "target_label": "每年的；一年一度的；按一年计算或适用一年的"
         }
       },
       {
@@ -8230,7 +8283,7 @@
     "ordinal": 5484,
     "word": "yell",
     "source_owner_path": "content/lexical/words/by-ordinal/o5484.json",
-    "source_fingerprint": "fbe4776955a9214b00b82569bab568ec610adfd316386fb481f19287f64370dd",
+    "source_fingerprint": "341264ee7c05c7ab689c2e33d3f82805bd79016770928da92b039b5a17415b77",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8395,11 +8448,11 @@
           "target_word": "shout",
           "lines": [
             {
-              "text": "均可指大声喊；yell更含情绪或用力",
+              "text": "此处两端均为名词“喊声”；yell与shout都可因痛苦、兴奋等发出，不能仅按有无情绪或固定强弱选词。",
               "lang": "cn"
             },
             {
-              "text": "utter a sudden loud cry",
+              "text": "a loud call or cry",
               "lang": "en"
             }
           ],
@@ -8577,7 +8630,7 @@
     "ordinal": 5486,
     "word": "yes",
     "source_owner_path": "content/lexical/words/by-ordinal/o5486.json",
-    "source_fingerprint": "1bf6fa70a5794cf54f5f7caa359f0b698e433616d474cd36e73d7f6bf94edc2c",
+    "source_fingerprint": "72f21aaa32972e242fc05c7a440186e7f1f115b870f459608ac6d7e22a2cbe3e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8637,8 +8690,8 @@
           {
             "id": "collocation:3419169b4b5bc64938d7",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "answer yes",
-            "meaning_cn": "回答是",
+            "phrase": "a clear yes",
+            "meaning_cn": "明确的肯定答复",
             "kind": "usage_example",
             "repair": null
           }
@@ -8654,10 +8707,10 @@
         "id": "sense:yes:d6889fbcd6ba5d90",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
+        "governing_pattern": "yes (to sb/sth); yes sb/sth",
         "definition_cn": "同意，赞成",
         "definition_en": "to agree or consent",
-        "note": "",
+        "note": "词典记录的独立verb，过去式yessed、分词yessing；普通表达同意常用say yes (to...)。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8727,7 +8780,7 @@
     "ordinal": 5487,
     "word": "yesterday",
     "source_owner_path": "content/lexical/words/by-ordinal/o5487.json",
-    "source_fingerprint": "ef4e6dbf741177ed5f699a1df74fdd12044ff3c322b6b1ec80319b993063ad10",
+    "source_fingerprint": "d759b136721ef599614a1521569608c91e24c8fca2b0596a30f82d6b8b06b2fc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8826,6 +8879,19 @@
               "target_locator": "record.senses[2].collocations[0]",
               "target_label": "the fashions of yesterday"
             }
+          },
+          {
+            "id": "collocation:03b3aa5666af447aac69",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "yesterday's news",
+            "meaning_cn": "旧闻",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:03b3aa5666af447aac69",
+              "target_locator": "record.senses[2].collocations[1]",
+              "target_label": "yesterday's news"
+            }
           }
         ],
         "repair": {
@@ -8844,21 +8910,7 @@
         "definition_en": "in the recent past; only a short time ago",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:03b3aa5666af447aac69",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "yesterday's news",
-            "meaning_cn": "旧闻",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:03b3aa5666af447aac69",
-              "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "yesterday's news"
-            }
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:yesterday:4cb58478a8f75503",
@@ -8940,7 +8992,7 @@
     "ordinal": 5488,
     "word": "yet",
     "source_owner_path": "content/lexical/words/by-ordinal/o5488.json",
-    "source_fingerprint": "da7497315963072c0dfb8f5bd7e68540285060fad8579973a8ee2ae846ba2602",
+    "source_fingerprint": "1f9791393e22eddb56a472ff6da3e7784379fc91b76dc1646d32d15905e56640",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8950,13 +9002,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "到目前为止；还，尚；然而，但是；在某个不确定的时间；迟早；又一个；更多；更进一步（yet another/more/further）",
+      "summary_cn": "直到现在或当时；还，尚；然而，但是；在将来某时；最终；终会；又一个；更多；更进一步（yet another/more/further）",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "到目前为止；还，尚；然而，但是；在某个不确定的时间；迟早；又一个；更多；更进一步（yet another/more/further）"
+        "target_label": "直到现在或当时；还，尚；然而，但是；在将来某时；最终；终会；又一个；更多；更进一步（yet another/more/further）"
       }
     },
     "senses": [
@@ -8965,8 +9017,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adverb",
         "governing_pattern": "",
-        "definition_cn": "到目前为止；还，尚",
-        "definition_en": "up to the present time",
+        "definition_cn": "直到现在或当时；还，尚",
+        "definition_en": "up to the present time or a specified time in the past",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9001,7 +9053,7 @@
           "target_kind": "sense",
           "target_id": "sense:yet:8a9080ca0be256cd",
           "target_locator": "record.senses[0]",
-          "target_label": "到目前为止；还，尚"
+          "target_label": "直到现在或当时；还，尚"
         }
       },
       {
@@ -9034,10 +9086,10 @@
         "id": "sense:yet:dbf52cceadd45dd6",
         "source_locator": "record.senses[2]",
         "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "在某个不确定的时间；迟早",
-        "definition_en": "within an indefinite time or at an unspecified future time",
-        "note": "",
+        "governing_pattern": "e.g. may/could/might/will yet + base verb (illustrative, not exhaustive)",
+        "definition_cn": "在将来某时；最终；终会",
+        "definition_en": "at some future time; eventually",
+        "note": "may/could/might yet表示仍有可能，不保证必然；will yet等可表达预测或信心。yet保留将来某时或最终的意义，具体确定程度由情态动词和上下文决定。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9053,7 +9105,7 @@
           "target_kind": "sense",
           "target_id": "sense:yet:dbf52cceadd45dd6",
           "target_locator": "record.senses[2]",
-          "target_label": "在某个不确定的时间；迟早"
+          "target_label": "在将来某时；最终；终会"
         }
       },
       {
@@ -9112,6 +9164,27 @@
           "target_locator": "record.constructions[0]",
           "target_label": "yet another / yet more / yet further"
         }
+      },
+      {
+        "id": "construction:c3a2e76114cf111134a3",
+        "source_locator": "record.constructions[1]",
+        "pattern": "have/be yet to + base verb",
+        "lines": [
+          {
+            "text": "尚未做某事（较正式）",
+            "lang": "cn"
+          },
+          {
+            "text": "something has not happened up to the relevant time",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c3a2e76114cf111134a3",
+          "target_locator": "record.constructions[1]",
+          "target_label": "have/be yet to + base verb"
+        }
       }
     ],
     "reference": {
@@ -9127,12 +9200,12 @@
     "ordinal": 5489,
     "word": "yield",
     "source_owner_path": "content/lexical/words/by-ordinal/o5489.json",
-    "source_fingerprint": "7dcb214d91c2a307e3f7669ce1b04b4a271fdecaaa3a10943605b518171b34b4",
+    "source_fingerprint": "c7184ce2294a56c16dc8d7bbf8129d6399fdbdfdf894a3484f71976bcfeda171",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "(1+1)N"
+        "1N"
       ],
       "density": "rich"
     },
@@ -9185,9 +9258,9 @@
         "id": "sense:yield:3e708267e48e5750",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + to",
-        "definition_cn": "屈服，让步",
-        "definition_en": "to give way under pressure or influence; surrender",
+        "governing_pattern": "yield (to sb/sth); yield sth (to sb)",
+        "definition_cn": "屈服；让步；让出（控制权等）",
+        "definition_en": "to give way under pressure or influence, or give up possession or control of something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9211,13 +9284,21 @@
             "meaning_cn": "屈服于诱惑",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:1a0885568524a2676e6b",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "yield control",
+            "meaning_cn": "让出控制权",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:yield:3e708267e48e5750",
           "target_locator": "record.senses[1]",
-          "target_label": "屈服，让步"
+          "target_label": "屈服；让步；让出（控制权等）"
         }
       },
       {
@@ -9272,22 +9353,7 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:yield:5da415c85e70f863",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "noun",
-        "definition_cn": "产量；收益",
-        "definition_en": "the amount of a product produced",
-        "pattern": "crop yield 农作物产量",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:yield:5da415c85e70f863",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "产量；收益"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -9302,17 +9368,17 @@
     "ordinal": 5490,
     "word": "you",
     "source_owner_path": "content/lexical/words/by-ordinal/o5490.json",
-    "source_fingerprint": "512d68461d0045397b8d8b6a87f2ef6c3df18f82f917d027cc9a6ff33545ce69",
+    "source_fingerprint": "fa73d252a1a48ffae27964140b6a0ad6f909385ca35f20cc800166cf86df7b6b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1PRON"
+        "2PRON"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "第二人称代词",
-      "decision_cn": "",
+      "decision_cn": "第二人称代词；对话可指听话者，一般规则或经验中的you也可泛指任何人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9353,6 +9419,32 @@
           "target_id": "sense:you:2896107859fd50e4",
           "target_locator": "record.senses[0]",
           "target_label": "你；你们"
+        }
+      },
+      {
+        "id": "sense:you:24eccf4f36cbe6b5",
+        "source_locator": "record.senses[1]",
+        "pos": "pronoun",
+        "governing_pattern": "",
+        "definition_cn": "泛指任何人；人们",
+        "definition_en": "used to refer to people in general rather than only the person addressed",
+        "note": "泛指规则、经验或一般情况时，不必专指听话者。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:a67b5a7c7e19dae28c9c",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "You need a ticket to enter.",
+            "meaning_cn": "入场需要票（一般规则，并非只针对听话者）。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:you:24eccf4f36cbe6b5",
+          "target_locator": "record.senses[1]",
+          "target_label": "泛指任何人；人们"
         }
       }
     ],
@@ -9641,7 +9733,7 @@
     "ordinal": 5493,
     "word": "your",
     "source_owner_path": "content/lexical/words/by-ordinal/o5493.json",
-    "source_fingerprint": "4ec4279c05e947d60381d001e6a99ee85c216af1cd45476f89d729bcbc316e95",
+    "source_fingerprint": "c06d341e3e35e982786280d189f6885aeabaeafc9e23dba4621bd1e7bf2c0f05",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9665,9 +9757,9 @@
         "source_locator": "record.senses[0]",
         "pos": "determiner",
         "governing_pattern": "",
-        "definition_cn": "你的；你们的（物主限定词）",
-        "definition_en": "possessive determiner: belonging to or associated with the person or people being addressed",
-        "note": "",
+        "definition_cn": "你的；你们的；泛指人的（物主限定词）",
+        "definition_en": "possessive determiner: belonging to or associated with the person addressed, or with people in general",
+        "note": "your + noun既可指听话者，也可在一般规则中泛指人的，如your health；独立物主代词仍用yours。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9683,7 +9775,7 @@
           "target_kind": "sense",
           "target_id": "sense:your:42e27e8b8895544f",
           "target_locator": "record.senses[0]",
-          "target_label": "你的；你们的（物主限定词）"
+          "target_label": "你的；你们的；泛指人的（物主限定词）"
         }
       }
     ],
@@ -10099,7 +10191,7 @@
     "ordinal": 5494,
     "word": "yourself",
     "source_owner_path": "content/lexical/words/by-ordinal/o5494.json",
-    "source_fingerprint": "c0711352882849d18c391fa04ec1d93874ada584889626a7138a89050bb236a7",
+    "source_fingerprint": "7f3a9b46b9c73000eb0effa4c2f50abaf65f8676247f555f5661963fe72dbc2a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10125,7 +10217,7 @@
         "governing_pattern": "",
         "definition_cn": "你自己（用于强调或作宾语）",
         "definition_en": "used to refer to the person being spoken to, as the object of a verb or preposition, or for emphasis",
-        "note": "",
+        "note": "典型反身用法中，宾语与主语you指同一人，如You hurt yourself；强调用法突出亲自。一般宾语you不能无条件改成yourself；泛指you时也可有相应反身用法。",
         "identity_overlay": null,
         "usage": [
           {
@@ -10144,10 +10236,15 @@
           {
             "id": "collocation:fbab8bfb877c5c651c10",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "help yourself",
-            "meaning_cn": "请自便；随便吃",
-            "kind": "usage_example",
-            "repair": null
+            "phrase": "help yourself (to sth)",
+            "meaning_cn": "自己取用某物；请自便",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:fbab8bfb877c5c651c10",
+              "target_locator": "record.senses[0].collocations[1]",
+              "target_label": "help yourself (to sth)"
+            }
           }
         ],
         "repair": {
@@ -10890,11 +10987,11 @@
     "ordinal": 5498,
     "word": "zip",
     "source_owner_path": "content/lexical/words/by-ordinal/o5498.json",
-    "source_fingerprint": "95029b64fd18a416a4221c8dc66647b9f25a8c37919e9b402b520f685b5b9560",
+    "source_fingerprint": "0a6aab6bbb162c1b8820b2ed43ef33c089b1a549d33c154f3ac0c908bfc8308b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "5N"
       ],
       "density": "rich"
@@ -10953,7 +11050,7 @@
         "id": "sense:zip:c215e5bb79af5829",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "zip sth (up); the bag/dress zips (up)",
         "definition_cn": "拉上拉链",
         "definition_en": "close with a zipper",
         "note": "",
@@ -11050,16 +11147,16 @@
         "source_locator": "record.senses[5]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "零；无",
-        "definition_en": "a quantity of no importance; zero",
-        "note": "Informal/regional zero/nothing use.",
+        "definition_cn": "零；什么也没有",
+        "definition_en": "nothing; zero",
+        "note": "美国非正式用法，表示没有或零，不作数学术语。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:ad14e19d784e351ca6f5",
             "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "zip in math",
-            "meaning_cn": "数学中的零",
+            "phrase": "know zip about sth",
+            "meaning_cn": "对某事一无所知",
             "kind": "usage_example",
             "repair": null
           }
@@ -11068,7 +11165,7 @@
           "target_kind": "sense",
           "target_id": "sense:zip:8f581243255f5dd2",
           "target_locator": "record.senses[5]",
-          "target_label": "零；无"
+          "target_label": "零；什么也没有"
         }
       },
       {
@@ -11086,6 +11183,23 @@
           "target_id": "sense:zip:c9a9e92595813a51",
           "target_locator": "record.senses[6]",
           "target_label": "ZIP/zip 压缩档案；.zip 文件"
+        }
+      },
+      {
+        "id": "sense:zip:89257e900016146b",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "zip files",
+        "definition_cn": "压缩计算机文件",
+        "definition_en": "to compress computer files for storage or transfer",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:zip:89257e900016146b",
+          "target_locator": "record.senses[7]",
+          "target_label": "压缩计算机文件"
         }
       }
     ],

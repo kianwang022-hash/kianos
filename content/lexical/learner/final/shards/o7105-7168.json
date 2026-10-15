@@ -5,7 +5,7 @@
     "ordinal": 7105,
     "word": "levity",
     "source_owner_path": "content/lexical/words/by-ordinal/o7105.json",
-    "source_fingerprint": "4cd32b2b5f7a764e3b353a64dcb503849003bb2ab4c7971c6eff73118b29529f",
+    "source_fingerprint": "bdefdfc0898266121f45fc8845ed8ccce655e28096aa3aecbfc76f8a1b4d419c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -14,13 +14,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "轻率, 轻浮, 不稳定",
+      "summary_cn": "轻松不严肃的态度或言行，尤指不合时宜的轻浮",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "轻率, 轻浮, 不稳定"
+        "target_label": "轻松不严肃的态度或言行，尤指不合时宜的轻浮"
       }
     },
     "senses": [
@@ -29,7 +29,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "轻率, 轻浮, 不稳定",
+        "definition_cn": "轻浮；不严肃的态度或举止",
         "definition_en": "feeling an inappropriate lack of seriousness",
         "note": "",
         "identity_overlay": null,
@@ -38,7 +38,7 @@
           "target_kind": "sense",
           "target_id": "sense:levity:342ab2ec837c5e06",
           "target_locator": "record.senses[0]",
-          "target_label": "轻率, 轻浮, 不稳定"
+          "target_label": "轻浮；不严肃的态度或举止"
         }
       },
       {
@@ -46,7 +46,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "轻率, 轻浮, 不稳定",
+        "definition_cn": "轻浮；不严肃的态度或举止",
         "definition_en": "a manner lacking seriousness",
         "note": "",
         "identity_overlay": null,
@@ -55,7 +55,7 @@
           "target_kind": "sense",
           "target_id": "sense:levity:85c1f36c3361512c",
           "target_locator": "record.senses[1]",
-          "target_label": "轻率, 轻浮, 不稳定"
+          "target_label": "轻浮；不严肃的态度或举止"
         }
       }
     ],
@@ -85,7 +85,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "（另义）轻浮易变；反复无常",
+          "definition_en": "fickleness or instability of disposition",
+          "sense_label_en": "fickleness or instability of disposition",
+          "pos": "noun",
+          "level": "L2",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/levity",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "stable_sense_id": "sense:levity:0d27e247d442fa9b",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "保留原混合中文中的独立语义；不用于默认 Recall。"
+        }
+      ]
     }
   },
   {
@@ -94,7 +120,7 @@
     "ordinal": 7106,
     "word": "liaison",
     "source_owner_path": "content/lexical/words/by-ordinal/o7106.json",
-    "source_fingerprint": "9cbec7ded4ce6374cfd6c8a571dff56444afd9bd6404a4bbb2f7d1f28d34f9d6",
+    "source_fingerprint": "98af4c37c74e9fbc6ff08daa4ed78848b4eaeea24ac1c01eed6d20f74380d919",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -103,13 +129,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "联络；沟通合作关系；联络员；负责沟通协调的人；恋情；私情；常指较隐秘的男女关系",
-      "decision_cn": "",
+      "summary_cn": "建立沟通联系：机构间联络、联络人；也指私情",
+      "decision_cn": "机构或团队语境看沟通协调；sexual/romantic liaison 转为私情。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "联络；沟通合作关系；联络员；负责沟通协调的人；恋情；私情；常指较隐秘的男女关系"
+        "target_label": "建立沟通联系：机构间联络、联络人；也指私情"
       }
     },
     "senses": [
@@ -224,7 +250,30 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:29ce9e7f804d3ef4dfba",
+        "sense_id": "sense:liaison:1ca3ed903bb751c7",
+        "source_locator": "record.constructions[0]",
+        "pattern": "in liaison with sb/sth",
+        "lines": [
+          {
+            "text": "与某人或机构联络合作",
+            "lang": "cn"
+          },
+          {
+            "text": "in communication and cooperation with a person or organization",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:29ce9e7f804d3ef4dfba",
+          "target_locator": "record.constructions[0]",
+          "target_label": "in liaison with sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -528,7 +577,7 @@
     "ordinal": 7110,
     "word": "lithe",
     "source_owner_path": "content/lexical/words/by-ordinal/o7110.json",
-    "source_fingerprint": "eca8d91f7f7ea5bc055a6bd553fcb1b16380313608dcd4cf542ba4fc78d4c5ac",
+    "source_fingerprint": "56e90a0d08bf58a8cbafde7d83af1be11e94f760192fb7ee04d9552aed875c2b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -537,13 +586,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "柔软的",
+      "summary_cn": "柔韧易弯；尤指身体或动作轻盈灵活",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "柔软的"
+        "target_label": "柔韧易弯；尤指身体或动作轻盈灵活"
       }
     },
     "senses": [
@@ -552,7 +601,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "柔软的",
+        "definition_cn": "柔韧易弯的；（尤指身体或动作）轻盈灵活的",
         "definition_en": "moving and bending with ease",
         "note": "",
         "identity_overlay": null,
@@ -561,7 +610,7 @@
           "target_kind": "sense",
           "target_id": "sense:lithe:23031785ae0d560a",
           "target_locator": "record.senses[0]",
-          "target_label": "柔软的"
+          "target_label": "柔韧易弯的；（尤指身体或动作）轻盈灵活的"
         }
       }
     ],
@@ -1330,7 +1379,7 @@
     "ordinal": 7118,
     "word": "lug",
     "source_owner_path": "content/lexical/words/by-ordinal/o7118.json",
-    "source_fingerprint": "fca551bc00d3515820d51b325e633593dbf45711142b55335a5f40647e8484da",
+    "source_fingerprint": "801f30e90a9970f8b06c1b098a871d25b41f884afab83206d2912ca191bb4abe",
     "sense_lineage": [
       {
         "word_id": "word:lug",
@@ -1426,7 +1475,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "noun",
-          "definition_cn": "一拖, 一拉, 耳朵, 耳状物, 装腔作势, 勒索",
+          "definition_cn": "卢格（Lug）；古代凯尔特／爱尔兰神祇",
           "definition_en": "ancient Celtic god",
           "semantic_key": "06e54ebe64e451ba31312c366b5fdc58ad1f7a3c0815b72f0be03e15baaf432a",
           "semantic_key_history": [],
@@ -1435,7 +1484,24 @@
           "updated_at": "2026-09-14T00:00:00Z",
           "source_row": 18284,
           "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:lug:06ca4538dac05aed",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "noun",
+            "definition_cn": "一拖, 一拉, 耳朵, 耳状物, 装腔作势, 勒索",
+            "definition_en": "ancient Celtic god",
+            "semantic_key": "06e54ebe64e451ba31312c366b5fdc58ad1f7a3c0815b72f0be03e15baaf432a",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-14T00:00:00Z",
+            "source_row": 18284,
+            "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
+            "reference_only": true
+          },
+          "usage_note": "专名 Lug；原错误混合释义完整留在 historical_reference_record，deprecated 身份不变。"
         }
       ]
     }
@@ -1446,7 +1512,7 @@
     "ordinal": 7119,
     "word": "lull",
     "source_owner_path": "content/lexical/words/by-ordinal/o7119.json",
-    "source_fingerprint": "fbd9f632290d9b128a1758397da58822588375c0ad8df50afdce57b23e468b0b",
+    "source_fingerprint": "a90fce37e9a7dd46862d56f994cbb19b5908c075bb1b965d038bd0c69f0a9fe0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1456,13 +1522,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使平静；变得安静；缓和；暂停, 间歇, 稍息, 使人安静的东西；使放松警惕；使产生安全感；暂时的平静期；间歇；活动减少期",
-      "decision_cn": "",
+      "summary_cn": "让强度暂时减弱：平静、间歇；也可使人放松警惕",
+      "decision_cn": "a lull in 表活动暂歇；lull sb to sleep 是安抚入睡，lull sb into... 可指放松警惕。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使平静；变得安静；缓和；暂停, 间歇, 稍息, 使人安静的东西；使放松警惕；使产生安全感；暂时的平静期；间歇；活动减少期"
+        "target_label": "让强度暂时减弱：平静、间歇；也可使人放松警惕"
       }
     },
     "senses": [
@@ -1600,13 +1666,61 @@
           "target_locator": "record.constructions[1]",
           "target_label": "lull sb into a false sense of security"
         }
+      },
+      {
+        "id": "construction:903b4a1b495f7c63b20b",
+        "sense_id": "sense:lull:da952dafd1995dd4",
+        "source_locator": "record.constructions[2]",
+        "pattern": "lull sb to sleep",
+        "lines": [
+          {
+            "text": "轻柔地安抚某人入睡",
+            "lang": "cn"
+          },
+          {
+            "text": "soothe someone until they fall asleep",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:903b4a1b495f7c63b20b",
+          "target_locator": "record.constructions[2]",
+          "target_label": "lull sb to sleep"
+        }
       }
     ],
     "reference": {
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "令人安静的声音；安抚性的声音",
+          "definition_en": "a soothing sound",
+          "sense_label_en": "a soothing sound",
+          "pos": "noun",
+          "level": "L2",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/lull",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "stable_sense_id": "sense:lull:fce0c6024139431a",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "保留原 Core 安抚性事物所能核实的声音义，非默认 Recall。"
+        }
+      ]
     }
   },
   {
@@ -1615,7 +1729,7 @@
     "ordinal": 7120,
     "word": "lunge",
     "source_owner_path": "content/lexical/words/by-ordinal/o7120.json",
-    "source_fingerprint": "16f8364c1a3bead8ac70b8d5b5c5abc7d8df872accca2744cfdb01f04587f9de",
+    "source_fingerprint": "55765560e1ba3faf29f426d2213a69d7323a860f26f0cee3d06c724e5100a9fa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1625,13 +1739,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "猛冲；猛扑；突然向前伸；刺, 刺进, 跃进, 套马索；猛冲；向前猛扑或伸展；弓步；弓步训练动作",
-      "decision_cn": "",
+      "summary_cn": "突然向前猛冲或伸出；击剑和健身中指弓步动作",
+      "decision_cn": "普通动作看突然向前；击剑语境为弓步刺，健身语境为弓步练习。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "猛冲；猛扑；突然向前伸；刺, 刺进, 跃进, 套马索；猛冲；向前猛扑或伸展；弓步；弓步训练动作"
+        "target_label": "突然向前猛冲或伸出；击剑和健身中指弓步动作"
       }
     },
     "senses": [
@@ -1639,7 +1753,7 @@
         "id": "sense:lunge:2cd92012a2ce53c2",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "lunge at/for sb/sth; lunge forward",
         "definition_cn": "猛冲；猛扑；突然向前伸",
         "definition_en": "to make a sudden forceful movement or thrust forward",
         "note": "",
@@ -1730,7 +1844,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "（马术）调教或训练马匹用的长绳",
+          "definition_en": "a long line used to exercise or train a horse",
+          "sense_label_en": "a long line used to exercise or train a horse",
+          "pos": "noun",
+          "level": "L2",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/lunge",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "stable_sense_id": "sense:lunge:e60c546704ead226",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "保留原 Core 套马索所指的马术义，校准为训练长绳；不进入默认 Recall。"
+        }
+      ]
     }
   },
   {
@@ -1739,7 +1879,7 @@
     "ordinal": 7121,
     "word": "lurch",
     "source_owner_path": "content/lexical/words/by-ordinal/o7121.json",
-    "source_fingerprint": "e80e13446aba7f17c3c09d1887640c3bd500bfd94e75caa76e73a61a0d9d048c",
+    "source_fingerprint": "522d99f536fc07ce55805a4178fa7f1525b9b90454f34df9e609b2b5bbc40cf0",
     "sense_lineage": [
       {
         "word_id": "word:lurch",
@@ -1751,19 +1891,19 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "惨败, 倾斜, 挫折, 举步蹒跚, 徘徊；突然的踉跄、猛冲或摇晃；突然踉跄、猛冲或摇晃移动；（比喻）突然的变化、动荡或陷入危机",
-      "decision_cn": "",
+      "summary_cn": "突然失稳地晃动或转向；也指局势动荡转变",
+      "decision_cn": "身体、船车看晃动；局势或政策可突然转变；leave sb in the lurch 是在困难时弃人不顾。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "惨败, 倾斜, 挫折, 举步蹒跚, 徘徊；突然的踉跄、猛冲或摇晃；突然踉跄、猛冲或摇晃移动；（比喻）突然的变化、动荡或陷入危机"
+        "target_label": "突然失稳地晃动或转向；也指局势动荡转变"
       }
     },
     "senses": [
@@ -1851,6 +1991,23 @@
           "target_locator": "record.senses[4]",
           "target_label": "（比喻）突然转变；陷入危机/困难"
         }
+      },
+      {
+        "id": "sense:lurch:17956f227638c45e",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "lurch from sth to sth; lurch between A and B",
+        "definition_cn": "（局势、行动或态度）突然且失控地转变",
+        "definition_en": "to shift abruptly and without control between courses of action or situations",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:lurch:17956f227638c45e",
+          "target_locator": "record.senses[5]",
+          "target_label": "（局势、行动或态度）突然且失控地转变"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1886,7 +2043,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:db66652e1d614b2f6cb1",
+        "source_locator": "record.constructions[0]",
+        "pattern": "leave sb in the lurch",
+        "lines": [
+          {
+            "text": "在某人处境困难、需要帮助时弃之不顾",
+            "lang": "cn"
+          },
+          {
+            "text": "abandon someone when they are in difficulty and need help",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:db66652e1d614b2f6cb1",
+          "target_locator": "record.constructions[0]",
+          "target_label": "leave sb in the lurch"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1898,7 +2077,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "noun",
-          "definition_cn": "惨败, 倾斜, 挫折, 举步蹒跚, 徘徊",
+          "definition_cn": "（旧时牌戏，尤指克里比奇牌戏）以悬殊分差惨败",
           "definition_en": "a decisive defeat in a game (especially in cribbage)",
           "semantic_key": "215d922eafc094fa43ce8098455fff4e76a373d6ca031b61472f922e1f4ebe2e",
           "semantic_key_history": [],
@@ -1907,7 +2086,48 @@
           "updated_at": "2026-09-14T00:00:00Z",
           "source_row": 18294,
           "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:lurch:fcfac99df1c9569d",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "noun",
+            "definition_cn": "惨败, 倾斜, 挫折, 举步蹒跚, 徘徊",
+            "definition_en": "a decisive defeat in a game (especially in cribbage)",
+            "semantic_key": "215d922eafc094fa43ce8098455fff4e76a373d6ca031b61472f922e1f4ebe2e",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-14T00:00:00Z",
+            "source_row": 18294,
+            "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
+            "reference_only": true
+          },
+          "usage_note": "历史牌戏义，不是一般徘徊或摇晃；原记录完整保留，deprecated 不变。"
+        },
+        {
+          "definition_cn": "（古旧或方言）鬼祟徘徊；潜行窥伺",
+          "definition_en": "to prowl or move about furtively",
+          "sense_label_en": "to prowl or move about furtively",
+          "pos": "verb",
+          "level": "L2",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/lurch",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "stable_sense_id": "sense:lurch:88de1ad2cc3caa33",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "旧 Core 徘徊相关的历史义留作 Reference，不与现代突然晃动混读。"
         }
       ]
     }
@@ -2019,7 +2239,7 @@
     "ordinal": 7123,
     "word": "luster",
     "source_owner_path": "content/lexical/words/by-ordinal/o7123.json",
-    "source_fingerprint": "f27394a2639f6d64d7056038664e2dd05291e1eb701e77db52d487dbc3d53b5b",
+    "source_fingerprint": "73f9703e7a51593318252fb28fc5fb93f914c47e003f3a946695a733caa30a00",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2112,12 +2332,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -2298,7 +2514,7 @@
     "ordinal": 7126,
     "word": "luxuriant",
     "source_owner_path": "content/lexical/words/by-ordinal/o7126.json",
-    "source_fingerprint": "063ff9102c9d1d2ca1c78babf7533274888873486abc8a9be837868d46400ec8",
+    "source_fingerprint": "b3d83dee4e8d4e1a3c9c617497e6b3487718bb6e8851ade74f833a82e413b306",
     "sense_lineage": [
       {
         "word_id": "word:luxuriant",
@@ -2431,7 +2647,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "adjective",
-          "definition_cn": "繁茂的, 丰富的, 肥沃的, 华丽的",
+          "definition_cn": "奢华的；给感官带来享受的",
           "definition_en": "displaying luxury and furnishing gratification to the senses",
           "semantic_key": "7de7adb03b5fe4e2e156d7a186e8a3ebbd66df5dd58ecc2ce5124af920c8c0ff",
           "semantic_key_history": [],
@@ -2440,7 +2656,24 @@
           "updated_at": "2026-09-14T00:00:00Z",
           "source_row": 18303,
           "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:luxuriant:d017b7adad59546d",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "adjective",
+            "definition_cn": "繁茂的, 丰富的, 肥沃的, 华丽的",
+            "definition_en": "displaying luxury and furnishing gratification to the senses",
+            "semantic_key": "7de7adb03b5fe4e2e156d7a186e8a3ebbd66df5dd58ecc2ce5124af920c8c0ff",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-14T00:00:00Z",
+            "source_row": 18303,
+            "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
+            "reference_only": true
+          },
+          "usage_note": "保留有词典依据的 luxury 义；原混合繁茂／肥沃等译文完整内嵌，deprecated 身份不变。与 luxurious 不是绝对互斥。"
         }
       ]
     }
@@ -2640,7 +2873,7 @@
     "ordinal": 7129,
     "word": "maim",
     "source_owner_path": "content/lexical/words/by-ordinal/o7129.json",
-    "source_fingerprint": "345ec9a34894f24b1138f875aee14e08b4c66495220365b3848434d5a9b2597f",
+    "source_fingerprint": "a7bb95a225faf575dbe3e672e5a982c08f02025c884e5ea3ac6c913801ac9bb1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2649,13 +2882,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "使残废, 使不能工作, 使伤残",
+      "summary_cn": "造成永久性严重身体损伤；使伤残",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使残废, 使不能工作, 使伤残"
+        "target_label": "造成永久性严重身体损伤；使伤残"
       }
     },
     "senses": [
@@ -2664,8 +2897,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "使残废, 使不能工作, 使伤残",
-        "definition_en": "injure or wound seriously and leave permanent disfiguration or mutilation",
+        "definition_cn": "使身体受到永久性严重损伤；使伤残",
+        "definition_en": "to injure someone so severely that a body part is permanently damaged or loses function",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2673,7 +2906,7 @@
           "target_kind": "sense",
           "target_id": "sense:maim:42170a0b113f5eb1",
           "target_locator": "record.senses[0]",
-          "target_label": "使残废, 使不能工作, 使伤残"
+          "target_label": "使身体受到永久性严重损伤；使伤残"
         }
       }
     ],
@@ -2894,7 +3127,7 @@
     "ordinal": 7132,
     "word": "malleable",
     "source_owner_path": "content/lexical/words/by-ordinal/o7132.json",
-    "source_fingerprint": "00864becc0a3a3ba098f8ceb292d80dcfcb3b276c3c98f533212312e3039a2c7",
+    "source_fingerprint": "f9251627b592e5906d15274748414da28a5a6fc2b9592337f2781681b9a64fb3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2903,13 +3136,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有延展性的, 可锻的",
-      "decision_cn": "",
+      "summary_cn": "容易被塑形：材料可锻；人或思想易受影响",
+      "decision_cn": "材料看受力塑形；人、思想或性格看容易受影响，不限于金属延展性。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有延展性的, 可锻的"
+        "target_label": "容易被塑形：材料可锻；人或思想易受影响"
       }
     },
     "senses": [
@@ -2935,8 +3168,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "可锻的；可塑形/延展的",
-        "definition_en": "capable of being shaped or bent or drawn out",
+        "definition_cn": "可锻的；可受锤打或压力塑形的",
+        "definition_en": "able to be hammered or pressed into a different shape without breaking",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2944,7 +3177,7 @@
           "target_kind": "sense",
           "target_id": "sense:malleable:d4efb0074465575d",
           "target_locator": "record.senses[1]",
-          "target_label": "可锻的；可塑形/延展的"
+          "target_label": "可锻的；可受锤打或压力塑形的"
         }
       }
     ],
@@ -2980,7 +3213,7 @@
     "ordinal": 7133,
     "word": "mandatory",
     "source_owner_path": "content/lexical/words/by-ordinal/o7133.json",
-    "source_fingerprint": "e73f06092d598ecef96db702827f3b66b8bc97634565826620b88c0d46c3bba1",
+    "source_fingerprint": "034c2e93d1987e111dc1506a4ce8533120beaa33f1255d408fe4d8f3441895dc",
     "sense_lineage": [
       {
         "word_id": "word:mandatory",
@@ -3077,7 +3310,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "noun",
-          "definition_cn": "命令的, 托管的",
+          "definition_cn": "受委托者；（历史）受委任统治某地的国家",
           "definition_en": "the recipient of a mandate",
           "semantic_key": "72ba247fe26d5221832cd76462513e135521d2a1b9c954f71a768ae0296de1d5",
           "semantic_key_history": [],
@@ -3086,14 +3319,31 @@
           "updated_at": "2026-09-14T00:00:00Z",
           "source_row": 18314,
           "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:mandatory:58d45daae23a5497",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "noun",
+            "definition_cn": "命令的, 托管的",
+            "definition_en": "the recipient of a mandate",
+            "semantic_key": "72ba247fe26d5221832cd76462513e135521d2a1b9c954f71a768ae0296de1d5",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-14T00:00:00Z",
+            "source_row": 18314,
+            "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
+            "reference_only": true
+          },
+          "usage_note": "名词所指为接受委任的人或国家，不是形容词 命令的／托管的；原记录完整保留。"
         },
         {
           "stable_sense_id": "sense:mandatory:d81ec483164e5ebe",
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "noun",
-          "definition_cn": "命令的, 托管的",
+          "definition_cn": "（历史）委任统治地；一战后被置于他国受托管理下的领土",
           "definition_en": "a territory surrendered by Turkey or Germany after World War I and put under the tutelage of some other European power until they are able to stand by themselves",
           "semantic_key": "a11f77d4ff618cb40dff84aece33e61392309223a9086443951c89eb873217e5",
           "semantic_key_history": [],
@@ -3102,7 +3352,24 @@
           "updated_at": "2026-09-14T00:00:00Z",
           "source_row": 18315,
           "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:mandatory:d81ec483164e5ebe",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "noun",
+            "definition_cn": "命令的, 托管的",
+            "definition_en": "a territory surrendered by Turkey or Germany after World War I and put under the tutelage of some other European power until they are able to stand by themselves",
+            "semantic_key": "a11f77d4ff618cb40dff84aece33e61392309223a9086443951c89eb873217e5",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-14T00:00:00Z",
+            "source_row": 18315,
+            "source_path": "content/lexical/canonical/senses/shards/o7105-7136.json",
+            "reference_only": true
+          },
+          "usage_note": "此中文仅与当前英文领土定义对齐；该旧义历史原 Source 仍 UNKNOWN，未据现代受托国定义重新验证。"
         }
       ]
     }
@@ -3113,7 +3380,7 @@
     "ordinal": 7134,
     "word": "maneuver",
     "source_owner_path": "content/lexical/words/by-ordinal/o7134.json",
-    "source_fingerprint": "ed9e659955999295d45885e3479af6364eadaa3da0d5615f9981b0e3ad74ae8e",
+    "source_fingerprint": "b19a653e4eace177bf4dd4e1f9ab7d841c54d3d595d10e90b72961c42c3aaf39",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3123,13 +3390,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "机动动作；巧妙而受控的移动或调整；策略性行动；为取得优势或目标采取的手段；演习, 调遣, 策略；巧妙移动、操纵或定位；运用策略谋划、操纵以达到目的",
-      "decision_cn": "maneuver 是通常美式拼写；manoeuvre 是通常英式拼写。两者同一词位：可指机动动作、策略行动/演习，也可作“操纵、设法”的动词。",
+      "summary_cn": "有技巧地移动或谋划：机动、操纵、策略；军事中也指演习",
+      "decision_cn": "车辆或身体看受控移动；政治、谈判看策略；复数 maneuvers 在军事语境常指演习。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "机动动作；巧妙而受控的移动或调整；策略性行动；为取得优势或目标采取的手段；演习, 调遣, 策略；巧妙移动、操纵或定位；运用策略谋划、操纵以达到目的"
+        "target_label": "有技巧地移动或谋划：机动、操纵、策略；军事中也指演习"
       }
     },
     "senses": [
@@ -3172,7 +3439,7 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "演习, 调遣, 策略",
+        "definition_cn": "（军事）演习；模拟作战训练",
         "definition_en": "a military training exercise",
         "note": "",
         "identity_overlay": null,
@@ -3181,14 +3448,14 @@
           "target_kind": "sense",
           "target_id": "sense:maneuver:13e3dc0d28de5391",
           "target_locator": "record.senses[2]",
-          "target_label": "演习, 调遣, 策略"
+          "target_label": "（军事）演习；模拟作战训练"
         }
       },
       {
         "id": "sense:maneuver:4d9e746525dc0b23",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "maneuver (sth) into/out of/through a space",
         "definition_cn": "巧妙移动、操纵或定位",
         "definition_en": "to move, position, or guide someone or something skillfully or carefully",
         "note": "",
@@ -3205,7 +3472,7 @@
         "id": "sense:maneuver:2bfc1936f11d8914",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "maneuver for advantage; maneuver sb/sth into a position",
         "definition_cn": "运用策略谋划、操纵以达到目的",
         "definition_en": "to act or manipulate circumstances strategically in order to achieve an aim",
         "note": "",
@@ -3276,12 +3543,8 @@
             "ipa": ""
           }
         ],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -3292,7 +3555,7 @@
     "ordinal": 7135,
     "word": "mangle",
     "source_owner_path": "content/lexical/words/by-ordinal/o7135.json",
-    "source_fingerprint": "d5666194ece01e9eddb81fa468e346be61159a1234db3fa49f0a707a739a5634",
+    "source_fingerprint": "b5034c9e5898f798dc21e6d372d0ddc658c753baa1e4bf81fe91919282fe3206",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3334,8 +3597,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "轧布机",
-        "definition_en": "clothes dryer for drying and ironing laundry by passing it between two heavy heated rollers",
+        "definition_cn": "（旧式）轧衣机；辊式榨水或熨平机",
+        "definition_en": "a machine that squeezes water from or presses cloth between rollers, sometimes heated for ironing",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3343,7 +3606,7 @@
           "target_kind": "sense",
           "target_id": "sense:mangle:b549152523945669",
           "target_locator": "record.senses[1]",
-          "target_label": "轧布机"
+          "target_label": "（旧式）轧衣机；辊式榨水或熨平机"
         }
       },
       {
@@ -3351,8 +3614,8 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "乱砍, 损坏, 轧布",
-        "definition_en": "press with a mangle",
+        "definition_cn": "用轧衣机榨水或熨平（衣物）",
+        "definition_en": "to squeeze or press cloth in a mangle",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3360,7 +3623,7 @@
           "target_kind": "sense",
           "target_id": "sense:mangle:eefdae1ac307573b",
           "target_locator": "record.senses[2]",
-          "target_label": "乱砍, 损坏, 轧布"
+          "target_label": "用轧衣机榨水或熨平（衣物）"
         }
       }
     ],
@@ -3434,7 +3697,7 @@
     "ordinal": 7136,
     "word": "maniac",
     "source_owner_path": "content/lexical/words/by-ordinal/o7136.json",
-    "source_fingerprint": "deedb2030bb074f00bb13c45923866a35f44d9ab2ea1579558f0bd842ebc6615",
+    "source_fingerprint": "1701c3c33b87cc7a043be66ce3440c9cffaa409e1ca41cf0f4d888ba1d520d51",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3458,16 +3721,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（非正式）狂热者；痴迷者；行为极端的人",
-        "definition_en": "informal: a person who is wildly enthusiastic, obsessive, or uncontrolled about something",
-        "note": "",
+        "definition_cn": "（非正式）行为失控、鲁莽或危险的人；对某事过度痴迷的人",
+        "definition_en": "informal: a person behaving in an uncontrolled or dangerously reckless way, or someone excessively enthusiastic about something",
+        "note": "指鲁莽或失控行为时常带贬意；sports/football maniac 等指狂热爱好者。旧时用作精神疾病标签的用法可能冒犯，不宜用作中性临床术语。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:maniac:6e274ddaa58c51ff",
           "target_locator": "record.senses[0]",
-          "target_label": "（非正式）狂热者；痴迷者；行为极端的人"
+          "target_label": "（非正式）行为失控、鲁莽或危险的人；对某事过度痴迷的人"
         }
       }
     ],
@@ -3506,7 +3769,7 @@
     "ordinal": 7137,
     "word": "manifold",
     "source_owner_path": "content/lexical/words/by-ordinal/o7137.json",
-    "source_fingerprint": "861938f4e5a539d197512d4a794e11902f86f3c8f97cc7f7d0682f86c74f69ad",
+    "source_fingerprint": "6d1f3479b41d5da88295d52295aff7434b321823f6494d7961c8f7ff8a129a56",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3566,8 +3829,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "（数学）流形",
-        "definition_en": "a set of points such as those of a closed surface or an analogue in three or more dimensions",
+        "definition_cn": "（数学）流形：局部类似欧几里得空间的拓扑空间",
+        "definition_en": "a topological space that locally resembles Euclidean space",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3575,7 +3838,7 @@
           "target_kind": "sense",
           "target_id": "sense:manifold:20910530f7b35bfd",
           "target_locator": "record.senses[2]",
-          "target_label": "（数学）流形"
+          "target_label": "（数学）流形：局部类似欧几里得空间的拓扑空间"
         }
       },
       {
@@ -3829,7 +4092,7 @@
     "ordinal": 7140,
     "word": "maxim",
     "source_owner_path": "content/lexical/words/by-ordinal/o7140.json",
-    "source_fingerprint": "ca5491ffe8a28da203a3a3688adf77ff916a36e7944fc9c99d4c3e86cdf35aad",
+    "source_fingerprint": "b378e5a97959caffa1d1b8beee25279b3143f288f1c24705a35996b9fa78faf4",
     "sense_lineage": [
       {
         "word_id": "word:maxim",
@@ -3920,7 +4183,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "noun",
-          "definition_cn": "格言, 座右铭",
+          "definition_cn": "海勒姆·史蒂文斯·马克沁（1840—1916）；出生于美国的英国发明家",
           "definition_en": "English inventor (born in the United States) who invented the Maxim gun that was used in World War I (1840-1916)",
           "semantic_key": "8d0c117f0fb31408b7fe03bae4e21c091061874f102ee6250caf00d24b513a79",
           "semantic_key_history": [],
@@ -3929,7 +4192,24 @@
           "updated_at": "2026-09-14T00:00:00Z",
           "source_row": 18330,
           "source_path": "content/lexical/canonical/senses/shards/o7137-7168.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:maxim:109e34e215f45eaa",
+            "status": "deprecated",
+            "merged_into_sense_id": null,
+            "pos": "noun",
+            "definition_cn": "格言, 座右铭",
+            "definition_en": "English inventor (born in the United States) who invented the Maxim gun that was used in World War I (1840-1916)",
+            "semantic_key": "8d0c117f0fb31408b7fe03bae4e21c091061874f102ee6250caf00d24b513a79",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-09-14T00:00:00Z",
+            "source_row": 18330,
+            "source_path": "content/lexical/canonical/senses/shards/o7137-7168.json",
+            "reference_only": true
+          },
+          "usage_note": "专名 Maxim，不是格言；原记录及 deprecated 身份完整保留。"
         }
       ]
     }
@@ -3940,22 +4220,22 @@
     "ordinal": 7141,
     "word": "maze",
     "source_owner_path": "content/lexical/words/by-ordinal/o7141.json",
-    "source_fingerprint": "5525fd1abbffa445306f81324e47fdc5945af8cb2d29795ff1b17c4083b16162",
+    "source_fingerprint": "2e57f75c2dd0dfea136d9aae4b530824cb6b5011c85cfa31107484c54ff63428",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "迷宫, 迷惘",
-      "decision_cn": "",
+      "summary_cn": "难以找到出路的复杂网络：实物迷宫，也指难理清的规则或事务",
+      "decision_cn": "通道、街道看实物路线；rules/regulations/details 等抽象对象看难以理清的体系。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "迷宫, 迷惘"
+        "target_label": "难以找到出路的复杂网络：实物迷宫，也指难理清的规则或事务"
       }
     },
     "senses": [
@@ -3974,6 +4254,23 @@
           "target_id": "sense:maze:d73b5949ba9c53cd",
           "target_locator": "record.senses[0]",
           "target_label": "迷宫；复杂的通道/隧道系统"
+        }
+      },
+      {
+        "id": "sense:maze:7be05d7600928663",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a maze of rules/details/problems",
+        "definition_cn": "纷繁复杂、难以理清的体系或局面",
+        "definition_en": "a confusingly complex system of ideas, rules, or other interconnected things",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:maze:7be05d7600928663",
+          "target_locator": "record.senses[1]",
+          "target_label": "纷繁复杂、难以理清的体系或局面"
         }
       }
     ],
@@ -4015,7 +4312,33 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "definition_cn": "迷惑；困惑状态",
+          "definition_en": "a state of bewilderment or confusion",
+          "sense_label_en": "a state of bewilderment or confusion",
+          "pos": "noun",
+          "level": "L2",
+          "sort_order": 99,
+          "governing_pattern": "",
+          "collocations": [],
+          "confidence": "high",
+          "needs_human_review": 0,
+          "source_evidence": [
+            {
+              "source_type": "learner_dictionary",
+              "source_path": "https://www.collinsdictionary.com/dictionary/english/maze",
+              "evidence_status": "supplemental_primary_source_read",
+              "reviewed_at": "2026-10-14"
+            }
+          ],
+          "stable_sense_id": "sense:maze:61695a6dda080af8",
+          "reference_only": true,
+          "status": "active",
+          "usage_note": "保留原 Core 迷惘对应的独立状态义，不与现代复杂体系的选择提示混用。"
+        }
+      ]
     }
   },
   {
@@ -4024,7 +4347,7 @@
     "ordinal": 7142,
     "word": "meager",
     "source_owner_path": "content/lexical/words/by-ordinal/o7142.json",
-    "source_fingerprint": "3196640b3c3027cdb2f1b40f38d0d826f718282dd4df7c0dc3491cb8c844c98d",
+    "source_fingerprint": "9f86d9d92ec0fcba2be785c7b12a9a0d22c785ca13bb37b5b0cb88ea05824acf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4113,12 +4436,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -4348,7 +4667,7 @@
     "ordinal": 7145,
     "word": "mediocre",
     "source_owner_path": "content/lexical/words/by-ordinal/o7145.json",
-    "source_fingerprint": "0ef57ecad9082a9375d3f4e45eb656ad90b6891135002e82b38966c17abf5344",
+    "source_fingerprint": "b6c0329ba6b7376d776f7a2dfb68b83307493c6b8c8f2681df6b05907e415b64",
     "sense_lineage": [
       {
         "word_id": "word:mediocre",
@@ -4365,13 +4684,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "不好不坏的, 通常, 平凡的",
+      "summary_cn": "平庸、不出色的；往往暗含低于期望",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "不好不坏的, 通常, 平凡的"
+        "target_label": "平庸、不出色的；往往暗含低于期望"
       }
     },
     "senses": [
@@ -4382,7 +4701,7 @@
         "governing_pattern": "",
         "definition_cn": "平庸的；质量一般到较差的；不出色的",
         "definition_en": "moderate to inferior in quality",
-        "note": "",
+        "note": "常带不赞许：质量一般或不够好，不是中性地说“通常”。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4464,7 +4783,7 @@
           "status": "merged",
           "merged_into_sense_id": "sense:mediocre:d2ff59cb870452c1",
           "pos": "adjective",
-          "definition_cn": "不好不坏的, 通常, 平凡的",
+          "definition_cn": "平庸的；质量一般到较差的",
           "definition_en": "poor to middling in quality",
           "semantic_key": "8d09f046303d81aaeecd09262e8d652c63b07314b5f4ee84f5bb174146286862",
           "semantic_key_history": [],
@@ -4473,7 +4792,24 @@
           "updated_at": "2026-08-23T00:00:00+00:00",
           "source_row": 18335,
           "source_path": "content/lexical/canonical/senses/shards/o7137-7168.json",
-          "reference_only": true
+          "reference_only": true,
+          "historical_reference_record": {
+            "stable_sense_id": "sense:mediocre:0a2000c62cea5abb",
+            "status": "merged",
+            "merged_into_sense_id": "sense:mediocre:d2ff59cb870452c1",
+            "pos": "adjective",
+            "definition_cn": "不好不坏的, 通常, 平凡的",
+            "definition_en": "poor to middling in quality",
+            "semantic_key": "8d09f046303d81aaeecd09262e8d652c63b07314b5f4ee84f5bb174146286862",
+            "semantic_key_history": [],
+            "legacy_aliases": [],
+            "legacy_alias_history": [],
+            "updated_at": "2026-08-23T00:00:00+00:00",
+            "source_row": 18335,
+            "source_path": "content/lexical/canonical/senses/shards/o7137-7168.json",
+            "reference_only": true
+          },
+          "usage_note": "已合并到现有 Sense；原通常等错误混合译文完整保留，不改变 merged 关系。"
         }
       ]
     }
@@ -4484,7 +4820,7 @@
     "ordinal": 7146,
     "word": "meek",
     "source_owner_path": "content/lexical/words/by-ordinal/o7146.json",
-    "source_fingerprint": "7d8d113db568860a5df7defd4742073af253fdb769eb6a1ed78a40fcbf5037b0",
+    "source_fingerprint": "9969ae3b14427f9239f0ffb4debb9f1bf2fbf80e4c8cbf6a8e5599cab6c19ed0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4508,7 +4844,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "温顺的, 逆来顺受的",
+        "definition_cn": "谦和忍让的；性情温和不张扬的",
         "definition_en": "humble in spirit or manner; suggesting retiring mildness or even cowed submissiveness",
         "note": "",
         "identity_overlay": null,
@@ -4517,7 +4853,7 @@
           "target_kind": "sense",
           "target_id": "sense:meek:d6bf8071bbf15f37",
           "target_locator": "record.senses[0]",
-          "target_label": "温顺的, 逆来顺受的"
+          "target_label": "谦和忍让的；性情温和不张扬的"
         }
       },
       {
@@ -4525,7 +4861,7 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "温顺的, 逆来顺受的",
+        "definition_cn": "温顺听话的；驯服的",
         "definition_en": "very docile",
         "note": "",
         "identity_overlay": null,
@@ -4534,7 +4870,7 @@
           "target_kind": "sense",
           "target_id": "sense:meek:937d63b9f7915fff",
           "target_locator": "record.senses[1]",
-          "target_label": "温顺的, 逆来顺受的"
+          "target_label": "温顺听话的；驯服的"
         }
       },
       {
@@ -4542,16 +4878,16 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "温顺的, 逆来顺受的",
+        "definition_cn": "过分顺从的；怯懦而缺乏主见的",
         "definition_en": "evidencing little spirit or courage; overly submissive or compliant",
-        "note": "",
+        "note": "此义带批评：顺从过度、缺乏勇气，不等同于赞许性的谦和忍让。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:meek:1fa5bebafacf5b28",
           "target_locator": "record.senses[2]",
-          "target_label": "温顺的, 逆来顺受的"
+          "target_label": "过分顺从的；怯懦而缺乏主见的"
         }
       }
     ],
@@ -4602,22 +4938,22 @@
     "ordinal": 7147,
     "word": "melee",
     "source_owner_path": "content/lexical/words/by-ordinal/o7147.json",
-    "source_fingerprint": "1d2a1811224957577b59e0889c39a19a19b59246bed78b0f5c4ff7a9ab7772f4",
+    "source_fingerprint": "e8e1a972c78e182bf16d6495319bfe8805b26e1a252f940ad61414cffe3fd558",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "互殴, 激烈的论战, 混战",
-      "decision_cn": "",
+      "summary_cn": "混杂而失序的场面：常指多人混战，也指拥乱的人群或事物",
+      "decision_cn": "有 fight/struggle 语境是混战；a melee of... 也可只说拥挤杂乱，并不必然发生打斗。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "互殴, 激烈的论战, 混战"
+        "target_label": "混杂而失序的场面：常指多人混战，也指拥乱的人群或事物"
       }
     },
     "senses": [
@@ -4626,7 +4962,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "互殴, 激烈的论战, 混战",
+        "definition_cn": "混战；多人喧闹混乱的争斗（亦可比喻激烈论战）",
         "definition_en": "a noisy riotous fight",
         "note": "",
         "identity_overlay": null,
@@ -4635,7 +4971,24 @@
           "target_kind": "sense",
           "target_id": "sense:melee:9f9161364fec53b3",
           "target_locator": "record.senses[0]",
-          "target_label": "互殴, 激烈的论战, 混战"
+          "target_label": "混战；多人喧闹混乱的争斗（亦可比喻激烈论战）"
+        }
+      },
+      {
+        "id": "sense:melee:fbb4bc0c86586bb6",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a melee of people/things",
+        "definition_cn": "混乱拥挤的一群人或一堆事物；纷乱场面",
+        "definition_en": "a confused, disorganized crowd, mixture, or situation",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:melee:fbb4bc0c86586bb6",
+          "target_locator": "record.senses[1]",
+          "target_label": "混乱拥挤的一群人或一堆事物；纷乱场面"
         }
       }
     ],
@@ -4737,7 +5090,7 @@
     "ordinal": 7148,
     "word": "mellow",
     "source_owner_path": "content/lexical/words/by-ordinal/o7148.json",
-    "source_fingerprint": "2bad7061128a9040be5d22f7061e3cf27b76a7abebb39b73fc2f9a88488a04cc",
+    "source_fingerprint": "c38f0a710d49b7dc5940537558ea058c77df1a6fae25f51c812cecd67fe9516c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4747,13 +5100,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "成熟的, 醇的, 熟练的；变得平和、温柔、放松或成熟；变柔和、成熟或醇化；使之如此；柔和醇厚的；成熟温和的；圆润的",
-      "decision_cn": "",
+      "summary_cn": "柔和醇厚、温和放松；作动词指变得或使之更柔和、成熟",
+      "decision_cn": "味道、声音、色泽可本身柔和醇厚；人可温和放松。动词才表达变得或使之如此，年龄或经历是可能原因，不是必要条件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "成熟的, 醇的, 熟练的；变得平和、温柔、放松或成熟；变柔和、成熟或醇化；使之如此；柔和醇厚的；成熟温和的；圆润的"
+        "target_label": "柔和醇厚、温和放松；作动词指变得或使之更柔和、成熟"
       }
     },
     "senses": [
@@ -4978,22 +5331,22 @@
     "ordinal": 7150,
     "word": "merciful",
     "source_owner_path": "content/lexical/words/by-ordinal/o7150.json",
-    "source_fingerprint": "0d11964fe2d0567feafa8043c9dff1e85bec27cbf9d2993145b51b6f9dce38ba",
+    "source_fingerprint": "72460507c71d7b4def0da66c21670d22a06aa4ddebf5ec8955281ffe25970753",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "仁慈的, 慈悲的",
-      "decision_cn": "",
+      "summary_cn": "仁慈宽恕；也指令人庆幸地解除痛苦或不适",
+      "decision_cn": "人或权威主体看宽恕；事件、结束等看减轻痛苦带来的庆幸。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "仁慈的, 慈悲的"
+        "target_label": "仁慈宽恕；也指令人庆幸地解除痛苦或不适"
       }
     },
     "senses": [
@@ -5029,6 +5382,23 @@
           "target_id": "sense:merciful:f9946295f0ea54c6",
           "target_locator": "record.senses[1]",
           "target_label": "仁慈的, 慈悲的"
+        }
+      },
+      {
+        "id": "sense:merciful:fbb948a241c79d81",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（事件或结束）令人庆幸的；使痛苦或不适得以减轻的",
+        "definition_en": "bringing welcome relief from suffering or discomfort",
+        "note": "修饰 end/release 等事件时，是解除痛苦带来的庆幸，不表示事件具有人的仁慈性格。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:merciful:fbb948a241c79d81",
+          "target_locator": "record.senses[2]",
+          "target_label": "（事件或结束）令人庆幸的；使痛苦或不适得以减轻的"
         }
       }
     ],
@@ -5079,7 +5449,7 @@
     "ordinal": 7151,
     "word": "mesmerize",
     "source_owner_path": "content/lexical/words/by-ordinal/o7151.json",
-    "source_fingerprint": "8e3623671ace49edf553642eb1a8591b770b43303b251c1befc95316a0f7f554",
+    "source_fingerprint": "4b4ab13afe562aba789b61e8c1c5fe8e4ca503441cea5ec78067b94bc8476475",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5181,12 +5551,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -5197,22 +5563,22 @@
     "ordinal": 7152,
     "word": "messy",
     "source_owner_path": "content/lexical/words/by-ordinal/o7152.json",
-    "source_fingerprint": "92dfdb4d9beb3d95cfe2268dd506e65d07bb896ab5b1f8ac7e27cea072440561",
+    "source_fingerprint": "774e563ef2dede69e216055d90d95833ade7586956cde79acc0735ade6f50f6b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "散乱的, 污秽的, 麻烦的",
-      "decision_cn": "",
+      "summary_cn": "东西乱，或事情纠缠难理。",
+      "decision_cn": "房间、衣物或操作看脏乱；局面、离婚或谈判看复杂纠缠、难处理。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "散乱的, 污秽的, 麻烦的"
+        "target_label": "东西乱，或事情纠缠难理。"
       }
     },
     "senses": [
@@ -5221,8 +5587,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "散乱的, 污秽的, 麻烦的",
-        "definition_en": "dirty and disorderly",
+        "definition_cn": "凌乱的；脏乱的；会弄脏或弄乱的",
+        "definition_en": "untidy or dirty, or causing things to become untidy or dirty",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5230,7 +5596,24 @@
           "target_kind": "sense",
           "target_id": "sense:messy:6ae24cd35f9058bd",
           "target_locator": "record.senses[0]",
-          "target_label": "散乱的, 污秽的, 麻烦的"
+          "target_label": "凌乱的；脏乱的；会弄脏或弄乱的"
+        }
+      },
+      {
+        "id": "sense:messy:c4dc111e9d6e949d",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（局面、关系等）混乱复杂、难处理的",
+        "definition_en": "complicated and troublesome to deal with",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:messy:c4dc111e9d6e949d",
+          "target_locator": "record.senses[1]",
+          "target_label": "（局面、关系等）混乱复杂、难处理的"
         }
       }
     ],
@@ -5569,24 +5952,24 @@
     "ordinal": 7156,
     "word": "mimic",
     "source_owner_path": "content/lexical/words/by-ordinal/o7156.json",
-    "source_fingerprint": "87120a2d3a03630d34bf45f22a6f2c4433689bc3385fff555077644125d5f614",
+    "source_fingerprint": "1aa9e42f200b27fd1ee8295173bed7067a4f2ca1f80c847939858f30c897a350",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "模仿者；模仿表演者；模仿某人的言语、动作、外表或举止",
-      "decision_cn": "",
+      "summary_cn": "模仿或模拟出相似的样子、动作或效果；也可指模仿者。",
+      "decision_cn": "人模仿声音或举止可有表演意味；系统、动物或事物作主语时，也可只是模拟功能或呈现相似外形，不必有取笑意图。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "模仿者；模仿表演者；模仿某人的言语、动作、外表或举止"
+        "target_label": "模仿或模拟出相似的样子、动作或效果；也可指模仿者。"
       }
     },
     "senses": [
@@ -5639,6 +6022,23 @@
           "target_id": "sense:mimic:a2de634d96e15d2c",
           "target_locator": "record.senses[2]",
           "target_label": "模仿的；仿制的"
+        }
+      },
+      {
+        "id": "sense:mimic:ebe9c41e8499030a",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "",
+        "definition_cn": "模拟；在外形、功能或效果上与……相像",
+        "definition_en": "to reproduce or closely resemble the appearance, functioning, or effects of something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:mimic:ebe9c41e8499030a",
+          "target_locator": "record.senses[3]",
+          "target_label": "模拟；在外形、功能或效果上与……相像"
         }
       }
     ],
@@ -5829,7 +6229,7 @@
     "ordinal": 7158,
     "word": "miraculous",
     "source_owner_path": "content/lexical/words/by-ordinal/o7158.json",
-    "source_fingerprint": "f5f38f5d643e45ab77b3bb50591c17ca2a13f92b698e3efd072ab269a9a4af9b",
+    "source_fingerprint": "65d0845ee26f407f9d9a113d4de42f58cb60a521b741952ed5816269112948c7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5870,16 +6270,16 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "奇迹的, 不可思议的",
+        "definition_cn": "幸运得不可思议的；仿佛奇迹般的",
         "definition_en": "peculiarly fortunate or appropriate; as if by divine intervention",
-        "note": "",
+        "note": "可夸赞出人意料的好结果，不必断言真实超自然力量。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:miraculous:39b60aa097b8547c",
           "target_locator": "record.senses[1]",
-          "target_label": "奇迹的, 不可思议的"
+          "target_label": "幸运得不可思议的；仿佛奇迹般的"
         }
       }
     ],
@@ -6044,22 +6444,22 @@
     "ordinal": 7160,
     "word": "miserly",
     "source_owner_path": "content/lexical/words/by-ordinal/o7160.json",
-    "source_fingerprint": "6270ec66c5cea516d22b2caadb68c8279a3cff2c86dc17d05b58132b3b1b34dd",
+    "source_fingerprint": "57e6b430e9bbda7e5d2a05fb924de7999a7093ffab1e92f7c2e091d97762f5e8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "吝啬的, 贪婪的",
-      "decision_cn": "",
+      "summary_cn": "不肯多给；说人是吝啬，说数量是少得可怜。",
+      "decision_cn": "人或行为看吝啬；金额、拨款或数量看少得令人不满。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "吝啬的, 贪婪的"
+        "target_label": "不肯多给；说人是吝啬，说数量是少得可怜。"
       }
     },
     "senses": [
@@ -6078,6 +6478,23 @@
           "target_id": "sense:miserly:da529d2d9c5b55e7",
           "target_locator": "record.senses[0]",
           "target_label": "吝啬的, 贪婪的"
+        }
+      },
+      {
+        "id": "sense:miserly:0011cb1fb878145f",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "",
+        "definition_cn": "（数量、报酬等）少得可怜的",
+        "definition_en": "so small in amount as to seem ungenerous or inadequate",
+        "note": "含批评意味，尤其用于少得令人不满的款额或供给。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:miserly:0011cb1fb878145f",
+          "target_locator": "record.senses[1]",
+          "target_label": "（数量、报酬等）少得可怜的"
         }
       }
     ],
@@ -6115,7 +6532,7 @@
     "ordinal": 7161,
     "word": "misgive",
     "source_owner_path": "content/lexical/words/by-ordinal/o7161.json",
-    "source_fingerprint": "f2c75e6c4cabcd882927ec6fd8179a2ab566dcb605d824fad2d8ef3082c8cc32",
+    "source_fingerprint": "8c200958c96311506d5c67a4f969e8b4478b9a32e647ba548b8e2d7cc033e3fb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6186,11 +6603,16 @@
     "constructions": [
       {
         "id": "construction:129ff04c799f621f4ba6",
+        "sense_id": "sense:misgive:1771bf3f6d3f5297",
         "source_locator": "record.constructions[0]",
-        "pattern": "my heart misgives me",
+        "pattern": "someone's heart/mind misgives them",
         "lines": [
           {
-            "text": "我心里感到不安；我有不祥预感",
+            "text": "某人心中生疑虑或不安",
+            "lang": "cn"
+          },
+          {
+            "text": "罕见/文学表达，以心或思绪作主语，以感到不安的人作宾语；保留识读，不作为日常写作首选。",
             "lang": "cn"
           }
         ],
@@ -6198,7 +6620,7 @@
           "target_kind": "construction",
           "target_id": "construction:129ff04c799f621f4ba6",
           "target_locator": "record.constructions[0]",
-          "target_label": "my heart misgives me"
+          "target_label": "someone's heart/mind misgives them"
         }
       }
     ],
@@ -6215,7 +6637,7 @@
     "ordinal": 7162,
     "word": "mishap",
     "source_owner_path": "content/lexical/words/by-ordinal/o7162.json",
-    "source_fingerprint": "83e1b7fa8222745f44cf54506d25ec5f4b98c260f784e1fb571f3d13c78c6d74",
+    "source_fingerprint": "63c9a0ca35bcdbbcdce03949ad7f9aed47177ebae66d296c75b751f415d04447",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6224,13 +6646,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "不幸之事, 灾祸, 恶运",
+      "summary_cn": "意外出了点岔子，通常不至于成为大灾难。",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "不幸之事, 灾祸, 恶运"
+        "target_label": "意外出了点岔子，通常不至于成为大灾难。"
       }
     },
     "senses": [
@@ -6239,16 +6661,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "不幸之事, 灾祸, 恶运",
-        "definition_en": "an instance of misfortune",
-        "note": "",
+        "definition_cn": "意外事故；不顺利的小插曲（通常不严重）",
+        "definition_en": "an unfortunate accident or incident, usually not serious",
+        "note": "旧义也可指厄运或不幸；现代常用读法通常指具体的意外，而不是重大灾难。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:mishap:6d6ef693c1205873",
           "target_locator": "record.senses[0]",
-          "target_label": "不幸之事, 灾祸, 恶运"
+          "target_label": "意外事故；不顺利的小插曲（通常不严重）"
         }
       }
     ],
@@ -6391,7 +6813,7 @@
     "ordinal": 7164,
     "word": "mitigate",
     "source_owner_path": "content/lexical/words/by-ordinal/o7164.json",
-    "source_fingerprint": "5738f92ee2098a78f964b9f62ac818a614deabc8ec7998c2fe4466bd03e1007f",
+    "source_fingerprint": "c2bde554d07be39f20f7d6de3a4bcba845fbc05ce3876520c10617f7700528ec",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6400,13 +6822,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "温和, 缓和, 减轻",
+      "summary_cn": "使坏影响或严重程度减轻。",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "温和, 缓和, 减轻"
+        "target_label": "使坏影响或严重程度减轻。"
       }
     },
     "senses": [
@@ -6415,7 +6837,7 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt.: mitigate risk/damage/effects/severity",
-        "definition_cn": "温和, 缓和, 减轻",
+        "definition_cn": "减轻；缓和（严重性、危害、痛苦等）",
         "definition_en": "make less severe or harsh",
         "note": "",
         "identity_overlay": null,
@@ -6424,7 +6846,7 @@
           "target_kind": "sense",
           "target_id": "sense:mitigate:fbd19d9bcdca5eb2",
           "target_locator": "record.senses[0]",
-          "target_label": "温和, 缓和, 减轻"
+          "target_label": "减轻；缓和（严重性、危害、痛苦等）"
         }
       }
     ],

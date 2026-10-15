@@ -436,10 +436,11 @@
     "ordinal": 5123,
     "word": "trial",
     "source_owner_path": "content/lexical/words/by-ordinal/o5123.json",
-    "source_fingerprint": "8f6e609a8447cf996d4ddbfdd8979b2a187b51724880f3e03d22790f0e06d106",
+    "source_fingerprint": "362e5c7eacc00ff2539c19302177ab41a3dbf9d8ffd512784aeca17cd932b2c8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "1A",
         "3N"
       ],
@@ -461,8 +462,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "审判",
-        "definition_en": "the legal process of determining guilt or innocence",
+        "definition_cn": "审判；案件的法庭审理",
+        "definition_en": "a court examination of evidence to decide a criminal charge or another legal case",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -487,7 +488,7 @@
           "target_kind": "sense",
           "target_id": "sense:trial:27e8c6002b1956ff",
           "target_locator": "record.senses[0]",
-          "target_label": "审判"
+          "target_label": "审判；案件的法庭审理"
         }
       },
       {
@@ -566,6 +567,23 @@
           "target_id": "sense:trial:bc71395ae8185ad6",
           "target_locator": "record.senses[3]",
           "target_label": "审讯的；试验性的"
+        }
+      },
+      {
+        "id": "sense:trial:0c2ce6c84f804203",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "trial a system/product",
+        "definition_cn": "正式试验；试用以评估效果",
+        "definition_en": "to test something systematically to assess its effectiveness or suitability",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:trial:0c2ce6c84f804203",
+          "target_locator": "record.senses[4]",
+          "target_label": "正式试验；试用以评估效果"
         }
       }
     ],
@@ -1055,7 +1073,7 @@
     "ordinal": 5126,
     "word": "tribute",
     "source_owner_path": "content/lexical/words/by-ordinal/o5126.json",
-    "source_fingerprint": "61636d457f097b45f83907d9f957ce69d576e28cbc003e7fe005063a9ee8626a",
+    "source_fingerprint": "d56a49418be6e60c14f7d51be642c6f057a4f97dffec046cdd0f3b75114eadbf",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1064,13 +1082,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "表示敬意或臣服的贡品或礼物",
-      "decision_cn": "",
+      "summary_cn": "表达敬意；也可指优点的有力证明，历史上还指贡赋",
+      "decision_cn": "pay tribute to 是主动致敬；be a tribute to 看成果证明某人的能力或品质；历史征服语境才选贡赋。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "表示敬意或臣服的贡品或礼物"
+        "target_label": "表达敬意；也可指优点的有力证明，历史上还指贡赋"
       }
     },
     "senses": [
@@ -1174,7 +1192,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:49286a31e07ef13174b3",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be a tribute to sb/sth",
+        "lines": [
+          {
+            "text": "是某人能力或某种品质的有力证明",
+            "lang": "cn"
+          },
+          {
+            "text": "to demonstrate the worth or effectiveness of someone or something",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:49286a31e07ef13174b3",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be a tribute to sb/sth"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1188,7 +1228,7 @@
     "ordinal": 5127,
     "word": "trick",
     "source_owner_path": "content/lexical/words/by-ordinal/o5127.json",
-    "source_fingerprint": "5759bbc8c829d9216fdde2b530ad0945e21a4b543dfd5165d689294052fbba74",
+    "source_fingerprint": "afec33700ed9468031f8666ae4a2124c68ad07dbadd374fe0c3872e92682f3b9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1415,7 +1455,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:d94c28f01679bf4412e1",
+        "source_locator": "record.constructions[0]",
+        "pattern": "do the trick",
+        "lines": [
+          {
+            "text": "（非正式）奏效；达到所需的效果",
+            "lang": "cn"
+          },
+          {
+            "text": "to produce the desired result",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d94c28f01679bf4412e1",
+          "target_locator": "record.constructions[0]",
+          "target_label": "do the trick"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1429,7 +1491,7 @@
     "ordinal": 5128,
     "word": "trifle",
     "source_owner_path": "content/lexical/words/by-ordinal/o5128.json",
-    "source_fingerprint": "440ed436563863da9944f56f6097ef1620f7f79d2a772c9f98e9f844835c54da",
+    "source_fingerprint": "b72204657da437026cfd73fd1b668ff6eeb27540007588520e6f9477550c6610",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1623,7 +1685,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:9063d2ac64adb2d1250c",
+        "source_locator": "record.constructions[0]",
+        "pattern": "a trifle + adjective/adverb",
+        "lines": [
+          {
+            "text": "略微；有一点",
+            "lang": "cn"
+          },
+          {
+            "text": "to a small degree",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:9063d2ac64adb2d1250c",
+          "target_locator": "record.constructions[0]",
+          "target_label": "a trifle + adjective/adverb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1792,7 +1876,7 @@
     "ordinal": 5130,
     "word": "trim",
     "source_owner_path": "content/lexical/words/by-ordinal/o5130.json",
-    "source_fingerprint": "91f4be26462d548d11bbb1dcb9d66b02fd39b95cdc80f9771ba585cd623721bd",
+    "source_fingerprint": "c684fed4d134e9274b5f54157e95b599b86444e891f3c6c28a4acf1d0be83058",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1883,9 +1967,9 @@
         "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "整齐的，整洁的",
-        "definition_en": "neat and smart in appearance",
-        "note": "",
+        "definition_cn": "整洁的；（人或身材）苗条匀称、显得健康的",
+        "definition_en": "neat and well kept; of a person, slim and fit-looking",
+        "note": "trim figure 指身材匀称，不只是穿着整齐；trim lawn 则是整洁的。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1901,7 +1985,7 @@
           "target_kind": "sense",
           "target_id": "sense:trim:8221333336d65e5e",
           "target_locator": "record.senses[2]",
-          "target_label": "整齐的，整洁的"
+          "target_label": "整洁的；（人或身材）苗条匀称、显得健康的"
         }
       },
       {
@@ -1983,18 +2067,18 @@
     "ordinal": 5131,
     "word": "trip",
     "source_owner_path": "content/lexical/words/by-ordinal/o5131.json",
-    "source_fingerprint": "2ac4ce968809cb859664fe514dfc98a40c2004456d416c190939814b743682cb",
+    "source_fingerprint": "b296badba85926fead8c706fc067feac9f77589074ac9598fe11e2c9cc0785c2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(2+1)V",
+        "(3+1)V",
         "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "旅行或绊倒",
-      "decision_cn": "",
+      "decision_cn": "travel语境 a trip 是行程；trip over/on 是绊倒，trip sb up 也可让人犯错；电路/开关作宾语是触发；幻觉或刺激经历的名词义保留。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2050,8 +2134,8 @@
           {
             "id": "collocation:d891605fd550c79c1745",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "have a trip",
-            "meaning_cn": "绊了一下",
+            "phrase": "A trip on the stairs left her with a bruised knee.",
+            "meaning_cn": "在楼梯上绊了一下，使她的膝盖淤青。",
             "kind": "usage_example",
             "repair": null
           }
@@ -2067,9 +2151,9 @@
         "id": "sense:trip:b1ef84366f5f572c",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + on/over",
-        "definition_cn": "绊倒",
-        "definition_en": "to catch one's foot and stumble or fall",
+        "governing_pattern": "I/T: trip on/over sth; trip sb (up)",
+        "definition_cn": "绊倒；使绊倒",
+        "definition_en": "to stumble when a foot catches on something, or to cause someone to stumble",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2104,30 +2188,30 @@
           "target_kind": "sense",
           "target_id": "sense:trip:b1ef84366f5f572c",
           "target_locator": "record.senses[2]",
-          "target_label": "绊倒"
+          "target_label": "绊倒；使绊倒"
         }
       },
       {
         "id": "sense:trip:569b72eff5c759da",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + on/over",
-        "definition_cn": "失误；犯错",
-        "definition_en": "to make a mistake or slip up",
+        "governing_pattern": "I/T: trip up (on sth); trip sb up",
+        "definition_cn": "失误；使犯错",
+        "definition_en": "to make a mistake, or cause someone to make a mistake",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:e36795d97b8b143cb741",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "trip up",
-            "meaning_cn": "犯错；绊倒",
+            "phrase": "trip (sb) up",
+            "meaning_cn": "（使某人）失误；也可指（使某人）绊倒",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:e36795d97b8b143cb741",
               "target_locator": "record.senses[3].collocations[0]",
-              "target_label": "trip up"
+              "target_label": "trip (sb) up"
             }
           }
         ],
@@ -2135,7 +2219,7 @@
           "target_kind": "sense",
           "target_id": "sense:trip:569b72eff5c759da",
           "target_locator": "record.senses[3]",
-          "target_label": "失误；犯错"
+          "target_label": "失误；使犯错"
         }
       },
       {
@@ -2170,6 +2254,23 @@
           "target_id": "sense:trip:5385fddcf4195523",
           "target_locator": "record.senses[5]",
           "target_label": "刺激的体验"
+        }
+      },
+      {
+        "id": "sense:trip:f881fefb50dfbfbc",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "trip a switch/circuit breaker",
+        "definition_cn": "触发开关或使电气装置启动、断开",
+        "definition_en": "to activate a switch or cause an electrical system to start or stop",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:trip:f881fefb50dfbfbc",
+          "target_locator": "record.senses[6]",
+          "target_label": "触发开关或使电气装置启动、断开"
         }
       }
     ],
@@ -2320,7 +2421,7 @@
     "ordinal": 5132,
     "word": "triple",
     "source_owner_path": "content/lexical/words/by-ordinal/o5132.json",
-    "source_fingerprint": "609ba4956a092419f51f972422f9459338abb758c524bea45bf6b4b287d27287",
+    "source_fingerprint": "5c3741d0dfd49ca1cad6b4a5d41b8ed6e1aa08d298823c4a25ac2f1856251e20",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2350,16 +2451,7 @@
         "definition_en": "a quantity that is three times as great as another",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:d1f54f6144a7e522412b",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "a triple in size",
-            "meaning_cn": "尺寸的三倍",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:triple:9a72be4f162b51bf",
@@ -2475,7 +2567,7 @@
         "id": "sense:triple:f2c7cd0e695e5fa5",
         "source_locator": "record.senses[5]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "triple + noun; triple the size/amount of sth",
         "definition_cn": "三倍的；三重的",
         "definition_en": "consisting of three parts or three times as much",
         "note": "",
@@ -2493,6 +2585,14 @@
               "target_locator": "record.senses[5].collocations[0]",
               "target_label": "triple jump"
             }
+          },
+          {
+            "id": "collocation:d1f54f6144a7e522412b",
+            "source_locator": "record.senses[5].collocations[1]",
+            "phrase": "triple the size/amount",
+            "meaning_cn": "大小／数量的三倍",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -2538,7 +2638,7 @@
     "ordinal": 5133,
     "word": "triumph",
     "source_owner_path": "content/lexical/words/by-ordinal/o5133.json",
-    "source_fingerprint": "1698be81d39a2953dafe67fd937b3ccee0986388d1e2dd27597d4c71b8d44455",
+    "source_fingerprint": "b62f1041e8c950debec538bab96b681e984655f3124198584583b26217a5a700",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2572,7 +2672,7 @@
             "id": "collocation:e7465d793ec42528311f",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "triumph over + sth/sb",
-            "meaning_cn": "战胜……；击败……",
+            "meaning_cn": "对某人／某事的胜利",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -3045,7 +3145,7 @@
     "ordinal": 5136,
     "word": "troop",
     "source_owner_path": "content/lexical/words/by-ordinal/o5136.json",
-    "source_fingerprint": "6708c9307c5ba9f851795776f792eb3c7fd7295ff91d1483110a9727392e09d5",
+    "source_fingerprint": "cd2c189969d1b96a08d3f0c88ca47ce451f9eefd1b5db36169ab860fa7e8ee26",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3069,10 +3169,10 @@
         "id": "sense:troop:c1e166c2c87950b1",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "军队，部队",
-        "definition_en": "a group of soldiers",
-        "note": "",
+        "governing_pattern": "a troop of soldiers; troops",
+        "definition_cn": "一队士兵；（复数 troops）部队、士兵",
+        "definition_en": "a group of soldiers; plural troops also refers to soldiers collectively",
+        "note": "troops常直接指士兵；100 troops通常是100名士兵，不自动解释为100个编制单位。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3088,7 +3188,7 @@
           "target_kind": "sense",
           "target_id": "sense:troop:c1e166c2c87950b1",
           "target_locator": "record.senses[0]",
-          "target_label": "军队，部队"
+          "target_label": "一队士兵；（复数 troops）部队、士兵"
         }
       },
       {
@@ -3138,7 +3238,7 @@
         "id": "sense:troop:2ba35aa2112c5abe",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vi. + together / vi. + in",
+        "governing_pattern": "vi. + direction/place: troop in/out/through/after",
         "definition_cn": "群集，结队，成群而行",
         "definition_en": "to move or gather together in a group",
         "note": "",
@@ -4212,7 +4312,7 @@
     "ordinal": 5142,
     "word": "true",
     "source_owner_path": "content/lexical/words/by-ordinal/o5142.json",
-    "source_fingerprint": "61dd3577fb781109bb239fc63fce261459db2d80645b0d74289d67f4843b8a58",
+    "source_fingerprint": "13f80808da57e1d109afc0e3937d9aceb54873f13564f734589b6fe3786d3377",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4276,10 +4376,10 @@
         "id": "sense:true:8149098013c254a4",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "准确的；精准的",
-        "definition_en": "accurately placed or thrown",
-        "note": "",
+        "governing_pattern": "true to sth; a true likeness/account",
+        "definition_cn": "准确的；如实反映原物的",
+        "definition_en": "accurate in aim, position, or representation",
+        "note": "true to a book/original 指忠实反映；true to a person/promise/principle 在另一支指忠诚或守诺。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4295,7 +4395,7 @@
           "target_kind": "sense",
           "target_id": "sense:true:8149098013c254a4",
           "target_locator": "record.senses[1]",
-          "target_label": "准确的；精准的"
+          "target_label": "准确的；如实反映原物的"
         }
       },
       {
@@ -4421,6 +4521,27 @@
           "target_id": "construction:3ccc04c2ab3f5c1838c5",
           "target_locator": "record.constructions[0]",
           "target_label": "come true"
+        }
+      },
+      {
+        "id": "construction:8fcf48c3adff86cc8802",
+        "source_locator": "record.constructions[1]",
+        "pattern": "hold true (for sb/sth)",
+        "lines": [
+          {
+            "text": "仍然成立；对某人或某事适用",
+            "lang": "cn"
+          },
+          {
+            "text": "to remain valid, including in a stated case",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:8fcf48c3adff86cc8802",
+          "target_locator": "record.constructions[1]",
+          "target_label": "hold true (for sb/sth)"
         }
       }
     ],
@@ -4579,11 +4700,11 @@
     "ordinal": 5144,
     "word": "trunk",
     "source_owner_path": "content/lexical/words/by-ordinal/o5144.json",
-    "source_fingerprint": "4dfa4e21678ea0b3358feb79d3ec2fc3496706c162cb303627931d5da7ff2d4a",
+    "source_fingerprint": "ece00592957df0496d0d386a3323c6838688f100d35896d55e0ce49747dc38c0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "6N"
+        "7N"
       ],
       "density": "rich"
     },
@@ -4744,6 +4865,23 @@
           "target_locator": "record.senses[5]",
           "target_label": "汽车后备箱（美式英语；英式通常 boot）"
         }
+      },
+      {
+        "id": "sense:trunk:c20d83fb5227534b",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "plural trunks: swimming trunks; a pair of trunks",
+        "definition_cn": "（复数 trunks）游泳或某些运动穿的短裤",
+        "definition_en": "short trousers worn for swimming or certain sports",
+        "note": "此衣物义须用复数trunks，不是几个树干或行李箱；不据单数headword猜造复数IPA。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:trunk:c20d83fb5227534b",
+          "target_locator": "record.senses[6]",
+          "target_label": "（复数 trunks）游泳或某些运动穿的短裤"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4799,7 +4937,7 @@
     "ordinal": 5145,
     "word": "trust",
     "source_owner_path": "content/lexical/words/by-ordinal/o5145.json",
-    "source_fingerprint": "921174e1eec2e3d6e0bc21a0c1867ab03f4f388f63e09392712064f405790b0c",
+    "source_fingerprint": "489faff6bc8d91b25e44cd18f7c3b001bf3bbdff4b39147135becff3a5742079",
     "sense_lineage": [
       {
         "word_id": "word:trust",
@@ -4833,7 +4971,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "信任，信赖",
-        "definition_en": "the belief that someone is honest and reliable",
+        "definition_en": "confidence in the honesty, reliability, or effectiveness of someone or something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4862,10 +5000,10 @@
         "id": "sense:trust:a29f6821ddc25c71",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "I/T: trust sb; trust sb with sth; trust sb to do sth; trust in sb/sth",
-        "definition_cn": "信任，信赖",
-        "definition_en": "to believe that someone is honest and will not harm you",
-        "note": "",
+        "governing_pattern": "I/T: trust sb/sth; trust sb with sth; trust sb to do sth; trust in sb/sth",
+        "definition_cn": "信任；相信可靠、真实或有效",
+        "definition_en": "to believe someone or something is reliable, truthful, or effective",
+        "note": "trust results/judgment 是相信可靠，不要求宾语是不会伤害你的“人”。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4899,7 +5037,7 @@
           "target_kind": "sense",
           "target_id": "sense:trust:a29f6821ddc25c71",
           "target_locator": "record.senses[1]",
-          "target_label": "信任，信赖"
+          "target_label": "信任；相信可靠、真实或有效"
         }
       },
       {
@@ -5220,15 +5358,8 @@
     "ordinal": 5147,
     "word": "try",
     "source_owner_path": "content/lexical/words/by-ordinal/o5147.json",
-    "source_fingerprint": "7fa8cb92bf6da9e9c3f564948fd9291c5f906c26ee6db8c45c096fa8de278b71",
+    "source_fingerprint": "6d751fa519ebc87c0a5bb8ea2fa5bd3fb41385d6042a17462705ca2e8243f959",
     "sense_lineage": [
-      {
-        "word_id": "word:try",
-        "target_kind": "sense",
-        "from_target_id": "sense:try:581247c6ff0e5713",
-        "status": "deprecated",
-        "to_target_id": null
-      },
       {
         "word_id": "word:try",
         "target_kind": "sense",
@@ -5239,13 +5370,14 @@
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "4V",
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "尝试；试图；试验；试用",
-      "decision_cn": "",
+      "decision_cn": "try to do 看努力实现，try doing 看试方法；a try 是一次尝试；try on 试穿、try out 试用；法庭语境try是审理，try patience是考验耐心。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5286,6 +5418,71 @@
           "target_id": "sense:try:045fd7d7828c5296",
           "target_locator": "record.senses[1]",
           "target_label": "试验；试用"
+        }
+      },
+      {
+        "id": "sense:try:581247c6ff0e5713",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "try sb for an offence; try a case; be tried for sth",
+        "definition_cn": "审判；审理",
+        "definition_en": "to examine a person or case in a court to reach a legal judgment",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:try:581247c6ff0e5713",
+          "target_locator": "record.senses[2]",
+          "target_label": "审判；审理"
+        }
+      },
+      {
+        "id": "sense:try:5682fd866d078c1d",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "have a try; give sth a try",
+        "definition_cn": "一次尝试；努力",
+        "definition_en": "an attempt to do something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:08e3ebd2f65ac37aeb85",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "give sth a try",
+            "meaning_cn": "试试某事物",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:08e3ebd2f65ac37aeb85",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "give sth a try"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:try:5682fd866d078c1d",
+          "target_locator": "record.senses[3]",
+          "target_label": "一次尝试；努力"
+        }
+      },
+      {
+        "id": "sense:try:e76ae79db6bd392b",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "try sb; try sb's patience",
+        "definition_cn": "使烦恼；考验耐心",
+        "definition_en": "to strain someone emotionally or test their patience",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:try:e76ae79db6bd392b",
+          "target_locator": "record.senses[4]",
+          "target_label": "使烦恼；考验耐心"
         }
       }
     ],
@@ -5365,6 +5562,48 @@
           "target_locator": "record.constructions[1]",
           "target_label": "try doing sth"
         }
+      },
+      {
+        "id": "construction:1e21a5788785fe0f6e20",
+        "source_locator": "record.constructions[2]",
+        "pattern": "try sth on / try on sth; try it on",
+        "lines": [
+          {
+            "text": "试穿；试戴",
+            "lang": "cn"
+          },
+          {
+            "text": "to put on clothing to check fit or appearance",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:1e21a5788785fe0f6e20",
+          "target_locator": "record.constructions[2]",
+          "target_label": "try sth on / try on sth; try it on"
+        }
+      },
+      {
+        "id": "construction:e19e6aaaf97f9008e4a3",
+        "source_locator": "record.constructions[3]",
+        "pattern": "try sth out / try out sth; try it out",
+        "lines": [
+          {
+            "text": "试用；测试效果",
+            "lang": "cn"
+          },
+          {
+            "text": "to test how well something works",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e19e6aaaf97f9008e4a3",
+          "target_locator": "record.constructions[3]",
+          "target_label": "try sth out / try out sth; try it out"
+        }
       }
     ],
     "reference": {
@@ -5373,31 +5612,6 @@
       "form": null,
       "family": [],
       "senses": [
-        {
-          "stable_sense_id": "sense:try:581247c6ff0e5713",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "verb",
-          "definition_cn": "审判；审理",
-          "definition_en": "to examine and judge a case in a court of law",
-          "semantic_key": "33c608a49503b6739fb41a25dc35aa5bab40a781fe029da124c4a65a60451e52",
-          "semantic_key_history": [
-            "0e7fca19541740bf440271b904af3699fc58ead9447fa368a27d7acdf3bdd612"
-          ],
-          "legacy_aliases": [
-            "try:l2:3"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "try:l2:3",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 14675,
-          "source_path": "content/lexical/canonical/senses/shards/o5121-5152.json",
-          "reference_only": true
-        },
         {
           "stable_sense_id": "sense:try:94fd45dbd26e5fb7",
           "status": "deprecated",
@@ -5432,7 +5646,7 @@
     "ordinal": 5148,
     "word": "tub",
     "source_owner_path": "content/lexical/words/by-ordinal/o5148.json",
-    "source_fingerprint": "801d4fe0c888e9398026fbfc06474e01d9cf9d0f3e03ff2099a3d71627734d15",
+    "source_fingerprint": "bcedd46d32792a9c0c34cbad0195f82a716a9be099730b6dd4682e0dd2df5439",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5457,8 +5671,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "桶，盆",
-        "definition_en": "a large open container for holding liquids",
+        "definition_cn": "桶、盆等容器；装食品的小盒或桶",
+        "definition_en": "an open container such as a basin, or a small lidded container for food",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5469,13 +5683,21 @@
             "meaning_cn": "一桶水",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:809ebf93b6289bab25a6",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "a tub of ice cream",
+            "meaning_cn": "一盒冰淇淋",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tub:135f1c326b8b5758",
           "target_locator": "record.senses[0]",
-          "target_label": "桶，盆"
+          "target_label": "桶、盆等容器；装食品的小盒或桶"
         }
       },
       {
@@ -5602,7 +5824,7 @@
     "ordinal": 5149,
     "word": "tube",
     "source_owner_path": "content/lexical/words/by-ordinal/o5149.json",
-    "source_fingerprint": "be18c792666dc9d677d6523edcf30701733c9efd6ff04948b0c4ed7e7e643a13",
+    "source_fingerprint": "476ae955129bd1da7d1a6d0bf6dc85c5b13d47e1e01e3a8e4527b064706694f8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5627,8 +5849,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "管，软管",
-        "definition_en": "a long hollow cylinder for carrying liquids or gases",
+        "definition_cn": "管；管状容器；装牙膏等的软管",
+        "definition_en": "a hollow cylindrical passage or container, including a squeezable tube for thick liquids",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5647,13 +5869,21 @@
             "meaning_cn": "试管",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:b69cf4f3e2fc0c71acd2",
+            "source_locator": "record.senses[0].collocations[2]",
+            "phrase": "a tube of toothpaste",
+            "meaning_cn": "一管牙膏",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:tube:16a8ccf3f7f55e03",
           "target_locator": "record.senses[0]",
-          "target_label": "管，软管"
+          "target_label": "管；管状容器；装牙膏等的软管"
         }
       },
       {
@@ -5661,8 +5891,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "电子管；电视",
-        "definition_en": "a cathode-ray tube or television",
+        "definition_cn": "电子管；显像管；（非正式，尤美式）电视",
+        "definition_en": "an electronic vacuum tube or picture tube; informally, television",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5679,17 +5909,17 @@
           "target_kind": "sense",
           "target_id": "sense:tube:7a178cb9a63450f7",
           "target_locator": "record.senses[1]",
-          "target_label": "电子管；电视"
+          "target_label": "电子管；显像管；（非正式，尤美式）电视"
         }
       },
       {
         "id": "sense:tube:6d0fad9083e65900",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "the Tube; by/on the Tube (UK informal: London Underground)",
         "definition_cn": "地铁（尤指伦敦）",
         "definition_en": "an underground railway (especially in London)",
-        "note": "",
+        "note": "伦敦交通名称常写the Tube；不泛指任意城市所有地铁。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5782,7 +6012,7 @@
     "ordinal": 5150,
     "word": "tuck",
     "source_owner_path": "content/lexical/words/by-ordinal/o5150.json",
-    "source_fingerprint": "903b8ee16cb107a6a9cff4d6c2fb26e9819742a1c985c35f9d2f694092da5285",
+    "source_fingerprint": "a1d6491a691bf27731abffb5c933c380f58675ed0e1f7d7f6081b69d704578f0",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5828,14 +6058,14 @@
           {
             "id": "collocation:d29cb9ac8ae93a08b162",
             "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "tuck in + sth",
-            "meaning_cn": "把……塞好；痛快地吃",
+            "phrase": "tuck sth in / tuck in sth; tuck it in",
+            "meaning_cn": "把衣物、被褥等的边缘掖好",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:d29cb9ac8ae93a08b162",
               "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "tuck in + sth"
+              "target_label": "tuck sth in / tuck in sth; tuck it in"
             }
           },
           {
@@ -5892,7 +6122,7 @@
         "governing_pattern": "",
         "definition_cn": "食品（尤指甜食或零食）",
         "definition_en": "food, especially sweets or snacks",
-        "note": "",
+        "note": "食品义尤英式、非正式，常见于tuck shop。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5943,7 +6173,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:074e70bcc03be3360411",
+        "source_locator": "record.constructions[0]",
+        "pattern": "tuck in; tuck into food",
+        "lines": [
+          {
+            "text": "（英式非正式）痛快地吃起来",
+            "lang": "cn"
+          },
+          {
+            "text": "吃东西用tuck into + 食物，或不接宾语tuck in；tuck sth in是掖好物件，不是同一宾语框架。",
+            "lang": "cn"
+          },
+          {
+            "text": "to start eating with enthusiasm",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:074e70bcc03be3360411",
+          "target_locator": "record.constructions[0]",
+          "target_label": "tuck in; tuck into food"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6296,11 +6552,12 @@
     "ordinal": 5153,
     "word": "tumble",
     "source_owner_path": "content/lexical/words/by-ordinal/o5153.json",
-    "source_fingerprint": "7b58d80dc2c696f6ba1b2263e45fed22cf5e6f78eac40780abccff48d89d3160",
+    "source_fingerprint": "a3df4f7ff934655a462600eaa7c4a0651b5535ad0650425a3ca49a46f0c88d83",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4V"
+        "4V",
+        "1N"
       ],
       "density": "rich"
     },
@@ -6329,7 +6586,7 @@
             "id": "collocation:0b040b980f4421f43084",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "tumble down",
-            "meaning_cn": "倒塌",
+            "meaning_cn": "跌落；倒塌",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -6451,6 +6708,37 @@
           "target_locator": "record.senses[3]",
           "target_label": "暴跌；骤降"
         }
+      },
+      {
+        "id": "sense:tumble:ee036d414f96be29",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "take a tumble",
+        "definition_cn": "跌倒；摔落；（价格等）骤降",
+        "definition_en": "a sudden fall, physically or in value",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:54fb3d50f4976df1c5c6",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "take a tumble",
+            "meaning_cn": "跌倒；骤降",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:54fb3d50f4976df1c5c6",
+              "target_locator": "record.senses[4].collocations[0]",
+              "target_label": "take a tumble"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:tumble:ee036d414f96be29",
+          "target_locator": "record.senses[4]",
+          "target_label": "跌倒；摔落；（价格等）骤降"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6496,7 +6784,7 @@
     "ordinal": 5154,
     "word": "tumor",
     "source_owner_path": "content/lexical/words/by-ordinal/o5154.json",
-    "source_fingerprint": "15bd09d012d4dd022d8de94e0002df74d97d0f08492c34c6a51d17ba8564d3a5",
+    "source_fingerprint": "ecffbe9fa38d9cf7f5f379399a601f2812e7a8d71ee0d75cf8a8ddd555289a07",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6628,12 +6916,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -6644,18 +6928,18 @@
     "ordinal": 5155,
     "word": "tune",
     "source_owner_path": "content/lexical/words/by-ordinal/o5155.json",
-    "source_fingerprint": "850225eb377c65b736b421c9bbaca1b751e5c625a22cee4728239a41f07ec4bb",
+    "source_fingerprint": "17cdf76dea9ebdc9c11895fea3ea6ce46356782b9d91c46a3416837189e08edb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
-        "3N"
+        "1V",
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "曲调，歌曲，主旋律；音准，调子；调谐，频率调整；调音，调整，调谐；协调、一致；合拍",
-      "decision_cn": "",
+      "decision_cn": "a tune 是旋律；in/out of tune 先看音准，with 人或观念看协调一致；tune an instrument/engine 是调整，tune in 看收听收看。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6675,34 +6959,8 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:83baf2524ea4810977cf",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "in tune",
-            "meaning_cn": "合调，一致",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:83baf2524ea4810977cf",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "in tune"
-            }
-          },
-          {
-            "id": "collocation:36ed189f1aa55637e72f",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "out of tune",
-            "meaning_cn": "走调，不一致",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:36ed189f1aa55637e72f",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "out of tune"
-            }
-          },
-          {
             "id": "collocation:9f400e94f2e283c7ecd4",
-            "source_locator": "record.senses[0].collocations[2]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a catchy tune",
             "meaning_cn": "朗朗上口的曲调",
             "kind": "usage_example",
@@ -6733,6 +6991,32 @@
             "meaning_cn": "唱得合调",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:83baf2524ea4810977cf",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "in tune",
+            "meaning_cn": "合调；音准正确",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:83baf2524ea4810977cf",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "in tune"
+            }
+          },
+          {
+            "id": "collocation:36ed189f1aa55637e72f",
+            "source_locator": "record.senses[1].collocations[2]",
+            "phrase": "out of tune",
+            "meaning_cn": "走调；音准不正确",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:36ed189f1aa55637e72f",
+              "target_locator": "record.senses[1].collocations[2]",
+              "target_label": "out of tune"
+            }
           }
         ],
         "repair": {
@@ -6796,10 +7080,10 @@
       {
         "id": "sense:tune:9dd70794c78855e7",
         "source_locator": "record.senses[4]",
-        "pos": "verb",
-        "governing_pattern": "vi. + with: be in tune with sth",
-        "definition_cn": "协调、一致；合拍",
-        "definition_en": "to be in harmony or accord",
+        "pos": "noun",
+        "governing_pattern": "in/out of tune with sb/sth",
+        "definition_cn": "协调；一致；合拍（用于 in/out of tune with）",
+        "definition_en": "harmony or agreement, expressed in in/out of tune with",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -6807,7 +7091,7 @@
           "target_kind": "sense",
           "target_id": "sense:tune:9dd70794c78855e7",
           "target_locator": "record.senses[4]",
-          "target_label": "协调、一致；合拍"
+          "target_label": "协调；一致；合拍（用于 in/out of tune with）"
         }
       }
     ],
@@ -6896,7 +7180,7 @@
     "ordinal": 5156,
     "word": "tunnel",
     "source_owner_path": "content/lexical/words/by-ordinal/o5156.json",
-    "source_fingerprint": "ca9b71b921af6555cb973c47cb5986a76ee1cf1b19bdfe61755a9360580dda53",
+    "source_fingerprint": "0bffc7cb169d6a67e2204c00c64c96d21a64ba325c10307dacba136935f7a113",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6946,9 +7230,9 @@
         "id": "sense:tunnel:acb4d87cc3f153b6",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + through",
-        "definition_cn": "强行通过；挖隧道通过",
-        "definition_en": "force a way through",
+        "governing_pattern": "I/T: tunnel through/under sth; tunnel a passage",
+        "definition_cn": "挖掘隧道；挖隧道穿过",
+        "definition_en": "to dig or make a passage through or under something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6970,7 +7254,7 @@
           "target_kind": "sense",
           "target_id": "sense:tunnel:acb4d87cc3f153b6",
           "target_locator": "record.senses[1]",
-          "target_label": "强行通过；挖隧道通过"
+          "target_label": "挖掘隧道；挖隧道穿过"
         }
       }
     ],
@@ -7139,7 +7423,7 @@
     "ordinal": 5158,
     "word": "turbulent",
     "source_owner_path": "content/lexical/words/by-ordinal/o5158.json",
-    "source_fingerprint": "c8ec606955e43dd62214cd273f234da6fe2858c1b889d3d2b0b7562dd4448728",
+    "source_fingerprint": "77eb84ff75bb7ed4b97106b76a18f8e568579a07c77914fbbbd4c4b269afc39c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7189,8 +7473,8 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "湍急的；汹涌的",
-        "definition_en": "(of a liquid) agitated vigorously; in a state of turbulence",
+        "definition_cn": "（水或气流）湍急的；剧烈紊乱的",
+        "definition_en": "moving in strong, irregular currents, of water or air",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7201,13 +7485,21 @@
             "meaning_cn": "湍急的水流",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:75bff7a6e055486d017e",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "turbulent air",
+            "meaning_cn": "湍动的气流",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:turbulent:810b9801f4a55733",
           "target_locator": "record.senses[1]",
-          "target_label": "湍急的；汹涌的"
+          "target_label": "（水或气流）湍急的；剧烈紊乱的"
         }
       }
     ],
@@ -7550,18 +7842,18 @@
     "ordinal": 5161,
     "word": "turn",
     "source_owner_path": "content/lexical/words/by-ordinal/o5161.json",
-    "source_fingerprint": "fee335fc0ff6859b38bceafc50a285e31e440de4959394923ba33884b555bfde",
+    "source_fingerprint": "8ad1d72eb418281cbb69d69626c0b170dbb1dc23d88f2b471144d101214c9a01",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "(3+1)V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "转动；转变",
-      "decision_cn": "",
+      "decision_cn": "turn a handle/wheels turn 看旋转；turn left 看转向，turn pale/into... 看变化；turn it down遇音量是调低，遇邀请是拒绝；in turn可指轮流，也可连接因果。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7574,9 +7866,9 @@
         "id": "sense:turn:88f1052fb8825627",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "转动；旋转",
-        "definition_en": "to move something around a central point",
+        "governing_pattern": "I/T: turn sth; wheels/the Earth turn",
+        "definition_cn": "转动；使旋转",
+        "definition_en": "to rotate around a point or axis, or cause something to do so",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7601,7 +7893,7 @@
           "target_kind": "sense",
           "target_id": "sense:turn:88f1052fb8825627",
           "target_locator": "record.senses[0]",
-          "target_label": "转动；旋转"
+          "target_label": "转动；使旋转"
         }
       },
       {
@@ -7625,7 +7917,7 @@
         "id": "sense:turn:428ba9d6ceba5062",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + into",
+        "governing_pattern": "turn + adjective; turn (sb/sth) into sb/sth",
         "definition_cn": "变成",
         "definition_en": "to become something different",
         "note": "",
@@ -7750,6 +8042,32 @@
           "target_locator": "record.senses[4]",
           "target_label": "变化；转折"
         }
+      },
+      {
+        "id": "sense:turn:c74696671f0c7470",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "a turn; make a left/right turn",
+        "definition_cn": "转动；转身；转弯",
+        "definition_en": "an act of rotating or changing direction",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:65a16840a656346f71f0",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "make a right turn",
+            "meaning_cn": "右转",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:turn:c74696671f0c7470",
+          "target_locator": "record.senses[5]",
+          "target_label": "转动；转身；转弯"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7850,6 +8168,90 @@
           "target_id": "construction:d03c1e779b96809e519e",
           "target_locator": "record.constructions[2]",
           "target_label": "turn to sb/sth"
+        }
+      },
+      {
+        "id": "construction:3409c2a3d38157ab1f58",
+        "source_locator": "record.constructions[3]",
+        "pattern": "turn sth on/off; turn sth up/down; turn it on/off/up/down",
+        "lines": [
+          {
+            "text": "开启/关闭设备；调大/调小音量、热度等",
+            "lang": "cn"
+          },
+          {
+            "text": "to switch equipment on or off, or adjust its output",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3409c2a3d38157ab1f58",
+          "target_locator": "record.constructions[3]",
+          "target_label": "turn sth on/off; turn sth up/down; turn it on/off/up/down"
+        }
+      },
+      {
+        "id": "construction:3486b0905b89b432e7b7",
+        "source_locator": "record.constructions[4]",
+        "pattern": "turn sb/sth down; turn them/it down",
+        "lines": [
+          {
+            "text": "拒绝某人、提议或请求",
+            "lang": "cn"
+          },
+          {
+            "text": "to reject a person, offer, or request",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3486b0905b89b432e7b7",
+          "target_locator": "record.constructions[4]",
+          "target_label": "turn sb/sth down; turn them/it down"
+        }
+      },
+      {
+        "id": "construction:25c92e3906b22d1c1c98",
+        "source_locator": "record.constructions[5]",
+        "pattern": "turn up (at/in ...)",
+        "lines": [
+          {
+            "text": "出现；到达；（失物、机会）意外出现",
+            "lang": "cn"
+          },
+          {
+            "text": "to arrive, appear, be found, or become available",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:25c92e3906b22d1c1c98",
+          "target_locator": "record.constructions[5]",
+          "target_label": "turn up (at/in ...)"
+        }
+      },
+      {
+        "id": "construction:d8769a502e4f1079de1d",
+        "source_locator": "record.constructions[6]",
+        "pattern": "in turn（前一变化 → 后一结果）",
+        "lines": [
+          {
+            "text": "进而；因此；又反过来",
+            "lang": "cn"
+          },
+          {
+            "text": "as a consequence of a preceding event or change",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d8769a502e4f1079de1d",
+          "target_locator": "record.constructions[6]",
+          "target_label": "in turn（前一变化 → 后一结果）"
         }
       }
     ],
@@ -8058,7 +8460,7 @@
     "ordinal": 5163,
     "word": "tutor",
     "source_owner_path": "content/lexical/words/by-ordinal/o5163.json",
-    "source_fingerprint": "c2840fe79bece50ab5454f10c0312b213b06169b0cbbdfac2f8be9ee657a06da",
+    "source_fingerprint": "f4630e7a866b05c32e8caa1eeb9333d853b5d5ddc7dcfcdffb5e889a9a63b47c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8068,13 +8470,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "家庭教师；辅导",
-      "decision_cn": "",
+      "summary_cn": "辅导教师、导师；个别或小组辅导",
+      "decision_cn": "private tutor看私人辅导；school/college tutor可为校内教师或指导者；tutor sb in a subject看辅导科目。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "家庭教师；辅导"
+        "target_label": "辅导教师、导师；个别或小组辅导"
       }
     },
     "senses": [
@@ -8083,9 +8485,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "家庭教师，导师",
-        "definition_en": "a teacher who gives private instruction to one student or a small group",
-        "note": "",
+        "definition_cn": "私人教师；辅导教师；（尤英式）学校或大学导师",
+        "definition_en": "a teacher giving individual or small-group tuition; in some education systems, a teacher who also guides assigned students",
+        "note": "school/college tutor可为校内教学或指导角色，不一定是校外付费家教。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8101,7 +8503,7 @@
           "target_kind": "sense",
           "target_id": "sense:tutor:154c981920a150d8",
           "target_locator": "record.senses[0]",
-          "target_label": "家庭教师，导师"
+          "target_label": "私人教师；辅导教师；（尤英式）学校或大学导师"
         }
       },
       {
@@ -8610,7 +9012,7 @@
     "ordinal": 5167,
     "word": "twin",
     "source_owner_path": "content/lexical/words/by-ordinal/o5167.json",
-    "source_fingerprint": "e0bacff6b1ae5eb620494520d74c144df5086cc1d278a75533084daa5ba1b152",
+    "source_fingerprint": "44208312db3e2ebbc24b2333c6f06aba72a0b26e24f54f75a9998371c9455e97",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8674,16 +9076,7 @@
         "definition_en": "a person or thing that is very similar to another",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:ae7d53c84fe0f672e066",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "twin towers",
-            "meaning_cn": "双子塔",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:twin:abe042fbd400523d",
@@ -8706,6 +9099,14 @@
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "twin beds",
             "meaning_cn": "成对单人床",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:ae7d53c84fe0f672e066",
+            "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "twin towers",
+            "meaning_cn": "双子塔",
             "kind": "usage_example",
             "repair": null
           }
@@ -8811,7 +9212,7 @@
     "ordinal": 5168,
     "word": "twinkle",
     "source_owner_path": "content/lexical/words/by-ordinal/o5168.json",
-    "source_fingerprint": "0062e59cf4805c859e2927b4235a64c746864b66524520387d4f479a11a33ae6",
+    "source_fingerprint": "2f189b6cdc7acf4a8eb9715aa441a4620c35cfbc2d9b5ed27aad69ed5da90011",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8838,7 +9239,7 @@
         "governing_pattern": "",
         "definition_cn": "闪烁；闪耀",
         "definition_en": "emit or reflect light in a flickering manner",
-        "note": "",
+        "note": "眼睛twinkle常表现愉快、幽默或顽皮神情，不只是光线闪烁。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8864,16 +9265,34 @@
         "governing_pattern": "",
         "definition_cn": "闪烁；闪耀；瞬息",
         "definition_en": "a rapid change in brightness; a brief spark or flash",
-        "note": "",
+        "note": "a twinkle in sb’s eye指眼中的笑意或顽皮神色。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:f6465deeb50c1174d090",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "twinkle of an eye",
+            "phrase": "in the twinkling of an eye",
             "meaning_cn": "眨眼之间",
-            "kind": "usage_example",
-            "repair": null
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:f6465deeb50c1174d090",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "in the twinkling of an eye"
+            }
+          },
+          {
+            "id": "collocation:9071cfa1102319c8cc94",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "a twinkle in sb's eye",
+            "meaning_cn": "眼中的笑意；顽皮神色",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:9071cfa1102319c8cc94",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "a twinkle in sb's eye"
+            }
           }
         ],
         "repair": {
@@ -8960,7 +9379,7 @@
     "ordinal": 5169,
     "word": "twist",
     "source_owner_path": "content/lexical/words/by-ordinal/o5169.json",
-    "source_fingerprint": "238212106d1cc43ff32051cc8634a0817cc9c611cc1ee10ad55a5adf5aa7f82d",
+    "source_fingerprint": "819649f841f539d2cf3573bacf8d0fca2bb33c49b3f6eb83cdd74d4966a63d79",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9010,10 +9429,10 @@
         "id": "sense:twist:607e046408ec5982",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + around",
+        "governing_pattern": "I/T: twist sth; sth twists (around/into sth)",
         "definition_cn": "弯曲；扭曲",
         "definition_en": "to turn or bend out of shape",
-        "note": "",
+        "note": "twist an ankle指扭伤脚踝；twist facts由原歪曲义负责。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9270,7 +9689,7 @@
     "ordinal": 5171,
     "word": "type",
     "source_owner_path": "content/lexical/words/by-ordinal/o5171.json",
-    "source_fingerprint": "a1facb75fd0a6d723998bd1659bd0d8afd5ba8ba11113e9a48ac309b055eea3e",
+    "source_fingerprint": "fc2830239e1660bebc3e03c7346d1c68c56d445778e6c77fe0a4952943f6c9aa",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9364,7 +9783,7 @@
         "id": "sense:type:b49dc123237452f7",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: type text; type on a keyboard",
         "definition_cn": "打字",
         "definition_en": "to write using a keyboard",
         "note": "",
@@ -9555,7 +9974,7 @@
     "ordinal": 5173,
     "word": "typical",
     "source_owner_path": "content/lexical/words/by-ordinal/o5173.json",
-    "source_fingerprint": "ca13e32161b6bdcfd15a7c8f79cd38682a7cfa9a1ee14795a23665b4d57f6557",
+    "source_fingerprint": "15c6e260ef78c6502263d9a3f132f8b2cc8fbf5713dc6aeb2fd25f326cfba625",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9578,10 +9997,10 @@
         "id": "sense:typical:37a4156eccd65cab",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "typical of sb/sth; it is typical of sb to do sth",
         "definition_cn": "典型的，有代表性的",
         "definition_en": "having the usual features or qualities of a particular group or kind",
-        "note": "",
+        "note": "说人的一贯行为时，typical/Typical!常带不满，但并非总是贬义；具体语气由行为和语境决定。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9670,7 +10089,7 @@
     "ordinal": 5174,
     "word": "typist",
     "source_owner_path": "content/lexical/words/by-ordinal/o5174.json",
-    "source_fingerprint": "0a57a86c2f5a8d208ca03a31b333452bace489f7d6a8471807f169035275de5d",
+    "source_fingerprint": "a9d44dccc351639cb9ba8de2515dcc96bb5464ab4dc24892b04d28f3b20e545c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9694,8 +10113,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "打字员",
-        "definition_en": "someone paid to operate a typewriter or keyboard",
+        "definition_cn": "打字员；打字的人",
+        "definition_en": "someone who types, especially as a job",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9712,7 +10131,7 @@
           "target_kind": "sense",
           "target_id": "sense:typist:f2b688827cbb532d",
           "target_locator": "record.senses[0]",
-          "target_label": "打字员"
+          "target_label": "打字员；打字的人"
         }
       }
     ],
@@ -10084,7 +10503,7 @@
     "ordinal": 5177,
     "word": "ultraviolet",
     "source_owner_path": "content/lexical/words/by-ordinal/o5177.json",
-    "source_fingerprint": "1a0a9fb89f8dc9d3111bf76dc7e8639874c533eaaa8ff63307e9b563cdeac366",
+    "source_fingerprint": "933f0538f9c36cf1875833d3a784d5df3c1d213fd8e83670701a3c13809dc788",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10110,7 +10529,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "紫外线辐射",
-        "definition_en": "radiation lying in the ultraviolet range; wavelengths shorter than light but longer than X-rays",
+        "definition_en": "electromagnetic radiation with wavelengths shorter than visible light and longer than X-rays",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10136,7 +10555,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "紫外线的",
-        "definition_en": "having or employing wavelengths shorter than light but longer than X-rays; lying outside the visible spectrum at its violet end",
+        "definition_en": "of or using radiation beyond the violet end of visible light, with wavelengths shorter than visible light and longer than X-rays",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10585,7 +11004,7 @@
     "ordinal": 5180,
     "word": "uncle",
     "source_owner_path": "content/lexical/words/by-ordinal/o5180.json",
-    "source_fingerprint": "0cc849d105672266cd4b0536715824118a4206445507f597e6ad741fa09b4a2d",
+    "source_fingerprint": "e6791ecb5db949eface0522a34f18c95110f2ade6ba3e5ad1a39448e2cb1c61c",
     "sense_lineage": [
       {
         "word_id": "word:uncle",
@@ -10602,13 +11021,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "叔父，伯父，姨丈",
-      "decision_cn": "",
+      "summary_cn": "父母的兄弟或姑姨的丈夫",
+      "decision_cn": "英语uncle不区分父系/母系或年长/年幼；按具体亲属关系译成伯、叔、舅、姑父或姨父。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "叔父，伯父，姨丈"
+        "target_label": "父母的兄弟或姑姨的丈夫"
       }
     },
     "senses": [
@@ -10617,7 +11036,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "叔父，伯父，姨丈",
+        "definition_cn": "伯父、叔父、舅父；姑父、姨父",
         "definition_en": "the brother of your father or mother; the husband of your aunt",
         "note": "",
         "identity_overlay": null,
@@ -10626,7 +11045,7 @@
           "target_kind": "sense",
           "target_id": "sense:uncle:667eee3127565453",
           "target_locator": "record.senses[0]",
-          "target_label": "叔父，伯父，姨丈"
+          "target_label": "伯父、叔父、舅父；姑父、姨父"
         }
       }
     ],
@@ -10713,7 +11132,7 @@
     "ordinal": 5181,
     "word": "uncover",
     "source_owner_path": "content/lexical/words/by-ordinal/o5181.json",
-    "source_fingerprint": "93bd0a970c66e915f6299cce8b33d919de8bd0af5dbe1945f87eafb6e92749e1",
+    "source_fingerprint": "8394390437a538d37e80f2328739a77704652eb01fff8cf38695e601ed4bf7f9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10822,11 +11241,11 @@
           "target_word": "disclose",
           "lines": [
             {
-              "text": "uncover侧重发现隐藏事实；disclose侧重主动公开信息",
+              "text": "uncover侧重发现隐藏事实，不要求向他人公布；disclose侧重让他人知晓信息，可向特定对象透露或公开，不要求披露者亲自发现。",
               "lang": "cn"
             },
             {
-              "text": "make known to the public information that was previously known only to a few people or that was meant to be kept a secret",
+              "text": "Hidden or previously unknown information comes to light: uncover emphasizes discovering it; disclose emphasizes making it known to others.",
               "lang": "en"
             }
           ],
@@ -10849,7 +11268,7 @@
     "ordinal": 5182,
     "word": "under",
     "source_owner_path": "content/lexical/words/by-ordinal/o5182.json",
-    "source_fingerprint": "99febae5865d83c9daf36f3b99654fdcdb7411ff3336b75956f2ec60743d194a",
+    "source_fingerprint": "2ecba0cf4ba33cb75fbed21e8f2de1ddb90d416b39566ba19ba943b7725b442d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10859,13 +11278,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在...下面；低于，在...之下（级别、权力等）；失败，死亡，毁灭；向下，从下；处于…状态/过程中；受…影响或控制；低于、不超过某年龄、数量、价格或阈值",
-      "decision_cn": "",
+      "summary_cn": "在...下面；低于，在...之下（级别、权力等）；失败，死亡，毁灭；向下，从下；处于…状态/过程中；受…影响或控制；少于、低于某年龄、数量、价格或阈值",
+      "decision_cn": "under a table看位置；under pressure/repair看状态；under 18不含18，18 and under含18；go under看破产或下沉，put sb under看麻醉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在...下面；低于，在...之下（级别、权力等）；失败，死亡，毁灭；向下，从下；处于…状态/过程中；受…影响或控制；低于、不超过某年龄、数量、价格或阈值"
+        "target_label": "在...下面；低于，在...之下（级别、权力等）；失败，死亡，毁灭；向下，从下；处于…状态/过程中；受…影响或控制；少于、低于某年龄、数量、价格或阈值"
       }
     },
     "senses": [
@@ -10956,16 +11375,16 @@
         "id": "sense:under:6cbf248c3d76565e",
         "source_locator": "record.senses[3]",
         "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "向下，从下",
-        "definition_en": "through a range downward",
+        "governing_pattern": "number + and under",
+        "definition_cn": "在下方；低于或等于所述数量（数字 + and under）",
+        "definition_en": "below a level; at or below a stated limit in number + and under",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:6d4d867d89e79fd5a8dd",
             "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "from six years old and under",
+            "phrase": "six years old and under",
             "meaning_cn": "六岁及以下",
             "kind": "usage_example",
             "repair": null
@@ -10975,7 +11394,7 @@
           "target_kind": "sense",
           "target_id": "sense:under:6cbf248c3d76565e",
           "target_locator": "record.senses[3]",
-          "target_label": "向下，从下"
+          "target_label": "在下方；低于或等于所述数量（数字 + and under）"
         }
       },
       {
@@ -11031,16 +11450,16 @@
         "source_locator": "record.senses[6]",
         "pos": "preposition",
         "governing_pattern": "under 18 / under $50",
-        "definition_cn": "低于、不超过某年龄、数量、价格或阈值",
-        "definition_en": "below or less than a stated age, amount, price, or threshold",
-        "note": "",
+        "definition_cn": "少于；低于所述年龄、数量、价格或阈值",
+        "definition_en": "less than a stated age, amount, price, or threshold",
+        "note": "under 18是不满18岁；18 and under包含18。数字前under不等于至多。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:under:61b9205d02c6358c",
           "target_locator": "record.senses[6]",
-          "target_label": "低于、不超过某年龄、数量、价格或阈值"
+          "target_label": "少于；低于所述年龄、数量、价格或阈值"
         }
       }
     ],

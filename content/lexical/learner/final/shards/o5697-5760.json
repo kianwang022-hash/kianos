@@ -5,7 +5,7 @@
     "ordinal": 5697,
     "word": "burial",
     "source_owner_path": "content/lexical/words/by-ordinal/o5697.json",
-    "source_fingerprint": "7076d49e53c4af1bcdc6bc3e9663aa0521647d4be00b6e42299c20eba6997d04",
+    "source_fingerprint": "e0a5efff1ef6a9efdee06f7d0c03a6c73cdfc291e2c7b747a63e67e926b94b3d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -14,13 +14,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "埋葬；葬礼",
+      "summary_cn": "埋葬；葬礼；掩埋",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "埋葬；葬礼"
+        "target_label": "埋葬；葬礼；掩埋"
       }
     },
     "senses": [
@@ -29,16 +29,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "埋葬；葬礼",
-        "definition_en": "the ritual placing of a corpse in a grave",
-        "note": "",
+        "definition_cn": "埋葬；葬礼；掩埋",
+        "definition_en": "the act of burying someone or something, or a ceremony for burying the dead",
+        "note": "遗体语境指埋葬/葬礼；其他物体语境也可指掩埋，不限尸体或仪式。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:burial:c4db38f8de2050ad",
           "target_locator": "record.senses[0]",
-          "target_label": "埋葬；葬礼"
+          "target_label": "埋葬；葬礼；掩埋"
         }
       }
     ],
@@ -77,7 +77,7 @@
     "ordinal": 5698,
     "word": "bushel",
     "source_owner_path": "content/lexical/words/by-ordinal/o5698.json",
-    "source_fingerprint": "bed844333f0fb0c9375829fe1c64a72b3a32ac6a43847df91ba3afce336f7358",
+    "source_fingerprint": "f224c8de6c27a7c07ccc89bc97c2b8a58cd7f5e19dc3ffea872cdb3e79668117",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -86,13 +86,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "蒲式耳(容量单位)",
+      "summary_cn": "蒲式耳；干量单位，美国习惯制与英制数值不同",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "蒲式耳(容量单位)"
+        "target_label": "蒲式耳；干量单位，美国习惯制与英制数值不同"
       }
     },
     "senses": [
@@ -146,7 +146,7 @@
     "ordinal": 5699,
     "word": "butt",
     "source_owner_path": "content/lexical/words/by-ordinal/o5699.json",
-    "source_fingerprint": "e7700eab15dd0596a0b4c00bdafd25f42f94e92fb1aa08b482b0812cab97b77a",
+    "source_fingerprint": "7239f41698540d17f4fc9b398fe2226efed69259b663435e1e960d152fadb4e8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -256,7 +256,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:def3251ba5cb33f71954",
+        "source_locator": "record.constructions[0]",
+        "pattern": "butt in (on sth)",
+        "lines": [
+          {
+            "text": "插嘴；干涉别人的事（非正式，常含不满）",
+            "lang": "cn"
+          },
+          {
+            "text": "to interrupt or interfere without being invited",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:def3251ba5cb33f71954",
+          "target_locator": "record.constructions[0]",
+          "target_label": "butt in (on sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -270,17 +292,17 @@
     "ordinal": 5700,
     "word": "calculus",
     "source_owner_path": "content/lexical/words/by-ordinal/o5700.json",
-    "source_fingerprint": "13481aaacd682a4c943678f098990dba9e491a8ddefcd5b48e456b427ca2f3f0",
+    "source_fingerprint": "335ef316b6209c26006a2ab0504daefc624cb80e164018fab104b7d781f86913",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "微积分",
-      "decision_cn": "",
+      "decision_cn": "数学语境是微积分；医学语境是结石；决策、政治或经济语境的 calculus 可指盘算、权衡因素。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -321,6 +343,23 @@
           "target_id": "sense:calculus:9974a055735c5925",
           "target_locator": "record.senses[1]",
           "target_label": "结石"
+        }
+      },
+      {
+        "id": "sense:calculus:2b46be8d460ba31f",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "盘算；权衡；计算方法",
+        "definition_en": "a calculation or way of weighing factors when making a decision",
+        "note": "如 political/economic calculus，指衡量利害或各项因素，不一定做微积分。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:calculus:2b46be8d460ba31f",
+          "target_locator": "record.senses[2]",
+          "target_label": "盘算；权衡；计算方法"
         }
       }
     ],
@@ -443,10 +482,11 @@
     "ordinal": 5702,
     "word": "cane",
     "source_owner_path": "content/lexical/words/by-ordinal/o5702.json",
-    "source_fingerprint": "7ccae886d9c5541c007e47ee8332129a741fc7b796afd3fe8fd6968ee5dc29e8",
+    "source_fingerprint": "364346ef0939e4a92fe9b480dbe701680631f29bceb398f5a012139e3e7db65e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
+        "1V",
         "2N"
       ],
       "density": "rich"
@@ -494,6 +534,23 @@
           "target_id": "sense:cane:b37ebf33c5d852d7",
           "target_locator": "record.senses[1]",
           "target_label": "藤条；茎；甘蔗类茎秆"
+        }
+      },
+      {
+        "id": "sense:cane:a62771fd4662b26e",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "cane sb",
+        "definition_cn": "用藤条或细棍打（作为惩罚）",
+        "definition_en": "to punish someone by striking them with a cane",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:cane:a62771fd4662b26e",
+          "target_locator": "record.senses[2]",
+          "target_label": "用藤条或细棍打（作为惩罚）"
         }
       }
     ],
@@ -704,7 +761,7 @@
     "ordinal": 5705,
     "word": "cartridge",
     "source_owner_path": "content/lexical/words/by-ordinal/o5705.json",
-    "source_fingerprint": "268f19ac2327e4fb9be9b3a611524758453b8f478c6a9dc9bcb87b29fc38f9ed",
+    "source_fingerprint": "763403cc8c910d42d03bc09ab57be704459b6e9a74fd5bb51bb17f5ce680d705",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -729,7 +786,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "弹药筒；枪弹的完整弹药单元",
-        "definition_en": "ammunition consisting of a cylindrical casing containing an explosive charge and a bullet; fired from a rifle or handgun",
+        "definition_en": "a unit of ammunition in a case, usually containing a projectile, for use in a firearm",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -1365,7 +1422,7 @@
     "ordinal": 5711,
     "word": "charcoal",
     "source_owner_path": "content/lexical/words/by-ordinal/o5711.json",
-    "source_fingerprint": "c21d7ade709555917ba88664374560f69fa3c2cb7220c39db779f530b92a1002",
+    "source_fingerprint": "1fe3bf18c23ede9f9f6f64f95e74adbdb152609f46c7ae8bd1bbca1ac280985d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1452,7 +1509,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:6a394d131cd3a561df36",
+        "source_locator": "record.constructions[0]",
+        "pattern": "charcoal (grey/gray); a charcoal suit",
+        "lines": [
+          {
+            "text": "炭灰色；深灰色；炭灰色的服装",
+            "lang": "cn"
+          },
+          {
+            "text": "a dark grey colour, or describing something of that colour",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:6a394d131cd3a561df36",
+          "target_locator": "record.constructions[0]",
+          "target_label": "charcoal (grey/gray); a charcoal suit"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1554,11 +1633,11 @@
     "ordinal": 5713,
     "word": "chatter",
     "source_owner_path": "content/lexical/words/by-ordinal/o5713.json",
-    "source_fingerprint": "a81fc4b3daf35a193983816197f5d4c4ee531ed2ad9a32d7d4ea3bf1cbab05d6",
+    "source_fingerprint": "270089a90c0b368eaac245e740516709856f5ff9a17c7e286872e58fe45a7d1b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "2N"
       ],
       "density": "rich"
@@ -1624,6 +1703,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "咔嗒声；啁啾声"
         }
+      },
+      {
+        "id": "sense:chatter:63f8d4cc678716d6",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "teeth chatter; birds/machines chatter",
+        "definition_cn": "（牙齿）打战；（动物、机器）发出快速连续的声音",
+        "definition_en": "to make quick repeated sounds; of teeth, to knock together from cold or fear",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:chatter:63f8d4cc678716d6",
+          "target_locator": "record.senses[3]",
+          "target_label": "（牙齿）打战；（动物、机器）发出快速连续的声音"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1673,7 +1769,7 @@
     "ordinal": 5714,
     "word": "chestnut",
     "source_owner_path": "content/lexical/words/by-ordinal/o5714.json",
-    "source_fingerprint": "92cb074170a333f506d0d56a4baeb1ec0414f005cff417235193f56e6175b355",
+    "source_fingerprint": "da166710b3b00678b3bc2a68a88bcc70344ddda74d517dbd3ff518ff0524aed9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1766,7 +1862,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:4dc3abe26dd2d5ab2198",
+        "source_locator": "record.constructions[0]",
+        "pattern": "an old chestnut",
+        "lines": [
+          {
+            "text": "（非正式）老掉牙的话题、说法或笑话",
+            "lang": "cn"
+          },
+          {
+            "text": "a topic, idea, or joke repeated so often that it is no longer interesting or amusing",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:4dc3abe26dd2d5ab2198",
+          "target_locator": "record.constructions[0]",
+          "target_label": "an old chestnut"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1780,7 +1898,7 @@
     "ordinal": 5715,
     "word": "chord",
     "source_owner_path": "content/lexical/words/by-ordinal/o5715.json",
-    "source_fingerprint": "9c669211ff2cbd7ce125d27fc74bf64756f8dd7924f9e43f57c899730e4e72c1",
+    "source_fingerprint": "cb3d434717bbd191914ed6ecf77ff77f916ed4ecc8f802326842c9db371321b1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1872,7 +1990,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e69f23f8be95bc42e5c8",
+        "source_locator": "record.constructions[0]",
+        "pattern": "strike a chord (with sb)",
+        "lines": [
+          {
+            "text": "引起共鸣或认同；唤起相关记忆",
+            "lang": "cn"
+          },
+          {
+            "text": "to evoke agreement or a feeling of personal connection, or bring a similar experience to mind",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e69f23f8be95bc42e5c8",
+          "target_locator": "record.constructions[0]",
+          "target_label": "strike a chord (with sb)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1988,7 +2128,7 @@
     "ordinal": 5717,
     "word": "clamp",
     "source_owner_path": "content/lexical/words/by-ordinal/o5717.json",
-    "source_fingerprint": "14b7dc12390ecbb719260941695795787715e02883741e48ec036755583ef5a4",
+    "source_fingerprint": "ac4bd6f46eaa40388e02a23ffa9db3cfca7c4d821cba15062442bc3d162af5c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2013,8 +2153,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "夹钳",
-        "definition_en": "a device (generally used by carpenters) that holds things firmly together",
+        "definition_cn": "夹具；夹钳",
+        "definition_en": "a device used to hold objects firmly in place or together",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2022,24 +2162,24 @@
           "target_kind": "sense",
           "target_id": "sense:clamp:beaaf8e2e5f15b39",
           "target_locator": "record.senses[0]",
-          "target_label": "夹钳"
+          "target_label": "夹具；夹钳"
         }
       },
       {
         "id": "sense:clamp:92eb35e2c1635ea7",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "夹紧；强加",
-        "definition_en": "fasten or fix with a clamp",
-        "note": "",
+        "governing_pattern": "clamp sth to/around/over sth; clamp sth shut/together; clamp a restriction on sb/sth",
+        "definition_cn": "夹紧；紧紧固定；强加",
+        "definition_en": "to hold or fasten tightly, with or as if with a clamp; also, to impose something forcefully",
+        "note": "可用手、嘴等紧紧固定，不要求实际夹具；强加义如clamp a curfew on a town。clamp down on的镇压/限制整体构式另列。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:clamp:92eb35e2c1635ea7",
           "target_locator": "record.senses[1]",
-          "target_label": "夹紧；强加"
+          "target_label": "夹紧；紧紧固定；强加"
         }
       }
     ],
@@ -2110,7 +2250,7 @@
     "ordinal": 5718,
     "word": "clatter",
     "source_owner_path": "content/lexical/words/by-ordinal/o5718.json",
-    "source_fingerprint": "98877637e041227f672a522bcf5c6f088c6d95e35c99e04203e4ed5ff81030be",
+    "source_fingerprint": "571687cec68e96612efb020a6f6a90b4194bcd4feb79e4649f404b0bb15d03e3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2136,7 +2276,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "咔嗒声；哗啦声；嘈杂的谈笑声",
-        "definition_en": "a rattling noise (often produced by rapid movement)",
+        "definition_en": "a series of loud rattling sounds, often from movement or hard objects striking; also, noisy chatter or commotion",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2151,9 +2291,9 @@
         "id": "sense:clatter:327b63ed611a5365",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "发出哗啦声；喧闹的谈笑",
-        "definition_en": "make a rattling sound",
+        "governing_pattern": "I/T: dishes clatter; clatter the dishes; clatter down/along + place",
+        "definition_cn": "（使）发出哗啦声；喧闹地移动；喧闹地谈笑",
+        "definition_en": "to make or cause repeated loud rattling sounds, to move with such sounds, or to chatter noisily",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2161,7 +2301,7 @@
           "target_kind": "sense",
           "target_id": "sense:clatter:327b63ed611a5365",
           "target_locator": "record.senses[1]",
-          "target_label": "发出哗啦声；喧闹的谈笑"
+          "target_label": "（使）发出哗啦声；喧闹地移动；喧闹地谈笑"
         }
       }
     ],
@@ -2402,7 +2542,7 @@
     "ordinal": 5721,
     "word": "clown",
     "source_owner_path": "content/lexical/words/by-ordinal/o5721.json",
-    "source_fingerprint": "44b8086841bbeb1e2eb86f56dd87915e7287d8a49b82fff5c58fcbe77af888b0",
+    "source_fingerprint": "e242d40929835e6482675bdc5dbe060b37363d70081326608f47b22afd32a81f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2412,13 +2552,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "小丑；乡下人；小丑；马戏团或表演中的滑稽演员",
+      "summary_cn": "小丑；（古义）乡下人；小丑；马戏团或表演中的滑稽演员",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "小丑；乡下人；小丑；马戏团或表演中的滑稽演员"
+        "target_label": "小丑；（古义）乡下人；小丑；马戏团或表演中的滑稽演员"
       }
     },
     "senses": [
@@ -2427,16 +2567,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "小丑；乡下人",
-        "definition_en": "a rude or vulgar fool",
-        "note": "Insulting person-use meaning a fool; not the literal Core.",
+        "definition_cn": "（贬义）蠢人；（古义）乡下人",
+        "definition_en": "a foolish or incompetent person; archaically, a rustic or country person",
+        "note": "现代指人的蠢人用法带贬义；乡下人是古义，不宜作为现代中性的地域称呼。表演者另列。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:clown:36be9049cca35b40",
           "target_locator": "record.senses[0]",
-          "target_label": "小丑；乡下人"
+          "target_label": "（贬义）蠢人；（古义）乡下人"
         }
       },
       {
@@ -2593,7 +2733,7 @@
     "ordinal": 5723,
     "word": "coffin",
     "source_owner_path": "content/lexical/words/by-ordinal/o5723.json",
-    "source_fingerprint": "d5c9ebc8d1ddb5a34b65ad019d7a7ecb33940a736294937e27e9a475139af3d6",
+    "source_fingerprint": "aa248fd63f4ac7b046a96665f4ee2ea694ac8d73935fac796913d01aff98f10a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2668,7 +2808,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:96ded448740125cf8bac",
+        "source_locator": "record.constructions[0]",
+        "pattern": "another/the final nail in the coffin (of/for sth)",
+        "lines": [
+          {
+            "text": "促使已走下坡路的事物进一步失败或最终垮台的一击",
+            "lang": "cn"
+          },
+          {
+            "text": "an event that worsens or completes the failure of something already in decline",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:96ded448740125cf8bac",
+          "target_locator": "record.constructions[0]",
+          "target_label": "another/the final nail in the coffin (of/for sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3252,7 +3414,7 @@
     "ordinal": 5730,
     "word": "congest",
     "source_owner_path": "content/lexical/words/by-ordinal/o5730.json",
-    "source_fingerprint": "523cd8a1d9c8380c966b97bdd3a32b88854dab55cd3aaacbca706692bf42da1f",
+    "source_fingerprint": "172e123460883caaf830a5c944f8487f2dd2747908651c0444a01ff50f2851ef",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3261,13 +3423,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "使充满；使拥塞；使充血",
+      "summary_cn": "（使）充满、拥塞或充血",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使充满；使拥塞；使充血"
+        "target_label": "（使）充满、拥塞或充血"
       }
     },
     "senses": [
@@ -3275,8 +3437,8 @@
         "id": "sense:congest:bed5e75ac0815282",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "使充满；使拥塞；使充血",
+        "governing_pattern": "I: a throat congests with phlegm; T: congest a road or passage",
+        "definition_cn": "（使）充满、拥塞或充血",
         "definition_en": "become or cause to become obstructed",
         "note": "",
         "identity_overlay": null,
@@ -3285,7 +3447,7 @@
           "target_kind": "sense",
           "target_id": "sense:congest:bed5e75ac0815282",
           "target_locator": "record.senses[0]",
-          "target_label": "使充满；使拥塞；使充血"
+          "target_label": "（使）充满、拥塞或充血"
         }
       }
     ],
@@ -3422,7 +3584,7 @@
     "ordinal": 5732,
     "word": "contemptuous",
     "source_owner_path": "content/lexical/words/by-ordinal/o5732.json",
-    "source_fingerprint": "c6b694353946e06515813861e6359906736c47251b052e8dc9d331cdf5b919e0",
+    "source_fingerprint": "041bcaeaac09b5678ef8bdd5a5c06696195f3b2bf7074643b9df780974feb173",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3445,9 +3607,9 @@
         "id": "sense:contemptuous:e84aa384d98c5b37",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "contemptuous of sb/sth",
         "definition_cn": "轻蔑的；鄙视的；瞧不起人的",
-        "definition_en": "expressing extreme contempt",
+        "definition_en": "feeling or showing strong disrespect because someone or something is considered unworthy",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -3747,7 +3909,7 @@
     "ordinal": 5734,
     "word": "converse",
     "source_owner_path": "content/lexical/words/by-ordinal/o5734.json",
-    "source_fingerprint": "a8aab9891ea42ee5146f4e2b417a15ee9b4b15f42ceb1559dc7d8ffcc881ba5b",
+    "source_fingerprint": "6617a4d80ff70f5158c1b10e92a4879093ea4663f5116592591d7f12ab487424",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3772,10 +3934,10 @@
         "id": "sense:converse:813f4770e18552c7",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "I: converse with sb",
         "definition_cn": "交谈；谈话",
         "definition_en": "to talk with someone",
-        "note": "",
+        "note": "正式用语；交谈对象用with引入，不用converse sb。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -3789,7 +3951,7 @@
         "id": "sense:converse:72d8bfc634a3525a",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "the converse (of sth)",
         "definition_cn": "逆命题；相反事物",
         "definition_en": "a statement or relationship that is the reverse of another",
         "note": "",
@@ -3809,7 +3971,7 @@
         "governing_pattern": "",
         "definition_cn": "相反的、逆向的",
         "definition_en": "reverse or opposite in order, direction, or relation",
-        "note": "",
+        "note": "正式用语；表相反或逆向。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -4541,11 +4703,11 @@
     "ordinal": 5739,
     "word": "cozy",
     "source_owner_path": "content/lexical/words/by-ordinal/o5739.json",
-    "source_fingerprint": "9990dbaa33d7b72f56b46e8f3fd41f640dcc927f6b937fe62991b6f2b1bb6d12",
+    "source_fingerprint": "bbed57308c0e35157ffe090c0bfa0f0809f28f59c5a3534b44201631ba3c00c3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -4593,6 +4755,23 @@
           "target_locator": "record.senses[1]",
           "target_label": "温馨的；亲切随和的；气氛融洽的"
         }
+      },
+      {
+        "id": "sense:cozy:98b0b2eb1293c2d6",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "a cozy arrangement/deal/relationship",
+        "definition_cn": "（贬义）相互关照、可能不公正或不诚实的",
+        "definition_en": "convenient for the people involved but potentially unfair or dishonest",
+        "note": "不是一切亲近关系都不正当；在交易安排语境中可暗示利益勾连。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:cozy:98b0b2eb1293c2d6",
+          "target_locator": "record.senses[2]",
+          "target_label": "（贬义）相互关照、可能不公正或不诚实的"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4628,7 +4807,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:e82e0b93d8abe59ffb6e",
+        "source_locator": "record.constructions[0]",
+        "pattern": "cozy up to sb",
+        "lines": [
+          {
+            "text": "为谋利而讨好、巴结某人",
+            "lang": "cn"
+          },
+          {
+            "text": "to act very friendly toward someone in the hope of gaining an advantage",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:e82e0b93d8abe59ffb6e",
+          "target_locator": "record.constructions[0]",
+          "target_label": "cozy up to sb"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4647,12 +4848,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": "cozy is the usual American spelling; cosy is the usual British spelling. Same ordinary adjective concept."
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -4663,7 +4860,7 @@
     "ordinal": 5740,
     "word": "crank",
     "source_owner_path": "content/lexical/words/by-ordinal/o5740.json",
-    "source_fingerprint": "f32dfcc10c98206b7443d21a158635dd86186232e11a00d94d80f1d1d5a2789c",
+    "source_fingerprint": "13308a9523e3ed882447253d1201cb007c824d7b67823863726014107547b3f2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4775,6 +4972,27 @@
           "target_id": "construction:a03c9f2703ec94d27b6b",
           "target_locator": "record.constructions[0]",
           "target_label": "crank up sth / crank sth up"
+        }
+      },
+      {
+        "id": "construction:3f61f91106a6a83312e8",
+        "source_locator": "record.constructions[1]",
+        "pattern": "crank out sth / crank sth out",
+        "lines": [
+          {
+            "text": "（非正式）大量或机械地制作；草草生产",
+            "lang": "cn"
+          },
+          {
+            "text": "to produce things in large quantities or mechanically, often without special care",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:3f61f91106a6a83312e8",
+          "target_locator": "record.constructions[1]",
+          "target_label": "crank out sth / crank sth out"
         }
       }
     ],
@@ -5036,11 +5254,12 @@
     "ordinal": 5743,
     "word": "cuckoo",
     "source_owner_path": "content/lexical/words/by-ordinal/o5743.json",
-    "source_fingerprint": "5606986d5da9bedd1b18461614be5b62929abbcca9abcdbd46a1a00c5390f360",
+    "source_fingerprint": "b679dff04529899f1314294a15a69b1e21a0c312a7d7ceb0e7e3ec758b079235",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
+        "1A",
         "1N"
       ],
       "density": "rich"
@@ -5062,7 +5281,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "杜鹃鸟；布谷鸟",
-        "definition_en": "any of numerous European and North American birds having pointed wings and a long tail",
+        "definition_en": "a bird of the cuckoo family, typically with a long tail; the common cuckoo is known for its two-note call",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5077,7 +5296,7 @@
         "id": "sense:cuckoo:007ea25ea550517c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "cuckoo a phrase or statement",
         "definition_cn": "像布谷鸟一样单调重复；反复说",
         "definition_en": "repeat monotonously, like a cuckoo repeats his call",
         "note": "",
@@ -5088,6 +5307,40 @@
           "target_id": "sense:cuckoo:007ea25ea550517c",
           "target_locator": "record.senses[1]",
           "target_label": "像布谷鸟一样单调重复；反复说"
+        }
+      },
+      {
+        "id": "sense:cuckoo:7abc99248f4749b0",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "a bird/clock cuckoos",
+        "definition_cn": "发出或模仿布谷鸟的叫声",
+        "definition_en": "to make or imitate the call of a cuckoo",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:cuckoo:7abc99248f4749b0",
+          "target_locator": "record.senses[2]",
+          "target_label": "发出或模仿布谷鸟的叫声"
+        }
+      },
+      {
+        "id": "sense:cuckoo:042dc2b5fc28f167",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "be/go cuckoo",
+        "definition_cn": "（非正式）傻的；荒唐的",
+        "definition_en": "foolish or irrational",
+        "note": "口语评价可带冒犯性，不是医学诊断。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:cuckoo:042dc2b5fc28f167",
+          "target_locator": "record.senses[3]",
+          "target_label": "（非正式）傻的；荒唐的"
         }
       }
     ],
@@ -5308,11 +5561,11 @@
     "ordinal": 5746,
     "word": "cutter",
     "source_owner_path": "content/lexical/words/by-ordinal/o5746.json",
-    "source_fingerprint": "9920634026d641135cca7209734c36430ec5ef6faf822d848c14e8e9c7f801c8",
+    "source_fingerprint": "d321a748b10fcba17a1a705bfe46e78b39c73819918d8344d867c804c7b62662",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -5359,6 +5612,23 @@
           "target_id": "sense:cutter:97e1aaf8410a5d51",
           "target_locator": "record.senses[1]",
           "target_label": "裁剪者；切割工"
+        }
+      },
+      {
+        "id": "sense:cutter:363fe1014e5da5f3",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a sailing cutter; a coastguard cutter",
+        "definition_cn": "（航海）一种船；尤指单桅帆船或海关、海岸警卫队巡逻艇",
+        "definition_en": "a type of boat, especially a single-masted sailing boat or a government patrol vessel",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:cutter:363fe1014e5da5f3",
+          "target_locator": "record.senses[2]",
+          "target_label": "（航海）一种船；尤指单桅帆船或海关、海岸警卫队巡逻艇"
         }
       }
     ],
@@ -5409,22 +5679,22 @@
     "ordinal": 5747,
     "word": "cynical",
     "source_owner_path": "content/lexical/words/by-ordinal/o5747.json",
-    "source_fingerprint": "575ba3d98f62de8910242a3ce8faf65e17669308bc77ae01034561aad0586b98",
+    "source_fingerprint": "f5cf408c2c8d8d55d48b2367b96052af04e745b3263a45695887956637ed801c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A"
+        "2A"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "愤世嫉俗的；讽刺的；冷嘲的",
+      "summary_cn": "不信他人真诚的；为私利而不顾道义的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "愤世嫉俗的；讽刺的；冷嘲的"
+        "target_label": "不信他人真诚的；为私利而不顾道义的"
       }
     },
     "senses": [
@@ -5432,17 +5702,34 @@
         "id": "sense:cynical:306d75f6fb8c598a",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "愤世嫉俗的；讽刺的；冷嘲的",
-        "definition_en": "believing the worst of human nature and motives; having a sneering disbelief in e.g. selflessness of others",
-        "note": "",
+        "governing_pattern": "cynical about sb/sth",
+        "definition_cn": "不相信他人真诚的；认为人皆自私的",
+        "definition_en": "distrusting other people’s sincerity and believing that they mainly act out of self-interest",
+        "note": "通常含不赞同语气；不只是一般幽默或讽刺。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:cynical:306d75f6fb8c598a",
           "target_locator": "record.senses[0]",
-          "target_label": "愤世嫉俗的；讽刺的；冷嘲的"
+          "target_label": "不相信他人真诚的；认为人皆自私的"
+        }
+      },
+      {
+        "id": "sense:cynical:530b6d38fbcf6207",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "a cynical ploy/attempt",
+        "definition_cn": "（贬义）为私利而利用他人感情的；不顾道义的",
+        "definition_en": "using people’s feelings or beliefs for one’s own advantage without sincere concern for them",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:cynical:530b6d38fbcf6207",
+          "target_locator": "record.senses[1]",
+          "target_label": "（贬义）为私利而利用他人感情的；不顾道义的"
         }
       }
     ],
@@ -5491,13 +5778,13 @@
     "ordinal": 5748,
     "word": "datum",
     "source_owner_path": "content/lexical/words/by-ordinal/o5748.json",
-    "source_fingerprint": "14f594c078d761217e70b1ffbf1f222bdc2c06ff499e7de7b16dad84d3ab2aa6",
+    "source_fingerprint": "88679fa5c5e6b857823d9a4e3d73c2c9f31930e335bc839375c633efb1505851",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "论据；材料；资料；已知数",
@@ -5525,6 +5812,23 @@
           "target_id": "sense:datum:0aa12e53ec4a56b3",
           "target_locator": "record.senses[0]",
           "target_label": "论据；材料；资料；已知数"
+        }
+      },
+      {
+        "id": "sense:datum:f20f98dcb9dec403",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a datum point/line; technical plural datums",
+        "definition_cn": "（测绘、工程）基准；测量所依据的点、线或面",
+        "definition_en": "a reference point, line, or surface from which measurements are made",
+        "note": "工程/测绘基准义可用复数datums；信息项义的datum/data数量边界另保留。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:datum:f20f98dcb9dec403",
+          "target_locator": "record.senses[1]",
+          "target_label": "（测绘、工程）基准；测量所依据的点、线或面"
         }
       }
     ],
@@ -5610,6 +5914,11 @@
             "surface": "data",
             "condition": "plural or mass-noun use",
             "note": "modern general English often treats data as a plural or mass noun"
+          },
+          {
+            "surface": "datums",
+            "condition": "plural of the surveying/engineering reference sense",
+            "note": "technical reference points, lines, or surfaces; distinct from ordinary information plural data"
           }
         ],
         "variants": [],
@@ -5728,7 +6037,7 @@
     "ordinal": 5750,
     "word": "deceptive",
     "source_owner_path": "content/lexical/words/by-ordinal/o5750.json",
-    "source_fingerprint": "42dfa9c8c77abf57cbdcb7de400bdcb435c610133750124182a3e4d97e4a0d92",
+    "source_fingerprint": "4306a18c4d06d9db267754bf1e8f8e6d29cbef49f66b5d281547e7f7c757b77f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5737,13 +6046,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "迷惑的；虚伪的；欺诈的",
+      "summary_cn": "具有迷惑性的；容易误导或有意骗人的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "迷惑的；虚伪的；欺诈的"
+        "target_label": "具有迷惑性的；容易误导或有意骗人的"
       }
     },
     "senses": [
@@ -5770,7 +6079,7 @@
         "pos": "adjective",
         "governing_pattern": "",
         "definition_cn": "欺骗性的；蓄意或有意造成误导的",
-        "definition_en": "designed to deceive or mislead either deliberately or inadvertently",
+        "definition_en": "intended or designed to make someone believe something untrue",
         "note": "Use this branch when design/intention to deceive or mislead is foregrounded; the other branch can describe a misleading appearance without asserting intent.",
         "identity_overlay": null,
         "usage": [],
@@ -6030,7 +6339,7 @@
     "ordinal": 5753,
     "word": "deferential",
     "source_owner_path": "content/lexical/words/by-ordinal/o5753.json",
-    "source_fingerprint": "9027a389d86229390fbeab116d4a6ec0b8a946fb3cac49ae876f3342340d0d95",
+    "source_fingerprint": "b660d17920e25b6c5743244c32ef5fec4b3176313534714c33fc37072b51d7ed",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6053,9 +6362,9 @@
         "id": "sense:deferential:bd7b702bc67551db",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "deferential towards sb",
         "definition_cn": "恭敬的",
-        "definition_en": "showing deference",
+        "definition_en": "polite and showing respect, especially toward someone in authority",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -6553,13 +6862,13 @@
     "ordinal": 5758,
     "word": "degradation",
     "source_owner_path": "content/lexical/words/by-ordinal/o5758.json",
-    "source_fingerprint": "52faee9900144af9d47d72c1688f28cec3f5a357e2a84c6f2c07884797c8eb50",
+    "source_fingerprint": "5789aa06cea2f57ab3aa71a20fc252b16dabb332f42a1e9235bef8e5f969a88c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "退化、恶化、降级",
@@ -6587,6 +6896,23 @@
           "target_id": "sense:degradation:bd41d24c92a35cae",
           "target_locator": "record.senses[0]",
           "target_label": "退化、恶化、降级；质量、状况、环境、材料或地位的下降"
+        }
+      },
+      {
+        "id": "sense:degradation:7b1fa1cf15a6a9ab",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（正式）受辱；被贬低、失去尊严",
+        "definition_en": "humiliation or treatment that makes someone feel stripped of worth or dignity",
+        "note": "正式用语；不同于材料、环境、质量的恶化。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:degradation:7b1fa1cf15a6a9ab",
+          "target_locator": "record.senses[1]",
+          "target_label": "（正式）受辱；被贬低、失去尊严"
         }
       }
     ],
@@ -6637,22 +6963,22 @@
     "ordinal": 5759,
     "word": "degrade",
     "source_owner_path": "content/lexical/words/by-ordinal/o5759.json",
-    "source_fingerprint": "2ae0659cdbbd8e7c0ec901c325342d9dd9300fc9c1137392f69485a24f343f5a",
+    "source_fingerprint": "d214a332386abe08758415af834c3db61b859a5f6ef0b7adf7d16a14641ee569",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "降低；使恶化；使降级",
+      "summary_cn": "（使）质量、价值或状况下降；使降级",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "降低；使恶化；使降级"
+        "target_label": "（使）质量、价值或状况下降；使降级"
       }
     },
     "senses": [
@@ -6660,9 +6986,9 @@
         "id": "sense:degrade:93d791d682b75e3c",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "降低；使恶化；使降级",
-        "definition_en": "to reduce the quality, value, condition, or status of something",
+        "governing_pattern": "I: performance degrades; T: degrade quality/the environment",
+        "definition_cn": "（使）质量、价值或状况下降；使降级",
+        "definition_en": "to become worse in quality, value, or condition, or to make something worse or lower in status",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -6670,7 +6996,7 @@
           "target_kind": "sense",
           "target_id": "sense:degrade:93d791d682b75e3c",
           "target_locator": "record.senses[0]",
-          "target_label": "降低；使恶化；使降级"
+          "target_label": "（使）质量、价值或状况下降；使降级"
         }
       },
       {
@@ -6688,6 +7014,23 @@
           "target_id": "sense:degrade:2d737b5e874755ae",
           "target_locator": "record.senses[1]",
           "target_label": "贬低；羞辱"
+        }
+      },
+      {
+        "id": "sense:degrade:6887eacfed8889fa",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "I/T: a material degrades; degrade a substance",
+        "definition_cn": "（化学）降解；（使）分解为较简单的物质",
+        "definition_en": "to break down, or cause a substance to break down, into simpler substances",
+        "note": "普通环境与材料阅读中的分解含义；不要求分解一定有害。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:degrade:6887eacfed8889fa",
+          "target_locator": "record.senses[2]",
+          "target_label": "（化学）降解；（使）分解为较简单的物质"
         }
       }
     ],

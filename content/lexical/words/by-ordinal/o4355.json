@@ -6,7 +6,38 @@
   "record": {
     "card_version": "v1",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:service:08a0e7f7c1bdcb65",
+        "pattern": "in service / out of service",
+        "meaning_cn": "在使用、运营中／停用、停运",
+        "definition_en": "in active use or unavailable for use",
+        "boundary": "车辆、机器和设施作对象时是运营或使用状态；out of service不保证只是坏了，也可已退役或暂时撤出。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/service_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:service:89e3c4ab8983149a",
+        "pattern": "at sb’s service / at the service of sb",
+        "meaning_cn": "随时听候使用或提供帮助",
+        "definition_en": "available to help someone or be used by them",
+        "boundary": "人说at your service常属正式或略带幽默的客套；不是普通地点at+service。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/service_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      }
+    ],
     "content_hash": "8e7a4edd8be443ff93baca3a014889e8c9038d5a21e31db85de1d9014cf41695",
     "core_concept": {
       "core_clusters": [
@@ -33,7 +64,7 @@
       ],
       "core_meaning_cn": "服务；维修",
       "core_meaning_en": "work done for others or maintenance",
-      "mental_model_cn": "服务；维修",
+      "mental_model_cn": "服务可指为别人做的工作或提供服务的系统；车次看时刻和目的地，车辆保养看检修语境，church/funeral则指礼拜仪式；in/out of service说明是否在用。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -196,6 +227,46 @@
         "sense_label_en": "time spent in the armed forces",
         "sort_order": 5,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:service:f90d27e53bc40b1e",
+        "pos": "noun",
+        "definition_cn": "车辆或机器的检修、保养",
+        "definition_en": "an inspection and maintenance of a vehicle or machine",
+        "sense_label_en": "an inspection and maintenance of a vehicle or machine",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "take a car in for (a) service",
+        "transitivity": "nonverb",
+        "usage_note": "名词表示一次检修或维修服务；不是把保养动词临时当作名词理解。",
+        "collocations": [],
+        "sort_order": 6,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/service_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "sense_id": "sense:service:1db7e7d41f3755a4",
+        "pos": "noun",
+        "definition_cn": "定期开行的车次、班次",
+        "definition_en": "a scheduled bus, train or other transport connection",
+        "sense_label_en": "a scheduled bus, train or other transport connection",
+        "level": "L2",
+        "direction": "R",
+        "governing_pattern": "the service to/from a place",
+        "transitivity": "nonverb",
+        "usage_note": "接时刻或目的地时可指具体班次；the 10:15 service是那一班车。",
+        "collocations": [],
+        "sort_order": 7,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/service_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -506,6 +577,18 @@
         "merged_into_sense_id": null,
         "source_row": 12241,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:service:f90d27e53bc40b1e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4355.json"
+      },
+      {
+        "sense_id": "sense:service:1db7e7d41f3755a4",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4355.json"
       }
     ],
     "active_collocations": [
@@ -517,7 +600,18 @@
       "collocation:9c05e064febd1c9467a6",
       "collocation:b71067d267ecce060d6a"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:service:08a0e7f7c1bdcb65",
+        "source_path": "content/lexical/words/by-ordinal/o4355.json",
+        "object_type": "construction"
+      },
+      {
+        "id": "construction:service:89e3c4ab8983149a",
+        "source_path": "content/lexical/words/by-ordinal/o4355.json",
+        "object_type": "construction"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:0b19d7d0939e165dc6fd",

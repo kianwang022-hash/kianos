@@ -11,12 +11,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "热的；热量的；温泉的",
-          "label_en": "relating to or associated with heat; of or relating to a hot spring",
+          "label_cn": "与热相关；温泉的；衣物保暖的",
+          "label_en": "relating to heat, hot springs or keeping the body warm",
           "pos": "adjective",
           "sense_ids": [
             "sense:thermal:a66dfedc8f735ccc",
-            "sense:thermal:a237a156aaba541d"
+            "sense:thermal:a237a156aaba541d",
+            "sense:thermal:f04c490650197037"
           ]
         },
         {
@@ -28,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "热的；热量的",
-      "core_meaning_en": "relating to heat",
-      "mental_model_cn": "热的；热量的",
+      "core_meaning_cn": "与热有关；衣物保暖；名词指上升暖气流",
+      "core_meaning_en": "relating to heat; retaining body warmth; a rising warm-air current",
+      "mental_model_cn": "看被修饰名词：energy 等指热量，clothing 指保暖，spring 指地热温泉；独立名词 thermal 指可托起鸟或滑翔机的暖气流。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -60,6 +61,15 @@
             ],
             "meaning_cn": "隔热",
             "phrase": "thermal insulation"
+          },
+          {
+            "collocation_id": "collocation:4eb4577778930401eedc",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:thermal:48cd5fd218705167:collocation:0"
+            ],
+            "meaning_cn": "上升暖气流",
+            "phrase": "thermal current"
           }
         ],
         "confidence": "medium",
@@ -101,13 +111,10 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:4eb4577778930401eedc",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:thermal:48cd5fd218705167:collocation:0"
-            ],
-            "meaning_cn": "上升暖气流",
-            "phrase": "thermal current"
+            "collocation_id": "collocation:93bb54392c54a5a06edf",
+            "phrase": "rising thermals",
+            "meaning_cn": "上升的暖气流",
+            "exam_value": "usage_example"
           }
         ],
         "confidence": "medium",
@@ -121,6 +128,25 @@
         "sense_label_en": "a rising current of warm air",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:thermal:f04c490650197037",
+        "pos": "adjective",
+        "definition_cn": "（衣物）保暖的",
+        "definition_en": "designed to reduce loss of body heat",
+        "sense_label_en": "designed to reduce loss of body heat",
+        "level": "L2",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "collocations": [
+          {
+            "collocation_id": "collocation:daae3391fd6f6212f8dc",
+            "phrase": "thermal clothing",
+            "meaning_cn": "保暖衣物",
+            "exam_value": "fixed_pattern"
+          }
+        ],
+        "usage_note": "修饰衣物时重在留住体热；不表示衣物本身发热。"
       }
     ],
     "verification_summary": {
@@ -410,13 +436,22 @@
         "merged_into_sense_id": null,
         "source_row": 14148,
         "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json"
+      },
+      {
+        "sense_id": "sense:thermal:f04c490650197037",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o4961-4992.json",
+        "source_row": 14193
       }
     ],
     "active_collocations": [
       "collocation:4eb4577778930401eedc",
       "collocation:52c07bb987dfe2265601",
       "collocation:a08f5aae84f6b3efcaaf",
-      "collocation:eb3bbca905b00f3adc1f"
+      "collocation:eb3bbca905b00f3adc1f",
+      "collocation:93bb54392c54a5a06edf",
+      "collocation:daae3391fd6f6212f8dc"
     ],
     "facts": [],
     "collocations": [
@@ -439,6 +474,16 @@
         "id": "collocation:eb3bbca905b00f3adc1f",
         "source_row": 19929,
         "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json"
+      },
+      {
+        "id": "collocation:93bb54392c54a5a06edf",
+        "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json",
+        "source_row": 21541
+      },
+      {
+        "id": "collocation:daae3391fd6f6212f8dc",
+        "source_path": "content/lexical/canonical/collocations/shards/o4961-4992.json",
+        "source_row": 21542
       }
     ],
     "exam-mappings": [],

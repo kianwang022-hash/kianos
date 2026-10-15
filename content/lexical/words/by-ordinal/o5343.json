@@ -11,12 +11,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "想要；希望；缺少；缺乏",
-          "label_en": "have a desire to possess or do something; be without or deficient in",
+          "label_cn": "想要；希望；缺少；缺乏；（非正式）需要；需被……",
+          "label_en": "have a desire to possess or do something; be without or deficient in; to need or require something or some action",
           "pos": "verb",
           "sense_ids": [
             "sense:want:eda6c49a3d265c7d",
-            "sense:want:e67e8843f8e95a8e"
+            "sense:want:e67e8843f8e95a8e",
+            "sense:want:25b52570248fd272"
           ]
         },
         {
@@ -30,7 +31,7 @@
       ],
       "core_meaning_cn": "想要或缺乏",
       "core_meaning_en": "desire or lack",
-      "mental_model_cn": "想要或缺乏",
+      "mental_model_cn": "want to do是想做；want sb to do是希望别人做；want doing是需要被做；want for/in want of沿缺乏义理解。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -134,6 +135,29 @@
         "sense_label_en": "a state of being without something necessary or desired",
         "sort_order": 2,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:want:25b52570248fd272",
+        "definition_cn": "（非正式）需要；需被……",
+        "definition_en": "to need or require something or some action",
+        "sense_label_en": "to need or require something or some action",
+        "pos": "verb",
+        "governing_pattern": "want sth; want doing",
+        "transitivity": "vt",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:04e3b67e04d8889abc47",
+            "phrase": "the grass wants cutting",
+            "meaning_cn": "草需要修剪",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "register": "informal",
+        "usage_note": "want doing中的-ing有被动含义：主语需要被做某事，不是主语想主动做。"
       }
     ],
     "verification_summary": {
@@ -268,6 +292,13 @@
         "merged_into_sense_id": null,
         "source_row": 15184,
         "source_path": "content/lexical/canonical/senses/shards/o5313-5344.json"
+      },
+      {
+        "sense_id": "sense:want:25b52570248fd272",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5313-5344.json",
+        "source_row": 15194
       }
     ],
     "active_collocations": [
@@ -275,7 +306,8 @@
       "collocation:931a5f9f3fbbcf976945",
       "collocation:962f49fddfb7e4b9ace8",
       "collocation:ec3985d14262ea021123",
-      "collocation:fe3060fb90507a2040bd"
+      "collocation:fe3060fb90507a2040bd",
+      "collocation:04e3b67e04d8889abc47"
     ],
     "facts": [
       {
@@ -309,6 +341,11 @@
         "id": "collocation:fe3060fb90507a2040bd",
         "source_row": 21393,
         "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json"
+      },
+      {
+        "id": "collocation:04e3b67e04d8889abc47",
+        "source_path": "content/lexical/canonical/collocations/shards/o5313-5344.json",
+        "source_row": 21400
       }
     ],
     "exam-mappings": [],

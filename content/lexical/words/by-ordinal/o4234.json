@@ -6,7 +6,23 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:sail:d21e494e47b7dbcd",
+        "pattern": "sail through (an exam/test)",
+        "meaning_cn": "轻松通过（考试、测试）",
+        "definition_en": "to succeed in an examination or test with little effort or difficulty",
+        "boundary": "through后接考试或测试时选轻松通过；不是船从水域穿过。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sail-through",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      }
+    ],
     "content_hash": "5109cf055467c2ed0634f0b14a9ad6eee143d84e6db9771341a977ef3e41bcab",
     "core_concept": {
       "core_clusters": [
@@ -20,7 +36,7 @@
         },
         {
           "label_cn": "航行，驾船航行；航行于，横渡",
-          "label_en": "to travel on water in a boat or ship; to travel across or on (a body of water)",
+          "label_en": "to travel by boat or ship, or to operate a sailing boat; to travel across or on (a body of water)",
           "pos": "verb",
           "sense_ids": [
             "sense:sail:810bcd03de8b5423",
@@ -30,7 +46,7 @@
       ],
       "core_meaning_cn": "帆；航行",
       "core_meaning_en": "a piece of fabric to catch wind; to travel on water",
-      "mental_model_cn": "帆；航行",
+      "mental_model_cn": "帆提供动力，sail也可指机动船航行；动词直接接船表示驾驶，接海域表示航行于；sail through考试则是轻松通过。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -100,15 +116,22 @@
         ],
         "confidence": "medium",
         "definition_cn": "航行，驾船航行",
-        "definition_en": "to travel on water in a boat or ship",
-        "governing_pattern": "vi. + on/for",
+        "definition_en": "to travel by boat or ship, or to operate a sailing boat",
+        "governing_pattern": "sail; sail + direction/place expression; sail a boat",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sail:810bcd03de8b5423",
-        "sense_label_en": "to travel on water in a boat or ship",
+        "sense_label_en": "to travel on water or operate a sailing boat",
         "sort_order": 1,
-        "transitivity": "vi"
+        "transitivity": "vt/vi",
+        "usage_note": "可单独使用，也可接from/to/into/across等方向表达；不只接on/for。以船为宾语指驾船，以海域为宾语的航行于义见下一项。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sail_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       },
       {
         "collocations": [
@@ -182,7 +205,7 @@
         "priority": "A",
         "publication_status": "publishable",
         "shared_definition": null,
-        "source_sense_id": "sense:sail:d1eb17dca8e05697",
+        "source_sense_id": "sense:sail:810bcd03de8b5423",
         "target_sense_id": "sense:sailor:be9e2bed5a3b56d3",
         "target_word": "sailor",
         "task_tags": [
@@ -666,6 +689,13 @@
         "id": "membership:875ab3bc9009380821e3",
         "source_row": 17423,
         "source_path": "content/lexical/canonical/packs/shards/o4225-4256.json"
+      }
+    ],
+    "constructions": [
+      {
+        "id": "construction:sail:d21e494e47b7dbcd",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4234.json"
       }
     ]
   },

@@ -94,7 +94,7 @@
     "ordinal": 4226,
     "word": "sack",
     "source_owner_path": "content/lexical/words/by-ordinal/o4226.json",
-    "source_fingerprint": "b9a74152a21b36e232558ac85c8a96473ffdfadaa65f5fe9e3d12e99400b6950",
+    "source_fingerprint": "f61369b92ffd6dc7b218c30bfeef94906cc7659917d5f9ce30935486b12173d4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -105,7 +105,7 @@
     },
     "word_feel": {
       "summary_cn": "大袋；解雇；洗劫、劫掠",
-      "decision_cn": "",
+      "decision_cn": "看句法和宾语：a sack of接袋中物或一袋之量；sack an employee是解雇，sack a city是洗劫。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -256,10 +256,10 @@
         "id": "sense:sack:bf8e81bf1fb1583b",
         "source_locator": "record.senses[6]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "sack sb; sack sb for (doing) sth",
         "definition_cn": "解雇；开除",
         "definition_en": "to dismiss someone from a job",
-        "note": "",
+        "note": "解雇义尤见英式非正式用语；人或员工作宾语时选此义，城市作宾语时另看洗劫义。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -290,7 +290,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:sack:ce3b38b86889cadc",
+        "source_locator": "record.constructions[0]",
+        "pattern": "get the sack; give sb the sack",
+        "lines": [
+          {
+            "text": "被解雇；解雇某人",
+            "lang": "cn"
+          },
+          {
+            "text": "英式非正式；the sack在此整体框架中指解雇，不是给或拿一个袋子。",
+            "lang": "cn"
+          },
+          {
+            "text": "to lose a job through dismissal, or dismiss someone from a job",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:sack:ce3b38b86889cadc",
+          "target_locator": "record.constructions[0]",
+          "target_label": "get the sack; give sb the sack"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -478,7 +504,7 @@
     "ordinal": 4228,
     "word": "sacrifice",
     "source_owner_path": "content/lexical/words/by-ordinal/o4228.json",
-    "source_fingerprint": "cb9a6ca46ce68405278d0688e0b7f772e9ec79f5336d15a50c270e1bafbd4126",
+    "source_fingerprint": "1c2195485d0371fbd846df7e155ef12bc94a10d18ffd3f31e304961815f1810e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -489,7 +515,7 @@
     },
     "word_feel": {
       "summary_cn": "牺牲",
-      "decision_cn": "",
+      "decision_cn": "先找放弃了什么、为了什么：日常用法是利益取舍；涉及神祇和祭品时则是宗教献祭。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -548,8 +574,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "牺牲，献祭",
-        "definition_en": "the act of giving up something valuable for a higher purpose",
-        "note": "",
+        "definition_en": "giving up something valued to secure another aim, or the thing given up",
+        "note": "可指牺牲这一行为，也可指放弃的东西；另一目标是被认为更重要，不保证它在道德上更高尚。宗教献祭另见专门义。",
         "identity_overlay": null,
         "usage": [
           {
@@ -709,7 +735,7 @@
     "ordinal": 4229,
     "word": "sad",
     "source_owner_path": "content/lexical/words/by-ordinal/o4229.json",
-    "source_fingerprint": "ea689d88b216f7e57d562c115879e594c494387a309a9af6a535f243ffe76376",
+    "source_fingerprint": "78c63f5d0e6bbe8895195f0af68ca2551a42587411ea6a61260d519d86d911c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -745,14 +771,6 @@
             "meaning_cn": "感到悲伤",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:b1ab0eb93d41f86cafb0",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "sad news",
-            "meaning_cn": "令人悲伤的消息",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -777,6 +795,14 @@
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a sad story",
             "meaning_cn": "一个悲伤的故事",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:b1ab0eb93d41f86cafb0",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "sad news",
+            "meaning_cn": "令人悲伤的消息",
             "kind": "usage_example",
             "repair": null
           }
@@ -856,7 +882,7 @@
     "ordinal": 4230,
     "word": "saddle",
     "source_owner_path": "content/lexical/words/by-ordinal/o4230.json",
-    "source_fingerprint": "8825f4879e711a748ce816f9a909fffb581afe82101424accb7a72384297143b",
+    "source_fingerprint": "55dd7ff880c337fb41c5f1b76c48f4a41eac800836b26a3476f06141986de632",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -867,7 +893,7 @@
     },
     "word_feel": {
       "summary_cn": "骑乘用的座具",
-      "decision_cn": "",
+      "decision_cn": "骑乘语境是马鞍或车座；saddle sb with责任、债务等，把负担压到某人身上，常非其所愿。菜单上的saddle另指脊肉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -945,7 +971,7 @@
         "governing_pattern": "vt. + object + with + sth",
         "definition_cn": "使承担（责任等）",
         "definition_en": "to burden someone with a responsibility or task",
-        "note": "",
+        "note": "通常带不情愿或负担沉重的意味，常用被动be saddled with；with后可接名词或-ing形式。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1038,18 +1064,18 @@
     "ordinal": 4231,
     "word": "safe",
     "source_owner_path": "content/lexical/words/by-ordinal/o4231.json",
-    "source_fingerprint": "68ab54c7824fc5320848d281a0af2bf252baf7a5b198142a44dd58282a80597c",
+    "source_fingerprint": "f41fa93211a14bee7053db32ff94a2216f4ceb00cdebcb48e429c19a34de2249",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1A",
+        "2A",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "安全的；保险箱",
-      "decision_cn": "",
+      "decision_cn": "涉及人身、物品或环境时看安全；涉及说法、推断、选择时看是否稳妥可靠；名词a safe是保险箱。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1121,6 +1147,37 @@
           "target_id": "sense:safe:dcb194ffd7bb5e68",
           "target_locator": "record.senses[1]",
           "target_label": "保险箱"
+        }
+      },
+      {
+        "id": "sense:safe:5417ddf3078a9fc9",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "it is safe to say/assume (that) ...",
+        "definition_cn": "稳妥的；可靠的；不易出错的",
+        "definition_en": "unlikely to be mistaken or to fail; involving little risk in a judgment or choice",
+        "note": "修饰判断或选择时强调有把握或少风险；safe to assume不指进行推测会不会受人身伤害。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:safe:ac11d08449f40104",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a safe bet",
+            "meaning_cn": "很有把握的判断或稳妥的选择",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:safe:ac11d08449f40104",
+              "target_locator": "record.senses[2].collocations[0]",
+              "target_label": "a safe bet"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:safe:5417ddf3078a9fc9",
+          "target_locator": "record.senses[2]",
+          "target_label": "稳妥的；可靠的；不易出错的"
         }
       }
     ],
@@ -1456,7 +1513,7 @@
     "ordinal": 4234,
     "word": "sail",
     "source_owner_path": "content/lexical/words/by-ordinal/o4234.json",
-    "source_fingerprint": "14f6efe6fc91c1c70511080bb700df42ce79c8796cc4ed55788183df0aa5a46d",
+    "source_fingerprint": "e48d1ef9f1432e2534cbc747ccb1dbd2f0a823949c83e42b857711d55554d6fc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1467,7 +1524,7 @@
     },
     "word_feel": {
       "summary_cn": "帆；航行",
-      "decision_cn": "",
+      "decision_cn": "帆提供动力，sail也可指机动船航行；动词直接接船表示驾驶，接海域表示航行于；sail through考试则是轻松通过。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1524,10 +1581,10 @@
         "id": "sense:sail:810bcd03de8b5423",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vi. + on/for",
+        "governing_pattern": "sail; sail + direction/place expression; sail a boat",
         "definition_cn": "航行，驾船航行",
-        "definition_en": "to travel on water in a boat or ship",
-        "note": "",
+        "definition_en": "to travel by boat or ship, or to operate a sailing boat",
+        "note": "可单独使用，也可接from/to/into/across等方向表达；不只接on/for。以船为宾语指驾船，以海域为宾语的航行于义见下一项。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1617,7 +1674,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:sail:d21e494e47b7dbcd",
+        "source_locator": "record.constructions[0]",
+        "pattern": "sail through (an exam/test)",
+        "lines": [
+          {
+            "text": "轻松通过（考试、测试）",
+            "lang": "cn"
+          },
+          {
+            "text": "through后接考试或测试时选轻松通过；不是船从水域穿过。",
+            "lang": "cn"
+          },
+          {
+            "text": "to succeed in an examination or test with little effort or difficulty",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:sail:d21e494e47b7dbcd",
+          "target_locator": "record.constructions[0]",
+          "target_label": "sail through (an exam/test)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1642,7 +1725,7 @@
     "ordinal": 4235,
     "word": "sailor",
     "source_owner_path": "content/lexical/words/by-ordinal/o4235.json",
-    "source_fingerprint": "fb81655194b261c473d3002fd98cc3d515ee3fa5adb74ae780749b62b837512f",
+    "source_fingerprint": "226cd74f6f4301c6eceabb8b50026fea92edf3b72ab354122810df3ffe5ad96d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1651,13 +1734,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "在船上工作的人",
-      "decision_cn": "",
+      "summary_cn": "在船上工作或驾船的人",
+      "decision_cn": "职业场景看船员身份，运动场景可指驾帆船者；good/bad sailor还可能评价是否容易晕船。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "在船上工作的人"
+        "target_label": "在船上工作或驾船的人"
       }
     },
     "senses": [
@@ -1666,9 +1749,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "水手；船员；海员",
-        "definition_en": "a member of a ship's crew, especially one below the rank of officer",
-        "note": "",
+        "definition_cn": "水手；船员；海员；驾船者",
+        "definition_en": "a member of a ship’s crew, especially below officer rank, or a person who sails a boat",
+        "note": "可指职业船员，也可指以帆船运动为爱好的人；a good/bad sailor还可按惯用法说不易/容易晕船，此时不评价驾船水平。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1692,7 +1775,7 @@
           "target_kind": "sense",
           "target_id": "sense:sailor:be9e2bed5a3b56d3",
           "target_locator": "record.senses[0]",
-          "target_label": "水手；船员；海员"
+          "target_label": "水手；船员；海员；驾船者"
         }
       }
     ],
@@ -1743,7 +1826,7 @@
     "ordinal": 4236,
     "word": "saint",
     "source_owner_path": "content/lexical/words/by-ordinal/o4236.json",
-    "source_fingerprint": "049ef058d6d7e4b9c0c9985b21053a23ade3319c05ca963181ba5af6ab4a7df0",
+    "source_fingerprint": "9290ffb7a1d7261f567212f504fe75264604e4bf444e23a4d1890e176e302b10",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1753,7 +1836,7 @@
     },
     "word_feel": {
       "summary_cn": "圣徒，圣人",
-      "decision_cn": "",
+      "decision_cn": "教会及宗教称号中看圣徒身份；日常说某人a saint可赞其善良、耐心，不要求有宗教身份。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1767,8 +1850,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "被正式封圣的已故之人",
-        "definition_en": "a person who has died and has been declared a saint by canonization",
+        "definition_cn": "圣徒；（基督教会认可的）圣人，常指已故之人",
+        "definition_en": "a person recognized by the Christian Church as exceptionally holy, often after death",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1785,7 +1868,7 @@
           "target_kind": "sense",
           "target_id": "sense:saint:49eeb7e5092c5bf4",
           "target_locator": "record.senses[0]",
-          "target_label": "被正式封圣的已故之人"
+          "target_label": "圣徒；（基督教会认可的）圣人，常指已故之人"
         }
       },
       {
@@ -1793,9 +1876,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "品德高尚的人，圣人",
-        "definition_en": "a person of exceptional holiness",
-        "note": "",
+        "definition_cn": "品德高尚、极善良或极有耐心的人",
+        "definition_en": "an exceptionally good, kind or patient person",
+        "note": "日常称赞某人是a saint可强调善良或耐心，不表示此人获教会封圣。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1811,7 +1894,7 @@
           "target_kind": "sense",
           "target_id": "sense:saint:0255ed5f2a535b8c",
           "target_locator": "record.senses[1]",
-          "target_label": "品德高尚的人，圣人"
+          "target_label": "品德高尚、极善良或极有耐心的人"
         }
       }
     ],
@@ -1860,7 +1943,7 @@
     "ordinal": 4237,
     "word": "sake",
     "source_owner_path": "content/lexical/words/by-ordinal/o4237.json",
-    "source_fingerprint": "f9dcf4eeaece3644305ed02cd7a007d507225627765555058fed52ceb3ef481a",
+    "source_fingerprint": "01a13e01e5764f283530130bc6962136a9c45e8195a902d46be6dd7ab0e8d949",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1870,7 +1953,7 @@
     },
     "word_feel": {
       "summary_cn": "目的或利益",
-      "decision_cn": "",
+      "decision_cn": "理由、利益和目的义主要依靠for ... sake框架识别；菜单、杯量或饮酒语境中的sake是清酒，两者读音也不同。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1883,10 +1966,10 @@
         "id": "sense:sake:0c1bc3ea446456d2",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "for the sake of sb/sth; for sb’s/sth’s sake",
         "definition_cn": "缘故，理由",
         "definition_en": "a reason for wanting something done",
-        "note": "",
+        "note": "理由、利益义主要用于for框架；for God's sake常加强请求或表达恼火，不一定是宗教祈求，且可能冒犯听者。",
         "identity_overlay": {
           "text": "purpose/benefit/reason sake is /seɪk/; the Japanese rice drink uses a Japanese-derived pronunciation",
           "repair": {
@@ -1937,8 +2020,8 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "目的",
-        "definition_en": "the purpose of achieving or obtaining",
-        "note": "",
+        "definition_en": "the aim of obtaining, preserving or doing something, expressed in a for-sake phrase",
+        "note": "for the sake of argument是假设某事以便展开讨论，并不表示认定该假设为真。",
         "identity_overlay": {
           "text": "purpose/benefit/reason sake is /seɪk/; the Japanese rice drink uses a Japanese-derived pronunciation",
           "repair": {
@@ -2713,19 +2796,19 @@
     "ordinal": 4243,
     "word": "salt",
     "source_owner_path": "content/lexical/words/by-ordinal/o4243.json",
-    "source_fingerprint": "170a40b42ecd4f6e5bf66060ca6839a8337962f755ebf11f23cc6ff71fd5e855",
+    "source_fingerprint": "477e71e04033a4e1b864c4f843b8a79c61064f14bb8ccd79ff650fa05626cc99",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
         "1A",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "用于调味的白色晶体物质",
-      "decision_cn": "",
+      "decision_cn": "餐饮语境通常是食盐；化学或矿物语境的a salt/salts可指盐类；take说法with a grain/pinch of salt则表示保留怀疑。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2819,6 +2902,32 @@
           "target_locator": "record.senses[2]",
           "target_label": "含盐的，咸的"
         }
+      },
+      {
+        "id": "sense:salt:68323700b0317306",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "[C] a salt; salts",
+        "definition_cn": "（化学）盐；盐类",
+        "definition_en": "a compound formed when acidic hydrogen is partly or wholly replaced by a metal or a similar positive ion",
+        "note": "化学、营养或矿物语境的salts可指多种盐类，不限定为食盐氯化钠。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:salt:a01406023a1f14fa",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "mineral salts",
+            "meaning_cn": "矿物盐；无机盐",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:salt:68323700b0317306",
+          "target_locator": "record.senses[3]",
+          "target_label": "（化学）盐；盐类"
+        }
       }
     ],
     "pronunciation_support": {
@@ -2854,7 +2963,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:salt:a899d3f426bae8ac",
+        "source_locator": "record.constructions[0]",
+        "pattern": "take sth with a grain/pinch of salt",
+        "lines": [
+          {
+            "text": "对某说法持保留态度；不全信",
+            "lang": "cn"
+          },
+          {
+            "text": "grain尤见北美，也用pinch；这里的对象是说法或信息，区别于a pinch of salt的一撮食盐。",
+            "lang": "cn"
+          },
+          {
+            "text": "to treat a claim with skepticism rather than accept it completely",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:salt:a899d3f426bae8ac",
+          "target_locator": "record.constructions[0]",
+          "target_label": "take sth with a grain/pinch of salt"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -2868,7 +3003,7 @@
     "ordinal": 4244,
     "word": "salute",
     "source_owner_path": "content/lexical/words/by-ordinal/o4244.json",
-    "source_fingerprint": "b82957fd19e7e486010e37eb1d23ae436d622135bbf259b98c909dba908a019c",
+    "source_fingerprint": "b94082e7b4f0947d42c6896370edfae29806ae45a2261d3286896351ee220639",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2974,10 +3109,10 @@
         "id": "sense:salute:c20960235d355543",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "salute; salute sb/sth",
         "definition_cn": "正式敬礼；致敬；公开表彰/赞扬",
         "definition_en": "to make a formal gesture or sign of respect, or to publicly honor or praise someone or something",
-        "note": "",
+        "note": "做敬礼动作可不带宾语；公开赞扬时通常直接接人、勇气、贡献等宾语，不加to。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3264,7 +3399,7 @@
     "ordinal": 4246,
     "word": "same",
     "source_owner_path": "content/lexical/words/by-ordinal/o4246.json",
-    "source_fingerprint": "6a2e39f2e77471f801eb07fb59cb523d776ec4375e205b55ef63d9e9180f2619",
+    "source_fingerprint": "038f4badf1a4e2632844118766adc25779947a3755f6f5ba280e9e08c8893b6d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3276,7 +3411,7 @@
     },
     "word_feel": {
       "summary_cn": "相同的，一样的",
-      "decision_cn": "",
+      "decision_cn": "先分同一实体还是同一类型：same room可是一间房，same model可为不同物品的同款；all/just the same另有尽管如此的整体用法。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3290,9 +3425,9 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "相同的，同样的",
-        "definition_en": "exactly like another one; not different",
-        "note": "",
+        "definition_cn": "同一的；相同的，同样的",
+        "definition_en": "the identical person or thing, or another of exactly the same kind",
+        "note": "the same可指同一个实体，也可指同一款式/类别的另一个；看上下文，不能一律理解成两个东西相像。比较常用the same ... as ...。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3321,7 +3456,7 @@
           "target_kind": "sense",
           "target_id": "sense:same:f14688c124ec591a",
           "target_locator": "record.senses[0]",
-          "target_label": "相同的，同样的"
+          "target_label": "同一的；相同的，同样的"
         }
       },
       {
@@ -3398,7 +3533,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:same:5b59229cab7d52f5",
+        "source_locator": "record.constructions[0]",
+        "pattern": "all/just the same",
+        "lines": [
+          {
+            "text": "尽管如此；仍然",
+            "lang": "cn"
+          },
+          {
+            "text": "连接转折或让步时，不按“所有东西一样”字面理解。",
+            "lang": "cn"
+          },
+          {
+            "text": "despite what has just been said",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:same:5b59229cab7d52f5",
+          "target_locator": "record.constructions[0]",
+          "target_label": "all/just the same"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -3972,7 +4133,7 @@
     "ordinal": 4250,
     "word": "sandwich",
     "source_owner_path": "content/lexical/words/by-ordinal/o4250.json",
-    "source_fingerprint": "0d5e5b467ab075a2c724815162085d68a798257278fa4045a5b63d8c1507b251",
+    "source_fingerprint": "7a8a4a2bcbc104c32cba5649b5b9eaa447eb8bb2f359bbbfb605c27f9c22849a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3983,7 +4144,7 @@
     },
     "word_feel": {
       "summary_cn": "三明治或夹在中间",
-      "decision_cn": "",
+      "decision_cn": "抓住中间夹一层：食物是夹馅，动词可把人、物或一项活动挤在两边的人物、事情或时间之间。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4022,10 +4183,10 @@
         "id": "sense:sandwich:e57f87450d28548c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object + between",
+        "governing_pattern": "sandwich sb/sth between A and B; be sandwiched between A and B",
         "definition_cn": "夹入，插入",
-        "definition_en": "to insert or squeeze tightly between two people or objects",
-        "note": "",
+        "definition_en": "to fit a person or thing closely between two others, or fit an activity between two times or events",
+        "note": "常用被动；除了实体挤在中间，也可把活动安排在两个时段或事件之间。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4333,7 +4494,7 @@
     "ordinal": 4252,
     "word": "sarcastic",
     "source_owner_path": "content/lexical/words/by-ordinal/o4252.json",
-    "source_fingerprint": "0b27a1a5024ec26ac38f9b14a77c6408f9cc2aaa4eed6423d5b8c615cde2d03a",
+    "source_fingerprint": "39ce5adcb25111baf38888d7ede7a9c2c12f0ab2ac88f4e054975887381552b3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4359,7 +4520,7 @@
         "governing_pattern": "",
         "definition_cn": "讽刺的；讥讽的",
         "definition_en": "expressing or expressive of ridicule that wounds",
-        "note": "",
+        "note": "常以反话或带刺的语气嘲弄：表面称赞未必真在赞扬，要结合上下文和语气判断。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4588,7 +4749,7 @@
     "ordinal": 4254,
     "word": "satire",
     "source_owner_path": "content/lexical/words/by-ordinal/o4254.json",
-    "source_fingerprint": "ba8068207a8dc67d92d563432765eb1db7a453f110727b20ed33cc0ab980e2e4",
+    "source_fingerprint": "71853dfe8951298dbe4cf12926eda8c0ef92a29bf6c88e1aa3adc6a4e8dee185",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4611,10 +4772,10 @@
         "id": "sense:satire:c96dba50cb1550a6",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "讽刺文学；讽刺作品",
-        "definition_en": "a literary work or style that uses humor, irony, or exaggeration to criticize people's stupidity or vices",
-        "note": "",
+        "governing_pattern": "satire on sb/sth",
+        "definition_cn": "讽刺手法；讽刺作品",
+        "definition_en": "humorous criticism exposing faults or folly; a work that uses it",
+        "note": "表示手法或风格通常不可数；表示一部小说、电影等作品时可数。on引出被讽刺的对象。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4630,7 +4791,7 @@
           "target_kind": "sense",
           "target_id": "sense:satire:c96dba50cb1550a6",
           "target_locator": "record.senses[0]",
-          "target_label": "讽刺文学；讽刺作品"
+          "target_label": "讽刺手法；讽刺作品"
         }
       }
     ],
@@ -4681,7 +4842,7 @@
     "ordinal": 4255,
     "word": "satisfaction",
     "source_owner_path": "content/lexical/words/by-ordinal/o4255.json",
-    "source_fingerprint": "6f2316636f3958feeecd8a447de64fae15aee9c0a3bd3223bee3cc83a29e9db0",
+    "source_fingerprint": "63f300996eaa29a546794cab8028b3cd8db2eda9b8b7c99e3f5c6e4aa80d83ed",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4690,13 +4851,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "满足、满意；满足需要/愿望的实现；法律清偿义低层",
-      "decision_cn": "",
+      "summary_cn": "达到所需后产生的满足感，或满足需要的实现",
+      "decision_cn": "with常引出满意的对象，of a need指满足该需要；to sb’s satisfaction在证明语境还可指足以使人信服。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "满足、满意；满足需要/愿望的实现；法律清偿义低层"
+        "target_label": "达到所需后产生的满足感，或满足需要的实现"
       }
     },
     "senses": [
@@ -4704,7 +4865,7 @@
         "id": "sense:satisfaction:f2ae07f0f03e59d4",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "satisfaction with sth / satisfaction from/in doing sth",
         "definition_cn": "满足；满意",
         "definition_en": "the contentment one feels when one has fulfilled a desire, need, or expectation",
         "note": "",
@@ -4721,17 +4882,17 @@
         "id": "sense:satisfaction:0270e79c7bfd5d82",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "满足（行为）；快事",
-        "definition_en": "act of fulfilling a desire or need or appetite",
-        "note": "",
+        "governing_pattern": "the satisfaction of a need/desire",
+        "definition_cn": "满足需要或愿望；带来满足的事",
+        "definition_en": "fulfillment of a need or desire; something that gives a feeling of contentment",
+        "note": "满足行为通常不可数；表示带来满足的事可以用复数satisfactions。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:satisfaction:0270e79c7bfd5d82",
           "target_locator": "record.senses[1]",
-          "target_label": "满足（行为）；快事"
+          "target_label": "满足需要或愿望；带来满足的事"
         }
       },
       {
@@ -4770,7 +4931,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:satisfaction:00b306709aa5a1d7",
+        "source_locator": "record.constructions[0]",
+        "pattern": "to sb's satisfaction",
+        "lines": [
+          {
+            "text": "达到令某人满意或信服的程度",
+            "lang": "cn"
+          },
+          {
+            "text": "解决问题时是令人满意；证明事实时是使人信服。to后是名词所有格短语，不是不定式。",
+            "lang": "cn"
+          },
+          {
+            "text": "in a way that meets someone’s expectations or convinces them",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:satisfaction:00b306709aa5a1d7",
+          "target_locator": "record.constructions[0]",
+          "target_label": "to sb's satisfaction"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -4881,17 +5068,17 @@
     "ordinal": 4257,
     "word": "satisfy",
     "source_owner_path": "content/lexical/words/by-ordinal/o4257.json",
-    "source_fingerprint": "080f922387385c5bf42fec782ef4a801d39bf8af43a46c44bceb52649b969e5f",
+    "source_fingerprint": "07e300206cff8c1e17bfd848748d2952ba3e7d72e7e311041ba5fbaf767f3792",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V"
+        "3V"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "满足需求或要求",
-      "decision_cn": "",
+      "decision_cn": "需求或条件作宾语是满足；人作宾语可指让人满意，若带that/of说明事实，则是使其确信。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4905,8 +5092,8 @@
         "source_locator": "record.senses[0]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "满足要求或期望",
-        "definition_en": "to meet the requirements or expectations of something",
+        "definition_cn": "满足需要、愿望或要求",
+        "definition_en": "to provide what is needed or wanted, or meet a condition or requirement",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4931,7 +5118,7 @@
           "target_kind": "sense",
           "target_id": "sense:satisfy:a5a9f578b93a5635",
           "target_locator": "record.senses[0]",
-          "target_label": "满足要求或期望"
+          "target_label": "满足需要、愿望或要求"
         }
       },
       {
@@ -4958,6 +5145,23 @@
           "target_id": "sense:satisfy:624accc9197d55b3",
           "target_locator": "record.senses[1]",
           "target_label": "使某人满意或高兴"
+        }
+      },
+      {
+        "id": "sense:satisfy:9029cda37166b9cf",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "satisfy sb/oneself that ... / satisfy sb of sth",
+        "definition_cn": "使确信；使自己确认",
+        "definition_en": "to convince someone, or establish for oneself, that something is true",
+        "note": "此义偏正式；that后是需要确认的事实，不是让对方高兴。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:satisfy:9029cda37166b9cf",
+          "target_locator": "record.senses[2]",
+          "target_label": "使确信；使自己确认"
         }
       }
     ],
@@ -5661,7 +5865,7 @@
     "ordinal": 4263,
     "word": "savage",
     "source_owner_path": "content/lexical/words/by-ordinal/o4263.json",
-    "source_fingerprint": "e6c4a95f31a2dc8cfbba185cee7b0335b5063ea0a0aeeec9107a7f6b1e1cb566",
+    "source_fingerprint": "1104d840fa589519021ba1793847eda2ba327a3f367326a0605c278592a76751",
     "sense_lineage": [
       {
         "word_id": "word:savage",
@@ -5694,9 +5898,9 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "凶猛的；残酷的；野蛮的",
-        "definition_en": "extremely violent, cruel, or wild",
-        "note": "",
+        "definition_cn": "凶猛的；残酷的；野蛮的；猛烈严厉的",
+        "definition_en": "violent, cruel or wild; extremely severe in criticism or impact",
+        "note": "attack可指身体上的暴力，也可指尖锐的言语抨击；用来评价族群或文化为未开化的旧用法带冒犯性，应避免。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5712,7 +5916,7 @@
           "target_kind": "sense",
           "target_id": "sense:savage:df41c9e2a5f951e9",
           "target_locator": "record.senses[0]",
-          "target_label": "凶猛的；残酷的；野蛮的"
+          "target_label": "凶猛的；残酷的；野蛮的；猛烈严厉的"
         }
       },
       {
@@ -5808,7 +6012,7 @@
           "target_word": "cruel",
           "lines": [
             {
-              "text": "savage侧重野性猛烈，cruel侧重冷酷蓄意",
+              "text": "savage在本义突出残暴、猛烈；cruel突出使人痛苦或不仁慈，不要求所有语境都有蓄意伤害者。",
               "lang": "cn"
             },
             {
@@ -5860,11 +6064,11 @@
     "ordinal": 4264,
     "word": "save",
     "source_owner_path": "content/lexical/words/by-ordinal/o4264.json",
-    "source_fingerprint": "7a6c7cd765d27fdbb8657b42158a590ae7ca327ea9e80a13331108e16d5fa2d8",
+    "source_fingerprint": "e5b13a4b830c1a53f728674ab307a9874680d5e76303ba4703bcf6ffeb85b876",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4V",
+        "6V",
         "1N",
         "1PREP"
       ],
@@ -5872,7 +6076,7 @@
     },
     "word_feel": {
       "summary_cn": "挽救；保存/存储；节省",
-      "decision_cn": "",
+      "decision_cn": "from接危险是救免于难，save on接开支是少花，save up for是攒钱备后用；save sb doing是省去动作，比赛中的shot/penalty则是扑救。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5885,7 +6089,7 @@
         "id": "sense:save:2c47128a77b65fb7",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "save sb/sth (from sth/from doing sth)",
         "definition_cn": "解救，挽救",
         "definition_en": "to bring into safety; rescue",
         "note": "",
@@ -5902,10 +6106,10 @@
         "id": "sense:save:e939ac81a52d53b0",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "save sth for sb/later / save (a file) / save sth to a location",
         "definition_cn": "保存；留存；存储以备后用",
         "definition_en": "to keep or store something for future or special use, including saving a file or document",
-        "note": "",
+        "note": "保留物品可用for；计算机语境保存位置用to，已知在谈文件时可单用save。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5919,9 +6123,9 @@
         "id": "sense:save:7909005b256c545e",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "节省，节约",
-        "definition_en": "to spend less; buy at a reduced price",
+        "governing_pattern": "save sth / save sb sth / save on sth",
+        "definition_cn": "节省金钱、时间、能源等；减少花费或用量",
+        "definition_en": "to use or spend less of a resource, or avoid wasting it",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5929,17 +6133,17 @@
           "target_kind": "sense",
           "target_id": "sense:save:7909005b256c545e",
           "target_locator": "record.senses[2]",
-          "target_label": "节省，节约"
+          "target_label": "节省金钱、时间、能源等；减少花费或用量"
         }
       },
       {
         "id": "sense:save:c59344e664655138",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "save (up) / save (money) (up) for sth",
         "definition_cn": "储蓄，攒钱",
         "definition_en": "to reserve money or resources for future use",
-        "note": "",
+        "note": "for引出攒钱的目标；up可省，save也可不接宾语。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5982,6 +6186,40 @@
           "target_locator": "record.senses[5]",
           "target_label": "除...之外"
         }
+      },
+      {
+        "id": "sense:save:a0737752f5ac3e49",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "save sb sth / save (sb) doing sth / save sb from doing sth",
+        "definition_cn": "使免于做费事或不愉快的事；省去",
+        "definition_en": "to let someone avoid an unwanted task or difficulty",
+        "note": "如save a trip或save sb waiting，省去的是麻烦或动作，不一定是金钱；doing前不能机械换成to。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:save:a0737752f5ac3e49",
+          "target_locator": "record.senses[6]",
+          "target_label": "使免于做费事或不愉快的事；省去"
+        }
+      },
+      {
+        "id": "sense:save:77dd6af89e81c9f8",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "save (a shot/penalty)",
+        "definition_cn": "扑救；阻止射门得分",
+        "definition_en": "to stop a shot from entering the goal",
+        "note": "体育语境中宾语是射门或点球；原名词a save仍指一次扑救。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:save:77dd6af89e81c9f8",
+          "target_locator": "record.senses[7]",
+          "target_label": "扑救；阻止射门得分"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6019,7 +6257,7 @@
     "ordinal": 4265,
     "word": "saving",
     "source_owner_path": "content/lexical/words/by-ordinal/o4265.json",
-    "source_fingerprint": "6b9f34a732fae0e75f436d9a75536d064ba9b327812daaecb89d4e3c974d0c02",
+    "source_fingerprint": "9af6a6d2df80635857b8517fe5597af7aa7a41e1093faa02e9409c2a0f943df9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6031,7 +6269,7 @@
     },
     "word_feel": {
       "summary_cn": "储蓄、存下的钱；复数 savings 常指积蓄",
-      "decision_cn": "",
+      "decision_cn": "savings常指积蓄，a saving of加数额是省下多少；make savings是降低用量或开支。saving grace则是弥补缺点的可取之处。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6219,7 +6457,33 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:saving:2fe9a7e27dfb883e",
+        "source_locator": "record.constructions[0]",
+        "pattern": "sb/sth’s saving grace",
+        "lines": [
+          {
+            "text": "弥补其他缺点的可取之处",
+            "lang": "cn"
+          },
+          {
+            "text": "评价整体不佳但仍有优点；不是省下的钱，也不是一般节俭。",
+            "lang": "cn"
+          },
+          {
+            "text": "a redeeming quality in someone or something otherwise unsatisfactory",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:saving:2fe9a7e27dfb883e",
+          "target_locator": "record.constructions[0]",
+          "target_label": "sb/sth’s saving grace"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -6254,7 +6518,7 @@
     "ordinal": 4266,
     "word": "saw",
     "source_owner_path": "content/lexical/words/by-ordinal/o4266.json",
-    "source_fingerprint": "0db338b4a207d9a33ed810bc8242b60002159f8f5aabcdc5d4a93ccbfd2a12c1",
+    "source_fingerprint": "afcce9dd2d411db4e54dcb4a31e771d59647d25bbc4526b5ead05e62f65e01e6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6278,10 +6542,10 @@
         "id": "sense:saw:3e8b1d1fb2f65a6b",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "saw (sth) / saw through sth",
         "definition_cn": "锯，锯开",
         "definition_en": "to cut something with a saw",
-        "note": "",
+        "note": "可不带宾语描述锯切动作；through强调锯穿，in half强调锯成两半。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6348,10 +6612,10 @@
         "id": "sense:saw:b2a3e8af803c5418",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + at",
+        "governing_pattern": "saw (away) (at sth) / saw sth",
         "definition_cn": "拉锯，来回移动",
         "definition_en": "to move something back and forth like a saw",
-        "note": "",
+        "note": "强调像拉锯一样往复动作，可用于刀切或拉弦；at后是动作所施及的对象，不是直接宾语。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6443,7 +6707,7 @@
     "ordinal": 4267,
     "word": "say",
     "source_owner_path": "content/lexical/words/by-ordinal/o4267.json",
-    "source_fingerprint": "5eede7cb7675a1c94b3c7ebc81a1c0464e9dd0d8759369176106a04eb9a08f0e",
+    "source_fingerprint": "223e5435d34823eaac9b9144d67f9f39052b68396582658d62c325f6dbbea744",
     "sense_lineage": [
       {
         "word_id": "word:say",
@@ -6455,19 +6719,19 @@
     ],
     "recall_map": {
       "parts": [
-        "3V",
+        "4V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "说；表达",
-      "decision_cn": "",
+      "summary_cn": "说出内容、判断或信息；也可提出例子或假设",
+      "decision_cn": "人作主语多为说话或判断，标牌/报告作主语是写着；插入的say常引例子或约数，have a say则涉及发言权。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "说；表达"
+        "target_label": "说出内容、判断或信息；也可提出例子或假设"
       }
     },
     "senses": [
@@ -6475,7 +6739,7 @@
         "id": "sense:say:55c953e36a185079",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "say sth (to sb) / say (that) ... / say + direct speech",
         "definition_cn": "说；讲",
         "definition_en": "to utter words or express in speech",
         "note": "",
@@ -6535,7 +6799,7 @@
         "id": "sense:say:e36befc3f2955f7c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + that-clause",
+        "governing_pattern": "say (that) ... / say what/how/whether ...",
         "definition_cn": "表明；宣称",
         "definition_en": "to state an opinion or judgment",
         "note": "",
@@ -6574,10 +6838,10 @@
         "id": "sense:say:3b0936bebf9d5ca9",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "have a say in sth / have the final say on sth / have one’s say",
         "definition_cn": "发言权；意见",
         "definition_en": "the right or opportunity to express an opinion",
-        "note": "",
+        "note": "have a say是能参与或影响决定，have one’s say强调获得充分表达意见的机会。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6608,10 +6872,10 @@
         "id": "sense:say:82a0d956fa2a5d0d",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "the sign/report/data says + clause; it says here that + clause",
+        "governing_pattern": "a sign/report says ... / the data say(s) ... / it says here that ...",
         "definition_cn": "写着；显示；表明",
         "definition_en": "for writing, signs, data, or other information to state or indicate something",
-        "note": "",
+        "note": "标牌、报道、数据等作主语是写着或显示；data按复数理解用say，作不可数总体信息时可用says。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6660,6 +6924,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "写着；显示；表明"
         }
+      },
+      {
+        "id": "sense:say:ac9c7077f035383a",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "(let’s) say + example/amount / say (that) ...",
+        "definition_cn": "比如说；假定",
+        "definition_en": "to introduce an example, estimate or possible situation",
+        "note": "作为插入语可引出例子或约数；放在条件设想前相当于假设，并非报道某人真的说过。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:say:ac9c7077f035383a",
+          "target_locator": "record.senses[4]",
+          "target_label": "比如说；假定"
+        }
       }
     ],
     "pronunciation_support": {
@@ -6683,7 +6964,33 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:say:2dd7bbfae27ca1ce",
+        "source_locator": "record.constructions[0]",
+        "pattern": "that said / having said that, ...",
+        "lines": [
+          {
+            "text": "话虽如此；尽管如此",
+            "lang": "cn"
+          },
+          {
+            "text": "承认前述情况后补充另一面；不是单纯叙述说话动作。",
+            "lang": "cn"
+          },
+          {
+            "text": "used to add a qualification or contrast to the previous statement",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:say:2dd7bbfae27ca1ce",
+          "target_locator": "record.constructions[0]",
+          "target_label": "that said / having said that, ..."
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [
@@ -6692,7 +6999,7 @@
           "target_word": "state",
           "lines": [
             {
-              "text": "say指口头表达，state指正式陈述",
+              "text": "这里对比say的说话义与state的陈述义：state通常更正式，强调清楚或明确地表达；不把say全词限制为口头表达。",
               "lang": "cn"
             },
             {
@@ -6761,18 +7068,18 @@
     "ordinal": 4268,
     "word": "scale",
     "source_owner_path": "content/lexical/words/by-ordinal/o4268.json",
-    "source_fingerprint": "c268513c69f27c0ff3860a33db191b5b5ad5fc9de9303b901ba3d69902c8e3d3",
+    "source_fingerprint": "bf1730e8a3594bc3db6c6bb158032564a7a8d0b86cdffac6ead30c01ab08a7b5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "5N"
+        "6N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "刻度、比例或规模",
-      "decision_cn": "",
+      "decision_cn": "数字等级看刻度，地图模型看比例，工程活动看规模；称重是秤，动物体表是鳞，音乐是音阶，动词接山墙是攀登。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6853,10 +7160,10 @@
         "id": "sense:scale:7e62ca6fa57a5de3",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "a scale of ... / draw sth to scale",
         "definition_cn": "比例；比例尺",
         "definition_en": "the ratio between the size of something and its representation on a map or model",
-        "note": "",
+        "note": "to scale表示各部分按同一比例绘制；on a large scale中的scale则是规模。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6984,6 +7291,32 @@
           "target_locator": "record.senses[5]",
           "target_label": "攀登；爬上"
         }
+      },
+      {
+        "id": "sense:scale:4aabb42ae12620f4",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "play/practise scales",
+        "definition_cn": "音阶",
+        "definition_en": "a sequence of musical notes arranged by pitch at set intervals",
+        "note": "音乐训练中的scales指音阶，不是刻度、秤或鱼鳞。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:scale:f80991c08f88e8db",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "a major scale",
+            "meaning_cn": "大调音阶",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:scale:4aabb42ae12620f4",
+          "target_locator": "record.senses[6]",
+          "target_label": "音阶"
+        }
       }
     ],
     "pronunciation_support": {
@@ -7011,10 +7344,14 @@
       {
         "id": "construction:8854c5f0be34a5e00241",
         "source_locator": "record.constructions[0]",
-        "pattern": "scale up",
+        "pattern": "scale (sth) up / scale up sth",
         "lines": [
           {
             "text": "扩大规模、容量或运营能力",
+            "lang": "cn"
+          },
+          {
+            "text": "宾语是要调整的规模、生产量、活动或模型；代词放中间，如scale it up。",
             "lang": "cn"
           }
         ],
@@ -7022,16 +7359,20 @@
           "target_kind": "construction",
           "target_id": "construction:8854c5f0be34a5e00241",
           "target_locator": "record.constructions[0]",
-          "target_label": "scale up"
+          "target_label": "scale (sth) up / scale up sth"
         }
       },
       {
         "id": "construction:995a4086034ce2748274",
         "source_locator": "record.constructions[1]",
-        "pattern": "scale down",
+        "pattern": "scale (sth) down / scale down sth",
         "lines": [
           {
             "text": "缩小规模、容量或运营能力",
+            "lang": "cn"
+          },
+          {
+            "text": "宾语是要调整的规模、生产量、活动或模型；代词放中间，如scale it down。",
             "lang": "cn"
           }
         ],
@@ -7039,7 +7380,7 @@
           "target_kind": "construction",
           "target_id": "construction:995a4086034ce2748274",
           "target_locator": "record.constructions[1]",
-          "target_label": "scale down"
+          "target_label": "scale (sth) down / scale down sth"
         }
       }
     ],
@@ -7056,7 +7397,7 @@
     "ordinal": 4269,
     "word": "scan",
     "source_owner_path": "content/lexical/words/by-ordinal/o4269.json",
-    "source_fingerprint": "289b9318029a64e9666046a6f5971e7b489dec39c831dbef6b8fa0b2e71e6d12",
+    "source_fingerprint": "e14fa9f1d5aab161001f7d2017c89be0074fc97609949b5650c7894d9aa808c2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7067,7 +7408,7 @@
     },
     "word_feel": {
       "summary_cn": "快速或系统地查看",
-      "decision_cn": "",
+      "decision_cn": "文字可快速搜找信息，也可逐处仔细查看，需结合任务与副词判断；设备语境是扫描成像，诗句作主语则问节奏是否符合格律。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7080,7 +7421,7 @@
         "id": "sense:scan:a4d3cf14c0755805",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "scan sth (for sth) / scan through sth / scan for sth",
         "definition_cn": "快速查看或阅读，尤指寻找特定信息",
         "definition_en": "to look at or read something quickly, especially to find specific information",
         "note": "",
@@ -7224,16 +7565,16 @@
         "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "（诗歌）押韵，符合格律",
+        "definition_cn": "（诗句）符合格律，节奏合拍",
         "definition_en": "to have a regular rhythm, especially in poetry",
-        "note": "",
+        "note": "看重音与音节形成的节奏是否合规则，不表示韵尾相同。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:scan:eea37b31769155b5",
           "target_locator": "record.senses[4]",
-          "target_label": "（诗歌）押韵，符合格律"
+          "target_label": "（诗句）符合格律，节奏合拍"
         }
       }
     ],
@@ -7272,7 +7613,7 @@
     "ordinal": 4270,
     "word": "scandal",
     "source_owner_path": "content/lexical/words/by-ordinal/o4270.json",
-    "source_fingerprint": "ba0c603c2cf635af923022edf9ec189bdd75921e175594fb69e6406d2643df99",
+    "source_fingerprint": "5790a8aba8be5592500b0064695314db2f0c0f4b5ce7c8e390a45e546e6af1ed",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7414,7 +7755,7 @@
     "ordinal": 4271,
     "word": "scar",
     "source_owner_path": "content/lexical/words/by-ordinal/o4271.json",
-    "source_fingerprint": "dd52eeaef6079e8dfa07756a79e79f352d232e240a24429a5d19a2f0d40ae06d",
+    "source_fingerprint": "912545ab74479a99c13f84bf8fda8bf8ba302daa142b2a14e0b7b4904c97f838",
     "sense_lineage": [
       {
         "word_id": "word:scar",
@@ -7426,19 +7767,19 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
-        "1N"
+        "2V",
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "疤痕",
-      "decision_cn": "",
+      "summary_cn": "损伤留下的疤痕或持久创伤；使留下这种痕迹",
+      "decision_cn": "皮肤上的scar是伤口愈合留痕；情绪经历留下心理创伤，战争或采掘可给地方留下破坏痕迹；物理动词仍可不及物表示结疤。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "疤痕"
+        "target_label": "损伤留下的疤痕或持久创伤；使留下这种痕迹"
       }
     },
     "senses": [
@@ -7539,6 +7880,49 @@
           "target_id": "sense:scar:9300bef65ac855b6",
           "target_locator": "record.senses[1]",
           "target_label": "（使）留下伤痕；结疤"
+        }
+      },
+      {
+        "id": "sense:scar:b748e6bcc1fb9a01",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "the scars of sth / leave scars",
+        "definition_cn": "（心理、地方或声誉上）持久的创伤或破坏痕迹",
+        "definition_en": "lasting emotional harm or a visible or reputational trace of damage",
+        "note": "由承受者判断：人或心理是精神创伤，城镇、景观或公共形象则是破坏留下的痕迹。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:scar:3bd7b5fff1cb72c8",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "emotional scars",
+            "meaning_cn": "情感创伤",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:scar:b748e6bcc1fb9a01",
+          "target_locator": "record.senses[2]",
+          "target_label": "（心理、地方或声誉上）持久的创伤或破坏痕迹"
+        }
+      },
+      {
+        "id": "sense:scar:76ed9c5827b94e93",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "scar sb/sth / be scarred by sth",
+        "definition_cn": "给心理留下创伤；破坏外观",
+        "definition_en": "to cause lasting emotional harm or damage the appearance of something",
+        "note": "经历可伤害人的心理，采掘、战争等可损坏景观；不要求皮肤上有伤口，常见被动。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:scar:76ed9c5827b94e93",
+          "target_locator": "record.senses[3]",
+          "target_label": "给心理留下创伤；破坏外观"
         }
       }
     ],
@@ -7753,7 +8137,7 @@
     "ordinal": 4273,
     "word": "scarcely",
     "source_owner_path": "content/lexical/words/by-ordinal/o4273.json",
-    "source_fingerprint": "df01b8891d2f6810ad4a1a8722e91bc859921a51f7ec45c5ec824dc416d4744e",
+    "source_fingerprint": "d7efe33c651a261cd869d7ceadddd6fa6a25ac29c37786a8d482698ccc009dd5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7763,7 +8147,7 @@
     },
     "word_feel": {
       "summary_cn": "几乎不",
-      "decision_cn": "",
+      "decision_cn": "程度上是几乎不；时间先后语境强调两件事紧接着发生。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7779,7 +8163,7 @@
         "governing_pattern": "",
         "definition_cn": "几乎不；简直不",
         "definition_en": "almost not",
-        "note": "",
+        "note": "表达几乎不时，本身带否定意义，标准用法不再叠加not；scarcely surprising表示不足为奇。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7823,7 +8207,7 @@
         "governing_pattern": "",
         "definition_cn": "刚刚；才",
         "definition_en": "only a very short time before",
-        "note": "",
+        "note": "句中通常放在助动词后；将scarcely移至句首的强调式多用于正式或文学语体。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -7902,7 +8286,7 @@
           "target_word": "just",
           "lines": [
             {
-              "text": "在刚刚义接近just；scarcely较正式且更常表几乎不",
+              "text": "本刚刚发生义与just的刚刚义相接近；scarcely ... when/before强调前事刚发生后事就接着发生，句首scarcely可触发倒装。",
               "lang": "cn"
             },
             {
@@ -7929,7 +8313,7 @@
     "ordinal": 4274,
     "word": "scare",
     "source_owner_path": "content/lexical/words/by-ordinal/o4274.json",
-    "source_fingerprint": "3172a6ffe2d16166842831fd2e1dc44713ee0afbd056d47bcec7b5a7f41a2a3b",
+    "source_fingerprint": "f1890331cee855e06000707c5345c606de25fecfce428763229bb38c2448b6fc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7940,7 +8324,7 @@
     },
     "word_feel": {
       "summary_cn": "惊吓",
-      "decision_cn": "",
+      "decision_cn": "动词有宾语时使人受惊，无宾语时表示受惊；名词可是一瞬间吓一跳，新闻中的about/over短语常指对潜在危险的恐慌。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7998,9 +8382,9 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "惊吓，恐慌",
-        "definition_en": "a sudden feeling of fear",
-        "note": "",
+        "definition_cn": "突然的惊吓；引起担忧或恐慌的情况",
+        "definition_en": "a sudden fright, or a situation that causes anxiety or alarm",
+        "note": "give sb a scare可指吓一跳；新闻中的a scare about/over sth可指对潜在危险的恐慌，不证明危险确已发生。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8021,7 +8405,7 @@
           "target_kind": "sense",
           "target_id": "sense:scare:8ce3f874bc6f5525",
           "target_locator": "record.senses[1]",
-          "target_label": "惊吓，恐慌"
+          "target_label": "突然的惊吓；引起担忧或恐慌的情况"
         }
       },
       {
@@ -8115,18 +8499,18 @@
     "ordinal": 4275,
     "word": "scarf",
     "source_owner_path": "content/lexical/words/by-ordinal/o4275.json",
-    "source_fingerprint": "bbd8dc45e773d3754b959413e73cc75158fe3bd431a56f3618426a346d0dc0cf",
+    "source_fingerprint": "acf61d53a4e18211279ade4d5ee8aaea7a971f6abdcccfa4d70fd867e394ff32",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "围巾；头巾",
-      "decision_cn": "",
+      "decision_cn": "衣物语境是围巾或包围巾；木工语境是嵌接，北美口语中食物作宾语则是狼吞虎咽地吃。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8211,6 +8595,23 @@
           "target_locator": "record.senses[2]",
           "target_label": "嵌接"
         }
+      },
+      {
+        "id": "sense:scarf:44b3631ce3acbd7c",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "scarf (food)",
+        "definition_cn": "狼吞虎咽地吃",
+        "definition_en": "to eat food rapidly and eagerly",
+        "note": "主要用于北美非正式表达；食物作宾语时是吃，不是给食物围上围巾。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:scarf:44b3631ce3acbd7c",
+          "target_locator": "record.senses[3]",
+          "target_label": "狼吞虎咽地吃"
+        }
       }
     ],
     "pronunciation_support": {
@@ -8260,7 +8661,7 @@
     "ordinal": 4276,
     "word": "scatter",
     "source_owner_path": "content/lexical/words/by-ordinal/o4276.json",
-    "source_fingerprint": "d039cf625c06c9aac00bbc304a13b678ce64cd703eeb0825bea885a7c79fc2c6",
+    "source_fingerprint": "b89f815b953507afd44f12c60d6d8e62dd3b011fef6dbf95113e7038dc660941",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8363,9 +8764,9 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "散布，散播",
+        "definition_cn": "零星散布的少量事物",
         "definition_en": "a small amount of things spread over an area",
-        "note": "",
+        "note": "a scatter of接散布在一片地方的少量人或物，名词在此指散布之物，不是撒播这一动作。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8386,7 +8787,7 @@
           "target_kind": "sense",
           "target_id": "sense:scatter:797878b68287597e",
           "target_locator": "record.senses[2]",
-          "target_label": "散布，散播"
+          "target_label": "零星散布的少量事物"
         }
       }
     ],
@@ -8437,7 +8838,7 @@
     "ordinal": 4277,
     "word": "scenario",
     "source_owner_path": "content/lexical/words/by-ordinal/o4277.json",
-    "source_fingerprint": "7e2ece6160ef822d56ef96e16a4266373308c3365015fff63af1c2343f7909c4",
+    "source_fingerprint": "16dc128f93bb671f8a9fb9cd5a8eb7d6a9bf4309117779758a767a229c7de93f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8446,13 +8847,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "方案；情节",
-      "decision_cn": "",
+      "summary_cn": "设想的事态；故事情节提纲",
+      "decision_cn": "预测、风险或假设语境看可能发生什么；影视创作语境看情节提纲。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "方案；情节"
+        "target_label": "设想的事态；故事情节提纲"
       }
     },
     "senses": [
@@ -8461,9 +8862,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "方案，设想",
+        "definition_cn": "设想的情况；可能出现的一连串事件",
         "definition_en": "a postulated sequence of possible events",
-        "note": "",
+        "note": "用于预想事态如何发展，不等于打算采取的行动方案；worst-case scenario指最坏可能情形。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8492,7 +8893,7 @@
           "target_kind": "sense",
           "target_id": "sense:scenario:ec8763af2d2558e7",
           "target_locator": "record.senses[0]",
-          "target_label": "方案，设想"
+          "target_label": "设想的情况；可能出现的一连串事件"
         }
       },
       {
@@ -8556,22 +8957,22 @@
     "ordinal": 4278,
     "word": "scene",
     "source_owner_path": "content/lexical/words/by-ordinal/o4278.json",
-    "source_fingerprint": "00edb70915552075f9ebf11fcf78c2f26a355a345de26137f2f92548635e75c0",
+    "source_fingerprint": "64f2474a6a584aac3d62ade6a2ca0217999f1bba7be5ea737a137cfe03cd31b1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4N"
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "发生某事的地点或戏剧、电影中的片段",
-      "decision_cn": "",
+      "summary_cn": "事件的现场或场面；作品场景；某活动圈",
+      "decision_cn": "事故语境看发生地点，眼前所见看景象，作品中看场景；the music/art scene看活动圈，make a scene则是当众闹场。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "发生某事的地点或戏剧、电影中的片段"
+        "target_label": "事件的现场或场面；作品场景；某活动圈"
       }
     },
     "senses": [
@@ -8619,8 +9020,8 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "一个事件（真实的或想象的）",
-        "definition_en": "an incident (real or imaginary)",
+        "definition_cn": "所见的情景、景象；发生的事件或场面",
+        "definition_en": "a view, event or situation seen or imagined, especially a scene of a particular kind",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8637,7 +9038,7 @@
           "target_kind": "sense",
           "target_id": "sense:scene:9c96a6aa1dff5508",
           "target_locator": "record.senses[1]",
-          "target_label": "一个事件（真实的或想象的）"
+          "target_label": "所见的情景、景象；发生的事件或场面"
         }
       },
       {
@@ -8645,8 +9046,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "电影中构成一个动作单元的连续画面",
-        "definition_en": "a consecutive series of pictures that constitutes a unit of action in a film",
+        "definition_cn": "电影、戏剧或书中的一个场景、片段",
+        "definition_en": "a passage in a film, play or book presenting action in one setting or of one kind",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8663,7 +9064,7 @@
           "target_kind": "sense",
           "target_id": "sense:scene:ed45e23041e75e02",
           "target_locator": "record.senses[2]",
-          "target_label": "电影中构成一个动作单元的连续画面"
+          "target_label": "电影、戏剧或书中的一个场景、片段"
         }
       },
       {
@@ -8690,6 +9091,32 @@
           "target_id": "sense:scene:f7f1fbe5988a5f3c",
           "target_locator": "record.senses[3]",
           "target_label": "戏剧中一幕的细分部分"
+        }
+      },
+      {
+        "id": "sense:scene:110552e319efb742",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "the ... scene; on the ... scene",
+        "definition_cn": "（某种活动的）圈子；界；领域",
+        "definition_en": "an area of activity and the people participating in it",
+        "note": "常用于文化、娱乐或社会活动语境；music scene指音乐圈及其活动，不是单个音乐镜头。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:scene:e2d796e9dd6a583f",
+            "source_locator": "record.senses[4].collocations[0]",
+            "phrase": "the local music scene",
+            "meaning_cn": "当地音乐圈及其活动",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:scene:110552e319efb742",
+          "target_locator": "record.senses[4]",
+          "target_label": "（某种活动的）圈子；界；领域"
         }
       }
     ],
@@ -8728,6 +9155,31 @@
           "target_locator": "record.constructions[0]",
           "target_label": "behind the scenes"
         }
+      },
+      {
+        "id": "construction:scene:e5bfd35c4369d29a",
+        "source_locator": "record.constructions[1]",
+        "pattern": "make a scene",
+        "lines": [
+          {
+            "text": "当众大吵大闹；弄出难堪场面",
+            "lang": "cn"
+          },
+          {
+            "text": "这里make不指拍摄或创作一场戏；通常涉及情绪失控或争执。",
+            "lang": "cn"
+          },
+          {
+            "text": "to create an embarrassing public disturbance through anger or argument",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:scene:e5bfd35c4369d29a",
+          "target_locator": "record.constructions[1]",
+          "target_label": "make a scene"
+        }
       }
     ],
     "reference": {
@@ -8743,7 +9195,7 @@
     "ordinal": 4279,
     "word": "scenery",
     "source_owner_path": "content/lexical/words/by-ordinal/o4279.json",
-    "source_fingerprint": "973cbac99a7e3b6fac51d0831915e387179956c0a161a8e755199778d9cb09a1",
+    "source_fingerprint": "eadec5d0fc5d834c8c6ff5823a8ce257e42b647255349935835d319eec82f735",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8766,10 +9218,10 @@
         "id": "sense:scenery:bdf65f688ad95895",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "[U] scenery",
         "definition_cn": "地方的外观，尤指自然景观",
         "definition_en": "the appearance of a place, especially natural landscape",
-        "note": "",
+        "note": "风景义通常不可数：用some/beautiful scenery，不用a scenery或sceneries来数一处处风景。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8800,7 +9252,7 @@
         "id": "sense:scenery:5ee99e6af6e550b8",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "[U] scenery",
         "definition_cn": "舞台布景",
         "definition_en": "the painted structures of a stage set",
         "note": "",
@@ -9061,7 +9513,7 @@
     "ordinal": 4281,
     "word": "sceptical",
     "source_owner_path": "content/lexical/words/by-ordinal/o4281.json",
-    "source_fingerprint": "3aa78a412b3b5f89ab6814bccb2f2c6f4281cc3aaeb10e935ef0ec8fc0befb41",
+    "source_fingerprint": "fe44c651cf399dee4f8867c8c7007ff86ee4d5db5d69285097af788baad96ba7",
     "sense_lineage": [
       {
         "word_id": "word:sceptical",
@@ -9092,19 +9544,11 @@
         "id": "sense:sceptical:e5f87ee40b2a5626",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "sceptical about/of sth",
         "definition_cn": "表示怀疑的，好怀疑的",
         "definition_en": "marked by or given to doubt",
-        "note": "",
-        "identity_overlay": {
-          "text": "sceptical is a common BrE spelling; skeptical is the standard AmE spelling; same lexeme and meaning",
-          "repair": {
-            "target_kind": "form_identity",
-            "target_id": null,
-            "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "sceptical is a common BrE spelling; skeptical is the standard AmE spelling; same lexeme and meaning"
-          }
-        },
+        "note": "对说法是否可信或事情能否发生持怀疑态度；about/of后接怀疑的对象。",
+        "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
@@ -9146,12 +9590,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": ""
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": [],
       "senses": [
@@ -9189,7 +9629,7 @@
     "ordinal": 4282,
     "word": "schedule",
     "source_owner_path": "content/lexical/words/by-ordinal/o4282.json",
-    "source_fingerprint": "d5f240028d45d7afbbcdace9295428c28bf39051e06cef04016b597a905d36c7",
+    "source_fingerprint": "a21c73d0d16455fcf38098c4d7660621b6e2f3898481d7662a2c3a1ce687f342",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9252,10 +9692,10 @@
         "id": "sense:schedule:59ba6415dd565db2",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "schedule sth for a time/date; schedule sb/sth to do sth",
         "definition_cn": "安排，预定",
         "definition_en": "plan for an activity or event",
-        "note": "",
+        "note": "常用被动：be scheduled for接时间或事件，be scheduled to do接将要发生的动作。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9366,7 +9806,7 @@
     "ordinal": 4283,
     "word": "scheme",
     "source_owner_path": "content/lexical/words/by-ordinal/o4283.json",
-    "source_fingerprint": "2a172b622017c0adc8fc7f84087e2ca5e1f918270610b0d86539621fdf21a4e9",
+    "source_fingerprint": "2a12b692aa5f6913f4604e8e00839934f4e8dcf67d761d05ff0abe271d553fb5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9377,7 +9817,7 @@
     },
     "word_feel": {
       "summary_cn": "计划；图谋",
-      "decision_cn": "",
+      "decision_cn": "英式公共项目中的scheme可是中性计划；秘密谋利或损人语境看阴谋，动词scheme尤其常带密谋意味。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9468,10 +9908,10 @@
         "id": "sense:scheme:c6546f3ef819540d",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "scheme; scheme against sb; scheme for sth; scheme to do sth; scheme sth",
         "definition_cn": "图谋；密谋",
         "definition_en": "to form intrigues (for) in an underhand manner",
-        "note": "",
+        "note": "密谋义通常带贬义；可接to do表目的，也可直接接所策划的事，不限于for。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9825,7 +10265,7 @@
     "ordinal": 4286,
     "word": "school",
     "source_owner_path": "content/lexical/words/by-ordinal/o4286.json",
-    "source_fingerprint": "919c432ea285822f3055501f3af1ae7b5a44cb966b46a7ae8848a9f15eef064d",
+    "source_fingerprint": "50f69b8adf8dd7638665072e86005219341598f0a18819af7487ad5f8cfaae80",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9835,13 +10275,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "学校；鱼群",
-      "decision_cn": "",
+      "summary_cn": "学校与教育训练；学派；游动的动物群",
+      "decision_cn": "求学语境看教育机构或学习活动；school of thought看共同思想，school of fish/dolphins看动物群；动词接人或马则是训练。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "学校；鱼群"
+        "target_label": "学校与教育训练；学派；游动的动物群"
       }
     },
     "senses": [
@@ -9850,9 +10290,9 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "学校",
-        "definition_en": "an institution for educating children or young people",
-        "note": "",
+        "definition_cn": "学校；教授某学科或技能的学院、机构",
+        "definition_en": "an institution for education or training, including a school for children or a specialist college or department",
+        "note": "medical/law/business school可指专业学院；北美口语school也可泛指大学。go to school常指求学，不只指走到校舍。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9876,7 +10316,7 @@
           "target_kind": "sense",
           "target_id": "sense:school:52e2c3bc363e51c5",
           "target_locator": "record.senses[0]",
-          "target_label": "学校"
+          "target_label": "学校；教授某学科或技能的学院、机构"
         }
       },
       {
@@ -9910,8 +10350,8 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "鱼群",
-        "definition_en": "a large group of fish swimming together",
+        "definition_cn": "鱼群；一起游动的海洋动物群",
+        "definition_en": "a group of fish or other sea animals swimming together",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9928,7 +10368,7 @@
           "target_kind": "sense",
           "target_id": "sense:school:93f5ca56da135bdb",
           "target_locator": "record.senses[2]",
-          "target_label": "鱼群"
+          "target_label": "鱼群；一起游动的海洋动物群"
         }
       },
       {

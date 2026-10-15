@@ -11,19 +11,20 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "线，缝纫线；线索，脉络；（论坛的）帖子串，话题；线程",
-          "label_en": "a fine cord of twisted fibers used in sewing and weaving; a theme or idea running through a story or argument; a sequence of messages on a forum or social media; a unit of execution in computing",
+          "label_cn": "线，缝纫线；线索，脉络；（论坛的）帖子串，话题；线程；螺纹",
+          "label_en": "a fine cord of twisted fibers used in sewing and weaving; a theme or idea running through a story or argument; a sequence of messages on a forum or social media; a unit of execution in computing; a screw thread",
           "pos": "noun",
           "sense_ids": [
             "sense:thread:16f85df739fa5ed9",
             "sense:thread:90b93056cb1f5f4e",
             "sense:thread:640245750fce5fff",
-            "sense:thread:1ea3381a6c925552"
+            "sense:thread:1ea3381a6c925552",
+            "sense:thread:773b3e5e2937a3a3"
           ]
         },
         {
-          "label_cn": "穿针，穿线；穿过，挤过",
-          "label_en": "to pass a thread through the eye of a needle; to make one's way through a narrow or crowded space",
+          "label_cn": "把细长物穿过孔洞或给针穿线；在狭窄或拥挤处穿行",
+          "label_en": "pass a long thin object through an opening or put thread through a needle; move through a narrow or crowded space",
           "pos": "verb",
           "sense_ids": [
             "sense:thread:e3515c3ed7b3549d",
@@ -31,9 +32,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "细线；线索",
-      "core_meaning_en": "a thin strand of material or a continuous sequence",
-      "mental_model_cn": "细线；线索",
+      "core_meaning_cn": "细线及相连的脉络；螺纹；把线穿过或在窄处穿行",
+      "core_meaning_en": "a fine strand, a connected sequence or a screw ridge; to pass material or move through a confined space",
+      "mental_model_cn": "实体是一根细线；抽象可是一条持续的思路、消息串或执行线程。动词看宾语：thread a needle 是给针穿线，thread wire through a hole 是把线穿过；人穿行则用 through/between。螺丝等旋拧固定的语境则指螺纹。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -90,16 +91,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "穿针，穿线",
-        "definition_en": "to pass a thread through the eye of a needle",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "把线等穿过孔洞；给针穿线",
+        "definition_en": "pass a long thin object through an opening, or put thread through a needle",
+        "governing_pattern": "thread + needle + (with thread); thread + thread/wire + through + opening",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:thread:e3515c3ed7b3549d",
-        "sense_label_en": "to pass a thread through the eye of a needle",
+        "sense_label_en": "pass a long thin object through an opening, or put thread through a needle",
         "sort_order": 4,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "usage_note": "宾语是 needle 时表示给针穿上线；宾语是 thread/wire 时表示把该物穿过孔洞。"
       },
       {
         "collocations": [
@@ -173,27 +175,18 @@
         "confidence": "medium",
         "definition_cn": "穿过，挤过",
         "definition_en": "to make one's way through a narrow or crowded space",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "thread + through/between + sth; thread one's way + through/between + sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:thread:5da36ca770cd5841",
         "sense_label_en": "to make one's way through a narrow or crowded space",
         "sort_order": 5,
-        "transitivity": "vt"
+        "transitivity": "vt/vi",
+        "usage_note": "可直接表示主体在狭窄空间穿行（vi.），也可用 thread one's way ...；不应标成只接直接宾语的 vt。"
       },
       {
-        "collocations": [
-          {
-            "collocation_id": "collocation:614cff8e65edf16a8baf",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:thread:1ea3381a6c925552:collocation:0"
-            ],
-            "meaning_cn": "多线程",
-            "phrase": "multithreading"
-          }
-        ],
+        "collocations": [],
         "confidence": "medium",
         "definition_cn": "线程",
         "definition_en": "a unit of execution in computing",
@@ -205,6 +198,25 @@
         "sense_label_en": "a unit of execution in computing",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:thread:773b3e5e2937a3a3",
+        "pos": "noun",
+        "definition_cn": "螺纹",
+        "definition_en": "a spiral ridge on a screw that enables it to fasten by turning",
+        "sense_label_en": "a spiral ridge on a screw that enables it to fasten by turning",
+        "level": "L2",
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "collocations": [
+          {
+            "collocation_id": "collocation:0b07b8a9dff5bdcdecb6",
+            "phrase": "a damaged screw thread",
+            "meaning_cn": "受损的螺纹",
+            "exam_value": "usage_example"
+          }
+        ],
+        "usage_note": "螺丝、螺母等旋拧固定的语境选择螺纹义；不是缝纫线或计算机线程。"
       }
     ],
     "verification_summary": {
@@ -223,7 +235,32 @@
       "runtime_model_calls": false
     },
     "word": "thread",
-    "word_family": [],
+    "word_family": [
+      {
+        "fact_id": "deep:word_family:thread:0c398fb149cfeeeb",
+        "target_word": "multithreading",
+        "source_sense_id": "sense:thread:1ea3381a6c925552",
+        "meaning_cn": "多线程：让程序中的多个线程分别执行任务",
+        "boundary": "multi- 表多个；由 computing thread 的线程义形成派生名词，不是 thread 的搭配短语。",
+        "legacy_source_object_ids": [
+          "collocation:614cff8e65edf16a8baf",
+          "sense:thread:1ea3381a6c925552:collocation:0"
+        ],
+        "preserved_source_collocation": {
+          "collocation_id": "collocation:614cff8e65edf16a8baf",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:thread:1ea3381a6c925552:collocation:0"
+          ],
+          "meaning_cn": "多线程",
+          "phrase": "multithreading"
+        },
+        "module": "word_family",
+        "target_sense_id": null,
+        "direction": "R",
+        "publication_status": "publishable"
+      }
+    ],
     "word_id": "word:thread",
     "form_identity": {
       "headword_pronunciations": [
@@ -561,19 +598,32 @@
         "merged_into_sense_id": null,
         "source_row": 14213,
         "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json"
+      },
+      {
+        "sense_id": "sense:thread:773b3e5e2937a3a3",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o4993-5024.json",
+        "source_row": 14286
       }
     ],
     "active_collocations": [
       "collocation:24604eec7c93b5e8220e",
       "collocation:362589dbed0f324659ec",
-      "collocation:614cff8e65edf16a8baf",
       "collocation:7e418e8f682bc8c3259b",
       "collocation:9d710fc516ae4ba97e83",
       "collocation:cc9d68b8c1e935be57d2",
       "collocation:e2e39fe3a275ed516261",
-      "collocation:fee0e13e95ff275a9d0f"
+      "collocation:fee0e13e95ff275a9d0f",
+      "collocation:0b07b8a9dff5bdcdecb6"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "deep:word_family:thread:0c398fb149cfeeeb",
+        "source_path": "content/lexical/canonical/facts/shards/o4993-5024.json",
+        "source_row": 1200
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:24604eec7c93b5e8220e",
@@ -588,7 +638,12 @@
       {
         "id": "collocation:614cff8e65edf16a8baf",
         "source_row": 8188,
-        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json",
+        "status": "deprecated",
+        "retirement_reason": "derived_word_family_not_headword_collocation",
+        "preserved_in": "record.word_family[0]",
+        "merged_into_id": null,
+        "merged_into_collocation_id": null
       },
       {
         "id": "collocation:7e418e8f682bc8c3259b",
@@ -614,6 +669,11 @@
         "id": "collocation:fee0e13e95ff275a9d0f",
         "source_row": 21547,
         "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json"
+      },
+      {
+        "id": "collocation:0b07b8a9dff5bdcdecb6",
+        "source_path": "content/lexical/canonical/collocations/shards/o4993-5024.json",
+        "source_row": 21555
       }
     ],
     "exam-mappings": [],

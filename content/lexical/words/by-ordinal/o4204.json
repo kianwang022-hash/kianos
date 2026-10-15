@@ -36,6 +36,36 @@
         "pattern": "a round of drinks",
         "priority": "A",
         "source_sense_id": "sense:round:cfd18f339d87526a"
+      },
+      {
+        "construction_id": "construction:round:cb0cdee66b6dd8c3",
+        "pattern": "round sb/sth up / round up sb/sth",
+        "meaning_cn": "把人、动物或物品找齐、聚拢；在执法语境可指搜捕",
+        "definition_en": "to collect people, animals or things into one group",
+        "boundary": "宾语是人或物时为聚拢；数字作宾语的round up仍属原取整义。代词放中间，如round them up。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/round-up_1",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:round:7d6c6fff40694ef0",
+        "pattern": "round sth off (with sth)",
+        "meaning_cn": "（以某事）圆满结束、收尾",
+        "definition_en": "to bring an activity to a suitable ending",
+        "boundary": "活动、一天、餐食等作宾语；with引出结束方式。美式round sth out也可这样用，勿和原变丰满的不及物round out混淆。",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/round-off",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "content_hash": "e6ce757f42e49674c4930d191c1bcf72191ec0a9a63058e8c428d23c639ff020",
@@ -76,8 +106,8 @@
           ]
         },
         {
-          "label_cn": "绕过；拐过；使变圆；使呈圆形；把（数字）四舍五入；取整",
-          "label_en": "to go or pass around something, especially a corner, curve, or obstacle; to make something round or more rounded; to change a number to the nearest convenient whole or simpler value",
+          "label_cn": "绕过；拐过；使变圆；使呈圆形；把（数字）取整或按指定精度近似表示",
+          "label_en": "to go or pass around something, especially a corner, curve, or obstacle; to make something round or more rounded; to adjust a number to a simpler value by increasing or decreasing it",
           "pos": "verb",
           "sense_ids": [
             "sense:round:3df2b71c7ad85805",
@@ -88,7 +118,7 @@
       ],
       "core_meaning_cn": "圆的；一轮/回合；围绕；约数；使变圆/取整；巡回等常见义",
       "core_meaning_en": "round/circular; a round or stage; around; approximate/round-number uses; common rounding and rounds uses",
-      "mental_model_cn": "圆的；一轮/回合；围绕；约数；使变圆/取整；巡回等常见义",
+      "mental_model_cn": "圆形延伸出环绕和一整轮；以数值为宾语时up/down指定取整方向，以人或动物为宾语时up是聚拢；活动作宾语的off是收尾。巡诊看复数rounds。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -238,14 +268,21 @@
         "confidence": "medium",
         "definition_cn": "变圆；发胖",
         "definition_en": "to become round or fuller in shape",
-        "governing_pattern": "vi. + out",
+        "governing_pattern": "round / round out",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:round:2bd5551e033b512d",
         "sense_label_en": "to become round or fuller in shape",
         "sort_order": 5,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "表示形状变圆时可以单用round；out常提示变丰满，不是所有变圆用法都必须带out。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/round_5",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -373,16 +410,23 @@
           }
         ],
         "confidence": "high",
-        "definition_cn": "把（数字）四舍五入；取整",
-        "definition_en": "to change a number to the nearest convenient whole or simpler value",
-        "governing_pattern": "",
+        "definition_cn": "把（数字）取整或按指定精度近似表示",
+        "definition_en": "to adjust a number to a simpler value by increasing or decreasing it",
+        "governing_pattern": "round sth (up/down) (to sth)",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:round:2434a0f635205b01",
-        "sense_label_en": "to change a number to the nearest convenient whole or simpler value",
+        "sense_label_en": "to adjust a number to a simpler value by increasing or decreasing it",
         "sort_order": 10,
-        "transitivity": "vt"
+        "transitivity": "vt",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/round_5",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ],
+        "usage_note": "up指定向上取，down指定向下取；只有按最近数值的规则时才译作四舍五入。"
       }
     ],
     "verification_summary": {
@@ -858,7 +902,18 @@
       "collocation:e1420e47bf02392a48f1",
       "collocation:ebcab34a44e57e780d7d"
     ],
-    "facts": [],
+    "facts": [
+      {
+        "id": "construction:round:cb0cdee66b6dd8c3",
+        "source_path": "content/lexical/words/by-ordinal/o4204.json",
+        "object_type": "construction"
+      },
+      {
+        "id": "construction:round:7d6c6fff40694ef0",
+        "source_path": "content/lexical/words/by-ordinal/o4204.json",
+        "object_type": "construction"
+      }
+    ],
     "collocations": [
       {
         "id": "collocation:03010f56db2caba9f716",

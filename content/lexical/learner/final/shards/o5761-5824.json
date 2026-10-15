@@ -765,7 +765,7 @@
     "ordinal": 5769,
     "word": "disgrace",
     "source_owner_path": "content/lexical/words/by-ordinal/o5769.json",
-    "source_fingerprint": "70f6bc8fceabe388053dd8348b54c18852ee0bfbf28d5906797e9b498b21f47b",
+    "source_fingerprint": "18ff4213aa002fc48a2de4058413418f5c4f27e4f6a3a35651ca56df5843184f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -868,7 +868,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:41e56355799f8d7c13ec",
+        "source_locator": "record.constructions[0]",
+        "pattern": "be a disgrace (to sb/sth)",
+        "lines": [
+          {
+            "text": "是令人羞耻、难以接受的人、事或情况；使所属群体蒙羞",
+            "lang": "cn"
+          },
+          {
+            "text": "to be an unacceptable person, act, or situation, especially one that brings shame to a connected group",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:41e56355799f8d7c13ec",
+          "target_locator": "record.constructions[0]",
+          "target_label": "be a disgrace (to sb/sth)"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -882,21 +904,14 @@
     "ordinal": 5770,
     "word": "disillusion",
     "source_owner_path": "content/lexical/words/by-ordinal/o5770.json",
-    "source_fingerprint": "acf3a3a22e0e8ba21f9bd7ffa6657ddd43fd4bbc47e0f3cf66ffbdffa6765b41",
-    "sense_lineage": [
-      {
-        "word_id": "word:disillusion",
-        "target_kind": "sense",
-        "from_target_id": "sense:disillusion:b764f7db96f4581b",
-        "status": "deprecated",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "5417336e7924a41c003c23a06afd63183ae2fba1b1c418e55fdfb5031f9cab98",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V"
+        "1V",
+        "1N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "使某人不再抱有幻想、认清现实",
@@ -925,6 +940,23 @@
           "target_locator": "record.senses[0]",
           "target_label": "使某人不再抱有幻想；使某人认清原先理想化或错误的信念"
         }
+      },
+      {
+        "id": "sense:disillusion:b764f7db96f4581b",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "disillusion with sth",
+        "definition_cn": "幻灭；发现原先相信的事物并非那么美好而失望",
+        "definition_en": "disappointment after discovering that something is not as good or true as previously believed",
+        "note": "通常不可数；亦作disillusionment。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:disillusion:b764f7db96f4581b",
+          "target_locator": "record.senses[1]",
+          "target_label": "幻灭；发现原先相信的事物并非那么美好而失望"
+        }
       }
     ],
     "pronunciation_support": {
@@ -952,25 +984,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [],
-      "senses": [
-        {
-          "stable_sense_id": "sense:disillusion:b764f7db96f4581b",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "noun",
-          "definition_cn": "觉醒；幻灭",
-          "definition_en": "freeing from false belief or illusions",
-          "semantic_key": "702909895bbd596b188f2d5498aa09f7ccb40ac0122b49c70a657038206cc289",
-          "semantic_key_history": [],
-          "legacy_aliases": [],
-          "legacy_alias_history": [],
-          "updated_at": "2026-09-14T00:00:00Z",
-          "source_row": 16055,
-          "source_path": "content/lexical/canonical/senses/shards/o5761-5792.json",
-          "reference_only": true
-        }
-      ]
+      "family": []
     }
   },
   {
@@ -1050,12 +1064,12 @@
     "ordinal": 5772,
     "word": "dispatch",
     "source_owner_path": "content/lexical/words/by-ordinal/o5772.json",
-    "source_fingerprint": "4fa9d31daa1025dc6fcf84c4655ad996ea0eda0d374a1a88b138f94c76e58ed4",
+    "source_fingerprint": "c8c078397878ad3f97de08c4ae4076360032b815fe3339ca8386feab582a8429",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -1137,6 +1151,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "杀死、处死（较正式/委婉或特定语境）"
         }
+      },
+      {
+        "id": "sense:dispatch:03f01a074993c156",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "the dispatch of goods; ready for dispatch",
+        "definition_cn": "派遣；发送；发货（这一行为）",
+        "definition_en": "the act of sending people, goods, or messages to a destination",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:dispatch:03f01a074993c156",
+          "target_locator": "record.senses[4]",
+          "target_label": "派遣；发送；发货（这一行为）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1173,7 +1204,29 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:d71b08b2396fe2edb7bc",
+        "source_locator": "record.constructions[0]",
+        "pattern": "with dispatch",
+        "lines": [
+          {
+            "text": "（正式）迅速而有效地",
+            "lang": "cn"
+          },
+          {
+            "text": "quickly and efficiently",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:d71b08b2396fe2edb7bc",
+          "target_locator": "record.constructions[0]",
+          "target_label": "with dispatch"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -1192,12 +1245,8 @@
           }
         ],
         "variants": [],
-        "repair": {
-          "target_kind": "form_identity",
-          "target_id": null,
-          "target_locator": "record.form_identity",
-          "target_label": "dispatch is the standard spelling; despatch is an accepted chiefly British spelling variant. Both frozen Word owners preserve the same spelling-variant relationship."
-        }
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
       },
       "family": []
     }
@@ -1336,7 +1385,7 @@
     "ordinal": 5774,
     "word": "disproportionate",
     "source_owner_path": "content/lexical/words/by-ordinal/o5774.json",
-    "source_fingerprint": "6a20a249ed5db2bbbbd428a32c1c8c114b4fb82dc8bb856dcbc21d70e9ca61a3",
+    "source_fingerprint": "c56eddb33f41a3300c0c12576892f033552f4027c57e48ae3dab16ab5dc85e6d",
     "sense_lineage": [
       {
         "word_id": "word:disproportionate",
@@ -1367,9 +1416,9 @@
         "id": "sense:disproportionate:be30a3f7e68f5ece",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
+        "governing_pattern": "disproportionate to sth",
         "definition_cn": "不成比例的；不相称的",
-        "definition_en": "out of proportion",
+        "definition_en": "too large or too small in comparison with something else",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -1733,7 +1782,7 @@
     "ordinal": 5777,
     "word": "diversify",
     "source_owner_path": "content/lexical/words/by-ordinal/o5777.json",
-    "source_fingerprint": "7e6008691a83399d7d8a7de73e4d8482b5e85ab7dedcf294de16f0148e5a18a1",
+    "source_fingerprint": "045cefa19fce1e0866ac1869b28f0d7f0b069af702291390aaf0b4984872a25b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1742,13 +1791,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "使多样化；使变化",
+      "summary_cn": "（使）多样化；（使）多元化经营",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "使多样化；使变化"
+        "target_label": "（使）多样化；（使）多元化经营"
       }
     },
     "senses": [
@@ -1756,17 +1805,17 @@
         "id": "sense:diversify:9c7c4734725b5498",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "使多样化；使更加多元",
-        "definition_en": "make (more) diverse",
-        "note": "",
+        "governing_pattern": "I: diversify into a new business/activity; T: diversify products/the economy",
+        "definition_cn": "（使）多样化；（使经营、产品等）多元化",
+        "definition_en": "to become more varied or make something more varied; in business, to expand into new products, services, or activities",
+        "note": "商务into表示进入新的经营领域；不绑定下列生物/生态分化义。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:diversify:9c7c4734725b5498",
           "target_locator": "record.senses[0]",
-          "target_label": "使多样化；使更加多元"
+          "target_label": "（使）多样化；（使经营、产品等）多元化"
         }
       },
       {
@@ -2528,7 +2577,7 @@
     "ordinal": 5785,
     "word": "eastward",
     "source_owner_path": "content/lexical/words/by-ordinal/o5785.json",
-    "source_fingerprint": "4914e04d0bdc577bdc2333b6f04ed7835c91d5fd6961d876d6c427fb6985cad6",
+    "source_fingerprint": "47937a4bb39c96c54c99aa751a695526c670bad6d7d7a46d8c04659a3856791f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2683,13 +2732,13 @@
     "ordinal": 5786,
     "word": "ecosystem",
     "source_owner_path": "content/lexical/words/by-ordinal/o5786.json",
-    "source_fingerprint": "bd9cbd5126100e950f2b11892bee2d4ec1b0255fabbf3ffe3e56c5bb0cc78cc8",
+    "source_fingerprint": "626d330d62b03687ce8cd45518aacf953893f7ca743e526107ec64d29d7efa3a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
-      "density": "light"
+      "density": "rich"
     },
     "word_feel": {
       "summary_cn": "生态系统",
@@ -2717,6 +2766,23 @@
           "target_id": "sense:ecosystem:a5189996c94b5a6a",
           "target_locator": "record.senses[0]",
           "target_label": "生态系统"
+        }
+      },
+      {
+        "id": "sense:ecosystem:43a5b23013f78c47",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a business/digital ecosystem",
+        "definition_cn": "（比喻）相互关联、相互影响的人、组织或活动所构成的生态系统",
+        "definition_en": "a complex network of connected people, organizations, or activities that influence one another",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:ecosystem:43a5b23013f78c47",
+          "target_locator": "record.senses[1]",
+          "target_label": "（比喻）相互关联、相互影响的人、组织或活动所构成的生态系统"
         }
       }
     ],
@@ -3092,7 +3158,7 @@
     "ordinal": 5789,
     "word": "elliptical",
     "source_owner_path": "content/lexical/words/by-ordinal/o5789.json",
-    "source_fingerprint": "82dff61dfa5d744b977017e55e3368d9b6ed21ba319079b8c506b5475c80949b",
+    "source_fingerprint": "0d01913cc43680d70bc28e7327e6e5d75ac77a92c91cef99a79a7b83b0a858ec",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3101,13 +3167,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "椭圆形的；像椭圆的；省略的、极简的；因省去成分而表达极其简练的",
+      "summary_cn": "椭圆形的；像椭圆的；（语言）省略的、简略的；因省去信息而可能难懂的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "椭圆形的；像椭圆的；省略的、极简的；因省去成分而表达极其简练的"
+        "target_label": "椭圆形的；像椭圆的；（语言）省略的、简略的；因省去信息而可能难懂的"
       }
     },
     "senses": [
@@ -3133,16 +3199,16 @@
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "省略的、极简的；因省去成分而表达极其简练的",
-        "definition_en": "extremely concise or elliptic through omission of words or details",
-        "note": "",
+        "definition_cn": "（语言）省略的、简略的；因省去信息而可能难懂的",
+        "definition_en": "omitting words or details, making expression concise and sometimes difficult to understand",
+        "note": "语言义常用于正式语境；不一定是在赞赏简洁，也可能批评表达含混。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:elliptical:1509441a05e75770",
           "target_locator": "record.senses[1]",
-          "target_label": "省略的、极简的；因省去成分而表达极其简练的"
+          "target_label": "（语言）省略的、简略的；因省去信息而可能难懂的"
         }
       }
     ],
@@ -3637,7 +3703,7 @@
     "ordinal": 5794,
     "word": "entreat",
     "source_owner_path": "content/lexical/words/by-ordinal/o5794.json",
-    "source_fingerprint": "b11f046dc5445a08cde824ed6a8405ab306dc504846809aa9bb4c6afe0404db6",
+    "source_fingerprint": "e7d9e1974b699420926313b55e9a82f4820b7dd07d223c5370228fed3ca2c492",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3660,10 +3726,10 @@
         "id": "sense:entreat:c5ffc578462950e5",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "entreat sb (not) to do sth",
         "definition_cn": "恳求；乞求",
         "definition_en": "ask for or request earnestly",
-        "note": "",
+        "note": "正式用语；恳求某人做或不做某事。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -3790,7 +3856,7 @@
     "ordinal": 5796,
     "word": "equate",
     "source_owner_path": "content/lexical/words/by-ordinal/o5796.json",
-    "source_fingerprint": "cba8817d2e8d399c5ebefb820abc5ede95df8c6c30e798b8fdd8575873b98341",
+    "source_fingerprint": "3fd4870499d377ed331f53ca6728ee77f7f8ddcb00aef9827e28fd88b7155312",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3880,6 +3946,27 @@
           "target_id": "construction:a07b42f4567555857408",
           "target_locator": "record.constructions[0]",
           "target_label": "equate A with B"
+        }
+      },
+      {
+        "id": "construction:c8fbab021f9a2f392bdd",
+        "source_locator": "record.constructions[1]",
+        "pattern": "sth equates to sth",
+        "lines": [
+          {
+            "text": "某物在数量、价值、大小等方面相当于另一物",
+            "lang": "cn"
+          },
+          {
+            "text": "to be equal or equivalent to another amount, value, or size",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:c8fbab021f9a2f392bdd",
+          "target_locator": "record.constructions[1]",
+          "target_label": "sth equates to sth"
         }
       }
     ],
@@ -3980,7 +4067,7 @@
     "ordinal": 5798,
     "word": "errand",
     "source_owner_path": "content/lexical/words/by-ordinal/o5798.json",
-    "source_fingerprint": "dd8a99299a604efdec4da6ec95d226a13db7bbd94bd5a0d56361c8386a6790c3",
+    "source_fingerprint": "480e7d3057e2b331af8e0b935bcff518f8f3bb00bca94c635c08c8a382e08f4b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3989,13 +4076,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "任务；差使；使命",
+      "summary_cn": "需外出办理的差事；跑腿短行程（如买、取、送东西或传话）",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "任务；差使；使命"
+        "target_label": "需外出办理的差事；跑腿短行程（如买、取、送东西或传话）"
       }
     },
     "senses": [
@@ -4003,8 +4090,8 @@
         "id": "sense:errand:b09df2b7d8c65db4",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "任务；差使；使命",
+        "governing_pattern": "run/do errands; go on an errand",
+        "definition_cn": "需外出办理的差事；跑腿短行程（如买、取、送东西或传话）",
         "definition_en": "a short trip that is taken in the performance of a necessary task or mission",
         "note": "",
         "identity_overlay": null,
@@ -4013,7 +4100,7 @@
           "target_kind": "sense",
           "target_id": "sense:errand:b09df2b7d8c65db4",
           "target_locator": "record.senses[0]",
-          "target_label": "任务；差使；使命"
+          "target_label": "需外出办理的差事；跑腿短行程（如买、取、送东西或传话）"
         }
       }
     ],
@@ -4062,7 +4149,7 @@
     "ordinal": 5799,
     "word": "ethical",
     "source_owner_path": "content/lexical/words/by-ordinal/o5799.json",
-    "source_fingerprint": "e33d5027868164ea56c1c438658eaf299a660d8e1c92105387cdcef3499b9575",
+    "source_fingerprint": "3bada73396ffcce9dea09ee28ea3de23b96c265c85cb45412a2d8549a468681e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4179,7 +4266,7 @@
     "ordinal": 5800,
     "word": "ethics",
     "source_owner_path": "content/lexical/words/by-ordinal/o5800.json",
-    "source_fingerprint": "188dc24b7c7e431d405264193157d100d8fe98daed11877042527b4fb92859a2",
+    "source_fingerprint": "265f7dc4839b24d771eb7363dded4e860a0c6482491ebb8b3451257f5d146972",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4258,7 +4345,23 @@
     "reference": {
       "confusables": [],
       "relations": [],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "ethics",
+            "condition": "number agreement depends on meaning",
+            "note": "学科义通常作不可数名词并接单数动词（Ethics is...）；道德原则义常接复数（His ethics are...），也可按整体体系用单数，不机械地一律复数。"
+          }
+        ],
+        "variants": [],
+        "repair": {
+          "target_kind": "form_identity",
+          "target_id": null,
+          "target_locator": "record.form_identity",
+          "target_label": ""
+        }
+      },
       "family": []
     }
   },
@@ -4720,7 +4823,7 @@
     "ordinal": 5806,
     "word": "exposition",
     "source_owner_path": "content/lexical/words/by-ordinal/o5806.json",
-    "source_fingerprint": "d233f8b14732f0f9503a19cfde7681567537576a1edea802cab868548b94293b",
+    "source_fingerprint": "a73b225761c61c1eeb4e2e8ffaab940351238f42ad36556f74c5ffe2d5ad7c7c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5086,7 +5189,7 @@
     "ordinal": 5810,
     "word": "ferrous",
     "source_owner_path": "content/lexical/words/by-ordinal/o5810.json",
-    "source_fingerprint": "2deacb600bb90628578f279b48b869f60734728a101f2c8ea9acc1f220865c55",
+    "source_fingerprint": "8f611cedd1ce6ca77c7bd210fe31b3804bef8415b9f27da640f194e9bed5aeac",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5726,18 +5829,18 @@
     "ordinal": 5816,
     "word": "flake",
     "source_owner_path": "content/lexical/words/by-ordinal/o5816.json",
-    "source_fingerprint": "2639955267f78e9faa2d155fd52f9142d2fcb6900d6a7ddb853793724667c042",
+    "source_fingerprint": "81726d1f889d20d33d5193a8291bc1706310efbc66963cb3d5c6a6e0199f5a44",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "薄片；小片",
-      "decision_cn": "",
+      "decision_cn": "物体看薄片或成片剥落；flake sth是使其分成薄片；非正式称某人a flake则批评其靠不住。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5752,7 +5855,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "薄片；小片",
-        "definition_en": "a small thin flat piece that has broken or come off something",
+        "definition_en": "a small, thin, flat piece, often broken off a larger piece or surface",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5767,9 +5870,9 @@
         "id": "sense:flake:f1e884ce5228562c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
-        "definition_cn": "剥落；成片脱落",
-        "definition_en": "to come off or form in small thin pieces",
+        "governing_pattern": "sth flakes (off); flake sth into small pieces",
+        "definition_cn": "剥落；成片脱落；使成薄片",
+        "definition_en": "to break or come off in small thin pieces, or cause something to do so",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -5777,7 +5880,24 @@
           "target_kind": "sense",
           "target_id": "sense:flake:f1e884ce5228562c",
           "target_locator": "record.senses[1]",
-          "target_label": "剥落；成片脱落"
+          "target_label": "剥落；成片脱落；使成薄片"
+        }
+      },
+      {
+        "id": "sense:flake:ab2500d4cdf62719",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a flake",
+        "definition_cn": "（非正式，带贬意）不可靠的人；靠不住的人",
+        "definition_en": "a person who cannot be relied on to do what they promise",
+        "note": "非正式的人物评价；不能把说某人a flake读成薄片。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:flake:ab2500d4cdf62719",
+          "target_locator": "record.senses[2]",
+          "target_label": "（非正式，带贬意）不可靠的人；靠不住的人"
         }
       }
     ],
@@ -5828,7 +5948,7 @@
     "ordinal": 5817,
     "word": "flank",
     "source_owner_path": "content/lexical/words/by-ordinal/o5817.json",
-    "source_fingerprint": "73a8ff0c08e01000d51221e1a317c7a68074cb66174d50199cca666de0ca0264",
+    "source_fingerprint": "725657c682c0ef7bc74414c5432e681d1571086f4925e467db92c2a3ac6a4c7c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5869,10 +5989,10 @@
         "id": "sense:flank:adb6c6cea36c5c50",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "",
+        "governing_pattern": "flank sb/sth; sb/sth is flanked by sb/sth",
         "definition_cn": "位于…侧面；从侧翼攻击",
         "definition_en": "to be situated at the side of something or to attack its side",
-        "note": "",
+        "note": "被动be flanked by表示两侧（有时一侧）有某人或某物，不必是遭到侧翼攻击。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -5917,7 +6037,7 @@
     "ordinal": 5818,
     "word": "flannel",
     "source_owner_path": "content/lexical/words/by-ordinal/o5818.json",
-    "source_fingerprint": "9bc0d36c02df5429622ac49b63c207dc04296261c33b902c6126d20a1f3ada5f",
+    "source_fingerprint": "e9dbb33834a06bf7861f5c11d0ddf06a82da53cc2d4456c80e3d498ba5654336",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5942,7 +6062,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "法兰绒；绒布",
-        "definition_en": "a soft light woolen fabric; used for clothing",
+        "definition_en": "a soft cloth, usually made of cotton or wool, used for clothing",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -6134,7 +6254,7 @@
     "ordinal": 5820,
     "word": "flatten",
     "source_owner_path": "content/lexical/words/by-ordinal/o5820.json",
-    "source_fingerprint": "4a62c620ad88eff066350dd657a11f76e60063520cba827f2ced9c52d0f5d927",
+    "source_fingerprint": "7ceb219f521cd5bfd92ee91969d31bef768babfbfa4cc41f8f38a0db6a146a05",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6175,7 +6295,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "使...不活跃；变平",
+        "definition_cn": "（音乐）降低音高",
         "definition_en": "lower the pitch of (musical notes)",
         "note": "",
         "identity_overlay": null,
@@ -6184,7 +6304,7 @@
           "target_kind": "sense",
           "target_id": "sense:flatten:a2b4c7f70f1e583a",
           "target_locator": "record.senses[1]",
-          "target_label": "使...不活跃；变平"
+          "target_label": "（音乐）降低音高"
         }
       }
     ],
@@ -6464,7 +6584,7 @@
     "ordinal": 5823,
     "word": "flux",
     "source_owner_path": "content/lexical/words/by-ordinal/o5823.json",
-    "source_fingerprint": "fbdbc8477ae15552d71518c7f972423b8e210047eb366389ac6cc76f4c76df25",
+    "source_fingerprint": "e780251c1f3f2f615a1e1ca64d52cdecc442097763ee2faa4b7a4246b5cbedda",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6488,7 +6608,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "通量；单位面积上的能量/粒子等流率",
+        "definition_cn": "通量；穿过给定表面的能量、粒子等的流率",
         "definition_en": "the rate of flow of energy or particles across a given surface",
         "note": "Scientific flux: rate of flow of energy, particles, or another quantity through a surface.",
         "identity_overlay": null,
@@ -6497,7 +6617,7 @@
           "target_kind": "sense",
           "target_id": "sense:flux:743fa294cbb95e05",
           "target_locator": "record.senses[0]",
-          "target_label": "通量；单位面积上的能量/粒子等流率"
+          "target_label": "通量；穿过给定表面的能量、粒子等的流率"
         }
       },
       {

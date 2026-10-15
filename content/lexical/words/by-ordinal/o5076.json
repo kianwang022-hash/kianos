@@ -20,9 +20,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "向，朝；对于，关于",
-      "core_meaning_en": "in the direction of; in relation to",
-      "mental_model_cn": "向，朝；对于，关于",
+      "core_meaning_cn": "朝某个方向、对象或目标；也可表示接近某时某处",
+      "core_meaning_en": "in the direction of, in relation to, near, or contributing to a goal",
+      "mental_model_cn": "walk toward 看移动方向，attitude toward 看态度对象；toward evening 是接近时间，money/work toward sth 看贡献或目标。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -420,7 +420,50 @@
         "sense_id": "sense:toward:c4b395f9558d5caa",
         "sense_label_en": "in relation to",
         "sort_order": 999,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "常接态度、行为所针对的对象：attitude/behaviour toward sb，不把所有“关于”都直接换成 toward。"
+      },
+      {
+        "sense_id": "sense:toward:6e2bf8b44e9dacc7",
+        "definition_cn": "接近某个时间或位置",
+        "definition_en": "near a time or position",
+        "sense_label_en": "near a time or position",
+        "pos": "preposition",
+        "governing_pattern": "toward + time/position",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:ee1ff264bc4a6dfbfd81",
+            "phrase": "toward the end of sth",
+            "meaning_cn": "接近某段时期／空间的末端",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
+      },
+      {
+        "sense_id": "sense:toward:2971e9533ff6ec74",
+        "definition_cn": "用于、促成或朝向某个目标",
+        "definition_en": "in support of achieving a goal or paying part of a cost",
+        "sense_label_en": "in support of achieving a goal or paying part of a cost",
+        "pos": "preposition",
+        "governing_pattern": "toward + goal/cost; toward doing sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 99,
+        "collocations": [
+          {
+            "collocation_id": "collocation:03631be1f30d82dbc5d7",
+            "phrase": "work toward a goal / contribute toward the cost",
+            "meaning_cn": "朝目标努力／分担费用",
+            "exam_value": "usage_example"
+          }
+        ],
+        "confidence": "high",
+        "needs_human_review": 0
       }
     ],
     "verification_summary": {
@@ -492,9 +535,26 @@
         "merged_into_sense_id": null,
         "source_row": 14447,
         "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json"
+      },
+      {
+        "sense_id": "sense:toward:6e2bf8b44e9dacc7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
+        "source_row": 14493
+      },
+      {
+        "sense_id": "sense:toward:2971e9533ff6ec74",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5057-5088.json",
+        "source_row": 14494
       }
     ],
-    "active_collocations": [],
+    "active_collocations": [
+      "collocation:ee1ff264bc4a6dfbfd81",
+      "collocation:03631be1f30d82dbc5d7"
+    ],
     "facts": [],
     "collocations": [
       {
@@ -511,6 +571,16 @@
         "id": "collocation:fa6b7e6f9e82f3a3ff20",
         "source_row": 21198,
         "source_path": "content/lexical/canonical/collocations/shards/o5057-5088.json"
+      },
+      {
+        "id": "collocation:ee1ff264bc4a6dfbfd81",
+        "source_path": "content/lexical/canonical/collocations/shards/o5057-5088.json",
+        "source_row": 21616
+      },
+      {
+        "id": "collocation:03631be1f30d82dbc5d7",
+        "source_path": "content/lexical/canonical/collocations/shards/o5057-5088.json",
+        "source_row": 21617
       }
     ],
     "exam-mappings": [],

@@ -6,7 +6,73 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:e4af4e55552a6f6cf8c4",
+        "pattern": "step sth up / step up sth",
+        "meaning_cn": "加大、加强或加快某种活动、力度或进程",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-up"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-in?topic=taking-part-and-getting-involved"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-down?topic=becoming-and-making-smaller-or-less"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-by-step"
+          }
+        ],
+        "boundary": "有宾语时是加强，如 efforts/production；代词宾语置中：step it up。"
+      },
+      {
+        "construction_id": "construction:0a5b25a49cd0f0b520de",
+        "pattern": "step in (to do sth)",
+        "meaning_cn": "介入困难局面以帮忙或接手",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-up"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-in?topic=taking-part-and-getting-involved"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-down?topic=becoming-and-making-smaller-or-less"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-by-step"
+          }
+        ]
+      },
+      {
+        "construction_id": "construction:11e35101888862948f85",
+        "pattern": "step down (as/from ...)",
+        "meaning_cn": "辞去职位；退任",
+        "level": "L2",
+        "direction": "R+P",
+        "source_evidence": [
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-up"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-in?topic=taking-part-and-getting-involved"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-down?topic=becoming-and-making-smaller-or-less"
+          },
+          {
+            "source_locator": "https://dictionary.cambridge.org/us/dictionary/english/step-by-step"
+          }
+        ],
+        "boundary": "as 后接所任身份，from 后接职位。"
+      }
+    ],
     "content_hash": "ab8935104d1001b93899de79897f18dc53d48c8d394293bc82b45496b4ba92f8",
     "core_concept": {
       "core_clusters": [
@@ -56,15 +122,6 @@
             ],
             "meaning_cn": "迈出一步",
             "phrase": "take a step"
-          },
-          {
-            "collocation_id": "collocation:e4813c556a6f68bea620",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:step:e0f15d206db558ea:collocation:1"
-            ],
-            "meaning_cn": "一步一步地",
-            "phrase": "step by step"
           }
         ],
         "confidence": "medium",
@@ -98,6 +155,15 @@
             ],
             "meaning_cn": "第一步",
             "phrase": "first step"
+          },
+          {
+            "collocation_id": "collocation:e4813c556a6f68bea620",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:step:e0f15d206db558ea:collocation:1"
+            ],
+            "meaning_cn": "一步一步地；按顺序逐步地",
+            "phrase": "step by step"
           }
         ],
         "confidence": "medium",
@@ -110,7 +176,8 @@
         "sense_id": "sense:step:21ec62f9b2e950e8",
         "sense_label_en": "one of a series of actions taken to achieve a goal",
         "sort_order": 1,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "step by step 可按字面表示一步一步走，也常表示按顺序逐步完成；固定的顺序表达归在本义下，字面行走义仍保留。"
       },
       {
         "collocations": [
@@ -402,6 +469,24 @@
         "id": "deep:constructions:step:f73dd1029c37ba5c",
         "source_row": 1137,
         "source_path": "content/lexical/canonical/facts/shards/o4673-4704.json"
+      },
+      {
+        "id": "construction:e4af4e55552a6f6cf8c4",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4695.json",
+        "source_locator": "record.constructions[0]"
+      },
+      {
+        "id": "construction:0a5b25a49cd0f0b520de",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4695.json",
+        "source_locator": "record.constructions[1]"
+      },
+      {
+        "id": "construction:11e35101888862948f85",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4695.json",
+        "source_locator": "record.constructions[2]"
       }
     ],
     "collocations": [
@@ -443,7 +528,8 @@
       {
         "id": "collocation:e4813c556a6f68bea620",
         "source_row": 19350,
-        "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json"
+        "source_path": "content/lexical/canonical/collocations/shards/o4673-4704.json",
+        "sense_id": "sense:step:21ec62f9b2e950e8"
       }
     ],
     "exam-mappings": [],

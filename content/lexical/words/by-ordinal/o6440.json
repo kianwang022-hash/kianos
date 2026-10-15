@@ -20,7 +20,7 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "污点, 墨水渍；污点；斑点；也指名誉上的污点",
+          "label_cn": "污点；使名誉受损的行为/事件；污点；斑点；也指名誉上的污点",
           "label_en": "an act that brings discredit to the person who does it; a spot, stain, or blemish, literally or figuratively as a mark on someone's reputation",
           "pos": "noun",
           "sense_ids": [
@@ -29,17 +29,25 @@
           ]
         },
         {
-          "label_cn": "乱涂, 使模糊, 吸干",
-          "label_en": "dry (ink) with blotting paper",
+          "label_cn": "用纸、布等轻按吸干液体；吸去",
+          "label_en": "to remove liquid from a surface by pressing absorbent paper, cloth, or similar material against it",
           "pos": "verb",
           "sense_ids": [
             "sense:blot:77036e2b6da65a91"
           ]
+        },
+        {
+          "pos": "verb",
+          "label_cn": "弄上污点；使沾染墨渍等",
+          "label_en": "to mark or spoil something with spots or stains",
+          "sense_ids": [
+            "sense:blot:6706045df03d5fdb"
+          ]
         }
       ],
-      "core_meaning_cn": "污点, 墨水渍；乱涂, 使模糊, 吸干；污点；斑点；也指名誉上的污点",
-      "core_meaning_en": "an act that brings discredit to the person who does it; dry (ink) with blotting paper; a spot, stain, or blemish, literally or figuratively as a mark on someone's reputation",
-      "mental_model_cn": "污点, 墨水渍；乱涂, 使模糊, 吸干；污点；斑点；也指名誉上的污点",
+      "core_meaning_cn": "污点或名誉污点；动词可指吸干液体或弄上污渍",
+      "core_meaning_en": "a spot, stain, or reputational blemish; to absorb liquid or make stains",
+      "mental_model_cn": "用纸布轻按是吸干；造成墨渍等是弄污；blot out按既有构式看遮蔽、抹去。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -78,8 +86,8 @@
       {
         "collocations": [],
         "confidence": "high",
-        "definition_cn": "用吸墨纸吸干（墨水）",
-        "definition_en": "dry (ink) with blotting paper",
+        "definition_cn": "用纸、布等轻按吸干液体；吸去",
+        "definition_en": "to remove liquid from a surface by pressing absorbent paper, cloth, or similar material against it",
         "depth": "full_card",
         "domain_tag": "toefl",
         "frequency_tag": "toefl",
@@ -87,7 +95,7 @@
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:blot:77036e2b6da65a91",
-        "sense_label_en": "dry (ink) with blotting paper",
+        "sense_label_en": "to remove liquid from a surface by pressing absorbent paper, cloth, or similar material against it",
         "sort_order": 2,
         "source_evidence": [
           {
@@ -97,7 +105,8 @@
             "source_path": "external_semantic_auditor://toefl/8772f969174c03783dfd34de1915cbce47d348a6174b6961ed15fc4560fd536f",
             "source_type": "learner_dictionary"
           }
-        ]
+        ],
+        "governing_pattern": "blot sth (up); blot sth with paper/a cloth"
       },
       {
         "collocations": [],
@@ -112,6 +121,28 @@
         "sense_label_en": "a spot, stain, or blemish, literally or figuratively as a mark on someone's reputation",
         "sort_order": 3,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:blot:6706045df03d5fdb",
+        "definition_cn": "弄上污点；使沾染墨渍等",
+        "definition_en": "to mark or spoil something with spots or stains",
+        "sense_label_en": "to mark or spoil something with spots or stains",
+        "pos": "verb",
+        "level": "L2",
+        "sort_order": 99,
+        "governing_pattern": "",
+        "collocations": [],
+        "confidence": "high",
+        "needs_human_review": 0,
+        "source_evidence": [
+          {
+            "source_type": "learner_dictionary",
+            "source_path": "https://dictionary.cambridge.org/dictionary/english/blot?topic=writing-and-typing",
+            "evidence_status": "supplemental_primary_source_read",
+            "reviewed_at": "2026-10-13"
+          }
+        ],
+        "transitivity": "vt."
       }
     ],
     "verification_summary": {
@@ -325,6 +356,13 @@
         "merged_into_sense_id": null,
         "source_row": 17209,
         "source_path": "content/lexical/canonical/senses/shards/o6433-6464.json"
+      },
+      {
+        "sense_id": "sense:blot:6706045df03d5fdb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o6433-6464.json",
+        "source_row": 17218
       }
     ],
     "active_collocations": [],

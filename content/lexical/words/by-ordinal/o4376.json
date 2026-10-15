@@ -11,12 +11,13 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "羞耻；羞愧；耻辱；丢脸",
-          "label_en": "a painful emotion from awareness of inadequacy or guilt; a state of dishonor",
+          "label_cn": "羞耻；羞愧；耻辱；丢脸；遗憾的事；可惜",
+          "label_en": "a painful emotion from awareness of inadequacy or guilt; a state of dishonor; a situation that causes regret or disappointment",
           "pos": "noun",
           "sense_ids": [
             "sense:shame:5a408a5434d952a2",
-            "sense:shame:8d5d3b8a8588559c"
+            "sense:shame:8d5d3b8a8588559c",
+            "sense:shame:1122d2e0a6a970bb"
           ]
         },
         {
@@ -28,9 +29,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "羞耻；羞愧",
-      "core_meaning_en": "a painful feeling of guilt or disgrace",
-      "mental_model_cn": "羞耻；羞愧",
+      "core_meaning_cn": "羞愧或耻辱；a shame也表示遗憾",
+      "core_meaning_en": "shame or disgrace; a regrettable situation",
+      "mental_model_cn": "feel shame看内心羞愧，bring shame on看名誉受损；a shame评价不幸或错失常是可惜，动词shame sb (into doing)是使羞愧或借此促使行动。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -56,13 +57,13 @@
             "phrase": "feel shame"
           },
           {
-            "collocation_id": "collocation:4d85124c4b3fca71be18",
-            "exam_value": "fixed_pattern",
+            "collocation_id": "collocation:73d9695797d55be57a95",
+            "exam_value": "usage_example",
             "legacy_source_object_ids": [
-              "sense:shame:5a408a5434d952a2:collocation:1"
+              "sense:shame:8d5d3b8a8588559c:collocation:0"
             ],
-            "meaning_cn": "给某人/某物带来耻辱",
-            "phrase": "bring shame on + sb/sth"
+            "meaning_cn": "羞耻感",
+            "phrase": "a sense of shame"
           }
         ],
         "confidence": "medium",
@@ -80,13 +81,13 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:73d9695797d55be57a95",
-            "exam_value": "usage_example",
+            "collocation_id": "collocation:4d85124c4b3fca71be18",
+            "exam_value": "fixed_pattern",
             "legacy_source_object_ids": [
-              "sense:shame:8d5d3b8a8588559c:collocation:0"
+              "sense:shame:5a408a5434d952a2:collocation:1"
             ],
-            "meaning_cn": "羞耻感",
-            "phrase": "a sense of shame"
+            "meaning_cn": "给某人/某物带来耻辱",
+            "phrase": "bring shame on + sb/sth"
           }
         ],
         "confidence": "medium",
@@ -124,6 +125,27 @@
         "sense_label_en": "to cause someone to feel ashamed",
         "sort_order": 2,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:shame:1122d2e0a6a970bb",
+        "definition_cn": "遗憾的事；可惜",
+        "definition_en": "a situation that causes regret or disappointment",
+        "sense_label_en": "a situation that causes regret or disappointment",
+        "pos": "noun",
+        "governing_pattern": "a shame; it is a shame (that)...; what a shame; a shame (for sb) to do sth",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 3,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [],
+        "usage_note": "a shame常表示惋惜，不能一概理解为道德上的羞耻。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/shame_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -544,6 +566,12 @@
         "merged_into_sense_id": "sense:shame:8a7741009436557d",
         "source_row": 12318,
         "source_path": "content/lexical/canonical/senses/shards/o4353-4384.json"
+      },
+      {
+        "sense_id": "sense:shame:1122d2e0a6a970bb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4376.json"
       }
     ],
     "active_collocations": [

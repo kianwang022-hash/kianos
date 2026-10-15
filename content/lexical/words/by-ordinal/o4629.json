@@ -39,10 +39,24 @@
           ]
         }
       ],
-      "core_meaning_cn": "海绵；用海绵擦拭",
-      "core_meaning_en": "a porous absorbent material or animal, or to wipe/absorb with it",
-      "mental_model_cn": "海绵；用海绵擦拭",
-      "mental_model_en": ""
+      "core_meaning_cn": "多孔、吸水的海绵及相关擦拭吸收；另有蛋糕和依赖他人的用法",
+      "core_meaning_en": "porous sponge and its cleaning or absorbing action, with cake and dependence uses",
+      "mental_model_cn": "清洁对象指擦拭或吸收；off/on后接人指靠他人养活。甜点或口味词修饰sponge时指蛋糕；采海绵是专门的海上作业用法。",
+      "mental_model_en": "",
+      "source_evidence": [
+        {
+          "source_url": "https://www.merriam-webster.com/dictionary/sponge",
+          "accessed_at_utc": "2026-10-13T13:59:00Z",
+          "source_section": "Merriam-Webster verb intransitive 3",
+          "role": "semantic support; independently authored bounded correction"
+        },
+        {
+          "source_url": "https://www.oxfordlearnersdictionaries.com/us/definition/english/sponge_1",
+          "accessed_at_utc": "2026-10-13T13:59:00Z",
+          "source_section": "Oxford noun sense 4",
+          "role": "semantic support; independently authored bounded correction"
+        }
+      ]
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -174,8 +188,16 @@
             "legacy_source_object_ids": [
               "sense:sponge:c6c9e2d0c627523e:collocation:0"
             ],
-            "meaning_cn": "采集某物（如海绵）",
-            "phrase": "sponge for + sth"
+            "meaning_cn": "为某种目的或生计采海绵（for不引出采集对象）",
+            "phrase": "sponge for + sth",
+            "source_evidence": [
+              {
+                "source_url": "https://www.merriam-webster.com/dictionary/sponge",
+                "accessed_at_utc": "2026-10-13T13:59:00Z",
+                "source_section": "Merriam-Webster verb intransitive 3",
+                "role": "semantic support; independently authored bounded correction"
+              }
+            ]
           },
           {
             "collocation_id": "collocation:6175cd76d1bb175b71c3",
@@ -190,14 +212,23 @@
         "confidence": "medium",
         "definition_cn": "采集海绵",
         "definition_en": "collect sponges (from the sea)",
-        "governing_pattern": "vi. + for",
+        "governing_pattern": "vi.; for + purpose/livelihood is optional",
         "level": "L3",
         "needs_human_review": 0,
         "pos": "verb",
         "sense_id": "sense:sponge:c6c9e2d0c627523e",
         "sense_label_en": "collect sponges (from the sea)",
         "sort_order": 4,
-        "transitivity": "vi"
+        "transitivity": "vi",
+        "usage_note": "动词本身表示采集海绵；sponge for a living中的for a living表示谋生目的，不引出所采集的物品。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.merriam-webster.com/dictionary/sponge",
+            "accessed_at_utc": "2026-10-13T13:59:00Z",
+            "source_section": "Merriam-Webster verb intransitive 3",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       },
       {
         "collocations": [
@@ -231,6 +262,28 @@
         "sense_label_en": "absorb like a sponge",
         "sort_order": 5,
         "transitivity": "vt"
+      },
+      {
+        "sense_id": "sense:sponge:5f7957e10aefb3ba",
+        "pos": "noun",
+        "definition_cn": "（英式）海绵蛋糕；松软甜点",
+        "definition_en": "a light, soft cake or dessert",
+        "sense_label_en": "a light, soft cake or dessert",
+        "governing_pattern": "a + flavour + sponge; sponge cake",
+        "usage_note": "菜单、烘焙或甜点语境中的sponge指食品；不是清洁海绵。",
+        "level": "L2",
+        "direction": "R+D",
+        "transitivity": "nonverb",
+        "collocations": [],
+        "sort_order": 6,
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/us/definition/english/sponge_1",
+            "accessed_at_utc": "2026-10-13T13:59:00Z",
+            "source_section": "Oxford noun sense 4",
+            "role": "semantic support; independently authored bounded correction"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -701,6 +754,12 @@
         "merged_into_sense_id": null,
         "source_row": 13110,
         "source_path": "content/lexical/canonical/senses/shards/o4609-4640.json"
+      },
+      {
+        "sense_id": "sense:sponge:5f7957e10aefb3ba",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4629.json"
       }
     ],
     "active_collocations": [

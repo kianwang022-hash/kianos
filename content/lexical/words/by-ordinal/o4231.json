@@ -11,11 +11,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "安全的，无危险的",
-          "label_en": "free from danger or risk",
+          "label_cn": "安全的，无危险的；稳妥的；可靠的；不易出错的",
+          "label_en": "free from danger or risk; unlikely to be mistaken or to fail; involving little risk in a judgment or choice",
           "pos": "adjective",
           "sense_ids": [
-            "sense:safe:291bc26dac9d5e32"
+            "sense:safe:291bc26dac9d5e32",
+            "sense:safe:5417ddf3078a9fc9"
           ]
         },
         {
@@ -29,7 +30,7 @@
       ],
       "core_meaning_cn": "安全的；保险箱",
       "core_meaning_en": "free from danger or secure",
-      "mental_model_cn": "安全的；保险箱",
+      "mental_model_cn": "涉及人身、物品或环境时看安全；涉及说法、推断、选择时看是否稳妥可靠；名词a safe是保险箱。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -96,6 +97,40 @@
         "sense_label_en": "strongbox for valuables",
         "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:safe:5417ddf3078a9fc9",
+        "definition_cn": "稳妥的；可靠的；不易出错的",
+        "definition_en": "unlikely to be mistaken or to fail; involving little risk in a judgment or choice",
+        "sense_label_en": "unlikely to be mistaken or to fail; involving little risk in a judgment or choice",
+        "pos": "adjective",
+        "governing_pattern": "it is safe to say/assume (that) ...",
+        "transitivity": "nonverb",
+        "level": "L2",
+        "sort_order": 2,
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:safe:ac11d08449f40104",
+            "exam_value": "fixed_pattern",
+            "meaning_cn": "很有把握的判断或稳妥的选择",
+            "phrase": "a safe bet",
+            "source_evidence": [
+              {
+                "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/safe_1",
+                "role": "bounded P1 semantic verification; independently authored learner wording"
+              }
+            ]
+          }
+        ],
+        "usage_note": "修饰判断或选择时强调有把握或少风险；safe to assume不指进行推测会不会受人身伤害。",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/safe_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
       }
     ],
     "verification_summary": {
@@ -451,12 +486,19 @@
         "merged_into_sense_id": null,
         "source_row": 11879,
         "source_path": "content/lexical/canonical/senses/shards/o4225-4256.json"
+      },
+      {
+        "sense_id": "sense:safe:5417ddf3078a9fc9",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/words/by-ordinal/o4231.json"
       }
     ],
     "active_collocations": [
       "collocation:75f359cd132461525e77",
       "collocation:e4e2ee8dc3cfac026132",
-      "collocation:f06e0615476e47248ad1"
+      "collocation:f06e0615476e47248ad1",
+      "collocation:safe:ac11d08449f40104"
     ],
     "facts": [],
     "collocations": [
@@ -474,6 +516,12 @@
         "id": "collocation:f06e0615476e47248ad1",
         "source_row": 20370,
         "source_path": "content/lexical/canonical/collocations/shards/o4225-4256.json"
+      },
+      {
+        "id": "collocation:safe:ac11d08449f40104",
+        "sense_id": "sense:safe:5417ddf3078a9fc9",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4231.json"
       }
     ],
     "exam-mappings": [],

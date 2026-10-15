@@ -12,7 +12,7 @@
       "core_clusters": [],
       "core_meaning_cn": "谁",
       "core_meaning_en": "which person or people",
-      "mental_model_cn": "谁",
+      "mental_model_cn": "句中询问人物身份时是“谁”；接在人物名词或名字之后引出说明时是关系代词，不译成疑问。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,6 +46,32 @@
         "sense_label_en": "what or which person or people",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "sense_id": "sense:who:2cdc61edbc628908",
+        "pos": "pronoun",
+        "definition_cn": "（关系代词）指前述的人，引出限定或补充说明",
+        "definition_en": "used to introduce a clause identifying or adding information about a person already mentioned",
+        "sense_label_en": "used to introduce a clause identifying or adding information about a person already mentioned",
+        "level": "L1",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "governing_pattern": "",
+        "confidence": "high",
+        "needs_human_review": 0,
+        "collocations": [
+          {
+            "collocation_id": "collocation:who:3877c13d8b2ae495",
+            "phrase": "The student who called is waiting.",
+            "meaning_cn": "打来电话的那个学生正在等候。",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": []
+          }
+        ],
+        "creation_provenance": {
+          "task": "lexical-5401-5450",
+          "identity_basis": "New explicit learner-worthy branch; no historical alias or semantic-key algorithm inferred."
+        }
       }
     ],
     "verification_summary": {
@@ -318,10 +344,18 @@
         "merged_into_sense_id": null,
         "source_row": 15396,
         "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json"
+      },
+      {
+        "sense_id": "sense:who:2cdc61edbc628908",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_path": "content/lexical/canonical/senses/shards/o5409-5440.json",
+        "source_row": 15468
       }
     ],
     "active_collocations": [
-      "collocation:d2d44c120b59e2956d19"
+      "collocation:d2d44c120b59e2956d19",
+      "collocation:who:3877c13d8b2ae495"
     ],
     "facts": [],
     "collocations": [
@@ -329,6 +363,11 @@
         "id": "collocation:d2d44c120b59e2956d19",
         "source_row": 17817,
         "source_path": "content/lexical/canonical/collocations/shards/o5409-5440.json"
+      },
+      {
+        "id": "collocation:who:3877c13d8b2ae495",
+        "source_path": "content/lexical/canonical/collocations/shards/o5409-5440.json",
+        "source_row": 21550
       }
     ],
     "exam-mappings": [],

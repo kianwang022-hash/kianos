@@ -6,7 +6,23 @@
   "record": {
     "card_version": "v2",
     "confusables": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "construction_id": "construction:sack:ce3b38b86889cadc",
+        "pattern": "get the sack; give sb the sack",
+        "meaning_cn": "被解雇；解雇某人",
+        "definition_en": "to lose a job through dismissal, or dismiss someone from a job",
+        "boundary": "英式非正式；the sack在此整体框架中指解雇，不是给或拿一个袋子。",
+        "direction": "R+P",
+        "level": "L2",
+        "source_evidence": [
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sack_2",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
+          }
+        ]
+      }
+    ],
     "content_hash": "7b9512d4fcb73d16091e7213635f21acb83e96fb8c1ed31a7eb90b493b5ae62e",
     "core_concept": {
       "core_clusters": [
@@ -30,7 +46,7 @@
       ],
       "core_meaning_cn": "大袋；解雇；洗劫、劫掠",
       "core_meaning_en": "a large bag; to dismiss someone from a job; to loot or plunder a place",
-      "mental_model_cn": "大袋；解雇；洗劫、劫掠",
+      "mental_model_cn": "看句法和宾语：a sack of接袋中物或一袋之量；sack an employee是解雇，sack a city是洗劫。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -195,8 +211,15 @@
             "source_operation_id": "operation:3565f5bfd8a66376b787",
             "source_operation_sha256": "91b2347781587a50ac26f643282d79c7a09c1c807d42a7479b3f7d9f511896a3",
             "verification_status": "auditor_verified"
+          },
+          {
+            "source_url": "https://www.oxfordlearnersdictionaries.com/definition/english/sack_1",
+            "role": "bounded P1 semantic verification; independently authored learner wording"
           }
-        ]
+        ],
+        "governing_pattern": "sack sb; sack sb for (doing) sth",
+        "transitivity": "vt",
+        "usage_note": "解雇义尤见英式非正式用语；人或员工作宾语时选此义，城市作宾语时另看洗劫义。"
       }
     ],
     "verification_summary": {
@@ -551,6 +574,13 @@
         "id": "membership:f15678e86b359051c15f",
         "source_row": 17415,
         "source_path": "content/lexical/canonical/packs/shards/o4225-4256.json"
+      }
+    ],
+    "constructions": [
+      {
+        "id": "construction:sack:ce3b38b86889cadc",
+        "status": "active",
+        "source_path": "content/lexical/words/by-ordinal/o4226.json"
       }
     ]
   },

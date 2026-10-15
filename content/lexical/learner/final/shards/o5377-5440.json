@@ -261,7 +261,7 @@
     "ordinal": 5379,
     "word": "weekday",
     "source_owner_path": "content/lexical/words/by-ordinal/o5379.json",
-    "source_fingerprint": "ba671d5cd9f3f636d60515be2f43a78863b767e3dd3a52ce4d8f5316e4294417",
+    "source_fingerprint": "017355290f0732acf7ac0f349e13eee669738a3b7d51f0a52f1a75eeb9a63767",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -341,25 +341,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:3ae36a8770522b4ba23b",
-        "source_locator": "record.constructions[0]",
-        "pattern": "on weekdays",
-        "lines": [
-          {
-            "text": "在工作日；周一至周五",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:3ae36a8770522b4ba23b",
-          "target_locator": "record.constructions[0]",
-          "target_label": "on weekdays"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -522,7 +504,7 @@
     "ordinal": 5381,
     "word": "weekly",
     "source_owner_path": "content/lexical/words/by-ordinal/o5381.json",
-    "source_fingerprint": "92e2a52d6fe9ac01d8105ff0ecc4af2b2d2fbdc7130164557a0a09f3060cfbca",
+    "source_fingerprint": "d666ee5eced989abeb481c328b5c7e07a6028f29aa256c6d0fc163d8c5475511",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -558,6 +540,14 @@
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "weekly meeting",
             "meaning_cn": "每周例会",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:129f221c7404dd8ca96b",
+            "source_locator": "record.senses[0].collocations[1]",
+            "phrase": "a weekly magazine",
+            "meaning_cn": "一份周刊杂志",
             "kind": "usage_example",
             "repair": null
           }
@@ -606,10 +596,10 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:129f221c7404dd8ca96b",
+            "id": "collocation:571a3fdfd7c3aea30c4e",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "a weekly magazine",
-            "meaning_cn": "一份周刊杂志",
+            "phrase": "a local weekly",
+            "meaning_cn": "一份当地周报",
             "kind": "usage_example",
             "repair": null
           }
@@ -654,7 +644,7 @@
     "ordinal": 5382,
     "word": "weep",
     "source_owner_path": "content/lexical/words/by-ordinal/o5382.json",
-    "source_fingerprint": "794419a1317420f19c6b77bc939d40cb8f2cfb3072e358175adcc1207c689797",
+    "source_fingerprint": "3ac525c57c0ef8a0d60390fc9f09b5b1913191e47fa02e6dbaf4ab00b32f59c1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -663,13 +653,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "哭泣；因强烈情绪而流泪；为...而哭泣；哀悼",
-      "decision_cn": "",
+      "summary_cn": "流泪；液体滴落、滴漏或由表面渗出",
+      "decision_cn": "人作主语常是流泪；伤口或容器作主语是渗液。weep tears的tears是流出的泪，不是哀悼对象。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "哭泣；因强烈情绪而流泪；为...而哭泣；哀悼"
+        "target_label": "流泪；液体滴落、滴漏或由表面渗出"
       }
     },
     "senses": [
@@ -677,10 +667,10 @@
         "id": "sense:weep:8afe539c5cd15329",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vi. + over/for",
+        "governing_pattern": "weep; weep for/over sth; weep tears",
         "definition_cn": "哭泣；因强烈情绪而流泪",
         "definition_en": "to shed tears because of strong emotion, including sadness, pain, anger, or joy",
-        "note": "",
+        "note": "比cry更偏文学或情绪强烈的表达；可不及物，也可接tears。",
         "identity_overlay": null,
         "usage": [
           {
@@ -716,6 +706,14 @@
             "meaning_cn": "喜极而泣",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:93816a803f25976c44c9",
+            "source_locator": "record.senses[0].collocations[3]",
+            "phrase": "weep bitter tears",
+            "meaning_cn": "痛哭流涕",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -732,18 +730,9 @@
         "governing_pattern": "vt. + object",
         "definition_cn": "为...而哭泣；哀悼",
         "definition_en": "to shed tears for or express sorrow for someone or something",
-        "note": "Sorrow-for use; lower than the ordinary intransitive weep sense.",
+        "note": "直接接所哀悼对象的用法偏文学；普通表达多用weep for/over sb/sth。",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:93816a803f25976c44c9",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "weep bitter tears",
-            "meaning_cn": "痛哭流涕",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:weep:c37f2728a2055abe",
@@ -755,31 +744,26 @@
         "id": "sense:weep:2f85cc1550a65ecc",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + down",
-        "definition_cn": "滴落；滴下",
-        "definition_en": "(of liquid) to fall or drip",
-        "note": "Extended liquid seep/drip use.",
+        "governing_pattern": "vi.: weep (down); a wound/tank weeps; vt.: weep liquid",
+        "definition_cn": "滴落；滴下；（伤口、表面、容器等）渗出液体",
+        "definition_en": "(of liquid) to fall or drip; also, of a wound, surface, or container, to give off or leak liquid in drops",
+        "note": "液体的滴落/滴漏读法保留；伤口、表面、容器也可作渗液的主语。down可补充向下方向，并非weep必须带的固定介词。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:6d8a22040768e08fdf11",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "weep down",
-            "meaning_cn": "滴落",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:6d8a22040768e08fdf11",
-              "target_locator": "record.senses[2].collocations[0]",
-              "target_label": "weep down"
-            }
+            "meaning_cn": "向下滴落（down表示方向，并非必需）",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:weep:2f85cc1550a65ecc",
           "target_locator": "record.senses[2]",
-          "target_label": "滴落；滴下"
+          "target_label": "滴落；滴下；（伤口、表面、容器等）渗出液体"
         }
       }
     ],
@@ -1034,7 +1018,7 @@
     "ordinal": 5384,
     "word": "weight",
     "source_owner_path": "content/lexical/words/by-ordinal/o5384.json",
-    "source_fingerprint": "3a507184b24efb67fcdb627bfd23915e1692979686907380a18c75f050f7c2b5",
+    "source_fingerprint": "a4a15ce9ea5a015a2ef7d9bd059c9a94a0bc149abd274fcd9ade13e42639912d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1205,7 +1189,7 @@
         "id": "sense:weight:9cb2ee1be2b554ef",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "weight sth according to/by a factor; be weighted",
         "definition_cn": "使加权；使权重",
         "definition_en": "to give a statistical weight to something",
         "note": "",
@@ -1214,14 +1198,14 @@
           {
             "id": "collocation:8177ccddf82dc02b5302",
             "source_locator": "record.senses[5].collocations[0]",
-            "phrase": "weight + sth",
-            "meaning_cn": "对某物加权",
+            "phrase": "weight sth according to/by a factor",
+            "meaning_cn": "按某个因素对数据等赋予权重",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:8177ccddf82dc02b5302",
               "target_locator": "record.senses[5].collocations[0]",
-              "target_label": "weight + sth"
+              "target_label": "weight sth according to/by a factor"
             }
           }
         ],
@@ -1272,7 +1256,7 @@
           "target_word": "weigh",
           "lines": [
             {
-              "text": "weight 是名词重量；weigh 是动词称重",
+              "text": "表示重量时用名词weight；称重或表示重量为多少用动词weigh。weight也可作动词，表示加重或给数据赋权，不能据词尾把它一概判为名词。",
               "lang": "cn"
             }
           ],
@@ -1456,11 +1440,11 @@
     "ordinal": 5386,
     "word": "welcome",
     "source_owner_path": "content/lexical/words/by-ordinal/o5386.json",
-    "source_fingerprint": "029ba84b361aa9d90d2aa4f8a68360e2cae01dd411cc98b8576fe9e3ed7f6faa",
+    "source_fingerprint": "23ed7c40bacb8d3a23bed546448f4222a815f14b263e207ac2912972a510966a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1A",
         "1N",
         "1INTJ"
@@ -1469,7 +1453,7 @@
     },
     "word_feel": {
       "summary_cn": "欢迎",
-      "decision_cn": "",
+      "decision_cn": "welcome sb to a place是迎接来客；welcome a proposal/opportunity是乐于接受或支持；be welcome to do表示获准做，You’re welcome回应感谢。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1619,6 +1603,23 @@
           "target_id": "sense:welcome:647ccf479eb85e6f",
           "target_locator": "record.senses[3]",
           "target_label": "欢迎"
+        }
+      },
+      {
+        "id": "sense:welcome:0d97e3a9322a93ad",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "welcome a proposal/change/opportunity",
+        "definition_cn": "乐于接受；赞同、支持（提议、变化、机会等）",
+        "definition_en": "to receive an idea, development, or opportunity with approval or pleasure",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:welcome:0d97e3a9322a93ad",
+          "target_locator": "record.senses[4]",
+          "target_label": "乐于接受；赞同、支持（提议、变化、机会等）"
         }
       }
     ],
@@ -1859,7 +1860,7 @@
     "ordinal": 5388,
     "word": "well",
     "source_owner_path": "content/lexical/words/by-ordinal/o5388.json",
-    "source_fingerprint": "d9a3e7b0bd946b4fa33cb25e0163359444d37c6e3336434ae2b9459f97b99355",
+    "source_fingerprint": "0ba86911c3ae406b258fbc83b411cb9c5ad40882452ff5d47c9c16b8c75b2200",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1873,7 +1874,7 @@
     },
     "word_feel": {
       "summary_cn": "很好地；健康的；井；涌出；很；大大地；远远地（用于形容词、副词或比较/数量前）",
-      "decision_cn": "",
+      "decision_cn": "修饰动作常看质量；feel/look well看健康；well above/aware看程度；a well是井；tears well up是涌出。句首Well常用于接话、迟疑或转折。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2021,10 +2022,10 @@
         "id": "sense:well:89507d304e3ad8a7",
         "source_locator": "record.senses[5]",
         "pos": "adverb",
-        "governing_pattern": "well + adjective/adverb/comparison",
+        "governing_pattern": "well + above/below/over; well aware/worth; well + selected adverb/adjective",
         "definition_cn": "很；大大地；远远地（用于形容词、副词或比较/数量前）",
         "definition_en": "used before adjectives, adverbs, comparisons, times, or amounts to mean very, fully, or by a large amount",
-        "note": "",
+        "note": "中性用法搭配有选择：well aware、well worth、well above等；不能把well普遍替代very放在任何形容词前。well good等是英式俚语。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -2367,7 +2368,7 @@
     "ordinal": 5390,
     "word": "western",
     "source_owner_path": "content/lexical/words/by-ordinal/o5390.json",
-    "source_fingerprint": "b36530512c82b490291b6d404b92a479fef7005be08642a78cee78a140efcfa1",
+    "source_fingerprint": "1f74d4427033a91f955b3cc1101cb6a82a5b7532952a6c11de90c5d0530a7314",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2378,7 +2379,7 @@
     },
     "word_feel": {
       "summary_cn": "西部的；向西的；地理上位于西方的；西部片；西部小说；西方世界的；西方文化或政治传统的（Western）",
-      "decision_cn": "",
+      "decision_cn": "western part看地点方位；Western/western culture看文化；a western是美国西部背景的电影或小说。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2519,7 +2520,7 @@
           {
             "surface": "Western",
             "condition": "Western world/culture/politics",
-            "note": "capitalized when referring to the Western cultural or political world"
+            "note": "Western常见于西方文化或政治区域；词典及编辑风格也允许western culture等小写用法，不把大写当作这层语义的必要条件。"
           }
         ],
         "variants": [],
@@ -2730,7 +2731,7 @@
     "ordinal": 5392,
     "word": "whale",
     "source_owner_path": "content/lexical/words/by-ordinal/o5392.json",
-    "source_fingerprint": "110f996d3ca92b4a46310a9361eb8fb1a906a0f3e7dd12c4502621eb26eeccc5",
+    "source_fingerprint": "91b0fa16119dce39a51a836bf1c04a16a2d9c6ac928199a18b48fe551d865142",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2811,10 +2812,10 @@
         "id": "sense:whale:f9583cef81585e21",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "whale sb; whale on sb",
         "definition_cn": "使惨败，猛揍",
         "definition_en": "beat severely; defeat thoroughly",
-        "note": "",
+        "note": "猛揍、痛击义为非正式表达，区别于动物和捕鲸义。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2874,7 +2875,7 @@
     "ordinal": 5393,
     "word": "what",
     "source_owner_path": "content/lexical/words/by-ordinal/o5393.json",
-    "source_fingerprint": "ba75824b4e1453a581c968b6f63ef3966cd1ccdecdce99b448e14fd310a573af",
+    "source_fingerprint": "bbfc5b9bcd61d91cb63add28e103c0ff89fa4c411de76877244b69572d82ce94",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2886,13 +2887,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "疑问或关系代词/形容词/副词",
-      "decision_cn": "",
+      "summary_cn": "问什么、指所……之事物，或在名词前感叹",
+      "decision_cn": "问句what询问信息；what I need指我需要的东西；what + 名词短语构成感叹，不把它当作可自由修饰形容词的how。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "疑问或关系代词/形容词/副词"
+        "target_label": "问什么、指所……之事物，或在名词前感叹"
       }
     },
     "senses": [
@@ -2952,10 +2953,10 @@
         "id": "sense:what:67a81b7e720e5295",
         "source_locator": "record.senses[2]",
         "pos": "adverb",
-        "governing_pattern": "",
+        "governing_pattern": "degree: What does it matter?; exclamation: what + (a/an) + (adjective) + noun",
         "definition_cn": "到什么程度",
         "definition_en": "to what extent or degree",
-        "note": "",
+        "note": "保留传统副词分析及原有程度义：What does it matter?问有多大关系；感叹用法如What happy boys!带名词短语，传统词典也可列作副词。这里不表示what能自由修饰任意形容词：只有形容词时通常用How happy!，不用What happy!。",
         "identity_overlay": null,
         "usage": [
           {
@@ -2988,7 +2989,7 @@
             "id": "collocation:7a9764296084f29001f8",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "What a pity!",
-            "meaning_cn": "真遗憾！",
+            "meaning_cn": "真遗憾！（what引导的感叹表达）",
             "kind": "usage_example",
             "repair": null
           }
@@ -3007,7 +3008,7 @@
         "governing_pattern": "",
         "definition_cn": "…的事物；所…的东西",
         "definition_en": "the thing or things that; that which",
-        "note": "",
+        "note": "这里what自身包含the thing(s) that的意思，前面不再加一个被修饰的名词；the book that/which...不能通常写成the book what...。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -3098,7 +3099,7 @@
     "ordinal": 5394,
     "word": "whatever",
     "source_owner_path": "content/lexical/words/by-ordinal/o5394.json",
-    "source_fingerprint": "3392e578b3c47e8fdec3241859f040d68b5719f99e76b4e13c19ad4903a2d300",
+    "source_fingerprint": "5df8454cb7ee57c12a5398baa69ac3d51f55e6cbe44341ad7ba321ebc8dc462d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3108,7 +3109,7 @@
     },
     "word_feel": {
       "summary_cn": "无论什么",
-      "decision_cn": "",
+      "decision_cn": "whatever + 名词/从句表示任选或不管什么；独立回答Whatever.是非正式的无所谓、随便；回应对方的要求或意见时可能显得不耐烦、不尊重或不礼貌，并非总是中性答应。表示选哪个都行时也可无冒犯意味，须看语气与语境；不能当作在提问。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3227,6 +3228,27 @@
           "target_id": "construction:3b03ff0dad77c8ff6d39",
           "target_locator": "record.constructions[1]",
           "target_label": "whatever + clause"
+        }
+      },
+      {
+        "id": "construction:520847b0d8e0bbb6de19",
+        "source_locator": "record.constructions[2]",
+        "pattern": "Whatever.",
+        "lines": [
+          {
+            "text": "（非正式独立回答）随便；无所谓；可能显得不耐烦或不礼貌",
+            "lang": "cn"
+          },
+          {
+            "text": "an informal standalone response showing indifference; it can sound dismissive or rude",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:520847b0d8e0bbb6de19",
+          "target_locator": "record.constructions[2]",
+          "target_label": "Whatever."
         }
       }
     ],
@@ -3492,7 +3514,7 @@
     "ordinal": 5397,
     "word": "wheel",
     "source_owner_path": "content/lexical/words/by-ordinal/o5397.json",
-    "source_fingerprint": "47402051403025dc6d0672caab695dbb2cfb7eb607463510c2dd2bc3f5079b8a",
+    "source_fingerprint": "fc48cafac7d0995f679922917051956f0e12090dbf92680e829a78cd55815356",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3529,19 +3551,6 @@
             "meaning_cn": "汽车轮子",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:516528a5b80cd024eebc",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "at the wheel",
-            "meaning_cn": "驾驶；掌舵",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:516528a5b80cd024eebc",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "at the wheel"
-            }
           }
         ],
         "repair": {
@@ -3562,15 +3571,28 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:e78c10ecab499883b346",
+            "id": "collocation:516528a5b80cd024eebc",
             "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "at the wheel",
+            "meaning_cn": "驾驶；掌舵",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:516528a5b80cd024eebc",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "at the wheel"
+            }
+          },
+          {
+            "id": "collocation:e78c10ecab499883b346",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "take the wheel",
             "meaning_cn": "握住方向盘；接管驾驶",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:e78c10ecab499883b346",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[1].collocations[1]",
               "target_label": "take the wheel"
             }
           }
@@ -3672,20 +3694,20 @@
     "ordinal": 5398,
     "word": "when",
     "source_owner_path": "content/lexical/words/by-ordinal/o5398.json",
-    "source_fingerprint": "060f20b7a603ec0a6af899b9cfa2c5aa2a6b80f494e3d15a9321a50df03ee6ca",
+    "source_fingerprint": "4d5874a385f9d93a22dc062d676dc0c0a75a80cb2f55d953e9b475ca53b75de8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1N",
         "1ADV",
-        "1CONJ",
+        "3CONJ",
         "1PRON"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "在什么时候；当…的时候",
-      "decision_cn": "",
+      "decision_cn": "询问或描述时间看何时/当时；when引出的已知事实可作理由（既然），也可反驳前述说法（然而实际却），并非总有时间先后。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3727,7 +3749,7 @@
         "governing_pattern": "",
         "definition_cn": "当…的时候",
         "definition_en": "at or during the time that",
-        "note": "",
+        "note": "指未来的时间状语从句通常用一般现在时或现在完成时；间接疑问句仍可用will，如I wonder when it will arrive。这一规则仅属时间连接义。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3796,6 +3818,40 @@
           "target_id": "sense:when:9c8e05a3ea2353f6",
           "target_locator": "record.senses[3]",
           "target_label": "时间；时候"
+        }
+      },
+      {
+        "id": "sense:when:c8da8c122df2db5f",
+        "source_locator": "record.senses[4]",
+        "pos": "conjunction",
+        "governing_pattern": "main clause + when + known fact",
+        "definition_cn": "既然；考虑到……事实",
+        "definition_en": "considering that a fact is true",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:when:c8da8c122df2db5f",
+          "target_locator": "record.senses[4]",
+          "target_label": "既然；考虑到……事实"
+        }
+      },
+      {
+        "id": "sense:when:594950518827be86",
+        "source_locator": "record.senses[5]",
+        "pos": "conjunction",
+        "governing_pattern": "claim + when (in fact) + contrasting fact",
+        "definition_cn": "虽然；然而事实上却",
+        "definition_en": "despite the fact that; contrasting a claim with reality",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:when:594950518827be86",
+          "target_locator": "record.senses[5]",
+          "target_label": "虽然；然而事实上却"
         }
       }
     ],
@@ -4375,7 +4431,7 @@
     "ordinal": 5402,
     "word": "whereby",
     "source_owner_path": "content/lexical/words/by-ordinal/o5402.json",
-    "source_fingerprint": "95f9e443d545541c217b192d737c139a6fb7a71fe744a25ba2a9affc209c3b4a",
+    "source_fingerprint": "33f4c180d49985e540b41b53cc86e46986429aad4f3ca115718358a080ff3347",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4408,7 +4464,7 @@
             "id": "collocation:c3664ffde29d1a34c1f6",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "a system whereby ...",
-            "meaning_cn": "一种...的系统",
+            "meaning_cn": "一种借以……的系统（后接说明其实现方式的从句）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -4564,7 +4620,7 @@
     "ordinal": 5404,
     "word": "whether",
     "source_owner_path": "content/lexical/words/by-ordinal/o5404.json",
-    "source_fingerprint": "fc6e1970bc2e934f767949797c4054faf68dba47cb099e4cf4868249f7adbf71",
+    "source_fingerprint": "86deeab6d8226d6fccc680643d81b99f4c123b9228462ecdc44149d3ec563a96",
     "sense_lineage": [
       {
         "word_id": "word:whether",
@@ -4582,7 +4638,7 @@
     },
     "word_feel": {
       "summary_cn": "是否；是...还是；不论；不管",
-      "decision_cn": "",
+      "decision_cn": "在询问或表示不确定时选“是否”；若两种情况都不改变主句结果，选“无论……还是/是否”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4598,7 +4654,7 @@
         "governing_pattern": "",
         "definition_cn": "是否；是...还是",
         "definition_en": "used to introduce the first of two or more alternative clauses, the other(s) being connected by or",
-        "note": "",
+        "note": "whether可引导间接疑问；whether to do sth常表示“是否去做某事”的选择，此处不用if to do。",
         "identity_overlay": null,
         "usage": [
           {
@@ -4628,7 +4684,7 @@
         "pos": "conjunction",
         "governing_pattern": "",
         "definition_cn": "不论；不管",
-        "definition_en": "used to express a doubt or choice between alternatives",
+        "definition_en": "used to say that the result is the same regardless of which alternative is true",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4636,7 +4692,7 @@
             "id": "collocation:04b309c0c29856ab838c",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "whether or not",
-            "meaning_cn": "是否；无论如何",
+            "meaning_cn": "无论是否（两种情况都不改变主句结果）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -5365,7 +5421,7 @@
     "ordinal": 5408,
     "word": "whip",
     "source_owner_path": "content/lexical/words/by-ordinal/o5408.json",
-    "source_fingerprint": "677947e8e8fbee81b70000abcca297eb1118787c6ce0ca5efa8b79d1d8a7efb9",
+    "source_fingerprint": "69f28e83648b2ea931af2c60052bfb96e6ccf6b84d58860df7133e8358eab7c5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5375,13 +5431,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "用鞭子抽打或搅拌的器具",
-      "decision_cn": "",
+      "summary_cn": "鞭子及鞭打、搅打动作；也指迅速移动",
+      "decision_cn": "cream/eggs作宾语时是搅打；带out/away/across等方向成分时是迅速拿取或移动；party whip是政党纪律职务。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "用鞭子抽打或搅拌的器具"
+        "target_label": "鞭子及鞭打、搅打动作；也指迅速移动"
       }
     },
     "senses": [
@@ -5524,9 +5580,9 @@
         "id": "sense:whip:ab37f28825645bda",
         "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vi. + along",
-        "definition_cn": "急走，快速移动",
-        "definition_en": "to move quickly or suddenly",
+        "governing_pattern": "I/T + direction: whip along/across; whip sth out/away",
+        "definition_cn": "迅速移动；快速拿取或移走",
+        "definition_en": "to move quickly, or to take or move something quickly",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5548,7 +5604,7 @@
           "target_kind": "sense",
           "target_id": "sense:whip:ab37f28825645bda",
           "target_locator": "record.senses[5]",
-          "target_label": "急走，快速移动"
+          "target_label": "迅速移动；快速拿取或移走"
         }
       }
     ],
@@ -5630,7 +5686,7 @@
     "ordinal": 5409,
     "word": "whirl",
     "source_owner_path": "content/lexical/words/by-ordinal/o5409.json",
-    "source_fingerprint": "073fc5308d018c5725ed68e517699c15e2cbc7f40bde939c6d5290723dc01610",
+    "source_fingerprint": "eb16251953834bcf7bbb19408c0cd8e7fe8d65e3ace629f17fa4aa14477b5abd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5745,19 +5801,6 @@
             "meaning_cn": "一阵尘土飞扬",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:90c1ece1a596bb4acb34",
-            "source_locator": "record.senses[2].collocations[1]",
-            "phrase": "in a whirl",
-            "meaning_cn": "混乱；眩晕",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:90c1ece1a596bb4acb34",
-              "target_locator": "record.senses[2].collocations[1]",
-              "target_label": "in a whirl"
-            }
           }
         ],
         "repair": {
@@ -5778,8 +5821,21 @@
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:460bd11818359b4458b0",
+            "id": "collocation:90c1ece1a596bb4acb34",
             "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "in a whirl",
+            "meaning_cn": "混乱；眩晕",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:90c1ece1a596bb4acb34",
+              "target_locator": "record.senses[3].collocations[0]",
+              "target_label": "in a whirl"
+            }
+          },
+          {
+            "id": "collocation:460bd11818359b4458b0",
+            "source_locator": "record.senses[3].collocations[1]",
             "phrase": "My head is in a whirl.",
             "meaning_cn": "我的头昏了。",
             "kind": "usage_example",
@@ -5828,7 +5884,7 @@
     "ordinal": 5410,
     "word": "whisky",
     "source_owner_path": "content/lexical/words/by-ordinal/o5410.json",
-    "source_fingerprint": "8d214ecd4cc4586c968b4e46a9bbdb14cfc9efe6869040e22adeeae712976d4e",
+    "source_fingerprint": "8aecbabca0b0ccb2aebd1b0331aea0ea1bacffb040f49db8a0c20b36a112ab43",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5938,7 +5994,19 @@
           }
         }
       ],
-      "form": null,
+      "form": {
+        "boundary": "",
+        "boundaries": [
+          {
+            "surface": "whisky / whiskey",
+            "condition": "same-lexeme regional/product spelling convention",
+            "note": "whisky与whiskey是同一词的拼写变体，通常依地区或产品/品牌惯例选择；并非不同词义。"
+          }
+        ],
+        "variants": [],
+        "repair": null,
+        "disposition": "EXPLORE_ONLY"
+      },
       "family": []
     }
   },
@@ -6528,17 +6596,17 @@
     "ordinal": 5414,
     "word": "who",
     "source_owner_path": "content/lexical/words/by-ordinal/o5414.json",
-    "source_fingerprint": "92b6a168369d9135f51d253ad01d84177e856d31683bb04bac7a453b27f5436d",
+    "source_fingerprint": "ecc1f23d4474da140206ab57da0f588442c7092ce505ad174f831049b5bdf788",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1PRON"
+        "2PRON"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "谁",
-      "decision_cn": "",
+      "decision_cn": "句中询问人物身份时是“谁”；接在人物名词或名字之后引出说明时是关系代词，不译成疑问。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6571,6 +6639,32 @@
           "target_id": "sense:who:38e8266f6a4b5973",
           "target_locator": "record.senses[0]",
           "target_label": "谁；什么人"
+        }
+      },
+      {
+        "id": "sense:who:2cdc61edbc628908",
+        "source_locator": "record.senses[1]",
+        "pos": "pronoun",
+        "governing_pattern": "",
+        "definition_cn": "（关系代词）指前述的人，引出限定或补充说明",
+        "definition_en": "used to introduce a clause identifying or adding information about a person already mentioned",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:who:3877c13d8b2ae495",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "The student who called is waiting.",
+            "meaning_cn": "打来电话的那个学生正在等候。",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:who:2cdc61edbc628908",
+          "target_locator": "record.senses[1]",
+          "target_label": "（关系代词）指前述的人，引出限定或补充说明"
         }
       }
     ],
@@ -6714,7 +6808,7 @@
     "ordinal": 5416,
     "word": "whole",
     "source_owner_path": "content/lexical/words/by-ordinal/o5416.json",
-    "source_fingerprint": "8bea2dce933a22d7ba454ca2384c2f6cf141fce97b9ef29344ef61ff944a90b3",
+    "source_fingerprint": "7c2e15020f43bedc11f844f97ccc62d9c3bd8752064270ea5d5216e7694aca7d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6751,19 +6845,6 @@
             "meaning_cn": "全世界",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:b7e5cbd75f640abd2b5f",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "whole + of + sth",
-            "meaning_cn": "…的全部",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:b7e5cbd75f640abd2b5f",
-              "target_locator": "record.senses[0].collocations[1]",
-              "target_label": "whole + of + sth"
-            }
           }
         ],
         "repair": {
@@ -6782,7 +6863,21 @@
         "definition_en": "something that is complete in itself",
         "note": "",
         "identity_overlay": null,
-        "usage": [],
+        "usage": [
+          {
+            "id": "collocation:b7e5cbd75f640abd2b5f",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "the whole of sth",
+            "meaning_cn": "…的全部",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:b7e5cbd75f640abd2b5f",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "the whole of sth"
+            }
+          }
+        ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:whole:56b22cc9372c5c4e",
@@ -6902,7 +6997,7 @@
           "target_word": "unit",
           "lines": [
             {
-              "text": "unit侧重组成整体之部分；whole强调整体本身",
+              "text": "此处两词都可指完整整体：unit把对象看作一个可辨识的单位，whole强调所有部分合在一起的完整性；不能把此处unit限定成组成部分。",
               "lang": "cn"
             },
             {
@@ -7162,7 +7257,7 @@
     "ordinal": 5419,
     "word": "whom",
     "source_owner_path": "content/lexical/words/by-ordinal/o5419.json",
-    "source_fingerprint": "2bce76f89c6e68ddf11e678284215bfb9f8a32caee4486174b540048f9d1eba4",
+    "source_fingerprint": "b12c0d48bcf8d4a41b9231b825579d7d7b3bf2b309a646213f1b34d4c191cdda",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7188,7 +7283,7 @@
         "governing_pattern": "",
         "definition_cn": "谁（宾格）",
         "definition_en": "used instead of 'who' as the object of a verb or preposition",
-        "note": "",
+        "note": "主要用于正式或书面语，尤其介词紧接在前时；日常口语常用who并把介词留在句末。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7380,7 +7475,7 @@
     "ordinal": 5421,
     "word": "why",
     "source_owner_path": "content/lexical/words/by-ordinal/o5421.json",
-    "source_fingerprint": "726452cb82f42f23932b1af96f9d02a8f3cdc80a46db6aacb13f3c8b026e3519",
+    "source_fingerprint": "ddfd1df85144275d577cabcb454fa5f7d039d0fa75ac75a6bd41227a38ed1552",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7407,7 +7502,7 @@
         "governing_pattern": "",
         "definition_cn": "为什么",
         "definition_en": "for what reason or purpose",
-        "note": "",
+        "note": "在间接疑问why + 主语 + 谓语以及the reason why + 主语 + 谓语中，用陈述语序，如I know why she left（我知道她为什么离开）、the reason why she left（她离开的原因）。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7603,7 +7698,33 @@
       "has_scope": true
     },
     "secondary_senses": [],
-    "constructions": [],
+    "constructions": [
+      {
+        "id": "construction:why:b445bf89cf0b9441",
+        "source_locator": "record.constructions[0]",
+        "pattern": "Why not + base verb ...?",
+        "lines": [
+          {
+            "text": "提出建议：为什么不……呢？后接动词原形，不加to。",
+            "lang": "cn"
+          },
+          {
+            "text": "Why not try again?（为什么不再试一次？）独立回答Why not?还可表示同意，或追问为什么不。",
+            "lang": "cn"
+          },
+          {
+            "text": "suggests an action, using the base form of the verb",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:why:b445bf89cf0b9441",
+          "target_locator": "record.constructions[0]",
+          "target_label": "Why not + base verb ...?"
+        }
+      }
+    ],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -7617,7 +7738,7 @@
     "ordinal": 5422,
     "word": "wide",
     "source_owner_path": "content/lexical/words/by-ordinal/o5422.json",
-    "source_fingerprint": "895ef9c1ac9b86cabe49414181753110b501b314576d01334eac24ddc3923cd1",
+    "source_fingerprint": "010d7ef3ab60a84df4611c136a681cc938caf2f6f942cbfdc386550764abc5ad",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7641,10 +7762,10 @@
         "id": "sense:wide:3d1144c748aa594f",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "宽的，宽阔的",
-        "definition_en": "measuring a large distance from side to side",
-        "note": "",
+        "governing_pattern": "number + unit + wide",
+        "definition_cn": "宽的，宽阔的；（用于数值和单位后）……宽",
+        "definition_en": "having a large distance from side to side, or measuring a specified distance across",
+        "note": "数值+单位+wide只是报告宽度，不表示一定很宽，如two centimetres wide（两厘米宽）。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7668,7 +7789,7 @@
           "target_kind": "sense",
           "target_id": "sense:wide:3d1144c748aa594f",
           "target_locator": "record.senses[0]",
-          "target_label": "宽的，宽阔的"
+          "target_label": "宽的，宽阔的；（用于数值和单位后）……宽"
         }
       },
       {
@@ -7732,7 +7853,7 @@
             "id": "collocation:8d8ed19815adfb772f9c",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "spread wide",
-            "meaning_cn": "广泛传播",
+            "meaning_cn": "向两侧充分展开；说消息等扩散时可指传播开来（依语境）",
             "kind": "usage_example",
             "repair": null
           }
@@ -8458,7 +8579,7 @@
     "ordinal": 5428,
     "word": "will",
     "source_owner_path": "content/lexical/words/by-ordinal/o5428.json",
-    "source_fingerprint": "e3abab863c485dfec7dd05ec7c7f5a861eb8343d29d9f01a62f71d61d798874f",
+    "source_fingerprint": "59562ed8c7785329d83e3b5f31ad6b9d90fb7da94f98b1d7e29c41661321a441",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8492,14 +8613,14 @@
           {
             "id": "collocation:13acb3970060d131a22d",
             "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "will + verb",
-            "meaning_cn": "将要做某事",
+            "phrase": "will + base verb",
+            "meaning_cn": "将会/愿意/常会做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:13acb3970060d131a22d",
               "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "will + verb"
+              "target_label": "will + base verb"
             }
           }
         ],
@@ -8620,25 +8741,7 @@
       "has_scope": false
     },
     "secondary_senses": [],
-    "constructions": [
-      {
-        "id": "construction:3f96466d7597893184e7",
-        "source_locator": "record.constructions[0]",
-        "pattern": "will + base verb",
-        "lines": [
-          {
-            "text": "将会/愿意/常会做某事",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:3f96466d7597893184e7",
-          "target_locator": "record.constructions[0]",
-          "target_label": "will + base verb"
-        }
-      }
-    ],
+    "constructions": [],
     "reference": {
       "confusables": [],
       "relations": [],
@@ -8761,7 +8864,7 @@
     "ordinal": 5430,
     "word": "win",
     "source_owner_path": "content/lexical/words/by-ordinal/o5430.json",
-    "source_fingerprint": "d06693e8ce986a2415d148ecbddc09121ce7b06ed499fcab4926f2d6fbd49b91",
+    "source_fingerprint": "34ea69343d1f30c875294f2626ce176913fbfbd391a508be65a9b7ad77ed1c01",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8785,7 +8888,7 @@
         "id": "sense:win:80bb76cda51a59e4",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: win; win a game/competition",
         "definition_cn": "赢得；获胜",
         "definition_en": "to gain a victory or achieve first place in a competition",
         "note": "",
@@ -8963,7 +9066,7 @@
     ],
     "recall_map": {
       "parts": [
-        "(3+1)V",
+        "3V",
         "2N"
       ],
       "density": "rich"
@@ -9185,22 +9288,7 @@
       },
       "has_scope": true
     },
-    "secondary_senses": [
-      {
-        "id": "deep:secondary_senses:wind:62a2358bde84cf97",
-        "source_locator": "record.secondary_senses[0]",
-        "pos": "verb",
-        "definition_cn": "蜿蜒；迂回",
-        "definition_en": "to follow a twisting or curving course",
-        "pattern": "wind作动词蜿蜒",
-        "repair": {
-          "target_kind": "secondary_sense",
-          "target_id": "deep:secondary_senses:wind:62a2358bde84cf97",
-          "target_locator": "record.secondary_senses[0]",
-          "target_label": "蜿蜒；迂回"
-        }
-      }
-    ],
+    "secondary_senses": [],
     "constructions": [
       {
         "id": "construction:3e7172546d954a06c437",
@@ -9496,7 +9584,7 @@
     "ordinal": 5433,
     "word": "wine",
     "source_owner_path": "content/lexical/words/by-ordinal/o5433.json",
-    "source_fingerprint": "dcd207ec1ad27b34dabe2f22ed5cd9864a99d504292e329021a1fa276a350f53",
+    "source_fingerprint": "64784b7c2d3557f5bb9c7127628a52aeaf8fe3dbddf7e74d32e7952bcfb93768",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9522,7 +9610,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "葡萄酒；果酒",
-        "definition_en": "an alcoholic drink made from fermented grapes",
+        "definition_en": "an alcoholic drink made by fermenting grapes, or a similar drink made from other fruits",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9664,7 +9752,7 @@
     "ordinal": 5434,
     "word": "wing",
     "source_owner_path": "content/lexical/words/by-ordinal/o5434.json",
-    "source_fingerprint": "3f441f5879ae381d5fb4e25c5edc86c78adf97a3df1d05eb4a8d0b6326a38f28",
+    "source_fingerprint": "15546163efd33a374af2d9de48662b828c9e76a1bc778015982a35c7607f4513",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9818,7 +9906,7 @@
         "id": "sense:wing:8d48926fb8275620",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
+        "governing_pattern": "I/T: wing through/to a place; wing one's way; wing sth to a place",
         "definition_cn": "飞过；使飞；空运",
         "definition_en": "to fly or make something fly; to move through the air",
         "note": "",
@@ -10320,7 +10408,7 @@
     "ordinal": 5437,
     "word": "wire",
     "source_owner_path": "content/lexical/words/by-ordinal/o5437.json",
-    "source_fingerprint": "c36bc960e9ce496e8878bce10b55c2ae847d1a2765b479dfd1b4734c26968844",
+    "source_fingerprint": "3bdd23e159af809f8f69791301f732bc77ff01a7aecd9a6603d6cf43056f4be9",
     "sense_lineage": [
       {
         "word_id": "word:wire",
@@ -10393,7 +10481,7 @@
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "给…装电线；用金属丝捆扎",
-        "definition_en": "to provide with electrical circuits or connect by wire",
+        "definition_en": "to provide with electrical wiring, or to connect or fasten something with wire",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -10401,7 +10489,7 @@
             "id": "collocation:39042147b9559be608b8",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "wire up + sth",
-            "meaning_cn": "给某物接通电源",
+            "meaning_cn": "给某物接线；把某物用电线连接起来",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -10516,7 +10604,7 @@
     "ordinal": 5438,
     "word": "wisdom",
     "source_owner_path": "content/lexical/words/by-ordinal/o5438.json",
-    "source_fingerprint": "3a302f474964a0b012ec74d40ef2896bde7dcc76f0b7d5cfe2580d1cbe94ff56",
+    "source_fingerprint": "8dcbaf3ed4d743470d260baf0c44052f846f0e792686ad947b6bd69e40b21afd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10549,7 +10637,7 @@
             "id": "collocation:f16fda62971bdedf8700",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "conventional wisdom",
-            "meaning_cn": "普遍看法；传统智慧",
+            "meaning_cn": "普遍接受的看法；传统观念（不保证正确或明智）",
             "kind": "usage_example",
             "repair": null
           },
@@ -10586,6 +10674,14 @@
             "meaning_cn": "智慧的源泉",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:7f0f2c3a34028b44bb19",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "ancient wisdom",
+            "meaning_cn": "古老的智慧；传统知识",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
@@ -10604,16 +10700,7 @@
         "definition_en": "a saying or proverb that embodies wisdom",
         "note": "",
         "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:7f0f2c3a34028b44bb19",
-            "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "ancient wisdom",
-            "meaning_cn": "古老的格言",
-            "kind": "usage_example",
-            "repair": null
-          }
-        ],
+        "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:wisdom:1b3b5a0e6030531e",
@@ -10811,7 +10898,7 @@
     "ordinal": 5440,
     "word": "wish",
     "source_owner_path": "content/lexical/words/by-ordinal/o5440.json",
-    "source_fingerprint": "6c6690c0012e721ebaced957f4b35c7e07b187dd3f1c1ad2b281f4f73f960fe0",
+    "source_fingerprint": "e3e43a651c0673d60ed02645b824dd6e1bc728f48e41d4be125ec69205b01293",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10891,14 +10978,14 @@
           {
             "id": "collocation:ebe852f54cc69a97ede1",
             "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "wish to do + sth",
-            "meaning_cn": "希望做某事",
+            "phrase": "wish to do sth",
+            "meaning_cn": "希望做某事（较正式）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ebe852f54cc69a97ede1",
               "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "wish to do + sth"
+              "target_label": "wish to do sth"
             }
           }
         ],
@@ -11072,23 +11159,6 @@
           "target_id": "construction:ca51ec44e92c272ba549",
           "target_locator": "record.constructions[2]",
           "target_label": "wish + would"
-        }
-      },
-      {
-        "id": "construction:7b7b42b74fc93a39198f",
-        "source_locator": "record.constructions[3]",
-        "pattern": "wish to do sth",
-        "lines": [
-          {
-            "text": "希望做某事（较正式）",
-            "lang": "cn"
-          }
-        ],
-        "repair": {
-          "target_kind": "construction",
-          "target_id": "construction:7b7b42b74fc93a39198f",
-          "target_locator": "record.constructions[3]",
-          "target_label": "wish to do sth"
         }
       },
       {
