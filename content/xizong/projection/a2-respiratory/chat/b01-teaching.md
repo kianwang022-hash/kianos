@@ -4,17 +4,17 @@
 
 先走机械链：呼吸肌 → 胸廓 → 密闭胸膜耦联 → 肺容积/肺内压 → 气流。再在同一口气上分开弹性与流阻，最后用容量、速度和有效肺泡气量测量它。空气到达肺泡，还不等于氧已入血或到组织。
 
-这是同一模型的压缩入口。节点标题可直达当前完整知识，解释在原处展开；本准备稿不代表已学习、Source已接触或Memory已准入。
+这是同一模型的压缩入口。节点标题可直达当前完整知识，解释在原处展开；本准备稿不代表已学习或Source已接触，也不改变既有Memory准入；顶部冻结provenance与链接须在内容采用时按真实Current刷新，不能据此宣称本候选已接入。
 
 <a id="r01-model-01"></a>
 ## 入口：把肺通气放回整条氧路线
 
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp05">[肺通气、肺换气、气体运输：先把三个过程分开〔外呼吸/通气/换气/运输/内呼吸｜过程-位置对应〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L370)</span>：外界与肺泡交换气体是通气；跨膜是换气，入血运输、组织交换及细胞利用继续后接。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp05">[肺通气、肺换气、气体运输：先把三个过程分开〔外呼吸/通气/换气/运输/内呼吸｜过程-位置对应〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp05肺通气肺换气气体运输先把三个过程分开)</span>：肺通气与肺换气构成外呼吸；血液运输居中；内呼吸含组织换气与细胞内氧化代谢。
 
 <details>
 <summary>展开：入口：把肺通气放回整条氧路线</summary>
 
-吸气看起来像肺主动把空气吸进来，实际的原动力来自呼吸肌。肌肉改变胸廓，胸膜把胸廓运动传给肺，肺容积改变后形成肺内与大气的压力差，空气才流动。这个机械过程叫肺通气；空气到肺泡后跨膜进入毛细血管叫肺换气，随后才由血液运输、在组织交换、被细胞利用。R1先解释空气能不能到达肺泡，不能把通气正常直接当成后面的换气和组织供氧都正常。
+吸气看起来像肺主动把空气吸进来，实际的原动力来自呼吸肌。肌肉改变胸廓，胸膜把胸廓运动传给肺，肺容积改变后形成肺内与大气的压力差，空气才流动。这个机械过程叫肺通气；空气到肺泡后跨膜进入肺毛细血管叫肺换气，二者合称外呼吸。血液运输衔接其后的内呼吸；本节内呼吸包括组织换气和细胞内氧化代谢。R1先解释空气能不能到达肺泡，不能把通气正常直接当成后面的换气和组织供氧都正常。
 
 > 这条路线适合先在脑中走一遍：外界→气道→肺泡→呼吸膜→血液→组织。我们现在观察前半段的驱动力、阻力和可用气量。
 
@@ -23,30 +23,32 @@
 <a id="r01-model-02"></a>
 ## 肌肉改变空间，压差才推动气流
 
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp06">[肺通气的原动力与直接动力：谁先动，谁真正推气体〔动力2层｜肌群3组各2｜平静/用力×吸/呼｜主动vs被动〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L410)</span>：平静吸气主动、呼气主要靠回缩；用力呼气才动用呼气肌。
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp07">[一次平静呼吸的压力电影〔平静呼吸4时点｜胸廓/肺容积｜肺内压｜气流方向〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L450)</span>：吸气肺内压先低后回大气，呼气先高后回大气；两末无流量≠肌肉全不活动。
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp08">[胸廓为什么能带动肺：胸膜腔负压的形成与公式〔耦联链｜条件3｜压力2向｜胸膜压公式｜吸呼末简化｜吸气胸膜压链〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L496)</span>：密闭、浆液贴合、相反弹性牵拉建立耦联；胸膜压＝肺内压−回缩压，吸气通常更负。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp06">[肺通气的原动力与直接动力：谁先动，谁真正推气体〔动力2层｜肌群3组各2｜平静/用力×吸/呼｜主动vs被动〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp06肺通气的原动力与直接动力谁先动谁真正推气体)</span>：平静吸气主动、呼气主要靠回缩；用力呼气才动用呼气肌。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp07">[一次平静呼吸的压力电影〔平静呼吸4时点｜胸廓/肺容积｜肺内压｜气流方向〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp07一次平静呼吸的压力电影)</span>：吸气肺内压先低后回大气，呼气先高后回大气；两末无流量≠肌肉全不活动。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp08">[胸廓为什么能带动肺：胸膜腔负压的形成与公式〔耦联链｜条件3｜压力2向｜胸膜压公式｜吸呼末简化｜吸气胸膜压链〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp08胸廓为什么能带动肺胸膜腔负压的形成与公式)</span>：密闭、浆液贴合、相反弹性牵拉建立耦联；胸膜压＝肺内压−回缩压，吸气通常更负。
 
 <details>
 <summary>展开：肌肉改变空间，压差才推动气流</summary>
 
-图像校准：[P174–176：呼吸肌—胸廓—肺内压—胸膜压方向图；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L999)；[P176–177：胸膜腔负压与回心、气胸；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1000)。当前理解若依赖空间、曲线或时程，应在这一段核对原图；本稿没有替你完成Source接触。
+图像校准：[P174–176：呼吸肌—胸廓—肺内压—胸膜压方向图；](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)；[P176–177：胸膜腔负压与回心、气胸；](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。当前理解若依赖空间、曲线或时程，应在这一段核对原图；本稿没有替你完成Source接触。
 
 平静吸气时膈肌和肋间外肌收缩，胸廓增大。若肺跟随扩张，肺内压先低于大气，空气沿压力差进入；随着气体进入，肺内压又回升，吸气末与大气相等，气流暂停。这时“没有气流”只说明直接动力暂时没有，不能据此说吸气肌已全部停止活动。
 
-平静呼气则是吸气肌舒张后，胸廓与肺回缩使肺内压先高于大气，气体向外流，排气又使肺内压回落，到呼气末相等而停。平静吸气需要肌收缩，平静呼气主要靠回缩，故分别称主动与被动；用力呼气时腹肌和肋间内肌收缩，才转成主动。这里“被动”指主要不靠呼气肌收缩，不等于肌肉的舒张没有能量需求。
+平静呼气则是吸气肌舒张后，肺—胸廓系统的净弹性回缩使肺内压先高于大气，气体向外流，排气又使肺内压回落，到呼气末相等而停。平静吸气需要肌收缩，平静呼气主要靠回缩，故分别称主动与被动；用力呼气时腹肌和肋间内肌收缩，才转成主动。这里“被动”指主要不靠呼气肌收缩，不等于肌肉的舒张没有能量需求。
 
 ```text
 吸气肌收缩 → 胸廓/肺容积↑ → 肺内压先↓ → 气体流入
 气体进入   → 肺内压回升至大气 → 吸气末暂时无气流
-吸气肌舒张 → 弹性回缩 → 肺内压先↑ → 气体流出
+吸气肌舒张 → 系统净弹性回缩 → 肺内压先↑ → 气体流出
 气体排出   → 肺内压回落至大气 → 呼气末暂时无气流
 ```
+
+P184将肺内压最低值定位于吸气相中期；这是课程文字可恢复的时相结论，曲线形状仍需核对原图。
 
 呼吸需求增加时，胸锁乳突肌、斜角肌可辅助吸气。原动力是肌肉与胸廓动作，直接动力是大气和肺内压差；将二者分开，才不会把“胸廓还在运动”和“此刻有气流”当成完全同一件事。
 
 
-胸廓能带肺移动，是因为肺和胸廓的自然形状并不相同。肺持续向内回缩，平静状态下胸廓倾向外拉，两层胸膜间少量浆液让它们润滑、贴合，而密闭胸膜腔不让两层随意分开。相反的弹性牵拉在这个密闭空间形成低于大气的压力。密闭是重要条件，不能倒写成“负压才把胸膜腔封起来”。
+本节“胸腔负压”指胸膜腔内压低于大气，解剖上胸腔不等于脏、壁胸膜之间的胸膜腔，也不等于肺泡腔。胸廓能带肺移动，是因为肺和胸廓的自然形状并不相同。肺持续向内回缩，平静状态下胸廓倾向外拉，两层胸膜间少量浆液让它们润滑、贴合，而密闭胸膜腔不让两层随意分开。相反的弹性牵拉在这个密闭空间形成低于大气的压力。密闭是重要条件，不能倒写成“负压才把胸膜腔封起来”。
 
 肺泡内部压力向外撑，肺回缩压向内拉，课程关系写作胸膜压=肺内压−肺弹性回缩压。在吸、呼末无流量时肺内压等于大气，若大气记0，胸膜压便等于负的回缩压；吸气把肺拉得更大，回缩压增加，胸膜压通常更负。这一关系描述耦联，不意味着肺泡内每时每刻都负压。
 
@@ -55,34 +57,34 @@
 <a id="r01-model-03"></a>
 ## 胸膜耦联同时连接回心
 
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp09">[胸腔负压“又吸气又吸血”：意义、气胸与 Valsalva〔负压4作用｜回心条件｜气胸｜三凹征｜Valsalva〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L560)</span>：负压保持展开并有利静脉/淋巴回流；气胸先破坏耦联，张力性可持续压迫回心；Valsalva按四时段读取。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp09">[胸腔负压“又吸气又吸血”：意义、气胸与 Valsalva〔负压4作用｜回心条件｜气胸｜三凹征｜Valsalva〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp09胸腔负压又吸气又吸血意义气胸与-valsalva)</span>：负压保持展开并有利静脉/淋巴回流；气胸先破坏耦联，张力性可持续压迫回心；Valsalva按四时段读取。
 
 <details>
 <summary>展开：胸膜耦联同时连接回心</summary>
 
-图像校准：[P176–177：胸膜腔负压与回心、气胸；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1000)。当前理解若依赖空间、曲线或时程，应在这一段核对原图；本稿没有替你完成Source接触。
+图像校准：[P176–177：胸膜腔负压与回心、气胸；](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。当前理解若依赖空间、曲线或时程，应在这一段核对原图；本稿没有替你完成Source接触。
 
 负压保持肺展开、把胸廓动作转成肺内压差，同时有利胸内大静脉、胸导管回流。吸气更负时，右房及大静脉压力可下降，外周到右房的压力梯度增加，因而回心增加。这就是“又吸气又吸血”的课程简记；它联系呼吸与循环，却不负责保证后续肺膜和Hb一定正常。
 
-气胸破坏肺—胸廓耦联，跨肺压下降、负压可减小或消失，肺向自身自然状态回缩，扩张更困难。小量闭合气胸不必已严重影响回心或出现JVD；张力气胸则胸膜压持续升高，可压迫回心、造成循环故障。课程“不会增加呼气阻力”是在对照肺扩张和弹性负担，不能扩大为任何气胸都绝无气道流阻变化。
+气胸破坏肺—胸廓耦联，跨肺压下降、负压可减小或消失，肺向自身自然状态回缩，扩张更困难；胸廓可向自己的自然位置扩展，出现课程所述胸廓扩大、肋间隙增宽，不能看成肺也变大。小量闭合气胸不必已严重影响回心或出现JVD；张力气胸则胸膜压持续升高，可压迫回心、造成循环故障。课程“不会增加呼气阻力”是在对照肺扩张和弹性负担，不能扩大为任何气胸都绝无气道流阻变化。
 
 当大气道狭窄或严重哮喘使进气困难，患者用力吸气产生很负的胸膜压，胸骨上窝、锁骨上窝和肋间隙可被吸入，形成三凹征。这个外观表达正在用很大机械努力，不能仅因胸廓动作明显就认定空气已足量进入。
 
-Valsalva又让胸内压向相反方向变化：开始用力时压力传递可短暂抬动脉压，持续用力回心/SV下降并出现反射代偿，放松瞬间可先低压，回心恢复与尚高张力共同形成超射并反射减率。四时段不能只压成“Valsalva减少回心”一个永久状态，完整应用仍回循环owner。
+Valsalva的课程动作是深吸气后紧闭声门用力呼气，再放松开放声门；这里用于解释而不是自行治疗指引。闭声门阻止气体排出，胸内压可变正：开始用力时压力传递可短暂抬动脉压，持续用力回心/SV下降并出现反射代偿，放松瞬间可先低压，回心恢复与尚高张力共同形成超射并反射减率。四时段不能只压成“Valsalva减少回心”一个永久状态，完整应用仍回循环owner。
 
 </details>
 
 <a id="r01-model-04"></a>
 ## 拉开肺与推动气流是两种负担
 
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp10">[肺通气阻力总图与胸廓双弹性〔阻力2类｜胸廓平衡位/上下｜肺回缩方向〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L632)</span>：弹性静态存在，非弹性随流量发生；肺始终向内回缩，胸廓方向取决于自身平衡位。
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp11">[肺弹性阻力：肺变硬和肺失去回缩力是两种相反故障〔回缩来源2｜故障3类方向｜扩张/排空比较〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L677)</span>：纤维化/表活不足使肺难拉开；气肿毁回缩，容易拉大却难排空。
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp14">[肺顺应性：容易变形，不等于能有效呼吸〔C/比顺应性｜静态/动态｜盐水/水肿｜COPD条件〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L878)</span>：C＝ΔV/跨肺压ΔP；静态主要看弹性，动态还混入流阻/不均。合并气肿时可“动低静高”，非必经先后。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp10">[肺通气阻力总图与胸廓双弹性〔阻力2类｜胸廓平衡位/上下｜肺回缩方向〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp10肺通气阻力总图与胸廓双弹性)</span>：弹性静态存在，非弹性随流量发生；肺始终向内回缩，胸廓方向取决于自身平衡位。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp11">[肺弹性阻力：肺变硬和肺失去回缩力是两种相反故障〔回缩来源2｜故障3类方向｜扩张/排空比较〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp11肺弹性阻力肺变硬和肺失去回缩力是两种相反故障)</span>：纤维化/表活不足使肺难拉开；气肿毁回缩，容易拉大却难排空。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp14">[肺顺应性：容易变形，不等于能有效呼吸〔C/比顺应性｜静态/动态｜盐水/水肿｜COPD条件〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp14肺顺应性容易变形不等于能有效呼吸)</span>：C＝ΔV/跨肺压ΔP；静态主要看弹性，动态还混入流阻/不均。合并气肿时可“动低静高”，非必经先后。
 
 <details>
 <summary>展开：拉开肺与推动气流是两种负担</summary>
 
-图像校准：[P177–178：肺通气阻力总图、胸廓双弹性；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1001)；[P182：静态 / 动态顺应性与 COPD“动低静高”；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1004)。当前理解若依赖空间、曲线或时程，应在这一段核对原图；本稿没有替你完成Source接触。
+图像校准：[P177–178：肺通气阻力总图、胸廓双弹性；](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)；[P182：静态 / 动态顺应性与 COPD“动低静高”；](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。当前理解若依赖空间、曲线或时程，应在这一段核对原图；本稿没有替你完成Source接触。
 
 没有气流时也要对抗弹性，气体流动时又要克服非弹性阻力。课程通气弹性负担约70%，肺组织回缩和肺泡表面张力组成肺的弹性，胸廓另有自己的弹性；非弹性包括主要的气道流阻以及惯性、黏滞。把二者分开，才能解释“很容易拉开”为什么不必等于“很容易呼出来”。
 
@@ -101,46 +103,46 @@ Valsalva又让胸内压向相反方向变化：开始用力时压力传递可短
 <a id="r01-model-05"></a>
 ## 肺泡界面与气道口径各有自己的旋钮
 
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp12">[肺泡表面活性物质与 Laplace：让大小肺泡都稳定〔表活：来源/成分/成熟｜作用轴/边界｜Laplace条件下缺失后果〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L723)</span>：表活降张力、稳定大小泡；相同T的Laplace小泡高压前提随表活改变。它不是直接支扩剂。
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp13">[气道阻力：口径是主轴，吸气时会被肺组织“拉开”〔气道阻力：定义｜各部贡献｜流型/流速/口径｜跨壁压/肺牵引｜自主神经/介质｜吸呼差〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L785)</span>：口径是流阻主轴；吸气肺牵引拉开小气道，呼气牵引减弱更难排气。层流/湍流须分别读。
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp15">[整合方向矩阵：吸气时每个变量怎样变〔吸气变量｜负压/表活｜弹性/流阻｜哮喘3类〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L940)</span>：同一吸气中回缩负担↑而气道流阻↓；负压、表活与支扩作用位置不同，不能互相替代。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp12">[肺泡表面活性物质与 Laplace：让大小肺泡都稳定〔表活：来源/成分/成熟｜作用轴/边界｜Laplace条件下缺失后果〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp12肺泡表面活性物质与-laplace让大小肺泡都稳定)</span>：表活降张力、稳定大小泡；相同T的Laplace小泡高压前提随表活改变。它不是直接支扩剂。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp13">[气道阻力：口径是主轴，吸气时会被肺组织“拉开”〔气道阻力：定义｜各部贡献｜流型/流速/口径｜跨壁压/肺牵引｜自主神经/介质｜吸呼差〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp13气道阻力口径是主轴吸气时会被肺组织拉开)</span>：口径是流阻主轴；吸气肺牵引拉开小气道，呼气牵引减弱更难排气。层流/湍流须分别读。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp15">[整合方向矩阵：吸气时每个变量怎样变〔吸气变量｜负压/表活｜弹性/流阻｜哮喘3类〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp15整合方向矩阵吸气时每个变量怎样变)</span>：同一吸气中回缩负担↑而气道流阻↓；负压、表活与支扩作用位置不同，不能互相替代。
 
 <details>
 <summary>展开：肺泡界面与气道口径各有自己的旋钮</summary>
 
-图像校准：[P178–179：表面活性物质、Laplace、大小肺泡稳定；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1002)；[P180：吸气 / 呼气时气道口径变化；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1003)；[P184–185：本节思维导图与变量总览。](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1005)。当前理解若依赖空间、曲线或时程，应在这一段核对原图；本稿没有替你完成Source接触。
+图像校准：[P178–179：表面活性物质、Laplace、大小肺泡稳定；](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)；[P180：吸气 / 呼气时气道口径变化；](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)；[P184–185：本节思维导图与变量总览。](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。当前理解若依赖空间、曲线或时程，应在这一段核对原图；本稿没有替你完成Source接触。
 
-Ⅱ型肺泡细胞的表面活性物质位于液气界面，DPPC双嗜分子降低表面张力，使拉开肺所需压力降低、静态C提高、吸气省力，并稳定肺泡、减轻向肺泡的液体抽吸。课程胎儿约六个月开始分泌、激素促进成熟，是Source成熟接口；新生儿完整处理不在这里展开。
+Ⅱ型肺泡细胞的表面活性物质位于液气界面；P178列脂质约90%、SP约10%，脂质中DPPC超过60%。DPPC（二棕榈酰/软脂酰磷脂酰胆碱）亲水端在液体、疏水端朝肺泡腔，SP参与维持功能及分泌/清除/再利用。DPPC双嗜分子降低表面张力，使拉开肺所需压力降低、静态C提高、吸气省力，并稳定肺泡、减轻向肺泡的液体抽吸。课程胎儿约六个月开始分泌、激素促进成熟，是Source成熟接口；新生儿的具体用药对象/时机不在这里展开。P181所列肺炎、肺充血/肺水肿、ARDS、肺栓塞、肺纤维化可伴表活减少，在此只连接“表活减少→张力负担↑/易不张”；各病完整原因仍回相应Block。
 
-在无表活、表面张力相同的简化条件，Laplace P=2T/r，小泡半径小便压力高，气向大泡流，小泡进一步萎陷而大泡膨胀。表活在小泡密度更高、降低张力更多，改变了“相同T”的前提，大小泡才更稳定。它不是靠直接舒张气道平滑肌工作，也不能阻止肺气肿弹性组织破坏；表面张力和全部呼气流阻不是同一个变量，但维持容积可间接影响小气道，不能又写成总呼气负担绝不改变。
-
-
-气道阻力只有气流时发生，分子间及分子与壁摩擦同时阻吸和呼。口径最重要，但流型、流速也有条件：层流且径/黏度固定，压差随流量提高，R可近似不变；湍流增加时压差更快增加，计算流阻可升。黏液、渗出、异物或肿瘤狭窄容易增加湍流；单根小支气管细，不等于全部细支气管整体阻力最大，因为并联总截面很大。课程鼻约50%、声门25%、小于2mm支气管整体约10%是精确来源项。
-
-吸气肺扩张增大牵引，无软骨小气道更被拉开，跨壁压也帮助口径增大，流阻下降；呼气容积下降、牵引减小，口径更小，因此小气道痉挛会把呼气困难放大。β₂/儿茶酚胺舒张、ACh/M收缩是调节主轴。其余介质按作用位置归类：VIP、PGI₂/PGE₂、NO/CO₂进入课程舒张侧，P物质、PGF₂α、组胺/白三烯/TXA₂/ET进入收缩侧，激素通过抗炎进入间接舒张接口，完整清单属于实际精确支持，不能将所有名字当同一受体作用。
+在无表活、大小泡相通且表面张力相同的简化条件，Laplace P=2T/r，小泡半径小便压力高，气向大泡流，小泡进一步萎陷而大泡膨胀。同一口气表活总量近似不变时，泡大→密度低→张力升而限扩大，泡小→密度高→张力降而防继续萎陷；这改变了“相同T”的前提，大小泡才更稳定。它不是靠直接舒张气道平滑肌工作，也不能阻止肺气肿弹性组织破坏；表面张力和全部呼气流阻不是同一个变量，但维持容积可间接影响小气道，不能又写成总呼气负担绝不改变。
 
 
-现在回看一口吸气：肺和胸廓变大、肺内压先降再回大气、胸膜更负、肺回缩增大、表活密度下降而张力可增，另一方面肺牵引让气道更宽、流阻更低。弹性与流阻竟能在同一动作沿相反方向变，这是它们必须分开学习的原因。胸膜负压有回心作用，表活有大小泡稳定作用，二者共有防萎陷但不互相替代。哮喘的抗炎/白三烯、β₂模拟交感与抗胆碱阻副交感，分别作用不同机制，完整阶梯在R4。
+气道阻力只有气流时发生，分子间及分子与壁摩擦同时阻吸和呼。口径最重要，但流型、流速也有条件：层流且径/黏度固定，压差随流量提高，R可近似不变；湍流增加时压差更快增加，计算流阻可升。黏液、渗出、异物或肿瘤狭窄容易增加湍流；单根小支气管细，不等于全部细支气管整体阻力最大，因为并联总截面很大。课程鼻约50%、声门25%、小于2mm细支气管整体约10%是精确来源项；P179的气管切开例子只用于说明绕过鼻/声门后这段阻力减少，不在此给操作指征。
+
+吸气肺扩张增大牵引，无软骨小气道更被拉开，跨壁压也帮助口径增大，流阻下降；呼气容积下降、牵引减小，口径更小，因此小气道痉挛会把呼气困难放大。按本节课程方向，β₂/儿茶酚胺舒张、ACh/M收缩；夜间迷走张力高是夜间哮喘接口。NANC（非肾上腺素能非胆碱能神经）还包括舒张侧VIP、收缩侧P物质等速激肽。其余介质按作用位置归类：VIP、PGI₂/PGE₂、NO/CO₂进入课程舒张侧，P物质、PGF₂α、组胺/白三烯/TXA₂/ET进入收缩侧，激素通过抗炎进入间接舒张接口，上述是完整分组清单，不能将所有名字当同一受体作用；ET还可由气道上皮合成，课程列哮喘时可增加。P180脚注的前列腺素字形及交感舒缩矛盾保持Source/HOLD，不覆盖现行主表。
+
+
+现在回看自主平静吸气、胸膜耦联完整且一口气内表活总量近似不变的情况：肺和胸廓变大、肺内压先降再回大气、胸膜更负、肺回缩增大、表活密度下降而张力可增，另一方面肺牵引让气道更宽、流阻更低。弹性与流阻竟能在同一动作沿相反方向变，这是它们必须分开学习的原因。胸膜负压有回心作用，表活有大小泡稳定作用，二者共有防萎陷但不互相替代。哮喘接口按三类配四个课程例子：抗炎/抗过敏用布地奈德、孟鲁司特，β₂激动用沙丁胺醇，抗胆碱用异丙托溴铵。它们分别连接减炎症、模拟β₂、阻断M；P183阿司匹林/白三烯支路及完整阶梯留R4。
 
 </details>
 
 <a id="r01-model-06"></a>
 ## 把机械电影投到测量轴，再分阻塞与限制
 
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp01">[肺容积与肺容量：一次呼吸中“装了多少、还能装多少、剩下多少”〔肺容积/容量8项｜定义｜加和关系｜生理含义〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L157)</span>：先辨平静呼末FRC与最大呼末RV；容量是四个容积的组合，FRC缓冲每口新鲜气。
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp04">[VE、VA 与无效腔：每分钟呼了多少，不等于真正交换了多少〔通气2公式｜无效腔3类｜深慢/浅快｜VT条件〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L302)</span>：VE＝VT×f；VA＝(VT−VD)×f。相近VE、VD近似固定时深慢更有效，VT方向必须固定其余变量。
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp02">[VC、FVC、FEV：能装多少，不等于能多快呼出来〔VC/FVC条件｜FEV1–3｜一秒率/预计值〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L200)</span>：量看VC/FVC，速度看FEV1/FVC，程度看FEV1%pred；动态提前闭合可使FVC低于SVC。
-- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp03">[阻塞性 vs 限制性：牙膏“孔小”还是整支“变小”〔阻塞/限制｜流速/容量｜比值｜表型条件〕](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L255)</span>：阻塞先看流速比值；限制由TLC下降确认。滞气可RV/FRC↑，复杂限制RV也可保留/↑，低FVC不能独自定限制。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp01">[肺容积与肺容量：一次呼吸中“装了多少、还能装多少、剩下多少”〔肺容积/容量8项｜定义｜加和关系｜生理含义〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp01肺容积与肺容量一次呼吸中装了多少还能装多少剩下多少)</span>：先辨平静呼末FRC与最大呼末RV；容量是四个容积的组合，FRC缓冲每口新鲜气。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp04">[VE、VA 与无效腔：每分钟呼了多少，不等于真正交换了多少〔通气2公式｜无效腔3类｜深慢/浅快｜VT条件〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp04veva-与无效腔每分钟呼了多少不等于真正交换了多少)</span>：VE＝VT×f；VA＝(VT−VD)×f。相近VE、VD近似固定时深慢更有效，VT方向必须固定其余变量。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp02">[VC、FVC、FEV：能装多少，不等于能多快呼出来〔VC/FVC条件｜FEV1–3｜一秒率/预计值〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp02vcfvcfev能装多少不等于能多快呼出来)</span>：量看VC/FVC，速度看FEV1/FVC，程度看FEV1%pred；动态提前闭合可使FVC低于SVC。
+- <span class="knowledge-binding" data-kp-id="respiratory-r01-kp03">[阻塞性 vs 限制性：牙膏“孔小”还是整支“变小”〔阻塞/限制｜流速/容量｜比值｜表型条件〕](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp03阻塞性-vs-限制性牙膏孔小还是整支变小)</span>：阻塞先看流速比值；限制由TLC下降确认。滞气可RV/FRC↑，复杂限制RV也可保留/↑，低FVC不能独自定限制。
 
 <details>
 <summary>展开：把机械电影投到测量轴，再分阻塞与限制</summary>
 
-图像校准：[P169–170：肺容积 / 肺容量拼图、FVC / FEV 图；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L997)；[P170–173：阻塞性 vs 限制性肺功能总图；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L998)。当前理解若依赖空间、曲线或时程，应在这一段核对原图；本稿没有替你完成Source接触。
+图像校准：[P169–170：肺容积 / 肺容量拼图、FVC / FEV 图；](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)；[P170–173：阻塞性 vs 限制性肺功能总图；](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。当前理解若依赖空间、曲线或时程，应在这一段核对原图；本稿没有替你完成Source接触。
 
 VT约500mL是一口平静气；平静吸末再吸的IRV、平静呼末再呼的ERV是两端储备，最大呼末剩RV不能呼出。IC=VT+IRV，VC=VT+IRV+ERV，TLC=VC+RV，FRC=ERV+RV是平静呼末余量，不能与最大呼末RV交换。FRC约2500mL的气池，每口扣150mL传导无效腔后约350mL新鲜气进入，只更新约1/7，因而缓冲肺泡气分压波动。
 
 
-VE=VT×f是每分总量，VA=(VT−VD)×f扣掉无效腔才看有效肺泡通气。解剖无效腔是传导区，肺泡无效腔是空气到了却缺有效血流，PE可如此；生理无效腔是二者和。相同VE、VD近似固定时，浅快每口被无效腔吃去的比例更大，深慢VA较高但做功增加。固定f/VD增加VT才可推出VE/VA都升，固定CO₂生成时VA升通常PaCO₂降；VT增加若只抬吸末，不必降低FRC/ERV，须看呼末是否移动。
+VE=VT×f是每分总量，P170与P177均给本节正常f为12–18次/分；VA=(VT−VD)×f扣掉无效腔才看有效肺泡通气。有效交换口径的VD取生理无效腔；只扣解剖无效腔得到达呼吸区气量，疾病时不保证都有效交换。解剖无效腔是传导区，依次经主/叶/段/小支气管、细支气管至终末细支气管，呼吸性细支气管及以后才有肺泡开口；肺泡无效腔是空气到了却缺有效血流，PE可如此；生理无效腔是二者和。相同VE、VD近似固定时，浅快每口被无效腔吃去的比例更大，深慢VA较高，但不能据此认定总做功更少；课程同时提示做功负担，总功需结合弹性与气道负荷另判。固定f/VD增加VT才可推出VE/VA都升，固定CO₂生成时VA升通常PaCO₂降；VT增加若只抬吸末，不必降低FRC/ERV，须看呼末是否移动。
 
 量与速度又要分开。VC量最大可动气，FVC是在用力且尽快的动作下测；动态小气道提前关闭可FVC低于SVC，无明显压缩时可接近，课程VC>FVC不对每次严格成立。FEV1–3是开始后1–3秒呼量，课程与FVC比约83%、96%、99%。FEV1/FVC回答速度相对量是否受限，FEV1%pred与预计值比较回答严重度，不是同一个分母。
 
@@ -151,16 +153,16 @@ VE=VT×f是每分总量，VA=(VT−VD)×f扣掉无效腔才看有效肺泡通气
 
 </details>
 
-既有跨块目的地：[R2 肺换气与气体扩散：方向由分压差决定](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_%E8%82%BA%E6%8D%A2%E6%B0%94_%E6%B0%94%E4%BD%93%E8%BF%90%E8%BE%93%E4%B8%8E%E5%91%BC%E5%90%B8%E8%B0%83%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L163)；[R3 COPD 肺功能全图：流速、残气、容积与弥散分别怎么看](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L659)；[R4 哮喘治疗总架构：先脱离触发，再区分缓解药与控制药](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block4_%E6%94%AF%E6%B0%94%E7%AE%A1%E5%93%AE%E5%96%98_%E5%8F%AF%E9%80%86%E6%80%A7%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L567)；[R8 ILD 的入口：进行性气短、干咳与两个 IPF 特殊体征](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_%E9%97%B4%E8%B4%A8%E6%80%A7%E8%82%BA%E7%96%BE%E7%97%85%E4%B8%8E%E7%A1%85%E8%82%BA_%E9%99%90%E5%88%B6%E5%BC%A5%E6%95%A3%E7%BA%A4%E7%BB%B4%E5%8C%96%E4%B8%8E%E7%A1%85%E7%BB%93%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L166)；[R10 自发性气胸识别：先胸痛、继之呼吸困难](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_%E8%83%B8%E8%86%9C%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%83%B8%E9%83%A8%E6%8D%9F%E4%BC%A4_%E7%A7%AF%E6%B6%B2%E6%B0%94%E8%83%B8%E8%A1%80%E8%83%B8%E4%B8%8E%E8%83%B8%E5%A3%81%E5%A4%B1%E7%A8%B3_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L581)。只交接当前机制接口，完整诊疗留原Block。
+既有跨块目的地：[R2 肺换气与气体扩散：方向由分压差决定](../../../knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md#kp01肺换气与气体扩散方向由分压差决定)；[R3 COPD 肺功能全图：流速、残气、容积与弥散分别怎么看](../../../knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md#kp10copd-肺功能全图流速残气容积与弥散分别怎么看)；[R4 哮喘治疗总架构：先脱离触发，再区分缓解药与控制药](../../../knowledge/systems/a2-respiratory/blocks/Block4_支气管哮喘_可逆性气流受限_学习阅读版_v1_最终执行版.md#kp10哮喘治疗总架构先脱离触发再区分缓解药与控制药)；[R8 ILD 的入口：进行性气短、干咳与两个 IPF 特殊体征](../../../knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#kp01ild-的入口进行性气短干咳与两个-ipf-特殊体征)；[R10 自发性气胸识别：先胸痛、继之呼吸困难](../../../knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md#kp14自发性气胸识别先胸痛继之呼吸困难)。只交接当前机制接口，完整诊疗留原Block。
 
 ## 合上解释，仍走同一条路
 
-合上解释，从吸气肌开始跑完吸气—呼气，再改一个条件：胸膜漏气、肺变硬、回缩变弱或小气道变窄。先预测压力/气流，再选肺功能量验证。接到下一块时，继续追呼吸膜、VA/Q、Hb与控制器。
+合上解释，从吸气肌开始跑完吸气—呼气，再改一个条件：胸膜漏气、肺变硬、回缩变弱或小气道变窄。先预测压力/气流，再选肺功能量验证。接到下一块时，继续追呼吸膜、VA/Q、Hb与控制器。自测用于找最小断点，不按答对题数授予B2准入：先展示B2真正依赖的模型并取得学习者对理解的明确确认；这不补写R1的Source、Recall、Complete或Memory债务。
 
 <a id="r01-source-and-completeness"></a>
 ## 精确记忆与原图：在对应节点回看
 
-- 全部精确数字、名单、例外和比较轴仍归各节点链接的Current Core；本块现有2条Precision身份保持原KP/LG范围，准备答案仅为待审提案，未进入真实Memory。
+- 全部精确数字、名单、例外和比较轴仍归各节点链接的Current Core；本块现有2条Precision身份、已存完整答案/辅助方法与准入保持原KP/LG范围，不因本候选重新审批、退役或自动制造学习者债务。
 - 推理依赖图形时在该步核对原图；页码和已有图像位置不等于本轮读过像素。未提供的原图仍为Source门禁，不能因选定图片少就删掉。
 
 <details>
@@ -168,38 +170,38 @@ VE=VT×f是每分总量，VA=(VT−VD)×f扣掉无效腔才看有效肺泡通气
 
 ### 精确记忆的位置
 
-- TV、FRC、正常呼吸频率等数值； 回[肺容积与肺容量：一次呼吸中“装了多少、还能装多少、剩下多少”](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L157)、[VE、VA 与无效腔：每分钟呼了多少，不等于真正交换了多少](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L302)。 关联现有Precision：a2-r01-kp01-precision（身份保留，待审/有缺口则HOLD）。 TV/FRC及组合现有答案；正常呼吸频率具体数值在Current Core缺失，保留Source待核，不补值。
-- FEV1、FEV2、FEV3 的百分比； 回[VC、FVC、FEV：能装多少，不等于能多快呼出来](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L200)。 关联现有Precision：a2-r01-kp02-precision（身份保留，待审/有缺口则HOLD）。
-- 肺容量等于 TLC 67% 时胸廓处于自然位置； 回[肺通气阻力总图与胸廓双弹性](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L632)。 保持现有Core/Source目的地，不另造卡片。 67%是胸廓自身松弛参考位，不能无条件等于平静吸气末。
-- 鼻、声门、细支气管气道阻力占比； 回[气道阻力：口径是主轴，吸气时会被肺组织“拉开”](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L785)。 保持现有Core/Source目的地，不另造卡片。
-- 表面活性物质主要成分、胎儿分泌时间； 回[肺泡表面活性物质与 Laplace：让大小肺泡都稳定](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L723)。 保持现有Core/Source目的地，不另造卡片。
-- 完整舒 / 缩气道介质名单； 回[气道阻力：口径是主轴，吸气时会被肺组织“拉开”](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L785)。 保持现有Core/Source目的地，不另造卡片。
-- 哮喘三类药物举例； 回[整合方向矩阵：吸气时每个变量怎样变](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L940)。 保持现有Core/Source目的地，不另造卡片。 仅三类作用接口；完整药物阶梯回R4。
-- 各种低频肺容量组合和特殊阈值。 回[肺容积与肺容量：一次呼吸中“装了多少、还能装多少、剩下多少”](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L157)、[阻塞性 vs 限制性：牙膏“孔小”还是整支“变小”](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L255)、[VE、VA 与无效腔：每分钟呼了多少，不等于真正交换了多少](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L302)。 保持现有Core/Source目的地，不另造卡片。 现有组合/条件留完整Core；“各种低频/特殊”未枚举部分不臆造。
+- TV、FRC、正常呼吸频率等数值； 回[肺容积与肺容量：一次呼吸中“装了多少、还能装多少、剩下多少”](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp01肺容积与肺容量一次呼吸中装了多少还能装多少剩下多少)、[VE、VA 与无效腔：每分钟呼了多少，不等于真正交换了多少](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp04veva-与无效腔每分钟呼了多少不等于真正交换了多少)。 关联现有Precision：a2-r01-kp01-precision（身份及准入保留；只对真实缺值/冲突保持HOLD）。 TV/FRC及组合沿用现有完整答案；同版P170/P177已确认本节正常频率12–18次/分，补在有效通气节点KP04，不扩大KP01 Precision卡范围。
+- FEV1、FEV2、FEV3 的百分比； 回[VC、FVC、FEV：能装多少，不等于能多快呼出来](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp02vcfvcfev能装多少不等于能多快呼出来)。 关联现有Precision：a2-r01-kp02-precision（身份及准入保留；只对真实缺值/冲突保持HOLD）。
+- 肺容量等于 TLC 67% 时胸廓处于自然位置； 回[肺通气阻力总图与胸廓双弹性](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp10肺通气阻力总图与胸廓双弹性)。 保持现有Core/Source目的地，不另造卡片。 67%是胸廓自身松弛参考位，不能无条件等于平静吸气末。
+- 鼻、声门、细支气管气道阻力占比； 回[气道阻力：口径是主轴，吸气时会被肺组织“拉开”](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp13气道阻力口径是主轴吸气时会被肺组织拉开)。 保持现有Core/Source目的地，不另造卡片。
+- 表面活性物质主要成分、胎儿分泌时间； 回[肺泡表面活性物质与 Laplace：让大小肺泡都稳定](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp12肺泡表面活性物质与-laplace让大小肺泡都稳定)。 保持现有Core/Source目的地，不另造卡片。
+- 完整舒 / 缩气道介质名单； 回[气道阻力：口径是主轴，吸气时会被肺组织“拉开”](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp13气道阻力口径是主轴吸气时会被肺组织拉开)。 保持现有Core/Source目的地，不另造卡片。
+- 哮喘三类药物举例； 回[整合方向矩阵：吸气时每个变量怎样变](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp15整合方向矩阵吸气时每个变量怎样变)。 保持现有Core/Source目的地，不另造卡片。 仅三类作用接口；完整药物阶梯回R4。
+- 各种低频肺容量组合和特殊阈值。 回[肺容积与肺容量：一次呼吸中“装了多少、还能装多少、剩下多少”](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp01肺容积与肺容量一次呼吸中装了多少还能装多少剩下多少)、[阻塞性 vs 限制性：牙膏“孔小”还是整支“变小”](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp03阻塞性-vs-限制性牙膏孔小还是整支变小)、[VE、VA 与无效腔：每分钟呼了多少，不等于真正交换了多少](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp04veva-与无效腔每分钟呼了多少不等于真正交换了多少)。 保持现有Core/Source目的地，不另造卡片。 现有组合/条件留完整Core；“各种低频/特殊”未枚举部分不臆造。
 
 ### 原图门禁逐项保留
 
-- **P169–170**：肺容积 / 肺容量拼图、FVC / FEV 图； [原任务及精确位置](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L997)。
-- **P170–173**：阻塞性 vs 限制性肺功能总图； [原任务及精确位置](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L998)。
-- **P174–176**：呼吸肌—胸廓—肺内压—胸膜压方向图； [原任务及精确位置](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L999)。
-- **P176–177**：胸膜腔负压与回心、气胸； [原任务及精确位置](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1000)。
-- **P177–178**：肺通气阻力总图、胸廓双弹性； [原任务及精确位置](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1001)。
-- **P178–179**：表面活性物质、Laplace、大小肺泡稳定； [原任务及精确位置](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1002)。
-- **P180**：吸气 / 呼气时气道口径变化； [原任务及精确位置](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1003)。
-- **P182**：静态 / 动态顺应性与 COPD“动低静高”； [原任务及精确位置](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1004)。
-- **P184–185**：本节思维导图与变量总览。 [原任务及精确位置](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L1005)。
-- 已有MedicalVisual「沿肺容积 / 容量拼图走一遍，并指出 FVC / FEV 图里‘量’和‘速度’分别在哪里。」：生理 Lecture PDF P169–170；[现有视觉owner](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/learner/a2-respiratory-source-visuals.json)，cue身份 a2-r01-lg01-visual。
-- 已有MedicalVisual「只比较阻塞 vs 限制的流速轴、容量轴和残气方向，不背整张表。」：生理 Lecture PDF P170–173；[现有视觉owner](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/learner/a2-respiratory-source-visuals.json)，cue身份 a2-r01-lg04-visual。
-- 阻塞/限制已有结构表保持REFERENCE_ONLY；其无条件RV/FRC箭头不足以覆盖滞气/单纯限制/复杂限制条件。实际解释和记忆回[本块完整条件](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#L255)，原表只作带警示的旧课程对照；本轮不修改Extension owner。
+- **P169–170**：肺容积 / 肺容量拼图、FVC / FEV 图； [原任务及精确位置](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。
+- **P170–173**：阻塞性 vs 限制性肺功能总图； [原任务及精确位置](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。
+- **P174–176**：呼吸肌—胸廓—肺内压—胸膜压方向图； [原任务及精确位置](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。
+- **P176–177**：胸膜腔负压与回心、气胸； [原任务及精确位置](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。
+- **P177–178**：肺通气阻力总图、胸廓双弹性； [原任务及精确位置](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。
+- **P178–179**：表面活性物质、Laplace、大小肺泡稳定； [原任务及精确位置](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。
+- **P180**：吸气 / 呼气时气道口径变化； [原任务及精确位置](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。
+- **P182**：静态 / 动态顺应性与 COPD“动低静高”； [原任务及精确位置](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。
+- **P184–185**：本节思维导图与变量总览。 [原任务及精确位置](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#3原图门禁)。
+- 已有MedicalVisual「沿肺容积 / 容量拼图走一遍，并指出 FVC / FEV 图里‘量’和‘速度’分别在哪里。」：生理 Lecture PDF P169–170；[现有视觉owner](../../../knowledge/learner/a2-respiratory-source-visuals.json)，cue身份 a2-r01-lg01-visual。
+- 已有MedicalVisual「只比较阻塞 vs 限制的流速轴、容量轴和残气方向，不背整张表。」：生理 Lecture PDF P170–173；[现有视觉owner](../../../knowledge/learner/a2-respiratory-source-visuals.json)，cue身份 a2-r01-lg04-visual。
+- 阻塞/限制已有结构表保持REFERENCE_ONLY；其原无条件RV/FRC箭头不足以覆盖滞气/单纯限制/复杂限制条件，本批候选同步这些已有条件但不改变REFERENCE_ONLY时机。实际解释和记忆回[本块完整条件](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#kp03阻塞性-vs-限制性牙膏孔小还是整支变小)，本轮仅提出R1同条件叶修复，集成前该表仍按原警示读取，不能据候选文字冒充已经消费更新。
 
 ### Source与证据范围
 
 Source范围：生理学讲义_AI阅读版.md；27精编生理合集【带导图】.pdf P169–185；U0149+U015catalog35=44，但实际可见9+34=43，未找到第44可见原题，不补造。
 
-依据为冻结Current canonical/System/accepted Learning及既有候选教案，复用有效解释；不是新的PDF/医学/Human验收。全部知识锚点链接到本批冻结Current，集成前须重读真实Current并按实际detailMarkdown计算原生依赖摘要。
+依据为冻结Current canonical/System/accepted Learning及本轮逐页读过的P169–185 AI阅读文本，复用有效解释；原PDF像素未看，不是PDF图像/医学独立/Human验收。现有链接仍保留其原冻结版本；集成前须重读真实Current、对齐实际知识目的地，并按实际detailMarkdown计算原生依赖摘要。
 
-旧Extension无条件方向不覆盖Current。MI-D提到正常呼吸频率，但本块Current Core没有精确值；保留Source/HOLD。
+旧Extension无条件方向不能覆盖Current，本批另列R1结构表的条件同步叶。MI-D的正常频率已在同版P170/P177找到12–18次/分；未给的IRV/ERV/RV通用数值仍不猜补。P170图中文字和P180脚注矛盾、P171不当机制/处置解释及原图未看等边界沿 canonical §5A 保持HOLD。
 
-[Framework、即时机制、原始Memory路由及Block Exit](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_%E6%AD%A3%E5%B8%B8%E9%80%9A%E6%B0%94%E5%8A%9B%E5%AD%A6%E4%B8%8E%E8%82%BA%E5%8A%9F%E8%83%BD_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md)均保留在原有Block owner；历史切片/制卡语句不创建新层级或自动债务。具体非KP逐项处置随本地审查清单交付。
+[Framework、即时机制、原始Memory路由及Block Exit](../../../knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md#block-1正常通气力学与肺功能--学习阅读版-v1最终执行版)均保留在原有Block owner；历史切片/制卡语句不创建新层级或自动债务。具体非KP逐项处置随本地审查清单交付。
 
 </details>

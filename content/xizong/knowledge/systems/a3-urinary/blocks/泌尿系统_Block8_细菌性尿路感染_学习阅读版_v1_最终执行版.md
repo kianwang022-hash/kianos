@@ -31,11 +31,11 @@ visual_gate_status: NOT_REQUIRED_FOR_CORE
 >
 > **文件性质**：泌尿系统第八个 canonical Block。K6 已经建立“脓尿 / WBC管型 / 尿培养 / 肾功能”的证据语言，本 Block 第一次把这些证据放进完整的细菌性尿路感染疾病链。
 >
-> **Primary Study**：`内科学讲义_AI阅读版.md` P145–150《尿路感染》。正文主学习 P145–147；P148–150 主要为 Lecture-attached Questions 与思维导图，题目选择留给后续 `LectureQuestionBinding`，但其明确考试口径可作为 Coverage supporting evidence，不在本文件自建题集。
+> **Primary Study**：`内科学讲义_AI阅读版.md` 印刷P145–150《尿路感染》，对应27内科PDF物理P177–182；印刷P150另有物理P183–184视觉补页。下文P145–150均指印刷页。正文主学习 P145–147；P148–150 主要为 Lecture-attached Questions 与思维导图，题目选择留给后续 `LectureQuestionBinding`，但其明确考试口径可作为 Coverage supporting evidence，不在本文件自建题集。
 >
 > **Primary Outline**：内科 U061 11题 + U062 12题 = **23 / 23**。
 >
-> **第一轮流程**：Framework → Lecture P145–147 连续学习 → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete。
+> **第一轮流程**：先建立本章同一模型，再沿自然问题讲清已有知识并在对应节点挂完整主提示；自然段落与章末压缩回同一模型，卡点按需展开。需要复习时使用该模型、完整主提示及既有精记。影响当前理解的精确条件和必要原图当步回看；广泛Lecture扫漏、Outline及配套题可后置校准，正式Source接触、Recall和完成仍按各自证据核对。
 >
 > **Source boundary**：病原—场景、10⁵菌落数、疗程、男性/复杂性分类、慢性>6个月、IVU“金标准”和具体药名保留为 306 Source-specific Precision；但 Current Core 不把这些旧口径扩成所有现代临床情境的无条件规则。无症状细菌尿、培养阈值、WBC管型和氨基糖苷等真实冲突已加适用情境边界。肾结核后置 K13；结石、BPH、梗阻与神经源性膀胱仅作为复杂化风险接口，完整模型后置 K12。
 
@@ -140,7 +140,7 @@ WBC管型 / NAG↑ / β2-MG↑
 〈尿道综合征：刺激征 + 无全身症状 + 无普通真性细菌尿〔3个否/有｜2分类｜脓尿方向｜支原体衣原体边界｜vs膀胱炎。〕〉
 〈K8最终病例算法：刺激征→全身→肾区→肾实质证据→复杂化条件〔5步定位｜并发症3组｜梗阻源控制｜慢性小管｜结核边界〕〉
 
-**Residual 边界**：临床定位、并行证据、感染升级与干预反馈属于模型/完整 Prompt；课程特定阈值、疗程、药物配对、例外与名单仍归原 Core/已审 Precision；原 Source/Visual/HOLD 不因本次模型改写而改变。
+**Residual 边界**：临床定位、并行证据、感染升级与干预反馈，以及自然节点所带的完整 Prompt，共同承担结构化恢复；阈值、疗程、药物配对、例外与名单不因形式自动移出 Prompt。完整知识仍在原 Core，确有独立精确恢复价值的内容沿原 Memory/Precision 去向保留；本次不改变既有准入、完整答案、身份与历史，原 Source/Visual/HOLD 不变。
 
 ---
 
@@ -775,7 +775,7 @@ Study危险因素：
 
 # 14｜Framework Reconstruction
 
-Lecture完成后闭卷完成：
+沿 §1A 的同一模型恢复并核对，普通复习保留必要解释和答案；以下17项是按需查漏的完整材料，不要求每次逐项完成。明确要求自测时再作闭卷重建，广泛Lecture扫漏可后置：
 
 ```text
 1. 画普通尿感上行链：尿道/膀胱 → 肾盂/间质。
@@ -801,7 +801,7 @@ Lecture完成后闭卷完成：
 
 # 15｜Memory Routing
 
-## 15.1 MI-G｜第一轮必须即时掌握
+## 15.1 MI-G｜随模型理解并逐步主动恢复
 
 - 上行感染最常见；女性多；E.coli多；
 - 变形杆菌—结石、金葡菌—血源、铜绿—器械；
@@ -820,7 +820,7 @@ Lecture完成后闭卷完成：
 - 慢性肾盂肾炎：瘢痕/不对称 + 小管浓缩 / 分泌先受损；
 - 尿道综合征“无普通真性细菌尿”。
 
-## 15.2 MI-D｜进入 MarginNote 3
+## 15.2 MI-D｜精确复习去向；复用现有Prepared Memory，未准入项保留原Core
 
 - WBC>5/HP、RBC>3/HP、蛋白尿>0.15g/d；
 - 10^5 CFU/mL及Study三种“真性细菌尿”阈值；
@@ -931,7 +931,9 @@ duplicate_primary = 0
 
 ---
 
-# 19｜建议学习切片
+# 19｜按需回看索引
+
+以下KP范围只便于回查已有内容，不是四堂独立课，也不改变 §1A 的模型关系；讲解和复习沿同一模型的自然问题展开。
 
 ```text
 Unit A｜KP01–KP07
@@ -949,7 +951,9 @@ Unit D｜KP14–KP17 + §13
 
 ---
 
-# 20｜Block Exit｜闭卷 23 问
+# 20｜可选重建与自测｜23 问
+
+以下问题供同一模型按需查漏；普通复习先看模型与完整主提示，不逐题清零。明确要求自测时再隐藏答案、闭卷使用这些问题。
 
 1. 普通细菌性尿感最常见感染途径是什么？
 2. 为什么女性更常见？最常见病原是什么？
@@ -1033,6 +1037,8 @@ Visual_gate = NOT_REQUIRED_FOR_CORE
 
 # 23｜Block Complete 定义
 
+以下保留正式完成的要求，不作为普通Chat教学或复习的开始门槛；本轮内容修正不产生Lecture接触、Recall、评分或完成记录。
+
 ```text
 Framework已建立
 + Lecture P145–147已连续学习
@@ -1044,4 +1050,4 @@ Framework已建立
 + TTSX Lecture-bound Question Probe完成或等待正式绑定
 ```
 
-药名、精确培养阈值、旧疗程、NAG / β₂-MG、PSP、>6个月、IVU金标准和甲状腺化等进入 MI-D；只有“膀胱 vs 肾盂、复杂化机制、证据与源控制风险”仍无法重建时，才先做最小修复。
+药名、精确培养阈值、旧疗程、NAG / β₂-MG、PSP、>6个月、IVU金标准和甲状腺化等保留原 MI-D / Core 去向，已准入的两项Prepared Memory保留完整答案与条件。它们也可由原完整 Prompt 在自然节点带出，不据这份清单新增卡片或背诵任务；哪里确有理解或精确恢复的困难，就回相应节点做最小修复。

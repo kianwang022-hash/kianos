@@ -2,21 +2,23 @@
 
 # 支气管扩张与肺脓肿：看清留下的空间，才能理解怎样排出脓液
 
-R5的感染可以留下两种不同空间：支气管壁破坏后永久扩张、储痰；肺实质化脓坏死后形成脓腔。共同任务是控感染、排分泌物、处理气道危险，先问空间从哪里来。
+本块并行看两种空间：管壁支撑损伤后的扩张气道，以及肺实质化脓坏死后的脓腔。R5提供感染、坏死与空洞的前提；误吸、血源和继发感染各有独立入口，支扩不是所有肺脓肿的前一阶段。共同任务是控感染、排分泌物、处理气道危险，先问空间从哪里来。
 
 <section data-model-node="wall-damage-loop">
 
 ## 管壁失去支撑，为什么扩张后仍会阻塞
 
-反复化脓 → 管壁支撑破坏；外侧纤维牵拉和咳嗽跨壁压再使管腔永久扩大、纤维修复。<a class="kp-binding" data-kp-id="respiratory-r06-kp01" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L138">支扩身份与三股扩张力：支撑先坏，牵拉和压力再把它拉开〔定义2件｜病因主轴｜扩张力3/关键1｜修复结局｜牵拉性扩张边界〕</a> 扩大的管道储痰 → 阻塞、再感染 → 继续破坏。气道扩大并不保证通畅；末梢肺气肿与间质牵拉性支扩的结构起点各不相同。
+反复化脓 → 管壁支撑破坏；外侧纤维牵拉和咳嗽跨壁压再使管腔永久扩大、纤维修复。<a class="kp-binding" data-kp-id="respiratory-r06-kp01" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp01%E6%94%AF%E6%89%A9%E8%BA%AB%E4%BB%BD%E4%B8%8E%E4%B8%89%E8%82%A1%E6%89%A9%E5%BC%A0%E5%8A%9B%E6%94%AF%E6%92%91%E5%85%88%E5%9D%8F%E7%89%B5%E6%8B%89%E5%92%8C%E5%8E%8B%E5%8A%9B%E5%86%8D%E6%8A%8A%E5%AE%83%E6%8B%89%E5%BC%80">支扩身份与三股扩张力：支撑先坏，牵拉和压力再把它拉开〔定义2件｜病因主轴｜扩张力3/关键1｜修复结局｜牵拉性扩张边界〕</a> 扩大的管道储痰 → 阻塞、再感染 → 继续破坏。气道扩大并不保证通畅；末梢肺气肿与间质牵拉性支扩的结构起点各不相同。
 
-[原图待核：段 / 小支气管管壁支撑结构、周围纤维牵拉与跨壁压示意。Current为病理P68–69，既有视觉目录为P66–67；保留两者，页码/图像匹配未验证。](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L699)
+[原图待核：段 / 小支气管管壁支撑结构、周围纤维牵拉与跨壁压示意。Current为病理P68–69，既有视觉目录为P66–67；保留两者，页码/图像匹配未验证。](../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#4study-%E5%8E%9F%E5%9B%BE%E9%97%A8%E7%A6%81)
 
-[原图待核：支扩 vs 肺气肿的完整比较表。Current为病理P68–69，既有视觉目录为P66–67；保留两者，页码/图像匹配未验证。](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L700)
+[原图待核：支扩 vs 肺气肿的完整比较表。Current为病理P68–69，既有视觉目录为P66–67；保留两者，页码/图像匹配未验证。](../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#4study-%E5%8E%9F%E5%9B%BE%E9%97%A8%E7%A6%81)
 
-继续这条关系：[末梢弹性破坏与肺气肿](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md#L305)；[纤维牵拉性扩张](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md#L345)。
+继续这条关系：[末梢弹性破坏与肺气肿](../../../knowledge/systems/a2-respiratory/blocks/Block3_COPD_%E6%8C%81%E7%BB%AD%E6%B0%94%E6%B5%81%E5%8F%97%E9%99%90_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp03%E8%82%BA%E6%B0%94%E8%82%BF%E5%BC%B9%E6%80%A7%E9%98%BB%E5%8A%9B%E4%B8%8B%E9%99%8D%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E6%98%AF%E5%91%BC%E5%90%B8%E6%9B%B4%E7%9C%81%E5%8A%9B)；[纤维牵拉性扩张](../../../knowledge/systems/a2-respiratory/blocks/Block8_%E9%97%B4%E8%B4%A8%E6%80%A7%E8%82%BA%E7%96%BE%E7%97%85%E4%B8%8E%E7%A1%85%E8%82%BA_%E9%99%90%E5%88%B6%E5%BC%A5%E6%95%A3%E7%BA%A4%E7%BB%B4%E5%8C%96%E4%B8%8E%E7%A1%85%E7%BB%93%E8%8A%82_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp06%E7%89%B5%E6%8B%89%E6%80%A7%E6%94%AF%E6%89%A9%E6%94%AF%E6%B0%94%E7%AE%A1%E8%A2%AB%E6%8B%89%E5%A4%A7%E4%B8%8D%E7%AD%89%E4%BA%8E%E6%94%AF%E6%89%A9%E7%97%87%E6%88%90%E7%AB%8B)。
 
-<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r06-kp02" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L185">支扩 vs 肺气肿：都是弹性结构损伤，但层级和结果相反〔层级2｜结构破坏｜弹性位置/方向｜支撑变化｜阻塞身份｜肺心病〕</a></p>
+<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r06-kp02" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp02%E6%94%AF%E6%89%A9-vs-%E8%82%BA%E6%B0%94%E8%82%BF%E9%83%BD%E6%98%AF%E5%BC%B9%E6%80%A7%E7%BB%93%E6%9E%84%E6%8D%9F%E4%BC%A4%E4%BD%86%E5%B1%82%E7%BA%A7%E5%92%8C%E7%BB%93%E6%9E%9C%E7%9B%B8%E5%8F%8D">支扩 vs 肺气肿：都是弹性结构损伤，但层级和结果相反〔层级2｜结构破坏｜弹性位置/方向｜支撑变化｜阻塞身份｜肺心病〕</a></p>
+
+感染、清除障碍或阻塞改变上游易损条件，与管壁破坏的核心基础分层恢复。<a class="kp-binding" data-kp-id="respiratory-r06-kp03" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp03%E6%94%AF%E6%89%A9%E8%AF%B1%E5%8F%91%E5%9B%A0%E7%B4%A0%E5%8F%8D%E5%A4%8D%E6%84%9F%E6%9F%93%E6%98%AF%E4%B8%BB%E8%BD%B4%E9%98%BB%E5%A1%9E%E6%98%AF%E8%AF%B1%E5%9B%A0%E8%80%8C%E9%9D%9E%E6%A0%B8%E5%BF%83%E7%97%85%E7%90%86%E5%9F%BA%E7%A1%80">支扩诱发因素：反复感染是主轴，阻塞是诱因而非核心病理基础〔诱因7项/最常见｜诱因vs病理基础｜特殊3组〕</a>
 
 <details id="r06-wall-damage-loop-explain">
 <summary>展开管壁三股力、结构层级与反复感染</summary>
@@ -38,7 +40,7 @@ R5的感染可以留下两种不同空间：支气管壁破坏后永久扩张、
                                   阻塞、再感染 ─→ 继续破坏
 ```
 
-感染是主要上游，免疫异常、气道阻塞、α₁抗胰蛋白酶缺乏、黄甲综合征、原发性纤毛不动征和 Kartagener 等，是不同的清除或易损背景。 <a class="kp-binding" data-kp-id="respiratory-r06-kp03" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L215">支扩诱发因素：反复感染是主轴，阻塞是诱因而非核心病理基础〔诱因7项/最常见｜诱因vs病理基础｜特殊3组〕</a> 白血病、风湿系统病、炎症性肠病的免疫接口应放在这一层，不能把七个诱因当成七种同等病理。相同的最终扩张，也需要追问为何分泌物难清或感染反复。
+感染是主要上游，免疫异常、气道阻塞、α₁抗胰蛋白酶缺乏、黄甲综合征、原发性纤毛不动征和 Kartagener 等，是不同的清除或易损背景。  白血病、风湿系统病、炎症性肠病的免疫接口应放在这一层，不能把七个诱因当成七种同等病理。相同的最终扩张，也需要追问为何分泌物难清或感染反复。
 
 </details>
 
@@ -48,12 +50,12 @@ R5的感染可以留下两种不同空间：支气管壁破坏后永久扩张、
 
 ## 分泌物的位置解释痰、声音，也解释干性咯血
 
-储痰解释大量脓痰和固定湿啰音，管壁血管损伤解释咯血。高处自然引流的干性支扩可以少痰而反复咯血；外见血量减少可能是气道已被血块堵住。HRCT用印戒、双轨、囊腔证明扩张气道，薄壁或蜂窝词不能替代病因。<a class="kp-binding" data-kp-id="respiratory-r06-kp06" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L314">HRCT：看见的是扩张气道，而不是只看一张“蜂窝图”〔HRCT｜影像6型/液平｜印戒2结构｜薄壁vs纤维化｜同影异病〕</a>
+储痰解释大量脓痰和固定湿啰音，管壁血管损伤解释咯血。高处自然引流的干性支扩可以少痰而反复咯血；外见血量减少可能是气道已被血块堵住。HRCT用印戒、双轨、囊腔证明扩张气道，薄壁或蜂窝词不能替代病因。<a class="kp-binding" data-kp-id="respiratory-r06-kp06" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp06hrct%E7%9C%8B%E8%A7%81%E7%9A%84%E6%98%AF%E6%89%A9%E5%BC%A0%E6%B0%94%E9%81%93%E8%80%8C%E4%B8%8D%E6%98%AF%E5%8F%AA%E7%9C%8B%E4%B8%80%E5%BC%A0%E8%9C%82%E7%AA%9D%E5%9B%BE">HRCT：看见的是扩张气道，而不是只看一张“蜂窝图”〔HRCT｜影像6型/液平｜印戒2结构｜薄壁vs纤维化｜同影异病〕</a>
 
-[此处原图任务：内科 P28–29：HRCT双轨征、印戒征、囊状 / 柱状 / 串珠扩张和液平；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L701)
+[此处原图任务：内科 P28–29｜PDF P34–35：HRCT双轨征、印戒征、囊状 / 柱状 / 串珠扩张和液平；](../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#4study-%E5%8E%9F%E5%9B%BE%E9%97%A8%E7%A6%81)
 
-<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r06-kp04" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L245">好发部位与干性支扩：哪里更容易积痰，哪里反而自带引流〔普通vs干性部位｜引流条件→痰/咯血｜TB接口〕</a><br>
-<a class="kp-binding" data-kp-id="respiratory-r06-kp05" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L276">临床表现：痰盂、固定湿啰音、咯血和杵状指〔症状4｜啰音2｜咯血3点｜干性1｜杵状指｜杂音链｜咯血量/严重度边界〕</a></p>
+<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r06-kp04" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp04%E5%A5%BD%E5%8F%91%E9%83%A8%E4%BD%8D%E4%B8%8E%E5%B9%B2%E6%80%A7%E6%94%AF%E6%89%A9%E5%93%AA%E9%87%8C%E6%9B%B4%E5%AE%B9%E6%98%93%E7%A7%AF%E7%97%B0%E5%93%AA%E9%87%8C%E5%8F%8D%E8%80%8C%E8%87%AA%E5%B8%A6%E5%BC%95%E6%B5%81">好发部位与干性支扩：哪里更容易积痰，哪里反而自带引流〔普通vs干性部位｜引流条件→痰/咯血｜TB接口〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r06-kp05" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp05%E4%B8%B4%E5%BA%8A%E8%A1%A8%E7%8E%B0%E7%97%B0%E7%9B%82%E5%9B%BA%E5%AE%9A%E6%B9%BF%E5%95%B0%E9%9F%B3%E5%92%AF%E8%A1%80%E5%92%8C%E6%9D%B5%E7%8A%B6%E6%8C%87">临床表现：痰盂、固定湿啰音、咯血和杵状指〔症状4｜啰音2｜咯血3点｜干性1｜杵状指｜杂音链｜咯血量/严重度边界〕</a></p>
 
 <details id="r06-secretions-evidence-explain">
 <summary>展开位置、症状、HRCT与同影异病</summary>
@@ -74,17 +76,17 @@ HRCT是支扩的课程金标准，但读片仍要找结构。印戒征比较扩�
 
 ## 清痰、感染加重和危险咯血是三种不同任务
 
-稳定清痰靠稀释与适合肺段、耐受和误吸风险的引流；发热、痰量和脓性增加转向感染加重，并先分铜绿高危。危险咯血则先保护气道与稳定循环，药物不能延误介入评估。<a class="kp-binding" data-kp-id="respiratory-r06-kp08" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L363">支扩咯血：先看窒息危险，再看中量药物和大咯血去向〔中量2药｜禁忌4｜大量2阈值｜气道优先｜栓塞/手术条件〕</a> 课程>500 mL/日或>100 mL/次不是启动救治门槛；局限病变也可栓塞，不能自动等于手术。
+稳定清痰靠稀释与适合肺段、耐受和误吸风险的引流；发热、痰量和脓性增加转向感染加重，并先分铜绿高危。危险咯血则先保护气道与稳定循环，药物不能延误介入评估。<a class="kp-binding" data-kp-id="respiratory-r06-kp08" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp08%E6%94%AF%E6%89%A9%E5%92%AF%E8%A1%80%E5%85%88%E7%9C%8B%E7%AA%92%E6%81%AF%E5%8D%B1%E9%99%A9%E5%86%8D%E7%9C%8B%E4%B8%AD%E9%87%8F%E8%8D%AF%E7%89%A9%E5%92%8C%E5%A4%A7%E5%92%AF%E8%A1%80%E5%8E%BB%E5%90%91">支扩咯血：先看窒息危险，再看中量药物和大咯血去向〔中量2药｜禁忌4｜大量2阈值｜气道优先｜栓塞/手术条件〕</a> 课程>500 mL/日或>100 mL/次不是启动救治门槛；局限病变也可栓塞，不能自动等于手术。
 
-<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r06-kp07" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L340">清除分泌物：让“痰盂”排空，但不能排得过快〔稀释2｜体位1｜速度边界｜治疗目标〕</a><br>
-<a class="kp-binding" data-kp-id="respiratory-r06-kp09" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L407">急性感染：先判有无铜绿假单胞菌高危〔感染3征｜无高危：病原/选药4组｜假单胞高危4组｜选药4组｜排除项3/非首选1〕</a></p>
+<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r06-kp07" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp07%E6%B8%85%E9%99%A4%E5%88%86%E6%B3%8C%E7%89%A9%E8%AE%A9%E7%97%B0%E7%9B%82%E6%8E%92%E7%A9%BA%E4%BD%86%E4%B8%8D%E8%83%BD%E6%8E%92%E5%BE%97%E8%BF%87%E5%BF%AB">清除分泌物：让“痰盂”排空，但不能排得过快〔稀释2｜体位1｜速度边界｜治疗目标〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r06-kp09" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp09%E6%80%A5%E6%80%A7%E6%84%9F%E6%9F%93%E5%85%88%E5%88%A4%E6%9C%89%E6%97%A0%E9%93%9C%E7%BB%BF%E5%81%87%E5%8D%95%E8%83%9E%E8%8F%8C%E9%AB%98%E5%8D%B1">急性感染：先判有无铜绿假单胞菌高危〔感染3征｜无高危：病原/选药4组｜假单胞高危4组｜选药4组｜排除项3/非首选1〕</a></p>
 
 <details id="r06-clear-infect-bleed-explain">
 <summary>分别展开清痰安全、感染覆盖与咯血边界</summary>
 
 清痰的目的在于打断储痰循环。  高渗盐水雾化、乙酰半胱氨酸等祛痰使分泌物较易移动，体位帮助引流，但不是让每位患者统一倒置。按受累肺段、耐受、反流/误吸风险选择，必要时改良不头低体位；排出也不宜过快。黏液活性治疗前要评估反应，易痉挛者考虑先支扩。正在咯血或不能保护气道时，清除方式需重新评估，不能强行照普通排痰步骤执行。
 
-一旦发热、痰量和脓性成分增加，任务转为感染加重。  课程无铜绿高危时优先针对流感嗜血杆菌，氨苄、阿莫西林、二三代头孢、呼吸喹诺酮是选项范围；有近期住院、FEV₁<30%预计值、每年≥4次加重或近三个月抗菌、近两周口服泼尼松>10 mg/d等，则要评估铜绿风险，不能将普通方案直接复制。
+一旦发热、痰量和脓性成分增加，任务转为感染加重。  课程无铜绿高危时优先针对流感嗜血杆菌，氨苄、阿莫西林、二三代头孢、呼吸喹诺酮是选项范围；有近期住院、FEV₁<30%预计值、频繁（每年4次以上）或近期（近3个月内）使用抗生素、近两周口服泼尼松>10 mg/d等，则要评估铜绿风险，不能将普通方案直接复制。
 
 药谱应围绕覆盖能力记忆：课程妥布霉素、头孢他啶/哌酮/吡肟、哌拉西林他唑巴坦、环丙/左氧、亚胺/美罗培南为抗假单胞接口。头孢曲松、诺氟沙星、厄他培南不能只因同属大类就替换；庆大霉素因毒性不作为此处常规首选。这不是扩写完整药理，而是说明类名无法替代具体覆盖与风险。
 
@@ -100,16 +102,16 @@ HRCT是支扩的课程金标准，但读片仍要找结构。印戒征比较扩�
 
 ## 肺实质坏死留下脓腔，入口决定分布和病原
 
-肺实质化脓坏死、液化 → 坏死物经支气管排出 → 空气进入残腔；气液同在才有液平，早期无洞不排除。<a class="kp-binding" data-kp-id="respiratory-r06-kp11" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L468">肺脓肿三型：入口决定病原、位置和检查〔三型｜最常见｜病原主轴｜单/多｜中心/外周｜检查入口〕</a> 误吸经气道形成体位相关、常右侧单发脓腔；菌栓经静脉—右心—肺动脉形成双肺外周多发；既有阻塞或邻近灶让感染持续。抗感染、引流和控制原发源必须合在一起，停药不能只看退热或固定周数。
+肺实质化脓坏死、液化 → 坏死物经支气管排出 → 空气进入残腔；气液同在才有液平，早期无洞不排除。<a class="kp-binding" data-kp-id="respiratory-r06-kp11" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp11%E8%82%BA%E8%84%93%E8%82%BF%E4%B8%89%E5%9E%8B%E5%85%A5%E5%8F%A3%E5%86%B3%E5%AE%9A%E7%97%85%E5%8E%9F%E4%BD%8D%E7%BD%AE%E5%92%8C%E6%A3%80%E6%9F%A5">肺脓肿三型：入口决定病原、位置和检查〔三型｜最常见｜病原主轴｜单/多｜中心/外周｜检查入口〕</a> 误吸经气道形成体位相关、常右侧单发脓腔；皮肤/骨来源菌栓经静脉—右心—肺动脉、右心IE菌栓直接经肺动脉，均可形成双肺外周多发；既有阻塞或邻近灶让感染持续。抗感染、引流和控制原发源必须合在一起，停药不能只看退热或固定周数。
 
-[此处原图任务：内科 P31：吸入性肺脓肿的体位—肺段图；](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L702)
+[此处原图任务：内科 P31｜PDF P38：吸入性肺脓肿的体位—肺段图；](../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#4study-%E5%8E%9F%E5%9B%BE%E9%97%A8%E7%A6%81)
 
-[此处原图任务：内科 P31–32：早期浸润向液气平脓腔演变，以及血源性双肺外周多发病灶。](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L703)
+[此处原图任务：内科 P31–32｜PDF P38–39：早期浸润向液气平脓腔演变，以及血源性双肺外周多发病灶。](../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#4study-%E5%8E%9F%E5%9B%BE%E9%97%A8%E7%A6%81)
 
-<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r06-kp12" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L494">吸入性肺脓肿位置：右主支气管 + 重力 + 体位〔侧别解剖｜体位3：肺段2/1/2｜误吸背景6｜口鼻感染源〕</a><br>
-<a class="kp-binding" data-kp-id="respiratory-r06-kp13" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L526">吸入性肺脓肿：厌氧菌、脓臭痰、液气平与6–8周影像终点〔病原｜症状4｜影像2期｜治疗2层｜疗程/停药终点｜脆弱拟杆菌特殊〕</a><br>
-<a class="kp-binding" data-kp-id="respiratory-r06-kp14" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L575">血源性肺脓肿：金葡菌菌栓停在双肺外周小血管〔病原｜原发灶5｜路径链｜部位/数量｜痰方向｜检查｜治疗〕</a><br>
-<a class="kp-binding" data-kp-id="respiratory-r06-kp15" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L616">继发性肺脓肿：先找到持续存在的感染源或阻塞〔来源4类｜坏死性肺炎3菌｜既有病3｜异物人群｜邻近灶1〕</a></p>
+<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r06-kp12" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp12%E5%90%B8%E5%85%A5%E6%80%A7%E8%82%BA%E8%84%93%E8%82%BF%E4%BD%8D%E7%BD%AE%E5%8F%B3%E4%B8%BB%E6%94%AF%E6%B0%94%E7%AE%A1--%E9%87%8D%E5%8A%9B--%E4%BD%93%E4%BD%8D">吸入性肺脓肿位置：右主支气管 + 重力 + 体位〔侧别解剖｜体位3：肺段2/1/2｜误吸背景6｜口鼻感染源〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r06-kp13" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp13%E5%90%B8%E5%85%A5%E6%80%A7%E8%82%BA%E8%84%93%E8%82%BF%E5%8E%8C%E6%B0%A7%E8%8F%8C%E8%84%93%E8%87%AD%E7%97%B0%E6%B6%B2%E6%B0%94%E5%B9%B3%E4%B8%8E68%E5%91%A8%E5%BD%B1%E5%83%8F%E7%BB%88%E7%82%B9">吸入性肺脓肿：厌氧菌、脓臭痰、液气平与6–8周影像终点〔病原｜症状4｜影像2期｜治疗2层｜疗程/停药终点｜脆弱拟杆菌特殊〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r06-kp14" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp14%E8%A1%80%E6%BA%90%E6%80%A7%E8%82%BA%E8%84%93%E8%82%BF%E9%87%91%E8%91%A1%E8%8F%8C%E8%8F%8C%E6%A0%93%E5%81%9C%E5%9C%A8%E5%8F%8C%E8%82%BA%E5%A4%96%E5%91%A8%E5%B0%8F%E8%A1%80%E7%AE%A1">血源性肺脓肿：金葡菌菌栓停在双肺外周小血管〔病原｜原发灶5｜路径链｜部位/数量｜痰方向｜检查｜治疗〕</a><br>
+<a class="kp-binding" data-kp-id="respiratory-r06-kp15" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp15%E7%BB%A7%E5%8F%91%E6%80%A7%E8%82%BA%E8%84%93%E8%82%BF%E5%85%88%E6%89%BE%E5%88%B0%E6%8C%81%E7%BB%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E6%84%9F%E6%9F%93%E6%BA%90%E6%88%96%E9%98%BB%E5%A1%9E">继发性肺脓肿：先找到持续存在的感染源或阻塞〔来源4类｜坏死性肺炎3菌｜既有病3｜异物人群｜邻近灶1〕</a></p>
 
 <details id="r06-abscess-entry-explain">
 <summary>展开三条入口、精确肺段与带条件抗感染</summary>
@@ -124,11 +126,12 @@ HRCT是支扩的课程金标准，但读片仍要找结构。印戒征比较扩�
 
 课程通常6–8周和空洞周围炎症吸收、缩小消失、仅少量纤维条索的影像终点，解释为什么只退热不够。实际停药还综合临床、炎症与影像反应，不是所有病例到固定周数就停，也不是痰臭消失就停。
 
-血源性则从皮肤外伤、疖痈、骨髓炎或右心感染性心内膜炎接入静脉，菌栓经右心、肺动脉停在双肺外周小血管，形成多发化脓坏死、空洞或液气囊腔。  金葡菌常见，原发灶和全身毒血症可更突出，脓痰未必像吸入性那么典型。这正解释为何血培养和原发灶评估不能由一份痰样替代。
+血源性中，皮肤外伤、疖痈或骨髓炎等来源经静脉到右心，再经肺动脉进入肺；右心感染性心内膜炎的菌栓则从右心直接进入肺动脉。菌栓停在双肺外周小血管，形成多发化脓坏死、空洞或液气囊腔。  金葡菌常见，原发灶和全身毒血症可更突出，脓痰未必像吸入性那么典型。这正解释为何血培养和原发灶评估不能由一份痰样替代。
 
 ```text
 口鼻分泌物误吸 → 气道 → 体位相关、常右侧单发脓腔
-原发化脓灶 → 静脉 → 右心/肺动脉 → 双肺外周多发脓腔
+皮肤/骨化脓灶 → 静脉 → 右心 → 肺动脉 → 双肺外周多发脓腔
+右心IE赘生物脱落 ──────────→ 肺动脉 → 同一外周菌栓支路
 既有阻塞/肺病或邻近灶 → 局部持续感染、引流障碍
 ```
 
@@ -144,11 +147,11 @@ HRCT是支扩的课程金标准，但读片仍要找结构。印戒征比较扩�
 
 ## 空腔要按来源读，薄壁或厚壁只提供一条线索
 
-读空腔先合看病程、痰、热型、部位、壁厚、数量、液平和来源：扩张气道偏支扩，化脓实质脓腔偏肺脓肿，干酪坏死空洞归R7，肿块坏死空洞归R11。<a class="kp-binding" data-kp-id="respiratory-r06-kp16" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L642">空腔鉴别与病例算法：先问“气道扩了”还是“肺实质坏了”〔壁厚｜数量｜液平｜痰｜热型｜部位｜卫星灶｜来源〕</a> 这些线索有交叉，不能靠一个“洞”字定病；广泛纤维化后的肺血管/右心负荷接R9。
+读空腔先合看病程、痰、热型、部位、壁厚、数量、液平和来源：扩张气道偏支扩，化脓实质脓腔偏肺脓肿，干酪坏死空洞归R7，肿块坏死空洞归R11。<a class="kp-binding" data-kp-id="respiratory-r06-kp16" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp16%E7%A9%BA%E8%85%94%E9%89%B4%E5%88%AB%E4%B8%8E%E7%97%85%E4%BE%8B%E7%AE%97%E6%B3%95%E5%85%88%E9%97%AE%E6%B0%94%E9%81%93%E6%89%A9%E4%BA%86%E8%BF%98%E6%98%AF%E8%82%BA%E5%AE%9E%E8%B4%A8%E5%9D%8F%E4%BA%86">空腔鉴别与病例算法：先问“气道扩了”还是“肺实质坏了”〔壁厚｜数量｜液平｜痰｜热型｜部位｜卫星灶｜来源〕</a> 这些线索有交叉，不能靠一个“洞”字定病；广泛纤维化后的肺血管/右心负荷接R9。
 
-继续这条关系：[结核的三种空洞](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block7_肺结核_肉芽肿空洞播散与化疗_学习阅读版_v1_最终执行版.md#L462)；[癌性空洞影像](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md#L822)；[慢性PVR与右室负荷](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md#L171)。
+继续这条关系：[结核的三种空洞](../../../knowledge/systems/a2-respiratory/blocks/Block7_%E8%82%BA%E7%BB%93%E6%A0%B8_%E8%82%89%E8%8A%BD%E8%82%BF%E7%A9%BA%E6%B4%9E%E6%92%AD%E6%95%A3%E4%B8%8E%E5%8C%96%E7%96%97_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp09%E5%B9%B2%E9%85%AA%E6%80%A7%E8%82%BA%E7%82%8E%E4%B8%8E%E4%B8%89%E7%A7%8D%E7%BB%93%E6%A0%B8%E7%A9%BA%E6%B4%9E%E8%96%84%E5%A3%81%E6%97%A0%E5%A3%81%E5%8E%9A%E5%A3%81)；[癌性空洞影像](../../../knowledge/systems/a2-respiratory/blocks/Block11_%E8%82%BA%E7%99%8C%E4%B8%8E%E7%BA%B5%E9%9A%94_%E4%BD%8D%E7%BD%AE%E7%BB%84%E7%BB%87%E5%AD%A6%E5%88%86%E6%9C%9F%E4%B8%8E%E7%BA%B5%E9%9A%94%E5%AE%9A%E4%BD%8D_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp17%E5%BD%B1%E5%83%8F%E4%B8%89%E5%85%A5%E5%8F%A3%E5%88%86%E5%8F%B6%E6%AF%9B%E5%88%BA%E7%99%8C%E6%80%A7%E7%A9%BA%E6%B4%9E%E5%80%92s%E5%BE%81)；[慢性PVR与右室负荷](../../../knowledge/systems/a2-respiratory/blocks/Block9_%E8%82%BA%E5%8A%A8%E8%84%89%E9%AB%98%E5%8E%8B%E8%82%BA%E5%BF%83%E7%97%85%E4%B8%8E%E6%80%A5%E6%80%A7%E8%82%BA%E8%A1%80%E6%A0%93%E6%A0%93%E5%A1%9E_%E6%85%A2%E6%80%A7%E9%98%BB%E5%8A%9B%E6%80%A5%E6%80%A7%E9%98%BB%E5%A1%9E%E4%B8%8E%E5%8F%B3%E5%BF%83%E8%B4%9F%E8%8D%B7_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp01%E6%85%A2%E6%80%A7-vs-%E6%80%A5%E6%80%A7-pvr%E5%8F%B3%E5%AE%A4%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%80%E4%B8%AA%E8%82%A5%E5%8E%9A%E4%B8%80%E4%B8%AA%E6%89%A9%E5%BC%A0)。
 
-<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r06-kp10" href="https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md#L450">支扩鉴别：COPD、肺结核和慢性肺脓肿〔共同表现｜COPD2差｜TB热型/部位｜慢脓肿：痰/壁｜范围边界〕</a></p>
+<p class="model-retrieval-keys"><a class="kp-binding" data-kp-id="respiratory-r06-kp10" href="../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#kp10%E6%94%AF%E6%89%A9%E9%89%B4%E5%88%ABcopd%E8%82%BA%E7%BB%93%E6%A0%B8%E5%92%8C%E6%85%A2%E6%80%A7%E8%82%BA%E8%84%93%E8%82%BF">支扩鉴别：COPD、肺结核和慢性肺脓肿〔共同表现｜COPD2差｜TB热型/部位｜慢脓肿：痰/壁｜范围边界〕</a></p>
 
 <details id="r06-cavity-decision-explain">
 <summary>展开鉴别与病例处理回路</summary>
@@ -164,11 +167,18 @@ HRCT是支扩的课程金标准，但读片仍要找结构。印戒征比较扩�
 <details id="source-and-scope">
 <summary>来源与阅读边界</summary>
 
-这是一份冻结Current的教学准备稿。展开沿同一模型补解释，不生成学习、Recall、Source接触或完成记录。精确医疗答案仍由当前Core负责。
+这是一份依据当前canonical模型的教学内容候选。展开沿同一模型补解释，不生成学习、Recall、Source接触或完成记录。精确医疗答案仍由当前Core负责。
 
-[当前完整Core与原讲义范围](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md)；[已接受Learning范围](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/learner/a2-respiratory-learning.json)；[现有视觉目录](https://github.com/kianwang022-hash/kianos/blob/ce079966ebce7a95fe9a58b174a412f9f033fd3b/content/xizong/knowledge/learner/a2-respiratory-source-visuals.json)。
+[当前完整Core与原讲义范围](../../../knowledge/systems/a2-respiratory/blocks/Block6_%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF_%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81_%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88_v1_%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88.md#block-6%E6%94%AF%E6%B0%94%E7%AE%A1%E6%89%A9%E5%BC%A0%E4%B8%8E%E8%82%BA%E8%84%93%E8%82%BF%E7%BB%93%E6%9E%84%E7%A0%B4%E5%9D%8F%E8%84%93%E8%85%94%E4%B8%8E%E5%BC%95%E6%B5%81--%E5%AD%A6%E4%B9%A0%E9%98%85%E8%AF%BB%E7%89%88-v1%E6%9C%80%E7%BB%88%E6%89%A7%E8%A1%8C%E7%89%88)；[已接受Learning范围](../../../knowledge/learner/a2-respiratory-learning.json)；[现有视觉目录](../../../knowledge/learner/a2-respiratory-source-visuals.json)。
 
-原图指向现有来源入口；本次没有重新检查原PDF像素，也没有更改图号或裁图。未就绪的精确Memory不能由一条Core链接冒充已交付。
+原图指向现有来源入口；本次没有重新检查原PDF像素，也没有更改图号或裁图。
+
+既有精记按原条目取完整答案、条件与分组，不从Core链接代猜；以下只提供现有内容的准确取用位置：
+
+- 大咯血数值边界与止血药禁忌最终需要精确恢复。 [读取原内容owner](../../../knowledge/learner/shared-fields.json)，取 precision_fields 内条目 `a2-r06-lg02-precision`。
+- 误吸体位对应肺段与关键抗感染配对最终需要精确恢复。 [读取原内容owner](../../../knowledge/learner/shared-fields.json)，取 precision_fields 内条目 `a2-r06-lg03-precision`。
+
+这些链接供Chat按原ID读取完整内容，不生成新Memory、准入或学习记录，也不代表Website消费已验证。
 
 Source HOLD：视觉cue与catalog病理P66–67，对照Current和旧教学P68–69。未判定物理页/印刷页差异；不改编号、不重标既有裁图。
 

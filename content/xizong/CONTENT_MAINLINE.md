@@ -1,6 +1,6 @@
 # Xizong Content Mainline
 
-Status: **CURRENT PROGRAM ROUTER · NO BROAD CONTENT CAMPAIGN · BOUNDED #1113 ACTIVE**
+Status: **CURRENT PROGRAM ROUTER · SCOPED #1113 CHAT/CONTENT TASK ACTIVE**
 Parent: `content/xizong/CURRENT.md`
 
 This file owns only **program-level Xizong content coordination**: which durable lane is open, what may proceed independently, and where a Fresh Chat should enter.
@@ -10,10 +10,10 @@ It does not own medical Knowledge, Learning Logic, scoped Acceptance Truth, Ques
 ## Fresh-Chat restart
 
 ```text
-main@HEAD
-→ content/xizong/CURRENT.md
+initial unbound routing: main@HEAD → content/xizong/CURRENT.md → #1113
+→ use #1113's declared current task ref for the goal, production rules, acceptance and task inputs
 → this Mainline only for cross-lane content coordination
-→ exact lane / System / task owner
+→ exact lane / System / task owner at its verified current content revision
 → work
 ```
 
@@ -21,9 +21,9 @@ Do not reconstruct program state from old PRs, run IDs, historical branches, pri
 
 ## Current program state
 
-No broad Xizong content-construction campaign is active.
+The active Chat/content scope is declared by #1113. Prior construction closure does not shrink that explicit scope or require uniform rebuilding of mature assets.
 
-Closed for the current admitted scope:
+Prior construction closed for its then-admitted scope:
 
 - D / E / F main medical-content construction;
 - exact official System-question membership for the current corpus;
@@ -44,9 +44,9 @@ Real learner U remains private evidence and is never manufactured by this progra
 
 ## Active bounded tasks
 
-One bounded cross-System content-consistency task is active: [#1113 — Content→Website consistency and readability](https://github.com/kianwang022-hash/kianos/issues/1113). `content/xizong/CURRENT.md` is its routing pointer; the Issue alone owns its Current / Phase / Next / Blocker. This Mainline must not restate those details or infer completion from an old receipt.
+One scoped cross-System Chat/content task is active: [#1113 — Xizong models, full Prompts and exact-memory content](https://github.com/kianwang022-hash/kianos/issues/1113). `content/xizong/CURRENT.md` is its routing pointer; the Issue alone owns its full target scope, Current / Phase / Next / Blocker and task stop condition. This Mainline must not restate those details or infer completion from an old receipt.
 
-This does **not** reopen the closed broad medical-content construction campaign. #1113 may inspect or repair only the exact Source / canonical Content / mapping / learner-consumer slices justified by its current evidence. Exact System/Block medical truth still stays with the original owners.
+Prior medical-content construction remains closed for its accepted scope; it does not by itself establish the newer model/Prompt/ordinary-review goal. Within the explicit scope of #1113, preserve mature assets, complete partial ones and produce genuinely missing necessary content from adequate Source in its original owner. Do not uniformly rewrite Systems or reopen Website/Runtime, question mapping or private learner state. Exact System/Block medical truth and existing valid evidence stay with their original owners.
 
 Biochemistry and Surgery Source-revision work route to their exact lifecycle owners if a **new authoritative Source, a fresh dependency-staleness defect, or real-use evidence** reopens the smallest responsible chain. Real-U from normal learner use is passive calibration evidence, not an active content-construction task and not a project-closure gate.
 
@@ -54,7 +54,7 @@ Biochemistry and Surgery Source-revision work route to their exact lifecycle own
 
 | Lane | Current state | Exact entry | Reopen condition |
 | --- | --- | --- | --- |
-| Main medical Content | broad construction closed; bounded #1113 consistency/readability task active | `content/xizong/CURRENT.md` → #1113 → exact System / Knowledge / Learning owner | concrete defect or admitted new/revised Source |
+| Main medical Content | prior admitted construction closed; scoped #1113 Chat/content task active | `content/xizong/CURRENT.md` → #1113 → exact System / Knowledge / Learning owner | explicit #1113 scope, concrete defect or admitted new/revised Source |
 | Questions / System membership | current corpus closed | `content/xizong/questions/` + exact System owner | real question/source ownership defect or new corpus |
 | Question → Knowledge | broad corpus construction closed; Current consumption revision-freshness-gated | `content/xizong/question-relations/README.md` + exact relation/lifecycle owner | exact stale relation after Knowledge/Source revision, real defect, or new corpus |
 | Late-stage material | 26 baseline absorbed | `content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json` | authoritative new-cycle material |
@@ -64,7 +64,7 @@ Visual / Extension is not a percentage-completion program.
 
 ## Stable program rules
 
-- Exact scoped Current / Acceptance / canonical owners always outrank this file.
+- Exact canonical and Source owners govern their medical facts and evidence. The stable learning goal and final Chat/content acceptance are owned only by `LEARNING_CONTRACT.md` §0; #1113 owns this task's scope, current revision, progress and Next. Historical scoped Current/Acceptance records cannot replace either owner.
 - Source units, Blocks, Logic Groups, KP, Questions, relations and learner evidence keep their existing exact owners; this Mainline creates none of them.
 - A closed lane is not reopened because historical evidence exists. Reopen only from a current defect, authoritative Source change, explicit new corpus/scope, or real-use evidence.
 - Historical year/cycle identity stays explicit. Upload/retrieval date never upgrades prior-year material into current-year truth.
@@ -85,14 +85,8 @@ real dependency / shared owner
 
 An unrelated `main` advance is not a blocker. Never force a historical branch over newer Current truth.
 
-## Continue / task creation
+## Continue the existing task
 
-`继续西综内容建设` means:
+`继续西综内容建设` returns to #1113's current scope, revision and Next, then the exact responsible content owner. This Mainline does not create a second task, copy a second progress table, or restart a completed historical batch. Other lane records above are references for their own authorized scope, not instructions to expand this task.
 
-1. read this file only to identify whether a durable lane is actually open;
-2. if no broad lane is active, require a concrete defect/new Source/explicit scope rather than inventing work;
-3. enter the smallest exact owner;
-4. update only that owner/cursor and any truly dependent acceptance/read model;
-5. update this Mainline only when a **program-level lane state, dependency or active-task set** changes.
-
-A task mentioned only in Chat is not durable Xizong work. Normal learner-facing `继续西综` remains LEARN and does not enter this engineering Mainline.
+Normal learner-facing `继续西综` remains LEARN. Use the actual conversation's named content; if the target is missing, ask only which content Kian wants. Never recover a learning position from engineering progress.

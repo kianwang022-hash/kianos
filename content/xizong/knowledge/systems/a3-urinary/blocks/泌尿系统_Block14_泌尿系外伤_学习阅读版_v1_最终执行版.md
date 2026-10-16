@@ -37,11 +37,11 @@ visual_gate_status: MANDATORY_SOURCE_LOCAL_VISUAL_REVIEW_PIXEL_AUDIT_NOT_CLAIMED
 >
 > **Primary Outline**：外科 U027“尿道外伤金标准”1题 + U028 泌尿外伤6题 = **7 / 7**。U028“尿失禁”已由 K12 Primary，不在本 Block重复。
 >
-> **第一轮流程**：Framework → 27外科精编 PDF P135–P137 连续学习与原图 Visual Gate → Framework Reconstruction → KP Active Recall → Outline optional / low-pressure → TTSX Lecture-attached Questions → Block Complete。
+> **初学与普通复习**：先用 §1A 建立整块模型，沿自然问题展开相应完整标题〔正式主提示〕和 Core，再回同一模型压缩。普通复习可直接看提示与答案；需要自测时再隐藏解释。必要原图在对应空间节点回看，Source/Visual 与正式完成要求仍由原 owner 保留。
 >
 > **Source boundary**：保留当前 Study 的前/后尿道、尿生殖膈、膀胱腹膜内外、三型肾外伤和尿外渗空间作为 306 Core；对“RUG金标准、浮动前列腺、腹膜外膀胱手术、大出血一律探查”等旧压缩句加入 Current 情境边界。完整创伤分级与复杂重建仍不展开。
 >
-> **本批状态边界**：K14 是 System Guide 的最后一个编号 Block，但 A3 System-level K 仍不能关闭，因为 B5 另有独立 acid-base Source/owner blocker；本文件完成不等于 System Final Gate。
+> **历史批次状态（非当前阻塞结论）**：原生产批记录 K14 为最后一个编号 Block，并以当时 B5 acid-base Source/owner blocker 保留 System Final Gate。该旧状态只说明当时的范围；不能当作当前 B5 仍阻塞的证据，也不能由本块内容完成解除现存 Source/Visual/HOLD。
 
 ---
 
@@ -495,6 +495,10 @@ Lecture-attached Questions 支持：
 
 > **传统“挫伤—裂伤—肾蒂伤”用于结构识别；真正处理优先级由稳定性、出血和整体创伤共同决定。**
 
+### //MI-D｜Source 的再出血旁注
+
+外科物理 P136 将伤后再出血的课程提示列为“过早、过多活动”和“局部感染”。这说明初次止血后仍需观察病情变化，不是一张穷尽病因表，也不是统一卧床时长指令；再次出血时仍回稳定性、出血来源和结构评估，不能仅用活动史或感染解释完毕。
+
 ---
 
 <!-- kianos:kp id="urinary-b14-kp13" -->
@@ -572,7 +576,7 @@ Lecture-attached Questions 支持：
 
 # 8｜Framework Reconstruction
 
-完成 Lecture 后，闭卷完成：
+普通复习回到 §1A 的同一模型，保留各自然节点的完整标题〔正式主提示〕。下面是相同空间与稳定性关系的压缩，答案可以直接核对；只有明确要自测时才隐藏答案：
 
 ```text
 第一层｜稳定性门
@@ -598,7 +602,7 @@ Lecture-attached Questions 支持：
 不稳定 → 探查
 ```
 
-再写三句优先级：
+三条优先级仍接在上述相同位置：
 
 > **尿道滴血：先评估、不要盲目反复插管。**  
 > **膀胱破裂：先造影分内外，腹膜外不等于一律手术。**  
@@ -731,32 +735,22 @@ Outline只用于低压力扫漏：
 
 ---
 
-# 13｜建议学习切片
+# 13｜沿问题局部展开，再回整块模型
 
 ```text
-Unit A｜KP01–KP06
-稳定性 → 受伤机制 → 前 / 后尿道空间与RUG
-
-Unit B｜KP07–KP09
-膀胱造影 → 腹膜内 / 外膀胱破裂 → 引流/修补
-
-Unit C｜KP10–KP14
-肾外伤稳定性 → CT / 非手术 / 栓塞 / 探查 → 最终算法
+先判断能否等待影像，再问机制把裂口指向哪里。
+尿道卡点：机制与相邻筋膜 → 前 / 后尿道外渗空间 → RUG与安全引流。
+膀胱卡点：逆行充盈造影 → 腹膜内 / 外 → 有条件的引流或修补。
+肾脏卡点：结构损伤与出血 → 稳定性决定CT / 非手术 / 栓塞 / 探查。
 ```
 
-每个 Unit：
-
-```text
-Framework定位
-→ Lecture连续学习 / Source-local原图
-→ Framework Reconstruction
-→ KP Active Recall
-→ Outline按需扫漏
-```
+局部解释只展开当前卡点，随后回到同一模型和该位置的完整 Prompt；不要求依次完成三个小课。空间问题仍需原图，Outline 只按需扫漏。
 
 ---
 
-# 14｜Block Exit｜闭卷 18 问
+# 14｜可选自测｜18 问（明确要自测时再用）
+
+普通学习与复习直接使用上面的同一模型、完整 Prompt 和可见解释，不需先答完此表才能继续。
 
 1. 泌尿外伤第一决策门是什么？
 2. 会阴骑跨伤与骨盆骨折分别提示哪段尿道？
@@ -802,7 +796,9 @@ LectureQuestionBinding 自动提供
 
 ---
 
-# 16｜Block Production Gate
+# 16｜Block Production Gate（历史生产记录）
+
+以下状态保留原生产批语境；其中 B5 与 System final 的旧记录不代表当前结论，当前状态回既有 A3 ACCEPTANCE 及对应 owner。
 
 ```text
 Study_continuity = PASS
@@ -829,6 +825,8 @@ System_final_gate = NOT_RUN_B5_STILL_BLOCKED
 ---
 
 # 17｜Block Complete 定义
+
+此处保留正式完成核对职责，不是初学或普通复习的前置测验；真实 Source/Visual、Recall 与学习证据不能由本轮内容阅读代替。
 
 ```text
 Framework已建立

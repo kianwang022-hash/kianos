@@ -45,7 +45,7 @@ next_blocks:
 >
 > **Primary Outline**：外科 U047 16题 + U048 9题，共 **25题**。
 >
-> **第一轮流程**：Framework → 外科 Lecture连续学习 → Framework Reconstruction → KP Active Recall → Outline按需扫漏 → TTSX Lecture-attached Questions。
+> **第一轮流程**：先建立本章同一模型，再沿自然问题讲清已有知识并在对应节点挂完整主提示；自然段落与章末压缩回同一模型，卡点按需展开。需要复习时使用该模型、完整主提示及既有精记。影响当前理解的精确条件和必要原图当步回看；广泛Lecture扫漏、Outline及配套题可后置校准，正式Source接触、Recall和完成仍按各自证据核对。
 >
 > **Source口径边界**：水、Na⁺、K⁺、Ca²⁺阈值、补液 / 补钾规则、高钾处理分类与特殊题源口径继续由现有 Project Lecture 作为 Primary，不被外部资料静默替换。此前缺失的“完整四型 expected compensation + AG / 混合型酸碱算法”已通过 `content/xizong/knowledge/learner/a3-urinary-b05-external-source-contract.json` **窄范围准入**：MSD Manual Professional 只负责 expected compensation / mixed-disorder 诊断，NCBI/StatPearls 只负责低白蛋白 AG 校正与 delta-ratio 辅助判断。该外部 Source **无权**改写纠钠速度、DKA/HHS方案、碳酸氢钠治疗指征、呼吸机或 ICU 治疗。
 
@@ -970,7 +970,7 @@ Step 9｜回病例语境
 
 # 8｜Framework Reconstruction
 
-沿同一病例的并行变量、实际作用与观察证据，闭卷完成：
+沿同一病例的并行变量、实际作用与观察证据，先尝试恢复主链；以下条目供按需重建与扫漏，不要求首次Chat逐项闭卷完成：
 
 ```text
 1. 画出容量、张力、Na、K-Ca、酸碱五变量坐标。
@@ -991,7 +991,7 @@ Step 9｜回病例语境
 
 # 9｜Memory Routing
 
-## 9.1 MI-G｜第一轮必须即时掌握
+## 9.1 MI-G｜随模型理解并逐步主动恢复
 
 1. 容量与张力不是同一变量；
 2. 三类脱水的丢水 / 丢钠关系；
@@ -1012,7 +1012,7 @@ Step 9｜回病例语境
 17. 代谢性酸中毒要算AG；低白蛋白时校正AG；
 18. HAGMA用delta分析筛第二个代谢过程。
 
-## 9.2 MI-D｜进入 MarginNote 3
+## 9.2 MI-D｜精确复习去向；复用现有Prepared Memory，未准入项保留原Core
 
 - 血Na⁺、渗透压、K⁺、Ca²⁺全部阈值；
 - 低渗性脱水三级数字；
@@ -1104,7 +1104,9 @@ duplicate_primary = 0
 
 ---
 
-# 13｜建议学习切片
+# 13｜按需回看索引
+
+以下按KP范围列出可回查的展开片段，不另建教学顺序。普通Chat沿§1A同一模型连续讲解，在相应节点按需展开；不要求逐片读完或逐题过关才继续。
 
 ```text
 Unit A｜KP01–KP06
@@ -1122,7 +1124,9 @@ Ca²⁺ → 酸碱四层 → expected compensation → AG/delta mixed algorithm
 
 ---
 
-# 14｜Block Exit｜闭卷 24 问
+# 14｜可选重建与自测｜24 问
+
+以下是同一模型的重建与按需扫漏材料，不是首次Chat逐题清零门槛。先恢复主链；错在精确数值或名单时回对应现有知识/Prepared Memory，必要原图仍在依赖当步核对。
 
 1. 容量和张力分别回答什么？
 2. 三类脱水的丢水 / 丢钠关系是什么？
@@ -1175,6 +1179,8 @@ LectureQuestionBinding 自动提供
 
 # 16｜Block Complete 定义
 
+以下仅用于正式Block Complete核对，不是普通Chat教学、课后Recall或现有Prepared Memory复习的进入门槛。广泛Lecture扫漏可后置；对当前理解确有依赖的Source/Visual仍当步核对。讲解、打开复习或继续相邻Block本身均不产生下列完成证据。
+
 ```text
 Framework已建立
 + 外科体液失衡Lecture已完整学习
@@ -1186,4 +1192,4 @@ Framework已建立
 + TTSX Lecture-bound Question Probe完成或待绑定
 ```
 
-允许 `Block Complete + Weakness Open`。水电解质阈值、补液/补钾公式、四型代偿数字和delta ratio进入 MI-D；只有“容量—张力—电解质危险—primary acid-base—expected compensation—mixed process”仍无法重建时，才进行最小模型修复后进入 K6。
+允许 `Block Complete + Weakness Open`。水电解质阈值、补液/补钾公式、四型代偿数字和delta ratio沿原有 MI-D / Precision 复习。普通Chat连接 K6 时，只在相邻内容实际依赖的模型关系仍不清楚处做最小修复；不以本节正式完成或全部精确数字闭卷成功作为统一前置。

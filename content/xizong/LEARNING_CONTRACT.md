@@ -110,7 +110,7 @@ Model-external knowledge may be an entire recallable KP or a smaller exact item.
 
 Reuse previously reviewed memory preparation before generating anything new. Where useful, organize exact content through chunking, same-axis comparison, meaningful grouping, contrasts, sequences, short causal supports or valid mnemonics. Preserve the complete answer, qualifications and provenance. A mnemonic is optional assistance, never medical authority or a substitute for the exact answer.
 
-A cue naming what to memorize, a link to a long Core, or a metadata row that the actual consumer drops is **not** delivery of prepared exact-memory content. The native learner path must receive the applicable answer and memory aids. Preserve answer/aid hiding on clean Recall fronts, independent content revisions, history and deduplication.
+A cue naming what to memorize, a link to a long Core, or a metadata row that the actual consumer drops is **not** delivery of prepared exact-memory content. The intended learning path must make the complete applicable answer, qualifications and useful memory aids directly available. Ordinary Chat review need not hide answers; answer/aid hiding applies when Kian explicitly requests self-testing or uses an existing protected Recall surface. Preserve independent content revisions, history and deduplication.
 
 ### Learning and acceptance sequence
 
@@ -118,13 +118,13 @@ A cue naming what to memorize, a link to a long Core, or a metadata row that the
 Chat establishes the coherent Block model quickly
 → teach/fill the existing knowledge at its natural model locations
 → immediately compress that same model with titles + full Prompts
-→ Website KP recall + prepared model-external Memory/Precision
+→ same-model ordinary review with full node Prompts + prepared model-external Memory/Precision
 → reconstruct the Block, then connect Blocks into the System model
 → broad Lecture sweep / official questions to calibrate and expose remaining gaps
 → smallest justified repair
 ```
 
-Reasoning-changing precision and Source visuals required to understand the current step are taught/inspected now. Other memorization does not repeatedly interrupt the first continuous explanation. A broad Lecture sweep may be later; source-first execution must not be the only legal way to reach post-Chat review. Actual Chat study, Recall, original-Source contact and mastery remain different evidence. Never fabricate Source completion or learner ratings to make this sequence work.
+Reasoning-changing precision and Source visuals required to understand the current step are taught/inspected now. Other memorization does not repeatedly interrupt the first continuous explanation; pauses follow natural medical scope and Kian's questions, not KP order or a compulsory quiz after each node. A broad learner Lecture sweep may be later; it does not replace checking necessary Lecture coverage during content preparation. Source-first execution must not be the only legal way to reach post-Chat review. Actual Chat study, Recall, original-Source contact and mastery remain different evidence. Never fabricate Source completion or learner ratings to make this sequence work.
 
 ### Cognitive readiness authorizes the current target
 
@@ -132,7 +132,11 @@ A hard prerequisite constrains the cognitive model genuinely required by the tar
 
 This continuation permission creates no prerequisite-owner Source, Learned, Complete, Mastery, Recall or scheduled Memory debt. Keep existing history intact. Explicit Source, Visual, reviewed TTSX, Tumor and formal-completion requirements remain governed by their own owners and cannot be waived by cognitive-readiness confirmation; unresolved requirements hold only their genuinely dependent scope.
 
-Acceptance must demonstrate a whole representative Block end to end: stable model, full in-model Prompt bindings, accounted model-external material, useful memory preparation and the actual Website retrieval path. A locally elegant LG, a file count, an engineering green check or a candidate inventory cannot stand in for this outcome. Old three-column teaching/review inputs must leave normal learning retrieval after unique valid content is preserved with its existing owner.
+Content/Chat acceptance uses this same standard at Block and System scope. Through the normal learning entry, the exact candidate must support first learning of a clear continuous medical model, complete knowledge at its natural title〔full formal Prompt〕 nodes, and ordinary review of that same model without rereading all explanatory Core. Necessary model-external exact memory must have accessible complete answers, conditions and useful grouping; image-dependent knowledge must retain the needed usable Source/MedicalVisual path. The accepted Lecture/Source scope must be checked in both directions: necessary knowledge has a real model/Core/Memory/Precision/Visual or explicitly bounded reference destination, and the model and answers have adequate support. A Block must recover independently and connect through its real interfaces to the System model.
+
+Reuse prior evidence when its content revision, actual scope and evidence type still match; recheck changed meaning, confirmed gaps and their real dependents. Assembled excerpts and appended answers may establish content availability, but cannot establish that a fresh Chat actually recovered the normal inputs and taught or reviewed coherently; verify that entry behavior on its real path before claiming it. Final acceptance checks the actual first-learning, ordinary-review, exact-memory and Block/System connection paths, not an annotation count, a rigid format, or repeated full source audits of unchanged content. A necessary unresolved model, answer or Source/Visual requirement blocks only its dependent claim, but that Block cannot be called complete if its required learning path is still unusable. Optional/reference limits stay explicit without stopping unrelated learning. Simulated use establishes only readiness for real use within the tested scope, never Kian's actual learning, Recall or mastery.
+
+Website retrieval, Runtime and private learner evidence retain their existing independent contracts when those paths are requested; they are not prerequisites for Chat/content delivery or an automatic next phase. Old three-column teaching/review inputs must leave normal learning retrieval after unique valid content is preserved with its existing owner.
 
 ---
 
@@ -420,7 +424,7 @@ Source contact is evidence. If the corresponding Source has not been read or ins
 
 Primary adaptive teaching surface when Kian chooses Chat-led first learning.
 
-Before teaching a Block, Chat should read the current Block Knowledge, relevant Learning owner and the Source boundary needed to know what must be covered. It may then reorganize teaching around the medical mechanism, causal problem and Kian's live questions rather than reciting KP order.
+Before teaching a Block, Chat should use the [existing learner reading entry](knowledge/learner/README.md) to select the current teaching basis, then read the System position, Block model, relevant Learning owner and the Source boundary needed to know what must be covered. It may adapt explanation order, examples and depth around the medical mechanism and Kian's live questions rather than reciting KP order; the selected model's relationships, directions, boundaries and knowledge positions stay fixed.
 
 For an explicitly requested first-learning session scoped to a material Logic Group, Chat should normally:
 
@@ -446,7 +450,7 @@ Hard rules:
 
 Chat preserves the same System → Block mainline → local medical model. Expand where Kian asks, then reconnect that explanation to the same Block. A Logic Group may bound an explicit first-learning session; it does not reorder the Block prose, partition the teaching model or turn every question into a full LG lesson.
 
-Resolve response depth from Kian's actual request and the restored teaching stage. An ongoing first-learning session remains substantive teaching when Kian says “继续”; it does not reset to a framework-only review or require Kian to repeat a special first-learning phrase. A short orientation is the opening, not completion of the lesson: continue through the existing mechanism explanation, necessary conditions, discriminations and same-model compression for the current unit. When Kian actually asks for review, give the model location, its core framework/relations and decisive conditions, then expand as requested. Wording, examples and explanation depth may adapt while medical meaning, model location, relation directions and boundaries stay stable.
+Resolve response depth from Kian's requested content and action. For requested first learning, a short orientation is the opening, not completion: teach the existing mechanism explanation, necessary conditions and discriminations, then compress the same model for the requested scope. For requested review, give the model location, core relations and decisive conditions, then expand as asked. Follow-up questions in the current exchange may be answered directly. Wording, examples and explanation depth may adapt while medical meaning, model location, relation directions and boundaries stay stable.
 
 KP provides coverage checks, necessary precision and Recall prompts. It neither determines teaching topology nor belongs only to an exam corner: its knowledge is integrated where the medical relationship requires it, under the rules above.
 
@@ -480,9 +484,9 @@ The normal Chat-led flow is:
 optional Guide when genuinely useful
 → read current Block Knowledge + Learning boundary + needed Source scope
 → System / Block Framework
-→ Logic Group teaching by mechanism, with KP ownership preserved
-→ resolve understanding-changing detail in the moment
-→ compress each LG / Block to a retrievable scaffold
+→ teach the continuous Block model at its natural nodes, using LG for local scope and coverage
+→ resolve understanding-changing detail in the moment, with KP ownership preserved
+→ compress that same local / Block model to a retrievable scaffold
 → at a natural breakpoint or Block teaching end:
    audit coverage against canonical KP + readable Source
    route exact Precision / Memory candidates to their owning assets
@@ -748,14 +752,16 @@ Only real learner use creates U evidence.
 
 ## 13｜Fresh-Chat / non-drift rule
 
-For actual learner continuation or progress questions, read native learner evidence, the subject Packet or Resume first. Missing evidence remains UNKNOWN; engineering Current never substitutes for learner progress.
+Kian specifies the System, Block, topic or question to study. Read that content and its existing teaching settings; do not automatically resume a course, reconstruct a cross-Chat stopping point or require Packet/Resume before teaching. Current-exchange follow-up questions may use their clear local context. Consult learner evidence only when Kian explicitly asks about actual progress/history; missing evidence stays UNKNOWN and engineering Current is not learning history.
 
 For learning-model interpretation, read only as needed:
 
 ```text
 this LEARNING_CONTRACT.md
-→ study-policy.json when machine execution detail matters
-→ exact System-specific Learning owner when local Source/LG differences matter
+→ knowledge/learner/README.md: the target's current teaching-basis selection
+→ exact System position + selected Block model + target Learning scope
+→ current natural node's title / full Prompt / Core + relevant exact support
+→ study-policy.json only when machine execution detail matters
 → Website Visual / Engineering owners only for Website implementation
 ```
 
