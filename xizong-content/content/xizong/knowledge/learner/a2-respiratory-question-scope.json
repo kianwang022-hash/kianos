@@ -1,0 +1,129 @@
+{
+  "schema": "kianos.xizong.system_question_scope.v2",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED_HISTORICAL_RECOVERY",
+  "system": {
+    "canonical_id": "A2",
+    "system_id": "respiratory",
+    "title": "呼吸系统"
+  },
+  "role": "FIRST_PASS_SYSTEM_OFFICIAL_QUESTION_SCOPE_ONLY",
+  "learner_use": "When the learner chooses respiratory official-question practice, expand this exact identifier scope. Practice may apply or check the same System model; a System Recall test or full question sweep is not a prerequisite for continuous Chat learning or ordinary review. Correct-and-clear may fast-pass; Wrong/Uncertain remain repair evidence. Identity validation below protects the question set and does not require a website or Runtime session.",
+  "question_count": 359,
+  "question_id_inventory_sha256": "b7721e26d2023247f7098eb4ca3671ece3744a90f4e7100e7a2756072a5a02e0",
+  "id_expansion": {
+    "id_template": "xizong-official-{year}-n{number:03d}",
+    "spec_format": "comma-separated single numbers or inclusive a-b ranges",
+    "question_number_spec_by_year": {
+      "2005": "8-9,45,49,59-66,115-116,129,140,142",
+      "2006": "10,44,48,59-66,107-108,139,142",
+      "2007": "9-10,44,57-62,79-80,126,129,138,142,154,166-167,176-178",
+      "2008": "8-10,48,53,63-65,91-92,96-98,134,141-142,170",
+      "2009": "8-9,23,48-49,58,63-65,93-95,137-138,151,170,176",
+      "2010": "8-10,48,55,58,66-68,99-101,143-144,164,171",
+      "2011": "8-9,51-52,61,63-65,93-95,133,145,151,166,170",
+      "2012": "10-11,58,63-65,96-98,133-134,141-142,153,170",
+      "2013": "10-11,54,63-65,79,91-92,96-98,135-136,141-142,153,170",
+      "2014": "8-10,51-52,57,63-65,84,96-98,141-142,166,170",
+      "2015": "8-10,51-52,55,58,63-65,96-98,135-136,141-142,168,170,175",
+      "2016": "8-10,50,59,63-65,96-98,141-142,145-146,170",
+      "2017": "6-7,32,34,36,43-46,73-75,138,154",
+      "2018": "5-6,35,43-46,61,70-75,154,162",
+      "2019": "5,35,43-46,61,73-75,138,154",
+      "2020": "7,36,43-46,63,68-69,73-75,138,150,154,160",
+      "2021": "7,37,42-44,73-75,116-117,124-129,154",
+      "2022": "7,31,40,43-46,62-63,70-75,152,154",
+      "2023": "7,32,38,42-44,61,68-69,73-75,128-129,138,151,154",
+      "2024": "7,43-45,62-63,68-70,73-75,116-117,128-129,154",
+      "2025": "8,30,35,43-45,73-75,116-117,128-129,154,162",
+      "2026": "9,34-35,43-45,73-75,128-129,137,154"
+    }
+  },
+  "year_counts": {
+    "2005": 17,
+    "2006": 15,
+    "2007": 21,
+    "2008": 17,
+    "2009": 17,
+    "2010": 16,
+    "2011": 16,
+    "2012": 15,
+    "2013": 18,
+    "2014": 17,
+    "2015": 20,
+    "2016": 16,
+    "2017": 14,
+    "2018": 16,
+    "2019": 12,
+    "2020": 16,
+    "2021": 17,
+    "2022": 17,
+    "2023": 17,
+    "2024": 17,
+    "2025": 15,
+    "2026": 13
+  },
+  "recovery": {
+    "historical_expected_count": 359,
+    "historical_hlk_total": 978,
+    "historical_hlk_counts": {
+      "circulation": 376,
+      "respiratory": 359,
+      "urinary": 243
+    },
+    "historical_status": "READY_FOR_APPLY_NOT_RUNTIME_APPLIED",
+    "deterministic_recovery": {
+      "primary_lecture_scope_matches": 352,
+      "frozen_outline_u006_restored_ids": [
+        "xizong-official-2007-n126",
+        "xizong-official-2011-n145",
+        "xizong-official-2014-n084",
+        "xizong-official-2015-n175",
+        "xizong-official-2018-n061",
+        "xizong-official-2020-n063",
+        "xizong-official-2022-n062"
+      ],
+      "restored_id_count": 7,
+      "overlap_between_primary_and_restored": 0,
+      "final_unique_count": 359
+    },
+    "source_assets": {
+      "taxonomy": {
+        "name": "XIZONG_FINAL_PRACTICE_TAXONOMY_WITH_CHAPTER_v1.candidate.json",
+        "sha256": "838f1aadfba7ee0f8484e433de4b448f9595fa503c957846d94363228c3bead0"
+      },
+      "system_source_coverage": {
+        "name": "XIZONG_SYSTEM_SOURCE_COVERAGE_v1.candidate.json",
+        "sha256": "bab25c74abefa4f3b262cb50334f963cb2e8ea9d1467e169d903c4a70cc4c4dc"
+      },
+      "historical_canonical_questions": {
+        "name": "canonical_questions.v2.candidate.json",
+        "sha256": "5d557c0011651f51ce2f45e4f137a3fa870b6a30f5269e3744380fd34814c584",
+        "question_count": 3750,
+        "question_id_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82"
+      },
+      "historical_scope": {
+        "name": "XIZONG_SYSTEM_OFFICIAL_SCOPE_v2.candidate.json",
+        "sha256": "6970c6faa1ff2427199bc7c02789a43873a8ddfefec405584db361736f0453fa"
+      }
+    },
+    "current_question_truth_identity_check": {
+      "current_question_count": 3750,
+      "current_question_id_inventory_sha256": "0abc1a3cadbb41b36808fe86ff58c21ede6f4297312e9fb4c2da62b865ef2c82",
+      "historical_and_current_question_id_inventory": "EXACT_MATCH_3750_OF_3750"
+    }
+  },
+  "runtime_validation": [
+    "Expand question_number_spec_by_year deterministically.",
+    "Require exactly 359 unique IDs.",
+    "Require expanded inventory SHA256 = b7721e26d2023247f7098eb4ca3671ece3744a90f4e7100e7a2756072a5a02e0.",
+    "Require every expanded ID to resolve through Current Question Truth; fail closed on any missing ID."
+  ],
+  "boundaries": [
+    "System-level first-pass question membership only; not Question Truth.",
+    "Does not assert Question-to-Block, Question-to-Logic-Group, or Question-to-KP mapping.",
+    "The explicit Chat-reviewed Question-to-Knowledge relation owner remains separate and is never inferred from this scope.",
+    "Wrong/Uncertain repair may use an existing reviewed precise relation when available; otherwise leave the precise mapping unresolved for Chat review.",
+    "No learner attempt, mastery, Wrong/Uncertain, notes, Memory, or review state belongs in this shared Current file."
+  ]
+}
