@@ -1,6 +1,6 @@
 # Xizong Content Mainline
 
-Status: **CURRENT PROGRAM ROUTER · NO BROAD CONTENT CAMPAIGN · BOUNDED #1113 ACTIVE**
+Status: **KIANOS PROGRAM ROUTER · IN-REPO BROAD BUILD CLOSED · xizong-content #1 THREE-ROUND AUDIT ACTIVE**
 Parent: `content/xizong/CURRENT.md`
 
 This file owns only **program-level Xizong content coordination**: which durable lane is open, what may proceed independently, and where a Fresh Chat should enter.
@@ -21,7 +21,7 @@ Do not reconstruct program state from old PRs, run IDs, historical branches, pri
 
 ## Current program state
 
-No broad Xizong content-construction campaign is active.
+**本 KianOS 仓库的广泛医学 Content 生产已关闭；独立仓库 [xizong-content #1](https://github.com/kianwang022-hash/xizong-content/issues/1) 的 159 Block 三轮独立内容审查、修后回归和同版离线 HTML 交付正在进行。** 两者范围不同；这不是恢复 KianOS 旧 #1113 或全站重建。以下关闭范围仅适用于本仓既有生产/Question/Source 生命周期，不覆盖外部新审查的签收状态。
 
 Closed for the current admitted scope:
 
@@ -44,9 +44,11 @@ Real learner U remains private evidence and is never manufactured by this progra
 
 ## Active bounded tasks
 
-One bounded cross-System content-consistency task is active: [#1113 — Content→Website consistency and readability](https://github.com/kianwang022-hash/kianos/issues/1113). `content/xizong/CURRENT.md` is its routing pointer; the Issue alone owns its Current / Phase / Next / Blocker. This Mainline must not restate those details or infer completion from an old receipt.
+- **Content / Chat 教学 / 全西综三轮验收 / 离线 HTML**：进入 [xizong-content #1](https://github.com/kianwang022-hash/xizong-content/issues/1)，再读取其当前 Learning Contract、正式教学入口和 exact owner。仅该 Issue 拥有 Current/Next/Blocker/证据范围；不得从本仓旧快照重建外部任务阶段。
+- **已迁移的 [KianOS #1113](https://github.com/kianwang022-hash/kianos/issues/1113)**：CLOSED/MIGRATED，仅供追溯，不可作为活动续跑队列。
+- **KianOS Website / 私有 Runtime / 真实产品消费者**：独立按 [Website Current](../../static-web/CURRENT.md) 和 exact KianOS owner 处理；内容审查通过不自动证明站点采用、产品验收或 Kian 实际学习。
 
-This does **not** reopen the closed broad medical-content construction campaign. #1113 may inspect or repair only the exact Source / canonical Content / mapping / learner-consumer slices justified by its current evidence. Exact System/Block medical truth still stays with the original owners.
+上述区分不重启 KianOS 旧广泛医学内容建设。医学事实、Source/Visual 与 Block 真相始终回各自当前 owner。
 
 Biochemistry and Surgery Source-revision work route to their exact lifecycle owners if a **new authoritative Source, a fresh dependency-staleness defect, or real-use evidence** reopens the smallest responsible chain. Real-U from normal learner use is passive calibration evidence, not an active content-construction task and not a project-closure gate.
 
@@ -54,7 +56,7 @@ Biochemistry and Surgery Source-revision work route to their exact lifecycle own
 
 | Lane | Current state | Exact entry | Reopen condition |
 | --- | --- | --- | --- |
-| Main medical Content | broad construction closed; bounded #1113 consistency/readability task active | `content/xizong/CURRENT.md` → #1113 → exact System / Knowledge / Learning owner | concrete defect or admitted new/revised Source |
+| Main medical Content | KianOS broad construction closed；xizong-content 三轮审查/同版导出 ACTIVE | [xizong-content #1](https://github.com/kianwang022-hash/xizong-content/issues/1) → exact Content / Learning / System owner；KianOS consumer 问题走 Website Current | 依该 Issue 当前阶段、确切内容缺口或权威 Source 变化 |
 | Questions / System membership | current corpus closed | `content/xizong/questions/` + exact System owner | real question/source ownership defect or new corpus |
 | Question → Knowledge | broad corpus construction closed; Current consumption revision-freshness-gated | `content/xizong/question-relations/README.md` + exact relation/lifecycle owner | exact stale relation after Knowledge/Source revision, real defect, or new corpus |
 | Late-stage material | 26 baseline absorbed | `content/xizong/knowledge/learner/xizong-26-late-stage-material-baseline.json` | authoritative new-cycle material |
@@ -87,12 +89,11 @@ An unrelated `main` advance is not a blocker. Never force a historical branch ov
 
 ## Continue / task creation
 
-`继续西综内容建设` means:
+`继续西综内容建设 / 西综三轮审查` means:
 
-1. read this file only to identify whether a durable lane is actually open;
-2. if no broad lane is active, require a concrete defect/new Source/explicit scope rather than inventing work;
-3. enter the smallest exact owner;
-4. update only that owner/cursor and any truly dependent acceptance/read model;
-5. update this Mainline only when a **program-level lane state, dependency or active-task set** changes.
+1. follow this router to [xizong-content #1](https://github.com/kianwang022-hash/xizong-content/issues/1), whose latest Current/Next/Blocker owns the active three-round frontier;
+2. restore only the external task's exact Contract, selected content, evidence and true dependent, not KianOS historical Issue or stale repo snapshot;
+3. advance and update the external existing owner within authorization, read back, stop at its real acceptance/blocker;
+4. update this Mainline **only** if program-level routing/dependency changes, not for each external Block or progress count.
 
 A task mentioned only in Chat is not durable Xizong work. Normal learner-facing `继续西综` remains LEARN and does not enter this engineering Mainline.
