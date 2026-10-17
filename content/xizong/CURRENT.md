@@ -5,11 +5,12 @@ Parent: root `CURRENT.md`
 
 This file owns routing only, not medical Knowledge, Learning Logic, Acceptance Truth, learner progress or Shared Platform policy. A bare `继续西综 / 继续循环 / 继续呼吸` remains LEARN unless the conversation explicitly establishes engineering work.
 
-## Active engineering anchor
+## Current scope routing (content separated from KianOS consumer)
 
-[**#1113 — Content→Website consistency and readability**](https://github.com/kianwang022-hash/kianos/issues/1113) owns this task's **Parent outcome → Current/Phase/Next/Blocker → acceptance/stop**. Read it on a fresh Chat, context reset or phase change; do not reconstruct progress from an old commit/receipt. [#1111](https://github.com/kianwang022-hash/kianos/issues/1111) remains the separate exam operating-loop anchor, not a replacement for #1113.
-
-The parent outcome is direct Source-backed discussion and editing of canonical Block/KP content, followed by faithful shared Website consumption and preserved private learner feedback. This is not a new textbook, IR, state store, System template or UI redesign. Current implementation progress and pending decisions live only in the Issue, not in a second status table here.
+- **西综内容建设、三轮独立审查及整系统离线参考交付**已迁至 [**xizong-content #1**](https://github.com/kianwang022-hash/xizong-content/issues/1)。该 Issue 是此任务的 **Parent outcome → Current/Next/Blocker → stop**；正式内容和规则在该仓的 exact Content/Learning owner。此处不复制它的数量、签收、版本或执行队列。
+- [旧 KianOS #1113](https://github.com/kianwang022-hash/kianos/issues/1113) 已关闭为 **MIGRATED**，不再作为当前工作锚点，也不表示内容完成。
+- **KianOS Website/Runtime、原生 learner state/consumer 的问题**继续按本仓 Website Current 与 exact owner 处理；内容候选或 Library 签收不自动进入 KianOS main/实际站点，不重启全站架构工程。
+- [#1111](https://github.com/kianwang022-hash/kianos/issues/1111) 是独立的考试操作闭环/真实运行证据，不替代内容 Issue。真实学习记录仍归各自私有 learner owner。
 
 ## Design context to retain
 
@@ -28,11 +29,11 @@ The parent outcome is direct Source-backed discussion and editing of canonical B
 | --- | --- |
 | Ordinary study / where Kian actually stopped | Native learner state / subject Packet / Resume; bypass this engineering cursor |
 | Subject maturity / 270–275 control | `MATURITY_PACKAGE.md` |
-| Cross-System Content priority / dependency | `CONTENT_MAINLINE.md` → exact System owner |
+| Cross-System Content priority / dependency | [xizong-content #1](https://github.com/kianwang022-hash/xizong-content/issues/1) → 该仓现行合同/内容入口/确切 System owner；本仓 `CONTENT_MAINLINE.md` 仅路由 |
 | One Block/KP's complete current content | Existing native inspector below → exact owner paths in its result |
-| One System/Block Content defect | Exact scoped `CURRENT.md` when present → canonical Source / Knowledge owner |
-| Learning / cognition / version policy | `LEARNING_CONTRACT.md` → exact Learning / Evidence owner |
-| Chat teaching input / obsolete teaching layout | `knowledge/learner/README.md` → existing `LECTURE_REPLACEMENT_CONTRACT.md`; candidate admission remains separate |
+| One System/Block Content defect | 若是现行教学/离线内容，读 [xizong-content #1](https://github.com/kianwang022-hash/xizong-content/issues/1) → exact owner；若是 KianOS 消费/投影错误，读本仓 exact consumer owner |
+| Learning / cognition / version policy | 内容课程读 [xizong-content Learning Contract](https://github.com/kianwang022-hash/xizong-content/blob/main/content/xizong/LEARNING_CONTRACT.md)；本仓产品/learner evidence 读对应 KianOS owner |
+| Chat teaching input / obsolete teaching layout | [xizong-content 现行 learner README](https://github.com/kianwang022-hash/xizong-content/blob/main/content/xizong/knowledge/learner/README.md) → 同仓 Lecture Replacement Contract；候选准入与 GitHub main 消费不同 |
 | Official Question Truth | `questions/` |
 | Learner-facing explanations | `explanations/README.md` → exact shard |
 | Reviewed Question → Knowledge | `question-relations/README.md` → exact reviewed/stale relation; manifest/freshness resolver for aggregate use |
@@ -52,7 +53,7 @@ node scripts/inspect-xizong-content.mjs circulation b01
 node scripts/inspect-xizong-content.mjs circulation b01 circulation-b01-kp24 --json
 ```
 
-This is a read-only derived view of existing owners, not another Content source. It retains canonical Block/LG/KP, full Core, support/relations, owner witnesses and declared slots. It does not observe the learner's active browser, private override, served tab version or source completeness. For a display difference, read those actual-consumer facts narrowly rather than inventing a second Prompt history.
+This is a read-only derived view of **KianOS main existing owners**, not another Content source or an automatic resolver of newer Library / xizong-content sign-off. It retains canonical Block/LG/KP, full Core, support/relations, owner witnesses and declared slots. It does not observe the learner's active browser, private override, served tab version or source completeness. For a display difference, read those actual-consumer facts narrowly rather than inventing a second Prompt history.
 
 ## Evidence and history, outside normal continuation
 
