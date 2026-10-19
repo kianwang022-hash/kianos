@@ -1,105 +1,23 @@
 # Politics Current
 
-Role: **Politics engineering Work Cursor + subject router**  
-Parent: [root CURRENT](../../CURRENT.md)
+Role: Politics BUILD / CONTROL 的唯一当前任务入口；学习含义由 Learning 拥有。普通阅读/讨论走 Interaction §0 和 manifest，不用工程游标选课。
 
-This file owns only **current Politics BUILD / CONTROL routing**. It does not own Source truth, political-content semantics, learner progress, Acceptance Truth, shared-platform policy, candidate branch evidence, or historical execution receipts.
+## 当前状态：政治暂停（2026-10-19）
 
-Shared-platform ownership inherits [Authority](../../AUTHORITY_INHERITANCE_CONTRACT.md) and [AUTHORITY_OWNERSHIP.json](../../AUTHORITY_OWNERSHIP.json).
+本次只交付政治规则与入口修正：掌握要求、固定阅读稿/GPT/网页分工及旧游标冲突；正式采纳和准确远端保存以本次PR/版本核验记录为据，本文不独立证明交付。manifest沿用现有路径、角色和母规则引用，不改机器元数据。
 
-## Intent
+按用户最新指令，政治内容生产暂停。C03 v2仍是冻结、未通过的候选，既有源审、初稿和67道客观题/3道材料参考题诊断证据保留；它们不是用户成绩或内容采纳。C03样板、题检、网页修复均不自动恢复。只有用户后续明确恢复政治时才从真实缺口继续，不自动展开53章，不从旧STOP/Next接任务。
 
-- **LEARN:** ordinary Politics learning bypasses this engineering cursor and follows [Interaction §0](INTERACTION_CONTRACT.md) under [Learning](LEARNING_CONTRACT.md). The named subject/chapter/question enters current Content directly; no automatic course resumption or progress lookup selects the lesson. Candidate preparation is not adoption, progress or mastery.
-- **BUILD / CONTROL:** enter this cursor, then the active engineering anchor or exact subject/content/consumer owner. Apply [AGENTS](../../AGENTS.md) and change continuity before material changes.
+质量仍由母合同验收要求约束：未讲通、必要漏项未闭或复审未过就待修，不为推进降低标准。原模型/身份、有效知识/答案、Source及未决范围、原卡和学习记录、其他Chat并发成果保持。旧筛选/无residual结论只证明旧输入范围，不预定新证据结论。
 
-## Completed bounded Memory delivery
+本次不改C03正式内容、卡、题键、学习记录或网页代码；不合并本次设定交付范围外的内容，不部署。暂停期间来源变化或新发现只记录影响，不能自行重开执行。
 
-[PR #1151](https://github.com/kianwang022-hash/kianos/pull/1151)的有限Memory交付已合并；精确范围与交付证据留在该PR及原owner。它不是当前任务，不证明53章内容、Source或真实学习效果全量通过。旧PR、评论和队列只按需查证，不提供Next。
+### 已核但未修的网页记录边界
 
-## Parent outcome
+- 重复STABLE作答未完整保存为逐次永久事件，现有当天统计不能当作全部重刷次数。
+- 题键/语义版本变化后，旧Review与累计首次统计尚未充分隔离旧版本；旧结果不能直接代表当前题义表现。
 
-Build one coherent Politics learning loop:
-
-```text
-Requested Chat teaching / clarification or learner-selected Chengfeng study
-→ same-model, source-faithful compression + selectively justified encoding
-→ Website retrieves learner-selected reviewed targets or an optional Chat plan
-→ Recall / question evidence returns to Chat
-→ smallest justified review / repair
-```
-
-The Website does not become a second Politics textbook or semantic owner. Content, Source and prepared teaching packages remain with their exact owners; Runtime consumes them and preserves evidence semantics.
-
-## Full Politics Content closure task — 2026-10-08
-
-本轮内容及读取修正在[PR #1289](https://github.com/kianwang022-hash/kianos/pull/1289)完成，采用状态以该PR的实际合并状态为准。此前五章抽查只是诊断，最终53章限定验收见下方记录。
-
-### 目的和范围
-
-按原[学习合同§0](LEARNING_CONTRACT.md#0-exam-objective-function--the-reason-this-lane-exists)、§0.7、§2、§3.1.2、§3.2、§6.1及相关Interaction条款，让现有政治内容支持理解、快速同模型恢复与适度考研记忆。最高规则拥有稳定目的，本任务只拥有范围、执行和断点，不重定义课程。
-
-覆盖manifest中的53章：马原C00–08、史纲C01–10、毛中特C00–08、习思想C00–17、思修法基C00–06，以及真实章际连接。保留有效模型、解释、身份和已审精记。执行中不得自行增加学习要求、必背负担、规则层、标签体系或工程阶段；实质改目标/扩范围须先向Kian说明。
-
-### 两条读取路径
-
-- **执行/恢复：** 本任务与最近有效断点 → 上述必要母合同段落 → manifest的准确科目/章节owner → 当前模型/快速复习、节点主提示与邻近完整答案、必要Core及精记分流 → 对应实际来源。首次读规则，同版本复用，变化或有具体疑问才读相关段。
-- 完整检查该章接受范围的乘风正文和必要图表，与内容双向核对遗漏和支持；阅读对应腿姐2027《冲刺背诵手册》范围及跨章归属，判必要性与深度。不能只搜支持既有提示的命中片段；标题、截断节点、旧PASS、教案不能替代缺失原文。可复用版本和范围均匹配的原证据，并保留未检模态/范围。
-- **普通学习/复习：** Learning/Interaction决定学习方式 → manifest给科目地图和当前章入口 → 当前快速复习/模型 → 节点提示与按需解释/答案 → 必要精记或原Source。无需读取Current、PR、Acceptance、代码或审核附录。
-- 旧报告仅用于对应证据，旧Next不提供任务；当前可用内容入口与历史作者稿明确区分，不让普通Chat自己在多套要求中择优。
-
-### 两轮执行，问题修完即停
-
-**第一轮逐章：** 每批2–3相邻章。读实际内容，按母合同的覆盖、连续性、压缩保真三个维度判断；先确认知识完整正确，再判值得主动恢复的内容和深度，最后核模型节点Prompt或残余Memory的去向。两者均受§6.1筛选，数字/名单/已有卡不能自动成为必背。
-
-检查首次解释与完整答案可达；提示应明确对象且在测试独立回忆时不泄答案；旧精记指令不能恢复已被当前筛选排除的负担。同一语义的所有现行落点依§3.1.2一并收口，历史可保留但不再指挥学习。只改确证问题及真实依赖，不重生成整科。
-
-**第二轮学习路径反审：** 对最终内容（包括未修改章）模拟初学读懂、随后只凭模型/提示恢复再核答案、下一章重启真正需要的前提和整科串联。同样应用覆盖/连续性/压缩维度。检查缺前提、错归属、重复任务、模糊题面、泄答案与假跨章关系；复用未变化的来源证据，不用关键词数量代替语义阅读。
-
-本轮最终验收按章推进。每开始一章和完成该章时，重新读取本任务目的与对应最高合同要求：先讲通整章逻辑，再沿同一模型补知识；普通复习保留完整主提示、答案可见、按需展开；不强制测试、不增加无依据记忆负担。每章记录实际读取版本、实际模拟输出、具体问题与修后复测；不以测试数量或完成章数代替学习质量。
-
-修改后重走受影响路径；关系改变才核直接前后章。后续轮次只处理确认缺陷、真实来源变化或未决证据，不自动开始第三遍全量润色。每批问：是否改善理解、恢复、必要精记或纠正实错？没有具体学习收益就不改；先修原内容，不默认加validator、文档、标签或架构。
-
-模拟只是内容路径压力测试；模型看到过答案后生成正确回答，不能证明真人独立回忆、隔天保持或掌握。新读者测试明确披露收到哪些输入。不给Kian生成虚假学习记录、成绩、计划或复习债。
-
-### 保护、保存和断点
-
-已审Memory不因Prompt重叠自动删除、重造或换身份；推荐角色改变须有逐项理由，保留历史证据。真实答案错误按原owner和既有规则修正，不以保护旧身份为由保留错误。
-
-本任务一名集成写者，不接管其他Chat任务。并行读取可分独立章节；提交前核目标最新变化，按§3.1.2合并真实增量，禁止旧全文覆盖。证据放既有科目/章审查位置，不新建规则书、答案库或第二进度账本。
-
-断点只记录：章ID及完成/部分/阻塞状态、具体修正、实际来源范围与精确未决依赖、已保存版本、下一小步。恢复先检查未完成项；可以继续独立章节，不能把跳过的缺口算完成。每批/科汇报具体成果与例子，不转发日志。
-
-### 完成边界
-
-53章都有最终内容判断、科目及章际路径已反审、已确认范围内问题修复复查、GitHub保存可回读，才可收口。未核来源项在实际学习位置准确隔离；必要模型/答案仍被阻塞则该章和全任务不能宣称完成，独立部分可继续。
-
-交付修好的内容、实际核源范围、局部排除项与真实学习待验证边界。当前仅包括可审查的内容提交和远端回读，不自动授权合并或网站发布，也不宣称保证分数/真人效果。
-
-**排除：** Website/UI/runtime/compiler、构建/部署、题库重构、猜补来源、新学习规则、私人记录修改、全卡退休和无关遗留清理。完成后停止；只因新实质缺陷、来源变化或真实学习证据重开。
-
-
-## Current / Next / Blocker
-
-**Current：** 五科53章本轮内容及有限合成读取审查已完成；2026-10-09真人开课输出仍出现“你回答后再继续”的教学门槛，故不宣称Chat稳定可用。此问题按用户授权窄修现有入口：清除重复旧模式默认，明确当前学习/解释/复习请求，保留已接受内容。最终内容修补版本为 `5e919f1d0392b114a91f1cfb4a56bcd3940eb4e2`。269组现行主提示答案维度已核对；53章五类输出、五次当前对话内接续、五科串联及最后五条自然短请求均已实际生成并由总控阅读。13个原文件17处旧读取指令已修复、远端逐字回读及受影响路径复测。精确覆盖与未检边界见[Acceptance的2026-10-09记录](ACCEPTANCE.md#2026-10-09-final-content--chat-reading-acceptance--candidate-only)。这不证明全部原始Source/PDF或真人学习效果通过。
-
-**Next：** #1289已合并，本轮53章源审不重开。当前只完成Learning/Interaction既有入口措辞清理及受影响短指令检查，保存前后差异与真实失败边界；候选不等于main生效，合成通过不等于真人稳定。完成该窄修即停止，不重写全科教案，不扩网站或真实学习记录。原局部Source/PDF、OCR、题键和年度边界继续由原owner保留。
-
-**规则与来源：** 最高目的及筛选标准仍由Learning拥有；当前规则修正是本PR候选。指定精记来源与范围见Learning §2 / §6.1及Source原owner。马原既有核源与推荐角色结论见[科目Current](learning/marxism/CURRENT.md)，仅作对应证据，不代替本轮两遍内容判断，也不外推其余四科已完成。
-
-**Blocker rule:** any remaining or new blocker lives with its exact task/native dependency owner, not as a copied status paragraph here. A shared Runtime/performance blocker freezes only its dependent delivery/acceptance chain; independent Source/content preparation may continue when there is no real overlap. Never weaken a test or alter Politics semantics merely to clear an external red.
-
-## Must preserve
-
-- One canonical model per Politics subject/chapter scope; Chat may change explanation style, not the accepted model or owner.
-- First learning must support both usable understanding and same-model reconstruction; exact Memory items supplement the model rather than replacing it.
-- Prepared package completeness follows inspected Current objects and Source support, not file counts, card quotas or historical inventory.
-- Source / edition / annual / figure / table limits remain item-scoped and fail closed. Uninspected material is not silently promoted by a candidate branch.
-- New typed content fields and their real consumer compatibility land coherently. Do not push producer-only data that main cannot safely consume.
-- Reviewed proactive Memory targets may exist without fake W/U; pending/historical/unreviewed targets stay excluded.
-- No answer/check/cue leakage before the applicable clean retrieval boundary.
-- Snapshot / replay / idempotence / supersession / stale-revision semantics remain intact across delivery.
-- Synthetic tests, CI and fixture histories never manufacture Kian's real learning, plan, mastery or U.
-- A candidate branch is evidence until current main + actual consumer readback proves delivery.
+两项只约束读取记录时的结论，不由本次设定交付启动网页改造。既有历史保留，后续修复待用户恢复并明确范围。
 
 ## Exact routing
 
@@ -118,11 +36,21 @@ Maturity / calibration → [MATURITY_PACKAGE.md](MATURITY_PACKAGE.md).
 Visual → [Presentation](../../static-web/PRESENTATION_CONTRACT.md) + exact surface/Human Gate.  
 Runtime/evidence → [SYSTEM_CONTRACT.md](../../SYSTEM_CONTRACT.md) + exact native owner.
 
-## Stop / reopen
 
-本轮53章内容任务依上方完成边界收口；当前断点只由Current / Next维护。#1151的技术交付不代替本轮内容、Source或真实学习验收。
+## 后续获准恢复时的最短读取
 
-After closure, ordinary study bypasses this cursor. Reopen only for real learner evidence, an authoritative Source change, a concrete Politics content/product/runtime defect, or explicit new scope.
+- 学习、材料与掌握要求：Learning §2 / §6.1；承载分工：§0.7。
+- 阅读、讨论与测试边界：Interaction §0。
+- typed内容及准入/历史兼容：Content Semantics §3.2。
+- 章/科目owner：learning/manifest.json → 精确subject/chapter。
+- 详细源审与验收仅按具体缺口读取，原报告不作为第二套规则。
 
-Historical preparation receipts remain in Git/PR history and exact Acceptance owners. They are evidence, never fallback Current instructions.
+## 历史边界
 
+[PR #1289](https://github.com/kianwang022-hash/kianos/pull/1289) 已合并，限定53章内容/读取审查保留，不等于全部Source、真人效果或本次新设定通过。
+[PR #1293](https://github.com/kianwang022-hash/kianos/pull/1293) 已合并，入口修正不是待合并候选；其旧网页QA字面断言失败仍是历史未解决事实，不宣称全CI/网页已通过。
+精确证据留原PR及Acceptance。旧执行全文、输出计数和批次Next不再指导当前任务。规则更改不等于网页迁移；存在网页也不证明当前正在提供阅读功能。
+
+保持真实 Source/edition/annual/figure/table 限制按项 fail closed；候选、合成测试和CI不制造学习/掌握事实。字段准入及真实消费者兼容必须一致，snapshot/replay/idempotence/supersession/stale-revision边界不变。
+
+暂停期间无自动Next。后续明确恢复后，真实来源、语义或权限冲突只阻塞依赖部分；不扩大范围或循环抛光。
