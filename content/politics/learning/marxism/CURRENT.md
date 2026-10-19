@@ -1,6 +1,6 @@
 # Politics Marxism Current
 
-Role: Marxism owner router only. Active Politics BUILD / CONTROL scope and its single next step live in [Politics Current](../../CURRENT.md). This file does not own learning rules, Source truth, acceptance or learner progress.
+Role: Marxism engineering Work Cursor / owner router only. Active Politics BUILD / CONTROL scope and its single next step live in [Politics Current](../../CURRENT.md). This file does not own learning rules, Source truth, acceptance or learner progress.
 
 ## Current boundary
 

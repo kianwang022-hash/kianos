@@ -1,6 +1,6 @@
 # Politics Current
 
-Role: Politics BUILD / CONTROL 的唯一当前任务入口；学习含义由 Learning 拥有。普通阅读/讨论走 Interaction §0 和 manifest，不用工程游标选课。
+Role: Politics engineering Work Cursor + BUILD / CONTROL router only. This file does not own learner progress or private learner state. 学习含义由 Learning 拥有；普通阅读/讨论走 Interaction §0 和 manifest，不用工程游标选课。
 
 ## 当前状态：政治暂停（2026-10-19）
 
