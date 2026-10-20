@@ -304,13 +304,13 @@
       "source_status": "CURRENT_FORMAL_QUESTION_TRUTH"
     },
     "exam_target": "DKA旧胰岛素负荷量与补碱阈值的Current冲突",
-    "decision_axis": "正式题源答案CD包含“先静推10–20U再0.1U/kg·h”和“pH<7.1、HCO₃⁻<5补碱”；Current D8保留的是直接小剂量RI静滴0.1U/kg·h、血糖13.9后补糖、仅pH≤6.9考虑补碱，因此不能把CD升级为Current关系。",
+    "decision_axis": "题库存量键CD包含“先静推10–20U再0.1U/kg·h”和“pH<7.1、HCO₃⁻<5补碱”；D8原课记录为RI静滴0.1U/kg·h、13.9mmol/L转糖和pH≤6.9补碱门槛。现行阅读D8将原课与已具名采用的2024成人共识分列，后者为严重酸中毒pH<7.0时考虑补碱；不能把CD直接升级为当前关系或将不同版本拼成处方。",
     "reasoning_chain": [
-      "Current D8治疗主轴仍是先补液，再小剂量普通RI静脉滴注。",
-      "但Current并未保留题源C的固定10–20U静脉负荷量。",
-      "Current补碱阈值为pH≤6.9，而题源D给pH<7.1且HCO₃⁻<5；所以保留官方CD但标记Current冲突。"
+      "现行阅读D8要求恢复容量同时先核钾；按其已采用的2024成人共识，K⁺<3.5mmol/L先补钾，胰岛素延迟至K⁺>3.5。钾条件允许后再用胰岛素抑制产酮，并持续监测。",
+      "D8原课方案没有将题源C的固定10–20U静脉负荷量列为常规步骤，不能反推任何情形都禁用负荷量。",
+      "D8原课补碱门槛pH≤6.9，与现行阅读已具名采用的2024成人共识“严重酸中毒pH<7.0时考虑补碱”分列；题源D的pH<7.1且HCO₃⁻<5不与两者混用，考虑补碱仍须评估低钾风险。"
     ],
-    "transfer_rule": "DKA数字题必须服从项目Current Study：RI 0.1U/kg·h、13.9mmol/L后补糖、补碱仅极重酸中毒；不要用旧真题阈值覆盖Current。",
+    "transfer_rule": "DKA数字题先辨题源年代、原课口径与现行阅读D8具名采用的版本；先核钾、低钾时延迟胰岛素等必要条件不能省略，不能把RI剂量、转糖点和补碱门槛跨版本拼成新方案。",
     "mapping_decision": "NO_SAFE_MATCH",
     "upgrade_decision": "NO_CHANGE",
     "review": {
@@ -320,7 +320,7 @@
       "old_explanation_inherited": false,
       "cycle": "SECOND_PASS_2023"
     },
-    "correct_option_reason": "CD.为2023正式答案；但其中胰岛素负荷量和补碱阈值与Current D8现行Study口径不完全一致，因此只保留历史题源结论。",
+    "correct_option_reason": "CD为题库存量来源键；其中固定胰岛素负荷量和补碱条件不能直接沿用为现行阅读D8方案。本次仅澄清版本，不重新裁决2023答案，也不据此认证命题机构官方键。",
     "valuable_distractors": [
       {
         "option": "A",
@@ -328,11 +328,11 @@
       },
       {
         "option": "B",
-        "reason": "Current D8把加糖阈值保存为13.9mmol/L，而非16.7mmol/L。"
+        "reason": "D8原课DKA转糖点为13.9mmol/L，而非16.7mmol/L；现行阅读另列2024成人共识<13.9时加糖，并保留正常血糖DKA可更早需糖的边界，不能把单一数值当作所有情形的固定先后。"
       }
     ],
-    "common_failure_node": "把不同年代DKA的精确剂量/阈值拼成一个方案，忽略Current已冻结的Study数字。",
-    "source_conflict_note": "2023官方答案CD与Current D8存在两处实质差异：Current不要求固定10–20U静脉负荷量；补碱门槛为pH≤6.9，而题源D使用pH<7.1/HCO₃⁻<5。历史答案保留，Crosswalk按NO_SAFE_MATCH。"
+    "common_failure_node": "把题库存量键、原课记录和现行阅读具名条件混称为同一Current口径，再将不同年代DKA的精确剂量/阈值拼成一个方案。",
+    "source_conflict_note": "题库存量键CD作为来源历史保留，不据现行版本重裁。D8 canonical KP09/10保存原课口径（补碱pH≤6.9）；现行阅读D8另具名采用2024成人共识（严重酸中毒pH<7.0时考虑补碱并评估低钾风险），不能称两种资产已同步。题源C的固定10–20U负荷量及D的pH<7.1/HCO₃⁻<5不能直接当作当前方案；Crosswalk仍按NO_SAFE_MATCH。"
   },
   {
     "question_id": "xizong-official-2023-n160",
