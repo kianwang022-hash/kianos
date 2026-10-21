@@ -2834,3 +2834,15 @@ export const a3B0607NativeReview = {
     ]
   }
 };
+
+// Historical index replay: assert the exact newly reviewed witness first.
+// Runtime indices and resolver guards are never modified by this test helper.
+export function a1IndexBeforeReadingBridgeReview(index) {
+  const result = structuredClone(index);
+  const id = 'xpg_be5621635eaf04ac';
+  const rows = result.precision_index.filter(row => row.id === id);
+  assert.equal(rows.length, 1);
+  assert.deepEqual(rows[0].prepared_memory_ref, readingBridgeReview.current_witnesses[id]);
+  rows[0].prepared_memory_ref = structuredClone(readingBridgeReview.previous_witnesses[id]);
+  return result;
+}
