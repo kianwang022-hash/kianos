@@ -2,7 +2,7 @@
 
 Status: **CURRENT — Content Semantics**
 
-This file owns the machine-readable **content realization** that sits between Politics Learning Logic and Astro Projection/UI.
+This file owns the machine-readable **content realization** between Politics Learning Logic and its permitted consumers: fixed reading editions, Chat discussion and Website practice/records. It does not authorize broader Website teaching.
 
 Upstream:
 - `content/politics/LEARNING_CONTRACT.md`
@@ -49,8 +49,9 @@ Source Truth
    ├─ residual Precision / Memory
    └─ Source scope / gaps
 → consumer adaptation
-   ├─ Chat explanation / questioning / repair
-   └─ Website projection / Recall / evidence
+   ├─ fixed reading projection / same-model review
+   ├─ Chat discussion / explanation / evidence-based planning
+   └─ Website practice / submitted feedback / actual records
 ```
 
 `learning_semantics`, chapter compression, accepted main prompts and their learner-attention priority are therefore **Content**, not UI and not runtime Chat inventions.
@@ -70,7 +71,7 @@ These jobs may be realized through existing chapter JSON, `learning_semantics`, 
 
 A consumer may expose only the subset appropriate to the current action, but hidden detail remains owned upstream. UI layout, reveal behavior, local storage, scheduling, compiler metadata, hashes and migration witnesses do not become part of Content completeness merely because a downstream system needs them.
 
-**Prompt and Memory are not two independent inventories.** Learning §0.7 first decides which knowledge is worth active retrieval, then Content places naturally model-bound groups in node prompts and keeps only the residual exact items in Precision / Memory. **A Website Memory practice view may project both model-bound active-retrieval objects and residual fragments for rehearsal; that consumer projection does not change their Content placement.** Existing Website card availability cannot reverse the semantic decision.
+**Prompt and Memory are not two independent inventories.** Learning §6.1 owns the required mastery and accuracy; §0.7 then assigns naturally model-bound groups to node prompts and only the residual exact items to Precision / Memory. **A Website Memory practice view may project both model-bound active-retrieval objects and residual fragments for rehearsal; that consumer projection does not change their Content placement.** Existing Website card availability cannot reverse the semantic decision.
 
 ---
 
@@ -233,7 +234,7 @@ A usable exact-retention object/group must resolve:
 - stable chapter/NU and content identity, the owning explanation/model relation, and inspected Source/edition provenance;
 - a specific retrieval prompt, authoritative answer and essential checking criteria: allowed paraphrase, complete membership, exact pairing, decisive qualifiers and any meaningful order;
 - a useful memory cue/grouping/contrast where needed, explicitly distinguishable from the authoritative answer and safe to withhold before retrieval;
-- the reviewed admission route or exact pending limitation, plus phase/prerequisite boundaries under Learning §6.1; the existing review distinguishes source correctness, retention necessity/accuracy, and model-bound versus independent-fragment placement under §0.7, citing the exact Leg passage for either new proactive baseline route;
+- the reviewed admission route or exact pending limitation, plus phase/prerequisite boundaries under Learning §6.1; the existing review distinguishes source correctness, retention necessity/accuracy, and model-bound versus independent-fragment placement under §0.7, citing the route-specific evidence required by §6.1, without mislabeling another necessary first-round target as Leg-selected;
 - its existing candidate ID / consumer path, or a concrete unresolved mapping. Reuse, revise or retire duplicates against their original owner instead of hand-synchronizing parallel answers.
 
 These are semantic requirements, not permission to invent field names that no consumer reads. Reuse `precision_objects`, `content_support` groups, `statement`, `source_refs` and existing sidecar identities where they fit. A bounded additive extension for an explicit prompt/checking content is allowed only through this Content owner plus the resolved Runtime implementation owner, with loader → catalog → plan/evidence snapshot → renderer → return compatibility proved together. A new registry, new command/state family or cross-system architecture change remains OWNER_UNRESOLVED until Engineer resolves it through the existing architecture owners.
@@ -244,7 +245,7 @@ Catalog discovery, content admission and learner scheduling are distinct. A meta
 
 Implemented field mapping for the bounded Memory consumer: existing groups keep `name`/NU/`source_refs` as their legacy ID basis; an explicit stable `id` may be retained, and sidecars keep their existing `id`. `prompt`, `checking_criteria[]`, optional `memory_cue`, and optional `inspected_refs[]` augment existing group `items` / sidecar `statement`. Cue and checking content are revealed only after retrieval. `admission: CANDIDATE_ONLY` remains candidate Content, not learner debt.
 
-Selection requires `admission_basis` with `route`, `review_status: REVIEWED`, `source_edition`, `source_locator`, `review_ref`, `prerequisite`, and `reviewed_target_revision`. The loader checks an existing repo-relative Politics learning review path and unique explicit `<a id="anchor"></a>`; its bounded section must pair the exact target ID in the first cell and reviewed revision in the last cell of one unique audit-table row. Incomplete, duplicate or pending target rows fail closed. A current edition uses a `POL27-` Source identifier; historical LEG26 alone cannot authorize current fixed wording. This verifies source binding, not political truth or the Leg-informed recommended baseline. Missing/pending metadata excludes the target from selection without deleting historical events. New `FIRST_ROUND_EXACT` necessity follows Learning §6.1; existing CF-only reviewed cards may remain optional practice without being relabeled must-retain. No new retention judgment is inferred from a matching hash.
+Selection requires `admission_basis` with `route`, `review_status: REVIEWED`, `source_edition`, `source_locator`, `review_ref`, `prerequisite`, and `reviewed_target_revision`. The loader checks an existing repo-relative Politics learning review path and unique explicit `<a id="anchor"></a>`; its bounded section must pair the exact target ID in the first cell and reviewed revision in the last cell of one unique audit-table row. Incomplete, duplicate or pending target rows fail closed. A current edition uses a `POL27-` Source identifier; historical LEG26 alone cannot authorize current fixed wording. This verifies source binding, not political truth or the Leg-informed recommended baseline. Missing/pending metadata excludes the target from selection without deleting historical events. New `FIRST_ROUND_EXACT` necessity follows Learning §6.1; existing CF-only reviewed cards retain their prior scope until a source-backed necessity change is reviewed at the original owner; secondary targets must not be relabeled Leg-selected, and this rule does not claim a new recommendation is implemented. No new retention judgment is inferred from a matching hash.
 
 `politicsMemoryReviewedTargetRevision(candidate)` computes `sha256:` plus SHA-256 of UTF-8 canonical JSON: recursively sorted object keys, preserved array order, trimmed text; normalized `id`, `subject`, `chapter_id`, `natural_unit_id`, `family`, `prompt`, `answer_items`, `checking_criteria`, `memory_cue`, sorted unique `source_refs`/`inspected_refs`, and admission `route`/edition/locator/prerequisite. Review status/ref/digest are excluded to avoid self-reference. Catalog revision includes the consumed fields; validated plans freeze candidate snapshots. Catalog-bound staged commands remain structurally staged until the actual consumer verifies the current catalog. Recall snapshots/return retain checking and admission provenance. History comparison excludes auxiliary cue and review-location changes, but includes the retrieval prompt, ownership, answer, criteria, Source scope and prerequisite semantics; a changed prompt makes old evidence history-only unless an explicit Content compatibility basis establishes identical retrieval meaning; legacy events remain stored and cannot be relabeled as having tested newly reviewed checking content. Admission-review changes never erase raw evidence or create a schedule.
 
@@ -262,17 +263,17 @@ Learning §0.7 owns the cognitive division; §6.1 owns necessity for **both** me
 
 ```text
 actual Chengfeng text / necessary tables and images → source-faithful main model
-inspected designated Leg support + appropriate exam/learner need → selected retention scope and accuracy
+route-specific evidence under Learning §6.1 → required mastery scope and accuracy
 same selected scope → model-bound main prompts + complementary independent fragments
 ```
 
 Main prompts are compact retrieval handles for selected content remembered through the model. They are not a generic index of everything explained. Necessary conceptual relationships remain prose even without a prompt. An exact fragment may still have a conceptual parent while being cheaper to practice separately.
 
-Reuse the existing chapter/NU/content identities and substantive answers. A working draft may use one small disposition table in this same owner to show source, necessity status, first-answer location, proposed model/fragment destination and existing ID if known; do not create a new schema, registry or second catalog. Unresolved Leg support stays pending, not invented certainty.
+Reuse the existing chapter/NU/content identities and substantive answers. A working draft may use one small disposition table in this same owner to show source, necessity status, first-answer location, proposed model/fragment destination and existing ID if known; do not create a new schema, registry or second catalog. Unresolved route-specific evidence stays pending, not invented certainty; only Leg-baseline claims require Leg selection evidence.
 
 Accept only when every main prompt has a source-supported answer explained at first encounter; its count/members and required accuracy are justified. Hide members in the miniature prompt, not in first-reading prose. Check that model memory plus residual Memory covers the justified retention scope without default duplicate practice. Do not infer a memory obligation from a prompt or from an existing card.
 
-Omitted understanding/recognition/reference material stays in source/support; uncertainties stay in Source gaps. Reconcile recommended use in existing owners; preserve optional cards and history, and **claim current-year re-filtering only when the exact owner records that completed review**. No Runtime/Website/plan/schema change is implied merely by the content projection.
+Omitted understanding/recognition/reference material stays in source/support; uncertainties stay in Source gaps. Reconcile recommended use in existing owners; preserve optional cards and history, and **claim current-year re-filtering only when the exact owner records that completed review**; prior no-residual/Core-only conclusions do not predetermine newly supported requirements. No Runtime/Website/plan/schema change is implied merely by the content projection.
 
 Reject a replacement framework, arbitrary enumeration, answerless cue, generic branch index mislabeled as memory, unselected lists smuggled into main prompts, unrequested whole-course generation, and using prepared content as learner or admission evidence.
 
@@ -361,9 +362,9 @@ If no, the object probably belongs downstream in Projection/UI.
 
 ---
 
-## 6｜Calibration and rollout
+## 6｜Historical calibration procedure — not a current rollout task
 
-Do not mass-convert all Politics chapters from one untested schema draft.
+The following retains the previous bounded schema-calibration reference. It is not an active task, automatic expansion order or authorization to build Website teaching under the current Learning §§2/7. Reuse its existing evidence only for the exact affected compatibility claim; broader work requires an explicit scope. Do not mass-convert chapters or delete mature assets.
 
 Rollout order:
 
