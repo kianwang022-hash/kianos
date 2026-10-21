@@ -1,0 +1,50 @@
+{
+  "schema": "kianos.xizong.source_visual_bundles.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "digestive-metabolic-endocrine-tumor",
+  "canonical_id": "B",
+  "selection_policy": "SPARSE_HIGH_VALUE_NOT_EXHAUSTIVE",
+  "completeness": "PARTIAL_BY_DESIGN_EXTENSIBLE",
+  "notes": "Sparse B Source Visual layer. Surgery cues now point to Current 27 refined original pages; legacy follow-along Surgery crops were retired from Current during the 2026-09-26 rebase rather than relabeled as refined assets. Until refined crops are explicitly materialized, those Surgery visuals fail closed to the original PDF. Non-Surgery reviewed visuals remain sparse by design.",
+  "bundles": [
+    {
+      "cue_id": "b-m04-lg01-visual",
+      "source_sha256": "d4c1774dbbd1eaf811f8b6b90abfad5f9d89e5bce628da0b1d35e92fe50132b3",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "bio26:d4c1774dbbd1eaf8:p28:glycogen-branch-structure",
+          "source_page": 28,
+          "usage_role": "GLYCOGEN_BRANCH_STRUCTURE_VISUAL",
+          "usage_label": "生化 PDF P28 · 糖原 α-1,4 / α-1,6 分支结构",
+          "alt": "26生化 PDF P28（印刷 P24）：糖原直链与分支几何、α-1,4 与 α-1,6 糖苷键，以及转移酶/脱支酶/磷酸化酶相关结构示意原页区域",
+          "asset_path": "b-m04-lg01/m4-p28-glycogen-branch.webp",
+          "width": 1000,
+          "height": 1050,
+          "source_crop_sha256": "7d0a5fd9d9234abf39652e8f157fc379cb912066ce701670884fab1baff725aa",
+          "derived_asset_sha256": "99a52faa2469f6b2558cafa73d672543ce1e9d9df246841de47b0b6cb67eca61"
+        }
+      ]
+    },
+    {
+      "cue_id": "b-m04-lg02-visual",
+      "source_sha256": "d4c1774dbbd1eaf811f8b6b90abfad5f9d89e5bce628da0b1d35e92fe50132b3",
+      "completeness_policy": "FAIL_CLOSED_IF_REQUIRED_ASSET_MISSING",
+      "assets": [
+        {
+          "source_object_id": "bio26:d4c1774dbbd1eaf8:p24:gluconeogenesis-spatial-route",
+          "source_page": 24,
+          "usage_role": "GLUCONEOGENESIS_COMPARTMENT_ROUTE_VISUAL",
+          "usage_label": "生化 PDF P24 · 糖异生线粒体—胞浆空间路线",
+          "alt": "26生化 PDF P24（印刷 P20）：糖异生线粒体与胞浆分区、丙酮酸羧化酶与PEP羧激酶绕行、果糖双磷酸酶-1与G-6-P酶，以及乳酸/甘油/生糖氨基酸入口原图",
+          "asset_path": "b-m04-lg02/m4-p24-gluconeogenesis-space.webp",
+          "width": 1000,
+          "height": 1535,
+          "source_crop_sha256": "dddfa7c47937601630136aab4a44200de7ce3b4cb22287f05d677be59ce73583",
+          "derived_asset_sha256": "cb63d2752d6f427d46b23e54680243400a4334f9af3b9e19011a7c037f3c5eb3"
+        }
+      ]
+    }
+  ]
+}

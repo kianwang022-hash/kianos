@@ -55,7 +55,7 @@ Kian's requested subject / System / Block / question
 → teach or answer the requested scope
 ```
 
-Use [Xizong's learner reading entry](content/xizong/knowledge/learner/README.md) or [Politics Interaction §0](content/politics/INTERACTION_CONTRACT.md). For these two subjects, do not recover a course cursor or infer the next lesson from previous Chats, Packet/Resume or engineering Current. Ordinary follow-up questions may use the current exchange's context. Read learner evidence for explicitly requested progress/history questions, not as a prerequisite for learning the named content.
+Use [Xizong's learner reading entry](xizong-content/README.md) or [Politics Interaction §0](content/politics/INTERACTION_CONTRACT.md). For these two subjects, do not recover a course cursor or infer the next lesson from previous Chats, Packet/Resume or engineering Current. Ordinary follow-up questions may use the current exchange's context. Read learner evidence for explicitly requested progress/history questions, not as a prerequisite for learning the named content.
 
 A Daily Learning Packet / `KIANOS_DAILY_LEARNING_HANDOFF_V1` is learner evidence/planning input, not an engineering cursor. Use the current subject evidence and Exam/Chat planning boundary; preserve UNKNOWN and use the existing private control path only when execution is authorized.
 
