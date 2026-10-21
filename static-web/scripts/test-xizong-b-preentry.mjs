@@ -23,6 +23,7 @@ const learner = await moduleFor('xizongLearnerObject');
 const oraclePath = path.join(scriptDir, 'fixtures/b-independent-raw-preentry.json');
 const oracle = JSON.parse(fs.readFileSync(oraclePath, 'utf8'));
 const baseline = JSON.parse(fs.readFileSync(path.join(scriptDir, 'fixtures/b-preentry-nonb-baseline.json'), 'utf8'));
+const readingBridgeReview = JSON.parse(fs.readFileSync(path.join(scriptDir,'fixtures/reading-bridge-review-20261021.json'),'utf8'));
 const sha = value => createHash('sha256').update(value).digest('hex');
 const clean = value => String(value).replace(/\*\*|__|`+/g, '').replace(/\s+/g, ' ').trim();
 const checks = [], failures = [];
@@ -55,7 +56,9 @@ for (const raw of oracle.blocks) {
   const block = native.loadXizongBlock(systemId, raw.slug);
   const got = production.compileXizongBlockPreentry(block);
   check(`${raw.block_id}: canonical identity and full Framework span survive packaging changes`, () => {
-    assert.equal(sha(beforePromptCalibration(source)), raw.raw_sha256);
+    const bridge = readingBridgeReview.b_raw_snapshots[raw.source_path];
+    if (bridge) assert.equal(raw.raw_sha256, bridge.previous);
+    assert.equal(sha(beforePromptCalibration(source)), bridge?.current ?? raw.raw_sha256);
     assert.equal(block.blockId, raw.block_id);
     assert.equal(block.sourcePath, raw.source_path);
     assert.equal(got.framework.present, true);
@@ -133,6 +136,10 @@ for (const prior of baseline.blocks) check(`${prior.block_id}: non-B protected c
   } else if (prior.system_id === 'circulation') {
     assert.equal(assertReviewedA1Preentry(block, production.compileXizongBlockPreentry(block),
       fs.readFileSync(path.join(root, block.sourcePath), 'utf8')), true);
+  } else if (prior.block_id === 'hematology-h01' && prior.system_id === 'hematology-immunity-infection') {
+    assert.deepEqual(prior, readingBridgeReview.h1_preentry.previous);
+    assert.equal(sha(fs.readFileSync(path.join(root, block.sourcePath))), readingBridgeReview.h1_preentry.current.raw_sha256);
+    assert.equal(sha(JSON.stringify(production.compileXizongBlockPreentry(block))), readingBridgeReview.h1_preentry.current.preentry_sha256);
   } else if (!['circulation','respiratory','urinary'].includes(prior.system_id)) {
     assert.equal(sha(fs.readFileSync(path.join(root, block.sourcePath))), prior.raw_sha256);
     assert.equal(sha(JSON.stringify(production.compileXizongBlockPreentry(block))), prior.preentry_sha256);

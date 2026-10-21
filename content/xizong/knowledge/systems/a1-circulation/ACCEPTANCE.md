@@ -538,3 +538,14 @@ parser-impact probe found additional explicit labels in A3, B and F; their
 cognitive placement and real surfaces require their own bounded review before
 expanding the grammar. Do not automatically start that batch. Missing optional
 resources remain absent; this repair does not author new medical knowledge.
+
+
+## 2026-10-21｜Accepted reading bridges: bounded dependency re-review
+
+The parent task reported completed non-author review and root review against PR1300 content head `9d579d74914f214f7453ab50c8499324873af00d`: five source files match the accepted reading package, and all ten before/after Core hashes match. This is new bounded evidence, not a claim that earlier acceptance covered the new text.
+
+A1 B4 KP17 retains the arterial/venous relative-mechanism boundary while adding the accepted mural mixed-thrombus bridge. B6 KP19 retains the original four-stage MI timeline and scar-not-contractile-muscle condition; its collagen morphology addition does not enter B06-M05 or xpg_be5621635eaf04ac's answer. D1 KP06 preserves PMCA versus MLCK/SR-pump distinctions; D16 KP04's added apoptosis morphology is compatible with the unchanged Councilman answer and concurrent necrosis boundary. H1 KP07 keeps redistribution distinct from tissue emigration. These are the already accepted five reading bridges, not new question-driven knowledge changes.
+
+The complete shared-fields owner remains blob `d6e111cdbf3c3c55fa95290ef8db524fab915242`. Existing answer text, conditions, cue/card identity, source bindings and admission remain unchanged. The native witness builder recomputes D16's Core/owner evidence (owner fingerprint unchanged); the existing digest function binds A1 B6's new Core. Runtime freshness rules are unchanged.
+
+Versioned evidence, old/new exact Core text, prior witnesses and frozen snapshots are retained in `static-web/scripts/fixtures/reading-bridge-review-20261021.json`. The original historical B admission/source records, including unadopted candidate statements, remain unchanged. The dedicated reading-bridge regression verifies actual five-Block native consumption, unchanged two answers/IDs, stale Core and answer rejection, and synthetic availability without progress. Engineering test results are reported separately; this section does not claim all-green CI, browser/print proof or learner progress.

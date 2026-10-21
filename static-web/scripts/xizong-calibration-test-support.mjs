@@ -1,4 +1,6 @@
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+const readingBridgeReview = JSON.parse(fs.readFileSync(new URL('./fixtures/reading-bridge-review-20261021.json', import.meta.url), 'utf8'));
 import { marked } from 'marked';
 import { createHash } from 'node:crypto';
 
@@ -46,6 +48,8 @@ export function descriptorAtFrozenPackaging(descriptor, source) {
 // independent B and A3 baselines. Neither original baseline is rewritten.
 // KP records, every non-Framework field and Framework owner metadata remain
 // exact; the new authored Framework is checked with a separate Markdown lexer.
+// B4/B6 snapshots renewed after bounded reading-bridge review on 2026-10-21.
+// Previous snapshots and exact Core deltas: fixtures/reading-bridge-review-20261021.json.
 const a1ReviewedPreentry = {
   "circulation-b02": {
     "reviewed_raw_sha256": "a7a83d463138069ca11de92cb61c7c00ad5b27f0e536ddbafed880bc7fb798b0",
@@ -72,8 +76,8 @@ const a1ReviewedPreentry = {
     }
   },
   "circulation-b04": {
-    "reviewed_raw_sha256": "70c7f7363a96f29399cc1161d41c488ac3fd66cc81c9b6fb4bcf97eb285057f0",
-    "original_kp_records_sha256": "1242277601c312f1cc3815f1ed41c6ea699a0fae7964441ac3ae2718a42890d3",
+    "reviewed_raw_sha256": "1668ab6ffbe2e5daef8975275b3b33500338177b972dbc9ebf87b9d5509fbd0d",
+    "original_kp_records_sha256": "fa4ce9f04fa912074babc5791d8cf1367a726c0ef95f285f765d6c694d016f69",
     "original_nonframework_sha256": "3829d4ecb34aab469968139f0cd682939b3a476f0a3d6bef1f3446f6c6dd608c",
     "original_framework_meta": {
       "present": true,
@@ -96,8 +100,8 @@ const a1ReviewedPreentry = {
     }
   },
   "circulation-b06": {
-    "reviewed_raw_sha256": "274a32156d92940c89448f22ab09ab41ba6f8034c530e0d9bca54caf0faae0f8",
-    "original_kp_records_sha256": "8fb9f8173de93bcd86bc840cf4967d40d7b1ba7ac140c8a7c013f625c2d8717e",
+    "reviewed_raw_sha256": "604d036923b25b8af89025c3b1737c324c2fc6ae1589b9a2b3817f8ffb6ef9d0",
+    "original_kp_records_sha256": "471a5f1f152e974e74983384e88fd193029a129216f3d04895a49aee82821300",
     "original_nonframework_sha256": "16f13604869897aaca51673089c4d522631cdb3a82bbabbdca2dec238d3edb25",
     "original_framework_meta": {
       "present": true,
@@ -1895,6 +1899,18 @@ export function a2CuesBeforeOwnerReview(source) {
 export function assertPreparedDescriptorAfterModelReview(descriptor, source, originalDigest) {
   if (!descriptor) { assert.equal(a2TestDigest(null), originalDigest); return; }
   const comparison = descriptorAtFrozenPackaging(descriptor, source);
+  // Only three independently reviewed revision fields changed. Verify their
+  // current values before replaying the untouched historical descriptor digest.
+  const bridge = readingBridgeReview.descriptor_changes[descriptor.blockId];
+  if (bridge) {
+    assert.equal(descriptor.systemId, 'circulation');
+    assert.equal(originalDigest, bridge.historical_digest);
+    for (const change of bridge.changes) {
+      const keys = change.path.split('/');
+      assert.equal(keys.reduce((o, key) => o[key], comparison), change.after);
+      keys.slice(0, -1).reduce((o, key) => o[key], comparison)[keys.at(-1)] = change.before;
+    }
+  }
   const a3Changes = a3ReviewedDescriptorChanges[descriptor.blockId];
   const changes = a2ReviewedDescriptorChanges[descriptor.blockId] || a3Changes;
   if (changes) {
