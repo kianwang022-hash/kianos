@@ -79,9 +79,9 @@ assert(systemWuReturn.includes('const relation = question?.relation;') && system
 assert(systemWuReturn.includes("inboxKey:'kianos-xizong-repair-inbox-v1:xizong:'"), 'system-repair-bypasses-inbox');
 assert(repairBridge.includes('kianos-xizong-repair-inbox-v1:'), 'block-inbox-consumer-missing');
 assert(repairBridge.includes("origin = blockChat ? 'BLOCK_CHAT_RETURN'"), 'inbox-import-origin-missing');
-assert(repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);'), 'inbox-import-promotes-mastery');
+assert(/const next = \{\s*\.\.\.memory,\s*repairTasks:\s*\[\s*\.\.\.preserved,\s*\.\.\.setRepairTasks\(memory,\s*replacements\)\.repairTasks\s*\]\s*\};/.test(repairBridge), 'inbox-import-promotes-mastery');
 assert(repairBridge.includes('sourceQuestionIds,'), 'inbox-loses-question-provenance');
-const durableWriteIndex = repairBridge.indexOf("if (!writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');");
+const durableWriteIndex = repairBridge.indexOf("if (replacements.length && !writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');");
 const durableClearIndex = repairBridge.indexOf('localStorage.removeItem(inboxKey)', durableWriteIndex);
 assert(durableWriteIndex >= 0 && durableClearIndex > durableWriteIndex, 'inbox-clear-before-write');
 assert(repairBridge.includes("window.addEventListener('storage'"), 'already-open-block-cross-tab-return-missing');
