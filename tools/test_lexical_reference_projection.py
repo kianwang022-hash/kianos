@@ -89,13 +89,38 @@ class ReferenceProjectionTest(unittest.TestCase):
 
     def test_absence_and_usage_examples_do_not_infer_freeze(self):
         owner = self.owner(555)
+        original = copy.deepcopy(owner)
         final = self.compile(owner)
-        self.assertEqual(final['sense_lineage'], [])
-        leap = next(s for s in final['senses'] if s['id'] == 'sense:bound:4df14c7f24475958')
-        old = next(u for u in leap['usage'] if u['id'] == 'collocation:7fa2edc7720a9a3f51c1')
-        self.assertEqual((old['phrase'], old['meaning_cn'], old['kind'], old['repair']), ('bound up', '跳起', 'usage_example', None))
-        owner['identity_refs']['collocations'] = []
-        self.assertEqual(self.compile(owner)['sense_lineage'], [])
+        expected_ids = {
+            'collocation:9a835794b03a6d48bee7',
+            'collocation:addf7319a4e463686a85',
+            'collocation:fa5db2e585321a798690',
+        }
+        # Positive control: explicit source lifecycle must not be discarded.
+        declared = [row for row in owner['identity_refs']['collocations']
+                    if row.get('status') == 'reference']
+        self.assertEqual({row['id'] for row in declared}, expected_ids)
+        self.assertEqual(final['sense_lineage'], [
+            {'word_id': 'word:bound', 'target_kind': 'collocation',
+             'from_target_id': row['id'], 'status': 'reference', 'to_target_id': None}
+            for row in declared])
+        # Controlled negative fixture: no lifecycle declarations, not production data.
+        controlled = copy.deepcopy(owner)
+        controlled['identity_refs']['collocations'] = []
+        controlled['identity_refs']['senses'] = []
+        controlled['identity_refs']['facts'] = []
+        self.assertNotIn('historical_locator_freezes',
+                         b.load(b.DECISIONS).get('words', {}).get('word:bound', {}))
+        no_lifecycle = self.compile(controlled)
+        self.assertEqual(no_lifecycle['sense_lineage'], [])
+        for output in (final, no_lifecycle):
+            leap = next(s for s in output['senses'] if s['id'] == 'sense:bound:4df14c7f24475958')
+            old = next(u for u in leap['usage'] if u['id'] == 'collocation:7fa2edc7720a9a3f51c1')
+            self.assertEqual((old['phrase'], old['meaning_cn'], old['kind'], old['repair']),
+                             ('bound up', '跳起', 'usage_example', None))
+            self.assertFalse(any(row.get('from_target_id') == old['id']
+                                 for row in output['sense_lineage']))
+        self.assertEqual(owner, original)
 
     def test_distinct_construction_keeps_tied_adjective_attachment(self):
         final = self.compile(self.owner(555))
@@ -106,10 +131,85 @@ class ReferenceProjectionTest(unittest.TestCase):
         self.assertNotEqual(rows[0]['id'], 'collocation:7fa2edc7720a9a3f51c1')
 
     def test_unaffected_dependencies_preserve_fingerprint_format(self):
+        # Construct a dependency-free fixture explicitly; abstract itself is affected.
         owner = self.owner(19)
-        final = self.compile(owner)
+        controlled = copy.deepcopy(owner)
+        controlled.pop('reference_senses', None)
+        controlled['identity_refs']['facts'] = []
+        controlled['identity_refs']['senses'] = [
+            r for r in controlled['identity_refs']['senses'] if r.get('status') == 'active']
+        controlled['identity_refs']['collocations'] = [
+            r for r in controlled['identity_refs']['collocations']
+            if not r.get('status') or r['status'] == 'active']
+        decisions = b.load(b.DECISIONS)
+        decisions['words'].pop('word:abstract', None)
+        record, paths = b.hydrate_relations(controlled, controlled['record'])
+        expected = b.sha256({'record': record, 'relation_paths': paths})
+        final = b.compile_word(controlled, decisions)
+        self.assertEqual(final['sense_lineage'], [])
+        self.assertEqual(final['source_fingerprint'], expected)
+        unrelated = copy.deepcopy(decisions)
+        unrelated['words']['word:synthetic-unrelated'] = {
+            'form_identity': {'disposition': 'EXPLORE_ONLY', 'reason': 'test-only unrelated'}}
+        self.assertEqual(b.compile_word(controlled, unrelated), final)
+
+    def test_abstract_explicit_dependencies_change_fingerprint_without_rewriting_owner(self):
+        owner = self.owner(19)
+        original = copy.deepcopy(owner)
+        decisions = b.load(b.DECISIONS)
+        final = b.compile_word(owner, decisions)
         record, paths = b.hydrate_relations(owner, owner['record'])
-        self.assertEqual(final['source_fingerprint'], b.sha256({'record': record, 'relation_paths': paths}))
+        # Independent expected lifecycle comes from source declarations, never output.
+        source_senses = [r for r in owner['identity_refs']['senses']
+                         if r.get('status') == 'deprecated']
+        source_children = [r for r in owner['identity_refs']['collocations']
+                           if r.get('status') == 'deprecated']
+        self.assertEqual([r['sense_id'] for r in source_senses],
+                         ['sense:abstract:101ad1c99ab15f03'])
+        self.assertEqual({r['id'] for r in source_children},
+                         {'collocation:2255bd40db066fe3d294',
+                          'collocation:b4cb2e848b0a00a613f5'})
+        self.assertTrue(all(r.get('merged_into_sense_id') is None for r in source_senses))
+        self.assertTrue(all(r.get('merged_into_id') is None for r in source_children))
+        expected_senses = [
+            {'word_id': owner['word_id'], 'target_kind': 'sense',
+             'from_target_id': r['sense_id'], 'status': 'deprecated', 'to_target_id': None}
+            for r in source_senses]
+        expected_children = [
+            {'word_id': owner['word_id'], 'target_kind': 'collocation',
+             'from_target_id': r['id'], 'status': 'deprecated', 'to_target_id': None}
+            for r in source_children]
+        source_facts = [r for r in owner['identity_refs']['facts']
+                        if r.get('status') == 'deprecated' and r.get('target_kind') == 'construction']
+        self.assertEqual({r['id'] for r in source_facts},
+                         {'construction:19ab57ac7e31c4d9b201',
+                          'construction:19ab57ac7e31c4d9b202',
+                          'construction:19ab57ac7e31c4d9b203'})
+        self.assertTrue(all('merged_into_id' in r and r['merged_into_id'] is None
+                            for r in source_facts))
+        expected_facts = [
+            {'word_id': owner['word_id'], 'target_kind': 'construction',
+             'from_target_id': r['id'], 'status': 'deprecated', 'to_target_id': None}
+            for r in source_facts]
+        self.assertEqual(final['sense_lineage'], expected_senses + expected_children + expected_facts)
+        inputs = {'record': record, 'relation_paths': paths,
+                  'form_identity_decision': decisions['words']['word:abstract']['form_identity'],
+                  'reference_senses': owner['reference_senses'],
+                  'sense_lineage': expected_senses,
+                  'collocation_lineage': expected_children,
+                  'fact_lineage': expected_facts}
+        self.assertEqual(final['source_fingerprint'], b.sha256(inputs))
+        self.assertNotEqual(final['source_fingerprint'], b.sha256({'record': record, 'relation_paths': paths}))
+        revised = copy.deepcopy(owner)
+        revised['reference_senses'][0]['definition_en'] += ' synthetic-only revision'
+        self.assertNotEqual(b.compile_word(revised, decisions)['source_fingerprint'], final['source_fingerprint'])
+        without_form = copy.deepcopy(decisions)
+        without_form['words']['word:abstract'].pop('form_identity')
+        self.assertNotEqual(b.compile_word(owner, without_form)['source_fingerprint'], final['source_fingerprint'])
+        unrelated = copy.deepcopy(decisions)
+        unrelated['words']['word:synthetic-unrelated'] = {'form_identity': {'disposition': 'EXPLORE_ONLY'}}
+        self.assertEqual(b.compile_word(owner, unrelated), final)
+        self.assertEqual(owner, original)
 
 
 if __name__ == '__main__':

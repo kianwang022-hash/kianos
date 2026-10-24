@@ -179,8 +179,9 @@ export function listLexicalOrdinals() {
 export function listLexicalWordSummaries() {
   return listLexicalOrdinals().map((ordinal) => {
     const { object } = finalLearnerObjectByOrdinal(ordinal);
-    const senses = Array.isArray(object.senses) ? object.senses : [];
-    const secondary = Array.isArray(object.secondary_senses) ? object.secondary_senses : [];
+    const senses = (Array.isArray(object.senses) ? object.senses : []).filter((sense) => sense.disposition !== 'EXPLORE_ONLY');
+    const secondary = (Array.isArray(object.secondary_senses) ? object.secondary_senses : [])
+      .filter((sense) => sense.disposition !== 'EXPLORE_ONLY');
     const constructions = Array.isArray(object.constructions) ? object.constructions : [];
     const fixedPatternCount = senses.reduce(
       (count, sense) => count + (Array.isArray(sense?.usage)

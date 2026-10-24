@@ -964,7 +964,7 @@
     "ordinal": 4104,
     "word": "reserve",
     "source_owner_path": "content/lexical/words/by-ordinal/o4104.json",
-    "source_fingerprint": "113cf9bce4cdcf552e26c6567aab925a7043bb4f724115401a9f1959a8f7fa3a",
+    "source_fingerprint": "82fd5a0628c70509c842da20b58552940bd96c084ba27afb75a4c6c3d5ed1889",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1191,7 +1191,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:reserve:c1071f911d79b94c",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "储备；储备物",
+        "definition_en": "something kept back or saved for future use or a special purpose",
+        "pattern": "in reserve 储备",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:reserve:c1071f911d79b94c",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "储备；储备物"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -1206,7 +1222,7 @@
     "ordinal": 4105,
     "word": "reservoir",
     "source_owner_path": "content/lexical/words/by-ordinal/o4105.json",
-    "source_fingerprint": "2285a195c0917932cd40d995088752f738865bcb98c04e4c69598b31f0b6b947",
+    "source_fingerprint": "81e483d3ea9866f6878d259316fadc62bd09c046134469d93ba131570235f67b",
     "sense_lineage": [
       {
         "word_id": "word:reservoir",
@@ -1307,7 +1323,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "noun",
-          "definition_cn": "传染源；宿主",
+          "definition_cn": "（感染病学）病原体的储存宿主或储存环境",
           "definition_en": "anything in which an infectious agent normally lives and multiplies",
           "semantic_key": "2332bbd057a7b1d40789415be86c77657fff8f4d4fb73e8b9490d05bcd2261e6",
           "semantic_key_history": [
@@ -1325,7 +1341,15 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 11461,
           "source_path": "content/lexical/canonical/senses/shards/o4097-4128.json",
-          "reference_only": true
+          "reference_only": true,
+          "usage_note": "指病原体通常存活、繁殖的宿主或环境；不一定等同于某次感染的直接来源。",
+          "source_evidence": [
+            {
+              "source_url": "https://archive.cdc.gov/www_cdc_gov/csels/dsepd/ss1978/lesson1/section10.html",
+              "accessed_date": "2026-10-24",
+              "role": "Reservoir includes humans, animals and environment; may differ from immediate infection source"
+            }
+          ]
         },
         {
           "stable_sense_id": "sense:reservoir:d110f455ccc75cc2",
@@ -1528,23 +1552,23 @@
     "ordinal": 4107,
     "word": "resident",
     "source_owner_path": "content/lexical/words/by-ordinal/o4107.json",
-    "source_fingerprint": "bc105a76327a4fab45fc657353013aebe6c29dbe209d8b9c76f03bd62f5a75e1",
+    "source_fingerprint": "f8f868ba72dea26590f3e6fe3d122d63d9fdb9cdd721dc8215c9bce71fbd9a66",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1A",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "居住在某地的人",
-      "decision_cn": "",
+      "summary_cn": "居民；居住的；（医学）住院医师",
+      "decision_cn": "地点语境看居民或居住；医院职业语境看住院医师。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "居住在某地的人"
+        "target_label": "居民；居住的；（医学）住院医师"
       }
     },
     "senses": [
@@ -1598,6 +1622,23 @@
           "target_id": "sense:resident:7e70d3b2a6905422",
           "target_locator": "record.senses[1]",
           "target_label": "居住的，居留的"
+        }
+      },
+      {
+        "id": "sense:resident:a1cf25ba9a7a4088",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "（尤美式）住院医师；接受进一步专科培训的医生",
+        "definition_en": "a doctor receiving further specialist training in a hospital, especially in US usage",
+        "note": "医院职业语境中的 resident 指住院医师，不是住院病人。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:resident:a1cf25ba9a7a4088",
+          "target_locator": "record.senses[2]",
+          "target_label": "（尤美式）住院医师；接受进一步专科培训的医生"
         }
       }
     ],
@@ -2427,7 +2468,7 @@
     "ordinal": 4112,
     "word": "resistant",
     "source_owner_path": "content/lexical/words/by-ordinal/o4112.json",
-    "source_fingerprint": "76561f21e791fe97f2381a0e656532068ddae88945ec22c000b162314e14de1f",
+    "source_fingerprint": "36fcdb0059bdaf0a32b0801b0b52b9dad33b51ec2dea1e1d92f77950893e1db1",
     "sense_lineage": [
       {
         "word_id": "word:resistant",
@@ -2444,13 +2485,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "抵抗的，不受影响的",
+      "summary_cn": "有抵抗力的；不易受影响的；抗拒的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "抵抗的，不受影响的"
+        "target_label": "有抵抗力的；不易受影响的；抗拒的"
       }
     },
     "senses": [
@@ -2459,8 +2500,8 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "不受影响的，抵抗的",
-        "definition_en": "impervious to being affected",
+        "definition_cn": "有抵抗力的；不易受影响或损坏的；抗拒的",
+        "definition_en": "able to withstand something without being easily affected or damaged; unwilling to accept something",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -2468,7 +2509,7 @@
           "target_kind": "sense",
           "target_id": "sense:resistant:994f5b59c9975823",
           "target_locator": "record.senses[0]",
-          "target_label": "不受影响的，抵抗的"
+          "target_label": "有抵抗力的；不易受影响或损坏的；抗拒的"
         }
       }
     ],
@@ -3191,7 +3232,7 @@
     "ordinal": 4116,
     "word": "resort",
     "source_owner_path": "content/lexical/words/by-ordinal/o4116.json",
-    "source_fingerprint": "67e17eb33cd19725d8449bff56149a9acda250098fdc0e7fed0b1c9c92f95e2d",
+    "source_fingerprint": "47adfa39e584455183b10fa9619487dc91b826cd137b18d1ced79dd2bec49dd4",
     "sense_lineage": [
       {
         "word_id": "word:resort",
@@ -3388,7 +3429,23 @@
       },
       "has_scope": true
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:resort:f22ac0b06b5afb97",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "诉诸，求助于",
+        "definition_en": "to turn to something for help or as a last option",
+        "pattern": "resort to + 名词/动名词",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:resort:f22ac0b06b5afb97",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "诉诸，求助于"
+        }
+      }
+    ],
     "constructions": [
       {
         "id": "construction:1950609c290c999b36d0",
@@ -3805,7 +3862,7 @@
     "ordinal": 4118,
     "word": "respect",
     "source_owner_path": "content/lexical/words/by-ordinal/o4118.json",
-    "source_fingerprint": "9670e53c6170bd5d42f25933b5bb2d1afa3d04d3a2669cd06c0a310032a1be16",
+    "source_fingerprint": "9277de6186aeec6e2286d83cc26e4f25eb56b94e8bc97d0e4cc78001fc400e56",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3989,7 +4046,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:respect:4edd102c1f74819c",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "方面，细节",
+        "definition_en": "a particular aspect, point, or detail",
+        "pattern": "in this respect",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:respect:4edd102c1f74819c",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "方面，细节"
+        }
+      }
+    ],
     "constructions": [
       {
         "id": "construction:d3678ced8d3a0ba38567",
@@ -4884,11 +4957,11 @@
     "ordinal": 4124,
     "word": "rest",
     "source_owner_path": "content/lexical/words/by-ordinal/o4124.json",
-    "source_fingerprint": "8d14d468762511a61e88751f2daf9b6ac86f46fd078d31e394acc3fabc7a5f6f",
+    "source_fingerprint": "c3b8b83d2222d2133126969b0c2c56719aae86ec804caac7986f6743a38a8bfb",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
+        "1V",
         "3N"
       ],
       "density": "rich"
@@ -5026,6 +5099,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:rest:6aec07a62442d4e7",
         "source_locator": "record.senses[4]",
         "pos": "verb",
@@ -5073,14 +5147,6 @@
           {
             "text": "取决于；以……为基础",
             "lang": "cn"
-          },
-          {
-            "text": "休息；歇息",
-            "lang": "cn"
-          },
-          {
-            "text": "abstract rest on = depend/be based on",
-            "lang": "en"
           },
           {
             "text": "to depend on or be based on something",
@@ -6938,7 +7004,7 @@
     "ordinal": 4137,
     "word": "retire",
     "source_owner_path": "content/lexical/words/by-ordinal/o4137.json",
-    "source_fingerprint": "60927cbc9bbf2d653738d16fbe6cbe0a392eecebbec87add8aa53228767af4d0",
+    "source_fingerprint": "08b664a4fb597a94bd9b92019980e30b880d3e77336282251d1d435abd0544af",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7003,7 +7069,7 @@
         "governing_pattern": "vi. + to",
         "definition_cn": "退去，退隐",
         "definition_en": "go away to a quiet or private place",
-        "note": "",
+        "note": "正式用语；retire to bed（就寝）也可带旧式语感。",
         "identity_overlay": null,
         "usage": [
           {
@@ -7040,8 +7106,8 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "使退休，辞退",
-        "definition_en": "cause someone to leave a job or position",
+        "definition_cn": "使退休；使退职",
+        "definition_en": "to make someone stop working in a job, usually because of age or ill health",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -7062,7 +7128,7 @@
             "id": "collocation:c1f4a5858b032147b5f9",
             "source_locator": "record.senses[2].collocations[1]",
             "phrase": "retire an employee",
-            "meaning_cn": "辞退一名员工",
+            "meaning_cn": "使一名员工退休",
             "kind": "usage_example",
             "repair": null
           }
@@ -7071,7 +7137,7 @@
           "target_kind": "sense",
           "target_id": "sense:retire:ce48e22772c05361",
           "target_locator": "record.senses[2]",
-          "target_label": "使退休，辞退"
+          "target_label": "使退休；使退职"
         }
       }
     ],
@@ -7140,8 +7206,69 @@
     "ordinal": 4138,
     "word": "retort",
     "source_owner_path": "content/lexical/words/by-ordinal/o4138.json",
-    "source_fingerprint": "e744abbba9eba57877e85100cc961b06b1f7e0a1c959e81add41d48daa715b29",
-    "sense_lineage": [],
+    "source_fingerprint": "98cfe41f3aa88325c2d197e1f7228e8c69d70d538ce6fed686c60b793b5e4509",
+    "sense_lineage": [
+      {
+        "word_id": "word:retort",
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.senses[0].lexical_identity_overlay",
+        "target_revision": "b26fa7e04f47073f2cc9c77871639fa0790e23615913777ab9635c5ad31ba9f1",
+        "status": "frozen",
+        "reason": "INCORRECT_STRESS_POS_OVERLAY_HISTORICAL_PRACTICE",
+        "evidence_commit": "61e8b31fceb99dd54ac74ad8150242a33ef13802"
+      },
+      {
+        "word_id": "word:retort",
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.senses[1].lexical_identity_overlay",
+        "target_revision": "b26fa7e04f47073f2cc9c77871639fa0790e23615913777ab9635c5ad31ba9f1",
+        "status": "frozen",
+        "reason": "INCORRECT_STRESS_POS_OVERLAY_HISTORICAL_PRACTICE",
+        "evidence_commit": "61e8b31fceb99dd54ac74ad8150242a33ef13802"
+      },
+      {
+        "word_id": "word:retort",
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.senses[2].lexical_identity_overlay",
+        "target_revision": "b26fa7e04f47073f2cc9c77871639fa0790e23615913777ab9635c5ad31ba9f1",
+        "status": "frozen",
+        "reason": "INCORRECT_STRESS_POS_OVERLAY_HISTORICAL_PRACTICE",
+        "evidence_commit": "61e8b31fceb99dd54ac74ad8150242a33ef13802"
+      },
+      {
+        "word_id": "word:retort",
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.senses[0].lexical_identity_overlay",
+        "target_revision": "e744abbba9eba57877e85100cc961b06b1f7e0a1c959e81add41d48daa715b29",
+        "status": "frozen",
+        "reason": "INCORRECT_STRESS_POS_OVERLAY_HISTORICAL_PRACTICE",
+        "evidence_commit": "399199f916e1e2af10325a2bf325edc429172662"
+      },
+      {
+        "word_id": "word:retort",
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.senses[1].lexical_identity_overlay",
+        "target_revision": "e744abbba9eba57877e85100cc961b06b1f7e0a1c959e81add41d48daa715b29",
+        "status": "frozen",
+        "reason": "INCORRECT_STRESS_POS_OVERLAY_HISTORICAL_PRACTICE",
+        "evidence_commit": "399199f916e1e2af10325a2bf325edc429172662"
+      },
+      {
+        "word_id": "word:retort",
+        "target_kind": "form_identity",
+        "target_id": null,
+        "target_locator": "record.senses[2].lexical_identity_overlay",
+        "target_revision": "e744abbba9eba57877e85100cc961b06b1f7e0a1c959e81add41d48daa715b29",
+        "status": "frozen",
+        "reason": "INCORRECT_STRESS_POS_OVERLAY_HISTORICAL_PRACTICE",
+        "evidence_commit": "399199f916e1e2af10325a2bf325edc429172662"
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -7595,7 +7722,7 @@
     "ordinal": 4141,
     "word": "retrospect",
     "source_owner_path": "content/lexical/words/by-ordinal/o4141.json",
-    "source_fingerprint": "bf53c91b1a14110d3ba73cc913389b2fb7fd1ab7ac9efb3dc1a06777b7cccfe1",
+    "source_fingerprint": "d6a28f3ffac62ebbce6b87efbf4a0f72943bae35d82955a761c30b5a9a6c1176",
     "sense_lineage": [
       {
         "word_id": "word:retrospect",
@@ -7672,7 +7799,7 @@
             "lang": "cn"
           },
           {
-            "text": "hindsight/looking-back construction; do not reactivate deprecated verb",
+            "text": "Looking back on past events with knowledge gained later.",
             "lang": "en"
           },
           {
@@ -7960,7 +8087,7 @@
     "ordinal": 4143,
     "word": "reveal",
     "source_owner_path": "content/lexical/words/by-ordinal/o4143.json",
-    "source_fingerprint": "0f0920eaa1ec71744aa502bb8d53514ac360bb2351c61f2ff0a7a8337d7f0a3e",
+    "source_fingerprint": "224465445c43f4ef50bf8d086854e802b37d6d76f504bbec5a5810d4a2e6cf43",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8061,7 +8188,7 @@
         "id": "sense:reveal:94f2591b331654e9",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vt. + that-clause",
+        "governing_pattern": "vt.: reveal sth (to sb); reveal that + clause",
         "definition_cn": "（神）启示",
         "definition_en": "to make something known through divine or prophetic means",
         "note": "",
@@ -10996,11 +11123,10 @@
     "ordinal": 4159,
     "word": "ribbon",
     "source_owner_path": "content/lexical/words/by-ordinal/o4159.json",
-    "source_fingerprint": "7ca06657d0e095f4dd378bbde0b08601363f77c79a9d7b6a02bfbc060438ecad",
+    "source_fingerprint": "ce27ad2ff0a70073f3c98162e6cce0b9db8ac2293a7900cf4b1a08cfa44d14ab",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
         "3N"
       ],
       "density": "rich"
@@ -11118,6 +11244,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:ribbon:b0c68c681b1b5175",
         "source_locator": "record.senses[3]",
         "pos": "verb",
@@ -11189,7 +11316,7 @@
     "ordinal": 4160,
     "word": "rice",
     "source_owner_path": "content/lexical/words/by-ordinal/o4160.json",
-    "source_fingerprint": "062cdd31681e65afb4b0db29861d47046765e70fcad48a2d540291f7102ed183",
+    "source_fingerprint": "3e6668a5c4cf467cee801debf7fa0fc4b2c35d48de0111e6188c9e363404f9d4",
     "sense_lineage": [
       {
         "word_id": "word:rice",
@@ -11206,13 +11333,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "稻米、大米；植物义为次级",
+      "summary_cn": "稻米、大米；也指水稻植株",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "稻米、大米；植物义为次级"
+        "target_label": "稻米、大米；也指水稻植株"
       }
     },
     "senses": [

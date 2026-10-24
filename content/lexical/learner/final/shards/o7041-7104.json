@@ -85,7 +85,7 @@
     "ordinal": 7042,
     "word": "inordinate",
     "source_owner_path": "content/lexical/words/by-ordinal/o7042.json",
-    "source_fingerprint": "ea2e165b72182aec0e41eb89e64617e616f59d8811d54d8063559335152a6a25",
+    "source_fingerprint": "33247c0a70c2fe1313946bb97134a6be0d80e012c8312e2373b152c4bef28371",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -94,13 +94,13 @@
       "density": "light"
     },
     "word_feel": {
-      "summary_cn": "过度的；过分的；超出正常限度的（紊乱、不规则义保留供查阅）",
+      "summary_cn": "过度的；过分的；超出正常限度的",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "过度的；过分的；超出正常限度的（紊乱、不规则义保留供查阅）"
+        "target_label": "过度的；过分的；超出正常限度的"
       }
     },
     "senses": [
@@ -177,7 +177,7 @@
           "stable_sense_id": "sense:inordinate:bdbe3d0424b40012",
           "reference_only": true,
           "status": "active",
-          "usage_note": "保原Core紊乱的有效词典义；当前识别重点仍是过量/过度，非新的默认Recall。"
+          "usage_note": "古旧用法指无秩序、不规则或失控；现代通常指过量、过度。"
         }
       ]
     }
@@ -691,22 +691,22 @@
     "ordinal": 7048,
     "word": "instil",
     "source_owner_path": "content/lexical/words/by-ordinal/o7048.json",
-    "source_fingerprint": "21d749505a6619cc47a7899edddbd4f7c58a21e5cb367c13cb5815bed8450170",
+    "source_fingerprint": "3ce80d5f733921150f803166aa1537ef753e8927e69805aa35fe7b676b3543df",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V"
+        "2V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "逐渐灌输思想、态度、价值观、情感或习惯",
-      "decision_cn": "",
+      "summary_cn": "逐渐灌输（思想等）；滴入（液体、药液）",
+      "decision_cn": "思想、情感或习惯作宾语时看逐渐灌输；液体或药液作宾语时看逐滴滴入。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "逐渐灌输思想、态度、价值观、情感或习惯"
+        "target_label": "逐渐灌输（思想等）；滴入（液体、药液）"
       }
     },
     "senses": [
@@ -725,6 +725,23 @@
           "target_id": "sense:instil:350633f0a6c257d3",
           "target_locator": "record.senses[0]",
           "target_label": "逐渐灌输思想、态度、价值观、情感或习惯"
+        }
+      },
+      {
+        "id": "sense:instil:15cdcd9a03faca31",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "instil a liquid into sth",
+        "definition_cn": "滴入（液体，尤指药液）",
+        "definition_en": "to introduce a liquid, especially medication, drop by drop",
+        "note": "液体或药液作宾语时是实际滴入；思想、情感或习惯作宾语时是逐渐灌输。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:instil:15cdcd9a03faca31",
+          "target_locator": "record.senses[1]",
+          "target_label": "滴入（液体，尤指药液）"
         }
       }
     ],
@@ -3969,13 +3986,13 @@
     "ordinal": 7079,
     "word": "jubilant",
     "source_owner_path": "content/lexical/words/by-ordinal/o7079.json",
-    "source_fingerprint": "b037bea67487fbde1f72381544b0855f636d1596f1a257962e87a0135c763fc4",
+    "source_fingerprint": "b3fec9164610e5572225352c8b1053741d18f8ae6453916f3a35af3c60fecda6",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "1A"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "欢呼的, 喜洋洋的",
@@ -4006,6 +4023,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:jubilant:a7fce874cb4d54eb",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
@@ -4322,18 +4340,18 @@
     "ordinal": 7082,
     "word": "jumble",
     "source_owner_path": "content/lexical/words/by-ordinal/o7082.json",
-    "source_fingerprint": "a839470d82b5f4a881f46288610695ea2188789da934088ce841e0fe2ad2a344",
+    "source_fingerprint": "83b62c325b33aa11c1c37e9df91d09f89f6289bbba17066f815a8c1d9e87da89",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "杂乱地混在一起，或这样混成的一堆",
-      "decision_cn": "动词看弄乱或变乱，普通名词看杂乱的一堆；少见食品名指环形小饼干；慈善义卖语境的jumble是捐赠旧物，不是杂乱或饼干。",
+      "decision_cn": "动词看弄乱或变乱，普通名词看杂乱的一堆；慈善义卖语境的jumble是捐赠旧物。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4343,6 +4361,7 @@
     },
     "senses": [
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:jumble:4329bd03ce015ad8",
         "source_locator": "record.senses[0]",
         "pos": "noun",
@@ -4631,7 +4650,7 @@
     "ordinal": 7084,
     "word": "justification",
     "source_owner_path": "content/lexical/words/by-ordinal/o7084.json",
-    "source_fingerprint": "ae9209429d33ed461beac79326564ee589826162f43c5ef074d2b2c39efd4996",
+    "source_fingerprint": "06a1c0e9e4c04ffc4b962a9d68decc923451f8dff605b78d2ad4be738ea2a1d1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4641,7 +4660,7 @@
     },
     "word_feel": {
       "summary_cn": "说明或支持某事合理、正当的理由或论证",
-      "decision_cn": "理由本身、表达理由的陈述、提出理由的行为可以区分；文本、行边距语境则是排版对齐；一般辩护不等于宗教释罪，后者单独保留供查阅。",
+      "decision_cn": "理由本身、表达理由的陈述、提出理由的行为可以区分；文本、行边距语境则是排版对齐；一般辩护不等于宗教上的称义。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4787,7 +4806,7 @@
           "stable_sense_id": "sense:justification:3f9d5ea2ae53d7ac",
           "reference_only": true,
           "status": "active",
-          "usage_note": "承接原中文释罪的有效专门义，不能混入日常理由或说明；保Lookup，不制造默认Recall。"
+          "usage_note": "基督教神学中的称义，不是日常的一般理由或说明。"
         }
       ]
     }
@@ -4933,7 +4952,7 @@
     "ordinal": 7086,
     "word": "ken",
     "source_owner_path": "content/lexical/words/by-ordinal/o7086.json",
-    "source_fingerprint": "ce0c9e279e9a33b25cac5772bbbf61538763048270e44a9f20c75949ddaddc69",
+    "source_fingerprint": "422b824c91aa7eeea3b56c4de9fe3e0320c775943e938a006fa75697de05af2d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4976,7 +4995,7 @@
         "governing_pattern": "",
         "definition_cn": "（文学）视野；目力所及的范围",
         "definition_en": "the range of vision",
-        "note": "文学用法，指看得见的范围；beyond one’s ken常见的知识/理解范围由另一Sense承载。",
+        "note": "文学用法，指看得见的范围；beyond one’s ken通常指超出知识或理解范围。",
         "identity_overlay": null,
         "usage": [],
         "repair": {

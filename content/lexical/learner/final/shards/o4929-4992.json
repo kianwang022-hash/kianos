@@ -5,7 +5,7 @@
     "ordinal": 4929,
     "word": "tempt",
     "source_owner_path": "content/lexical/words/by-ordinal/o4929.json",
-    "source_fingerprint": "8c8673c7f5c97d4f014e372fc991807187023c1f25d4509b5acf46ccc1b99e8a",
+    "source_fingerprint": "d8eac5ae2d7349c6267b9fb6b3d5ff5fc895f4726f55605da101e0d2af31551a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -128,9 +128,9 @@
         "id": "sense:tempt:87ae3f4909bb5717",
         "source_locator": "record.senses[3]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "冒…风险，挑衅（命运）",
-        "definition_en": "to provoke or risk something, as in 'tempt fate'",
+        "governing_pattern": "idiom: tempt fate/providence",
+        "definition_cn": "（tempt fate/providence）心存侥幸地冒不必要的风险",
+        "definition_en": "to take an unnecessary risk by relying too much on good luck",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -138,7 +138,7 @@
             "id": "collocation:b9c9a28d8a712c2a2bd0",
             "source_locator": "record.senses[3].collocations[0]",
             "phrase": "tempt fate",
-            "meaning_cn": "冒风险，玩命",
+            "meaning_cn": "心存侥幸地冒不必要的风险",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -152,7 +152,7 @@
           "target_kind": "sense",
           "target_id": "sense:tempt:87ae3f4909bb5717",
           "target_locator": "record.senses[3]",
-          "target_label": "冒…风险，挑衅（命运）"
+          "target_label": "（tempt fate/providence）心存侥幸地冒不必要的风险"
         }
       }
     ],
@@ -2013,7 +2013,7 @@
     "ordinal": 4941,
     "word": "term",
     "source_owner_path": "content/lexical/words/by-ordinal/o4941.json",
-    "source_fingerprint": "cdcc009151f22c48e62647cb0b61cc5fd3ed8b21e05d034634ba7f46654c48d7",
+    "source_fingerprint": "aa37a580a50f7ff88b2b1b81862702194f6c232ae43899a09c79e7d137c0f014",
     "sense_lineage": [
       {
         "word_id": "word:term",
@@ -2242,7 +2242,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:term:60d748a1334d0a3f",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "（通常用复数 terms）条件；条款",
+        "definition_en": "conditions or requirements in an agreement",
+        "pattern": "通常用复数 terms；terms and conditions 表协议的条款和条件。",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:term:60d748a1334d0a3f",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "（通常用复数 terms）条件；条款"
+        }
+      }
+    ],
     "constructions": [
       {
         "id": "construction:cc4d105cc48ba8bceda3",
@@ -4860,7 +4876,7 @@
     "ordinal": 4957,
     "word": "thank",
     "source_owner_path": "content/lexical/words/by-ordinal/o4957.json",
-    "source_fingerprint": "97905f10be4a7d6831b4634b505e036538e636e9ec0a3a25ba2e9cabd2a020d1",
+    "source_fingerprint": "fa3fa514c7553d873c4b35f9343bf1661080805437901285ce635ad803e1a7ae",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5073,7 +5089,7 @@
           {
             "surface": "thanks",
             "condition": "noun expressing gratitude",
-            "note": "名词通常用复数形式 thanks，如 give thanks；不从 thank 的现有IPA推造 thanks 的读音。"
+            "note": "名词通常用复数 thanks，如 give thanks。"
           }
         ],
         "variants": [],
@@ -6756,7 +6772,7 @@
     "ordinal": 4967,
     "word": "themselves",
     "source_owner_path": "content/lexical/words/by-ordinal/o4967.json",
-    "source_fingerprint": "ba409faf526090843bd032bcc3ed949c03f922dd221613c0e07010c9322a74f2",
+    "source_fingerprint": "a84a550e2d307989235f2e09bc036ee43807cf067d364cf8a255652badb09bc7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6886,7 +6902,7 @@
           {
             "surface": "themselves",
             "condition": "reflexive/emphatic form",
-            "note": "themselves can occur with plural or standard singular they; do not force themself into Core"
+            "note": "themselves 既可对应复数 they，也可对应指单个人的 singular they。"
           }
         ],
         "variants": [],
@@ -9889,7 +9905,7 @@
     "ordinal": 4986,
     "word": "think",
     "source_owner_path": "content/lexical/words/by-ordinal/o4986.json",
-    "source_fingerprint": "54632f45152d9422e20162be15cbd1a919e2ca5f950cb21ab8e92f5479045381",
+    "source_fingerprint": "2b4be075b60b9edaa52d3f9526d5e5e6c8627e8decfdcee18379c3c87aa383e8",
     "sense_lineage": [
       {
         "word_id": "word:think",
@@ -10138,7 +10154,7 @@
           "target_word": "suppose",
           "lines": [
             {
-              "text": "think 是常见的观点表达；suppose 可依现有信息推测，也常把意见或回应说得较试探、较含蓄。两者没有固定确信度等级；本 Relation 对比判断义，假设与义务构式仍由 suppose 自己的 Word 义项选择。",
+              "text": "think 常用于表达观点；suppose 可表示推测或较试探、含蓄的看法。两者没有固定确信度等级；此处不包括 suppose 表假设及 be supposed to 表义务的用法。",
               "lang": "cn"
             },
             {

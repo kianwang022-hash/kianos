@@ -6311,7 +6311,7 @@
     "ordinal": 611,
     "word": "buffer",
     "source_owner_path": "content/lexical/words/by-ordinal/o0611.json",
-    "source_fingerprint": "4c18ea3e9c89ecc8ab94f371e6144d28fe0768e0c6ca8ee6c34b13362907b2f3",
+    "source_fingerprint": "2d97361a9981332562776e36ba4b4eb3f5525b144b7e18cc28f73555f8593fec",
     "sense_lineage": [
       {
         "word_id": "word:buffer",
@@ -6324,6 +6324,13 @@
         "word_id": "word:buffer",
         "target_kind": "collocation",
         "from_target_id": "collocation:bdf679408311fc3f5d88",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:buffer",
+        "target_kind": "construction",
+        "from_target_id": "construction:a3e5f8f7d290e52870be",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -7042,7 +7049,7 @@
     "ordinal": 614,
     "word": "build",
     "source_owner_path": "content/lexical/words/by-ordinal/o0614.json",
-    "source_fingerprint": "f6888584dbb781cc562fa9ebf99ec412e95828a686f55b3a1a0625c25eec1f6b",
+    "source_fingerprint": "1fb91f1bc4746abca4e52c879aaf80437e11e8bb0c3fe6cd65b3384611ba238c",
     "sense_lineage": [
       {
         "word_id": "word:build",
@@ -7057,22 +7064,30 @@
         "from_target_id": "sense:build:8b092c4a6a2e5297",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:build",
+        "target_kind": "construction",
+        "from_target_id": "construction:build:baseline-v2-up",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V"
+        "2V",
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "建造或创建（具体或抽象事物）",
-      "decision_cn": "",
+      "summary_cn": "建造、创建；逐渐增强；（名词）体格、身材",
+      "decision_cn": "动词表示建造、创建，或逐渐增强；名词 a slim/stocky build 表示身材、体格。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "建造或创建（具体或抽象事物）"
+        "target_label": "建造、创建；逐渐增强；（名词）体格、身材"
       }
     },
     "senses": [
@@ -7122,6 +7137,23 @@
           "target_id": "sense:build:4757e28254b95cf0",
           "target_locator": "record.senses[1]",
           "target_label": "逐渐增加、增强；使逐渐增加、增强"
+        }
+      },
+      {
+        "id": "sense:build:7e100d77d9597473",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a slim/stocky/athletic build; be of ... build",
+        "definition_cn": "体格；身材",
+        "definition_en": "a person’s bodily size and shape",
+        "note": "描述身体的形状、大小和体格，不是建造动作；可用 a ... build 或 be of ... build。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:build:7e100d77d9597473",
+          "target_locator": "record.senses[2]",
+          "target_label": "体格；身材"
         }
       }
     ],
@@ -7445,8 +7477,23 @@
     "ordinal": 616,
     "word": "bulk",
     "source_owner_path": "content/lexical/words/by-ordinal/o0616.json",
-    "source_fingerprint": "b3e7d41f2fe1544d7f668423d69ccea4989c69561f768f9fdfb3aeccad6db0de",
-    "sense_lineage": [],
+    "source_fingerprint": "851d27489ce4826bc8b246a68500f1c16e85d664129f4b45d5690b793dde9af2",
+    "sense_lineage": [
+      {
+        "word_id": "word:bulk",
+        "target_kind": "construction",
+        "from_target_id": "construction:bulk:baseline-v2-the-bulk-of",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bulk",
+        "target_kind": "construction",
+        "from_target_id": "construction:bulk:baseline-v2-in-bulk",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -8931,8 +8978,16 @@
     "ordinal": 624,
     "word": "burden",
     "source_owner_path": "content/lexical/words/by-ordinal/o0624.json",
-    "source_fingerprint": "dccd9a9a1fc3effeee8400a279a0c739c3eed9f87134b454a5d12bba6d69c0bd",
-    "sense_lineage": [],
+    "source_fingerprint": "33a2c85da655e15dba88c085c8437d21ae5faad1f0346d845eded8bea878f82a",
+    "sense_lineage": [
+      {
+        "word_id": "word:burden",
+        "target_kind": "construction",
+        "from_target_id": "construction:4ae6fb1264fe3e06c743",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -10159,7 +10214,7 @@
     "ordinal": 630,
     "word": "bury",
     "source_owner_path": "content/lexical/words/by-ordinal/o0630.json",
-    "source_fingerprint": "dc63384b7be6e530755f310dab75e5799ea9169c6fe566232d45853cf839e0b9",
+    "source_fingerprint": "799ec842d393aab75d9cc58fcca2d785eac14b2d596de23aedf63857c4601d34",
     "sense_lineage": [
       {
         "word_id": "word:bury",
@@ -10173,6 +10228,13 @@
         "target_kind": "collocation",
         "from_target_id": "collocation:9533616c77c7167d360f",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:bury",
+        "target_kind": "construction",
+        "from_target_id": "construction:bury:baseline-v2-oneself-in",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -10960,23 +11022,23 @@
     "ordinal": 634,
     "word": "busy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0634.json",
-    "source_fingerprint": "5ec6e65de8e0b668c5e8c4fc5e6b5406d4846b561608e5dbf7d15e582e9e9f3e",
+    "source_fingerprint": "0cacd95797a3cb9b13c4c1496a8e45c82dc73c2780851106bff7e349c42dec23",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "忙碌的",
-      "decision_cn": "",
+      "summary_cn": "忙碌的；热闹繁忙的；（电话）占线的",
+      "decision_cn": "人看忙碌；场所看热闹繁忙；电话或线路看占线。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "忙碌的"
+        "target_label": "忙碌的；热闹繁忙的；（电话）占线的"
       }
     },
     "senses": [
@@ -11079,6 +11141,23 @@
           "target_id": "sense:busy:9bb70599f5555b29",
           "target_locator": "record.senses[2]",
           "target_label": "使忙于"
+        }
+      },
+      {
+        "id": "sense:busy:d18b98b15354751a",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "the line/phone is busy; a busy signal",
+        "definition_cn": "（主要美式英语，电话或线路）占线的",
+        "definition_en": "of a telephone line, already in use so another call cannot connect",
+        "note": "主要美式英语；英式英语也常用 engaged。这里指线路被占用，不是街道热闹。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:busy:d18b98b15354751a",
+          "target_locator": "record.senses[3]",
+          "target_label": "（主要美式英语，电话或线路）占线的"
         }
       }
     ],
@@ -12373,12 +12452,19 @@
     "ordinal": 640,
     "word": "buy",
     "source_owner_path": "content/lexical/words/by-ordinal/o0640.json",
-    "source_fingerprint": "c8184d0ffae0206035d6e2c01c0545569904b3fa681b0f165ba2fb38e7cb3a08",
+    "source_fingerprint": "5b92daded1ef5bb555fae6ed5b2a388131a044aaa6126b4e9532daeb0ff04f9f",
     "sense_lineage": [
       {
         "word_id": "word:buy",
         "target_kind": "collocation",
         "from_target_id": "collocation:39fdaba26dc8751980fb",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:buy",
+        "target_kind": "construction",
+        "from_target_id": "construction:buy:baseline-v2-time",
         "status": "deprecated",
         "to_target_id": null
       }

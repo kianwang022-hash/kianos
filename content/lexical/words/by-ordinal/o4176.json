@@ -84,7 +84,7 @@
         "lexical_identity_overlay": {
           "case_sensitive": false,
           "identity_type": "inflection_paradigm",
-          "note": "rise (move upward): past tense rose; rose as the flower/color word is a separate lexical identity",
+          "note": "rise 的过去式是 rose；rose 也可指玫瑰或玫瑰色，须按语境区分。",
           "paired_form": "rose",
           "surface_lemma": "rise"
         },
@@ -192,7 +192,8 @@
         "sense_id": "sense:rise:f814e02654e85535",
         "sense_label_en": "an increase in amount or level",
         "sort_order": 3,
-        "transitivity": "nonverb"
+        "transitivity": "nonverb",
+        "usage_note": "名词另有较少见的美式读音 /ɹaɪs/；这里的 /s/ 读法不用于动词。"
       },
       {
         "collocations": [
@@ -254,7 +255,24 @@
           "locale_evidence": [],
           "applicability": [
             {
-              "surface": "rise"
+              "surface": "rise",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:rise:f814e02654e85535"
+              ],
+              "excluded_sense_ids": [
+                "sense:rise:0e9717dcbe745394",
+                "sense:rise:dfef77d4a39a57f6",
+                "sense:rise:ba76f3821811555b",
+                "sense:rise:439dc6e188005475"
+              ],
+              "conditions": {
+                "owner_identity_condition": "较少见的美式名词读法；不用于动词"
+              },
+              "binding_basis": "Independent primary review: Merriam-Webster confirms common noun /s/ variant; Wiktionary qualifies it as rare US noun use. Raw snapshot evidence remains unmodified.",
+              "scope_note": "Noun increase only in this owner; verb and twig source contexts retained as provenance, not admitted as current verb/increase-sense evidence."
             }
           ],
           "sources": [

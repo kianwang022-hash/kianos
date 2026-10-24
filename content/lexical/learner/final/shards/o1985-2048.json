@@ -348,8 +348,23 @@
     "ordinal": 1987,
     "word": "foot",
     "source_owner_path": "content/lexical/words/by-ordinal/o1987.json",
-    "source_fingerprint": "970b36f3b510c8f73ab329a0049e1f9c55a0c83fd198c16b3128299d5bf8bcad",
-    "sense_lineage": [],
+    "source_fingerprint": "24f0556511170c36d2141ff7bc9cb2b3da88dd2f904ff4b1ec811c9c8772d155",
+    "sense_lineage": [
+      {
+        "word_id": "word:foot",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:b3359e70879540379bd9",
+        "status": "merged",
+        "to_target_id": "collocation:ea789a0823394251467e"
+      },
+      {
+        "word_id": "word:foot",
+        "target_kind": "construction",
+        "from_target_id": "construction:49dcc5c066f22644da50",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -438,14 +453,6 @@
           {
             "id": "collocation:ea789a0823394251467e",
             "source_locator": "record.senses[2].collocations[0]",
-            "phrase": "foot the bill",
-            "meaning_cn": "付账",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:b3359e70879540379bd9",
-            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "foot the bill",
             "meaning_cn": "付账",
             "kind": "usage_example",
@@ -5329,7 +5336,7 @@
     "ordinal": 2012,
     "word": "formula",
     "source_owner_path": "content/lexical/words/by-ordinal/o2012.json",
-    "source_fingerprint": "684b08ea7e74c94657981592fcd3371ec44b9a4ff61bafe47a08d65354f66d39",
+    "source_fingerprint": "af6a67f13dc9a536932273c234844dcdc6b6f22f0f0a72e48d7f91cc870fece1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5379,7 +5386,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "方法；准则；惯用语句",
+        "definition_cn": "方法；准则；（礼仪、法律等的）惯用措辞",
         "definition_en": "a standard method or rule for achieving something, or an established form of words",
         "note": "",
         "identity_overlay": null,
@@ -5397,7 +5404,7 @@
           "target_kind": "sense",
           "target_id": "sense:formula:2c1e554f211d5c9e",
           "target_locator": "record.senses[1]",
-          "target_label": "方法；准则；惯用语句"
+          "target_label": "方法；准则；（礼仪、法律等的）惯用措辞"
         }
       },
       {
@@ -6851,7 +6858,7 @@
     "ordinal": 2022,
     "word": "fossil",
     "source_owner_path": "content/lexical/words/by-ordinal/o2022.json",
-    "source_fingerprint": "92b0c8d128648aec1866c9d5bb0aa47a1dddb095127b2a30c7516221ddd1f581",
+    "source_fingerprint": "5a2193b998e77abd9c72cbf15b432c462b396274c4f3306949504626f3c3f7f2",
     "sense_lineage": [
       {
         "word_id": "word:fossil",
@@ -6876,7 +6883,7 @@
     },
     "word_feel": {
       "summary_cn": "化石",
-      "decision_cn": "ordinary noun → 化石；fossil fuel 等常用组合仍保留。表示“陈腐、守旧”的形容词用法保留为 Reference。",
+      "decision_cn": "ordinary noun → 化石；fossil fuel 指化石燃料。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6998,7 +7005,7 @@
     "ordinal": 2023,
     "word": "foster",
     "source_owner_path": "content/lexical/words/by-ordinal/o2023.json",
-    "source_fingerprint": "72b01d6f4a6a4b85562063708f9720b74cb9cb8b44365db828957a24b8931ca0",
+    "source_fingerprint": "3fca716d4ffed87c56318d1293adf2b5543110b40f4608e28384add7a51206bb",
     "sense_lineage": [
       {
         "word_id": "word:foster",
@@ -7017,7 +7024,7 @@
     },
     "word_feel": {
       "summary_cn": "促进、培养；寄养照料；寄养的",
-      "decision_cn": "foster合作、发展为促进培养；foster child为寄养照料别人孩子，区别正式收养。形容词foster parents指寄养父母。",
+      "decision_cn": "foster合作、发展为促进培养；foster a child为寄养照料别人的孩子，区别正式收养。形容词foster parents指寄养父母。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7189,7 +7196,7 @@
     "ordinal": 2024,
     "word": "foul",
     "source_owner_path": "content/lexical/words/by-ordinal/o2024.json",
-    "source_fingerprint": "984a1ffe01fee9003abdcc3bc1d0605b007f9399cda831bf2b903f0eb3494096",
+    "source_fingerprint": "b997b7227678e23a309c4601f6963ab389f36ed88e4664f745eb7bce298d2368",
     "sense_lineage": [
       {
         "word_id": "word:foul",
@@ -7223,7 +7230,7 @@
     },
     "word_feel": {
       "summary_cn": "肮脏、恶劣或违规；也可表示弄脏/污染",
-      "decision_cn": "quality → 污秽/恶劣；sport → 犯规；verb + object → 弄脏、污染；foul (something) up → 非正式“搞砸”。机械“缠结/淤塞”保留为 Reference。",
+      "decision_cn": "quality → 污秽、恶劣；sport → 犯规；verb + object → 弄脏、污染；foul (something) up → 非正式“搞砸”。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8363,7 +8370,7 @@
     "ordinal": 2030,
     "word": "fox",
     "source_owner_path": "content/lexical/words/by-ordinal/o2030.json",
-    "source_fingerprint": "562ec3250daaf79b4efac8bae85edf1ee4056d22ce33edf7bdd96eea844451c7",
+    "source_fingerprint": "a5b3b2536d1dfb1531e912b30aca23a3112494e541a71da03aae757d323f3944",
     "sense_lineage": [
       {
         "word_id": "word:fox",
@@ -8396,7 +8403,7 @@
     },
     "word_feel": {
       "summary_cn": "狐狸；狡猾的人",
-      "decision_cn": "animal → 狐狸；person → 狡猾的人；英式非正式 be foxed (by sth) → 被难住/困惑（Expansion）；书页生黄褐斑仍是 Reference。",
+      "decision_cn": "指动物时为狐狸，指人时可为狡猾的人；英式非正式 be foxed (by sth) 表示被难住、感到困惑。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8460,7 +8467,7 @@
         "governing_pattern": "fox sb / be foxed (by sth)",
         "definition_cn": "使困惑；难倒；使摸不着头脑（尤英式非正式）",
         "definition_en": "mainly British, informal: to puzzle, confuse, or baffle someone; often used in the passive be foxed",
-        "note": "be completely/utterly foxed; this is the puzzling meaning, not the deprecated deceive/trick branch",
+        "note": "常见 be completely/utterly foxed，表示完全被难住。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -8596,7 +8603,7 @@
     "ordinal": 2031,
     "word": "fraction",
     "source_owner_path": "content/lexical/words/by-ordinal/o2031.json",
-    "source_fingerprint": "057e5daa26e57ac79d4aec96dd6f7c2e34e9739979662d835b5c1828522201ac",
+    "source_fingerprint": "f3c888c5e46ea54e0992e094f6f2f1fcb9e8a2151120eff0dfa52f66e10c4b52",
     "sense_lineage": [
       {
         "word_id": "word:fraction",
@@ -8628,7 +8635,7 @@
     },
     "word_feel": {
       "summary_cn": "一小部分；分数",
-      "decision_cn": "part/amount → 一小部分；math → 分数。分馏等过程得到的化学“馏分”保留为 Reference。",
+      "decision_cn": "part/amount → 一小部分；math → 分数。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10130,7 +10137,7 @@
     "ordinal": 2039,
     "word": "frank",
     "source_owner_path": "content/lexical/words/by-ordinal/o2039.json",
-    "source_fingerprint": "bcf94814d7e373588cf5b48cfafcb38904c17aaddbc423f463fdeab7ad761ea2",
+    "source_fingerprint": "c841b0dc234c4d00a55e43990152bfef3f405524db790936ee61211de7cf6bf5",
     "sense_lineage": [
       {
         "word_id": "word:frank",
@@ -10162,7 +10169,7 @@
     },
     "word_feel": {
       "summary_cn": "坦白的；直率的",
-      "decision_cn": "conversation/opinion → 坦白、直率。邮政盖戳及免邮特权义保留为 Reference。",
+      "decision_cn": "conversation/opinion → 坦白、直率。",
       "repair": {
         "target_kind": "core",
         "target_id": null,

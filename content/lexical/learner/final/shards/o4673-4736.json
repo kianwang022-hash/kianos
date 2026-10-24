@@ -5,7 +5,7 @@
     "ordinal": 4673,
     "word": "startle",
     "source_owner_path": "content/lexical/words/by-ordinal/o4673.json",
-    "source_fingerprint": "34e6958c8489adba2553d3529785bbe0c1dd8a70bf883e4b86f3b2e634ef3e42",
+    "source_fingerprint": "98f3e5af5ee6a6c52fe9f8fb7d5210a7fc62c80865922423f2b9042cf73df7f3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -146,7 +146,7 @@
     "pronunciation_support": {
       "readings": [
         {
-          "ipa": "/ˈstɑrt.l̩d/",
+          "ipa": "/ˈstɑːr.t̬əl/",
           "locales": [
             "en-US"
           ],
@@ -159,7 +159,7 @@
           "spelling_binding": null
         },
         {
-          "ipa": "/ˈstɑːt.l̩d/",
+          "ipa": "/ˈstɑː.təl/",
           "locales": [
             "en-GB"
           ],
@@ -389,7 +389,7 @@
     "ordinal": 4675,
     "word": "state",
     "source_owner_path": "content/lexical/words/by-ordinal/o4675.json",
-    "source_fingerprint": "f8202b645768e489de54e807ae030b6f46a8e905d69847547a9af58ec0c9026e",
+    "source_fingerprint": "f95322c3e7b6c508af80983bd93b9378ffb2be599019070988efd69a7501672b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -574,7 +574,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:state:27590ea8175acf68",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "陈述；说明",
+        "definition_en": "express something definitely or clearly",
+        "pattern": "state that + clause / state one's opinion",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:state:27590ea8175acf68",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "陈述；说明"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -1707,11 +1723,10 @@
     "ordinal": 4683,
     "word": "statue",
     "source_owner_path": "content/lexical/words/by-ordinal/o4683.json",
-    "source_fingerprint": "615d1d01eaa058cbe3be695801b5de5052ec02bd6774cbfedebcd676dcf74dfc",
+    "source_fingerprint": "8fd29c717cd496d1c5a8a2e2b9f166ee9a0cc45650cf20c5714dbc8815958e12",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
       "density": "rich"
@@ -1754,6 +1769,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:statue:9c244b59cf9f5208",
         "source_locator": "record.senses[1]",
         "pos": "verb",
@@ -6469,7 +6485,7 @@
     "ordinal": 4708,
     "word": "stock",
     "source_owner_path": "content/lexical/words/by-ordinal/o4708.json",
-    "source_fingerprint": "3dfa3c95b234e4ef3cc7ebb94dc7c30a89d36888ad0c559e68ceb49266e627bb",
+    "source_fingerprint": "23bd0497c8a1f15d0b3aa03edbab8d5b47b52a745c79b6da131188688b1f65c7",
     "sense_lineage": [
       {
         "word_id": "word:stock",
@@ -6731,7 +6747,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:stock:e9d71281159446a9",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "进货；备有",
+        "definition_en": "to supply or keep a supply of goods",
+        "pattern": "stock(进货) 动词义：备有货物",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:stock:e9d71281159446a9",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "进货；备有"
+        }
+      }
+    ],
     "constructions": [
       {
         "id": "construction:72cb0645bf6d0e8746ca",
@@ -7336,23 +7368,22 @@
     "ordinal": 4712,
     "word": "stool",
     "source_owner_path": "content/lexical/words/by-ordinal/o4712.json",
-    "source_fingerprint": "d91436252244e97571226c55af02976ba86ad3f9bea4a978d659e0f4a15a380f",
+    "source_fingerprint": "e37ea341c7eaddccc44290eabc8c0d9d42f1370e0742543e45db0ab6aacccdca",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2V",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "凳子；粪便（医学/普通语境）；罕见动词义后置",
-      "decision_cn": "",
+      "summary_cn": "凳子；粪便",
+      "decision_cn": "日常家具语境指凳子；医学与排便语境指粪便。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "凳子；粪便（医学/普通语境）；罕见动词义后置"
+        "target_label": "凳子；粪便"
       }
     },
     "senses": [
@@ -7417,6 +7448,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:stool:3845b7f0d08a57a4",
         "source_locator": "record.senses[2]",
         "pos": "verb",
@@ -7434,6 +7466,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:stool:4d338bf9f72c5e36",
         "source_locator": "record.senses[3]",
         "pos": "verb",
@@ -8016,7 +8049,7 @@
     "ordinal": 4716,
     "word": "store",
     "source_owner_path": "content/lexical/words/by-ordinal/o4716.json",
-    "source_fingerprint": "df9a5d5b66919d532f32d7955b6aecfd7d0f4bfb04c8c36b7cd29d064cc96d70",
+    "source_fingerprint": "7426b18712e0f3868899fc3cc82b89e07e0005def126c76cc630a1f620f6b2b9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8215,7 +8248,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:store:a6ba36ef65c320c4",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "储备；备用品",
+        "definition_en": "a supply of something available for future use",
+        "pattern": "a store of knowledge 丰富知识",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:store:a6ba36ef65c320c4",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "储备；备用品"
+        }
+      }
+    ],
     "constructions": [
       {
         "id": "construction:7c6573c80136d205b34d",
@@ -8383,7 +8432,7 @@
     "ordinal": 4718,
     "word": "storm",
     "source_owner_path": "content/lexical/words/by-ordinal/o4718.json",
-    "source_fingerprint": "86b4d9a6d351f65b52c901050ff970d3501e1de3bf7b1e6dd0d6b60e42cc1d6f",
+    "source_fingerprint": "790608dd04a27a5e712a39fb82ae1c290dddcb1938b1bcd7b3f068f5eb51ea41",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8393,13 +8442,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "暴风雨；伴有强风、降水、雷电等一种或多种严重天气现象的天气过程；骚动；风波；猛攻；猛攻；攻占",
-      "decision_cn": "",
+      "summary_cn": "暴风雨；风波或猛烈爆发；猛攻、怒气冲冲地行动",
+      "decision_cn": "天气语境是风暴；storm of protest 是抗议风潮；storm a place 是猛攻，storm into/out of a place 是愤怒地冲进/冲出；引语后的 stormed 表示怒吼。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "暴风雨；伴有强风、降水、雷电等一种或多种严重天气现象的天气过程；骚动；风波；猛攻；猛攻；攻占"
+        "target_label": "暴风雨；风波或猛烈爆发；猛攻、怒气冲冲地行动"
       }
     },
     "senses": [
@@ -8519,10 +8568,10 @@
         "id": "sense:storm:8d65cfc07a395bef",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi. + into/out of",
-        "definition_cn": "猛冲；怒吼",
-        "definition_en": "to move angrily or violently",
-        "note": "",
+        "governing_pattern": "storm into/out of a place; “...”, sb stormed",
+        "definition_cn": "怒气冲冲地走；愤怒地大声说话",
+        "definition_en": "to move angrily, or to speak loudly and angrily",
+        "note": "地点补语表示冲进或冲出；接直接引语表示愤怒地说话。",
         "identity_overlay": null,
         "usage": [
           {
@@ -8551,7 +8600,7 @@
           "target_kind": "sense",
           "target_id": "sense:storm:8d65cfc07a395bef",
           "target_locator": "record.senses[4]",
-          "target_label": "猛冲；怒吼"
+          "target_label": "怒气冲冲地走；愤怒地大声说话"
         }
       }
     ],
@@ -9301,7 +9350,7 @@
     "ordinal": 4723,
     "word": "strain",
     "source_owner_path": "content/lexical/words/by-ordinal/o4723.json",
-    "source_fingerprint": "4e85a50d181b52b7d5ccf835708ec0ab9185a2f52b81b166f2d879cf401fb95c",
+    "source_fingerprint": "365dc137a6a7980b93b5b7e9a93e880ad182a600df0b18e7ec8f73151d09e7ce",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9383,9 +9432,9 @@
         "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "扭伤，拉伤",
-        "definition_en": "injury to a muscle (often caused by overuse); results in swelling and pain",
-        "note": "",
+        "definition_cn": "（肌肉或肌腱的）拉伤",
+        "definition_en": "an injury to a muscle or tendon caused by overstretching or excessive use",
+        "note": "损伤义中 strain 指肌肉或肌腱拉伤；sprain 通常指韧带扭伤。",
         "identity_overlay": null,
         "usage": [
           {
@@ -9401,7 +9450,7 @@
           "target_kind": "sense",
           "target_id": "sense:strain:ea0eda483d7e5d67",
           "target_locator": "record.senses[2]",
-          "target_label": "扭伤，拉伤"
+          "target_label": "（肌肉或肌腱的）拉伤"
         }
       },
       {

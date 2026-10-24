@@ -5,6 +5,8 @@ const card = answer.record || {};
 const wordFeel = card.word_feel && typeof card.word_feel === 'object' ? card.word_feel : null;
 const senses = Array.isArray(card.senses) ? card.senses : [];
 const secondarySenses = Array.isArray(card.secondary_senses) ? card.secondary_senses : [];
+const onlyExploreSenses = senses.length + secondarySenses.length > 0
+  && [...senses, ...secondarySenses].every((sense) => sense.disposition === 'EXPLORE_ONLY');
 const constructions = Array.isArray(card.constructions) ? card.constructions : [];
 const reference = card.reference && typeof card.reference === 'object' ? card.reference : {};
 const referenceSenses = Array.isArray(reference.senses) ? reference.senses : [];
@@ -75,7 +77,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
   <section class="portedVocabStudySheet">
     <section class="portedVocabWordFront" data-vocab-front data-recall-density={recallDensity}>
       <h2>{card.word}</h2>
-      <LexicalPronunciation support={card.pronunciation_support} front />
+      <LexicalPronunciation support={card.pronunciation_support} senses={senses} front />
       <div class="portedVocabRecallMap">
         <strong>{recallParts.length ? recallParts.join(' · ') : 'Core'}</strong>
         <small>当前 active 词义</small>
@@ -88,7 +90,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
         <div class="lexicalWordIdentity">
           <span>Coverage · Word Study</span>
           <h2>{card.word}</h2>
-          <LexicalPronunciation support={card.pronunciation_support} sourcePath={card.source_owner_path} />
+          <LexicalPronunciation support={card.pronunciation_support} senses={senses} sourcePath={card.source_owner_path} />
         </div>
 
         {wordFeel && (
@@ -116,12 +118,12 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
 
       <div class="portedVocabBody" data-vocab-body data-has-reference={referenceModuleCount > 0 ? 'true' : 'false'} data-reference-weight={referenceWeight}>
         <main class="portedVocabMeaningColumn">
-          <div class="portedVocabSenseList" data-vocab-repair-list>
+          <div class="portedVocabSenseList" data-vocab-repair-list data-vocab-secondary-explore-only={onlyExploreSenses ? true : undefined} data-vocab-sense-explore-only={onlyExploreSenses ? true : undefined} hidden={onlyExploreSenses}>
             {senses.map((sense) => {
               const target = repair(sense.repair);
               const overlay = identityOverlay(sense);
               return (
-                <section class="lexicalSenseRow" data-vocab-target-row data-vocab-sense-id={sense.id}>
+                <section class="lexicalSenseRow" data-vocab-target-row data-vocab-sense-id={sense.id} data-vocab-sense-explore-only={sense.disposition === 'EXPLORE_ONLY' ? true : undefined} hidden={sense.disposition === 'EXPLORE_ONLY'}>
                   <header>
                     <span>{posCode(sense.pos)}</span>
                     {sense.governing_pattern && <small>{sense.governing_pattern}</small>}
@@ -189,7 +191,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
             {secondarySenses.map((sense) => {
               const target = repair(sense.repair);
               return (
-                <section class="lexicalSenseRow lexicalSecondarySenseRow" data-vocab-target-row>
+                <section class="lexicalSenseRow lexicalSecondarySenseRow" data-vocab-target-row data-vocab-secondary-explore-only={sense.disposition === 'EXPLORE_ONLY' ? true : undefined} hidden={sense.disposition === 'EXPLORE_ONLY'}>
                   <header>
                     <span>{posCode(sense.pos)}+</span>
                     <button

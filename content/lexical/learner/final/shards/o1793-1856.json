@@ -977,7 +977,7 @@
     "ordinal": 1798,
     "word": "expire",
     "source_owner_path": "content/lexical/words/by-ordinal/o1798.json",
-    "source_fingerprint": "f73ac10491cbefee2bf82f65439af499637a61c0e296a70fa2f11fadb827c901",
+    "source_fingerprint": "c75f0bac59997ef061dd236e891babc6a507c6dcd0cfa9cd3a73738e1a7e85bd",
     "sense_lineage": [
       {
         "word_id": "word:expire",
@@ -1030,7 +1030,7 @@
     },
     "word_feel": {
       "summary_cn": "到期；失效；期限结束",
-      "decision_cn": "passport/contract/card/term → 到期、失效。文学性的“死亡”和医学/生物学“呼气”义保留为 Reference。",
+      "decision_cn": "passport/contract/card/term → 到期、失效。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1487,7 +1487,7 @@
     "ordinal": 1801,
     "word": "explicit",
     "source_owner_path": "content/lexical/words/by-ordinal/o1801.json",
-    "source_fingerprint": "7a37184e7ae27828dc62b8ed2b1d76f06618597765ee3c74b598c4496b630ef7",
+    "source_fingerprint": "6dc1981d51cb143ddc045ca40b131ec236d94462527e09a2b64dc69bd620a614",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1625,7 +1625,7 @@
           "target_word": "implicit",
           "lines": [
             {
-              "text": "explicit = directly and clearly stated; implicit = suggested/understood without direct statement. Bind to those senses only; implicit='absolute/unquestioning' is separate.",
+              "text": "explicit means directly and clearly stated; implicit means suggested or understood without direct statement. This contrast does not apply to implicit meaning absolute or unquestioning.",
               "lang": "en"
             }
           ],
@@ -3475,7 +3475,7 @@
     "ordinal": 1810,
     "word": "express",
     "source_owner_path": "content/lexical/words/by-ordinal/o1810.json",
-    "source_fingerprint": "f4368e2e51c437f0d1b697aa141cd3395bd85479db808f366305b70abeca01b9",
+    "source_fingerprint": "15806ef2decbbec84a5cb4350fd1ed111df2289a5a1d18fe397cf52b24e66ea0",
     "sense_lineage": [
       {
         "word_id": "word:express",
@@ -3487,20 +3487,20 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
+        "3V",
         "2A",
         "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "表达或明确说明；快速、直达服务",
-      "decision_cn": "动词表达思想感受；express orders等形容词指明确说明。运输递送语境中形容词是快速或少停靠，名词an express可指快车或快件。",
+      "summary_cn": "表达或明确说明；快速、直达服务；挤出；生物学表达",
+      "decision_cn": "动词可表达思想感受，express milk 指挤奶，生物学语境指表达基因或蛋白质。形容词可指明确或快速、少停靠；名词可指快车或快件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "表达或明确说明；快速、直达服务"
+        "target_label": "表达或明确说明；快速、直达服务；挤出；生物学表达"
       }
     },
     "senses": [
@@ -3650,6 +3650,40 @@
           "target_id": "sense:express:7acdc57d8fcbe9a7",
           "target_locator": "record.senses[4]",
           "target_label": "快速的；直达的"
+        }
+      },
+      {
+        "id": "sense:express:b7cf34ac017a89db",
+        "source_locator": "record.senses[5]",
+        "pos": "verb",
+        "governing_pattern": "express milk/juice; express liquid from sth",
+        "definition_cn": "挤出；压榨出（液体等）",
+        "definition_en": "to remove a liquid or other material by pressure",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:express:b7cf34ac017a89db",
+          "target_locator": "record.senses[5]",
+          "target_label": "挤出；压榨出（液体等）"
+        }
+      },
+      {
+        "id": "sense:express:183b9cfa061f3595",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "express a gene/protein; a gene is expressed",
+        "definition_cn": "（生物学）表达（基因、性状或分子）",
+        "definition_en": "to use genetic information to produce RNA or protein, or to manifest a genetically determined trait",
+        "note": "express a gene 指基因表达；细胞 express a protein 指产生该蛋白质。基因产物也可为功能性 RNA，不都必须成为蛋白质。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:express:183b9cfa061f3595",
+          "target_locator": "record.senses[6]",
+          "target_label": "（生物学）表达（基因、性状或分子）"
         }
       }
     ],
@@ -10528,7 +10562,7 @@
     "ordinal": 1849,
     "word": "faithful",
     "source_owner_path": "content/lexical/words/by-ordinal/o1849.json",
-    "source_fingerprint": "d38a7238fceb3d6cc7d2e5e992fb6745055d51908ba144ede38296aa800b639a",
+    "source_fingerprint": "ba5c9f09fd31a4be38fa47659e22b9cfc20e7c6dc177fc5400a5b0b8d1484bc5",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10539,7 +10573,7 @@
     },
     "word_feel": {
       "summary_cn": "忠实的；忠诚的；忠实准确的",
-      "decision_cn": "既可指对人/承诺忠诚，也可指译文、复制品、叙述等忠实于原文或事实；低频名词 the faithful 留在扩展层。",
+      "decision_cn": "既可指对人或承诺忠诚，也可指译文、复制品、叙述等忠实于原文或事实。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -10885,7 +10919,7 @@
     "ordinal": 1851,
     "word": "fall",
     "source_owner_path": "content/lexical/words/by-ordinal/o1851.json",
-    "source_fingerprint": "f74385ee7e09b3db99f0626b453b278e93c73497aa23f6b95d0cf72b4afe6aec",
+    "source_fingerprint": "81d0ea3e18b4a9bbae4ae60603aeb5ac87aab04c5d1453baa63cded5e690561c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10896,7 +10930,7 @@
     },
     "word_feel": {
       "summary_cn": "落下或下降；进入状态；摔倒、垮台；秋天",
-      "decision_cn": "物体fall是落下，数字fall是下降；fall asleep/ill是进入状态。have a fall是摔倒，政府fall或the fall of政府是垮台；节日fall on接日期。名词秋天、瀑布及原深度义项保留。",
+      "decision_cn": "物体fall是落下，数字fall是下降；fall asleep/ill是进入状态。have a fall是摔倒，政府fall或the fall of政府是垮台；节日fall on接日期。名词fall也可指秋天，falls可指瀑布。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -11435,7 +11469,7 @@
     "ordinal": 1852,
     "word": "false",
     "source_owner_path": "content/lexical/words/by-ordinal/o1852.json",
-    "source_fingerprint": "53ae1b0b7376d0702bd4a435986ab63874baf8bebb06fd55e9e3b5ff4e437dea",
+    "source_fingerprint": "d86946f1270d3538bdc86ce79ea1c2ecd1847a7770a311a35f4c9a23ebd527f8",
     "sense_lineage": [
       {
         "word_id": "word:false",
@@ -11467,7 +11501,7 @@
     },
     "word_feel": {
       "summary_cn": "错误的；不真实的；假的",
-      "decision_cn": "statement/idea → 错误或不真实；object/identity → 假的、伪造的。低频副词 false 保留为 Reference；现代通常用 falsely。",
+      "decision_cn": "statement/idea → 错误或不真实；object/identity → 假的、伪造的。现代通常用 falsely 作副词。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -11728,7 +11762,7 @@
     "ordinal": 1854,
     "word": "familiar",
     "source_owner_path": "content/lexical/words/by-ordinal/o1854.json",
-    "source_fingerprint": "62ebbd6d8b4a30acfbd964f316e25af999be2082b3f1a6a5b8883919b9941e9a",
+    "source_fingerprint": "a30bf6a2e86df166a901859a3e5e90815d50dc1b67a24ffc3532e5abe594eb9b",
     "sense_lineage": [
       {
         "word_id": "word:familiar",
@@ -11793,7 +11827,7 @@
         "governing_pattern": "be too familiar with sb; a familiar manner",
         "definition_cn": "（举止）过分随便、亲昵的；不拘礼的",
         "definition_en": "behaving too informally towards someone, sometimes in an unwelcome way",
-        "note": "此义描述举止和关系分寸，常带不赞同；familiar to/with表示熟悉的原义仍保留。",
+        "note": "此义描述举止和关系分寸，常带不赞同；familiar to/with在其他语境可表示熟悉。",
         "identity_overlay": null,
         "usage": [
           {
@@ -12002,7 +12036,7 @@
     "ordinal": 1855,
     "word": "family",
     "source_owner_path": "content/lexical/words/by-ordinal/o1855.json",
-    "source_fingerprint": "e6d07309914f0722e88876c3536a424478a8de4b191fab1058b383e06dfbe40d",
+    "source_fingerprint": "2fdb9113ba6ba47b71070e20ca07a32cd6a9da2fd4c862f095cfd5b5c13c512f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -12013,7 +12047,7 @@
     },
     "word_feel": {
       "summary_cn": "家庭、亲属；相关事物的一组",
-      "decision_cn": "人的家庭、亲属或家族之外，a family of languages等可指一组相关事物；生物分类中的family是科。原家庭形容词身份保留。",
+      "decision_cn": "人的家庭、亲属或家族之外，a family of languages等可指一组相关事物；生物分类中的family是科。",
       "repair": {
         "target_kind": "core",
         "target_id": null,

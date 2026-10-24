@@ -368,7 +368,7 @@
     "ordinal": 4163,
     "word": "riddle",
     "source_owner_path": "content/lexical/words/by-ordinal/o4163.json",
-    "source_fingerprint": "892828c205d86e2cb12e88adc35f7fe8b7ab5784e75cd82c7184d4235620b208",
+    "source_fingerprint": "d7a42810d208938930b1e43da8accb4a54b67d76b923fd71f6548c5b59311abb",
     "sense_lineage": [
       {
         "word_id": "word:riddle",
@@ -386,13 +386,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "谜语、谜题；另有次级动词义",
+      "summary_cn": "谜语、谜团；使布满孔洞或充斥问题",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "谜语、谜题；另有次级动词义"
+        "target_label": "谜语、谜团；使布满孔洞或充斥问题"
       }
     },
     "senses": [
@@ -1208,7 +1208,7 @@
     "ordinal": 4168,
     "word": "right",
     "source_owner_path": "content/lexical/words/by-ordinal/o4168.json",
-    "source_fingerprint": "574f7c60005823cf52aabcd073cb64c3e32d528619bc10e246276a069a90f7b2",
+    "source_fingerprint": "14cd282e019c91a00ba855521d233ee0cd1781b370f948b4ad77565f09a8e0ea",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1585,7 +1585,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:right:db7f76f3363a533e",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "adverb",
+        "definition_cn": "正好；直接地",
+        "definition_en": "exactly or directly",
+        "pattern": "right now / right after + sth",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:right:db7f76f3363a533e",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "正好；直接地"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [
@@ -1875,7 +1891,7 @@
     "ordinal": 4171,
     "word": "rim",
     "source_owner_path": "content/lexical/words/by-ordinal/o4171.json",
-    "source_fingerprint": "250c2a22ca67ff3bc4a622e765ad38e8af889db795d3641374646ee96ab02c1a",
+    "source_fingerprint": "1d4878232d3e7bcfaa83719f67ec4ef77d052ca9e9db92fb2fab9790ac60faf2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2003,23 +2019,23 @@
         "id": "sense:rim:3eef7ef3d89456a0",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "vi. + with",
-        "definition_cn": "形成边缘",
-        "definition_en": "form a rim or edge",
+        "governing_pattern": "vi.: form or show a rim; vt.: rim sth with sth; passive: be rimmed with sth",
+        "definition_cn": "形成边缘；给……镶边",
+        "definition_en": "form or show a rim; provide something with an edge or border",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:b9b4ce9699cdad12a886",
             "source_locator": "record.senses[4].collocations[0]",
-            "phrase": "rim with + sth",
-            "meaning_cn": "以某物形成边缘",
+            "phrase": "rim sth with sth; be rimmed with sth",
+            "meaning_cn": "用某物给……镶边；边缘镶有某物",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:b9b4ce9699cdad12a886",
               "target_locator": "record.senses[4].collocations[0]",
-              "target_label": "rim with + sth"
+              "target_label": "rim sth with sth; be rimmed with sth"
             }
           }
         ],
@@ -2027,7 +2043,7 @@
           "target_kind": "sense",
           "target_id": "sense:rim:3eef7ef3d89456a0",
           "target_locator": "record.senses[4]",
-          "target_label": "形成边缘"
+          "target_label": "形成边缘；给……镶边"
         }
       }
     ],
@@ -2944,7 +2960,7 @@
     "ordinal": 4176,
     "word": "rise",
     "source_owner_path": "content/lexical/words/by-ordinal/o4176.json",
-    "source_fingerprint": "6835209dca73863699be5005c949b1c2602bf8b013454a61d5ea4213a8930b6a",
+    "source_fingerprint": "63960ec525fad58a22e6869cac07191a05821728631f6cac5e42932f05573532",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2973,12 +2989,12 @@
         "definition_en": "to move upward",
         "note": "",
         "identity_overlay": {
-          "text": "rise (move upward): past tense rose; rose as the flower/color word is a separate lexical identity",
+          "text": "rise 的过去式是 rose；rose 也可指玫瑰或玫瑰色，须按语境区分。",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[0].lexical_identity_overlay",
-            "target_label": "rise (move upward): past tense rose; rose as the flower/color word is a separate lexical identity"
+            "target_label": "rise 的过去式是 rose；rose 也可指玫瑰或玫瑰色，须按语境区分。"
           }
         },
         "usage": [
@@ -3101,7 +3117,7 @@
         "governing_pattern": "",
         "definition_cn": "上升；增加；上涨",
         "definition_en": "an increase in amount or level",
-        "note": "",
+        "note": "名词另有较少见的美式读音 /ɹaɪs/；这里的 /s/ 读法不用于动词。",
         "identity_overlay": null,
         "usage": [
           {
@@ -3180,7 +3196,24 @@
           "locales": [],
           "applicability": [
             {
-              "surface": "rise"
+              "surface": "rise",
+              "pos": [
+                "noun"
+              ],
+              "sense_ids": [
+                "sense:rise:f814e02654e85535"
+              ],
+              "excluded_sense_ids": [
+                "sense:rise:0e9717dcbe745394",
+                "sense:rise:dfef77d4a39a57f6",
+                "sense:rise:ba76f3821811555b",
+                "sense:rise:439dc6e188005475"
+              ],
+              "conditions": {
+                "owner_identity_condition": "较少见的美式名词读法；不用于动词"
+              },
+              "binding_basis": "Independent primary review: Merriam-Webster confirms common noun /s/ variant; Wiktionary qualifies it as rare US noun use. Raw snapshot evidence remains unmodified.",
+              "scope_note": "Noun increase only in this owner; verb and twig source contexts retained as provenance, not admitted as current verb/increase-sense evidence."
             }
           ],
           "evidence_basis": "source_ipa",
@@ -3222,8 +3255,12 @@
           "spelling_binding": null
         }
       ],
-      "sense_readings": {},
-      "has_scope": false
+      "sense_readings": {
+        "sense:rise:f814e02654e85535": [
+          0
+        ]
+      },
+      "has_scope": true
     },
     "secondary_senses": [],
     "constructions": [
@@ -5566,12 +5603,12 @@
     "ordinal": 4192,
     "word": "roll",
     "source_owner_path": "content/lexical/words/by-ordinal/o4192.json",
-    "source_fingerprint": "e99fa95f9137baf170f0479c93d544bfc0a7a1e6574640215c509c6d111705f6",
+    "source_fingerprint": "3f6be46934eda32f96f61a26bd1f075affaf09c3cdd9f931a656ebb248a1a74d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "4N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -5709,6 +5746,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:roll:781b02f4d5475ee1",
         "source_locator": "record.senses[4]",
         "pos": "noun",
@@ -7027,7 +7065,7 @@
     "ordinal": 4199,
     "word": "rose",
     "source_owner_path": "content/lexical/words/by-ordinal/o4199.json",
-    "source_fingerprint": "411f1350c2317d3e310e47d9f7e621857ee5608408165d415c1355a56bf6e92c",
+    "source_fingerprint": "be435c44f8477638f8f4071b60a7101187cc1dc71ce9cb18481d22a41c0ff4a4",
     "sense_lineage": [
       {
         "word_id": "word:rose",
@@ -7039,7 +7077,6 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
         "1A",
         "2N"
       ],
@@ -7179,6 +7216,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:rose:f117fa0d0753540d",
         "source_locator": "record.senses[3]",
         "pos": "verb",
@@ -10192,7 +10230,7 @@
     "ordinal": 4213,
     "word": "rubber",
     "source_owner_path": "content/lexical/words/by-ordinal/o4213.json",
-    "source_fingerprint": "f6c1ecb4e813b7850817ebf3042daa70ce02f080c547ceed6937a68b0ff65251",
+    "source_fingerprint": "59bc17a0911791400de532b3604b12267f3360568974e8e4362ad253d3ec6f37",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10306,12 +10344,12 @@
         "definition_en": "a condom (informal American English)",
         "note": "",
         "identity_overlay": {
-          "text": "AmE informal rubber can mean condom; keep this low with a register warning",
+          "text": "美式非正式用法中 rubber 可指避孕套；英式通常用 rubber 指橡皮。",
           "repair": {
             "target_kind": "form_identity",
             "target_id": null,
             "target_locator": "record.senses[3].lexical_identity_overlay",
-            "target_label": "AmE informal rubber can mean condom; keep this low with a register warning"
+            "target_label": "美式非正式用法中 rubber 可指避孕套；英式通常用 rubber 指橡皮。"
           }
         },
         "usage": [],
@@ -10541,22 +10579,22 @@
     "ordinal": 4215,
     "word": "rude",
     "source_owner_path": "content/lexical/words/by-ordinal/o4215.json",
-    "source_fingerprint": "60d94a75ffa52502df394f05cb19fb8c608afb3fa91d91fe67372c47bb004ad2",
+    "source_fingerprint": "5fe0a5217ef9e9e2aaa319c68708d39fa01b287b52509f1b55260798ebf0f23d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4A"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "粗鲁无礼的；粗陋/粗糙为次级；原始义低层",
-      "decision_cn": "对人或言语看尊重与得体；shock/awakening前是突然打破幻想的冲击；旧粗陋、原始义仍由物品或历史语境判断。",
+      "summary_cn": "粗鲁无礼的；粗陋的；突然令人不快的",
+      "decision_cn": "对人或言语看礼貌与得体；rude shock/awakening 指突然打破幻想的冲击；形容物品时也可指粗陋。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "粗鲁无礼的；粗陋/粗糙为次级；原始义低层"
+        "target_label": "粗鲁无礼的；粗陋的；突然令人不快的"
       }
     },
     "senses": [
@@ -10595,6 +10633,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:rude:3b74467a803d54e4",
         "source_locator": "record.senses[2]",
         "pos": "adjective",
@@ -10929,11 +10968,11 @@
     "ordinal": 4218,
     "word": "rule",
     "source_owner_path": "content/lexical/words/by-ordinal/o4218.json",
-    "source_fingerprint": "7d67b5dcea0cabe98078aab1c25478eb667a6c3c8859a778ae0265a0f048d231",
+    "source_fingerprint": "b02704bee5f3b1fa8f0c48957d94f65bc819c869462e4d6a2258e9c2cefff0a1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "3V",
+        "2V",
         "3N"
       ],
       "density": "rich"
@@ -10984,6 +11023,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:rule:5756d0dd1baf5923",
         "source_locator": "record.senses[2]",
         "pos": "verb",
@@ -11098,7 +11138,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:rule:2b40eb456a7b9675",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "统治，支配",
+        "definition_en": "exercise authority",
+        "pattern": "rule over + sth/sb 统治某物/某人",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:rule:2b40eb456a7b9675",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "统治，支配"
+        }
+      }
+    ],
     "constructions": [
       {
         "id": "construction:9ca751e0feb4740d6c25",
@@ -11283,7 +11339,7 @@
     "ordinal": 4220,
     "word": "rumor",
     "source_owner_path": "content/lexical/words/by-ordinal/o4220.json",
-    "source_fingerprint": "519aad0c371a001a74c62a495b2e4655cb4274fd67316d1cf0d4bc10970dec75",
+    "source_fingerprint": "463999c079c929fb85640707bf7588af796e3b80e26a99bc7234eb9beea110d8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11439,7 +11495,7 @@
     "ordinal": 4221,
     "word": "run",
     "source_owner_path": "content/lexical/words/by-ordinal/o4221.json",
-    "source_fingerprint": "ecd3428fcaf704db46a8f72fe1a574d175d7e9e33ed00e6ee23b22685caef974",
+    "source_fingerprint": "b6c042c4e5229163e6ac424b7656707b3a28359e0d3e5e671002445581c5f14b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11709,7 +11765,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:run:219cf0715158d809",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "经营；管理",
+        "definition_en": "to manage or operate something",
+        "pattern": "宾语为企业或系统时指经营、管理",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:run:219cf0715158d809",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "经营；管理"
+        }
+      }
+    ],
     "constructions": [
       {
         "id": "construction:9e7b08008a33d10ee967",

@@ -904,11 +904,11 @@
     "ordinal": 5319,
     "word": "voice",
     "source_owner_path": "content/lexical/words/by-ordinal/o5319.json",
-    "source_fingerprint": "29c8d38b32a28df108f633c169170f3f025073f9d14093cbe8d02571a9848871",
+    "source_fingerprint": "7ac76bf51498252ec27ff4da3254965fe5a7c84a9f97daa375b34ea87cff02e9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "(1+1)V",
+        "1V",
         "3N"
       ],
       "density": "rich"
@@ -1078,6 +1078,7 @@
     "secondary_senses": [
       {
         "id": "deep:secondary_senses:voice:cae0b6d49430673b",
+        "disposition": "EXPLORE_ONLY",
         "source_locator": "record.secondary_senses[0]",
         "pos": "verb",
         "definition_cn": "表达；吐露",
@@ -8017,7 +8018,7 @@
     "ordinal": 5361,
     "word": "watt",
     "source_owner_path": "content/lexical/words/by-ordinal/o5361.json",
-    "source_fingerprint": "6deaec9fe1d66e1aeaa6d4840587df01a08f49501e0a4a4b508d8da7e0fc728c",
+    "source_fingerprint": "9124d6bf7b9bfa6edd2983d031f4739ef9014cb02b2da9ab9ef15a1b26b9946b",
     "sense_lineage": [
       {
         "word_id": "word:watt",
@@ -8035,7 +8036,7 @@
     },
     "word_feel": {
       "summary_cn": "瓦特，功率单位",
-      "decision_cn": "功率单位用小写watt；大写Watt是人名，只在参考层保留。",
+      "decision_cn": "功率单位用小写watt；大写Watt是人名。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8138,7 +8139,7 @@
           {
             "surface": "Watt",
             "condition": "engineer proper name",
-            "note": "capitalized proper name; reference-only in this owner"
+            "note": "大写 Watt 是人名，可指工程师 James Watt。"
           }
         ],
         "variants": [],
@@ -8172,7 +8173,7 @@
           "sense_label_en": "Scottish engineer and inventor (1736-1819)",
           "sort_order": 1,
           "transitivity": "nonverb",
-          "usage_note": "Proper-name reference is Watt, capitalized; keep out of lowercase learner Core.",
+          "usage_note": "指苏格兰工程师、发明家瓦特时，Watt 首字母大写。",
           "writing_safe": false,
           "reference_only": true
         }
@@ -8616,7 +8617,7 @@
     "ordinal": 5364,
     "word": "way",
     "source_owner_path": "content/lexical/words/by-ordinal/o5364.json",
-    "source_fingerprint": "e3e11ede378c1a1a8742364818bb256928221a22f26905a7376c4243079916aa",
+    "source_fingerprint": "242f43dc961a775caab39c18456dcb7c5409f77ad6eba93edc6c99916a36fad4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8798,7 +8799,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:way:0b8b251ebdb78bd1",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "noun",
+        "definition_cn": "方面，点",
+        "definition_en": "a particular aspect or respect",
+        "pattern": "in some ways 在某些方面",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:way:0b8b251ebdb78bd1",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "方面，点"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],

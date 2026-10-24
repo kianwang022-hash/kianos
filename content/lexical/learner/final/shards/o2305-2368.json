@@ -2284,7 +2284,7 @@
     "ordinal": 2317,
     "word": "herd",
     "source_owner_path": "content/lexical/words/by-ordinal/o2317.json",
-    "source_fingerprint": "118960eb673b9a65922b47dfbb3ea1d4823975d47a65ba6733dd388c046fd148",
+    "source_fingerprint": "f067cb9bfd7dfff92a1129c1e8c4058ca6ba4bb311fb99efb02756a9af1defb2",
     "sense_lineage": [
       {
         "word_id": "word:herd",
@@ -2310,7 +2310,7 @@
     },
     "word_feel": {
       "summary_cn": "兽群或人群，或聚集",
-      "decision_cn": "noun → 兽群/人群；verb → 把动物或人赶到一起。低增益的“自行聚成群”分支保留为 Reference。",
+      "decision_cn": "noun → 兽群/人群；verb → 把动物或人赶到一起。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2476,7 +2476,7 @@
     "ordinal": 2318,
     "word": "here",
     "source_owner_path": "content/lexical/words/by-ordinal/o2318.json",
-    "source_fingerprint": "2842de57c60a3817076190bb9d4d799d751f3a0f0cb2d14411a9ea07ff7174ba",
+    "source_fingerprint": "159785203a626d8c02765f57d59c73546caa9a2930cfe9b743da1a759976223a",
     "sense_lineage": [
       {
         "word_id": "word:here",
@@ -2508,7 +2508,7 @@
     },
     "word_feel": {
       "summary_cn": "在这里；此时/在这点上",
-      "decision_cn": "place → 在这里；discourse → 到这里/此时；here you are/go → 给你、这就是。名词化“这里”保留为 Reference。",
+      "decision_cn": "place → 在这里；discourse → 到这里/此时；here you are/go → 给你、这就是。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6884,7 +6884,7 @@
     "ordinal": 2339,
     "word": "hinge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2339.json",
-    "source_fingerprint": "5257723f1ca94974b81c32f37dd17d4d32aa657f0b2920d845bcb3563f8020a5",
+    "source_fingerprint": "1ef0df05c44714d481199d0fc722df691f4ef4965c44244a858ee678bbffa2c4",
     "sense_lineage": [
       {
         "word_id": "word:hinge",
@@ -6917,7 +6917,7 @@
     },
     "word_feel": {
       "summary_cn": "铰链；关键",
-      "decision_cn": "literal noun → 铰链；figurative noun → 关键；hinge on/upon → 取决于。低价值“给…装铰链”动词保留为 Reference。",
+      "decision_cn": "literal noun → 铰链；figurative noun → 关键；hinge on/upon → 取决于。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -11228,12 +11228,20 @@
     "ordinal": 2354,
     "word": "hole",
     "source_owner_path": "content/lexical/words/by-ordinal/o2354.json",
-    "source_fingerprint": "5ac4943902f0e76d27b06f580ea913575571ee8408c7f19e1e83168a87619013",
-    "sense_lineage": [],
+    "source_fingerprint": "b5c634d4df1c39da0fbb49162e5ce575cfb7df1fd5fc54fa87ec59474814af88",
+    "sense_lineage": [
+      {
+        "word_id": "word:hole",
+        "target_kind": "sense",
+        "from_target_id": "sense:hole:6c46a24035ce5051",
+        "status": "merged",
+        "to_target_id": "sense:hole:d15ca24c1d475824"
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
-        "6N"
+        "5N"
       ],
       "density": "rich"
     },
@@ -11253,8 +11261,8 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "孔，洞，开口",
-        "definition_en": "an opening into or through something",
+        "definition_cn": "孔、洞、开口；坑",
+        "definition_en": "an opening or hollow space in something, including a hole dug in the ground",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -11273,28 +11281,10 @@
             "meaning_cn": "墙上的洞",
             "kind": "usage_example",
             "repair": null
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:hole:d15ca24c1d475824",
-          "target_locator": "record.senses[0]",
-          "target_label": "孔，洞，开口"
-        }
-      },
-      {
-        "id": "sense:hole:6c46a24035ce5051",
-        "source_locator": "record.senses[1]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "（故意挖的）洞，坑",
-        "definition_en": "an opening deliberately made in or through something",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
+          },
           {
             "id": "collocation:6759abfc3624133eb77e",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[2]",
             "phrase": "drill a hole",
             "meaning_cn": "钻一个孔",
             "kind": "usage_example",
@@ -11303,14 +11293,14 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:hole:6c46a24035ce5051",
-          "target_locator": "record.senses[1]",
-          "target_label": "（故意挖的）洞，坑"
+          "target_id": "sense:hole:d15ca24c1d475824",
+          "target_locator": "record.senses[0]",
+          "target_label": "孔、洞、开口；坑"
         }
       },
       {
         "id": "sense:hole:f26661a60cdb57ea",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "高尔夫球洞；从发球处至果岭的一洞球道",
@@ -11320,7 +11310,7 @@
         "usage": [
           {
             "id": "collocation:2b48c1f1d000bcd0d284",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "the 18th hole",
             "meaning_cn": "第18洞",
             "kind": "usage_example",
@@ -11330,13 +11320,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hole:f26661a60cdb57ea",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[1]",
           "target_label": "高尔夫球洞；从发球处至果岭的一洞球道"
         }
       },
       {
         "id": "sense:hole:c3d0c19a772f5dae",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "在……上打洞／造成孔洞",
@@ -11347,13 +11337,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hole:c3d0c19a772f5dae",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[2]",
           "target_label": "在……上打洞／造成孔洞"
         }
       },
       {
         "id": "sense:hole:b528fb12c34a50dd",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "空位，空隙",
@@ -11364,13 +11354,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hole:b528fb12c34a50dd",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[3]",
           "target_label": "空位，空隙"
         }
       },
       {
         "id": "sense:hole:9cc2bbe648cc5e8a",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "hole a ball/putt; hole out",
         "definition_cn": "（高尔夫）把球打入洞中；完成一洞",
@@ -11380,7 +11370,7 @@
         "usage": [
           {
             "id": "collocation:46732bbacc1369ed078c",
-            "source_locator": "record.senses[5].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "hole the ball",
             "meaning_cn": "把球打入洞中",
             "kind": "usage_example",
@@ -11390,13 +11380,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hole:9cc2bbe648cc5e8a",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[4]",
           "target_label": "（高尔夫）把球打入洞中；完成一洞"
         }
       },
       {
         "id": "sense:hole:9984a3b103ec681b",
-        "source_locator": "record.senses[6]",
+        "source_locator": "record.senses[5]",
         "pos": "noun",
         "governing_pattern": "holes in sth; be full of holes",
         "definition_cn": "（计划、论证等的）漏洞；缺陷",
@@ -11406,7 +11396,7 @@
         "usage": [
           {
             "id": "collocation:6c5a29efd3a40d29401b",
-            "source_locator": "record.senses[6].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "His explanation is full of holes.",
             "meaning_cn": "他的解释漏洞百出。",
             "kind": "usage_example",
@@ -11416,13 +11406,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hole:9984a3b103ec681b",
-          "target_locator": "record.senses[6]",
+          "target_locator": "record.senses[5]",
           "target_label": "（计划、论证等的）漏洞；缺陷"
         }
       },
       {
         "id": "sense:hole:108fc6f9ece91b0f",
-        "source_locator": "record.senses[7]",
+        "source_locator": "record.senses[6]",
         "pos": "noun",
         "governing_pattern": "this hole; live in a hole",
         "definition_cn": "（非正式、贬义）糟糕的地方",
@@ -11432,7 +11422,7 @@
         "usage": [
           {
             "id": "collocation:c0f54fece821114208bd",
-            "source_locator": "record.senses[7].collocations[0]",
+            "source_locator": "record.senses[6].collocations[0]",
             "phrase": "I cannot stay in this hole.",
             "meaning_cn": "我不能待在这个破地方。",
             "kind": "usage_example",
@@ -11442,7 +11432,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hole:108fc6f9ece91b0f",
-          "target_locator": "record.senses[7]",
+          "target_locator": "record.senses[6]",
           "target_label": "（非正式、贬义）糟糕的地方"
         }
       }
@@ -12181,7 +12171,7 @@
     "ordinal": 2358,
     "word": "home",
     "source_owner_path": "content/lexical/words/by-ordinal/o2358.json",
-    "source_fingerprint": "5ba01429c32716848b0535fcd234793fc96348b8afeadf185d437d661fc361da",
+    "source_fingerprint": "d44ad3f7cad022077c47fc8f3cc7b4003d1bc7a68b540978d05a233cff6fc0c1",
     "sense_lineage": [
       {
         "word_id": "word:home",
@@ -12356,14 +12346,6 @@
             "source_locator": "record.senses[4].collocations[1]",
             "phrase": "come home",
             "meaning_cn": "回家来",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:62cd2aa534495fedc56e",
-            "source_locator": "record.senses[4].collocations[2]",
-            "phrase": "go home",
-            "meaning_cn": "回家",
             "kind": "usage_example",
             "repair": null
           }
@@ -13081,7 +13063,7 @@
     "ordinal": 2362,
     "word": "honey",
     "source_owner_path": "content/lexical/words/by-ordinal/o2362.json",
-    "source_fingerprint": "682846b277c9eaafdfa491575614f9497d104eb07769f606b83573c36197a267",
+    "source_fingerprint": "7d95199c251cb0df33431c1125971cc84eed8f5e6887382943bf8706984fce12",
     "sense_lineage": [
       {
         "word_id": "word:honey",
@@ -13120,7 +13102,7 @@
     },
     "word_feel": {
       "summary_cn": "蜂蜜；亲爱的/甜心（称呼）",
-      "decision_cn": "food → 蜂蜜；address → honey = 亲爱的/甜心。少见形容词与“加蜜/奉承”动词义保留为 Reference。",
+      "decision_cn": "food → 蜂蜜；address → honey = 亲爱的、甜心。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -13246,7 +13228,8 @@
           "sense_id": "sense:honey:1fce86c36f70593c",
           "sense_label_en": "having the color or sweetness of honey",
           "sort_order": 2,
-          "transitivity": "nonverb"
+          "transitivity": "nonverb",
+          "usage_note": "较少见的用法；区别于通常表示蜂蜜或亲昵称呼的名词。"
         },
         {
           "collocations": [],
@@ -13260,7 +13243,8 @@
           "sense_id": "sense:honey:a9c6a94069ef5627",
           "sense_label_en": "to sweeten with honey; to speak sweetly to",
           "sort_order": 3,
-          "transitivity": "vt"
+          "transitivity": "vt",
+          "usage_note": "较少见的用法；区别于通常表示蜂蜜或亲昵称呼的名词。"
         },
         {
           "collocations": [],
@@ -13274,7 +13258,8 @@
           "sense_id": "sense:honey:0cb449c018e251b1",
           "sense_label_en": "to speak sweetly or flatter",
           "sort_order": 4,
-          "transitivity": "vi"
+          "transitivity": "vi",
+          "usage_note": "较少见的用法；区别于通常表示蜂蜜或亲昵称呼的名词。"
         }
       ]
     }
@@ -14960,30 +14945,23 @@
     "ordinal": 2368,
     "word": "hopeful",
     "source_owner_path": "content/lexical/words/by-ordinal/o2368.json",
-    "source_fingerprint": "c5ceae6289454c1d45ccc64c5e3d0599d0a90a3ad0d985704d2b13ed52ae98af",
-    "sense_lineage": [
-      {
-        "word_id": "word:hopeful",
-        "target_kind": "sense",
-        "from_target_id": "sense:hopeful:5bbb493237b05f90",
-        "status": "deprecated",
-        "to_target_id": null
-      }
-    ],
+    "source_fingerprint": "81b4837e9537a26842d0db3afa93ee4e1c74ff7318e5f3c4006806ae06bd7956",
+    "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "2A"
+        "2A",
+        "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "有希望的",
-      "decision_cn": "",
+      "summary_cn": "充满希望或让人看到希望；也指争取机会的人",
+      "decision_cn": "形容词描述抱有希望或有望成功；名词 hopefuls 指争取职位、入选或成功的人，不表示已获选。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "有希望的"
+        "target_label": "充满希望或让人看到希望；也指争取机会的人"
       }
     },
     "senses": [
@@ -15019,6 +14997,23 @@
           "target_id": "sense:hopeful:8db72ee6072d5ef0",
           "target_locator": "record.senses[1]",
           "target_label": "有希望成功的；有前途的"
+        }
+      },
+      {
+        "id": "sense:hopeful:5bbb493237b05f90",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a presidential/Olympic hopeful; young hopefuls",
+        "definition_cn": "争取成功、入选或获得某职位的人；有志者",
+        "definition_en": "a person who wants to succeed or is seeking selection or a position",
+        "note": "可数，常用复数；强调争取机会，不保证已经成功或一定有前途。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:hopeful:5bbb493237b05f90",
+          "target_locator": "record.senses[2]",
+          "target_label": "争取成功、入选或获得某职位的人；有志者"
         }
       }
     ],
@@ -15060,34 +15055,7 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": [],
-      "senses": [
-        {
-          "stable_sense_id": "sense:hopeful:5bbb493237b05f90",
-          "status": "deprecated",
-          "merged_into_sense_id": null,
-          "pos": "noun",
-          "definition_cn": "有希望的人，有前途的人",
-          "definition_en": "a person who hopes or is considered promising",
-          "semantic_key": "fa7fbd5d9c5db2bcb8617f1fc484fe50c725f78c1bbc29ed412972a28b6c6ef3",
-          "semantic_key_history": [
-            "99b45f06af3d7537c38e2a9d49bf0e5c0e0e555da8f8ebdc78a73fca2efc8a2c"
-          ],
-          "legacy_aliases": [
-            "hopeful:l3:3"
-          ],
-          "legacy_alias_history": [
-            {
-              "legacy_sense_id": "hopeful:l3:3",
-              "source_catalog": "sha256:8696313caf01f2e122eb3381cb552f6666f15b7d8c662d708162d95dd7b697f3"
-            }
-          ],
-          "updated_at": "2026-09-09T00:00:00Z",
-          "source_row": 6614,
-          "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json",
-          "reference_only": true
-        }
-      ]
+      "family": []
     }
   }
 ]

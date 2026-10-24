@@ -303,7 +303,7 @@
     "ordinal": 5892,
     "word": "indefinitely",
     "source_owner_path": "content/lexical/words/by-ordinal/o5892.json",
-    "source_fingerprint": "4d8abee3312f707ca2821f7d70b5de6efc321998fdb3105085aadb7450b36fb9",
+    "source_fingerprint": "830881345cea70ca032f98843814c394d5fa95e57088310456dbd35c7af5aa56",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -329,7 +329,7 @@
         "governing_pattern": "",
         "definition_cn": "无确定期限地；无限期地；无确定界限地",
         "definition_en": "for a time or to an extent with no definite limit",
-        "note": "延期等时间语境表示终点未定；可能持续很久，也可能后来结束，不必然等于永远。原有程度/范围无明确界限的读法仍保留。",
+        "note": "延期等时间语境表示终点未定；可能持续很久，也可能后来结束，不必然等于永远。也可表示程度或范围没有明确界限。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -3043,7 +3043,7 @@
     "ordinal": 5918,
     "word": "jean",
     "source_owner_path": "content/lexical/words/by-ordinal/o5918.json",
-    "source_fingerprint": "6809b8b9d6551e6987a846b8656fc42cb15c1defb824c56841848a0f63e815eb",
+    "source_fingerprint": "4e1bcb9f83e68075e46bee03eecac06276155f9873a813831195f8c2b1c0c0e5",
     "sense_lineage": [
       {
         "word_id": "word:jean",
@@ -3126,8 +3126,8 @@
           "target_word": "jeans",
           "lines": [
             {
-              "text": "jean owns the fabric/material sense; lexicalized plural jeans owns the ordinary trousers sense. Do not duplicate trousers under jean.",
-              "lang": "en"
+              "text": "jean 指织物；jeans 通常用复数，指牛仔裤。",
+              "lang": "cn"
             }
           ],
           "differences": [],
@@ -4241,7 +4241,7 @@
     "ordinal": 5927,
     "word": "kindle",
     "source_owner_path": "content/lexical/words/by-ordinal/o5927.json",
-    "source_fingerprint": "d385d8fd8bbe1b2692ca7ed7d5f8eea8a74cf357be11b16a852e122774e33910",
+    "source_fingerprint": "d8d3d9509f34313139eabd5867259734f66540e106f8a395141b7fd1b89947cd",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4250,13 +4250,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "点燃；使着火；引起；照亮；激起、唤起（兴趣、希望、感情等）",
-      "decision_cn": "",
+      "summary_cn": "（使）燃烧、点燃；（使）发亮；激起（兴趣、希望等）",
+      "decision_cn": "火或材料语境看燃烧、点燃；hope/interest 看激起；光或面容语境还可指（使）发亮。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "点燃；使着火；引起；照亮；激起、唤起（兴趣、希望、感情等）"
+        "target_label": "（使）燃烧、点燃；（使）发亮；激起（兴趣、希望等）"
       }
     },
     "senses": [
@@ -4723,7 +4723,7 @@
     "ordinal": 5932,
     "word": "lattice",
     "source_owner_path": "content/lexical/words/by-ordinal/o5932.json",
-    "source_fingerprint": "5596c41365b8d6cc7afab426a7258b9e7e220d22ac167df91506eeb39507985f",
+    "source_fingerprint": "463b5c094ac2707d11bc340a2931648eb25dc9a7ef71e5c145ff45bee84de12b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4732,13 +4732,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "格子；组合格子；格子状东西",
-      "decision_cn": "",
+      "summary_cn": "规则排列的网格：格架，或点阵、晶格",
+      "decision_cn": "木条或金属条交错形成格架；粒子或点规则排列形成晶格、点阵。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "格子；组合格子；格子状东西"
+        "target_label": "规则排列的网格：格架，或点阵、晶格"
       }
     },
     "senses": [
@@ -5410,14 +5410,13 @@
     "ordinal": 5939,
     "word": "lipstick",
     "source_owner_path": "content/lexical/words/by-ordinal/o5939.json",
-    "source_fingerprint": "cbc9004550b0c4958ee00158ff08232eca9db051136ba528c2ea66275f417ebc",
+    "source_fingerprint": "d63f9dc7030d6fe2e36a868d68f51c56708dd677d322311513ac0b7a3f538d4e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
-      "density": "rich"
+      "density": "light"
     },
     "word_feel": {
       "summary_cn": "口红；涂在嘴唇上着色的化妆品",
@@ -5448,13 +5447,14 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:lipstick:5ea8e27c7c1c5aa0",
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "用口红描画/勾勒；用口红形成图案",
         "definition_en": "form by tracing with lipstick",
-        "note": "Lower/reference verb use; the ordinary learner-main meaning is the cosmetic noun.",
+        "note": "Here the verb means to draw or trace with lipstick; the ordinary cosmetic is the noun.",
         "identity_overlay": null,
         "usage": [],
         "repair": {
@@ -6314,7 +6314,7 @@
     "ordinal": 5949,
     "word": "mall",
     "source_owner_path": "content/lexical/words/by-ordinal/o5949.json",
-    "source_fingerprint": "c962b1ba5cdd8068855cc44214f1be6076750321326cae34784770645efd64d0",
+    "source_fingerprint": "e42384b72d58ee5fbc412f3627e578dae255d436f905bd955faa78d579a2ee86",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6340,7 +6340,7 @@
         "governing_pattern": "",
         "definition_cn": "林荫路",
         "definition_en": "a public area set aside as a pedestrian walk",
-        "note": "Older promenade/walkway meaning is lower/reference in modern learner use.",
+        "note": "较旧用法，指供行人散步的公共步道或林荫路；不同于购物中心。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
