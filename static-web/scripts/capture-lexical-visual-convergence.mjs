@@ -633,16 +633,13 @@ try {
       );
     }
     assert(await page.locator('.lexicalCoreBranches').count() === 0, `v2_no_core_cluster_cards_${fixture.word}`);
+    const fixtureDock = await page.locator('[data-vocab-action-dock]').boundingBox();
+    assert(Boolean(fixtureDock && fixtureDock.y + fixtureDock.height <= 900), `v2_depth_dock_in_view_${fixture.word}`, JSON.stringify(fixtureDock));
     if (fixture.word === 'abstract') {
-      const formRows = await page.locator('.lexicalFormVariants article').evaluateAll((nodes) =>
-        nodes.map((node) => {
-          const r = node.getBoundingClientRect();
-          return { left:r.left, top:r.top, right:r.right, bottom:r.bottom, width:r.width, height:r.height };
-        })
-      );
-      assert(formRows.length >= 2, 'v2_abstract_form_rows_present', JSON.stringify(formRows));
-      assert(formRows[1].top >= formRows[0].bottom - 1, 'v2_abstract_form_rows_do_not_overlap', JSON.stringify(formRows));
-      assert(Math.abs(formRows[1].left - formRows[0].left) <= 1, 'v2_abstract_form_rows_align_left', JSON.stringify(formRows));
+      const studyForm = page.locator('.lexicalFormSection');
+      assert(await studyForm.count() === 1 && await studyForm.isHidden(), 'v2_abstract_background_form_hidden_in_study');
+      assert(await studyForm.locator('[data-vocab-repair], [data-vocab-target-row]').count() === 0,
+        'v2_abstract_background_form_has_no_repair');
       const leftTop = await page.locator('.lexicalSenseRow').first().boundingBox();
       // Lookup-only source sections remain in the DOM but have no Study geometry.
       const visibleReference = page.locator('.portedVocabEvidenceColumn .lexicalExpansionSection:visible');
@@ -653,9 +650,21 @@ try {
         'v2_abstract_reference_top_aligns_with_first_sense',
         JSON.stringify({leftTop,rightTop})
       );
+      await page.goto(wordUrl(fixture.ordinal, 'lookup'), { waitUntil: 'networkidle' });
+      await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+      assert(await page.locator('.lexicalFormSection').isVisible(), 'v2_abstract_form_visible_in_lookup');
+      const formRows = await page.locator('.lexicalFormVariants article').evaluateAll((nodes) =>
+        nodes.map((node) => {
+          const r = node.getBoundingClientRect();
+          return { left:r.left, top:r.top, right:r.right, bottom:r.bottom, width:r.width, height:r.height };
+        })
+      );
+      assert(formRows.every(row => row.width > 0 && row.height > 0), 'v2_abstract_lookup_form_rows_have_nonzero_geometry', JSON.stringify(formRows));
+      assert(formRows.length >= 2, 'v2_abstract_form_rows_present', JSON.stringify(formRows));
+      assert(formRows[1].top >= formRows[0].bottom - 1, 'v2_abstract_form_rows_do_not_overlap', JSON.stringify(formRows));
+      assert(Math.abs(formRows[1].left - formRows[0].left) <= 1, 'v2_abstract_form_rows_align_left', JSON.stringify(formRows));
+
     }
-    const fixtureDock = await page.locator('[data-vocab-action-dock]').boundingBox();
-    assert(Boolean(fixtureDock && fixtureDock.y + fixtureDock.height <= 900), `v2_depth_dock_in_view_${fixture.word}`, JSON.stringify(fixtureDock));
   }
 
   // Final Learner Object pressure-test fixtures across distinct content shapes.
@@ -679,7 +688,7 @@ try {
     const reference = current.reference && typeof current.reference === 'object' ? current.reference : {};
     const familyCount = Array.isArray(reference.family) ? reference.family.length : 0;
     const referenceExpected = Boolean(
-      reference.form
+      (reference.form && reference.form.disposition !== 'EXPLORE_ONLY')
       || familyCount
       || (Array.isArray(reference.confusables) && reference.confusables.length)
       || (Array.isArray(reference.relations) && reference.relations.length)
@@ -724,6 +733,21 @@ try {
     const overflow = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     assert(overflow <= 2, `final_fixture_no_horizontal_overflow_${fixture.word}`, String(overflow));
     await page.screenshot({ path: path.join(outputRoot, `lexical-final-audit-${fixture.word}-1440x900.png`), fullPage: false });
+    if (reference.form?.disposition === 'EXPLORE_ONLY') {
+      const studyForm = page.locator('.lexicalFormSection');
+      assert(await studyForm.count() === 1 && await studyForm.isHidden(), `final_${fixture.word}_background_form_hidden_in_study`);
+      assert(await studyForm.locator('[data-vocab-repair], [data-vocab-target-row]').count() === 0, `final_${fixture.word}_background_form_has_no_repair`);
+      await page.goto(wordUrl(fixture.ordinal, 'lookup'), { waitUntil: 'networkidle' });
+      await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+      const lookupForm = page.locator('.lexicalFormSection');
+      assert(await lookupForm.isVisible(), `final_${fixture.word}_background_form_visible_in_lookup`);
+      assert(await lookupForm.locator('[data-vocab-repair], [data-vocab-target-row]').count() === 0, `final_${fixture.word}_lookup_form_has_no_repair`);
+      const rows = lookupForm.locator('.lexicalFormVariants article');
+      assert(await rows.count() === (reference.form.variants || []).length, `final_${fixture.word}_lookup_form_variants_complete`);
+      const geometry = await rows.evaluateAll(nodes => nodes.map(node => { const r = node.getBoundingClientRect(); return {width:r.width,height:r.height}; }));
+      assert(geometry.every(row => row.width > 0 && row.height > 0), `final_${fixture.word}_lookup_form_geometry`, JSON.stringify(geometry));
+    }
+
   }
 
   // Tighter Mac landscape evidence: same learning geometry, reduced secondary density.
