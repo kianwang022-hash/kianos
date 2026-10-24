@@ -644,7 +644,10 @@ try {
       assert(formRows[1].top >= formRows[0].bottom - 1, 'v2_abstract_form_rows_do_not_overlap', JSON.stringify(formRows));
       assert(Math.abs(formRows[1].left - formRows[0].left) <= 1, 'v2_abstract_form_rows_align_left', JSON.stringify(formRows));
       const leftTop = await page.locator('.lexicalSenseRow').first().boundingBox();
-      const rightTop = await page.locator('.portedVocabEvidenceColumn .lexicalExpansionSection').first().boundingBox();
+      // Lookup-only source sections remain in the DOM but have no Study geometry.
+      const visibleReference = page.locator('.portedVocabEvidenceColumn .lexicalExpansionSection:visible');
+      assert(await visibleReference.count() > 0, 'v2_abstract_visible_reference_section_present');
+      const rightTop = await visibleReference.first().boundingBox();
       assert(
         Boolean(leftTop && rightTop && Math.abs(leftTop.y - rightTop.y) <= 2),
         'v2_abstract_reference_top_aligns_with_first_sense',
