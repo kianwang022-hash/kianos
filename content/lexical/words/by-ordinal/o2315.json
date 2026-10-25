@@ -11,25 +11,26 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "使者；先驱；预兆",
-          "label_en": "a person, sign, or event that announces or indicates something is coming",
           "pos": "noun",
           "sense_ids": [
-            "sense:herald:3b30170de6eb555f"
-          ]
+            "sense:herald:fa3fe5a612ebddc7"
+          ],
+          "label_cn": "预兆；先声（预示某事将来临的人或事物）",
+          "label_en": "a person or thing that signals the arrival of something"
         },
         {
-          "label_cn": "宣布；预示",
-          "label_en": "to signal that something is coming, or publicly announce or praise someone or something as a particular kind",
           "pos": "verb",
           "sense_ids": [
-            "sense:herald:4b91aacc99185101"
-          ]
+            "sense:herald:87510ce86727bd64",
+            "sense:herald:96b8dc4803123d06"
+          ],
+          "label_cn": "预示（某事将发生）；公开宣布；（as）宣称／赞誉为",
+          "label_en": "to signal that something is about to happen; to announce something publicly or acclaim someone or something as a particular kind"
         }
       ],
-      "core_meaning_cn": "宣布、预示；使者、先驱或预兆",
-      "core_meaning_en": "announce or signal what is coming; a herald/person/sign of it",
-      "mental_model_cn": "noun → 先驱/预兆；verb → 宣布某事到来或预示变化，be heralded as 常表示“被誉为/被宣称为”。",
+      "core_meaning_cn": "预兆；先声；预示或公开宣布、赞誉",
+      "core_meaning_en": "a sign of what is coming; to signal, announce or acclaim",
+      "mental_model_cn": "名词指预示某事来临的人或事物；动词区分预示与公开宣布、赞誉。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -55,14 +56,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "使者；先驱；预兆",
-        "definition_en": "a person, sign, or event that announces or indicates that something is coming",
-        "governing_pattern": "",
+        "definition_cn": "预兆；先声（预示某事将来临的人或事物）",
+        "definition_en": "a person or thing that signals the arrival of something",
+        "governing_pattern": "a herald of sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:herald:3b30170de6eb555f",
-        "sense_label_en": "a person, sign, or event that announces or indicates that something is coming",
+        "sense_id": "sense:herald:fa3fe5a612ebddc7",
+        "sense_label_en": "a person or thing that signals the arrival of something",
         "sort_order": 0,
         "transitivity": "nonverb"
       },
@@ -76,7 +77,22 @@
             ],
             "meaning_cn": "预示新时代",
             "phrase": "herald a new era"
-          },
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "预示（某事将发生）",
+        "definition_en": "to signal that something is about to happen",
+        "governing_pattern": "herald sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:herald:87510ce86727bd64",
+        "sense_label_en": "to signal that something is about to happen",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
           {
             "collocation_id": "collocation:898a409713254615666c",
             "exam_value": "fixed_pattern",
@@ -88,15 +104,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "预示；宣布；（as）赞誉／宣称为",
-        "definition_en": "to signal that something is coming, or publicly announce or praise someone or something as a particular kind",
+        "definition_cn": "公开宣布；（as）宣称／赞誉为",
+        "definition_en": "to announce something publicly or acclaim someone or something as a particular kind",
         "governing_pattern": "herald sth; herald sb/sth as sth; be heralded as sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:herald:4b91aacc99185101",
-        "sense_label_en": "to signal that something is coming, or publicly announce or praise someone or something as a particular kind",
-        "sort_order": 1,
+        "sense_id": "sense:herald:96b8dc4803123d06",
+        "sense_label_en": "to announce something publicly or acclaim someone or something as a particular kind",
+        "sort_order": 2,
         "transitivity": "vt"
       }
     ],
@@ -254,22 +270,136 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:ff3c890491c046647adf",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:herald:3b30170de6eb555f:collocation:0"
+          ],
+          "meaning_cn": "春天的预兆",
+          "phrase": "a herald of spring"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "使者；先驱；预兆",
+      "definition_en": "a person, sign, or event that announces or indicates that something is coming",
+      "governing_pattern": "",
+      "level": "L1",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:herald:3b30170de6eb555f",
+      "sense_label_en": "a person, sign, or event that announces or indicates that something is coming",
+      "sort_order": 0,
+      "transitivity": "nonverb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:e4a6d53204bfad2b2557",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:herald:4b91aacc99185101:collocation:0"
+          ],
+          "meaning_cn": "预示新时代",
+          "phrase": "herald a new era"
+        },
+        {
+          "collocation_id": "collocation:898a409713254615666c",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:herald:4b91aacc99185101:collocation:1"
+          ],
+          "meaning_cn": "被誉为；被称赞为",
+          "phrase": "be heralded as"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "预示；宣布；（as）赞誉／宣称为",
+      "definition_en": "to signal that something is coming, or publicly announce or praise someone or something as a particular kind",
+      "governing_pattern": "herald sth; herald sb/sth as sth; be heralded as sth",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:herald:4b91aacc99185101",
+      "sense_label_en": "to signal that something is coming, or publicly announce or praise someone or something as a particular kind",
+      "sort_order": 1,
+      "transitivity": "vt",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    },
+    {
+      "collocations": [],
+      "confidence": "medium",
+      "definition_cn": "（历史）传令官；使者（旧时负责宣告消息）",
+      "definition_en": "an official messenger in former times who made public announcements",
+      "governing_pattern": "a herald",
+      "level": "L3",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:herald:021f34169f86a8db",
+      "sense_label_en": "an official messenger in former times who made public announcements",
+      "sort_order": 0,
+      "transitivity": "nonverb",
+      "usage_note": "历史用法，不把所有普通使者都称为 herald。",
+      "status": "reference",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:herald:3b30170de6eb555f",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6469,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
       },
       {
         "sense_id": "sense:herald:4b91aacc99185101",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6470,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:herald:fa3fe5a612ebddc7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2315.json",
+        "source_pointer": "/record/senses/0"
+      },
+      {
+        "sense_id": "sense:herald:87510ce86727bd64",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2315.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:herald:96b8dc4803123d06",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2315.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:herald:021f34169f86a8db",
+        "status": "reference",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2315.json",
+        "source_pointer": "/reference_senses/2"
       }
     ],
     "active_collocations": [

@@ -22,18 +22,20 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "敌意的；不友好的；反对的；不利于某事实现的",
-          "label_en": "unfriendly, strongly opposed or adverse to an outcome",
           "pos": "adjective",
           "sense_ids": [
-            "sense:hostile:54da4423448b579d"
-          ]
+            "sense:hostile:824152f703c7c2cb",
+            "sense:hostile:e8dff74fe884b6c2",
+            "sense:hostile:14b86c66bacfde23"
+          ],
+          "label_cn": "怀有敌意的；不友好的；强烈反对的；条件恶劣的；不利于生存、发展或某事实现的；敌方的；属于军事敌人的",
+          "label_en": "unfriendly or strongly opposed to someone or something; difficult or harmful to survival, development or an intended outcome; belonging to an enemy in a military conflict"
         }
       ],
-      "core_meaning_cn": "敌意或不友好的；强烈反对的；不利于某事实现的",
-      "core_meaning_en": "unfriendly, strongly opposed or adverse to an outcome",
-      "mental_model_cn": "既可人对人不友好，也可条件不利；商业收购中指目标公司反对。",
-      "mental_model_en": "unfriendly, strongly opposed or adverse to an outcome."
+      "core_meaning_cn": "有敌意或强烈反对的；条件恶劣的；军事上敌方的",
+      "core_meaning_en": "unfriendly or opposed; adverse; belonging to a military enemy",
+      "mental_model_cn": "人或态度、环境条件与军事敌方分看语境；hostile takeover 仍指目标公司反对的收购。",
+      "mental_model_en": "unfriendly or opposed; adverse; belonging to a military enemy"
     },
     "exam_paraphrases": [],
     "needs_delta_review": false,
@@ -44,6 +46,21 @@
     "semantic_neighbors": [],
     "senses": [
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "怀有敌意的；不友好的；强烈反对的",
+        "definition_en": "unfriendly or strongly opposed to someone or something",
+        "governing_pattern": "hostile to/towards sb/sth",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:hostile:824152f703c7c2cb",
+        "sense_label_en": "unfriendly or strongly opposed to someone or something",
+        "sort_order": 0,
+        "transitivity": "nonverb",
+        "usage_note": "They were hostile to the proposal.＝他们强烈反对这项提议。"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:6167c137a54941ccbb7a",
@@ -53,16 +70,31 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "敌意的；不友好的；反对的；不利于某事实现的",
-        "definition_en": "unfriendly, strongly opposed or adverse to an outcome",
-        "governing_pattern": "hostile to/towards sb/sth; hostile conditions",
-        "level": "L1",
+        "definition_cn": "条件恶劣的；不利于生存、发展或某事实现的",
+        "definition_en": "difficult or harmful to survival, development or an intended outcome",
+        "governing_pattern": "hostile conditions; hostile to sth",
+        "level": "L2",
         "needs_human_review": 0,
         "pos": "adjective",
-        "sense_id": "sense:hostile:54da4423448b579d",
-        "sense_label_en": "unfriendly, strongly opposed or adverse to an outcome",
-        "sort_order": 0,
+        "sense_id": "sense:hostile:e8dff74fe884b6c2",
+        "sense_label_en": "difficult or harmful to survival, development or an intended outcome",
+        "sort_order": 1,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "敌方的；属于军事敌人的",
+        "definition_en": "belonging to an enemy in a military conflict",
+        "governing_pattern": "hostile territory/forces",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:hostile:14b86c66bacfde23",
+        "sense_label_en": "belonging to an enemy in a military conflict",
+        "sort_order": 2,
+        "transitivity": "nonverb",
+        "usage_note": "hostile territory：敌方领土。"
       }
     ],
     "verification_summary": {
@@ -479,6 +511,30 @@
       "source_row": 6645,
       "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6167c137a54941ccbb7a",
+          "phrase": "hostile conditions for plants",
+          "meaning_cn": "不利于植物生长的条件",
+          "exam_value": "usage_example"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "敌意的；不友好的；反对的；不利于某事实现的",
+      "definition_en": "unfriendly, strongly opposed or adverse to an outcome",
+      "governing_pattern": "hostile to/towards sb/sth; hostile conditions",
+      "level": "L1",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:hostile:54da4423448b579d",
+      "sense_label_en": "unfriendly, strongly opposed or adverse to an outcome",
+      "sort_order": 0,
+      "transitivity": "nonverb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -499,10 +555,34 @@
       },
       {
         "sense_id": "sense:hostile:54da4423448b579d",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6646,
         "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
+      },
+      {
+        "sense_id": "sense:hostile:824152f703c7c2cb",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2382.json",
+        "source_pointer": "/record/senses/0"
+      },
+      {
+        "sense_id": "sense:hostile:e8dff74fe884b6c2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2382.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:hostile:14b86c66bacfde23",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2382.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -525,7 +605,7 @@
         "status": "active",
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2382.json",
-        "source_pointer": "/record/senses/0/collocations/0"
+        "source_pointer": "/record/senses/1/collocations/0"
       }
     ],
     "exam-mappings": [],

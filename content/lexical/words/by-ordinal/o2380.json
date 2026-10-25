@@ -34,11 +34,13 @@
           ]
         },
         {
-          "label_cn": "主办；主持；招待；（计算机）托管网站；做聚会的主人；招待来宾",
-          "label_en": "to organize an event, present a programme or receive guests; to store and serve a website; to act as host at a party",
+          "label_cn": "主办；承办（活动、会议等）；主持（节目）；接待；招待（客人）；（计算机）托管网站；做聚会的主人；招待来宾",
+          "label_en": "to organize or provide the setting for an event or meeting; to present a television or radio programme; to receive and look after guests; to store and serve a website; to act as host at a party",
           "pos": "verb",
           "sense_ids": [
-            "sense:host:5da60fda97ef5a2c",
+            "sense:host:73294b425829e431",
+            "sense:host:032fafa2e1744bcc",
+            "sense:host:d2eb6e3e18c30024",
             "sense:host:684767a2c260d796",
             "sense:host:a220b34c2f76bad3"
           ]
@@ -116,9 +118,25 @@
             "legacy_source_object_ids": [
               "sense:host:5da60fda97ef5a2c:collocation:0"
             ],
-            "meaning_cn": "主持会议",
+            "meaning_cn": "主办；承办会议",
             "phrase": "host a meeting"
-          },
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "主办；承办（活动、会议等）",
+        "definition_en": "to organize or provide the setting for an event or meeting",
+        "governing_pattern": "host an event/meeting",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:host:73294b425829e431",
+        "sense_label_en": "to organize or provide the setting for an event or meeting",
+        "sort_order": 2,
+        "transitivity": "vt",
+        "usage_note": "host a meeting 指主办或承办会议，不泛指 chair a meeting（主持会议议程）。"
+      },
+      {
+        "collocations": [
           {
             "collocation_id": "collocation:864643cf086ede966857",
             "exam_value": "usage_example",
@@ -127,7 +145,22 @@
             ],
             "meaning_cn": "主持节目",
             "phrase": "host a show"
-          },
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "主持（节目）",
+        "definition_en": "to present a television or radio programme",
+        "governing_pattern": "host a show/programme",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:host:032fafa2e1744bcc",
+        "sense_label_en": "to present a television or radio programme",
+        "sort_order": 9,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
           {
             "collocation_id": "collocation:d585caf0cf968ec8f86a",
             "phrase": "She hosted friends for the weekend.",
@@ -136,15 +169,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "主办；主持；招待",
-        "definition_en": "to organize an event, present a programme or receive guests",
-        "governing_pattern": "host an event/show/dinner; host guests",
+        "definition_cn": "接待；招待（客人）",
+        "definition_en": "to receive and look after guests",
+        "governing_pattern": "host guests/friends",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:host:5da60fda97ef5a2c",
-        "sense_label_en": "to organize an event, present a programme or receive guests",
-        "sort_order": 2,
+        "sense_id": "sense:host:d2eb6e3e18c30024",
+        "sense_label_en": "to receive and look after guests",
+        "sort_order": 10,
         "transitivity": "vt"
       },
       {
@@ -297,7 +330,7 @@
                 "sense:host:684767a2c260d796"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2380.json",
-              "source_pointer": "/record/senses/6",
+              "source_pointer": "/record/senses/8",
               "mode": "bounded_current_owner_senses",
               "does_not_apply_to_other_owner_senses": true,
               "current_owner_usage": "host a website/site"
@@ -314,7 +347,7 @@
                 "sense:host:a220b34c2f76bad3"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2380.json",
-              "source_pointer": "/record/senses/7",
+              "source_pointer": "/record/senses/9",
               "mode": "bounded_current_owner_senses",
               "does_not_apply_to_other_owner_senses": true,
               "current_owner_usage": "host; whose turn is it to host?"
@@ -600,7 +633,50 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:f329ca710195c4222142",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:host:5da60fda97ef5a2c:collocation:0"
+          ],
+          "meaning_cn": "主持会议",
+          "phrase": "host a meeting"
+        },
+        {
+          "collocation_id": "collocation:864643cf086ede966857",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:host:5da60fda97ef5a2c:collocation:1"
+          ],
+          "meaning_cn": "主持节目",
+          "phrase": "host a show"
+        },
+        {
+          "collocation_id": "collocation:d585caf0cf968ec8f86a",
+          "phrase": "She hosted friends for the weekend.",
+          "meaning_cn": "她周末接待朋友在家住宿。",
+          "exam_value": "usage_example"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "主办；主持；招待",
+      "definition_en": "to organize an event, present a programme or receive guests",
+      "governing_pattern": "host an event/show/dinner; host guests",
+      "level": "L1",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:host:5da60fda97ef5a2c",
+      "sense_label_en": "to organize an event, present a programme or receive guests",
+      "sort_order": 2,
+      "transitivity": "vt",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -619,7 +695,7 @@
       },
       {
         "sense_id": "sense:host:5da60fda97ef5a2c",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6641,
         "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json"
@@ -651,7 +727,7 @@
         "merged_into_sense_id": null,
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2380.json",
-        "source_pointer": "/record/senses/6"
+        "source_pointer": "/record/senses/8"
       },
       {
         "sense_id": "sense:host:a220b34c2f76bad3",
@@ -659,7 +735,31 @@
         "merged_into_sense_id": null,
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2380.json",
-        "source_pointer": "/record/senses/7"
+        "source_pointer": "/record/senses/9"
+      },
+      {
+        "sense_id": "sense:host:73294b425829e431",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2380.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:host:032fafa2e1744bcc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2380.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:host:d2eb6e3e18c30024",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2380.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
@@ -704,21 +804,21 @@
         "status": "active",
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2380.json",
-        "source_pointer": "/record/senses/2/collocations/2"
+        "source_pointer": "/record/senses/4/collocations/0"
       },
       {
         "id": "collocation:a88541dadf265b8b1236",
         "status": "active",
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2380.json",
-        "source_pointer": "/record/senses/6/collocations/0"
+        "source_pointer": "/record/senses/8/collocations/0"
       },
       {
         "id": "collocation:81aa3fdfc52055ecc8fd",
         "status": "active",
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2380.json",
-        "source_pointer": "/record/senses/7/collocations/0"
+        "source_pointer": "/record/senses/9/collocations/0"
       }
     ],
     "exam-mappings": [],
