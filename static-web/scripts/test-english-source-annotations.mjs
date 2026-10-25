@@ -123,6 +123,88 @@ for(const task of ['cloze','reading_b'])test(`${task}: fresh annotations on old 
  assert.equal(row.highlight_spans.length,1);assert.equal(row.problem_count,1);
 });
 
+for(const task of Object.keys(prefixes))test(`${task}: editing merges duplicate anchors and old duplicate records project/remove once`,()=>{
+ const {storage,key,meta}=fixture(task),first={start:2,end:9,text:'Repeat.'},second={start:10,end:17,text:'Repeat.'};
+ L.updateEnglishObjectiveSourceSpan(storage,meta,{span:first,intent:'HIGHLIGHT',now});
+ L.updateEnglishObjectiveSourceSpan(storage,meta,{span:second,intent:'HIGHLIGHT',now:now+1});
+ L.updateEnglishObjectiveSourceSpan(storage,meta,{span:first,now:now+2});
+ let saved=JSON.parse(storage.getItem(key)),original=saved.discussionSpans[0].span_id;
+ L.updateEnglishObjectiveSourceSpan(storage,meta,{replaceId:saved.discussionSpans[1].span_id,span:first,intent:'HIGHLIGHT',now:now+3});
+ saved=JSON.parse(storage.getItem(key));assert.equal(saved.discussionSpans.length,2);assert.equal(saved.discussionSpans[0].span_id,original);
+ assert.equal(L.englishObjectiveSourceSpans(saved,meta.source_hash).filter(row=>row.intent==='HIGHLIGHT').length,1);
+ saved.discussionSpans.push({...saved.discussionSpans[0],span_id:'legacy-duplicate'});storage.setItem(key,JSON.stringify(saved));
+ const raw=storage.getItem(key);
+ assert.equal(L.englishObjectiveSourceSpans(saved,meta.source_hash).length,2,'read projection deduplicates old rows without erasing bytes');
+ assert.equal(storage.getItem(key),raw);
+ L.updateEnglishObjectiveSourceSpan(storage,meta,{span:first,replaceId:original,intent:'HIGHLIGHT',now:now+4});
+ saved=JSON.parse(storage.getItem(key));assert.equal(saved.discussionSpans.length,2,'editing an old duplicate to itself keeps one mark');
+ saved.discussionSpans.push({...saved.discussionSpans[0],span_id:'another-legacy-duplicate'});storage.setItem(key,JSON.stringify(saved));
+ L.updateEnglishObjectiveSourceSpan(storage,meta,{removeId:original});
+ saved=JSON.parse(storage.getItem(key));assert.equal(saved.discussionSpans.length,1);assert.equal(saved.discussionSpans[0].intent,'DISCUSSION_CONTEXT');
+});
+
+test('actual Reading reset notifies the renderer; old attempt leases cannot mark, replace, remove or clear the new attempt',()=>{
+ const {storage,key,state,meta}=fixture('reading_a'),span={start:2,end:9,text:'Repeat.'};
+ L.updateEnglishObjectiveSourceSpan(storage,meta,{span,intent:'HIGHLIGHT',now});
+ const oldId=state.binding.attempt_id,old=JSON.parse(storage.getItem(key)),events=[];
+ const runtime=fs.readFileSync(new URL('../src/lib/readingRuntime.mjs',import.meta.url),'utf8');
+ const code=runtime.slice(runtime.indexOf('  const newAttempt ='),runtime.indexOf("  retry?.addEventListener('click', newAttempt);"));
+ const context={state:old,storageKey:key,examSessionId:'',pendingAnswers:false,answers:null,localStorage:storage,
+  archiveEnglishAttempt:L.archiveEnglishAttempt,save:()=>L.saveEnglishAttempt(storage,key,context.state,meta),render:()=>{},
+  root:{dispatchEvent:event=>events.push(event.type)},CustomEvent:class{constructor(type){this.type=type;}}};
+ vm.runInNewContext(code+'\nnewAttempt();',context);
+ const current=JSON.parse(storage.getItem(key));assert.notEqual(current.binding.attempt_id,oldId);
+ assert.deepEqual(current.discussionSpans,[]);assert.deepEqual(events,['kianos:english-attempt-replaced']);
+ const raw=storage.getItem(key);
+ for(const change of [{span,intent:'HIGHLIGHT'},{span,replaceId:old.discussionSpans[0].span_id},{removeId:old.discussionSpans[0].span_id},{clear:true},{clearIntent:'HIGHLIGHT'}]){
+  assert.throws(()=>L.updateEnglishObjectiveSourceSpan(storage,meta,{...change,expectedAttemptId:oldId}),/CHANGED_RESELECT/);
+  assert.equal(storage.getItem(key),raw);
+ }
+ L.updateEnglishObjectiveSourceSpan(storage,meta,{span,intent:'HIGHLIGHT',expectedAttemptId:current.binding.attempt_id});
+ assert.equal(JSON.parse(storage.getItem(key)).discussionSpans.length,1,'a current lease still saves normally');
+});
+
+test('actual selection save refuses a root switched to another object or source before writing',()=>{
+ const component=fs.readFileSync(new URL('../src/components/EnglishLexicalLookupBridge.astro',import.meta.url),'utf8');
+ const code=component.slice(component.indexOf('    const persistSelection ='),component.indexOf('    const captureSelection ='));
+ for(const changed of [{object_id:'other'},{task:'reading_b'},{source_hash:'new-source'}]){
+  const meta={task:'reading_a',object_id:'fixture',source_hash:'v1'},status={textContent:''};let writes=0;
+  const context={activeSelection:{discussion:{start:0,end:1,text:'A'},annotationMeta:meta,attemptId:'old',taskRoot:{dataset:{}}},
+   menu:{querySelector:()=>status},rootMeta:()=>({...meta,...changed}),sameSource:(a,b)=>['task','object_id','source_hash'].every(key=>a[key]===b[key]),
+   location:{search:''},URLSearchParams,annotationError:error=>error.message,updateEnglishObjectiveSourceSpan:()=>writes++,renderDiscussion:()=>{}};
+  vm.runInNewContext(code+"\npersistSelection('HIGHLIGHT');",context);
+  assert.equal(writes,0);assert.match(status.textContent,/CHANGED_RESELECT/);
+ }
+});
+
+test('same object ID and source text stay isolated by task and attempt identity',()=>{
+ const storage=new Storage(),metas=Object.keys(prefixes).map(task=>fixture(task).meta),span={start:2,end:9,text:'Repeat.'};
+ const ids={};
+ for(const meta of metas){const state=structuredClone(initial);L.saveEnglishAttempt(storage,prefixes[meta.task]+'fixture',state,meta,{now});ids[meta.task]=state.binding.attempt_id;}
+ const before=new Map(storage.map);
+ const cloze=metas.find(meta=>meta.task==='cloze');
+ L.updateEnglishObjectiveSourceSpan(storage,cloze,{span,intent:'HIGHLIGHT',expectedAttemptId:ids.cloze});
+ for(const task of ['reading_a','reading_b'])assert.equal(storage.getItem(prefixes[task]+'fixture'),before.get(prefixes[task]+'fixture'));
+ const raw=storage.getItem(prefixes.cloze+'fixture');
+ assert.throws(()=>L.updateEnglishObjectiveSourceSpan(storage,cloze,{span,expectedAttemptId:ids.reading_a}),/CHANGED_RESELECT/);
+ assert.equal(storage.getItem(prefixes.cloze+'fixture'),raw);
+});
+
+test('production storage writer refuses an old retired realm after a new realm writes (VM guard proof only)',()=>{
+ const source=fs.readFileSync(new URL('../src/lib/browserLearnerWriter.mjs',import.meta.url),'utf8');
+ const assertion=source.slice(source.indexOf('export function assertLearnerStorageWritable'),source.indexOf('function retire()')).replace('export function','function');
+ const commit=source.slice(source.indexOf('export function commitLearnerStorageChanges')).replace('export function','function');
+ const storage=new Storage(),key='kianos-reading-attempt-v1:writer-fixture';storage.setItem(key,'old');
+ const mount=ownsWrites=>{
+  const realm={existing:null,browser:true,nativeStorage:storage,ownsWrites};
+  vm.runInNewContext(assertion+commit+'\nglobalThis.commit=commitLearnerStorageChanges;',realm);return realm;
+ };
+ const retired=mount(false),current=mount(true);
+ current.commit(storage,[[key,'new']]);
+ assert.throws(()=>retired.commit(storage,[[key,'late-old']]),/WRITER_RELOAD_REQUIRED/);
+ assert.equal(storage.getItem(key),'new');
+});
+
 // Small DOM adapter fixtures exercise the production coordinate/range/fallback code.
 class Node {
  constructor(doc,text=null){this.ownerDocument=doc;this.value=text;this.childNodes=[];this.parent=null;this.attrs={};}

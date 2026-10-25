@@ -124,6 +124,7 @@ const base = import.meta.env.BASE_URL;
 
     const objectiveRoots = [...document.querySelectorAll('[data-local-port="reading"], [data-objective-root][data-objective-task="cloze"], [data-objective-root][data-objective-task="reading_b"]')];
     const rootMeta = root => taskMetadata(root,root.dataset.objectiveTask || 'reading_a',root.dataset.objectiveObject || root.dataset.readingObject);
+    const sameSource = (a,b) => ['task','object_id','source_hash'].every(key=>a?.[key]===b?.[key]);
     const attemptKey = meta => ({reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:'}[meta.task])+meta.object_id;
     let discussionObserver = null;
     const observeDiscussion = () => {
@@ -146,6 +147,10 @@ const base = import.meta.env.BASE_URL;
           if(new URLSearchParams(location.search).has('exam_session'))continue;
           let meta,attempt;
           try{meta=rootMeta(root);attempt=JSON.parse(localStorage.getItem(attemptKey(meta))||'null');}catch{continue;}
+          const attemptId=attempt?.binding?.attempt_id||'';
+          root.dataset.englishAnnotationAttempt=attemptId;
+          if(activeSelection?.taskRoot===root&&(!sameSource(meta,activeSelection.annotationMeta)||attemptId!==activeSelection.attemptId))hideMenu();
+          if(editing?.taskRoot===root&&(!sameSource(meta,editing.meta)||attemptId!==editing.attemptId))editing=null;
           const spans=englishObjectiveSourceSpans(attempt,meta.source_hash);
           const clearHighlight=root.querySelector('[data-reading-clear-highlight]');
           if(clearHighlight)clearHighlight.disabled=!spans.some(span=>span.intent==='HIGHLIGHT');
@@ -155,7 +160,10 @@ const base = import.meta.env.BASE_URL;
           panel.append(summary);panel.hidden=false;
           const status=document.createElement('small');status.setAttribute('data-reading-discussion-status','');
           const mutate=change=>{
-            try{updateEnglishObjectiveSourceSpan(localStorage,meta,change);renderDiscussion();}
+            try{
+              if(!sameSource(meta,rootMeta(root)))throw new Error('ENGLISH_SOURCE_SPAN_CHANGED_RESELECT');
+              updateEnglishObjectiveSourceSpan(localStorage,meta,{...change,expectedAttemptId:attemptId});renderDiscussion();
+            }
             catch(error){status.textContent=annotationError(error);}
           };
           for(const span of spans){
@@ -167,7 +175,7 @@ const base = import.meta.env.BASE_URL;
             const edit=document.createElement('button');edit.type='button';edit.textContent='修改选段';
             edit.setAttribute('data-reading-discussion-edit',span.span_id);
             edit.addEventListener('click',()=>{
-              editing={spanId:span.span_id,task:meta.task,objectId:meta.object_id};
+              editing={spanId:span.span_id,task:meta.task,objectId:meta.object_id,taskRoot:root,meta,attemptId};
               status.textContent='重新选择原文，再点“高亮”或“Chat 上下文”替换此标记。';
               cancel.hidden=false;
             });
@@ -203,9 +211,11 @@ const base = import.meta.env.BASE_URL;
         if(new URLSearchParams(location.search).has('exam_session'))return;
         if(!activeSelection?.discussion)throw new Error('请选择完整原文中的文字。');
         const root=activeSelection.taskRoot,meta=rootMeta(root);
+        if(!sameSource(meta,activeSelection.annotationMeta))throw new Error('ENGLISH_SOURCE_SPAN_CHANGED_RESELECT');
         if(root.dataset.englishReadonly==='true')throw new Error('当前记录只读，标记未保存。');
         const replaceId=editing?.task===meta.task&&editing?.objectId===meta.object_id?editing.spanId:null;
-        updateEnglishObjectiveSourceSpan(localStorage,meta,{intent,replaceId,span:{...activeSelection.discussion,
+        if(replaceId&&editing.attemptId!==activeSelection.attemptId)throw new Error('ENGLISH_SOURCE_SPAN_CHANGED_RESELECT');
+        updateEnglishObjectiveSourceSpan(localStorage,activeSelection.annotationMeta,{intent,replaceId,expectedAttemptId:activeSelection.attemptId,span:{...activeSelection.discussion,
           source_context:activeSelection.nearby,focused_question_id:activeSelection.focusedQuestionId}});
         editing=null;renderDiscussion();
         if(status)status.textContent=intent==='HIGHLIGHT'?'已保存高亮':'已保存 Chat 上下文';
@@ -229,19 +239,27 @@ const base = import.meta.env.BASE_URL;
       const focusedQuestionId = route.task === 'Reading A' && route.taskRoot instanceof HTMLElement
         ? route.taskRoot.querySelector('[data-question].is-current')?.getAttribute('data-question') || ''
         : '';
+      let annotationMeta=null,attemptId='';
+      if(route.taskId){
+        try{
+          annotationMeta=rootMeta(route.taskRoot);
+          attemptId=JSON.parse(localStorage.getItem(attemptKey(annotationMeta))||'null')?.binding?.attempt_id||'';
+        }catch{hideMenu();return;}
+      }
       activeSelection = {
         text,
         word: exactToken(text) ? text : '',
         range: range.cloneRange(),
         sourceRoot,
         task: route.task, taskId: route.taskId, taskRoot: route.taskRoot,
+        annotationMeta,attemptId,
         objectId: route.objectId,
         nearby: compact(localContext?.textContent || sourceRoot.textContent, 1200),
         sourceLocator: localContext instanceof HTMLElement && localContext.id
           ? `#${localContext.id}`
           : blockIndex >= 0 ? `block:${blockIndex + 1}` : '',
         focusedQuestionId,
-        discussion: route.taskId ? englishSourceSelection(englishSourceModel(route.taskRoot,rootMeta(route.taskRoot)),range) : null,
+        discussion: route.taskId ? englishSourceSelection(englishSourceModel(route.taskRoot,annotationMeta),range) : null,
         rect
       };
       const toolbarHighlight=route.taskRoot?.querySelector('[data-reading-highlight]');
@@ -308,7 +326,7 @@ const base = import.meta.env.BASE_URL;
       });
       root.querySelector('[data-reading-clear-highlight]')?.addEventListener('click',()=>{
         if(new URLSearchParams(location.search).has('exam_session')||root.dataset.englishReadonly==='true')return;
-        try{updateEnglishObjectiveSourceSpan(localStorage,rootMeta(root),{clearIntent:'HIGHLIGHT'});renderDiscussion();}
+        try{updateEnglishObjectiveSourceSpan(localStorage,rootMeta(root),{clearIntent:'HIGHLIGHT',expectedAttemptId:root.dataset.englishAnnotationAttempt||''});renderDiscussion();}
         catch(error){const label=root.querySelector('[data-reading-selection]');if(label)label.textContent=annotationError(error);}
       });
     }
@@ -448,6 +466,7 @@ const base = import.meta.env.BASE_URL;
       });
       observeDiscussion();
       globalThis.addEventListener('kianos:english-reading-evidence',()=>renderDiscussion());
+      globalThis.addEventListener('kianos:english-attempt-replaced',()=>{hideMenu();editing=null;renderDiscussion();});
       globalThis.addEventListener('storage',event=>{
         if(event.key===null||objectiveRoots.some(root=>{try{return event.key===attemptKey(rootMeta(root));}catch{return false;}}))renderDiscussion();
       });

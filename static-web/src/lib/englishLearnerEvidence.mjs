@@ -324,6 +324,7 @@ export const ENGLISH_READING_DISCUSSION_LIMIT=12;
 export const ENGLISH_SOURCE_SPAN_TEXT_LIMIT=16000;
 const objectiveTasks=['reading_a','cloze','reading_b'];
 const sourceIntents=['DISCUSSION_CONTEXT','HIGHLIGHT'];
+const sameSourceSpan=(a,b)=>['task','object_id','attempt_id','source_hash','intent','start','end','text'].every(key=>a?.[key]===b?.[key]);
 function notifyEnglishReadingEvidence(kind){
  if(typeof globalThis.CustomEvent==='function')globalThis.dispatchEvent?.(new CustomEvent('kianos:english-reading-evidence',{detail:{kind}}));
 }
@@ -351,6 +352,7 @@ export function englishObjectiveSourceSpans(attempt,sourceHash){
  const binding=attempt?.binding;
  if(!objectiveTasks.includes(binding?.task)||!sourceHash||binding.source_hash!==sourceHash)return [];
  const source=objectiveSourceText(attempt);
+ const seen=new Set();
  return (Array.isArray(attempt.discussionSpans)?attempt.discussionSpans:[]).filter(row=>
   sourceIntents.includes(row?.intent)&&row.task===binding.task&&row.object_id===binding.object_id
   &&row.source_hash===sourceHash&&row.attempt_id===binding.attempt_id
@@ -358,7 +360,10 @@ export function englishObjectiveSourceSpans(attempt,sourceHash){
   &&Number.isInteger(row.start)&&Number.isInteger(row.end)&&row.start>=0&&row.end-row.start===row.text.length
   &&source.slice(row.start,row.end)===row.text
   &&Number.isFinite(Date.parse(row.created_at))&&Number.isFinite(Date.parse(row.updated_at))
- ).slice(-ENGLISH_READING_DISCUSSION_LIMIT).map(row=>({
+ ).filter(row=>{
+  const key=JSON.stringify([row.intent,row.start,row.end,row.text]);
+  if(seen.has(key))return false;seen.add(key);return true;
+ }).slice(-ENGLISH_READING_DISCUSSION_LIMIT).map(row=>({
   span_id:row.span_id,task:binding.task,object_id:binding.object_id,attempt_id:binding.attempt_id,
   source_hash:sourceHash,intent:row.intent,text:row.text,start:row.start,end:row.end,
   source_locator:boundedText(row.source_locator,180)||null,source_context:boundedText(row.source_context,600)||null,
@@ -378,16 +383,20 @@ export function englishObjectiveAnnotationSections(attempt,sourceHash){
   'Highlights and discussion context show learner attention, not answer uncertainty, assistance, a diagnosed weakness or completed repair. Consider the marked wording and position with the actual outcomes; ask only if interpretation changes the useful next step.'];
 }
 // Mutate the existing attempt, never a second annotation store. No implicit assistance/diagnosis.
-export function updateEnglishObjectiveSourceSpan(storage,meta,{span=null,replaceId=null,intent='DISCUSSION_CONTEXT',removeId=null,clear=false,clearIntent=null,now=Date.now()}={}){
+export function updateEnglishObjectiveSourceSpan(storage,meta,{span=null,replaceId=null,intent='DISCUSSION_CONTEXT',removeId=null,clear=false,clearIntent=null,expectedAttemptId=null,now=Date.now()}={}){
  if(!objectiveTasks.includes(meta.task))throw new Error('ENGLISH_SOURCE_SPAN_TASK_INVALID');
  const key=ATTEMPT_PREFIXES[meta.task]+meta.object_id;
  const state=inspectEnglishAttempt(storage,key,meta,{now});
  if(!state?.binding||state.binding.context==='exam')throw new Error('ENGLISH_READING_DISCUSSION_ATTEMPT_REQUIRED');
+ if(expectedAttemptId!==null&&state.binding.attempt_id!==expectedAttemptId)throw new Error('ENGLISH_SOURCE_SPAN_CHANGED_RESELECT');
  const prior=Array.isArray(state.discussionSpans)?state.discussionSpans:[];
  let next=prior;
  if(clear)next=[];
  else if(sourceIntents.includes(clearIntent))next=prior.filter(row=>row.intent!==clearIntent);
- else if(removeId)next=prior.filter(row=>row.span_id!==removeId);
+ else if(removeId){
+  const removed=prior.find(row=>row.span_id===removeId);
+  next=prior.filter(row=>row.span_id!==removeId&&(!removed||!sameSourceSpan(row,removed)));
+ }
  else if(span){
   const text=String(span.text||'');
   if(!sourceIntents.includes(intent)||!text.trim()||text.length>ENGLISH_SOURCE_SPAN_TEXT_LIMIT||!Number.isInteger(span.start)||!Number.isInteger(span.end)
@@ -395,7 +404,9 @@ export function updateEnglishObjectiveSourceSpan(storage,meta,{span=null,replace
   const replaced=replaceId?prior.find(row=>row.span_id===replaceId):null;
   if(replaceId&&!replaced)throw new Error('ENGLISH_SOURCE_SPAN_CHANGED_RESELECT');
   // Duplicate click is idempotent; repeated source text at a different offset is distinct.
-  if(!replaceId&&prior.some(row=>row.intent===intent&&row.source_hash===meta.source_hash&&row.start===span.start&&row.end===span.end&&row.text===text))return state;
+  const target={task:meta.task,object_id:meta.object_id,attempt_id:state.binding.attempt_id,source_hash:meta.source_hash,intent,start:span.start,end:span.end,text};
+  const duplicate=prior.find(row=>row.span_id!==replaceId&&(!replaced||!sameSourceSpan(row,replaced))&&sameSourceSpan(row,target));
+  if(!replaceId&&duplicate)return state;
   if(!replaceId&&prior.length>=ENGLISH_READING_DISCUSSION_LIMIT)throw new Error('已保存12段标记，请先移除不需要的选段。');
   const at=new Date(now).toISOString();
   const entry={span_id:replaced?.span_id||globalThis.crypto?.randomUUID?.()||`${state.binding.attempt_id}:${now}:${Math.random()}`,
@@ -403,7 +414,14 @@ export function updateEnglishObjectiveSourceSpan(storage,meta,{span=null,replace
    intent,text,start:span.start,end:span.end,
    source_locator:boundedText(span.source_locator,180),source_context:boundedText(span.source_context,600),
    focused_question_id:boundedText(span.focused_question_id,180),created_at:replaced?.created_at||at,updated_at:at};
-  next=replaceId?prior.map(row=>row.span_id===replaceId?entry:row):[...prior,entry];
+  if(replaceId){
+   let inserted=false;
+   next=prior.flatMap(row=>{
+    if(!sameSourceSpan(row,replaced))return [row];
+    if(duplicate||inserted)return [];
+    inserted=true;return [entry];
+   });
+  }else next=[...prior,entry];
  }
  if(JSON.stringify(next)===JSON.stringify(prior))return state;
  state.discussionSpans=next;

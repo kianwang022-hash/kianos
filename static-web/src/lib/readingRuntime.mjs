@@ -551,6 +551,7 @@ export async function initReadingRuntime(root, {prepareAnswers = null} = {}) {
     };
     save();
     render();
+    root.dispatchEvent(new CustomEvent('kianos:english-attempt-replaced',{bubbles:true}));
   };
   retry?.addEventListener('click', newAttempt);
   reset?.addEventListener('click', newAttempt);
