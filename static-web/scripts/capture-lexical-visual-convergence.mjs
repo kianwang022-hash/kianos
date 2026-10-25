@@ -149,6 +149,65 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
   return result;
 }
 
+async function auditBoundedReadableRows(page, ordinal, stem, outputRoot) {
+  const exact = {
+    2052: ['sense:friendly:800bdfcfc6e039d0'],
+    2056: ['sense:fringe:aeea9ad07372b227'],
+  };
+  const ids = exact[ordinal] || ([3185, 856].includes(ordinal)
+    ? await page.locator('.portedVocabSenseList > .lexicalSenseRow:visible').evaluateAll(rows => rows
+      .filter(row => row.querySelector(':scope > header > small')?.textContent.trim())
+      .map(row => row.getAttribute('data-vocab-sense-id')))
+    : []);
+  const results = [];
+  for (const [index, id] of ids.entries()) {
+    const row = page.locator(`.portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id="${id}"]`);
+    // Normal scrolling only: no hidden overlays, viewport resize, forced clicks or state mutation.
+    await row.evaluate(el => el.scrollIntoView({block:'center', inline:'nearest', behavior:'instant'}));
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    const evidence = await row.evaluate(el => {
+      const rect = n => {const r=n.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height};};
+      const dock=document.querySelector('.lexicalActionDock');
+      const dockVisible=dock && getComputedStyle(dock).display!=='none' && dock.getClientRects().length;
+      const viewport={left:0,right:innerWidth,top:0,bottom:dockVisible?Math.min(innerHeight,rect(dock).top):innerHeight};
+      const ancestors=[];
+      for(let p=el.parentElement;p;p=p.parentElement) {
+        const s=getComputedStyle(p),r=p.getBoundingClientRect();
+        const clipsY=/(auto|scroll|hidden|clip)/.test(s.overflowY);
+        const clipsX=/(auto|scroll|hidden|clip)/.test(s.overflowX);
+        if(clipsY){viewport.top=Math.max(viewport.top,r.top+p.clientTop);viewport.bottom=Math.min(viewport.bottom,r.top+p.clientTop+p.clientHeight);}
+        if(clipsX){viewport.left=Math.max(viewport.left,r.left+p.clientLeft);viewport.right=Math.min(viewport.right,r.left+p.clientLeft+p.clientWidth);}
+        if(clipsY||clipsX)ancestors.push({tag:p.tagName,className:p.className,scrollTop:p.scrollTop,scrollHeight:p.scrollHeight,clientHeight:p.clientHeight,overflowY:s.overflowY,box:rect(p)});
+      }
+      const fragments=[],problems=[];
+      const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);
+      while(walker.nextNode()) {
+        const text=walker.currentNode,parent=text.parentElement;
+        if(!text.textContent.trim()||parent.closest('button,[hidden]'))continue;
+        const style=getComputedStyle(parent);
+        if(style.display==='none'||style.visibility==='hidden')continue;
+        const range=document.createRange();range.selectNodeContents(text);
+        for(const r of range.getClientRects()) {
+          if(r.width<=0||r.height<=0)continue;
+          const f={text:text.textContent.trim(),left:r.left,right:r.right,top:r.top,bottom:r.bottom};
+          const inViewport=r.left>=viewport.left-1&&r.right<=viewport.right+1&&r.top>=viewport.top-1&&r.bottom<=viewport.bottom+1;
+          const hit=document.elementFromPoint((r.left+r.right)/2,(r.top+r.bottom)/2);
+          const unobscured=Boolean(hit&&(hit===parent||parent.contains(hit)));
+          fragments.push({...f,inViewport,unobscured});
+          if(!inViewport||!unobscured)problems.push({...f,inViewport,unobscured,hit:hit?{tag:hit.tagName,className:hit.className}:null});
+        }
+      }
+      return {id:el.getAttribute('data-vocab-sense-id'),row:rect(el),viewport,dock:dockVisible?rect(dock):null,ancestors,fragments,problems,pass:fragments.length>0&&problems.length===0};
+    });
+    // Page screenshot does not auto-scroll the target again, unlike locator.screenshot().
+    const screenshot=`${stem}-readable-${index+1}.png`;
+    await page.screenshot({path:path.join(outputRoot,screenshot),fullPage:false});
+    results.push({...evidence,screenshot});
+  }
+  return results;
+}
+
+
 // #1302: bounded rendered regression evidence, not a second content authority.
 async function auditFirstQualityBatch(browser) {
   const fixtures = [
@@ -344,6 +403,12 @@ async function auditFirstQualityBatch(browser) {
           if(mode==='study') assert(geometry.visibleLookupOnly===0, 'batch_lookup_hidden_in_study', stem);
           assert(geometry.overflow<=2, 'batch_no_horizontal_overflow', `${stem}:${geometry.overflow}`);
           assert(geometry.collisions.length===0, 'batch_no_row_collocation_collision', `${stem}:${geometry.collisions.join(',')}`);
+          if(mode==='study' && [2052,2056,3185,856].includes(fixture.ordinal)) {
+            const rows=await auditBoundedReadableRows(page,fixture.ordinal,stem,outputRoot);
+            report.readability ||= [];
+            report.readability.push({ordinal:fixture.ordinal,viewport,rows});save();
+            assert(rows.length>0 && rows.every(r=>r.pass),'batch_target_text_reachable_above_dock',stem);
+          }
         }
       }
     }
