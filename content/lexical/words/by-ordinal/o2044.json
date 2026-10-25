@@ -24,11 +24,12 @@
           ]
         },
         {
-          "label_cn": "严寒期；冻结",
-          "label_en": "a period of very cold weather; a temporary halt",
+          "label_cn": "冰冻天气；价格、工资或活动的冻结/暂停",
+          "label_en": "freezing weather; a temporary restriction or halt",
           "pos": "noun",
           "sense_ids": [
-            "sense:freeze:08004f38898153ad"
+            "sense:freeze:c9456c8d7e3ff4fa",
+            "sense:freeze:ea5dfee32b243b8d"
           ]
         }
       ],
@@ -138,15 +139,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:cb7e4b9d71644c9647c7",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:freeze:08004f38898153ad:collocation:0"
-            ],
-            "meaning_cn": "价格冻结",
-            "phrase": "a price freeze"
-          },
-          {
             "collocation_id": "collocation:11e7ae9656bea1959582",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -157,14 +149,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "严寒期；冻结",
-        "definition_en": "a period of very cold weather; a temporary halt",
-        "governing_pattern": "",
+        "definition_cn": "冰冻天气；冰冻期",
+        "definition_en": "a period of weather in which the temperature falls or stays below freezing",
+        "governing_pattern": "a hard freeze; a freeze warning",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:freeze:08004f38898153ad",
-        "sense_label_en": "a period of very cold weather; a temporary halt",
+        "sense_id": "sense:freeze:c9456c8d7e3ff4fa",
+        "sense_label_en": "a period of weather in which the temperature falls or stays below freezing",
         "sort_order": 3,
         "transitivity": "nonverb"
       },
@@ -235,6 +227,30 @@
             "exam_value": "usage_example"
           }
         ]
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:cb7e4b9d71644c9647c7",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:freeze:08004f38898153ad:collocation:0"
+            ],
+            "meaning_cn": "价格冻结",
+            "phrase": "a price freeze"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "冻结；暂停（如限制价格变动、暂停某项活动）",
+        "definition_en": "a temporary stop to an activity, or a decision to keep prices or pay unchanged",
+        "governing_pattern": "a price/wage freeze; a freeze on sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:freeze:ea5dfee32b243b8d",
+        "sense_label_en": "a temporary stop to an activity, or a decision to keep prices or pay unchanged",
+        "sort_order": 7,
+        "transitivity": "nonverb"
       }
     ],
     "verification_summary": {
@@ -450,12 +466,50 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:cb7e4b9d71644c9647c7",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:freeze:08004f38898153ad:collocation:0"
+          ],
+          "meaning_cn": "价格冻结",
+          "phrase": "a price freeze"
+        },
+        {
+          "collocation_id": "collocation:11e7ae9656bea1959582",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:freeze:08004f38898153ad:collocation:1"
+          ],
+          "meaning_cn": "严重冰冻；严寒天气",
+          "phrase": "a hard freeze"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "严寒期；冻结",
+      "definition_en": "a period of very cold weather; a temporary halt",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:freeze:08004f38898153ad",
+      "sense_label_en": "a period of very cold weather; a temporary halt",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "stable_sense_id": "sense:freeze:08004f38898153ad",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:freeze:08004f38898153ad",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 5685,
         "source_path": "content/lexical/canonical/senses/shards/o2017-2048.json"
@@ -503,6 +557,22 @@
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2044.json",
         "source_pointer": "/record/senses/6"
+      },
+      {
+        "sense_id": "sense:freeze:c9456c8d7e3ff4fa",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2044.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:freeze:ea5dfee32b243b8d",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2044.json",
+        "source_pointer": "/record/senses/7"
       }
     ],
     "active_collocations": [

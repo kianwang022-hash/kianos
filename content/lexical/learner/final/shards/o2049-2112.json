@@ -253,7 +253,7 @@
     "ordinal": 2051,
     "word": "friend",
     "source_owner_path": "content/lexical/words/by-ordinal/o2051.json",
-    "source_fingerprint": "9ecae8593d92da8a3070917c9a891cd5dfb052f1f1d8b732e1a3be155791cfdc",
+    "source_fingerprint": "e742f8b7ad3143b4e97089b26841c752ea422431170fbaa0c69ed5dd9eb449b4",
     "sense_lineage": [
       {
         "word_id": "word:friend",
@@ -504,7 +504,7 @@
           "confidence": "medium",
           "definition_cn": "贵格会教徒",
           "definition_en": "a member of the Society of Friends (Quaker)",
-          "governing_pattern": "",
+          "governing_pattern": "Friend（首字母大写）",
           "level": "L3",
           "needs_human_review": 0,
           "pos": "noun",
@@ -522,8 +522,15 @@
     "ordinal": 2052,
     "word": "friendly",
     "source_owner_path": "content/lexical/words/by-ordinal/o2052.json",
-    "source_fingerprint": "641d3b76b21ac581deab7797a985804a7523a925aebcce5df983e89135d5b53f",
+    "source_fingerprint": "f36b6aa47982ab71b60a6c37d4184d02d748ad27a4068b7be2d50e050098d2c8",
     "sense_lineage": [
+      {
+        "word_id": "word:friendly",
+        "target_kind": "sense",
+        "from_target_id": "sense:friendly:530aa5914a735a3b",
+        "status": "deprecated",
+        "to_target_id": null
+      },
       {
         "word_id": "word:friendly",
         "target_kind": "sense",
@@ -534,7 +541,7 @@
     ],
     "recall_map": {
       "parts": [
-        "2A",
+        "3A",
         "1N"
       ],
       "density": "rich"
@@ -598,12 +605,12 @@
         }
       },
       {
-        "id": "sense:friendly:530aa5914a735a3b",
+        "id": "sense:friendly:066fab91059764b7",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "友方的；不敌对的；（复合词中）适用、易用、有利或无害的",
-        "definition_en": "supportive or not hostile; in compounds, suited to someone’s needs, easy to use, helpful, or not harmful",
+        "definition_cn": "友方的；非敌对的",
+        "definition_en": "on the same side, or not treating someone as an enemy",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -614,29 +621,13 @@
             "meaning_cn": "己方火力误击／误伤己方人员",
             "kind": "usage_example",
             "repair": null
-          },
-          {
-            "id": "collocation:87acbc8e9d35cfe2281d",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "environmentally friendly",
-            "meaning_cn": "环保的",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
-            "id": "collocation:3832319a04ee70bb8dcb",
-            "source_locator": "record.senses[1].collocations[2]",
-            "phrase": "user-friendly",
-            "meaning_cn": "易用的；对用户友好的",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:friendly:530aa5914a735a3b",
+          "target_id": "sense:friendly:066fab91059764b7",
           "target_locator": "record.senses[1]",
-          "target_label": "友方的；不敌对的；（复合词中）适用、易用、有利或无害的"
+          "target_label": "友方的；非敌对的"
         }
       },
       {
@@ -663,6 +654,40 @@
           "target_id": "sense:friendly:960462daac44893a",
           "target_locator": "record.senses[2]",
           "target_label": "（主要英式）友谊赛"
+        }
+      },
+      {
+        "id": "sense:friendly:800bdfcfc6e039d0",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "常见于复合形容词或修饰语 + friendly：user-friendly; environmentally friendly",
+        "definition_cn": "易用、适合或有益的；无害的",
+        "definition_en": "easy or suitable to use, helpful to someone or something, or not harmful",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:87acbc8e9d35cfe2281d",
+            "source_locator": "record.senses[3].collocations[0]",
+            "phrase": "environmentally friendly",
+            "meaning_cn": "环保的",
+            "kind": "usage_example",
+            "repair": null
+          },
+          {
+            "id": "collocation:3832319a04ee70bb8dcb",
+            "source_locator": "record.senses[3].collocations[1]",
+            "phrase": "user-friendly",
+            "meaning_cn": "易用的；对用户友好的",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:friendly:800bdfcfc6e039d0",
+          "target_locator": "record.senses[3]",
+          "target_label": "易用、适合或有益的；无害的"
         }
       }
     ],
@@ -792,6 +817,48 @@
           "updated_at": "2026-08-22T05:00:00+00:00",
           "source_row": 5710,
           "source_path": "content/lexical/canonical/senses/shards/o2049-2080.json",
+          "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:d51a2fe9d7e11acfc85c",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:friendly:530aa5914a735a3b:collocation:0"
+              ],
+              "meaning_cn": "己方火力误击／误伤己方人员",
+              "phrase": "friendly fire"
+            },
+            {
+              "collocation_id": "collocation:87acbc8e9d35cfe2281d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:friendly:530aa5914a735a3b:collocation:1"
+              ],
+              "meaning_cn": "环保的",
+              "phrase": "environmentally friendly"
+            },
+            {
+              "collocation_id": "collocation:3832319a04ee70bb8dcb",
+              "phrase": "user-friendly",
+              "meaning_cn": "易用的；对用户友好的",
+              "exam_value": "usage_example"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "友方的；不敌对的；（复合词中）适用、易用、有利或无害的",
+          "definition_en": "supportive or not hostile; in compounds, suited to someone’s needs, easy to use, helpful, or not harmful",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:friendly:530aa5914a735a3b",
+          "sense_label_en": "supportive or not hostile; in compounds, suited to someone’s needs, easy to use, helpful, or not harmful",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
           "reference_only": true
         }
       ]
@@ -1191,13 +1258,20 @@
     "ordinal": 2056,
     "word": "fringe",
     "source_owner_path": "content/lexical/words/by-ordinal/o2056.json",
-    "source_fingerprint": "664f3341c4a06e01a093fbcab620bf07dbc9b801da714d498d9ac8c5a970be68",
+    "source_fingerprint": "e8c6a8fe635e917f13aa94af51a1e149a415c5aea92021bddfdb30e85e18771e",
     "sense_lineage": [
       {
         "word_id": "word:fringe",
         "target_kind": "sense",
         "from_target_id": "sense:fringe:ab163450e40554d9",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:fringe",
+        "target_kind": "sense",
+        "from_target_id": "sense:fringe:cf43a5b7bec75886",
+        "status": "deprecated",
         "to_target_id": null
       },
       {
@@ -1212,13 +1286,13 @@
       "parts": [
         "1V",
         "1A",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "刘海、流苏或边缘；边缘或附加的；形成或加饰边",
-      "decision_cn": "fringe可为刘海、流苏、外围或边缘群体；fringe benefits为附加福利。动词fringe表示形成边缘或装饰边，be fringed with指周围有……。",
+      "decision_cn": "英式发型语境中的fringe是刘海（美式bangs），布料装饰语境中是流苏；地点或群体语境指外围、边缘。fringe benefits为附加福利；be fringed with指周围或边缘有……。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1228,12 +1302,12 @@
     },
     "senses": [
       {
-        "id": "sense:fringe:cf43a5b7bec75886",
+        "id": "sense:fringe:01b8c7ee5da2b574",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "刘海；流苏；穗",
-        "definition_en": "hair cut to hang over the forehead, or a decorative border of hanging threads or tassels",
+        "governing_pattern": "a fringe; American English bangs",
+        "definition_cn": "（主要英式）刘海",
+        "definition_en": "mainly British English: front hair cut to hang over the forehead",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -1249,21 +1323,13 @@
               "target_locator": "record.senses[0].collocations[0]",
               "target_label": "a fringe of hair"
             }
-          },
-          {
-            "id": "collocation:61d0c6a340e07e20cfc9",
-            "source_locator": "record.senses[0].collocations[1]",
-            "phrase": "curtains with fringe",
-            "meaning_cn": "带流苏的窗帘",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:fringe:cf43a5b7bec75886",
+          "target_id": "sense:fringe:01b8c7ee5da2b574",
           "target_locator": "record.senses[0]",
-          "target_label": "刘海；流苏；穗"
+          "target_label": "（主要英式）刘海"
         }
       },
       {
@@ -1396,6 +1462,32 @@
           "target_locator": "record.senses[4]",
           "target_label": "形成…的边缘；给…加饰边"
         }
+      },
+      {
+        "id": "sense:fringe:aeea9ad07372b227",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "流苏；穗状饰边",
+        "definition_en": "a decorative edging made of loose hanging threads or tassels",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:61d0c6a340e07e20cfc9",
+            "source_locator": "record.senses[5].collocations[0]",
+            "phrase": "curtains with fringe",
+            "meaning_cn": "带流苏的窗帘",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:fringe:aeea9ad07372b227",
+          "target_locator": "record.senses[5]",
+          "target_label": "流苏；穗状饰边"
+        }
       }
     ],
     "pronunciation_support": {
@@ -1431,8 +1523,8 @@
             "lang": "cn"
           },
           {
-            "text": "General border/edge use; distinct from the specialist optics noun interference fringe.",
-            "lang": "en"
+            "text": "with 后接沿边缘分布的事物。",
+            "lang": "cn"
           },
           {
             "text": "to have something forming a border around the edge",
@@ -1476,6 +1568,42 @@
           "sense_label_en": "a light or dark band produced by interference or diffraction",
           "sort_order": 2,
           "transitivity": "nonverb"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:170b4a046652a2b44e50",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:fringe:cf43a5b7bec75886:collocation:0"
+              ],
+              "meaning_cn": "刘海",
+              "phrase": "a fringe of hair"
+            },
+            {
+              "collocation_id": "collocation:61d0c6a340e07e20cfc9",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:fringe:cf43a5b7bec75886:collocation:1"
+              ],
+              "meaning_cn": "带流苏的窗帘",
+              "phrase": "curtains with fringe"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "刘海；流苏；穗",
+          "definition_en": "hair cut to hang over the forehead, or a decorative border of hanging threads or tassels",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:fringe:cf43a5b7bec75886",
+          "sense_label_en": "hair cut to hang over the forehead, or a decorative border of hanging threads or tassels",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
         }
       ]
     }
@@ -1486,7 +1614,7 @@
     "ordinal": 2057,
     "word": "frog",
     "source_owner_path": "content/lexical/words/by-ordinal/o2057.json",
-    "source_fingerprint": "bca5b7ce43fa4729fb9512aeb800b6b6cdff0d56c2e5969da398bcc27c203d69",
+    "source_fingerprint": "3f995ee0bd6f9a2b4ae97aa177b8a84449178b970c140f6326da4ca28bcc6be6",
     "sense_lineage": [
       {
         "word_id": "word:frog",
@@ -1540,7 +1668,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "青蛙",
-        "definition_en": "any of various tailless stout-bodied amphibians with long hind limbs for leaping",
+        "definition_en": "a small animal with no tail and long back legs for jumping, which lives on land and in water",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4255,7 +4383,7 @@
     "ordinal": 2069,
     "word": "full",
     "source_owner_path": "content/lexical/words/by-ordinal/o2069.json",
-    "source_fingerprint": "996195ae41113ae601956ef1f0fb6e5f8cdfbd9bcc514f008cff78d014133757",
+    "source_fingerprint": "7fabce11e40779cfe04013e933cd110fdbd9b1add9584a567b03d506a9c4a5cd",
     "sense_lineage": [
       {
         "word_id": "word:full",
@@ -4655,7 +4783,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "pos": "verb",
-          "definition_cn": "漂洗（布料）",
+          "definition_cn": "（毛织物）缩绒加工：清洗并使其缩紧、增厚",
           "definition_en": "to beat for the purpose of cleaning and thickening (cloth)",
           "semantic_key": "57ff5f84ac82d9cb40bcf167d0778062f98aa825effbba0d09bff59790217983",
           "semantic_key_history": [],
@@ -5068,7 +5196,7 @@
     "ordinal": 2072,
     "word": "function",
     "source_owner_path": "content/lexical/words/by-ordinal/o2072.json",
-    "source_fingerprint": "bf44ea751ab7912dd7ca0926dc53506a841604f001e4a3ef1adda251abff7d64",
+    "source_fingerprint": "00ff3feb26b10c6778d3003bba5628e6d679bbfe7e0c8b0676705b5c814fc941",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5157,7 +5285,7 @@
         "id": "sense:function:b3f90cf1acb25bdf",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "vi. + as",
+        "governing_pattern": "function (properly/well); function as sth",
         "definition_cn": "运行；起作用",
         "definition_en": "to work or operate in a particular way",
         "note": "",
@@ -6177,7 +6305,7 @@
     "ordinal": 2078,
     "word": "furious",
     "source_owner_path": "content/lexical/words/by-ordinal/o2078.json",
-    "source_fingerprint": "38bda4573fd4fce100d6d33184bdc8444ebbbc737ad6815f1aa53277bf9e10e6",
+    "source_fingerprint": "11c85791a2631ef529de7ddc8d6999abc17f06c056496ff31ff0f864bbce6273",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6210,7 +6338,7 @@
             "id": "collocation:bd6acb600ea38008abc3",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "be furious with sb",
-            "meaning_cn": "对某人大发雷霆",
+            "meaning_cn": "对某人极为愤怒",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -6403,7 +6531,7 @@
     "ordinal": 2079,
     "word": "furnace",
     "source_owner_path": "content/lexical/words/by-ordinal/o2079.json",
-    "source_fingerprint": "ef2b35008cef04344b1508677b31314a79e2c4da64b5d2edf7754dc63d85d9c2",
+    "source_fingerprint": "501ca59ffb6086dd89dce581e7de1c6ac562e096fce753ac0eccc2b68954cbc6",
     "sense_lineage": [
       {
         "word_id": "word:furnace",
@@ -6436,7 +6564,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "火炉，熔炉",
-        "definition_en": "an enclosed chamber in which heat is produced to heat buildings, destroy refuse, smelt ores, etc.",
+        "definition_en": "an enclosed heater that warms a building or produces high heat for industrial work",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6711,7 +6839,7 @@
     "ordinal": 2081,
     "word": "furniture",
     "source_owner_path": "content/lexical/words/by-ordinal/o2081.json",
-    "source_fingerprint": "e64c3e9420c2dcc69a0efc3cae6d9817ac0bf2efa1252b6217ff8cd1c6443a16",
+    "source_fingerprint": "ed3fb72e060dee67ad18c78e06ed8675e24070d9451a5fd339ae559a6f882216",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6736,7 +6864,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "家具；室内设备",
-        "definition_en": "furnishings that make a room or other area ready for occupancy",
+        "definition_en": "tables, chairs, beds and similar objects used in a home or other place",
         "note": "家具义通常不可数；一件家具用a piece of furniture，多件用pieces of furniture。",
         "identity_overlay": null,
         "usage": [
@@ -8186,7 +8314,7 @@
     "ordinal": 2089,
     "word": "galaxy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2089.json",
-    "source_fingerprint": "d750f9286c5165b0186749247c8598a981e04ec5161891842a826f4c5553caa1",
+    "source_fingerprint": "e16dcfea823feaba40451d3490b2c45f105b2cd3e054d708e24372a91a923c50",
     "sense_lineage": [
       {
         "word_id": "word:galaxy",
@@ -8219,7 +8347,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "星系",
-        "definition_en": "(astronomy) a collection of star systems; any of the billions of systems each having many stars and nebulae and dust",
+        "definition_en": "a huge group of stars, gas and dust held together by gravity",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9245,7 +9373,7 @@
     "ordinal": 2095,
     "word": "gaol",
     "source_owner_path": "content/lexical/words/by-ordinal/o2095.json",
-    "source_fingerprint": "9a101c5f3f7bced6350acd68428ec6caf717acf5073fc8465b9f9c2aa22b411d",
+    "source_fingerprint": "6554dc8e038c659181972513bb0b88b819ec0cb3f728b59310705858e7928882",
     "sense_lineage": [
       {
         "word_id": "word:gaol",
@@ -9292,7 +9420,7 @@
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "监狱；拘留所",
-        "definition_en": "a correctional institution where persons are held in lawful custody",
+        "definition_en": "a prison; an older British spelling of jail",
         "note": "",
         "identity_overlay": null,
         "usage": [

@@ -149,12 +149,230 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
   return result;
 }
 
+// #1302: bounded rendered regression evidence, not a second content authority.
+async function auditFirstQualityBatch(browser) {
+  const fixtures = [
+    {
+      "ordinal": 2009,
+      "word": "formation"
+    },
+    {
+      "ordinal": 2012,
+      "word": "formula"
+    },
+    {
+      "ordinal": 2023,
+      "word": "foster"
+    },
+    {
+      "ordinal": 2024,
+      "word": "foul",
+      "text": "非正式；foul something up 表示把事情搞砸。"
+    },
+    {
+      "ordinal": 2028,
+      "word": "four",
+      "text": "the number 4"
+    },
+    {
+      "ordinal": 2029,
+      "word": "fourteen",
+      "text": "the number 14"
+    },
+    {
+      "ordinal": 2034,
+      "word": "fragment"
+    },
+    {
+      "ordinal": 2038,
+      "word": "franchise"
+    },
+    {
+      "ordinal": 2044,
+      "word": "freeze"
+    },
+    {
+      "ordinal": 2048,
+      "word": "fresh"
+    },
+    {
+      "ordinal": 2051,
+      "word": "friend"
+    },
+    {
+      "ordinal": 2052,
+      "word": "friendly"
+    },
+    {
+      "ordinal": 2056,
+      "word": "fringe",
+      "text": "with 后接沿边缘分布的事物。"
+    },
+    {
+      "ordinal": 2057,
+      "word": "frog",
+      "text": "a small animal with no tail and long back legs for jumping, which lives on land and in water"
+    },
+    {
+      "ordinal": 2069,
+      "word": "full"
+    },
+    {
+      "ordinal": 2072,
+      "word": "function"
+    },
+    {
+      "ordinal": 2078,
+      "word": "furious"
+    },
+    {
+      "ordinal": 2079,
+      "word": "furnace"
+    },
+    {
+      "ordinal": 2081,
+      "word": "furniture"
+    },
+    {
+      "ordinal": 2089,
+      "word": "galaxy"
+    },
+    {
+      "ordinal": 2095,
+      "word": "gaol"
+    },
+    {
+      "ordinal": 3185,
+      "word": "natural"
+    },
+    {
+      "ordinal": 856,
+      "word": "close"
+    },
+    {
+      "ordinal": 2041,
+      "word": "free"
+    },
+    {
+      "ordinal": 2082,
+      "word": "further"
+    },
+    {
+      "ordinal": 2093,
+      "word": "game"
+    }
+  ];
+  const context = await browser.newContext({ deviceScaleFactor: 1 });
+  const page = await context.newPage();
+  const report = { status: 'RUNNING', cases: [], navigation: null, errors: [] };
+  page.on('pageerror', error => report.errors.push(String(error)));
+  const save = () => fs.writeFileSync(path.join(outputRoot, 'batch-2000-2099-rendered.json'), `${JSON.stringify(report, null, 2)}\n`);
+  const ready = async (ordinal, mode) => {
+    await page.locator(`[data-local-port="vocabulary"][data-vocab-ordinal="${ordinal}"][data-vocab-initialized="true"][data-vocab-mode="${mode}"]`).waitFor({ state: 'attached' });
+    await page.evaluate(() => document.fonts.ready);
+  };
+  try {
+    for (const viewport of [{ width: 1440, height: 900 }, { width: 1280, height: 800 }]) {
+      await page.setViewportSize(viewport);
+      for (const fixture of fixtures) {
+        const current = loadLexicalWordByOrdinal(fixture.ordinal).record;
+        assert(current.word === fixture.word, 'batch_current_identity', `${fixture.ordinal}:${current.word}`);
+        for (const mode of ['study', 'lookup']) {
+          const stateSnapshot = () => page.evaluate(word => ({ cursor:localStorage.getItem('kianos-vocabulary-last-ordinal'), word:localStorage.getItem(`kianos-vocabulary-astro-v2:word:${word}`) }), fixture.word);
+          const beforeLookup = mode === 'lookup' ? await stateSnapshot() : null;
+          await page.goto(wordUrl(fixture.ordinal, mode), { waitUntil: 'networkidle' });
+          await ready(fixture.ordinal, mode);
+          if (mode === 'study' && await page.locator('[data-vocab-front]').isVisible()) {
+            await page.locator('[data-vocab-reveal]').click(); // Real enabled/visible action; never force.
+          }
+          await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+          const stem = `batch-${fixture.ordinal}-${fixture.word}-${mode}-${viewport.width}x${viewport.height}`;
+          await page.screenshot({ path: path.join(outputRoot, `${stem}.png`), fullPage: true });
+          const geometry = await page.evaluate(() => {
+            const visible = node => node instanceof HTMLElement && !node.closest('[hidden]') && node.getClientRects().length > 0 && getComputedStyle(node).visibility !== 'hidden';
+            const box = node => { const r = node.getBoundingClientRect(); return { left:r.left, right:r.right, top:r.top, bottom:r.bottom, width:r.width, height:r.height }; };
+            const overlaps = (a,b) => Math.min(a.right,b.right)-Math.max(a.left,b.left)>1 && Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>1;
+            // Text fragments, not just grid boxes: catches long collocations escaping their column.
+            const fragments = node => {
+              const out=[]; const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);
+              while(walker.nextNode()) { const text=walker.currentNode; if(!text.textContent.trim() || !visible(text.parentElement)) continue;
+                const range=document.createRange();range.selectNodeContents(text);out.push(...[...range.getClientRects()].map(r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom}))); }
+              return out;
+            };
+            const collisions=[];
+            const rows=[...document.querySelectorAll('.portedVocabSenseList > .lexicalSenseRow')].filter(visible);
+            const rowInfo=rows.map((row,index)=>{
+              const columns=[...row.children].filter(node=>visible(node)&&node.matches('header,.lexicalSenseMeaning,.lexicalSenseUsage'));
+              for(let i=0;i<columns.length;i++) for(let j=i+1;j<columns.length;j++) {
+                if(fragments(columns[i]).some(a=>fragments(columns[j]).some(b=>overlaps(a,b)))) collisions.push(`row:${index}:columns:${i}/${j}`);
+              }
+              const usages=[...row.querySelectorAll('.lexicalSenseUsage > li')].filter(visible);
+              for(let i=1;i<usages.length;i++) if(overlaps(box(usages[i-1]),box(usages[i]))) collisions.push(`row:${index}:collocations:${i-1}/${i}`);
+              for(const [i,li] of usages.entries()) {
+                const phrase=li.querySelector('b'), gloss=li.querySelector('span');
+                if(phrase&&gloss&&fragments(phrase).some(a=>fragments(gloss).some(b=>overlaps(a,b)))) collisions.push(`row:${index}:collocation:${i}:phrase/gloss`);
+                const button=li.querySelector('[data-vocab-repair]');
+                if(button&&visible(button)) for(const text of [...li.children].filter(n=>n!==button&&visible(n))) {
+                  if(fragments(text).some(r=>overlaps(r,box(button)))) collisions.push(`row:${index}:collocation:${i}:repair`);
+                }
+              }
+              return { index,id:row.getAttribute('data-vocab-sense-id'),box:box(row),collocations:usages.length };
+            });
+            for(let i=1;i<rowInfo.length;i++) {
+              if(overlaps(rowInfo[i-1].box,rowInfo[i].box)) collisions.push(`rows:${i-1}/${i}`);
+              if(fragments(rows[i-1]).some(a=>fragments(rows[i]).some(b=>overlaps(a,b)))) collisions.push(`row-text:${i-1}/${i}`);
+            }
+            return { rows:rowInfo,collisions,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,
+              referenceIds:[...document.querySelectorAll('[data-vocab-reference-sense-id]')].map(n=>({id:n.getAttribute('data-vocab-reference-sense-id'),visible:visible(n),repair:n.querySelectorAll('[data-vocab-repair]').length})),
+              visibleLookupOnly:[...document.querySelectorAll('[data-vocab-lookup-only]')].filter(visible).length };
+          });
+          const actualText = await page.locator('[data-vocab-details]').innerText();
+          const expectedIds = (current.reference?.senses || []).map(s => s.sense_id || s.stable_sense_id || s.id).sort();
+          const expectedActive = (current.senses || []).filter(s => mode === 'lookup' || s.disposition !== 'EXPLORE_ONLY').length;
+          const result = { ordinal:fixture.ordinal,word:fixture.word,mode,viewport,screenshot:`${stem}.png`,geometry,expectedActive,pinnedText:fixture.text || null,pinnedTextVisible:!fixture.text || actualText.includes(fixture.text) };
+          report.cases.push(result); save();
+          // Capture each known collision-regression row, including below-fold content.
+          if (fixture.word === 'natural' || fixture.word === 'close') {
+            const rows = page.locator('.portedVocabSenseList > .lexicalSenseRow:visible');
+            for (let i=0;i<await rows.count();i++) { await rows.nth(i).scrollIntoViewIfNeeded(); await rows.nth(i).screenshot({ path:path.join(outputRoot,`${stem}-row-${i+1}.png`) }); }
+          }
+          if(mode==='lookup') assert(JSON.stringify(await stateSnapshot())===JSON.stringify(beforeLookup),'batch_lookup_keeps_coverage_and_word_state',stem);
+          assert(result.pinnedTextVisible, 'batch_pinned_text', stem);
+          assert(geometry.rows.filter(r=>r.id).length === expectedActive, 'batch_active_sense_projection', stem);
+          assert(JSON.stringify(geometry.referenceIds.map(r=>r.id).sort()) === JSON.stringify(expectedIds), 'batch_reference_retained', stem);
+          assert(geometry.referenceIds.every(r=>r.visible === (mode==='lookup') && r.repair===0), 'batch_reference_visibility_and_no_repair', stem);
+          if(mode==='study') assert(geometry.visibleLookupOnly===0, 'batch_lookup_hidden_in_study', stem);
+          assert(geometry.overflow<=2, 'batch_no_horizontal_overflow', `${stem}:${geometry.overflow}`);
+          assert(geometry.collisions.length===0, 'batch_no_row_collocation_collision', `${stem}:${geometry.collisions.join(',')}`);
+        }
+      }
+    }
+    await page.evaluate(() => localStorage.removeItem('kianos-vocabulary-astro-v2:word:fourteen'));
+    await page.goto(wordUrl(2028), { waitUntil:'networkidle' }); await ready(2028,'study');
+    if(await page.locator('[data-vocab-front]').isVisible()) await page.locator('[data-vocab-reveal]').click();
+    await page.locator('[data-vocab-details]').waitFor({state:'visible'});
+    await page.locator('[data-vocab-route="known"]').click();
+    await page.waitForURL('**/vocabulary/2029/'); await ready(2029,'study');
+    assert((await page.locator('[data-vocab-front] h2').innerText()).trim()==='fourteen','batch_next_word_identity');
+    await page.keyboard.press('Backspace'); await page.waitForURL('**/vocabulary/2028/'); await ready(2028,'study');
+    report.navigation={from:2028,next:2029,undo:2028,status:'PASS'};
+    await page.screenshot({path:path.join(outputRoot,'batch-navigation-undo.png'),fullPage:true});
+    assert(report.errors.length===0,'batch_no_page_errors',report.errors.join('\n'));
+    report.status='PASS';save();
+  } catch(error) {
+    report.status='FAIL';report.failure=String(error);save();
+    await page.screenshot({path:path.join(outputRoot,'batch-failure.png'),fullPage:true}).catch(()=>{});
+    throw error;
+  } finally { await context.close(); }
+}
+
 let browser;
 try {
   await waitForServer();
   browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
   const reports = [];
+  await auditFirstQualityBatch(browser);
 
   // Architecture-v2 Human Gate evidence.
   const initialVocabularyResponse = await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });
