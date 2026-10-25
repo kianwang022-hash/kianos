@@ -1868,12 +1868,19 @@
     "ordinal": 140,
     "word": "alien",
     "source_owner_path": "content/lexical/words/by-ordinal/o0140.json",
-    "source_fingerprint": "41b4abb967496b9fac5013651a5b109fa3ebe1fd568bc593d5b4d33173bc3f80",
+    "source_fingerprint": "78723d8afe7c8c8b94ce4993a876183bd6cc2959f022d85b36b6389249010ae2",
     "sense_lineage": [
       {
         "word_id": "word:alien",
         "target_kind": "collocation",
         "from_target_id": "collocation:cfb5a014959e8b81cdeb",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:alien",
+        "target_kind": "construction",
+        "from_target_id": "construction:alien:handoff-9c7dd79a2b64f1a6",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -8736,8 +8743,16 @@
     "ordinal": 181,
     "word": "among",
     "source_owner_path": "content/lexical/words/by-ordinal/o0181.json",
-    "source_fingerprint": "b530fa1d5c1f72d1261addd5fed1574d2939a8186307b7cf3c73005e7add92cf",
-    "sense_lineage": [],
+    "source_fingerprint": "bacf73d6e7936fc98c728c1220b36f246ff1d24a014b4d5100edefb1cfc336ea",
+    "sense_lineage": [
+      {
+        "word_id": "word:among",
+        "target_kind": "construction",
+        "from_target_id": "construction:among:handoff-4105219215784e99",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1PREP"
@@ -9161,7 +9176,7 @@
     "ordinal": 184,
     "word": "amplify",
     "source_owner_path": "content/lexical/words/by-ordinal/o0184.json",
-    "source_fingerprint": "2e38640d13c9434433c1e35d10eb3e4c52ca319f5d03877651f97ac17b5c4cef",
+    "source_fingerprint": "8fbb65e0cb6e583deb8247472dfaa939f9c25919642df5fa26e716c15c9508ac",
     "sense_lineage": [
       {
         "word_id": "word:amplify",
@@ -9174,6 +9189,13 @@
         "word_id": "word:amplify",
         "target_kind": "sense",
         "from_target_id": "sense:amplify:20261008-dna-reference",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:amplify",
+        "target_kind": "construction",
+        "from_target_id": "construction:amplify:handoff-6cd0ea1ed52430fe",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -9358,7 +9380,7 @@
           "status": "deprecated",
           "merged_into_sense_id": null,
           "reference_only": true,
-          "usage_note": "Specialist Lookup support; not a separate default learning or Repair item. The former phrase identity is retired without transferring its history to this new reference identity.",
+          "usage_note": "分子生物学中，amplify DNA 或基因序列指增加其拷贝数量。",
           "source_evidence": [
             {
               "source_type": "dictionary",
@@ -9539,7 +9561,7 @@
     "ordinal": 186,
     "word": "analog",
     "source_owner_path": "content/lexical/words/by-ordinal/o0186.json",
-    "source_fingerprint": "0b4fca83781cda58e8cfc2fe56eef1efc57607ac3462671af5a55d590ce93bb2",
+    "source_fingerprint": "085e6ce4b7a13d9f8fdb2e3d52eabc4f49734824d7e833ba3b7fe477ce5302db",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9677,8 +9699,8 @@
           "target_word": "analogue",
           "lines": [
             {
-              "text": "analogue and analog overlap as regional spelling variants in noun/adjective space, but technical conventions vary. Preserve both stable Word owners and sense boundaries.",
-              "lang": "en"
+              "text": "analogue 和 analog 在名词、形容词用法中有地域拼写差异；具体技术领域的惯例可能不同。",
+              "lang": "cn"
             }
           ],
           "differences": [],
@@ -9708,17 +9730,17 @@
         }
       ],
       "form": {
-        "boundary": "analog and analogue are spelling variants across overlapping noun/adjective senses; regional and technical conventions vary. Preserve both exact-spelling Word owners.",
+        "boundary": "analog 和 analogue 在名词、形容词用法中有地域拼写差异，具体技术领域的惯例可能不同。",
         "boundaries": [
           {
             "surface": "analog",
             "condition": "regional/technical spelling variant; often AmE",
-            "note": "same lexical identity where senses overlap"
+            "note": "常见于美式英语，对应 analogue 的相关用法。"
           },
           {
             "surface": "analogue",
             "condition": "regional spelling variant; often BrE",
-            "note": "same lexical identity where senses overlap; technical conventions vary"
+            "note": "常见于英式英语，技术领域的拼写惯例可能不同。"
           }
         ],
         "variants": [],
@@ -9726,7 +9748,7 @@
           "target_kind": "form_identity",
           "target_id": null,
           "target_locator": "record.form_identity",
-          "target_label": "analog and analogue are spelling variants across overlapping noun/adjective senses; regional and technical conventions vary. Preserve both exact-spelling Word owners."
+          "target_label": "analog 和 analogue 在名词、形容词用法中有地域拼写差异，具体技术领域的惯例可能不同。"
         }
       },
       "family": []

@@ -5,6 +5,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import tempfile
 import subprocess
 import unicodedata
@@ -262,6 +263,48 @@ def compile_pronunciation_support(form: Any, senses: list[dict[str, Any]], word:
                              or any(any(key != "surface" for key in scope) for scope in reading["applicability"])
                              for reading in readings)}
 
+def compile_deprecated_fact_lineage(owner: dict[str, Any], current_objects: list[Any]) -> list[dict[str, Any]]:
+    # Source declarations authorize retirement; current absence never does.
+    # This bounded transport deliberately excludes reference/unknown lifecycle,
+    # unknown kinds, successors, and ambiguous duplicate declarations.
+    facts = (owner.get("identity_refs") or {}).get("facts") or []
+    id_counts: dict[str, int] = {}
+    for ref in facts:
+        if isinstance(ref, dict) and isinstance(ref.get("id"), str):
+            id_counts[ref["id"]] = id_counts.get(ref["id"], 0) + 1
+    current_bindings: set[tuple[str, str]] = set()
+
+    def collect(value: Any) -> None:
+        if isinstance(value, dict):
+            binding = value.get("repair")
+            if isinstance(binding, dict) and binding.get("target_id"):
+                current_bindings.add((str(binding.get("target_kind")), str(binding["target_id"])))
+            for child in value.values():
+                collect(child)
+        elif isinstance(value, list):
+            for child in value:
+                collect(child)
+
+    collect(current_objects)
+    rows = []
+    for ref in facts:
+        if not isinstance(ref, dict):
+            continue
+        target_id = ref.get("id")
+        kind = ref.get("target_kind")
+        if (not isinstance(target_id, str) or not target_id.strip() or target_id != target_id.strip()
+                or kind not in ("construction", "secondary_sense")
+                or ref.get("status") != "deprecated"
+                or "merged_into_id" not in ref or ref["merged_into_id"] is not None
+                or id_counts.get(target_id) != 1
+                or (kind, target_id) in current_bindings):
+            continue
+        rows.append({
+            "word_id": str(owner["word_id"]), "target_kind": kind,
+            "from_target_id": target_id, "status": "deprecated", "to_target_id": None,
+        })
+    return rows
+
 def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, Any]:
     record, relation_paths = hydrate_relations(owner, owner["record"])
     word_id = str(owner["word_id"])
@@ -269,6 +312,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
     word_decision = (decisions.get("words") or {}).get(word_id) or {}
     usage_note_decisions = word_decision.get("sense_usage_notes") or {}
     governing_pattern_decisions = word_decision.get("sense_governing_patterns") or {}
+    sense_decisions = word_decision.get("senses") or {}
     secondary_decisions = word_decision.get("secondary_senses") or {}
     overlay_decisions = word_decision.get("sense_identity_overlays") or {}
     family_decisions = word_decision.get("word_family") or {}
@@ -287,11 +331,17 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
     decision_cn = mental_cn if mental_cn and mental_cn != summary_cn else ""
 
     senses = []
+    consumed_sense_decisions = {}
     materialized_collocation_ids = set()
     for i, sense in enumerate(record.get("senses") or []):
         if not isinstance(sense, dict):
             continue
         sense_id = str(sense.get("sense_id") or "")
+        sense_disposition = (sense_decisions.get(sense_id) or {}).get("disposition") if sense_id else None
+        if sense_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+            raise RuntimeError(f"FINAL_LEARNER_SENSE_DISPOSITION_INVALID:{word_id}:{sense_id}:{sense_disposition}")
+        if sense_disposition is not None:
+            consumed_sense_decisions[sense_id] = clone(sense_decisions[sense_id])
         usage = []
         for j, item in enumerate(sense.get("collocations") or []):
             if not isinstance(item, dict):
@@ -340,6 +390,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         if governing_pattern_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
             raise RuntimeError(f"FINAL_LEARNER_GOVERNING_PATTERN_DISPOSITION_INVALID:{word_id}:{sense_id}:{governing_pattern_disposition}")
         senses.append({
+            **({"disposition": sense_disposition} if sense_disposition is not None else {}),
             "id": sense_id or None,
             "source_locator": f"record.senses[{i}]",
             "pos": str(sense.get("pos") or ""),
@@ -353,6 +404,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         })
 
     secondary = []
+    consumed_secondary_decisions = {}
     for i, branch in enumerate(record.get("secondary_senses") or []):
         if not isinstance(branch, dict):
             continue
@@ -360,8 +412,8 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         secondary_disposition = (secondary_decisions.get(branch_id) or {}).get("disposition")
         if secondary_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
             raise RuntimeError(f"FINAL_LEARNER_SECONDARY_DISPOSITION_INVALID:{word_id}:{branch_id}:{secondary_disposition}")
-        if secondary_disposition == "EXPLORE_ONLY":
-            continue
+        if secondary_disposition is not None:
+            consumed_secondary_decisions[branch_id] = clone(secondary_decisions[branch_id])
         secondary_pos = str(branch.get("pos") or "").strip()
         secondary_cn = str(branch.get("definition_cn") or branch.get("meaning_cn") or "").strip()
         secondary_en = str(branch.get("definition_en") or branch.get("label_en") or "").strip()
@@ -369,6 +421,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             raise RuntimeError(f"FINAL_LEARNER_SECONDARY_INCOMPLETE:{word_id}:{branch_id}")
         secondary.append({
             "id": branch_id or None,
+            **({"disposition": secondary_disposition} if secondary_disposition is not None else {}),
             "source_locator": f"record.secondary_senses[{i}]",
             "pos": secondary_pos,
             "definition_cn": secondary_cn,
@@ -462,10 +515,12 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
 
     primary_counts: dict[str, int] = {}
     secondary_counts: dict[str, int] = {}
-    for sense in senses:
+    default_senses = [sense for sense in senses if sense.get("disposition") != "EXPLORE_ONLY"]
+    for sense in default_senses:
         code = pos_label(sense.get("pos"))
         primary_counts[code] = primary_counts.get(code, 0) + 1
-    for sense in secondary:
+    default_secondary = [sense for sense in secondary if sense.get("disposition") != "EXPLORE_ONLY"]
+    for sense in default_secondary:
         code = pos_label(sense.get("pos"))
         secondary_counts[code] = secondary_counts.get(code, 0) + 1
     pos_order = ["V", "A", "N", "ADV", "PREP", "INTJ", "NUM"]
@@ -484,15 +539,19 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         else:
             recall_parts.append(f"{primary}{code}")
     recall_density = "rich" if (
-        len(senses) + len(secondary) > 1
+        len(default_senses) + len(default_secondary) > 1
         or bool(constructions)
-        or any(bool(sense.get("usage")) for sense in senses)
+        or any(bool(sense.get("usage")) for sense in default_senses)
     ) else "light"
 
     reference_senses = clone(owner.get("reference_senses") or [])
     fingerprint_inputs = {"record": record, "relation_paths": relation_paths}
     if form_disposition is not None:
         fingerprint_inputs["form_identity_decision"] = clone(form_decision)
+    if consumed_sense_decisions:
+        fingerprint_inputs["sense_decisions"] = consumed_sense_decisions
+    if consumed_secondary_decisions:
+        fingerprint_inputs["secondary_sense_decisions"] = consumed_secondary_decisions
     if reference_senses:
         fingerprint_inputs["reference_senses"] = reference_senses
     sense_lineage = []
@@ -529,8 +588,26 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         })
     if collocation_lineage:
         fingerprint_inputs["collocation_lineage"] = collocation_lineage
+    fact_lineage = compile_deprecated_fact_lineage(owner, [constructions, secondary])
+    if fact_lineage:
+        fingerprint_inputs["fact_lineage"] = clone(fact_lineage)
+    historical_freezes = clone(word_decision.get("historical_locator_freezes") or [])
+    for declaration in historical_freezes:
+        if (not isinstance(declaration, dict) or declaration.get("word_id") != word_id
+                or declaration.get("target_kind") != "form_identity"
+                or declaration.get("target_id", "missing") is not None
+                or declaration.get("status") != "frozen"
+                or not re.fullmatch(r"record\.senses\[\d+\]\.lexical_identity_overlay", str(declaration.get("target_locator", "")))
+                or not re.fullmatch(r"[0-9a-f]{64}", str(declaration.get("target_revision", "")))
+                or not re.fullmatch(r"[0-9a-f]{40}", str(declaration.get("evidence_commit", "")))
+                or not declaration.get("reason")):
+            raise RuntimeError(f"FINAL_HISTORICAL_LOCATOR_FREEZE_INVALID:{word_id}")
+    if historical_freezes:
+        fingerprint_inputs["historical_locator_freezes"] = historical_freezes
+        sense_lineage.extend(historical_freezes)
     source_fingerprint = sha256(fingerprint_inputs)
     sense_lineage.extend(collocation_lineage)
+    sense_lineage.extend(fact_lineage)
 
     return {
         "schema": "kianos.lexical.final_learner_object.v1",

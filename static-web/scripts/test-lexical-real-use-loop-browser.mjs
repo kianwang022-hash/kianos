@@ -64,7 +64,10 @@ try{
     if(rail)rail.dataset.lexicalQaIdentity='rail-stable';
   });
   const routeDocumentBaseline=documentRequests;
+  await page.locator('[data-local-port="vocabulary"][data-vocab-ordinal="4"][data-vocab-initialized="true"]').waitFor({state:'attached'});
   await page.keyboard.press('Space');
+  await page.locator('[data-vocab-details]').waitFor({state:'visible'});
+  await page.locator('[data-vocab-route="fuzzy"]').waitFor({state:'visible'});
   await page.locator('[data-vocab-route="fuzzy"]').click();
   await page.waitForURL(/\/vocabulary\/5\/?$/);
   await page.locator('[data-vocab-ordinal="5"]').waitFor({state:'attached'});

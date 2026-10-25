@@ -186,7 +186,7 @@
     "ordinal": 450,
     "word": "behave",
     "source_owner_path": "content/lexical/words/by-ordinal/o0450.json",
-    "source_fingerprint": "215279e8ae7693a0924f8131f9349ff9c7a9f1a5431ac821cba66a8c4b1aa5e4",
+    "source_fingerprint": "ee262d26d7d98b80c2524c871c332fe9d286788e239499acb8fc32f2cfded17e",
     "sense_lineage": [
       {
         "word_id": "word:behave",
@@ -199,6 +199,13 @@
         "word_id": "word:behave",
         "target_kind": "collocation",
         "from_target_id": "collocation:121694aff11be0bc652e",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:behave",
+        "target_kind": "construction",
+        "from_target_id": "construction:behave:baseline-v2-oneself",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -1312,12 +1319,19 @@
     "ordinal": 455,
     "word": "believe",
     "source_owner_path": "content/lexical/words/by-ordinal/o0455.json",
-    "source_fingerprint": "0730cbee9dda7ae37822eeccdb5dac5e54e4c6aa11923af31d79e2e09bd60b8c",
+    "source_fingerprint": "121bcc2cb19d024504cdec347051d0e1ca0f87c1c066f6967dd84394fdfd765e",
     "sense_lineage": [
       {
         "word_id": "word:believe",
         "target_kind": "collocation",
         "from_target_id": "collocation:61aa1ba34a932e69cb75",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:believe",
+        "target_kind": "construction",
+        "from_target_id": "construction:believe:baseline-v2-in",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -1945,7 +1959,7 @@
     "ordinal": 458,
     "word": "belong",
     "source_owner_path": "content/lexical/words/by-ordinal/o0458.json",
-    "source_fingerprint": "03f99aa0037298d717f26172d55a7d41bef15cede256f41943995b3e432459db",
+    "source_fingerprint": "b4b56fffb411f55afc53a1bf7abfe73dae781095a333e1189c127f20c317f4d4",
     "sense_lineage": [
       {
         "word_id": "word:belong",
@@ -1965,6 +1979,13 @@
         "word_id": "word:belong",
         "target_kind": "collocation",
         "from_target_id": "collocation:37deb7956d501cda44a3",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:belong",
+        "target_kind": "construction",
+        "from_target_id": "construction:belong:baseline-v2-in-on-among",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -4191,7 +4212,7 @@
     "ordinal": 471,
     "word": "best",
     "source_owner_path": "content/lexical/words/by-ordinal/o0471.json",
-    "source_fingerprint": "599b2a6be82db03b47996de4a014e1b5c7535adf450ba7c023fde98eb6326dd5",
+    "source_fingerprint": "c17f290dec5f4a354b3146a953e3f717f76bb653a495e1b99aa45212f9a1fba2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4344,7 +4365,7 @@
       "confusables": [],
       "relations": [],
       "form": {
-        "boundary": "best is the superlative surface of adjective good and adverb well, while word:best also remains an independent Word owner for its adjective, adverb, and noun uses.",
+        "boundary": "best 是形容词 good 和副词 well 的最高级；也可作名词。",
         "boundaries": [
           {
             "surface": "best",
@@ -4358,8 +4379,8 @@
           },
           {
             "surface": "best",
-            "condition": "independent lexical uses owned by word:best",
-            "note": "preserve independent Word owner"
+            "condition": "名词用法",
+            "note": "do one's best 表尽最大努力；the best 可指最好的事物或最高水平。"
           }
         ],
         "variants": [],
@@ -4367,7 +4388,7 @@
           "target_kind": "form_identity",
           "target_id": null,
           "target_locator": "record.form_identity",
-          "target_label": "best is the superlative surface of adjective good and adverb well, while word:best also remains an independent Word owner for its adjective, adverb, and noun uses."
+          "target_label": "best 是形容词 good 和副词 well 的最高级；也可作名词。"
         }
       },
       "family": []
@@ -4761,7 +4782,7 @@
     "ordinal": 474,
     "word": "better",
     "source_owner_path": "content/lexical/words/by-ordinal/o0474.json",
-    "source_fingerprint": "cf83bec49219abc94b3e7f19d54655f061d1f313a1d3500aa6ddb66fc756bd7c",
+    "source_fingerprint": "faaa0d29d2db30f0941ed40e761ab13c4676cbdfb70a0effa1ce7bc0f8c0a659",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -4962,6 +4983,10 @@
           {
             "text": "最好；应该（做某事）",
             "lang": "cn"
+          },
+          {
+            "text": "had better 后接不带 to 的动词原形，常用否定式 had better not do sth；虽有 had，却谈现在或将来。它针对具体情境提出较强建议，常暗含不照做会有不良后果，不只是一般偏好。",
+            "lang": "cn"
           }
         ],
         "repair": {
@@ -4976,7 +5001,7 @@
       "confusables": [],
       "relations": [],
       "form": {
-        "boundary": "better is the comparative surface of adjective good and adverb well, while word:better also remains an independent Word owner for its noun, adverb, adjective, and verb uses.",
+        "boundary": "better 是形容词 good 和副词 well 的比较级；也有名词和动词用法。",
         "boundaries": [
           {
             "surface": "better",
@@ -4990,8 +5015,8 @@
           },
           {
             "surface": "better",
-            "condition": "independent lexical uses owned by word:better",
-            "note": "preserve independent Word owner"
+            "condition": "名词或动词用法",
+            "note": "for the better 表好转；better oneself 表改善自身境况。"
           }
         ],
         "variants": [],
@@ -4999,7 +5024,7 @@
           "target_kind": "form_identity",
           "target_id": null,
           "target_locator": "record.form_identity",
-          "target_label": "better is the comparative surface of adjective good and adverb well, while word:better also remains an independent Word owner for its noun, adverb, adjective, and verb uses."
+          "target_label": "better 是形容词 good 和副词 well 的比较级；也有名词和动词用法。"
         }
       },
       "family": []
@@ -5644,7 +5669,7 @@
     "ordinal": 480,
     "word": "bias",
     "source_owner_path": "content/lexical/words/by-ordinal/o0480.json",
-    "source_fingerprint": "6ce05ad7fb742f74a7100a8f2a434f2c6695dc7d76079b6d6c7af80773d1bf66",
+    "source_fingerprint": "b04664c119074b2a8e5686496d857ae0588d0e4a7f42746e0d782fa3cf9a0d15",
     "sense_lineage": [
       {
         "word_id": "word:bias",
@@ -5677,7 +5702,7 @@
     },
     "word_feel": {
       "summary_cn": "偏见；偏向；使判断或结果产生偏差",
-      "decision_cn": "person/judgment/data/result → 偏见或系统性偏向；服装裁剪的斜纹义保留为 Reference。",
+      "decision_cn": "person/judgment/data/result → 偏见或系统性偏向。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6263,8 +6288,16 @@
     "ordinal": 484,
     "word": "bid",
     "source_owner_path": "content/lexical/words/by-ordinal/o0484.json",
-    "source_fingerprint": "55f2ac9eeed14778042e0db47566bcf0b5b6770187fccd412ef6e098bd1b0d12",
-    "sense_lineage": [],
+    "source_fingerprint": "759cf14f5e7246323dc2f98227397476f1b9653066694636e24c33700a5b951d",
+    "sense_lineage": [
+      {
+        "word_id": "word:bid",
+        "target_kind": "construction",
+        "from_target_id": "construction:bid:baseline-v2-for",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",
@@ -9664,8 +9697,23 @@
     "ordinal": 503,
     "word": "blame",
     "source_owner_path": "content/lexical/words/by-ordinal/o0503.json",
-    "source_fingerprint": "04f06a7f1ab12dfbfe94f8bd1d8610cc84117adf018d0a4631cf9e32fe136526",
-    "sense_lineage": [],
+    "source_fingerprint": "afaafdb9faf445990ad3d2a001f1c772e81dd604347f6b945643d5267c5f1c50",
+    "sense_lineage": [
+      {
+        "word_id": "word:blame",
+        "target_kind": "construction",
+        "from_target_id": "construction:blame:baseline-v2-sb-for-sth",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:blame",
+        "target_kind": "construction",
+        "from_target_id": "construction:blame:baseline-v2-sth-on-sb",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V",
@@ -9813,12 +9861,26 @@
     "ordinal": 504,
     "word": "blank",
     "source_owner_path": "content/lexical/words/by-ordinal/o0504.json",
-    "source_fingerprint": "a61db0cb5a45794c2051e263419d95b58e9d7184cbb704d29f13e4e7a1c53424",
+    "source_fingerprint": "1c6d0b82030bad98b199443d96953bd5a6cd01fef3caa02e5466e77ddba7bff3",
     "sense_lineage": [
       {
         "word_id": "word:blank",
         "target_kind": "sense",
         "from_target_id": "sense:blank:5e79a81140d350b0",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:blank",
+        "target_kind": "construction",
+        "from_target_id": "construction:blank:baseline-v2-draw-a-blank",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:blank",
+        "target_kind": "construction",
+        "from_target_id": "construction:blank:baseline-v2-go-blank",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -11386,8 +11448,16 @@
     "ordinal": 512,
     "word": "blind",
     "source_owner_path": "content/lexical/words/by-ordinal/o0512.json",
-    "source_fingerprint": "f8d09afae7325aa2eab67034e8651478e287b7903a90ca0c9f4a4cbea24148f1",
-    "sense_lineage": [],
+    "source_fingerprint": "36395c1ce6cf0602720bb31027b3640287c0ca5b825ec640f97e29184aeb73b6",
+    "sense_lineage": [
+      {
+        "word_id": "word:blind",
+        "target_kind": "construction",
+        "from_target_id": "construction:blind:baseline-v2-turn-a-blind-eye-to",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V",

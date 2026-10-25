@@ -18,8 +18,7 @@
             "sense:flight:e812597353955eb2",
             "sense:flight:bc28b21246be5a37",
             "sense:flight:d3c5b2764c935261",
-            "sense:flight:c1e8ce45b8975449",
-            "sense:flight:f6ba19ad9c9a5a95"
+            "sense:flight:c1e8ce45b8975449"
           ]
         }
       ],
@@ -66,6 +65,15 @@
             ],
             "meaning_cn": "在飞行中",
             "phrase": "in flight"
+          },
+          {
+            "collocation_id": "collocation:a7bfeda6ebc5f54aecee",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:flight:f6ba19ad9c9a5a95:collocation:0"
+            ],
+            "meaning_cn": "鸟类飞行（迁徙须由语境确定）",
+            "phrase": "bird flight"
           }
         ],
         "confidence": "medium",
@@ -140,30 +148,6 @@
         "sense_id": "sense:flight:c1e8ce45b8975449",
         "sense_label_en": "a formation of aircraft in flight",
         "sort_order": 3,
-        "transitivity": "nonverb"
-      },
-      {
-        "collocations": [
-          {
-            "collocation_id": "collocation:a7bfeda6ebc5f54aecee",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:flight:f6ba19ad9c9a5a95:collocation:0"
-            ],
-            "meaning_cn": "鸟类飞行（迁徙须由语境确定）",
-            "phrase": "bird flight"
-          }
-        ],
-        "confidence": "medium",
-        "definition_cn": "鸟类的飞行；迁飞",
-        "definition_en": "the flight of birds, including migratory flight",
-        "governing_pattern": "",
-        "level": "L3",
-        "needs_human_review": 0,
-        "pos": "noun",
-        "sense_id": "sense:flight:f6ba19ad9c9a5a95",
-        "sense_label_en": "the flight of birds, including migratory flight",
-        "sort_order": 4,
         "transitivity": "nonverb"
       }
     ],
@@ -339,7 +323,7 @@
       "status": "deprecated",
       "merged_into_sense_id": null,
       "reference_only": true,
-      "usage_note": "专门鸟类活动动词，不把普通 flight 名词或 fly 动词的学习需求扩成独立默认项；保留查阅。"
+      "usage_note": "此动词描述鸟类成群飞行。"
     }
   ],
   "identity_refs": {
@@ -381,8 +365,8 @@
       },
       {
         "sense_id": "sense:flight:f6ba19ad9c9a5a95",
-        "status": "active",
-        "merged_into_sense_id": null,
+        "status": "merged",
+        "merged_into_sense_id": "sense:flight:e812597353955eb2",
         "source_row": 5432,
         "source_path": "content/lexical/canonical/senses/shards/o1953-1984.json"
       }

@@ -523,7 +523,7 @@
     "ordinal": 900,
     "word": "color",
     "source_owner_path": "content/lexical/words/by-ordinal/o0900.json",
-    "source_fingerprint": "1d5e746ac18a58d42970146c5aaaa5514f7b4f0772c76ed01008c1cf6753ddfd",
+    "source_fingerprint": "a4abda6486feb26330c9317322f23dd2799cc79de67479d1f5dfd28c69f9192c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -534,7 +534,7 @@
     },
     "word_feel": {
       "summary_cn": "颜色；着色",
-      "decision_cn": "颜色语境：色彩、着色；judgment/view/account 等语境：影响判断或描述，使带上某种倾向。color/colour 的拼写差异按既有 Form。",
+      "decision_cn": "颜色语境：色彩、着色；judgment/view/account 等语境：影响判断或描述，使带上某种倾向。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -5853,7 +5853,7 @@
     "ordinal": 929,
     "word": "commute",
     "source_owner_path": "content/lexical/words/by-ordinal/o0929.json",
-    "source_fingerprint": "15dcdd473b86becb2863d31f737e0946521a89703a454322e2b4604a5a818872",
+    "source_fingerprint": "26adcc31114f72b36046332cce2cfbe0c6103bcd0b9f7ff76745e0d82efdf9cb",
     "sense_lineage": [
       {
         "word_id": "word:commute",
@@ -5872,7 +5872,7 @@
     },
     "word_feel": {
       "summary_cn": "通勤；法律语境中也可指减刑",
-      "decision_cn": "home ↔ work → 通勤；commute a sentence → 将刑罚改为较轻处罚。交换/折偿旧义仅保留 Reference。",
+      "decision_cn": "home ↔ work → 通勤；commute a sentence → 将刑罚改为较轻处罚。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7603,7 +7603,7 @@
     "ordinal": 938,
     "word": "compass",
     "source_owner_path": "content/lexical/words/by-ordinal/o0938.json",
-    "source_fingerprint": "0bbd888c7b2c507bc12a6cee95d54874cbebb83f518717743ee578bd9dd2fffa",
+    "source_fingerprint": "a800d8f7a633edc5a87a4686acb86d4fbd49300823cdee0c27acbca40681f54d",
     "sense_lineage": [
       {
         "word_id": "word:compass",
@@ -7635,7 +7635,7 @@
     },
     "word_feel": {
       "summary_cn": "指南针/罗盘；圆规；moral compass 还可指判断是非的内在准则",
-      "decision_cn": "navigation → 指南针；a pair of compasses → 圆规；moral compass → 价值判断准则。within the compass of 的“范围”义仅保留 Reference。",
+      "decision_cn": "navigation → 指南针；a pair of compasses → 圆规；moral compass → 价值判断准则。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8470,7 +8470,7 @@
     "ordinal": 944,
     "word": "competent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0944.json",
-    "source_fingerprint": "f269f92ddc548ae4e30d1b472912ea401bcf04d33aa90c80f03b3e8e8415dd66",
+    "source_fingerprint": "9b129dcd1b28782d10763969a9c4bfee743c2226b7e4e6b440d0ccd26788319e",
     "sense_lineage": [
       {
         "word_id": "word:competent",
@@ -8488,7 +8488,7 @@
     },
     "word_feel": {
       "summary_cn": "胜任的、有能力的；也可指具有法定资格/权限的",
-      "decision_cn": "person/skill → 胜任、有能力；competent authority → 有法定资格或权限的主管机构。低价值“足够数量”义仅保留 Reference。",
+      "decision_cn": "person/skill → 胜任、有能力；competent authority → 有法定资格或权限的主管机构。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9380,23 +9380,23 @@
     "ordinal": 950,
     "word": "complement",
     "source_owner_path": "content/lexical/words/by-ordinal/o0950.json",
-    "source_fingerprint": "7c177d4c645eed1ffa83230d9eb6d25695341c3e2ffe05e2ce0d0b6bd4de19a0",
+    "source_fingerprint": "baf4acf78e1d06d488b659c9872843027ba3c91cc8c3bf804295b92f917c2e0a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "1V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "补充；补足；补语",
-      "decision_cn": "",
+      "summary_cn": "补充、补足；补语；（免疫学）补体",
+      "decision_cn": "一般指补足或相互配合；语法中是补语；医学中的 complement system 是补体系统。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "补充；补足；补语"
+        "target_label": "补充、补足；补语；（免疫学）补体"
       }
     },
     "senses": [
@@ -9541,6 +9541,23 @@
           "target_id": "sense:complement:82711ac2b8235a2c",
           "target_locator": "record.senses[3]",
           "target_label": "补数，足额"
+        }
+      },
+      {
+        "id": "sense:complement:fd40c4dd82cf64d4",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "complement activation; complement proteins; the complement system",
+        "definition_cn": "（免疫学）补体：参与免疫防御的一组蛋白质",
+        "definition_en": "a group of proteins involved in immune defense",
+        "note": "医学、免疫学语境中的补体，不是语法补语或赞美 compliment。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:complement:fd40c4dd82cf64d4",
+          "target_locator": "record.senses[4]",
+          "target_label": "（免疫学）补体：参与免疫防御的一组蛋白质"
         }
       }
     ],
@@ -9785,7 +9802,7 @@
     "ordinal": 952,
     "word": "complex",
     "source_owner_path": "content/lexical/words/by-ordinal/o0952.json",
-    "source_fingerprint": "dcf1edc02dd01799487d4ba8b64a01ae62ea653bdca608c420f742334ea05ec8",
+    "source_fingerprint": "dc4a5137d0d452e2d170f465c1271b5ffacc4fcdb95e6f245cba9b09ed10f03a",
     "sense_lineage": [
       {
         "word_id": "word:complex",
@@ -9811,7 +9828,7 @@
     },
     "word_feel": {
       "summary_cn": "复杂的；综合体；情结",
-      "decision_cn": "adjective → 复杂；buildings/system → 综合体；psychology → 情结。化学络合物保留为 Reference。",
+      "decision_cn": "adjective → 复杂；buildings/system → 综合体；psychology → 情结。",
       "repair": {
         "target_kind": "core",
         "target_id": null,

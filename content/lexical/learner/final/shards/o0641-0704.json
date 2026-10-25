@@ -189,7 +189,7 @@
     "ordinal": 642,
     "word": "by",
     "source_owner_path": "content/lexical/words/by-ordinal/o0642.json",
-    "source_fingerprint": "7d29af4dd18f8e7707a0b30b4d7c8c62619b975bdae03a0b7dc8e76b4de68256",
+    "source_fingerprint": "3868ebd172670f905da1e56d4001c4f6009cf72f6534fcf2733c3601c9de7930",
     "sense_lineage": [
       {
         "word_id": "word:by",
@@ -222,7 +222,7 @@
     },
     "word_feel": {
       "summary_cn": "表示施事、方式、位置或截止时间：由/被、通过/用、在旁边，以及不迟于某时",
-      "decision_cn": "agent → 被/由；method → 通过/用；location → 在旁；by Friday/5 pm → 不迟于、截至。",
+      "decision_cn": "agent → 被/由；method → 通过/用；location → 在旁；by Friday → 不迟于周五；increase by 10% → 增加的幅度。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -489,6 +489,31 @@
           "target_id": "construction:by:lane0601-0650-no-means",
           "target_locator": "record.constructions[2]",
           "target_label": "by no means"
+        }
+      },
+      {
+        "id": "construction:by:2c358099405f8bac0000",
+        "source_locator": "record.constructions[3]",
+        "pattern": "increase/decrease by + amount; greater/less by + amount",
+        "lines": [
+          {
+            "text": "表示增加、减少或差异的幅度",
+            "lang": "cn"
+          },
+          {
+            "text": "by 10% 表示变化幅度；to 10% 表示达到的水平。数字可表示数量、百分比等，不是截止时间。",
+            "lang": "cn"
+          },
+          {
+            "text": "introduce how much something changes or differs",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:by:2c358099405f8bac0000",
+          "target_locator": "record.constructions[3]",
+          "target_label": "increase/decrease by + amount; greater/less by + amount"
         }
       }
     ],
@@ -1269,7 +1294,7 @@
     "ordinal": 648,
     "word": "cable",
     "source_owner_path": "content/lexical/words/by-ordinal/o0648.json",
-    "source_fingerprint": "a61d14e2ae9d453c150144e63fdcd86821e60a1c0f29f3d4a06babd532d4ed85",
+    "source_fingerprint": "f6a38a07dff89c347b16db9471bbf2adf5e8559f333a41449b388b3a01090678",
     "sense_lineage": [
       {
         "word_id": "word:cable",
@@ -1301,7 +1326,7 @@
     },
     "word_feel": {
       "summary_cn": "传输电力/数据/信号的电缆或结实的绳索；现代常见 cable TV",
-      "decision_cn": "electric/data/signal → 电缆；strong wire/rope → 粗绳索；cable TV → 有线电视；电报时代义仅保留 Reference。",
+      "decision_cn": "electric/data/signal → 电缆；strong wire/rope → 粗绳索；cable TV → 有线电视。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3196,7 +3221,7 @@
     "ordinal": 658,
     "word": "calorie",
     "source_owner_path": "content/lexical/words/by-ordinal/o0658.json",
-    "source_fingerprint": "4b80bfafc65cbbfdd0e1add2d881bba0bc27aad44fd3b1c9690f4fa20247c9a7",
+    "source_fingerprint": "c692382fc0b903b0aaedf1ebcd0f23d540356109f9bd9db322a2ab7ec31679bc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3222,7 +3247,7 @@
         "governing_pattern": "",
         "definition_cn": "卡路里；大卡",
         "definition_en": "a unit of energy, often used to measure the energy content of food",
-        "note": "",
+        "note": "营养、食品热量语境中的 calorie 通常指大卡（kilocalorie，kcal）；1 大卡 = 1000 小卡（cal）。物理学语境中的小卡与食品热量中的大卡不可按数值直接等同。",
         "identity_overlay": null,
         "usage": [
           {
@@ -6317,12 +6342,19 @@
     "ordinal": 675,
     "word": "cap",
     "source_owner_path": "content/lexical/words/by-ordinal/o0675.json",
-    "source_fingerprint": "c889ffe9a86f4f969b9779bd120d9f321550eace34c2990ea036845fd4725326",
+    "source_fingerprint": "e90d3b9d70f6f6b1de67b50503205eee838d34616f06faa5244cf313ecd2ca71",
     "sense_lineage": [
       {
         "word_id": "word:cap",
         "target_kind": "collocation",
         "from_target_id": "collocation:e5e13feb94ce8b5c0f54",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:cap",
+        "target_kind": "construction",
+        "from_target_id": "construction:7f7f9078eabc237c4aa7",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -9091,7 +9123,7 @@
     "ordinal": 690,
     "word": "career",
     "source_owner_path": "content/lexical/words/by-ordinal/o0690.json",
-    "source_fingerprint": "031ddb48fefadb6c70e6f84814d490a8ffeb74681ee21762a60101e37b0ba10f",
+    "source_fingerprint": "2ee8d39ef2a5a0867acfcc8ba6e19b3336b36d07e9cfdfc8ebfdc93fc3c68a7e",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9102,7 +9134,7 @@
     },
     "word_feel": {
       "summary_cn": "职业或职业生涯；动词还可指（尤指车辆）失控疾驰",
-      "decision_cn": "noun → 职业/职业生涯；career down/off/into...（verb）→ 尤指车辆失控地猛冲、疾驰。该动词是现行 learner-dictionary 用法，不按“古义”处理。",
+      "decision_cn": "noun → 职业/职业生涯；career down/off/into...（verb）→ 尤指车辆失控地猛冲、疾驰。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -11745,7 +11777,7 @@
     "ordinal": 704,
     "word": "cashier",
     "source_owner_path": "content/lexical/words/by-ordinal/o0704.json",
-    "source_fingerprint": "b1eea5e1176a1a0cd43969263494112244be165c11616b1da4ebd1d962724131",
+    "source_fingerprint": "05fece13d25f092c9c7953f7e2ea428d90d218ec4996e56e223a233ce0a58f84",
     "sense_lineage": [
       {
         "word_id": "word:cashier",
@@ -11763,7 +11795,7 @@
     },
     "word_feel": {
       "summary_cn": "收款员；出纳员",
-      "decision_cn": "商店/银行收付款的人。罕见动词 cashier（革职）仅保留 Reference。",
+      "decision_cn": "商店/银行语境中指收付款的人。",
       "repair": {
         "target_kind": "core",
         "target_id": null,

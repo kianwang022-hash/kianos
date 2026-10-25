@@ -91,6 +91,30 @@ export function reconcileEvidenceIdentity(ledgerInput, lineageEntries = [], curr
   const ledger = normalizeLexicalLedger(ledgerInput);
   const statuses = [];
   for (const raw of Array.isArray(lineageEntries) ? lineageEntries : []) {
+    // Explicit historical null-ID bindings only. Never infer from missing objects.
+    if (raw?.status === 'frozen' && raw?.target_kind === 'form_identity'
+      && raw?.target_id === null
+      && /^record\.senses\[\d+\]\.lexical_identity_overlay$/.test(raw?.target_locator || '')
+      && /^[0-9a-f]{64}$/.test(raw?.target_revision || '')
+      && /^[0-9a-f]{40}$/.test(raw?.evidence_commit || '') && raw?.reason) {
+      const key = lexicalTargetKey(raw);
+      if (!key) continue;
+      const resolution = {
+        resolution: 'FROZEN', source: 'explicit_historical_locator_declaration',
+        word_id: raw.word_id, target_kind: raw.target_kind,
+        from_target_locator: raw.target_locator, from_target_revision: raw.target_revision,
+        to_target_id: null, target_key: null, reason: raw.reason,
+        evidence_commit: raw.evidence_commit
+      };
+      if (!ledger.identity_lineage[key]) {
+        ledger.identity_lineage[key] = resolution;
+        statuses.push('LINEAGE_FROZEN_REGISTERED');
+      } else if (ledger.identity_lineage[key].resolution !== 'FROZEN') {
+        ledger.identity_lineage[key] = { ...resolution, reason: 'LINEAGE_CONFLICT' };
+        statuses.push('LINEAGE_CONFLICT_FROZEN');
+      }
+      continue;
+    }
     const wordId = String(raw?.word_id || '');
     const kind = String(raw?.target_kind || 'sense');
     const fromTargetId = String(raw?.from_target_id || '');
@@ -126,8 +150,9 @@ export function reconcileEvidenceIdentity(ledgerInput, lineageEntries = [], curr
     }
 
     const existing = ledger.identity_lineage[fromKey];
-    if (existing && stableJson(existing) !== stableJson(resolution)) {
-      ledger.identity_lineage[fromKey] = {
+    if (existing && stableJson(existing) === stableJson(resolution)) continue;
+    if (existing) {
+      const conflictResolution = {
         resolution: 'FROZEN',
         source: 'current_identity_refs',
         lifecycle_status: 'conflict',
@@ -138,6 +163,8 @@ export function reconcileEvidenceIdentity(ledgerInput, lineageEntries = [], curr
         target_key: null,
         reason: 'LINEAGE_CONFLICT'
       };
+      if (stableJson(existing) === stableJson(conflictResolution)) continue;
+      ledger.identity_lineage[fromKey] = conflictResolution;
       statuses.push('LINEAGE_CONFLICT_FROZEN');
       continue;
     }
@@ -188,6 +215,7 @@ function resolvedTargetIdentityFromLedger(ledger, event) {
     }
     visited.add(key);
     const resolution = ledger.identity_lineage[key];
+    if (resolution?.source === 'explicit_historical_locator_declaration' && event.target_id !== null) break;
     if (resolution?.resolution !== 'REMAP' || !resolution?.target_key || !resolution?.to_target_id) {
       return {
         key: rawKey,

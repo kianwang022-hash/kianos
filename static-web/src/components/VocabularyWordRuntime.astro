@@ -33,6 +33,9 @@ const { answer = null } = Astro.props;
     if (modeLabel && mode !== 'study') modeLabel.textContent = mode === 'lookup' ? 'Lookup' : 'Repair';
     const repairSummary = root.querySelector('[data-vocab-repair-summary]');
     const repairButtons = [...root.querySelectorAll('[data-vocab-repair]')];
+    // Keep every button in the DOM for strict historical-target resolution.
+    // Navigation/admission operates only on targets visible in this mode.
+    const visibleRepairButtons = () => repairButtons.filter((button) => !button.closest('[hidden]'));
     const noteKey = `kianos-lexical-note-v1:${objectId}`;
     const noteDrawer = root.querySelector('[data-vocab-note-drawer]');
     const noteInput = root.querySelector('[data-vocab-note-input]');
@@ -55,7 +58,10 @@ const { answer = null } = Astro.props;
         button.classList.toggle('active', button.getAttribute('data-vocab-speak') === preferred);
       });
       root.querySelectorAll('[data-vocab-ipa-locale]').forEach((node) => {
-        node.hidden = !['unknown', preferred].includes(node.getAttribute('data-vocab-ipa-locale'));
+        if (node.hasAttribute('data-vocab-ipa-full')) {
+          node.textContent = node.getAttribute(mode === 'study' ? 'data-vocab-ipa-study' : 'data-vocab-ipa-full') || '';
+        }
+        node.hidden = !node.textContent.trim() || !['unknown', preferred].includes(node.getAttribute('data-vocab-ipa-locale'));
       });
     };
     const syncPronunciationPreference = () => { currentPronunciation = defaultPronunciation(); renderPronunciation(); };
@@ -70,6 +76,8 @@ const { answer = null } = Astro.props;
 
     const previousTargets = { ...state.repairTargets };
     let currentForm = null;
+    let currentLineage = [];
+    try { currentLineage = JSON.parse(root.querySelector('[data-vocab-identity-lineage]')?.textContent || '[]'); } catch {}
     try { currentForm = JSON.parse(root.querySelector('[data-vocab-current-form]')?.textContent || 'null'); } catch {}
     let ledger = readLedger();
     let ledgerChanged = false;
@@ -95,7 +103,7 @@ const { answer = null } = Astro.props;
       }
       // Legacy cache import can introduce an old Form event after the identity
       // bridge ran. Apply the same current eligibility before projecting it.
-      const reconciled = reconcileEvidenceIdentity(ledger, [], [{ word_id: objectId, form: currentForm }]);
+      const reconciled = reconcileEvidenceIdentity(ledger, currentLineage, [{ word_id: objectId, form: currentForm }]);
       ledger = reconciled.ledger;
       if (ledgerChanged || reconciled.statuses.length) saveLedger(ledger);
     }
@@ -138,7 +146,10 @@ const { answer = null } = Astro.props;
       if (front) front.hidden = Boolean(state.revealed);
       if (details) details.hidden = !state.revealed;
       root.querySelectorAll('[data-vocab-lookup-only]').forEach((node) => { node.hidden = mode !== 'lookup'; });
-      repairButtons.forEach((button, index) => {
+      root.querySelectorAll('[data-vocab-secondary-explore-only], [data-vocab-sense-explore-only]').forEach((node) => { node.hidden = mode === 'study'; });
+      const visibleButtons = visibleRepairButtons();
+      selectedIndex = visibleButtons.length ? Math.min(selectedIndex, visibleButtons.length - 1) : -1;
+      repairButtons.forEach((button) => {
         const target = targetFromButton(button);
         const active = Boolean(state.repairTargets[target.key]);
         const selectedRevision = active && !target.id ? state.repairTargets[target.key]?.target_revision : '';
@@ -148,7 +159,7 @@ const { answer = null } = Astro.props;
         button.setAttribute('aria-pressed', String(active));
         button.textContent = active ? '✓' : '+';
         const row = button.closest('[data-vocab-target-row]');
-        row?.classList.toggle('keyboard-target', index === selectedIndex);
+        row?.classList.toggle('keyboard-target', selectedIndex >= 0 && visibleButtons[selectedIndex] === button);
         row?.classList.toggle('repair-selected', active);
       });
       const count = Object.keys(state.repairTargets).length;
@@ -200,7 +211,7 @@ const { answer = null } = Astro.props;
     }));
 
     const setRepair = (button, active) => {
-      if (!lexicalBrowserStateReadable()) return;
+      if (!lexicalBrowserStateReadable() || !visibleRepairButtons().includes(button)) return;
       const target = targetFromButton(button);
       if (active) {
         state.repairTargets[target.key] = {
@@ -221,20 +232,27 @@ const { answer = null } = Astro.props;
       render();
     };
 
-    repairButtons.forEach((button, index) => button.addEventListener('click', () => {
+    repairButtons.forEach((button) => button.addEventListener('click', (event) => {
+      const index = visibleRepairButtons().indexOf(button);
+      if (index < 0) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        return;
+      }
       selectedIndex = index;
       const target = targetFromButton(button);
       setRepair(button, !state.repairTargets[target.key]);
     }));
 
     const selectByDelta = (delta) => {
-      if (!repairButtons.length) return;
-      selectedIndex = selectedIndex < 0 ? (delta > 0 ? 0 : repairButtons.length - 1) : (selectedIndex + delta + repairButtons.length) % repairButtons.length;
-      repairButtons[selectedIndex]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
+      const visibleButtons = visibleRepairButtons();
+      if (!visibleButtons.length) { selectedIndex = -1; return; }
+      selectedIndex = selectedIndex < 0 ? (delta > 0 ? 0 : visibleButtons.length - 1) : (selectedIndex + delta + visibleButtons.length) % visibleButtons.length;
+      visibleButtons[selectedIndex]?.scrollIntoView({ block: 'nearest', behavior: 'smooth' });
       render();
     };
 
-    const activeRepairButton = () => selectedIndex >= 0 ? repairButtons[selectedIndex] : null;
+    const activeRepairButton = () => selectedIndex >= 0 ? visibleRepairButtons()[selectedIndex] : null;
     root.addEventListener('click', () => {
       document.querySelectorAll('[data-local-port="vocabulary"]').forEach((candidate) => candidate.removeAttribute('data-vocab-keyboard-active'));
       root.setAttribute('data-vocab-keyboard-active', 'true');

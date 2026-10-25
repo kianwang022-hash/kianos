@@ -648,7 +648,7 @@
     "ordinal": 261,
     "word": "argue",
     "source_owner_path": "content/lexical/words/by-ordinal/o0261.json",
-    "source_fingerprint": "e80bbfa99ee5c4b5567756a0b7b0d0da2af7004251d6bdd88cee24492016aa92",
+    "source_fingerprint": "ef6bc5d59f361332f715a66e371486cafe9f05351769e2d5b46a0b1bc7fd1b14",
     "sense_lineage": [
       {
         "word_id": "word:argue",
@@ -661,6 +661,20 @@
         "word_id": "word:argue",
         "target_kind": "collocation",
         "from_target_id": "collocation:f2b18ec443be1a4fbe64",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:argue",
+        "target_kind": "construction",
+        "from_target_id": "deep:constructions:argue:631f9f87d567065c",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:argue",
+        "target_kind": "construction",
+        "from_target_id": "deep:constructions:argue:fda5d96d59b55030",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -1624,7 +1638,7 @@
     "ordinal": 267,
     "word": "around",
     "source_owner_path": "content/lexical/words/by-ordinal/o0267.json",
-    "source_fingerprint": "7e57893bae147fbe662769fb02ebe689213dc060c0c5226e5a3c7349e6471369",
+    "source_fingerprint": "0f9c89743ad6ee7d0af880bb0875601ecde5b231ab804caab5ddc5046f0d856f",
     "sense_lineage": [
       {
         "word_id": "word:around",
@@ -1638,6 +1652,13 @@
         "target_kind": "collocation",
         "from_target_id": "collocation:804f43608d3c032043f8",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:around",
+        "target_kind": "construction",
+        "from_target_id": "construction:around:handoff-de74d1033da13a6a",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -1868,7 +1889,7 @@
     "ordinal": 268,
     "word": "arouse",
     "source_owner_path": "content/lexical/words/by-ordinal/o0268.json",
-    "source_fingerprint": "bc7d8265e017f1dbaf0f793abc976c2204bbca27c8546e68edf3b68a15b2ba6f",
+    "source_fingerprint": "7711cb76db7ae31a27f6893b4a524209bef7152fc4a23c35bec97cbb032c7c41",
     "sense_lineage": [
       {
         "word_id": "word:arouse",
@@ -1883,6 +1904,13 @@
         "from_target_id": "sense:arouse:handoff-b4987de4f302e864",
         "status": "deprecated",
         "to_target_id": "sense:arouse:0fd24cf9eccd57dd"
+      },
+      {
+        "word_id": "word:arouse",
+        "target_kind": "construction",
+        "from_target_id": "construction:arouse:handoff-0602bf2337be93d9",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -2374,23 +2402,23 @@
     "ordinal": 271,
     "word": "arrest",
     "source_owner_path": "content/lexical/words/by-ordinal/o0271.json",
-    "source_fingerprint": "824e3f5ca5cdb1f76f4dee8f5e42d88c35af654a5ea1b1cee79461f9cafa3124",
+    "source_fingerprint": "589b8f19a332ffdea970aea13b7f9a277d78eefa13ff58d086029f341635da01",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "3V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "控制并使其停下：可指依法拘留、阻止进程或抓住注意力；名词指拘留行为",
-      "decision_cn": "根据宾语区分：人 → 依法拘留；过程/发展 → 阻止；attention → 抓住注意力。",
+      "summary_cn": "逮捕、拘留；阻止进程或抓住注意力；名词也可指停止状态。",
+      "decision_cn": "人作宾语看依法拘留；过程/发展看阻止；attention 看吸引注意；cardiac arrest 指心搏骤停。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "控制并使其停下：可指依法拘留、阻止进程或抓住注意力；名词指拘留行为"
+        "target_label": "逮捕、拘留；阻止进程或抓住注意力；名词也可指停止状态。"
       }
     },
     "senses": [
@@ -2527,6 +2555,23 @@
           "target_id": "sense:arrest:da491f03c3c45327",
           "target_locator": "record.senses[3]",
           "target_label": "吸引（注意）"
+        }
+      },
+      {
+        "id": "sense:arrest:10da3579e315539d",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "cardiac arrest; developmental arrest",
+        "definition_cn": "停止；中止；（医学）功能或发育的停止",
+        "definition_en": "a stopping or a state in which an activity or bodily process has stopped",
+        "note": "医学语境中 cardiac arrest 指心搏骤停，developmental arrest 指发育停滞；这里的 arrest 不是逮捕。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:arrest:10da3579e315539d",
+          "target_locator": "record.senses[4]",
+          "target_label": "停止；中止；（医学）功能或发育的停止"
         }
       }
     ],
@@ -3716,7 +3761,7 @@
     "ordinal": 280,
     "word": "articulate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0280.json",
-    "source_fingerprint": "0b8736f2122725701d4c206a2f4b603a42f5adedf84a39aa679aaaaa036882b9",
+    "source_fingerprint": "4d1e5acffcf894061e8dd18bdda1506dbefa373b62840e19dd8ba69b611be21a",
     "sense_lineage": [
       {
         "word_id": "word:articulate",
@@ -3784,7 +3829,7 @@
     },
     "word_feel": {
       "summary_cn": "表达清晰；口齿清楚",
-      "decision_cn": "person → 表达清晰；idea/feeling → 清楚说出。发音义作为扩展识别。",
+      "decision_cn": "person → 表达清晰；idea/feeling → 清楚说出；在声音或词语的发音语境中，也可指清晰发音。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6541,8 +6586,16 @@
     "ordinal": 295,
     "word": "aspire",
     "source_owner_path": "content/lexical/words/by-ordinal/o0295.json",
-    "source_fingerprint": "109d67b090b841b2d0047703331329f65fbb23d86d995c20eb3b356a3bc3e96b",
-    "sense_lineage": [],
+    "source_fingerprint": "70f64a0d36970867c37cec31db836cd2b49c27be054bebd8cbfc41faffa3421f",
+    "sense_lineage": [
+      {
+        "word_id": "word:aspire",
+        "target_kind": "construction",
+        "from_target_id": "construction:aspire:handoff-7152f07f27df1a1e",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "1V"
@@ -7749,8 +7802,23 @@
     "ordinal": 303,
     "word": "assign",
     "source_owner_path": "content/lexical/words/by-ordinal/o0303.json",
-    "source_fingerprint": "9457ec80784008fcdd0ba4e89b4dbb46172da6acd0b1c2c26cfd925ad5b3be36",
-    "sense_lineage": [],
+    "source_fingerprint": "e0ad0ee65f729d805f2c43548a71ca6c58769e4dbbccb8d6fcad85ede22e8a00",
+    "sense_lineage": [
+      {
+        "word_id": "word:assign",
+        "target_kind": "construction",
+        "from_target_id": "construction:assign:baseline-v2-sb-to-sth",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:assign",
+        "target_kind": "construction",
+        "from_target_id": "construction:assign:baseline-v2-sth-to-sb",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "4V"
@@ -9593,8 +9661,16 @@
     "ordinal": 312,
     "word": "assumption",
     "source_owner_path": "content/lexical/words/by-ordinal/o0312.json",
-    "source_fingerprint": "7a970751711a95eb4b503fcc7b99eb2875fac392b302a908e26e025fd76b550d",
-    "sense_lineage": [],
+    "source_fingerprint": "1c03ad7b6f4fcbe352f304570f8f47cc0cbd065be40ed7cf73f6cfaa92f43676",
+    "sense_lineage": [
+      {
+        "word_id": "word:assumption",
+        "target_kind": "construction",
+        "from_target_id": "construction:assumption:handoff-28d1d35d210ed7fc",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "3N"
@@ -9941,8 +10017,23 @@
     "ordinal": 314,
     "word": "assure",
     "source_owner_path": "content/lexical/words/by-ordinal/o0314.json",
-    "source_fingerprint": "53bd3e6950bd20d4deaf511b7e88bd10aebbb382392e91a5dc1c09c38ae74655",
-    "sense_lineage": [],
+    "source_fingerprint": "afe42a929b4258158485a29de163bba564808bf42c2a204a13df9a5f4d019f66",
+    "sense_lineage": [
+      {
+        "word_id": "word:assure",
+        "target_kind": "construction",
+        "from_target_id": "construction:assure:baseline-v2-sb-that",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:assure",
+        "target_kind": "construction",
+        "from_target_id": "construction:assure:baseline-v2-sb-of",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "2V"
@@ -10888,7 +10979,7 @@
     "ordinal": 320,
     "word": "atmosphere",
     "source_owner_path": "content/lexical/words/by-ordinal/o0320.json",
-    "source_fingerprint": "f7911666b50c697286b951297368beb07af762c2b2713b91d1911378f0fe3e8a",
+    "source_fingerprint": "c803d0a4f339673e0cf33ff732a7604d3c7fa14bc6ee29461dcfa27b728ddbb3",
     "sense_lineage": [
       {
         "word_id": "word:atmosphere",
@@ -10930,6 +11021,13 @@
         "target_kind": "collocation",
         "from_target_id": "collocation:atmosphere:20261007-local-air",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:atmosphere",
+        "target_kind": "construction",
+        "from_target_id": "construction:atmosphere:handoff-93e4f07fb43577ec",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],

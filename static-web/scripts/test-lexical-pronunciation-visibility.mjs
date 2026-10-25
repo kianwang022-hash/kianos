@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import { pronunciationFrontText as front, pronunciationReadingVisibleInStudy as visible } from '../src/lib/lexicalPronunciation.mjs';
+const senses=[{id:'hidden',disposition:'EXPLORE_ONLY'},{id:'shown'}];
+const reading=scopes=>({ipa:'/test/',locales:['en-US'],applicability:scopes});
+const bounded=reading([{sense_ids:['hidden']}]);assert.equal(visible(bounded,senses,{},0),false);
+for(const scopes of [[],[{}],[{pos:['noun']}],[{sense_ids:['missing']}],[{sense_ids:['hidden','missing']}],[{sense_ids:['hidden','shown']}],[{sense_ids:['hidden']},{}],[{sense_ids:['hidden'],excluded_sense_ids:['hidden']}],[{sense_ids:['hidden'],excluded_sense_ids:{unknown:true}}]] )assert.equal(visible(reading(scopes),senses,{},0),true);
+assert.equal(visible(bounded,senses,{sense_readings:{shown:[0]}},0),true);
+assert.equal(visible(bounded,senses,{sense_readings:{missing:[0]}},0),true);
+const support={readings:[bounded,reading([{}])],sense_readings:{hidden:[0]}};const bytes=JSON.stringify(support);
+assert.equal(front(support,'en-US',{mode:'study',senses}),'/test/');assert.equal(JSON.stringify(support),bytes);
+for(const mode of ['lookup','repair'])assert.equal(front({readings:[bounded]},'en-US',{mode,senses}),'/test/');
+console.log('PASS pronunciation display uses exact bindings only; generic/mixed/unknown/reverse conflicts retained; support immutable');

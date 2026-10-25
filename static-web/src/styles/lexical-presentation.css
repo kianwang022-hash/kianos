@@ -1394,7 +1394,9 @@ body#kianos-workspace.uiWordStudy .portedVocabBody[data-has-reference="false"]{
   grid-template-columns:minmax(0,1fr);
 }
 /* Explicit Lookup-only content stays hidden despite authored display styles. */
-body#kianos-workspace.uiWordStudy .portedVocabRuntime [data-vocab-lookup-only][hidden]{
+body#kianos-workspace.uiWordStudy .portedVocabRuntime [data-vocab-lookup-only][hidden],
+body#kianos-workspace.uiWordStudy .portedVocabRuntime [data-vocab-sense-explore-only][hidden],
+[data-vocab-secondary-explore-only][hidden]{
   display:none!important;
 }
 body#kianos-workspace.uiWordStudy .portedVocabMeaningColumn{border:0;min-height:0;overflow:visible;align-self:stretch;background:#fff;

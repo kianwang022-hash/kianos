@@ -811,7 +811,7 @@
     "ordinal": 3591,
     "word": "pick",
     "source_owner_path": "content/lexical/words/by-ordinal/o3591.json",
-    "source_fingerprint": "c0cb42e20773cbd91b72dce59cd5ca6d8a683055aa98a6db3e3fd46738aea798",
+    "source_fingerprint": "22bd78d86b8cfc7286cca7914c29ea44399cfa2b5ce3719a1686d920e571df85",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1067,15 +1067,15 @@
       {
         "id": "construction:24ca7512d5ed680fcd2c",
         "source_locator": "record.constructions[0]",
-        "pattern": "pick up sb/sth",
+        "pattern": "pick sb/sth up；pick up + 名词",
         "lines": [
           {
             "text": "接/取/捡起某人或某物",
             "lang": "cn"
           },
           {
-            "text": "bounded phrasal construction; do not expand to every pick up sense",
-            "lang": "en"
+            "text": "接人、取物或提起时可把名词宾语放在up前后；代词放中间，如pick me/it up。学会语言或技能另见相应用法。",
+            "lang": "cn"
           },
           {
             "text": "to collect, lift, or take up someone or something",
@@ -1086,7 +1086,7 @@
           "target_kind": "construction",
           "target_id": "construction:24ca7512d5ed680fcd2c",
           "target_locator": "record.constructions[0]",
-          "target_label": "pick up sb/sth"
+          "target_label": "pick sb/sth up；pick up + 名词"
         }
       },
       {
@@ -1153,11 +1153,11 @@
     "ordinal": 3592,
     "word": "pickup",
     "source_owner_path": "content/lexical/words/by-ordinal/o3592.json",
-    "source_fingerprint": "8222fa7a8e6a3ad0f9cb8a549baf7bfd66c4a77dbdab843ffea70059425e9a89",
+    "source_fingerprint": "010d9d2103b5b6a9585c164ff84929b8c0fdaa0aecafca722c344da5a274491b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "5N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -1173,13 +1173,14 @@
     },
     "senses": [
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:pickup:08c561f7ba48551f",
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "逮捕令",
         "definition_en": "a warrant to take someone into custody",
-        "note": "specialized/lower-priority arrest-related use; not the learner-main pickup meaning",
+        "note": "警务口语中的用法；不是普通接人、取物或皮卡义。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1199,13 +1200,14 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:pickup:3515b20dc6ad5a78",
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "提神的东西，兴奋剂",
+        "definition_cn": "提神、恢复精神的东西",
         "definition_en": "anything with restorative powers",
-        "note": "informal/lower-priority restorative boost use",
+        "note": "美式非正式用法，指使人恢复精神的东西；不要与接人取物或需求回升混淆。",
         "identity_overlay": null,
         "usage": [
           {
@@ -1221,7 +1223,7 @@
           "target_kind": "sense",
           "target_id": "sense:pickup:3515b20dc6ad5a78",
           "target_locator": "record.senses[1]",
-          "target_label": "提神的东西，兴奋剂"
+          "target_label": "提神、恢复精神的东西"
         }
       },
       {
@@ -1895,7 +1897,7 @@
     "ordinal": 3596,
     "word": "piece",
     "source_owner_path": "content/lexical/words/by-ordinal/o3596.json",
-    "source_fingerprint": "b91d72323632f76c9557530637e8c102698350690b946c6287f8d8a678801a3f",
+    "source_fingerprint": "7ca379797b04002a746e4b1f7c1a34b92a05f6713b1cec4b5d7a04529bb593f6",
     "sense_lineage": [
       {
         "word_id": "word:piece",
@@ -1907,7 +1909,6 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
         "2N"
       ],
       "density": "rich"
@@ -1992,6 +1993,7 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:piece:bc5310cf965c5549",
         "source_locator": "record.senses[2]",
         "pos": "verb",
@@ -2574,7 +2576,7 @@
     "ordinal": 3600,
     "word": "pile",
     "source_owner_path": "content/lexical/words/by-ordinal/o3600.json",
-    "source_fingerprint": "18b757ee4cd1968db90bdfc9bf52ae9be2939a420b90a54e8d3bec7fa55d9285",
+    "source_fingerprint": "9821708df7d3afbff43106fab3649beaac8048f860ffaf7aed752dc3c3b3dd65",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2825,7 +2827,23 @@
       "sense_readings": {},
       "has_scope": false
     },
-    "secondary_senses": [],
+    "secondary_senses": [
+      {
+        "id": "deep:secondary_senses:pile:315681c8842de557",
+        "disposition": "EXPLORE_ONLY",
+        "source_locator": "record.secondary_senses[0]",
+        "pos": "verb",
+        "definition_cn": "堆积；积聚",
+        "definition_en": "to increase in quantity",
+        "pattern": "pile up 堆积；积累",
+        "repair": {
+          "target_kind": "secondary_sense",
+          "target_id": "deep:secondary_senses:pile:315681c8842de557",
+          "target_locator": "record.secondary_senses[0]",
+          "target_label": "堆积；积聚"
+        }
+      }
+    ],
     "constructions": [],
     "reference": {
       "confusables": [],
@@ -4006,7 +4024,7 @@
     "ordinal": 3607,
     "word": "pinch",
     "source_owner_path": "content/lexical/words/by-ordinal/o3607.json",
-    "source_fingerprint": "46deff143f6487c9a5674b37da0132ccb269474bb691218b07bf3068d1e8910d",
+    "source_fingerprint": "e9df3e545f6fc3d06a4f308d185ec76b37ce48cdb521d7e7a68db7882a3bba40",
     "sense_lineage": [
       {
         "word_id": "word:pinch",
@@ -4277,7 +4295,7 @@
             "lang": "cn"
           },
           {
-            "text": "emergency/necessity construction; do not reactivate a broad standalone difficulty noun",
+            "text": "Used in an emergency or if really necessary.",
             "lang": "en"
           },
           {
@@ -6977,7 +6995,7 @@
     "ordinal": 3621,
     "word": "plain",
     "source_owner_path": "content/lexical/words/by-ordinal/o3621.json",
-    "source_fingerprint": "646a7b73f11569f55ed2cc070bee48903231d13a55eb2169cd118b5d30aa3c74",
+    "source_fingerprint": "42fcfc332bace91a821eb420be1e787acee45af94c982846b1c1605f94c35a1a",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7206,8 +7224,8 @@
     "reference": {
       "confusables": [
         {
-          "title": "plain ↔ plain ↔ plane",
-          "target_word": "plain ↔ plane",
+          "title": "plain ↔ plane",
+          "target_word": "plane",
           "lines": [
             {
               "text": "plain = clear/simple/flat land; plane = aircraft, flat surface, or level.",
@@ -7219,7 +7237,7 @@
             "target_kind": "relation",
             "target_id": "confusable:horizontal:b702e9a74ae2b19166d9",
             "target_locator": "record.confusables[0]",
-            "target_label": "plain ↔ plain ↔ plane"
+            "target_label": "plain ↔ plane"
           }
         }
       ],
@@ -11101,11 +11119,10 @@
     "ordinal": 3644,
     "word": "plight",
     "source_owner_path": "content/lexical/words/by-ordinal/o3644.json",
-    "source_fingerprint": "f54f9894b7d9b99b3d416a3111cc2bb6b229702c2ef304e40069377251a83a30",
+    "source_fingerprint": "2ea1d33b41abf4b638a9b9fd9675293d0dd4ac43d31d8f82a51c1341e3f941b2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "1V",
         "1N"
       ],
       "density": "rich"
@@ -11161,13 +11178,14 @@
         }
       },
       {
+        "disposition": "EXPLORE_ONLY",
         "id": "sense:plight:a29e29f10bd65c81",
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "宣誓，保证",
         "definition_en": "to pledge or promise solemnly",
-        "note": "archaic/literary: to pledge or promise solemnly; not a modern learner-main use",
+        "note": "旧式或文学用法；plight one’s troth尤指许诺结婚，现代也可能带幽默语气。",
         "identity_overlay": null,
         "usage": [
           {

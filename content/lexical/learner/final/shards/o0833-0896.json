@@ -2927,7 +2927,7 @@
     "ordinal": 851,
     "word": "clip",
     "source_owner_path": "content/lexical/words/by-ordinal/o0851.json",
-    "source_fingerprint": "4f66a6b746cc0426f7def643590d756187f21b1f1f80a1df84d53dc94ffb4c90",
+    "source_fingerprint": "b86cc24b985d5111093ed7c8d8b0ee246dc9d9673026f77261667b1807f895af",
     "sense_lineage": [
       {
         "word_id": "word:clip",
@@ -2946,7 +2946,7 @@
     },
     "word_feel": {
       "summary_cn": "夹子；修剪/夹住；也可指短视频、音频或新闻片段",
-      "decision_cn": "paper/hair clip → 夹子；clip hedge → 修剪；video/news/audio clip → 从较长内容中截出的短片段。旧式 a clip on the ear 仅保留 Reference。",
+      "decision_cn": "paper/hair clip → 夹子；clip hedge → 修剪；video/news/audio clip → 从较长内容中截出的短片段。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -3702,7 +3702,7 @@
     "ordinal": 856,
     "word": "close",
     "source_owner_path": "content/lexical/words/by-ordinal/o0856.json",
-    "source_fingerprint": "910424b0c60e53d4507c267ccb50ecedc54b0417678d9ef6540b68361e2604e6",
+    "source_fingerprint": "da2b969ad555eac242f09a1e927069561edc3c84d6c1ac6f2f7f2b45efafde8f",
     "sense_lineage": [
       {
         "word_id": "word:close",
@@ -3715,18 +3715,20 @@
     "recall_map": {
       "parts": [
         "3V",
-        "3A"
+        "3A",
+        "1N",
+        "1ADV"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "把距离或开口收拢到“没有空隙”：可表示关闭/结束，也可表示距离近、关系亲密",
-      "decision_cn": "verb close /kloʊz/ → 关闭、结束、完成交易；adjective close /kloʊs/ → 接近、亲密。词性同时决定发音和意义。",
+      "summary_cn": "关闭、结束；近、亲密；仔细、严密",
+      "decision_cn": "关闭、结束的动词和“结束”名词读 /kloʊz/；表示近、亲密、仔细的形容词和“靠近地”副词读 /kloʊs/。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "把距离或开口收拢到“没有空隙”：可表示关闭/结束，也可表示距离近、关系亲密"
+        "target_label": "关闭、结束；近、亲密；仔细、严密"
       }
     },
     "senses": [
@@ -3917,6 +3919,40 @@
           "target_id": "sense:close:20261008-careful",
           "target_locator": "record.senses[5]",
           "target_label": "仔细的；严密的；彻底的（常置于名词前）"
+        }
+      },
+      {
+        "id": "sense:close:341282390f479362",
+        "source_locator": "record.senses[6]",
+        "pos": "noun",
+        "governing_pattern": "at the close of sth; come/draw to a close; bring sth to a close",
+        "definition_cn": "结束；终了",
+        "definition_en": "the end or ending of an event, period, or activity",
+        "note": "结束义名词读 /kloʊz/；例如 the close of the meeting。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:close:341282390f479362",
+          "target_locator": "record.senses[6]",
+          "target_label": "结束；终了"
+        }
+      },
+      {
+        "id": "sense:close:93190bedfc942f9a",
+        "source_locator": "record.senses[7]",
+        "pos": "adverb",
+        "governing_pattern": "close together; close behind; come close (to sth)",
+        "definition_cn": "靠近地；接近地",
+        "definition_en": "at or to a short distance from someone or something",
+        "note": "表示距离近的副词读 /kloʊs/；例如 sit close together。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:close:93190bedfc942f9a",
+          "target_locator": "record.senses[7]",
+          "target_label": "靠近地；接近地"
         }
       }
     ],
@@ -5272,7 +5308,7 @@
     "ordinal": 864,
     "word": "club",
     "source_owner_path": "content/lexical/words/by-ordinal/o0864.json",
-    "source_fingerprint": "ff0e81c8241b4b903296fb211dd9de17812ad08c205fcab7ea436feed288ce49",
+    "source_fingerprint": "ec969baa2d641e4f230f779c643a3fc15e663aa3fc454b57d42e3f6052b3f18a",
     "sense_lineage": [
       {
         "word_id": "word:club",
@@ -5285,18 +5321,18 @@
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "俱乐部；球杆或棍棒；纸牌梅花；用棍棒打或合力凑钱",
-      "decision_cn": "俱乐部或棍棒",
+      "summary_cn": "俱乐部或夜总会；球杆、棍棒；纸牌梅花；用棍棒打或合力凑钱",
+      "decision_cn": "join a club 是加入社团；go to a club 可指去夜间娱乐场所；golf club 是球杆，clubs 是纸牌梅花。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "俱乐部；球杆或棍棒；纸牌梅花；用棍棒打或合力凑钱"
+        "target_label": "俱乐部或夜总会；球杆、棍棒；纸牌梅花；用棍棒打或合力凑钱"
       }
     },
     "senses": [
@@ -5442,6 +5478,23 @@
           "target_locator": "record.senses[4]",
           "target_label": "联合起来"
         }
+      },
+      {
+        "id": "sense:club:a0efb716d21e9bbd",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "go to a club; a dance club",
+        "definition_cn": "夜总会；供人听音乐、跳舞等的娱乐场所",
+        "definition_en": "a place people visit in the evening to listen to music, dance, or enjoy entertainment",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:club:a0efb716d21e9bbd",
+          "target_locator": "record.senses[5]",
+          "target_label": "夜总会；供人听音乐、跳舞等的娱乐场所"
+        }
       }
     ],
     "pronunciation_support": {
@@ -5478,7 +5531,7 @@
     "ordinal": 865,
     "word": "clue",
     "source_owner_path": "content/lexical/words/by-ordinal/o0865.json",
-    "source_fingerprint": "7178ecde2bf8ef124967076fe4a5bbe2899606d34465449f6a0ce3aa3a592a77",
+    "source_fingerprint": "10d4166abc7376ba79429b43161ddfa7f138d8118ad64ab521421ade26411d99",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5541,7 +5594,7 @@
         "id": "sense:clue:e599f593140d5ca5",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + sb + about/to + sth",
+        "governing_pattern": "clue sb; clue sb in (on sth)",
         "definition_cn": "给某人提供线索；暗示",
         "definition_en": "to give someone information or a hint about something",
         "note": "",
@@ -6117,7 +6170,7 @@
     "ordinal": 869,
     "word": "coach",
     "source_owner_path": "content/lexical/words/by-ordinal/o0869.json",
-    "source_fingerprint": "c65bdc5f7e5634d6cc774d934568d9d482ffed504cf1a470e9174f4d9efbb2f8",
+    "source_fingerprint": "087cb1011118e12d192df801824b85ccef39b766ff876d0fae8cb845112b39f6",
     "sense_lineage": [
       {
         "word_id": "word:coach",
@@ -6136,7 +6189,7 @@
     },
     "word_feel": {
       "summary_cn": "教练、辅导者；作动词表示训练指导；旅行语境可指长途客车",
-      "decision_cn": "sports/skills → 教练、指导者；travel → 长途客车/大巴；verb coach → 训练、指导。历史马车义仅保留 Reference。",
+      "decision_cn": "sports/skills → 教练、指导者；travel → 长途客车/大巴；verb coach → 训练、指导。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -7251,7 +7304,7 @@
     "ordinal": 876,
     "word": "cock",
     "source_owner_path": "content/lexical/words/by-ordinal/o0876.json",
-    "source_fingerprint": "65100e0310a20931d1216c077e741423ed7253594ed5b382b81dfad446ec5282",
+    "source_fingerprint": "296365a4336737b8f163f33e58c5620e61e7e8c36c787298851c8863e7356c0d",
     "sense_lineage": [
       {
         "word_id": "word:cock",
@@ -7277,7 +7330,7 @@
     },
     "word_feel": {
       "summary_cn": "公鸡或雄禽；作动词可表示歪头、竖耳",
-      "decision_cn": "bird → 公鸡/雄禽；cock one's head/ear → 歪头或竖耳。粗俗解剖义仅保留 Reference。",
+      "decision_cn": "bird → 公鸡/雄禽；cock one's head/ear → 歪头或竖耳。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8040,7 +8093,7 @@
     "ordinal": 880,
     "word": "coherent",
     "source_owner_path": "content/lexical/words/by-ordinal/o0880.json",
-    "source_fingerprint": "bbdb7d2a0a75929c26b660ce39dac427ec1ef456a23463e46a291a4710b47dc4",
+    "source_fingerprint": "0b544a8c2ea2f847ac0ce2b2e1d61884bba2e0b55261a087d5063371fcfd6b76",
     "sense_lineage": [
       {
         "word_id": "word:coherent",
@@ -8086,7 +8139,7 @@
     },
     "word_feel": {
       "summary_cn": "连贯的；条理清楚、前后一致的",
-      "decision_cn": "argument/narrative → 逻辑连贯；person/speech → 思路和表达清楚。物理相干与材料黏合义保留为 Reference。",
+      "decision_cn": "argument/narrative → 逻辑连贯；person/speech → 思路和表达清楚。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8882,7 +8935,7 @@
     "ordinal": 885,
     "word": "coke",
     "source_owner_path": "content/lexical/words/by-ordinal/o0885.json",
-    "source_fingerprint": "acc6173b3d5406e0104c2667c1d4178e83af422b4aa8aa5300bfc2e987f509f6",
+    "source_fingerprint": "e64f9205ab16c9fd6230ea8e7ee5d276e9987b09c51c9e4f0bc5b3eed1f3f0a1",
     "sense_lineage": [
       {
         "word_id": "word:coke",
@@ -8907,7 +8960,7 @@
     },
     "word_feel": {
       "summary_cn": "coke：煤经高温处理得到的焦炭；Coke：可口可乐品牌名，也常用于指可乐饮料",
-      "decision_cn": "小写 coke 在工业语境通常是焦炭；大写 Coke 在饮料语境通常指可口可乐。旧的 cocaine 俚语只保留低频参考，不进主 Core。",
+      "decision_cn": "小写 coke 在工业语境通常是焦炭；大写 Coke 在饮料语境通常指可口可乐。",
       "repair": {
         "target_kind": "core",
         "target_id": null,

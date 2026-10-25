@@ -50,7 +50,23 @@ class PronunciationProjectionTest(unittest.TestCase):
         self.assertEqual(final["pronunciation_support"]["sense_readings"], {})
 
     def test_old_abstract_adjective_survives_new_leaf_exclusion(self):
-        final = self.word(19)
+        # Explicit background decision changes Repair, not lexical pronunciation truth.
+        final = self.word(19, honor_form_decision=True)
+        owner = builder.load(builder.WORDS / 'o0019.json')
+        original = builder.clone(owner)
+        decisions = builder.load(builder.DECISIONS)
+        self.assertEqual(decisions['words']['word:abstract']['form_identity']['disposition'], 'EXPLORE_ONLY')
+        ordinary_decisions = builder.clone(decisions)
+        del ordinary_decisions['words']['word:abstract']['form_identity']
+        ordinary = builder.compile_word(owner, ordinary_decisions)
+        self.assertIsNotNone(ordinary['reference']['form']['repair'])
+        self.assertIsNone(final['reference']['form']['repair'])
+        self.assertEqual(final['reference']['form']['disposition'], 'EXPLORE_ONLY')
+        for field in ('boundary', 'boundaries', 'variants'):
+            self.assertEqual(final['reference']['form'][field], ordinary['reference']['form'][field])
+        self.assertEqual(final['pronunciation_support'], ordinary['pronunciation_support'])
+        self.assertEqual(final['sense_lineage'], ordinary['sense_lineage'])
+        self.assertEqual(owner, original)
         adjective = "sense:abstract:b7b8b05117f3527c"
         readings = self.readings(final, adjective)
         self.assertEqual([r["ipa"] for r in readings], ["/ˈæb.strækt/"])

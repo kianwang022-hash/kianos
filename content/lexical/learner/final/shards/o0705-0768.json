@@ -1508,7 +1508,7 @@
     "ordinal": 713,
     "word": "catch",
     "source_owner_path": "content/lexical/words/by-ordinal/o0713.json",
-    "source_fingerprint": "1b3b200c61169aec0a18797287363f90e376611fb182c5e1531ccf24b4c2744f",
+    "source_fingerprint": "a5dafaf532611385926f3e5360f74d621031153d7288684444ef8381fe6c179c",
     "sense_lineage": [
       {
         "word_id": "word:catch",
@@ -1550,7 +1550,7 @@
         "governing_pattern": "catch (sth/sb)",
         "definition_cn": "抓住；接住",
         "definition_en": "to stop and hold a moving object, or seize and capture a person or animal",
-        "note": "Catch fire is the existing selected phrase under fire; it means begin burning, not capture a flame. Physical capture does not require constant movement.",
+        "note": "catch fire 指开始燃烧，不是抓住火焰；catch 人或动物时，不要求其一直在移动。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5085,7 +5085,7 @@
     "ordinal": 732,
     "word": "census",
     "source_owner_path": "content/lexical/words/by-ordinal/o0732.json",
-    "source_fingerprint": "83e0d670dcb5ef33dbedab5b1a66f454f8b843b66db9def2f77108f9b81cab2b",
+    "source_fingerprint": "06ecb7f1f808bd87583234bb8a647daf5a2712b7ec8536148892d78685d465d0",
     "sense_lineage": [
       {
         "word_id": "word:census",
@@ -5103,7 +5103,7 @@
     },
     "word_feel": {
       "summary_cn": "人口普查；官方人口统计",
-      "decision_cn": "默认是名词：官方人口普查/统计；低频动词 census 仅保留 Reference。",
+      "decision_cn": "官方对人口进行的普查或统计。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6417,7 +6417,7 @@
     "ordinal": 742,
     "word": "certificate",
     "source_owner_path": "content/lexical/words/by-ordinal/o0742.json",
-    "source_fingerprint": "329bcfccf1a6bd458db7bc91915e6e73b11346bb5eb674b09e9c2bc67fa251b9",
+    "source_fingerprint": "079904a25fc9359c609cae25cef1d37cd454d9b883e9423f654586b14a3fc69a",
     "sense_lineage": [
       {
         "word_id": "word:certificate",
@@ -6435,7 +6435,7 @@
     },
     "word_feel": {
       "summary_cn": "证书；官方证明文件",
-      "decision_cn": "qualification/completion/fact → 证书、证明文件；罕见动词 certificate 仅保留 Reference。",
+      "decision_cn": "qualification/completion/fact → 证书、证明文件。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -8240,12 +8240,26 @@
     "ordinal": 752,
     "word": "chance",
     "source_owner_path": "content/lexical/words/by-ordinal/o0752.json",
-    "source_fingerprint": "bea54561e147fe5b45a9288df5804baa2d619c0fd960bb0e0bb276813cb9c418",
+    "source_fingerprint": "407f2f92cf079528311eb290e574d69522d1f54c85e198ba223d6aafd4b8db2e",
     "sense_lineage": [
       {
         "word_id": "word:chance",
         "target_kind": "collocation",
         "from_target_id": "collocation:fe6780013e5bcb050100",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:chance",
+        "target_kind": "construction",
+        "from_target_id": "construction:chance:baseline-v2-opportunity",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:chance",
+        "target_kind": "construction",
+        "from_target_id": "construction:chance:baseline-v2-probability",
         "status": "deprecated",
         "to_target_id": null
       }
@@ -10707,23 +10721,23 @@
     "ordinal": 764,
     "word": "chart",
     "source_owner_path": "content/lexical/words/by-ordinal/o0764.json",
-    "source_fingerprint": "48eff3628b07868e2006cdce8a9ac56202d3a8fb45861012fad15ad0e155cfdb",
+    "source_fingerprint": "61546a335d7e8202171f85b0331e901d75c7ba08833860a65dc2904d83f0037b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "图表或海图，或制作图表",
-      "decision_cn": "data → 图表或制图；navigation → 海图或标绘航线；strategy/course of action → 详细规划。",
+      "summary_cn": "图表、海图；制图、详细规划；（医疗）病历",
+      "decision_cn": "data → 图表或制图；navigation → 海图或标绘航线；strategy/course of action → 详细规划；patient/medical → 病历、医疗记录。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "图表或海图，或制作图表"
+        "target_label": "图表、海图；制图、详细规划；（医疗）病历"
       }
     },
     "senses": [
@@ -10845,6 +10859,23 @@
           "target_id": "sense:chart:21baf8225d865f7f",
           "target_locator": "record.senses[3]",
           "target_label": "详细计划，制定详细方案"
+        }
+      },
+      {
+        "id": "sense:chart:96200ec43dc88687",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "a patient’s chart; review/update a chart",
+        "definition_cn": "（患者的）病历；医疗记录",
+        "definition_en": "a record containing medical information about a patient",
+        "note": "医疗语境中可指患者病历，不一定是图形化图表；可以是纸质或电子记录。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:chart:96200ec43dc88687",
+          "target_locator": "record.senses[4]",
+          "target_label": "（患者的）病历；医疗记录"
         }
       }
     ],
