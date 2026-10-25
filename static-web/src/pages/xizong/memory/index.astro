@@ -7,9 +7,8 @@ import { resolveXizongLearnerProjection } from '../../../lib/xizongLearnerProjec
 import { buildXizongPreparedMemoryAvailability, supportsXizongPreparedMemoryBlock } from '../../../lib/xizongCompiledMemoryRelease.mjs';
 // Generated from the same canonical compile boundary; no maintained admission list.
 const compiledContexts = listProjectableXizongSystems().flatMap(system => system.blocks.flatMap(ref => {
-  if (!system.learningSupport?.raw?.blocks?.[ref.blockId]?.knowledge_owner) return [];
   const { learnerObject } = resolveXizongLearnerProjection(loadXizongBlock(system.systemId, ref.blockId));
-  return [{ blockId: ref.blockId, descriptor: supportsXizongPreparedMemoryBlock(learnerObject)
+  return [{ blockId: ref.blockId, blockLabel: learnerObject.identity.blockLabel, descriptor: supportsXizongPreparedMemoryBlock(learnerObject)
     ? buildXizongPreparedMemoryAvailability(learnerObject) : null }];
 }));
 ---
