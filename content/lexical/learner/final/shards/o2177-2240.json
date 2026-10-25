@@ -1428,7 +1428,7 @@
     "ordinal": 2183,
     "word": "grand",
     "source_owner_path": "content/lexical/words/by-ordinal/o2183.json",
-    "source_fingerprint": "8fc8b674f6fa9f37f617877f7169160f55e8414255123370d3c69ba32f3074ea",
+    "source_fingerprint": "045efae482c469a9b5519abf653a0f590e7aaee7ac170f1c9bfa3c8f2ee20825",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1439,7 +1439,7 @@
     },
     "word_feel": {
       "summary_cn": "宏大、豪华、重要、总的或极好的；一千的金额（非正式）",
-      "decision_cn": "grand建筑为宏大或豪华，grand plan为宏伟计划；grand total为总数，grand time为玩得很开心。金额a grand沿用非正式一千的身份。",
+      "decision_cn": "grand建筑为宏大或豪华，grand plan为宏伟计划；grand total为总数，grand time为玩得很开心。非正式金额表达 a grand 指一千美元、英镑等，币种由语境决定。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -1784,7 +1784,7 @@
     "ordinal": 2185,
     "word": "grant",
     "source_owner_path": "content/lexical/words/by-ordinal/o2185.json",
-    "source_fingerprint": "0a83f990aaf867d3e50033f8ac88a2719f8c9bdfbb43b02b702ffc1b5dcc7313",
+    "source_fingerprint": "a228efe736f5f0746b557b884c828ecb013c0fdbee18b37847e6529b1b477fe9",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1843,7 +1843,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "政府或其他组织为特定目的提供的资金",
+        "definition_cn": "补助金；拨款（由政府或机构为特定目的提供）",
         "definition_en": "a sum of money given by a government or other organization for a specific purpose",
         "note": "",
         "identity_overlay": null,
@@ -1869,7 +1869,7 @@
           "target_kind": "sense",
           "target_id": "sense:grant:0760535df454506b",
           "target_locator": "record.senses[1]",
-          "target_label": "政府或其他组织为特定目的提供的资金"
+          "target_label": "补助金；拨款（由政府或机构为特定目的提供）"
         }
       },
       {
@@ -2474,8 +2474,15 @@
     "ordinal": 2189,
     "word": "grasp",
     "source_owner_path": "content/lexical/words/by-ordinal/o2189.json",
-    "source_fingerprint": "6f1daa528ef68208425769fb36626997baea2b13520090752923cc43022505aa",
+    "source_fingerprint": "06197ee165fbafe48206ad3290d078ae79138e86f19f01ba4ed51216a96e4571",
     "sense_lineage": [
+      {
+        "word_id": "word:grasp",
+        "target_kind": "sense",
+        "from_target_id": "sense:grasp:a6eae64907ce5d0f",
+        "status": "deprecated",
+        "to_target_id": null
+      },
       {
         "word_id": "word:grasp",
         "target_kind": "collocation",
@@ -2487,13 +2494,13 @@
     "recall_map": {
       "parts": [
         "2V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "抓牢或抓住机会、理解；抓握、理解与控制或可及范围；绝望尝试",
-      "decision_cn": "grasp物体为抓牢，grasp an idea为理解，grasp an opportunity为抓住机会。名词a grasp of为理解，beyond one’s grasp可指够不到或能力不及；grasp at straws表示绝望中尝试任何办法。",
+      "decision_cn": "grasp物体为抓牢，grasp an idea为理解，grasp an opportunity为抓住机会。名词 a grasp of 为理解，in sb’s grasp 可比喻受某人掌控；beyond one’s grasp 可指够不到或能力不及；grasp at straws表示绝望中尝试任何办法。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -2589,12 +2596,12 @@
         }
       },
       {
-        "id": "sense:grasp:a6eae64907ce5d0f",
+        "id": "sense:grasp:f6ce3aa41a91c8e2",
         "source_locator": "record.senses[3]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "理解，控制",
-        "definition_en": "understanding or control",
+        "governing_pattern": "a grasp of sth",
+        "definition_cn": "理解；领会（对知识、问题等）",
+        "definition_en": "an understanding of a subject or situation",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2614,14 +2621,31 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:grasp:a6eae64907ce5d0f",
+          "target_id": "sense:grasp:f6ce3aa41a91c8e2",
           "target_locator": "record.senses[3]",
-          "target_label": "理解，控制"
+          "target_label": "理解；领会（对知识、问题等）"
+        }
+      },
+      {
+        "id": "sense:grasp:a8908b5e37a50144",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "in sb’s grasp",
+        "definition_cn": "控制；掌控（对人或事物的支配）",
+        "definition_en": "control or power over someone or something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:grasp:a8908b5e37a50144",
+          "target_locator": "record.senses[4]",
+          "target_label": "控制；掌控（对人或事物的支配）"
         }
       },
       {
         "id": "sense:grasp:97a95cb82f2d84bf",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[5]",
         "pos": "noun",
         "governing_pattern": "within/beyond one’s grasp",
         "definition_cn": "（手或能力）可及的范围",
@@ -2631,7 +2655,7 @@
         "usage": [
           {
             "id": "collocation:05c32b54f4a005c4424f",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "The prize was just beyond her grasp.",
             "meaning_cn": "那个奖项就在她的能力可及范围之外。",
             "kind": "usage_example",
@@ -2641,7 +2665,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:grasp:97a95cb82f2d84bf",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[5]",
           "target_label": "（手或能力）可及的范围"
         }
       }
@@ -2670,7 +2694,7 @@
                 "sense:grasp:97a95cb82f2d84bf"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2189.json",
-              "source_pointer": "/record/senses/4",
+              "source_pointer": "/record/senses/5",
               "conditions": {
                 "current_owner_usage": "within/beyond one’s grasp"
               }
@@ -2732,7 +2756,36 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:3703b57560e1d9e03e77",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:grasp:a6eae64907ce5d0f:collocation:0"
+              ],
+              "meaning_cn": "掌握某事物",
+              "phrase": "have a grasp of + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "理解，控制",
+          "definition_en": "understanding or control",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:grasp:a6eae64907ce5d0f",
+          "sense_label_en": "understanding or control",
+          "sort_order": 3,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -4252,11 +4305,19 @@
     "ordinal": 2197,
     "word": "great",
     "source_owner_path": "content/lexical/words/by-ordinal/o2197.json",
-    "source_fingerprint": "08a01b57dfa68c2ff81f9b187b1d5cf47a24b8c5d25ea9306d150c942b493ae2",
-    "sense_lineage": [],
+    "source_fingerprint": "c7fb5fcf3e58ad3acb48246952b315815ec383da2cc7fda7905aa3701ae398eb",
+    "sense_lineage": [
+      {
+        "word_id": "word:great",
+        "target_kind": "sense",
+        "from_target_id": "sense:great:4cb6227db0c85c81",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3A",
+        "5A",
         "1N",
         "1ADV"
       ],
@@ -4264,7 +4325,7 @@
     },
     "word_feel": {
       "summary_cn": "规模或数量大、重要、程度高、极好或伟大；大人物；很好地（非正式）",
-      "decision_cn": "great可评价规模、重要性、程度或质量；名词the greats为领域中的大师，非正式副词great为很好地或顺利地。",
+      "decision_cn": "great number 表示数量大，great event 表示重大；great mistake 表示程度严重，不是很好。a great meal 表示很棒，a great scientist 表示杰出。the greats 指领域中的大师；副词 great 表示很好地（非正式）。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -4308,14 +4369,6 @@
               "target_locator": "record.senses[0].collocations[1]",
               "target_label": "a great deal of + uncountable noun"
             }
-          },
-          {
-            "id": "collocation:d2391335dd6fd4f1a9ab",
-            "source_locator": "record.senses[0].collocations[2]",
-            "phrase": "great importance",
-            "meaning_cn": "重要性大",
-            "kind": "usage_example",
-            "repair": null
           }
         ],
         "repair": {
@@ -4360,12 +4413,12 @@
         }
       },
       {
-        "id": "sense:great:4cb6227db0c85c81",
+        "id": "sense:great:3517b8ecab987ada",
         "source_locator": "record.senses[2]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "非常的；极好的；伟大的",
-        "definition_en": "very large in degree, excellent, or distinguished",
+        "governing_pattern": "great difficulty/mistake",
+        "definition_cn": "（程度）很大的；极大的（不一定是褒义）",
+        "definition_en": "very high in degree",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4378,8 +4431,51 @@
             "repair": null
           },
           {
-            "id": "collocation:78a6321f8d64a00f8c37",
+            "id": "collocation:d2391335dd6fd4f1a9ab",
             "source_locator": "record.senses[2].collocations[1]",
+            "phrase": "great importance",
+            "meaning_cn": "重要性大",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:great:3517b8ecab987ada",
+          "target_locator": "record.senses[2]",
+          "target_label": "（程度）很大的；极大的（不一定是褒义）"
+        }
+      },
+      {
+        "id": "sense:great:8a31c1b578c333dc",
+        "source_locator": "record.senses[3]",
+        "pos": "adjective",
+        "governing_pattern": "a great meal/time",
+        "definition_cn": "极好的；很棒的",
+        "definition_en": "very good or enjoyable",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:great:8a31c1b578c333dc",
+          "target_locator": "record.senses[3]",
+          "target_label": "极好的；很棒的"
+        }
+      },
+      {
+        "id": "sense:great:55138ca92b323fbe",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "a great scientist/artist",
+        "definition_cn": "杰出的；伟大的",
+        "definition_en": "exceptionally able, successful or admired",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:78a6321f8d64a00f8c37",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "a great man",
             "meaning_cn": "伟人",
             "kind": "usage_example",
@@ -4388,14 +4484,14 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:great:4cb6227db0c85c81",
-          "target_locator": "record.senses[2]",
-          "target_label": "非常的；极好的；伟大的"
+          "target_id": "sense:great:55138ca92b323fbe",
+          "target_locator": "record.senses[4]",
+          "target_label": "杰出的；伟大的"
         }
       },
       {
         "id": "sense:great:bb9bc65132295ba8",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[5]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "大人物；大师",
@@ -4405,7 +4501,7 @@
         "usage": [
           {
             "id": "collocation:641d3e329384ee83b9b5",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "one of the greats",
             "meaning_cn": "伟人之一；名家之一",
             "kind": "usage_example",
@@ -4415,13 +4511,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:great:bb9bc65132295ba8",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[5]",
           "target_label": "大人物；大师"
         }
       },
       {
         "id": "sense:great:a7a9ad9301d7561c",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[6]",
         "pos": "adverb",
         "governing_pattern": "informal adverb, e.g. get along great",
         "definition_cn": "很好地；顺利地（非正式）",
@@ -4431,7 +4527,7 @@
         "usage": [
           {
             "id": "collocation:77238d7bdfa5cb7a925d",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[6].collocations[0]",
             "phrase": "get along great",
             "meaning_cn": "相处得很好",
             "kind": "usage_example",
@@ -4441,7 +4537,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:great:a7a9ad9301d7561c",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[6]",
           "target_label": "很好地；顺利地（非正式）"
         }
       }
@@ -4472,7 +4568,45 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6b2862b742511817a03d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:great:4cb6227db0c85c81:collocation:0"
+              ],
+              "meaning_cn": "巨大的成功",
+              "phrase": "a great success"
+            },
+            {
+              "collocation_id": "collocation:78a6321f8d64a00f8c37",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:great:4cb6227db0c85c81:collocation:1"
+              ],
+              "meaning_cn": "伟人",
+              "phrase": "a great man"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "非常的；极好的；伟大的",
+          "definition_en": "very large in degree, excellent, or distinguished",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:great:4cb6227db0c85c81",
+          "sense_label_en": "very large in degree, excellent, or distinguished",
+          "sort_order": 2,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
