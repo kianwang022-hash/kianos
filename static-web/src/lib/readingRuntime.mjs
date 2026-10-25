@@ -562,54 +562,16 @@ export async function initReadingRuntime(root, {prepareAnswers = null} = {}) {
 
   let lastPassageSelection = '';
   const passage = root.querySelector('[data-reading-passage]');
-  const addHighlight = root.querySelector('[data-reading-highlight]');
-  const clearHighlight = root.querySelector('[data-reading-clear-highlight]');
-  const selectionLabel = root.querySelector('[data-reading-selection]');
-  let pendingRange = null;
-  let highlight = null;
-  const highlightName = 'kianos-reading-session-highlight';
-  const supportsHighlights = typeof CSS !== 'undefined' && CSS.highlights && typeof Highlight !== 'undefined';
-
+  // Shared English selection bridge owns durable highlights and their controls.
+  // This local text is used only by the optional per-question context copy.
   const captureSelection = () => {
     const selection = window.getSelection?.();
-    if (!selection || selection.isCollapsed || !selection.rangeCount || !passage) {
-      pendingRange = null;
-      if (addHighlight) addHighlight.disabled = true;
-      return;
-    }
+    if (!selection || selection.isCollapsed || !selection.rangeCount || !passage) return;
     const range = selection.getRangeAt(0);
-    if (!passage.contains(range.commonAncestorContainer)) return;
-    const selectedText = selection.toString().trim();
-    lastPassageSelection = selectedText;
-    pendingRange = range.cloneRange();
-    if (addHighlight) addHighlight.disabled = !supportsHighlights;
-    if (selectionLabel) {
-      selectionLabel.textContent = supportsHighlights
-        ? `已选 ${selectedText.slice(0, 28)}${selectedText.length > 28 ? '…' : ''}`
-        : '已记住选区，可复制给 Chat';
-    }
+    if (passage.contains(range.commonAncestorContainer)) lastPassageSelection = selection.toString().trim();
   };
   passage?.addEventListener('mouseup', captureSelection);
   passage?.addEventListener('keyup', captureSelection);
-
-  addHighlight?.addEventListener('click', () => {
-    if (!pendingRange || !supportsHighlights) return;
-    highlight ||= new Highlight();
-    highlight.add(pendingRange);
-    CSS.highlights.set(highlightName, highlight);
-    pendingRange = null;
-    window.getSelection?.().removeAllRanges();
-    addHighlight.disabled = true;
-    if (clearHighlight) clearHighlight.disabled = false;
-    if (selectionLabel) selectionLabel.textContent = '已高亮；需要时可作为 Chat 上下文';
-  });
-  clearHighlight?.addEventListener('click', () => {
-    if (supportsHighlights) CSS.highlights.delete(highlightName);
-    highlight = null;
-    lastPassageSelection = '';
-    clearHighlight.disabled = true;
-    if (selectionLabel) selectionLabel.textContent = '选中文字后可高亮';
-  });
 
   questions.forEach((question) => {
     const id = qid(question);
