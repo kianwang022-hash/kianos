@@ -31,6 +31,8 @@ const questionId = (question, index) => String(question.id || question.question_
     </div>
   </header>
 
+  <p data-reading-submit-error role="alert" hidden></p>
+
   <nav class="portedReadingQuestionNav" aria-label="Question navigation">
     {questions.map((question, index) => (
       <button type="button" class={index === 0 ? 'active' : ''} data-target={questionId(question, index)}>

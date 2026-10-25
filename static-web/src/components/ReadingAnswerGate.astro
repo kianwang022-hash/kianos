@@ -21,9 +21,11 @@ const base = import.meta.env.BASE_URL;
       : `kianos-reading-attempt-v1:${readingKey}`;
     const examMode = Boolean(examSessionId);
     const submit = root.querySelector('[data-reading-submit]');
+    const notice = root.querySelector('[data-reading-submit-error]');
     const questions = [...root.querySelectorAll('[data-question]')];
     let ready = root.getAttribute('data-reading-answers-ready') === 'true';
     let loading = null;
+    let failure = '';
 
     const readJson = (key, fallback) => {
       try { return JSON.parse(localStorage.getItem(key) || 'null') || fallback; }
@@ -58,7 +60,17 @@ const base = import.meta.env.BASE_URL;
     };
 
     const applyAnswers = (payload) => {
-      if (!payload || payload.objectId !== readingKey || typeof payload.answers !== 'object') return false;
+      if (!payload || payload.objectId !== readingKey || !payload.answers || typeof payload.answers !== 'object') {
+        throw new Error('READING_ANSWER_INVALID');
+      }
+      // Validate the complete key before changing any question or submitting.
+      for (const question of questions) {
+        const id = question.getAttribute('data-question') || '';
+        const correct = normalizeAnswer(payload.answers[id]);
+        if (!correct.length) throw new Error('READING_ANSWER_NOT_READY');
+        const labels = [...question.querySelectorAll('[data-option]')].map((option) => option.getAttribute('data-option'));
+        if (correct.length !== 1 || !labels.includes(correct[0])) throw new Error('READING_ANSWER_INVALID');
+      }
       questions.forEach((question) => {
         const id = question.getAttribute('data-question') || '';
         if (!id || !Object.prototype.hasOwnProperty.call(payload.answers, id)) return;
@@ -91,9 +103,10 @@ const base = import.meta.env.BASE_URL;
 
     const loadAnswers = async () => {
       const activeExam=readEnglishExamSession(localStorage);
-      if(root.dataset.englishReadonly==='true' || (activeExam&&!['RELEASED','SCORED'].includes(activeExam.status)&&activeExam.steps.some(s=>s.object_id===readingKey)))return false;
+      if(root.dataset.englishReadonly==='true' || (activeExam&&!['RELEASED','SCORED'].includes(activeExam.status)&&activeExam.steps.some(s=>s.object_id===readingKey))){failure='READING_ANSWER_RESTRICTED';return false;}
       if (ready) return true;
       if (loading) return loading;
+      failure = '';
       const originalText = submit?.textContent || 'Submit';
       if (submit) {
         submit.disabled = true;
@@ -102,7 +115,7 @@ const base = import.meta.env.BASE_URL;
 
       loading = fetchAnswerPayload()
         .then(applyAnswers)
-        .catch(() => false)
+        .catch((error) => { failure = error?.message || ''; return false; })
         .finally(() => {
           loading = null;
           if (submit) {
@@ -122,11 +135,21 @@ const base = import.meta.env.BASE_URL;
       event.stopImmediatePropagation();
       const ok = await loadAnswers();
       if (ok) {
+        if (notice) { notice.hidden = true; notice.textContent = ''; }
+        submit?.removeAttribute('title');
         button.dispatchEvent(new MouseEvent('click', { bubbles: true, cancelable: true }));
       } else if (submit) {
+        const message = failure === 'READING_ANSWER_NOT_READY'
+          ? '本篇标准答案尚未补齐，暂时无法批改。你的作答已保留，无需重做；待内容更新后重试。'
+          : failure === 'READING_ANSWER_INVALID'
+            ? '本篇标准答案数据异常，暂时无法批改。你的作答已保留，无需重做。'
+            : failure === 'READING_ANSWER_RESTRICTED'
+              ? '当前练习处于记录保护状态，请回到对应的考试或恢复页面继续。'
+              : '暂时无法加载标准答案。你的作答已保留，请稍后重试提交。';
         submit.disabled = false;
         submit.textContent = '重试提交';
-        submit.title = '答案加载失败，本次作答尚未提交。';
+        submit.title = message;
+        if (notice) { notice.textContent = message; notice.hidden = false; }
       }
     }, true);
 

@@ -42,3 +42,9 @@
   .portedReadingRepair>summary{grid-template-columns:auto minmax(0,1fr)}
   .portedReadingRepair>summary small{grid-column:2;white-space:normal}
 }
+.portedReadingSession > [data-reading-submit-error] {
+  margin: 0;
+  padding: .65rem 1rem;
+  color: var(--study-danger);
+  background: var(--study-surface-muted);
+}
