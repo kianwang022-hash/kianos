@@ -1,4 +1,4 @@
-import { listReadingSets, loadReadingById, loadReadingReviewById } from '../src/lib/englishReading.mjs';
+import { listReadingSets, loadReadingById, loadReadingReviewById, loadReadingAnswersById } from '../src/lib/englishReading.mjs';
 
 const sets = listReadingSets();
 const issues = [];
@@ -12,6 +12,7 @@ for (const item of sets) {
   try {
     const reading = loadReadingById(item.id);
     const review = loadReadingReviewById(item.id);
+    const answers = loadReadingAnswersById(item.id);
     const questions = reading.questions || [];
     const projected = review.questions || {};
     questionCount += questions.length;
@@ -19,12 +20,17 @@ for (const item of sets) {
     if (!reading.paragraphs?.length) issues.push(`${item.id}: no passage paragraphs`);
     if (!questions.length) issues.push(`${item.id}: no questions`);
     if (review.objectId !== item.id) issues.push(`${item.id}: review object mismatch`);
+    if (answers.objectId !== item.id) issues.push(`${item.id}: answer object mismatch`);
 
     for (const question of questions) {
       const id = String(question?.id || question?.question_id || '');
       if (!id) {
         issues.push(`${item.id}: question without stable id`);
         continue;
+      }
+      const answer = answers.answers?.[id];
+      if (typeof answer !== 'string' || !Object.hasOwn(question.options || {}, answer)) {
+        issues.push(`${id}: missing or invalid protected answer`);
       }
       const asset = projected[id];
       if (!asset) {
