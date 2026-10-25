@@ -774,7 +774,7 @@
     "ordinal": 2245,
     "word": "hammer",
     "source_owner_path": "content/lexical/words/by-ordinal/o2245.json",
-    "source_fingerprint": "299d2a4e0f13f010c5995be4bcda0f72f53bdc66af66a8f284c01fa7a91f564d",
+    "source_fingerprint": "520f8db1cac1961470066942388d6f75f9fe076c725777a1389ad3ddbc4a3e77",
     "sense_lineage": [
       {
         "word_id": "word:hammer",
@@ -867,7 +867,7 @@
         "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vi. + at/on",
-        "definition_cn": "连续锤打",
+        "definition_cn": "反复猛敲；重击",
         "definition_en": "to strike repeatedly",
         "note": "",
         "identity_overlay": null,
@@ -890,7 +890,7 @@
           "target_kind": "sense",
           "target_id": "sense:hammer:5fe2840761b45810",
           "target_locator": "record.senses[2]",
-          "target_label": "连续锤打"
+          "target_label": "反复猛敲；重击"
         }
       },
       {
@@ -2803,7 +2803,7 @@
     "ordinal": 2253,
     "word": "handsome",
     "source_owner_path": "content/lexical/words/by-ordinal/o2253.json",
-    "source_fingerprint": "3291b105864a29e8543771f9348f1eb6e2b4ce57cf07c5a36d8feeb7a987401f",
+    "source_fingerprint": "b0869d8c7e8a07e9572659f449d6d13ede54fc644ffc0d0532bc5fe60c5f538c",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2827,7 +2827,7 @@
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "英俊的",
+        "definition_cn": "英俊的；（建筑、物品等）美观大方的",
         "definition_en": "pleasing in appearance, especially of a man",
         "note": "",
         "identity_overlay": null,
@@ -2836,7 +2836,7 @@
           "target_kind": "sense",
           "target_id": "sense:handsome:e87a848a3fd85fc8",
           "target_locator": "record.senses[0]",
-          "target_label": "英俊的"
+          "target_label": "英俊的；（建筑、物品等）美观大方的"
         }
       },
       {
@@ -3017,11 +3017,19 @@
     "ordinal": 2255,
     "word": "handy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2255.json",
-    "source_fingerprint": "693d97bbd8218181186aaab5caf137f95e3c989d5c4b3a54460c932c89667c8e",
-    "sense_lineage": [],
+    "source_fingerprint": "c1286fdeb8ff5171e69894b7be8e3200a94d512df07c5f272bbb83625352f9f5",
+    "sense_lineage": [
+      {
+        "word_id": "word:handy",
+        "target_kind": "sense",
+        "from_target_id": "sense:handy:cf81091d4fb15020",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -3037,12 +3045,12 @@
     },
     "senses": [
       {
-        "id": "sense:handy:cf81091d4fb15020",
+        "id": "sense:handy:adec52728bba2148",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "便利的，手边的",
-        "definition_en": "easy to reach or use",
+        "governing_pattern": "a handy tool",
+        "definition_cn": "实用的；方便好用的",
+        "definition_en": "useful or easy to use",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3057,14 +3065,31 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:handy:cf81091d4fb15020",
+          "target_id": "sense:handy:adec52728bba2148",
           "target_locator": "record.senses[0]",
-          "target_label": "便利的，手边的"
+          "target_label": "实用的；方便好用的"
+        }
+      },
+      {
+        "id": "sense:handy:28b581bf9b1fc02e",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "keep/have sth handy",
+        "definition_cn": "手边的；近便可取的",
+        "definition_en": "nearby and easy to reach or obtain",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:handy:28b581bf9b1fc02e",
+          "target_locator": "record.senses[1]",
+          "target_label": "手边的；近便可取的"
         }
       },
       {
         "id": "sense:handy:c85e820c139a543d",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[2]",
         "pos": "adjective",
         "governing_pattern": "handy with + tool",
         "definition_cn": "手巧的；善于使用工具的",
@@ -3074,14 +3099,14 @@
         "usage": [
           {
             "id": "collocation:cc9357ac3e7232b9f64e",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "handy with a needle",
             "meaning_cn": "擅长针线活",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:cc9357ac3e7232b9f64e",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "handy with a needle"
             }
           }
@@ -3089,7 +3114,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:handy:c85e820c139a543d",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "手巧的；善于使用工具的"
         }
       }
@@ -3103,7 +3128,8 @@
             {
               "surface": "handy",
               "sense_ids": [
-                "sense:handy:cf81091d4fb15020",
+                "sense:handy:adec52728bba2148",
+                "sense:handy:28b581bf9b1fc02e",
                 "sense:handy:c85e820c139a543d"
               ],
               "binding_basis": "Independently reviewed exact owner/source semantic scope; original raw scope and conditions retained."
@@ -3114,10 +3140,13 @@
         }
       ],
       "sense_readings": {
-        "sense:handy:c85e820c139a543d": [
+        "sense:handy:28b581bf9b1fc02e": [
           0
         ],
-        "sense:handy:cf81091d4fb15020": [
+        "sense:handy:adec52728bba2148": [
+          0
+        ],
+        "sense:handy:c85e820c139a543d": [
           0
         ]
       },
@@ -3151,7 +3180,36 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:8a8bc55f80d808b65c89",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:handy:cf81091d4fb15020:collocation:0"
+              ],
+              "meaning_cn": "便利的工具",
+              "phrase": "a handy tool"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "便利的，手边的",
+          "definition_en": "easy to reach or use",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:handy:cf81091d4fb15020",
+          "sense_label_en": "easy to reach or use",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -3160,7 +3218,7 @@
     "ordinal": 2256,
     "word": "hang",
     "source_owner_path": "content/lexical/words/by-ordinal/o2256.json",
-    "source_fingerprint": "fcdc1a013e0e918937a1274ccb6a49102958f23954ecbe68f7f06ee009690980",
+    "source_fingerprint": "f89feeb53f7f785b31133d7afe784ecbe27c87a5ad1ad77dd20ba9b60bef8459",
     "sense_lineage": [
       {
         "word_id": "word:hang",
@@ -3184,13 +3242,13 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "悬挂、垂落、绞刑；空气中停留、闲待或安装墙纸和门",
-      "decision_cn": "悬挂和一般用法用hung；处决分支通常用hanged。hang on的等待、紧抓、坚持和取决于分属不同整体框架。",
+      "summary_cn": "悬挂、垂落、绞死／吊死；空气中停留、闲待或安装墙纸和门",
+      "decision_cn": "悬挂和一般用法用hung；致死的绞死／吊死用法通常用 hanged（包括绞刑、自缢等）。hang on的等待、紧抓、坚持和取决于分属不同整体框架。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "悬挂、垂落、绞刑；空气中停留、闲待或安装墙纸和门"
+        "target_label": "悬挂、垂落、绞死／吊死；空气中停留、闲待或安装墙纸和门"
       }
     },
     "senses": [
@@ -3977,7 +4035,7 @@
       "confusables": [],
       "relations": [],
       "form": {
-        "boundary": "For ordinary hanging, hang → hung → hung. For execution by hanging, the normal past and past participle are hanged.",
+        "boundary": "For ordinary hanging, hang → hung → hung. For death by hanging, including execution or suicide, the normal past and past participle are hanged.",
         "boundaries": [
           {
             "surface": "hang",
@@ -3991,8 +4049,8 @@
           },
           {
             "surface": "hanged",
-            "condition": "past simple / past participle meaning executed by hanging",
-            "note": "execution branch uses hanged"
+            "condition": "past simple / past participle meaning killed or died by hanging",
+            "note": "death-by-hanging use normally takes hanged"
           }
         ],
         "variants": [],
@@ -4000,7 +4058,7 @@
           "target_kind": "form_identity",
           "target_id": null,
           "target_locator": "record.form_identity",
-          "target_label": "For ordinary hanging, hang → hung → hung. For execution by hanging, the normal past and past participle are hanged."
+          "target_label": "For ordinary hanging, hang → hung → hung. For death by hanging, including execution or suicide, the normal past and past participle are hanged."
         }
       },
       "family": [],
@@ -4226,11 +4284,19 @@
     "ordinal": 2258,
     "word": "happy",
     "source_owner_path": "content/lexical/words/by-ordinal/o2258.json",
-    "source_fingerprint": "8bb9759d1dc90a91ef969268b208cf79b5f564b87ad31f38267b37a1572b51a5",
-    "sense_lineage": [],
+    "source_fingerprint": "79742ce7d0e67e83d90cda2968e501a53d2dec21c9849df3206bbd245e2a408a",
+    "sense_lineage": [
+      {
+        "word_id": "word:happy",
+        "target_kind": "sense",
+        "from_target_id": "sense:happy:18def78bf68755ea",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "2A"
+        "3A"
       ],
       "density": "rich"
     },
@@ -4285,12 +4351,12 @@
         }
       },
       {
-        "id": "sense:happy:18def78bf68755ea",
+        "id": "sense:happy:63f503ac544466ca",
         "source_locator": "record.senses[1]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "恰当的；幸运合适的（较正式）",
-        "definition_en": "appropriate or fortunate, as in a well-chosen expression or circumstance",
+        "governing_pattern": "a happy choice of words",
+        "definition_cn": "恰当的；合适的（较正式）",
+        "definition_en": "suitable or well chosen",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -4305,9 +4371,26 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:happy:18def78bf68755ea",
+          "target_id": "sense:happy:63f503ac544466ca",
           "target_locator": "record.senses[1]",
-          "target_label": "恰当的；幸运合适的（较正式）"
+          "target_label": "恰当的；合适的（较正式）"
+        }
+      },
+      {
+        "id": "sense:happy:d4acfd45e6f3ee81",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "a happy coincidence",
+        "definition_cn": "幸运的；带来喜事的",
+        "definition_en": "fortunate or bringing a favourable outcome",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:happy:d4acfd45e6f3ee81",
+          "target_locator": "record.senses[2]",
+          "target_label": "幸运的；带来喜事的"
         }
       }
     ],
@@ -4388,7 +4471,36 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e585ae6dc2b3f911383d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:happy:18def78bf68755ea:collocation:0"
+              ],
+              "meaning_cn": "恰当的措辞",
+              "phrase": "a happy choice of words"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "恰当的；幸运合适的（较正式）",
+          "definition_en": "appropriate or fortunate, as in a well-chosen expression or circumstance",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:happy:18def78bf68755ea",
+          "sense_label_en": "appropriate or fortunate, as in a well-chosen expression or circumstance",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -6585,13 +6697,20 @@
     "ordinal": 2270,
     "word": "harvest",
     "source_owner_path": "content/lexical/words/by-ordinal/o2270.json",
-    "source_fingerprint": "877df7b72aabca4a66132fe2d814caf3c8d2149f4fc84bfbb2f099652d69ab29",
+    "source_fingerprint": "666920b2d3518e677cb230fbb03650cfecbf4097cf49e629358d0b1cb32580f1",
     "sense_lineage": [
       {
         "word_id": "word:harvest",
         "target_kind": "sense",
         "from_target_id": "sense:harvest:200f3629b29b5567",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:harvest",
+        "target_kind": "sense",
+        "from_target_id": "sense:harvest:d7a5dce656fd529e",
+        "status": "deprecated",
         "to_target_id": null
       },
       {
@@ -6605,7 +6724,7 @@
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -6621,12 +6740,12 @@
     },
     "senses": [
       {
-        "id": "sense:harvest:d7a5dce656fd529e",
+        "id": "sense:harvest:f784027a60a8cea6",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "收割；收获季节；收成",
-        "definition_en": "the gathering of crops, the season when this happens, or the crop gathered",
+        "governing_pattern": "at harvest; harvest season",
+        "definition_cn": "收割；收获时节",
+        "definition_en": "the activity or time of gathering crops",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -6637,10 +6756,28 @@
             "meaning_cn": "收获季节",
             "kind": "usage_example",
             "repair": null
-          },
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:harvest:f784027a60a8cea6",
+          "target_locator": "record.senses[0]",
+          "target_label": "收割；收获时节"
+        }
+      },
+      {
+        "id": "sense:harvest:e0fb2a8f1a77c476",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a good/poor harvest",
+        "definition_cn": "收成；收获的农作物",
+        "definition_en": "the crops gathered, or the amount gathered",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
           {
             "id": "collocation:9fe9f1fb1123dfc8c362",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a good harvest",
             "meaning_cn": "好收成",
             "kind": "usage_example",
@@ -6649,14 +6786,14 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:harvest:d7a5dce656fd529e",
-          "target_locator": "record.senses[0]",
-          "target_label": "收割；收获季节；收成"
+          "target_id": "sense:harvest:e0fb2a8f1a77c476",
+          "target_locator": "record.senses[1]",
+          "target_label": "收成；收获的农作物"
         }
       },
       {
         "id": "sense:harvest:1dae343217315969",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "收割庄稼",
@@ -6666,7 +6803,7 @@
         "usage": [
           {
             "id": "collocation:e3a05dafe2c25534c3b6",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "harvest wheat",
             "meaning_cn": "收割小麦",
             "kind": "usage_example",
@@ -6674,7 +6811,7 @@
           },
           {
             "id": "collocation:8eaedde741ba8b56e7f3",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[2].collocations[1]",
             "phrase": "harvest crops",
             "meaning_cn": "收割庄稼",
             "kind": "usage_example",
@@ -6684,30 +6821,30 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:harvest:1dae343217315969",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "收割庄稼"
         }
       },
       {
         "id": "sense:harvest:b9ccd42862ae5286",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "努力的成果",
+        "definition_cn": "（努力或行动的）结果；后果（可好可坏）",
         "definition_en": "the consequence of an effort or activity",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:fac1acc282569f0a0f4f",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "reap the harvest of + sth",
-            "meaning_cn": "收获...的成果",
+            "meaning_cn": "得到……带来的结果",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:fac1acc282569f0a0f4f",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "reap the harvest of + sth"
             }
           }
@@ -6715,13 +6852,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:harvest:b9ccd42862ae5286",
-          "target_locator": "record.senses[2]",
-          "target_label": "努力的成果"
+          "target_locator": "record.senses[3]",
+          "target_label": "（努力或行动的）结果；后果（可好可坏）"
         }
       },
       {
         "id": "sense:harvest:f327d96313f1f2c2",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "harvest something (from something)",
         "definition_cn": "收集有用资源供以后使用",
@@ -6731,7 +6868,7 @@
         "usage": [
           {
             "id": "collocation:c61f23d3a47a425a3237",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "harvest energy from sunlight",
             "meaning_cn": "从阳光中获取能源",
             "kind": "usage_example",
@@ -6741,7 +6878,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:harvest:f327d96313f1f2c2",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "收集有用资源供以后使用"
         }
       }
@@ -6769,7 +6906,7 @@
                 "sense:harvest:f327d96313f1f2c2"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2270.json",
-              "source_pointer": "/record/senses/3",
+              "source_pointer": "/record/senses/4",
               "mode": "bounded_current_owner_senses",
               "does_not_apply_to_other_owner_senses": true,
               "current_owner_usage": "harvest something (from something)"
@@ -6856,6 +6993,42 @@
           "sense_label_en": "to remove cells or tissue from a living or dead body for transplantation",
           "sort_order": 3,
           "transitivity": "vt"
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ce472f5e6d669f96aebb",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:harvest:d7a5dce656fd529e:collocation:0"
+              ],
+              "meaning_cn": "收获季节",
+              "phrase": "harvest season"
+            },
+            {
+              "collocation_id": "collocation:9fe9f1fb1123dfc8c362",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:harvest:d7a5dce656fd529e:collocation:1"
+              ],
+              "meaning_cn": "好收成",
+              "phrase": "a good harvest"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "收割；收获季节；收成",
+          "definition_en": "the gathering of crops, the season when this happens, or the crop gathered",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:harvest:d7a5dce656fd529e",
+          "sense_label_en": "the gathering of crops, the season when this happens, or the crop gathered",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
         }
       ]
     }
@@ -7929,7 +8102,7 @@
     "ordinal": 2277,
     "word": "haul",
     "source_owner_path": "content/lexical/words/by-ordinal/o2277.json",
-    "source_fingerprint": "7872eccfab6710f6a9e438775927410e21b76519d1c272c50dbc11d56f6d37a3",
+    "source_fingerprint": "aea901d9675e9996ae66496f8afaf67760e27ac1f9cdab5a0b4f669747bb5a97",
     "sense_lineage": [
       {
         "word_id": "word:haul",
@@ -8042,9 +8215,9 @@
         "id": "sense:haul:d8dd94aac5a552f6",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "漫长或艰难的旅程、距离或持续努力",
-        "definition_en": "a long or difficult journey, distance, or sustained period of effort",
+        "governing_pattern": "a short/long haul",
+        "definition_cn": "旅程；运输距离（可长可短）；（a/the long haul）长期费力的过程",
+        "definition_en": "a journey or transport distance; also, in the expression a/the long haul, a process that takes a long time and sustained effort",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -8052,7 +8225,7 @@
           "target_kind": "sense",
           "target_id": "sense:haul:d8dd94aac5a552f6",
           "target_locator": "record.senses[2]",
-          "target_label": "漫长或艰难的旅程、距离或持续努力"
+          "target_label": "旅程；运输距离（可长可短）；（a/the long haul）长期费力的过程"
         }
       }
     ],
@@ -8083,7 +8256,7 @@
         "pattern": "for the long haul",
         "lines": [
           {
-            "text": "长期坚持或长途过程",
+            "text": "长期地；长期投入、坚持",
             "lang": "cn"
           }
         ],
@@ -8143,8 +8316,16 @@
     "ordinal": 2278,
     "word": "have",
     "source_owner_path": "content/lexical/words/by-ordinal/o2278.json",
-    "source_fingerprint": "2f4e1db62c9e47ef3c9c4af75fe814ded7aafbaadc8168e4e14fb62a291e48f5",
-    "sense_lineage": [],
+    "source_fingerprint": "c15f2dea070e5413acbec31f56af6e52e1f8ae9c6ad80295419097f4267d94da",
+    "sense_lineage": [
+      {
+        "word_id": "word:have",
+        "target_kind": "construction",
+        "from_target_id": "construction:ee7f7b218eabd0154442",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "8V",
@@ -8554,33 +8735,58 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:ee7f7b218eabd0154442",
+        "id": "construction:2dab5f5eb6e8c6446998",
         "source_locator": "record.constructions[0]",
-        "pattern": "have + object + past participle",
+        "pattern": "have sth done（安排）",
         "lines": [
           {
-            "text": "让/请别人做某事；遭遇某事发生在自己或自己的东西上",
+            "text": "让／请别人做某事；安排某事被完成",
             "lang": "cn"
           },
           {
-            "text": "causative/experiential construction",
-            "lang": "en"
+            "text": "自己安排或促成：I had my hair cut.＝我请人理了发。",
+            "lang": "cn"
           },
           {
-            "text": "to arrange for or cause something to be done, or to experience something happening to oneself or one’s property",
+            "text": "to arrange for or cause something to be done by someone else",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:ee7f7b218eabd0154442",
+          "target_id": "construction:2dab5f5eb6e8c6446998",
           "target_locator": "record.constructions[0]",
-          "target_label": "have + object + past participle"
+          "target_label": "have sth done（安排）"
+        }
+      },
+      {
+        "id": "construction:4cf5e01e464577e922df",
+        "source_locator": "record.constructions[1]",
+        "pattern": "have sth done（遭遇）",
+        "lines": [
+          {
+            "text": "遭遇某事发生在自己或自己的东西上（常为不利情况）",
+            "lang": "cn"
+          },
+          {
+            "text": "不是自己安排：She had her bag stolen.＝她的包被偷了。",
+            "lang": "cn"
+          },
+          {
+            "text": "to experience something happening to oneself or one's property, often something unwanted",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:4cf5e01e464577e922df",
+          "target_locator": "record.constructions[1]",
+          "target_label": "have sth done（遭遇）"
         }
       },
       {
         "id": "construction:f2350c246eafa69fdc6a",
-        "source_locator": "record.constructions[1]",
+        "source_locator": "record.constructions[2]",
         "pattern": "have (got) to + verb",
         "lines": [
           {
@@ -8599,13 +8805,13 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:f2350c246eafa69fdc6a",
-          "target_locator": "record.constructions[1]",
+          "target_locator": "record.constructions[2]",
           "target_label": "have (got) to + verb"
         }
       },
       {
         "id": "construction:660e1c4f17e7b141e8a2",
-        "source_locator": "record.constructions[2]",
+        "source_locator": "record.constructions[3]",
         "pattern": "have somebody do something",
         "lines": [
           {
@@ -8624,13 +8830,13 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:660e1c4f17e7b141e8a2",
-          "target_locator": "record.constructions[2]",
+          "target_locator": "record.constructions[3]",
           "target_label": "have somebody do something"
         }
       },
       {
         "id": "construction:11ea863bce8023432f5e",
-        "source_locator": "record.constructions[3]",
+        "source_locator": "record.constructions[4]",
         "pattern": "have somebody/something doing something",
         "lines": [
           {
@@ -8649,13 +8855,13 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:11ea863bce8023432f5e",
-          "target_locator": "record.constructions[3]",
+          "target_locator": "record.constructions[4]",
           "target_label": "have somebody/something doing something"
         }
       },
       {
         "id": "construction:483e82a32c98cd62bbf2",
-        "source_locator": "record.constructions[4]",
+        "source_locator": "record.constructions[5]",
         "pattern": "have somebody/something + adjective",
         "lines": [
           {
@@ -8674,13 +8880,13 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:483e82a32c98cd62bbf2",
-          "target_locator": "record.constructions[4]",
+          "target_locator": "record.constructions[5]",
           "target_label": "have somebody/something + adjective"
         }
       },
       {
         "id": "construction:5a88c013e5f43b288f12",
-        "source_locator": "record.constructions[5]",
+        "source_locator": "record.constructions[6]",
         "pattern": "have somebody over/to dinner",
         "lines": [
           {
@@ -8699,7 +8905,7 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:5a88c013e5f43b288f12",
-          "target_locator": "record.constructions[5]",
+          "target_locator": "record.constructions[6]",
           "target_label": "have somebody over/to dinner"
         }
       }
@@ -8712,7 +8918,7 @@
           "target_word": "own",
           "lines": [
             {
-              "text": "own强调所有权；have只表持有或拥有，范围更泛",
+              "text": "在表示拥有或持有时，own强调所有权；have范围更广，不一定意味着东西归自己所有。",
               "lang": "cn"
             },
             {
@@ -9184,11 +9390,19 @@
     "ordinal": 2281,
     "word": "hazard",
     "source_owner_path": "content/lexical/words/by-ordinal/o2281.json",
-    "source_fingerprint": "31680b90844b920ed79029d1c1d466ffc61668d5041c357f81cb82a0f2880884",
-    "sense_lineage": [],
+    "source_fingerprint": "a5ab1738b258c5715e3b108af81daa20386686064d02b689a736728e1624cc94",
+    "sense_lineage": [
+      {
+        "word_id": "word:hazard",
+        "target_kind": "sense",
+        "from_target_id": "sense:hazard:7edeff450521505c",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
@@ -9239,12 +9453,12 @@
         }
       },
       {
-        "id": "sense:hazard:7edeff450521505c",
+        "id": "sense:hazard:a77247c6f310bde2",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "冒险猜测；使遭受危险",
-        "definition_en": "to risk or expose to danger; to venture (a guess)",
+        "governing_pattern": "hazard a guess/suggestion",
+        "definition_cn": "冒昧提出（猜测、建议等）",
+        "definition_en": "to risk making a guess or suggestion that may be wrong or unwelcome",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9259,9 +9473,26 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:hazard:7edeff450521505c",
+          "target_id": "sense:hazard:a77247c6f310bde2",
           "target_locator": "record.senses[1]",
-          "target_label": "冒险猜测；使遭受危险"
+          "target_label": "冒昧提出（猜测、建议等）"
+        }
+      },
+      {
+        "id": "sense:hazard:10e6a85e14c913af",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "hazard sth",
+        "definition_cn": "使……遭受风险；拿……冒险",
+        "definition_en": "to put something at risk of loss or harm",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:hazard:10e6a85e14c913af",
+          "target_locator": "record.senses[2]",
+          "target_label": "使……遭受风险；拿……冒险"
         }
       }
     ],
@@ -9325,7 +9556,36 @@
         }
       ],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:0f310b8246a1eb6b3ef0",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:hazard:7edeff450521505c:collocation:0"
+              ],
+              "meaning_cn": "冒险猜测",
+              "phrase": "hazard a guess"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "冒险猜测；使遭受危险",
+          "definition_en": "to risk or expose to danger; to venture (a guess)",
+          "governing_pattern": "vt. + object",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hazard:7edeff450521505c",
+          "sense_label_en": "to risk or expose to danger; to venture (a guess)",
+          "sort_order": 1,
+          "transitivity": "vt",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -9334,7 +9594,7 @@
     "ordinal": 2282,
     "word": "he",
     "source_owner_path": "content/lexical/words/by-ordinal/o2282.json",
-    "source_fingerprint": "af0f4054bdc450e2196163b40591c5aed4a3c3c379102856a55075aed165a4ad",
+    "source_fingerprint": "4ebf3cb444a4d1fb94b29589641d4ff3a18c71c83e56ed2a24d783974a71a3bb",
     "sense_lineage": [
       {
         "word_id": "word:he",
@@ -9366,7 +9626,7 @@
         "source_locator": "record.senses[0]",
         "pos": "pronoun",
         "governing_pattern": "",
-        "definition_cn": "他；雄性动物",
+        "definition_cn": "他；它（指雄性动物，用作主语）",
         "definition_en": "third person singular masculine pronoun",
         "note": "",
         "identity_overlay": null,
@@ -9375,7 +9635,7 @@
           "target_kind": "sense",
           "target_id": "sense:he:281f0bb8cd285bbe",
           "target_locator": "record.senses[0]",
-          "target_label": "他；雄性动物"
+          "target_label": "他；它（指雄性动物，用作主语）"
         }
       }
     ],
@@ -9558,7 +9818,7 @@
     "ordinal": 2283,
     "word": "head",
     "source_owner_path": "content/lexical/words/by-ordinal/o2283.json",
-    "source_fingerprint": "451c7e23eb68d5fa3ac90175c2ddb696940f8dbb31a44005ab765a7240444040",
+    "source_fingerprint": "19d139986ebfb800984bc90ab77fd6a09bce5b748ea2a9973519d65d6b5df5c9",
     "sense_lineage": [
       {
         "word_id": "word:head",
@@ -9693,7 +9953,7 @@
         "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "率领，带头",
+        "definition_cn": "率领；带头；位居首位",
         "definition_en": "to be at the front or top of something; to lead",
         "note": "",
         "identity_overlay": null,
@@ -9710,7 +9970,7 @@
             "id": "collocation:ca966083e98b2b132f4e",
             "source_locator": "record.senses[3].collocations[1]",
             "phrase": "head the list",
-            "meaning_cn": "名列前茅",
+            "meaning_cn": "名列榜首",
             "kind": "usage_example",
             "repair": null
           }
@@ -9719,7 +9979,7 @@
           "target_kind": "sense",
           "target_id": "sense:head:5fce83a7cbb85a07",
           "target_locator": "record.senses[3]",
-          "target_label": "率领，带头"
+          "target_label": "率领；带头；位居首位"
         }
       },
       {
@@ -10661,7 +10921,7 @@
     "ordinal": 2287,
     "word": "headquarters",
     "source_owner_path": "content/lexical/words/by-ordinal/o2287.json",
-    "source_fingerprint": "5a0b2646b9276b8b42f9332cc57ad4cb08fb327e675c1590c7374954a0bb0fe8",
+    "source_fingerprint": "da4818d1baacb9bbca12eaf5e8c4a9bcbab0b8cecc7422afab6026bef26b912b",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10671,7 +10931,7 @@
     },
     "word_feel": {
       "summary_cn": "总部，司令部",
-      "decision_cn": "",
+      "decision_cn": "headquarters 单复数同形，单个总部或司令部也保留词尾 s。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -12124,7 +12384,7 @@
     "ordinal": 2294,
     "word": "heart",
     "source_owner_path": "content/lexical/words/by-ordinal/o2294.json",
-    "source_fingerprint": "5fcfcbe5bd6c529a1b2740f71d785bebde9b753bbde0292b01222916351ca4cb",
+    "source_fingerprint": "a6b2d9c037c2c47de7cddb7f50f02913822cab4fee0ac8f9f8b6e13d66da63a4",
     "sense_lineage": [
       {
         "word_id": "word:heart",
@@ -12447,15 +12707,15 @@
         "pattern": "take something to heart",
         "lines": [
           {
-            "text": "对某事很介意而难过",
+            "text": "把……放在心上；认真对待（批评等也可使人介意、难过）",
             "lang": "cn"
           },
           {
-            "text": "不同于take heart鼓起勇气；take criticism to heart。",
+            "text": "建议可指认真听取；批评常指介意或难过。不同于 take heart（鼓起勇气）。",
             "lang": "cn"
           },
           {
-            "text": "to be deeply upset by a comment or action",
+            "text": "to take something seriously or be deeply affected by it, often becoming upset by criticism",
             "lang": "en"
           }
         ],
@@ -12582,7 +12842,7 @@
     "ordinal": 2295,
     "word": "heat",
     "source_owner_path": "content/lexical/words/by-ordinal/o2295.json",
-    "source_fingerprint": "18bbff2d1e78c08484d06839a808322436a52515cb88f7f0e07fbef8fccd444f",
+    "source_fingerprint": "ed399ba4b7b24e2794d9c7354a10b8c103ccea1ebc4be0475ed3a7bf91efdcc7",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -12758,7 +13018,7 @@
         "source_locator": "record.senses[5]",
         "pos": "verb",
         "governing_pattern": "vi. + up",
-        "definition_cn": "变热；加热",
+        "definition_cn": "变热；升温",
         "definition_en": "to become hot",
         "note": "",
         "identity_overlay": null,
@@ -12781,7 +13041,7 @@
           "target_kind": "sense",
           "target_id": "sense:heat:ec2c1a7f6a5f51fc",
           "target_locator": "record.senses[5]",
-          "target_label": "变热；加热"
+          "target_label": "变热；升温"
         }
       },
       {
@@ -14083,7 +14343,7 @@
     "ordinal": 2299,
     "word": "hedge",
     "source_owner_path": "content/lexical/words/by-ordinal/o2299.json",
-    "source_fingerprint": "32eb01e0b007268947df4740c9e471a496f554eec612714280fa99aa0c9def6f",
+    "source_fingerprint": "990d2e5bb4b5e2bb6c7faaafce805485a3dd8fe6e1434624bd77ca79c3a04276",
     "sense_lineage": [
       {
         "word_id": "word:hedge",
@@ -14103,7 +14363,7 @@
     "recall_map": {
       "parts": [
         "3V",
-        "3N"
+        "4N"
       ],
       "density": "rich"
     },
@@ -14184,8 +14444,25 @@
         }
       },
       {
-        "id": "sense:hedge:f84b94474655578d",
+        "id": "sense:hedge:3ab990d9885e74f1",
         "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a hedge against sth",
+        "definition_cn": "防范手段；保障（针对某种风险）",
+        "definition_en": "a way of protecting against a possible loss, risk or problem",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:hedge:3ab990d9885e74f1",
+          "target_locator": "record.senses[2]",
+          "target_label": "防范手段；保障（针对某种风险）"
+        }
+      },
+      {
+        "id": "sense:hedge:f84b94474655578d",
+        "source_locator": "record.senses[3]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "闪烁其词；模棱两可的话",
@@ -14196,13 +14473,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hedge:f84b94474655578d",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "闪烁其词；模棱两可的话"
         }
       },
       {
         "id": "sense:hedge:cd4167cbe172509d",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "用树篱围住",
@@ -14212,7 +14489,7 @@
         "usage": [
           {
             "id": "collocation:bfe8c53b05d17c6ffafc",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "hedge a garden",
             "meaning_cn": "用树篱围住花园",
             "kind": "usage_example",
@@ -14222,13 +14499,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hedge:cd4167cbe172509d",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "用树篱围住"
         }
       },
       {
         "id": "sense:hedge:ccd0a08a0d645f3f",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[5]",
         "pos": "verb",
         "governing_pattern": "hedge sth (against sth); hedge against sth",
         "definition_cn": "防范风险；（金融）对冲",
@@ -14238,20 +14515,20 @@
         "usage": [
           {
             "id": "collocation:1f7890491f3669c28264",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "hedge against risk",
             "meaning_cn": "对冲风险",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:1f7890491f3669c28264",
-              "target_locator": "record.senses[4].collocations[0]",
+              "target_locator": "record.senses[5].collocations[0]",
               "target_label": "hedge against risk"
             }
           },
           {
             "id": "collocation:f3172503dda3cd09a4d1",
-            "source_locator": "record.senses[4].collocations[1]",
+            "source_locator": "record.senses[5].collocations[1]",
             "phrase": "hedge against + sth",
             "meaning_cn": "防范某种风险或问题",
             "kind": "usage_example",
@@ -14259,7 +14536,7 @@
           },
           {
             "id": "collocation:46c350f1ef18173fc8a6",
-            "source_locator": "record.senses[4].collocations[2]",
+            "source_locator": "record.senses[5].collocations[2]",
             "phrase": "hedge against criticism",
             "meaning_cn": "预先防范受到批评的风险",
             "kind": "usage_example",
@@ -14269,16 +14546,16 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hedge:ccd0a08a0d645f3f",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[5]",
           "target_label": "防范风险；（金融）对冲"
         }
       },
       {
         "id": "sense:hedge:8e0c976e32c95235",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[6]",
         "pos": "verb",
         "governing_pattern": "vi.",
-        "definition_cn": "躲闪；回避",
+        "definition_cn": "闪烁其词；回避直接回答或表态",
         "definition_en": "to avoid giving a direct answer or commitment",
         "note": "",
         "identity_overlay": null,
@@ -14286,8 +14563,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hedge:8e0c976e32c95235",
-          "target_locator": "record.senses[5]",
-          "target_label": "躲闪；回避"
+          "target_locator": "record.senses[6]",
+          "target_label": "闪烁其词；回避直接回答或表态"
         }
       }
     ],
@@ -14347,6 +14624,31 @@
           "target_id": "construction:hedge:hedge-bets",
           "target_locator": "record.constructions[0]",
           "target_label": "hedge one's bets"
+        }
+      },
+      {
+        "id": "construction:7f29a54da94f7b494dbf",
+        "source_locator": "record.constructions[1]",
+        "pattern": "be hedged (around) with conditions/qualifications",
+        "lines": [
+          {
+            "text": "附带限制条件或保留；受到这些条件限制",
+            "lang": "cn"
+          },
+          {
+            "text": "较正式，常用被动。qualifications 在这里指限制或保留，不是学历。",
+            "lang": "cn"
+          },
+          {
+            "text": "to be limited or qualified by conditions or reservations",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:7f29a54da94f7b494dbf",
+          "target_locator": "record.constructions[1]",
+          "target_label": "be hedged (around) with conditions/qualifications"
         }
       }
     ],

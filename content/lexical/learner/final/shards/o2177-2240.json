@@ -6024,7 +6024,7 @@
     "ordinal": 2206,
     "word": "grim",
     "source_owner_path": "content/lexical/words/by-ordinal/o2206.json",
-    "source_fingerprint": "bab8d304547d6779383f62b302967c17af29ec918e6b452451ff0ed49e732efe",
+    "source_fingerprint": "37c8db91d9694b203ff047259ccfd19d9b54973283962cfeb11f19baec711e2f",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -6096,7 +6096,7 @@
             "id": "collocation:5711c10077f5fbdb51ad",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "a grim expression",
-            "meaning_cn": "冷酷的表情",
+            "meaning_cn": "冷峻的表情",
             "kind": "usage_example",
             "repair": null
           },
@@ -6853,12 +6853,19 @@
     "ordinal": 2209,
     "word": "grip",
     "source_owner_path": "content/lexical/words/by-ordinal/o2209.json",
-    "source_fingerprint": "53090b42f69daa702cbcb826dd60c8dbfda587b2c79a05894dd24abe40665e60",
+    "source_fingerprint": "41697d4f78ff6a7bd6ec98187e215a1bee93119f338c2ebf9bd9f8a4728d966d",
     "sense_lineage": [
       {
         "word_id": "word:grip",
         "target_kind": "sense",
         "from_target_id": "sense:grip:6914ecd3dda55791",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:grip",
+        "target_kind": "sense",
+        "from_target_id": "sense:grip:a4e6998d28c058e2",
         "status": "deprecated",
         "to_target_id": null
       },
@@ -6875,18 +6882,25 @@
         "from_target_id": "sense:grip:ca739618c0ac57e0",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:grip",
+        "target_kind": "collocation",
+        "from_target_id": "collocation:96b725d6c0029e3e2988",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
         "4V",
-        "1N"
+        "3N"
       ],
       "density": "rich"
     },
     "word_feel": {
       "summary_cn": "紧握、控制或掌握；吸引注意、情绪笼罩或抓地",
-      "decision_cn": "grip可为握持和掌控，也可表示情绪强烈影响，或轮胎抓地而不滑动。",
+      "decision_cn": "名词先分：实际握住人或物体是紧握；支配人、事物或情绪是控制；理解知识或情况是掌握。in the grip of 表示受……控制；动词另看握住、吸引注意、情绪影响或抓地。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -6896,52 +6910,95 @@
     },
     "senses": [
       {
-        "id": "sense:grip:a4e6998d28c058e2",
+        "id": "sense:grip:d2305fcb77939e27",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "紧握；控制；理解掌握",
-        "definition_en": "a firm hold, control over something, or understanding of it",
+        "governing_pattern": "a firm grip",
+        "definition_cn": "紧握；紧抓（实际握持人或物体）",
+        "definition_en": "a firm hold of someone or something",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:grip:d2305fcb77939e27",
+          "target_locator": "record.senses[0]",
+          "target_label": "紧握；紧抓（实际握持人或物体）"
+        }
+      },
+      {
+        "id": "sense:grip:3a7720987827c013",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a grip on sth",
+        "definition_cn": "控制；掌控（对人、事物或情绪的支配）",
+        "definition_en": "power or control over someone or something",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:96b725d6c0029e3e2988",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "get a grip on + sth",
-            "meaning_cn": "控制住，掌握",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:96b725d6c0029e3e2988",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "get a grip on + sth"
-            }
-          },
-          {
             "id": "collocation:f3b069b915c4d1f6a8d0",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "in the grip of + sth",
             "meaning_cn": "受……控制",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:f3b069b915c4d1f6a8d0",
-              "target_locator": "record.senses[0].collocations[1]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "in the grip of + sth"
+            }
+          },
+          {
+            "id": "collocation:8fca7c02286f8622ba42",
+            "source_locator": "record.senses[1].collocations[1]",
+            "phrase": "get/take a grip on yourself",
+            "meaning_cn": "控制住自己的情绪；镇定下来",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8fca7c02286f8622ba42",
+              "target_locator": "record.senses[1].collocations[1]",
+              "target_label": "get/take a grip on yourself"
             }
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:grip:a4e6998d28c058e2",
-          "target_locator": "record.senses[0]",
-          "target_label": "紧握；控制；理解掌握"
+          "target_id": "sense:grip:3a7720987827c013",
+          "target_locator": "record.senses[1]",
+          "target_label": "控制；掌控（对人、事物或情绪的支配）"
+        }
+      },
+      {
+        "id": "sense:grip:a66d2228352e8e09",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "a grip on a subject",
+        "definition_cn": "理解；掌握（对知识或情况）",
+        "definition_en": "an understanding of a subject or situation",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:be123163ccd414a90453",
+            "source_locator": "record.senses[2].collocations[0]",
+            "phrase": "a good grip on the subject",
+            "meaning_cn": "很好地理解这个主题",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:grip:a66d2228352e8e09",
+          "target_locator": "record.senses[2]",
+          "target_label": "理解；掌握（对知识或情况）"
         }
       },
       {
         "id": "sense:grip:7c9bcec3c7035433",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "紧紧抓住；牢牢握住",
@@ -6952,13 +7009,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:grip:7c9bcec3c7035433",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[3]",
           "target_label": "紧紧抓住；牢牢握住"
         }
       },
       {
         "id": "sense:grip:37291525af65560b",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "",
         "definition_cn": "抓住注意力或兴趣",
@@ -6969,13 +7026,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:grip:37291525af65560b",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[4]",
           "target_label": "抓住注意力或兴趣"
         }
       },
       {
         "id": "sense:grip:202cdff41d842a59",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[5]",
         "pos": "verb",
         "governing_pattern": "fear/a crisis grips somebody/a place",
         "definition_cn": "（情绪或局势）强烈影响；笼罩",
@@ -6985,7 +7042,7 @@
         "usage": [
           {
             "id": "collocation:a5cedae8cb229021d1ae",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "Fear gripped the crowd.",
             "meaning_cn": "人群陷入强烈的恐惧。",
             "kind": "usage_example",
@@ -6995,13 +7052,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:grip:202cdff41d842a59",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[5]",
           "target_label": "（情绪或局势）强烈影响；笼罩"
         }
       },
       {
         "id": "sense:grip:b690df09aa89165c",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[6]",
         "pos": "verb",
         "governing_pattern": "tyres grip the road; grip well",
         "definition_cn": "紧贴表面而不打滑；在表面上抓牢",
@@ -7011,7 +7068,7 @@
         "usage": [
           {
             "id": "collocation:6700d35d55fcb69e16a0",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[6].collocations[0]",
             "phrase": "These tyres grip well in rain.",
             "meaning_cn": "这些轮胎在雨天抓地性能很好。",
             "kind": "usage_example",
@@ -7021,7 +7078,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:grip:b690df09aa89165c",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[6]",
           "target_label": "紧贴表面而不打滑；在表面上抓牢"
         }
       }
@@ -7047,7 +7104,7 @@
                 "sense:grip:202cdff41d842a59"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2209.json",
-              "source_pointer": "/record/senses/3",
+              "source_pointer": "/record/senses/5",
               "conditions": {
                 "current_owner_usage": "fear/a crisis grips somebody/a place"
               }
@@ -7064,7 +7121,7 @@
                 "sense:grip:b690df09aa89165c"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2209.json",
-              "source_pointer": "/record/senses/4",
+              "source_pointer": "/record/senses/6",
               "conditions": {
                 "current_owner_usage": "tyres grip the road; grip well"
               }
@@ -7215,6 +7272,42 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 6166,
           "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json",
+          "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:96b725d6c0029e3e2988",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:grip:a4e6998d28c058e2:collocation:0"
+              ],
+              "meaning_cn": "控制住，掌握",
+              "phrase": "get a grip on + sth"
+            },
+            {
+              "collocation_id": "collocation:f3b069b915c4d1f6a8d0",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:grip:a4e6998d28c058e2:collocation:1"
+              ],
+              "meaning_cn": "受……控制",
+              "phrase": "in the grip of + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "紧握；控制；理解掌握",
+          "definition_en": "a firm hold, control over something, or understanding of it",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:grip:a4e6998d28c058e2",
+          "sense_label_en": "a firm hold, control over something, or understanding of it",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
           "reference_only": true
         }
       ]
@@ -7611,7 +7704,7 @@
     "ordinal": 2212,
     "word": "grope",
     "source_owner_path": "content/lexical/words/by-ordinal/o2212.json",
-    "source_fingerprint": "3ff2613f139ed1296d0e4059a8f289d92926afaf5ccd22bc3100c5275dbfd70e",
+    "source_fingerprint": "18058cb17861db762a3dc9f6e683c8e546e2dbd4157245b87f34024fa49f5315",
     "sense_lineage": [
       {
         "word_id": "word:grope",
@@ -7624,7 +7717,7 @@
     "recall_map": {
       "parts": [
         "2V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -7749,6 +7842,23 @@
           "target_id": "sense:grope:73f5b8ce4eae5320",
           "target_locator": "record.senses[2]",
           "target_label": "摸索，触摸"
+        }
+      },
+      {
+        "id": "sense:grope:64f2644923fa6af9",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "a grope",
+        "definition_cn": "（非正式）猥亵触摸；性触摸（通常不受欢迎）",
+        "definition_en": "an act of touching someone's body sexually, especially when unwanted",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:grope:64f2644923fa6af9",
+          "target_locator": "record.senses[3]",
+          "target_label": "（非正式）猥亵触摸；性触摸（通常不受欢迎）"
         }
       }
     ],
@@ -10799,7 +10909,7 @@
     "ordinal": 2223,
     "word": "guidance",
     "source_owner_path": "content/lexical/words/by-ordinal/o2223.json",
-    "source_fingerprint": "9def2cd231ce034370dd17d43e3174c0378e6405c607ed72b3840e284d2daaf6",
+    "source_fingerprint": "8f2c8f9e5380d03fc710153f37b6a5e42ba686ad7588b5219753f8eec39b73fc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -10823,7 +10933,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "告诉你该做什么的帮助或建议",
+        "definition_cn": "指导；建议（帮助你决定怎样做）",
         "definition_en": "help or advice that tells you what to do",
         "note": "",
         "identity_overlay": null,
@@ -10854,7 +10964,7 @@
           "target_kind": "sense",
           "target_id": "sense:guidance:68a470be9f3b57f4",
           "target_locator": "record.senses[0]",
-          "target_label": "告诉你该做什么的帮助或建议"
+          "target_label": "指导；建议（帮助你决定怎样做）"
         }
       },
       {
@@ -12030,8 +12140,15 @@
     "ordinal": 2231,
     "word": "gum",
     "source_owner_path": "content/lexical/words/by-ordinal/o2231.json",
-    "source_fingerprint": "55099f2ca4520c1d2e00c9c4260a4c9a0b8e77f2b940b69de6e42bb75b5eefa8",
+    "source_fingerprint": "bc86f69a532185f7e51a53405957dfe8d158d8e047c20c602021c488b9fb1321",
     "sense_lineage": [
+      {
+        "word_id": "word:gum",
+        "target_kind": "sense",
+        "from_target_id": "sense:gum:ac62661705355ea1",
+        "status": "deprecated",
+        "to_target_id": null
+      },
       {
         "word_id": "word:gum",
         "target_kind": "collocation",
@@ -12043,7 +12160,7 @@
     "recall_map": {
       "parts": [
         "2V",
-        "2N"
+        "3N"
       ],
       "density": "rich"
     },
@@ -12059,31 +12176,18 @@
     },
     "senses": [
       {
-        "id": "sense:gum:ac62661705355ea1",
+        "id": "sense:gum:8995595443016393",
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "树胶；胶黏物；口香糖",
-        "definition_en": "a sticky substance from certain plants or used as adhesive; also chewing gum",
+        "definition_cn": "树胶；胶黏物",
+        "definition_en": "a sticky substance from certain plants or used as adhesive",
         "note": "gum tree常指桉树，是具体树名，不能泛指所有产树胶的树。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:8cef031f49d7aa5f4595",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "chewing gum",
-            "meaning_cn": "口香糖",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:8cef031f49d7aa5f4595",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "chewing gum"
-            }
-          },
-          {
             "id": "collocation:ef919a30d34b0bec43a3",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "gum tree",
             "meaning_cn": "桉树（常见用法）",
             "kind": "usage_example",
@@ -12092,14 +12196,45 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:gum:ac62661705355ea1",
+          "target_id": "sense:gum:8995595443016393",
           "target_locator": "record.senses[0]",
-          "target_label": "树胶；胶黏物；口香糖"
+          "target_label": "树胶；胶黏物"
+        }
+      },
+      {
+        "id": "sense:gum:ea43fa1dfe115faf",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "chewing gum",
+        "definition_cn": "口香糖",
+        "definition_en": "a substance made for chewing but not swallowing",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:8cef031f49d7aa5f4595",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "chewing gum",
+            "meaning_cn": "口香糖",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:8cef031f49d7aa5f4595",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "chewing gum"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:gum:ea43fa1dfe115faf",
+          "target_locator": "record.senses[1]",
+          "target_label": "口香糖"
         }
       },
       {
         "id": "sense:gum:cf89264aa61a5d2f",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "牙床；牙龈",
@@ -12109,7 +12244,7 @@
         "usage": [
           {
             "id": "collocation:4ee3728b65a32499f8e1",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "gum disease",
             "meaning_cn": "牙龈疾病",
             "kind": "usage_example",
@@ -12119,13 +12254,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:gum:cf89264aa61a5d2f",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "牙床；牙龈"
         }
       },
       {
         "id": "sense:gum:aa2a0c02ce735032",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
         "definition_cn": "涂以树胶；用胶粘",
@@ -12135,14 +12270,14 @@
         "usage": [
           {
             "id": "collocation:c50986b602c6b31f0766",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "gum sth together",
             "meaning_cn": "用胶把某物粘在一起",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:c50986b602c6b31f0766",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "gum sth together"
             }
           }
@@ -12150,13 +12285,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:gum:aa2a0c02ce735032",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "涂以树胶；用胶粘"
         }
       },
       {
         "id": "sense:gum:9ed4f253b4ce539e",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "verb",
         "governing_pattern": "vi. + up",
         "definition_cn": "发粘；被粘住",
@@ -12166,14 +12301,14 @@
         "usage": [
           {
             "id": "collocation:6fa8624899e3594f2cce",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "gum up",
             "meaning_cn": "被粘住；变黏堵塞",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:6fa8624899e3594f2cce",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[4].collocations[0]",
               "target_label": "gum up"
             }
           }
@@ -12181,7 +12316,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:gum:9ed4f253b4ce539e",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "发粘；被粘住"
         }
       }
@@ -12284,7 +12419,46 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:8cef031f49d7aa5f4595",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:gum:ac62661705355ea1:collocation:0"
+              ],
+              "meaning_cn": "口香糖",
+              "phrase": "chewing gum"
+            },
+            {
+              "collocation_id": "collocation:ef919a30d34b0bec43a3",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:gum:ac62661705355ea1:collocation:1"
+              ],
+              "meaning_cn": "桉树（常见用法）",
+              "phrase": "gum tree"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "树胶；胶黏物；口香糖",
+          "definition_en": "a sticky substance from certain plants or used as adhesive; also chewing gum",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:gum:ac62661705355ea1",
+          "sense_label_en": "a sticky substance from certain plants or used as adhesive; also chewing gum",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "usage_note": "gum tree常指桉树，是具体树名，不能泛指所有产树胶的树。",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -12293,7 +12467,7 @@
     "ordinal": 2232,
     "word": "gun",
     "source_owner_path": "content/lexical/words/by-ordinal/o2232.json",
-    "source_fingerprint": "1e4afef34e88809732a48b2a60069f2627977b32ddcb19bdefc5f695337bb416",
+    "source_fingerprint": "5f72a8af92afb92570be62fad0879e9a47f015bfb843014d9fbe86bf91378f31",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -12304,7 +12478,7 @@
     },
     "word_feel": {
       "summary_cn": "枪、发令信号或枪形工具；射击、发动机高速运转或加速驾驶车辆",
-      "decision_cn": "gun除武器与发令信号，还可为spray gun等工具；发动机作主语表示高速运转vi，车辆作宾语表示突然加速驾驶vt。",
+      "decision_cn": "gun除武器与发令信号，还可为spray gun等工具；发动机可自己高速运转，也可说 gun the engine（轰油门）；gun a car 则是加速驾驶车辆。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -12433,10 +12607,10 @@
         "id": "sense:gun:753d83db9a9e9043",
         "source_locator": "record.senses[4]",
         "pos": "verb",
-        "governing_pattern": "an engine guns",
-        "definition_cn": "（发动机）高速运转（北美英语）",
-        "definition_en": "for an engine to run very fast",
-        "note": "北美英语，主语为发动机；如The engine was gunning。区别于射击vt。",
+        "governing_pattern": "an engine guns; gun an engine",
+        "definition_cn": "（使发动机）高速运转；轰油门",
+        "definition_en": "for an engine to run very fast, or to make an engine run faster",
+        "note": "北美用法；发动机可作主语，也可作 gun 的宾语。不同于开枪射击。",
         "identity_overlay": null,
         "usage": [
           {
@@ -12446,13 +12620,21 @@
             "meaning_cn": "发动机在高速运转。",
             "kind": "usage_example",
             "repair": null
+          },
+          {
+            "id": "collocation:f091ba37e097af43fc3f",
+            "source_locator": "record.senses[4].collocations[1]",
+            "phrase": "gun the engine",
+            "meaning_cn": "轰油门，使发动机转速提高",
+            "kind": "usage_example",
+            "repair": null
           }
         ],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:gun:753d83db9a9e9043",
           "target_locator": "record.senses[4]",
-          "target_label": "（发动机）高速运转（北美英语）"
+          "target_label": "（使发动机）高速运转；轰油门"
         }
       },
       {
@@ -13228,7 +13410,7 @@
     "ordinal": 2236,
     "word": "habit",
     "source_owner_path": "content/lexical/words/by-ordinal/o2236.json",
-    "source_fingerprint": "4a52282b9791620b0813c543385b8003b648483b6ed5ef8d1013ee06b2b5141b",
+    "source_fingerprint": "a56b7648493a840ed93e99495d42d497a2295bdf2b6be5872a490e8d9733def6",
     "sense_lineage": [
       {
         "word_id": "word:habit",
@@ -13247,18 +13429,18 @@
     ],
     "recall_map": {
       "parts": [
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "习惯",
-      "decision_cn": "",
+      "summary_cn": "习惯；瘾",
+      "decision_cn": "habit 通常指习惯；drug habit 等语境可指毒瘾。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "习惯"
+        "target_label": "习惯；瘾"
       }
     },
     "senses": [
@@ -13286,6 +13468,23 @@
           "target_id": "sense:habit:281ed7c8ef265e95",
           "target_locator": "record.senses[0]",
           "target_label": "习惯；惯常行为；习性"
+        }
+      },
+      {
+        "id": "sense:habit:85f29d59fcf2af89",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "a drug habit",
+        "definition_cn": "瘾；（尤指）毒瘾",
+        "definition_en": "a strong need to keep using a drug or other addictive substance",
+        "note": "drug habit 等语境可指毒瘾，不把所有日常习惯都理解成成瘾。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:habit:85f29d59fcf2af89",
+          "target_locator": "record.senses[1]",
+          "target_label": "瘾；（尤指）毒瘾"
         }
       }
     ],
@@ -13480,11 +13679,19 @@
     "ordinal": 2238,
     "word": "hail",
     "source_owner_path": "content/lexical/words/by-ordinal/o2238.json",
-    "source_fingerprint": "a0037b81c291d43deb7662bc4a5affa5b253ca851c55838bf9a03d7257215e34",
-    "sense_lineage": [],
+    "source_fingerprint": "7c9b585bd4452027612cef7e438b103b7afb88c3027fa3250002fee200abf3c9",
+    "sense_lineage": [
+      {
+        "word_id": "word:hail",
+        "target_kind": "sense",
+        "from_target_id": "sense:hail:ce1775e9726d54d1",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "4V",
         "2N"
       ],
       "density": "rich"
@@ -13518,12 +13725,12 @@
         }
       },
       {
-        "id": "sense:hail:ce1775e9726d54d1",
+        "id": "sense:hail:d33c2c1e4cf2588c",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "向……欢呼、致敬；招呼、叫停",
-        "definition_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop",
+        "governing_pattern": "hail sb/sth (as …)",
+        "definition_cn": "赞颂；欢呼欢迎；把……誉为……",
+        "definition_en": "to welcome or praise someone or something enthusiastically",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -13539,10 +13746,28 @@
               "target_locator": "record.senses[1].collocations[0]",
               "target_label": "hail + sb/sth as + n"
             }
-          },
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:hail:d33c2c1e4cf2588c",
+          "target_locator": "record.senses[1]",
+          "target_label": "赞颂；欢呼欢迎；把……誉为……"
+        }
+      },
+      {
+        "id": "sense:hail:38fd14036c38bc34",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "hail sb/a taxi",
+        "definition_cn": "招呼；喊住；招手叫停（车辆等）",
+        "definition_en": "to call or signal to someone to get attention or stop a vehicle",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
           {
             "id": "collocation:9557ac6d516a9b4ab873",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "hail a taxi",
             "meaning_cn": "叫出租车",
             "kind": "usage_example",
@@ -13551,14 +13776,14 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:hail:ce1775e9726d54d1",
-          "target_locator": "record.senses[1]",
-          "target_label": "向……欢呼、致敬；招呼、叫停"
+          "target_id": "sense:hail:38fd14036c38bc34",
+          "target_locator": "record.senses[2]",
+          "target_label": "招呼；喊住；招手叫停（车辆等）"
         }
       },
       {
         "id": "sense:hail:acccdbbafeef55f3",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi. + from",
         "definition_cn": "来自",
@@ -13568,14 +13793,14 @@
         "usage": [
           {
             "id": "collocation:b5572e17596ec603bdfd",
-            "source_locator": "record.senses[2].collocations[0]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "hail from + place",
             "meaning_cn": "来自某地",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:b5572e17596ec603bdfd",
-              "target_locator": "record.senses[2].collocations[0]",
+              "target_locator": "record.senses[3].collocations[0]",
               "target_label": "hail from + place"
             }
           }
@@ -13583,13 +13808,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hail:acccdbbafeef55f3",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "来自"
         }
       },
       {
         "id": "sense:hail:23ff22bfcfd753ca",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "一阵密集的……（如子弹、批评、问题）",
@@ -13599,7 +13824,7 @@
         "usage": [
           {
             "id": "collocation:547c647f4de24aefe5cb",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "a hail of criticism",
             "meaning_cn": "一阵批评",
             "kind": "usage_example",
@@ -13607,7 +13832,7 @@
           },
           {
             "id": "collocation:6e0f2ec80041dd164094",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[4].collocations[1]",
             "phrase": "a hail of bullets",
             "meaning_cn": "一阵弹雨",
             "kind": "usage_example",
@@ -13617,13 +13842,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hail:23ff22bfcfd753ca",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "一阵密集的……（如子弹、批评、问题）"
         }
       },
       {
         "id": "sense:hail:b857c718739a1de6",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[5]",
         "pos": "verb",
         "governing_pattern": "it hails; it is hailing",
         "definition_cn": "下冰雹",
@@ -13633,7 +13858,7 @@
         "usage": [
           {
             "id": "collocation:adc1617748ac3e0718f4",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "It was hailing outside.",
             "meaning_cn": "外面正在下冰雹。",
             "kind": "usage_example",
@@ -13643,7 +13868,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hail:b857c718739a1de6",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[5]",
           "target_label": "下冰雹"
         }
       }
@@ -13669,7 +13894,7 @@
                 "sense:hail:b857c718739a1de6"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2238.json",
-              "source_pointer": "/record/senses/4",
+              "source_pointer": "/record/senses/5",
               "conditions": {
                 "current_owner_usage": "it hails; it is hailing"
               }
@@ -13705,7 +13930,45 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ef45ac45a86766441c10",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:hail:ce1775e9726d54d1:collocation:0"
+              ],
+              "meaning_cn": "把...誉为...",
+              "phrase": "hail + sb/sth as + n"
+            },
+            {
+              "collocation_id": "collocation:9557ac6d516a9b4ab873",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:hail:ce1775e9726d54d1:collocation:1"
+              ],
+              "meaning_cn": "叫出租车",
+              "phrase": "hail a taxi"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "向……欢呼、致敬；招呼、叫停",
+          "definition_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop",
+          "governing_pattern": "vt. + object",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hail:ce1775e9726d54d1",
+          "sense_label_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop",
+          "sort_order": 1,
+          "transitivity": "vt",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {

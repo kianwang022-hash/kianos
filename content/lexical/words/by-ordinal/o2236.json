@@ -9,10 +9,20 @@
     "constructions": [],
     "content_hash": "a11fee2caa5e221ba358a92e19371f6fe6043f9ba3dca99f59762ceb088d1764",
     "core_concept": {
-      "core_clusters": [],
-      "core_meaning_cn": "习惯",
+      "core_clusters": [
+        {
+          "pos": "noun",
+          "sense_ids": [
+            "sense:habit:281ed7c8ef265e95",
+            "sense:habit:85f29d59fcf2af89"
+          ],
+          "label_cn": "习惯；惯常行为；习性；瘾；（尤指）毒瘾",
+          "label_en": "a usual or repeated way of behaving, often done automatically; a strong need to keep using a drug or other addictive substance"
+        }
+      ],
+      "core_meaning_cn": "习惯；瘾",
       "core_meaning_en": "a usual way of behaving",
-      "mental_model_cn": "习惯",
+      "mental_model_cn": "habit 通常指习惯；drug habit 等语境可指毒瘾。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -46,6 +56,21 @@
         "sense_label_en": "a usual or repeated way of behaving, often done automatically",
         "sort_order": 0,
         "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "瘾；（尤指）毒瘾",
+        "definition_en": "a strong need to keep using a drug or other addictive substance",
+        "governing_pattern": "a drug habit",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:habit:85f29d59fcf2af89",
+        "sense_label_en": "a strong need to keep using a drug or other addictive substance",
+        "sort_order": 1,
+        "transitivity": "nonverb",
+        "usage_note": "drug habit 等语境可指毒瘾，不把所有日常习惯都理解成成瘾。"
       }
     ],
     "verification_summary": {
@@ -281,6 +306,14 @@
         "merged_into_sense_id": "sense:habit:281ed7c8ef265e95",
         "source_row": 6244,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:habit:85f29d59fcf2af89",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2236.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
