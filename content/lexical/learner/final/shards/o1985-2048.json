@@ -4804,7 +4804,7 @@
     "ordinal": 2009,
     "word": "formation",
     "source_owner_path": "content/lexical/words/by-ordinal/o2009.json",
-    "source_fingerprint": "a935762934736fd923ad636959470c236cc3120d0a34b5a57cb77468e8fe216c",
+    "source_fingerprint": "7a91dc8a3d7b419e7374ff62fbbac685c0d7c0e85025db157698562b43fdb452",
     "sense_lineage": [
       {
         "word_id": "word:formation",
@@ -4861,9 +4861,9 @@
         "id": "sense:formation:d8b593efec555678",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "编队；形成的结构",
-        "definition_en": "an arrangement of people or things acting as a unit",
+        "governing_pattern": "fly/march in formation",
+        "definition_cn": "队形；编队",
+        "definition_en": "an ordered arrangement of people or things moving or acting together",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4871,16 +4871,16 @@
           "target_kind": "sense",
           "target_id": "sense:formation:d8b593efec555678",
           "target_locator": "record.senses[1]",
-          "target_label": "编队；形成的结构"
+          "target_label": "队形；编队"
         }
       },
       {
         "id": "sense:formation:120ef01088ac5e56",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "排列；空间结构",
-        "definition_en": "a particular spatial arrangement",
+        "governing_pattern": "rock/cloud formations",
+        "definition_cn": "排列形态；构造",
+        "definition_en": "the way things are arranged or grouped, as in a natural rock structure",
         "note": "",
         "identity_overlay": null,
         "usage": [],
@@ -4888,7 +4888,7 @@
           "target_kind": "sense",
           "target_id": "sense:formation:120ef01088ac5e56",
           "target_locator": "record.senses[2]",
-          "target_label": "排列；空间结构"
+          "target_label": "排列形态；构造"
         }
       }
     ],
@@ -5336,22 +5336,30 @@
     "ordinal": 2012,
     "word": "formula",
     "source_owner_path": "content/lexical/words/by-ordinal/o2012.json",
-    "source_fingerprint": "af6a67f13dc9a536932273c234844dcdc6b6f22f0f0a72e48d7f91cc870fece1",
-    "sense_lineage": [],
+    "source_fingerprint": "355c19f3a0a1950a2d9bcd47cdc18567bf17868253b87f5dd63f0dca83c991a6",
+    "sense_lineage": [
+      {
+        "word_id": "word:formula",
+        "target_kind": "sense",
+        "from_target_id": "sense:formula:2c1e554f211d5c9e",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "4N"
+        "6N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "公式、化学式；方法或惯用语句；婴儿配方奶",
-      "decision_cn": "数学formula为公式，化学语境为化学式；formula for success为方法。婴儿喂养语境指配方奶，也可指粉状产品。",
+      "summary_cn": "公式、化学式、配方；固定方法或说法；婴儿配方奶",
+      "decision_cn": "计算或化学符号→公式、化学式；产品成分→配方；做事→方法；措辞→固定说法；喂养婴儿→配方奶。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "公式、化学式；方法或惯用语句；婴儿配方奶"
+        "target_label": "公式、化学式、配方；固定方法或说法；婴儿配方奶"
       }
     },
     "senses": [
@@ -5382,12 +5390,12 @@
         }
       },
       {
-        "id": "sense:formula:2c1e554f211d5c9e",
+        "id": "sense:formula:acea15c1692e0efd",
         "source_locator": "record.senses[1]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "方法；准则；（礼仪、法律等的）惯用措辞",
-        "definition_en": "a standard method or rule for achieving something, or an established form of words",
+        "governing_pattern": "formula for sth / for doing sth",
+        "definition_cn": "方法；做法；准则",
+        "definition_en": "a particular method or set of rules for doing or achieving something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -5402,9 +5410,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:formula:2c1e554f211d5c9e",
+          "target_id": "sense:formula:acea15c1692e0efd",
           "target_locator": "record.senses[1]",
-          "target_label": "方法；准则；（礼仪、法律等的）惯用措辞"
+          "target_label": "方法；做法；准则"
         }
       },
       {
@@ -5458,6 +5466,40 @@
           "target_locator": "record.senses[3]",
           "target_label": "婴儿配方食品；配方奶（可为粉状或液态）"
         }
+      },
+      {
+        "id": "sense:formula:3d9f5e9b6a8ea1c7",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "legal formulae; a formula of words",
+        "definition_cn": "（特定场合的）惯用措辞；固定说法",
+        "definition_en": "a set form of words used for a particular purpose or occasion",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:formula:3d9f5e9b6a8ea1c7",
+          "target_locator": "record.senses[4]",
+          "target_label": "（特定场合的）惯用措辞；固定说法"
+        }
+      },
+      {
+        "id": "sense:formula:ded44922e3aa4dac",
+        "source_locator": "record.senses[5]",
+        "pos": "noun",
+        "governing_pattern": "the formula for a product",
+        "definition_cn": "配方（成分及用量）",
+        "definition_en": "the ingredients and their amounts used to make a product",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:formula:ded44922e3aa4dac",
+          "target_locator": "record.senses[5]",
+          "target_label": "配方（成分及用量）"
+        }
       }
     ],
     "pronunciation_support": {
@@ -5498,7 +5540,36 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:03a875cfe5f36d7a00eb",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:formula:2c1e554f211d5c9e:collocation:0"
+              ],
+              "meaning_cn": "成功的方法／诀窍",
+              "phrase": "formula for success"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "方法；准则；（礼仪、法律等的）惯用措辞",
+          "definition_en": "a standard method or rule for achieving something, or an established form of words",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:formula:2c1e554f211d5c9e",
+          "sense_label_en": "a standard method or rule for achieving something, or an established form of words",
+          "sort_order": 1,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -7005,7 +7076,7 @@
     "ordinal": 2023,
     "word": "foster",
     "source_owner_path": "content/lexical/words/by-ordinal/o2023.json",
-    "source_fingerprint": "3fca716d4ffed87c56318d1293adf2b5543110b40f4608e28384add7a51206bb",
+    "source_fingerprint": "171cac670ede485537cd68d8ee65ef29fc2084657576cb2a7f3e095d593dc0c3",
     "sense_lineage": [
       {
         "word_id": "word:foster",
@@ -7142,8 +7213,8 @@
       "confusables": [],
       "relations": [
         {
-          "title": "foster ↔ foster ≈ promote/encourage",
-          "target_word": "foster ≈ promote/encourage",
+          "title": "foster ↔ promote / encourage",
+          "target_word": "promote / encourage",
           "lines": [
             {
               "text": "foster in abstract-development senses ≈ encourage/promote/help develop; the foster-child sense is separate.",
@@ -7155,7 +7226,7 @@
             "target_kind": "relation",
             "target_id": "relation:horizontal:92043f8b6e25d05588ef",
             "target_locator": "record.semantic_neighbors[0]",
-            "target_label": "foster ↔ foster ≈ promote/encourage"
+            "target_label": "foster ↔ promote / encourage"
           }
         }
       ],
@@ -7196,7 +7267,7 @@
     "ordinal": 2024,
     "word": "foul",
     "source_owner_path": "content/lexical/words/by-ordinal/o2024.json",
-    "source_fingerprint": "b997b7227678e23a309c4601f6963ab389f36ed88e4664f745eb7bce298d2368",
+    "source_fingerprint": "02c2b7ce36a4d1b900e29e1bf637ce7c08ab9fd538d2a35e4791ffcb59da4171",
     "sense_lineage": [
       {
         "word_id": "word:foul",
@@ -7426,8 +7497,8 @@
             "lang": "cn"
           },
           {
-            "text": "General informal phrasal verb; keep it distinct from the lower-value mechanical entangle/clog sense.",
-            "lang": "en"
+            "text": "非正式；foul something up 表示把事情搞砸。",
+            "lang": "cn"
           },
           {
             "text": "to spoil something by making a mistake or doing something stupid",
@@ -8115,7 +8186,7 @@
     "ordinal": 2028,
     "word": "four",
     "source_owner_path": "content/lexical/words/by-ordinal/o2028.json",
-    "source_fingerprint": "87fd82f36f701a9e3af7577c2342697a53e8ea5ea40c092bf77f2a1437508f2f",
+    "source_fingerprint": "3fc9edf07c164662183521bfc7f3037007ad0f88dc2cbc77d8bbd4e680ee85e8",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8140,7 +8211,7 @@
         "pos": "numeral",
         "governing_pattern": "",
         "definition_cn": "四",
-        "definition_en": "the cardinal number that is the sum of three and one",
+        "definition_en": "the number 4",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -8240,7 +8311,7 @@
     "ordinal": 2029,
     "word": "fourteen",
     "source_owner_path": "content/lexical/words/by-ordinal/o2029.json",
-    "source_fingerprint": "032393f5ff724c49619cf1910576c8ef0e2abb3aba01aa69da65c06ddd50c342",
+    "source_fingerprint": "01ece93b51656dde968c4b1a91e38830da9f3cc2f02ab4f6db75329f373f6482",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -8265,7 +8336,7 @@
         "pos": "numeral",
         "governing_pattern": "",
         "definition_cn": "十四，十四个",
-        "definition_en": "the cardinal number that is the sum of thirteen and one",
+        "definition_en": "the number 14",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9222,7 +9293,7 @@
     "ordinal": 2034,
     "word": "fragment",
     "source_owner_path": "content/lexical/words/by-ordinal/o2034.json",
-    "source_fingerprint": "62b59020fed16784e913e051500f969a34fe094b5873cbe9b9e1ffee408559d8",
+    "source_fingerprint": "16bbd46bb7b4792372828d003858a3c661581e9b72723061d8522ed7aab59624",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9233,7 +9304,7 @@
     },
     "word_feel": {
       "summary_cn": "碎片、片段；（使）碎裂或分裂",
-      "decision_cn": "名词fragment为实体碎片或不完整片段；动词可使实体碎裂或群体分裂。英式用法中名词通常重音在前，动词通常重音在后。",
+      "decision_cn": "名词fragment为实体碎片或不完整片段；动词可使实体碎裂或群体分裂。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9900,7 +9971,7 @@
     "ordinal": 2038,
     "word": "franchise",
     "source_owner_path": "content/lexical/words/by-ordinal/o2038.json",
-    "source_fingerprint": "0eca16a4ce989c8c79637f96c566ca1c3974580c45d964c8c92f4f735530a544",
+    "source_fingerprint": "bdb7f0659266bc08ea8169917d18743b4afd5d0720dd75f4dce8fdaaa7386d41",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -9911,7 +9982,7 @@
     },
     "word_feel": {
       "summary_cn": "特许经营权、店或系列作品；投票权；职业球队；授予特许",
-      "decision_cn": "商业语境可为特许经营权或加盟店，影视为系列作品，历史政治语境可为投票权；体育franchise可指职业球队和经营组织。动词为授予特许。",
+      "decision_cn": "商业语境可为特许经营权或加盟店，影视为系列作品，政治语境可为投票权；体育franchise可指职业球队和经营组织。动词为授予特许。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
@@ -9998,7 +10069,7 @@
         "id": "sense:franchise:19e614eba40950c2",
         "source_locator": "record.senses[3]",
         "pos": "noun",
-        "governing_pattern": "",
+        "governing_pattern": "the franchise; extend/grant the franchise",
         "definition_cn": "公民权，选举权",
         "definition_en": "a statutory right or privilege granted to a person or group by a government (especially the rights of citizenship and the right to vote)",
         "note": "",
@@ -11060,12 +11131,20 @@
     "ordinal": 2044,
     "word": "freeze",
     "source_owner_path": "content/lexical/words/by-ordinal/o2044.json",
-    "source_fingerprint": "b0e31cce91db847e61c329f94019350fa1455885e431b31d1516dcb85a8ddf23",
-    "sense_lineage": [],
+    "source_fingerprint": "cdde44bba0c95f7946ff7a8320f159785f1fc1984d3aca96c78efa9c8551f857",
+    "sense_lineage": [
+      {
+        "word_id": "word:freeze",
+        "target_kind": "sense",
+        "from_target_id": "sense:freeze:08004f38898153ad",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
         "6V",
-        "1N"
+        "2N"
       ],
       "density": "rich"
     },
@@ -11180,26 +11259,18 @@
         }
       },
       {
-        "id": "sense:freeze:08004f38898153ad",
+        "id": "sense:freeze:c9456c8d7e3ff4fa",
         "source_locator": "record.senses[3]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "严寒期；冻结",
-        "definition_en": "a period of very cold weather; a temporary halt",
+        "governing_pattern": "a hard freeze; a freeze warning",
+        "definition_cn": "冰冻天气；冰冻期",
+        "definition_en": "a period of weather in which the temperature falls or stays below freezing",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:cb7e4b9d71644c9647c7",
-            "source_locator": "record.senses[3].collocations[0]",
-            "phrase": "a price freeze",
-            "meaning_cn": "价格冻结",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:11e7ae9656bea1959582",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "a hard freeze",
             "meaning_cn": "严重冰冻；严寒天气",
             "kind": "usage_example",
@@ -11208,9 +11279,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:freeze:08004f38898153ad",
+          "target_id": "sense:freeze:c9456c8d7e3ff4fa",
           "target_locator": "record.senses[3]",
-          "target_label": "严寒期；冻结"
+          "target_label": "冰冻天气；冰冻期"
         }
       },
       {
@@ -11294,6 +11365,32 @@
           "target_id": "sense:freeze:9491c80e58cf3076",
           "target_locator": "record.senses[6]",
           "target_label": "（电脑、应用等）停止工作；卡住无响应"
+        }
+      },
+      {
+        "id": "sense:freeze:ea5dfee32b243b8d",
+        "source_locator": "record.senses[7]",
+        "pos": "noun",
+        "governing_pattern": "a price/wage freeze; a freeze on sth",
+        "definition_cn": "冻结；暂停（如限制价格变动、暂停某项活动）",
+        "definition_en": "a temporary stop to an activity, or a decision to keep prices or pay unchanged",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:cb7e4b9d71644c9647c7",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "a price freeze",
+            "meaning_cn": "价格冻结",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:freeze:ea5dfee32b243b8d",
+          "target_locator": "record.senses[7]",
+          "target_label": "冻结；暂停（如限制价格变动、暂停某项活动）"
         }
       }
     ],
@@ -11398,7 +11495,46 @@
           "target_label": "freeze is irregular: freeze → froze → frozen."
         }
       },
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:cb7e4b9d71644c9647c7",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:freeze:08004f38898153ad:collocation:0"
+              ],
+              "meaning_cn": "价格冻结",
+              "phrase": "a price freeze"
+            },
+            {
+              "collocation_id": "collocation:11e7ae9656bea1959582",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:freeze:08004f38898153ad:collocation:1"
+              ],
+              "meaning_cn": "严重冰冻；严寒天气",
+              "phrase": "a hard freeze"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "严寒期；冻结",
+          "definition_en": "a period of very cold weather; a temporary halt",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:freeze:08004f38898153ad",
+          "sense_label_en": "a period of very cold weather; a temporary halt",
+          "sort_order": 3,
+          "transitivity": "nonverb",
+          "stable_sense_id": "sense:freeze:08004f38898153ad",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -11929,7 +12065,7 @@
     "ordinal": 2048,
     "word": "fresh",
     "source_owner_path": "content/lexical/words/by-ordinal/o2048.json",
-    "source_fingerprint": "f5cacd7f77d447bea7770308df3f36a4578f6114753d877552a810e723e8d560",
+    "source_fingerprint": "c2e495fd2018888f830ebac5be99a4aff94e860d8348c032d26ea14bcba29e83",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -12090,17 +12226,17 @@
         "id": "sense:fresh:2ae23ba5b8f855ff",
         "source_locator": "record.senses[5]",
         "pos": "adverb",
-        "governing_pattern": "",
-        "definition_cn": "刚刚；最新地",
-        "definition_en": "recently; just",
-        "note": "",
+        "governing_pattern": "baked/made fresh; fresh out of sth",
+        "definition_cn": "刚刚；新近地（用于特定搭配）",
+        "definition_en": "newly or just recently, in particular expressions",
+        "note": "如 baked fresh（现烤）；fresh out of supplies 可表示供应品刚用完。fresh 不能在任意句子中替换 recently。",
         "identity_overlay": null,
         "usage": [],
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:fresh:2ae23ba5b8f855ff",
           "target_locator": "record.senses[5]",
-          "target_label": "刚刚；最新地"
+          "target_label": "刚刚；新近地（用于特定搭配）"
         }
       },
       {

@@ -149,12 +149,295 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
   return result;
 }
 
+async function auditBoundedReadableRows(page, ordinal, stem, outputRoot) {
+  const exact = {
+    2052: ['sense:friendly:800bdfcfc6e039d0'],
+    2056: ['sense:fringe:aeea9ad07372b227'],
+  };
+  const ids = exact[ordinal] || ([3185, 856].includes(ordinal)
+    ? await page.locator('.portedVocabSenseList > .lexicalSenseRow:visible').evaluateAll(rows => rows
+      .filter(row => row.querySelector(':scope > header > small')?.textContent.trim())
+      .map(row => row.getAttribute('data-vocab-sense-id')))
+    : []);
+  const results = [];
+  for (const [index, id] of ids.entries()) {
+    const row = page.locator(`.portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id="${id}"]`);
+    // Normal scrolling only: no hidden overlays, viewport resize, forced clicks or state mutation.
+    await row.evaluate(el => el.scrollIntoView({block:'center', inline:'nearest', behavior:'instant'}));
+    await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+    const evidence = await row.evaluate(el => {
+      const rect = n => {const r=n.getBoundingClientRect();return {left:r.left,right:r.right,top:r.top,bottom:r.bottom,width:r.width,height:r.height};};
+      const dock=document.querySelector('.lexicalActionDock');
+      const dockVisible=dock && getComputedStyle(dock).display!=='none' && dock.getClientRects().length;
+      const viewport={left:0,right:innerWidth,top:0,bottom:dockVisible?Math.min(innerHeight,rect(dock).top):innerHeight};
+      const ancestors=[];
+      for(let p=el.parentElement;p;p=p.parentElement) {
+        const s=getComputedStyle(p),r=p.getBoundingClientRect();
+        const clipsY=/(auto|scroll|hidden|clip)/.test(s.overflowY);
+        const clipsX=/(auto|scroll|hidden|clip)/.test(s.overflowX);
+        if(clipsY){viewport.top=Math.max(viewport.top,r.top+p.clientTop);viewport.bottom=Math.min(viewport.bottom,r.top+p.clientTop+p.clientHeight);}
+        if(clipsX){viewport.left=Math.max(viewport.left,r.left+p.clientLeft);viewport.right=Math.min(viewport.right,r.left+p.clientLeft+p.clientWidth);}
+        if(clipsY||clipsX)ancestors.push({tag:p.tagName,className:p.className,scrollTop:p.scrollTop,scrollHeight:p.scrollHeight,clientHeight:p.clientHeight,overflowY:s.overflowY,box:rect(p)});
+      }
+      const fragments=[],problems=[];
+      const walker=document.createTreeWalker(el,NodeFilter.SHOW_TEXT);
+      while(walker.nextNode()) {
+        const text=walker.currentNode,parent=text.parentElement;
+        if(!text.textContent.trim()||parent.closest('button,[hidden]'))continue;
+        const style=getComputedStyle(parent);
+        if(style.display==='none'||style.visibility==='hidden')continue;
+        const range=document.createRange();range.selectNodeContents(text);
+        for(const r of range.getClientRects()) {
+          if(r.width<=0||r.height<=0)continue;
+          const f={text:text.textContent.trim(),left:r.left,right:r.right,top:r.top,bottom:r.bottom};
+          const inViewport=r.left>=viewport.left-1&&r.right<=viewport.right+1&&r.top>=viewport.top-1&&r.bottom<=viewport.bottom+1;
+          const hit=document.elementFromPoint((r.left+r.right)/2,(r.top+r.bottom)/2);
+          const unobscured=Boolean(hit&&(hit===parent||parent.contains(hit)));
+          fragments.push({...f,inViewport,unobscured});
+          if(!inViewport||!unobscured)problems.push({...f,inViewport,unobscured,hit:hit?{tag:hit.tagName,className:hit.className}:null});
+        }
+      }
+      return {id:el.getAttribute('data-vocab-sense-id'),row:rect(el),viewport,dock:dockVisible?rect(dock):null,ancestors,fragments,problems,pass:fragments.length>0&&problems.length===0};
+    });
+    // Page screenshot does not auto-scroll the target again, unlike locator.screenshot().
+    const screenshot=`${stem}-readable-${index+1}.png`;
+    await page.screenshot({path:path.join(outputRoot,screenshot),fullPage:false});
+    results.push({...evidence,screenshot});
+  }
+  return results;
+}
+
+
+// #1302: bounded rendered regression evidence, not a second content authority.
+async function auditFirstQualityBatch(browser) {
+  const fixtures = [
+    {
+      "ordinal": 2009,
+      "word": "formation"
+    },
+    {
+      "ordinal": 2012,
+      "word": "formula"
+    },
+    {
+      "ordinal": 2023,
+      "word": "foster"
+    },
+    {
+      "ordinal": 2024,
+      "word": "foul",
+      "text": "非正式；foul something up 表示把事情搞砸。"
+    },
+    {
+      "ordinal": 2028,
+      "word": "four",
+      "text": "the number 4"
+    },
+    {
+      "ordinal": 2029,
+      "word": "fourteen",
+      "text": "the number 14"
+    },
+    {
+      "ordinal": 2034,
+      "word": "fragment"
+    },
+    {
+      "ordinal": 2038,
+      "word": "franchise"
+    },
+    {
+      "ordinal": 2044,
+      "word": "freeze"
+    },
+    {
+      "ordinal": 2048,
+      "word": "fresh"
+    },
+    {
+      "ordinal": 2051,
+      "word": "friend"
+    },
+    {
+      "ordinal": 2052,
+      "word": "friendly"
+    },
+    {
+      "ordinal": 2056,
+      "word": "fringe",
+      "text": "with 后接沿边缘分布的事物。"
+    },
+    {
+      "ordinal": 2057,
+      "word": "frog",
+      "text": "a small animal with no tail and long back legs for jumping, which lives on land and in water"
+    },
+    {
+      "ordinal": 2069,
+      "word": "full"
+    },
+    {
+      "ordinal": 2072,
+      "word": "function"
+    },
+    {
+      "ordinal": 2078,
+      "word": "furious"
+    },
+    {
+      "ordinal": 2079,
+      "word": "furnace"
+    },
+    {
+      "ordinal": 2081,
+      "word": "furniture"
+    },
+    {
+      "ordinal": 2089,
+      "word": "galaxy"
+    },
+    {
+      "ordinal": 2095,
+      "word": "gaol"
+    },
+    {
+      "ordinal": 3185,
+      "word": "natural"
+    },
+    {
+      "ordinal": 856,
+      "word": "close"
+    },
+    {
+      "ordinal": 2041,
+      "word": "free"
+    },
+    {
+      "ordinal": 2082,
+      "word": "further"
+    },
+    {
+      "ordinal": 2093,
+      "word": "game"
+    }
+  ];
+  const context = await browser.newContext({ deviceScaleFactor: 1 });
+  const page = await context.newPage();
+  const report = { status: 'RUNNING', cases: [], navigation: null, errors: [] };
+  page.on('pageerror', error => report.errors.push(String(error)));
+  const save = () => fs.writeFileSync(path.join(outputRoot, 'batch-2000-2099-rendered.json'), `${JSON.stringify(report, null, 2)}\n`);
+  const ready = async (ordinal, mode) => {
+    await page.locator(`[data-local-port="vocabulary"][data-vocab-ordinal="${ordinal}"][data-vocab-initialized="true"][data-vocab-mode="${mode}"]`).waitFor({ state: 'attached' });
+    await page.evaluate(() => document.fonts.ready);
+  };
+  try {
+    for (const viewport of [{ width: 1440, height: 900 }, { width: 1280, height: 800 }]) {
+      await page.setViewportSize(viewport);
+      for (const fixture of fixtures) {
+        const current = loadLexicalWordByOrdinal(fixture.ordinal).record;
+        assert(current.word === fixture.word, 'batch_current_identity', `${fixture.ordinal}:${current.word}`);
+        for (const mode of ['study', 'lookup']) {
+          const stateSnapshot = () => page.evaluate(word => ({ cursor:localStorage.getItem('kianos-vocabulary-last-ordinal'), word:localStorage.getItem(`kianos-vocabulary-astro-v2:word:${word}`) }), fixture.word);
+          const beforeLookup = mode === 'lookup' ? await stateSnapshot() : null;
+          await page.goto(wordUrl(fixture.ordinal, mode), { waitUntil: 'networkidle' });
+          await ready(fixture.ordinal, mode);
+          if (mode === 'study' && await page.locator('[data-vocab-front]').isVisible()) {
+            await page.locator('[data-vocab-reveal]').click(); // Real enabled/visible action; never force.
+          }
+          await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+          const stem = `batch-${fixture.ordinal}-${fixture.word}-${mode}-${viewport.width}x${viewport.height}`;
+          await page.screenshot({ path: path.join(outputRoot, `${stem}.png`), fullPage: true });
+          const geometry = await page.evaluate(() => {
+            const visible = node => node instanceof HTMLElement && !node.closest('[hidden]') && node.getClientRects().length > 0 && getComputedStyle(node).visibility !== 'hidden';
+            const box = node => { const r = node.getBoundingClientRect(); return { left:r.left, right:r.right, top:r.top, bottom:r.bottom, width:r.width, height:r.height }; };
+            const overlaps = (a,b) => Math.min(a.right,b.right)-Math.max(a.left,b.left)>1 && Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>1;
+            // Text fragments, not just grid boxes: catches long collocations escaping their column.
+            const fragments = node => {
+              const out=[]; const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);
+              while(walker.nextNode()) { const text=walker.currentNode; if(!text.textContent.trim() || !visible(text.parentElement)) continue;
+                const range=document.createRange();range.selectNodeContents(text);out.push(...[...range.getClientRects()].map(r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom}))); }
+              return out;
+            };
+            const collisions=[];
+            const rows=[...document.querySelectorAll('.portedVocabSenseList > .lexicalSenseRow')].filter(visible);
+            const rowInfo=rows.map((row,index)=>{
+              const columns=[...row.children].filter(node=>visible(node)&&node.matches('header,.lexicalSenseMeaning,.lexicalSenseUsage'));
+              for(let i=0;i<columns.length;i++) for(let j=i+1;j<columns.length;j++) {
+                if(fragments(columns[i]).some(a=>fragments(columns[j]).some(b=>overlaps(a,b)))) collisions.push(`row:${index}:columns:${i}/${j}`);
+              }
+              const usages=[...row.querySelectorAll('.lexicalSenseUsage > li')].filter(visible);
+              for(let i=1;i<usages.length;i++) if(overlaps(box(usages[i-1]),box(usages[i]))) collisions.push(`row:${index}:collocations:${i-1}/${i}`);
+              for(const [i,li] of usages.entries()) {
+                const phrase=li.querySelector('b'), gloss=li.querySelector('span');
+                if(phrase&&gloss&&fragments(phrase).some(a=>fragments(gloss).some(b=>overlaps(a,b)))) collisions.push(`row:${index}:collocation:${i}:phrase/gloss`);
+                const button=li.querySelector('[data-vocab-repair]');
+                if(button&&visible(button)) for(const text of [...li.children].filter(n=>n!==button&&visible(n))) {
+                  if(fragments(text).some(r=>overlaps(r,box(button)))) collisions.push(`row:${index}:collocation:${i}:repair`);
+                }
+              }
+              return { index,id:row.getAttribute('data-vocab-sense-id'),box:box(row),collocations:usages.length };
+            });
+            for(let i=1;i<rowInfo.length;i++) {
+              if(overlaps(rowInfo[i-1].box,rowInfo[i].box)) collisions.push(`rows:${i-1}/${i}`);
+              if(fragments(rows[i-1]).some(a=>fragments(rows[i]).some(b=>overlaps(a,b)))) collisions.push(`row-text:${i-1}/${i}`);
+            }
+            return { rows:rowInfo,collisions,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,
+              referenceIds:[...document.querySelectorAll('[data-vocab-reference-sense-id]')].map(n=>({id:n.getAttribute('data-vocab-reference-sense-id'),visible:visible(n),repair:n.querySelectorAll('[data-vocab-repair]').length})),
+              visibleLookupOnly:[...document.querySelectorAll('[data-vocab-lookup-only]')].filter(visible).length };
+          });
+          const actualText = await page.locator('[data-vocab-details]').innerText();
+          const expectedIds = (current.reference?.senses || []).map(s => s.sense_id || s.stable_sense_id || s.id).sort();
+          const expectedActive = (current.senses || []).filter(s => mode === 'lookup' || s.disposition !== 'EXPLORE_ONLY').length;
+          const result = { ordinal:fixture.ordinal,word:fixture.word,mode,viewport,screenshot:`${stem}.png`,geometry,expectedActive,pinnedText:fixture.text || null,pinnedTextVisible:!fixture.text || actualText.includes(fixture.text) };
+          report.cases.push(result); save();
+          // Capture each known collision-regression row, including below-fold content.
+          if (fixture.word === 'natural' || fixture.word === 'close') {
+            const rows = page.locator('.portedVocabSenseList > .lexicalSenseRow:visible');
+            for (let i=0;i<await rows.count();i++) { await rows.nth(i).scrollIntoViewIfNeeded(); await rows.nth(i).screenshot({ path:path.join(outputRoot,`${stem}-row-${i+1}.png`) }); }
+          }
+          if(mode==='lookup') assert(JSON.stringify(await stateSnapshot())===JSON.stringify(beforeLookup),'batch_lookup_keeps_coverage_and_word_state',stem);
+          assert(result.pinnedTextVisible, 'batch_pinned_text', stem);
+          assert(geometry.rows.filter(r=>r.id).length === expectedActive, 'batch_active_sense_projection', stem);
+          assert(JSON.stringify(geometry.referenceIds.map(r=>r.id).sort()) === JSON.stringify(expectedIds), 'batch_reference_retained', stem);
+          assert(geometry.referenceIds.every(r=>r.visible === (mode==='lookup') && r.repair===0), 'batch_reference_visibility_and_no_repair', stem);
+          if(mode==='study') assert(geometry.visibleLookupOnly===0, 'batch_lookup_hidden_in_study', stem);
+          assert(geometry.overflow<=2, 'batch_no_horizontal_overflow', `${stem}:${geometry.overflow}`);
+          assert(geometry.collisions.length===0, 'batch_no_row_collocation_collision', `${stem}:${geometry.collisions.join(',')}`);
+          if(mode==='study' && [2052,2056,3185,856].includes(fixture.ordinal)) {
+            const rows=await auditBoundedReadableRows(page,fixture.ordinal,stem,outputRoot);
+            report.readability ||= [];
+            report.readability.push({ordinal:fixture.ordinal,viewport,rows});save();
+            assert(rows.length>0 && rows.every(r=>r.pass),'batch_target_text_reachable_above_dock',stem);
+          }
+        }
+      }
+    }
+    await page.evaluate(() => localStorage.removeItem('kianos-vocabulary-astro-v2:word:fourteen'));
+    await page.goto(wordUrl(2028), { waitUntil:'networkidle' }); await ready(2028,'study');
+    if(await page.locator('[data-vocab-front]').isVisible()) await page.locator('[data-vocab-reveal]').click();
+    await page.locator('[data-vocab-details]').waitFor({state:'visible'});
+    await page.locator('[data-vocab-route="known"]').click();
+    await page.waitForURL('**/vocabulary/2029/'); await ready(2029,'study');
+    assert((await page.locator('[data-vocab-front] h2').innerText()).trim()==='fourteen','batch_next_word_identity');
+    await page.keyboard.press('Backspace'); await page.waitForURL('**/vocabulary/2028/'); await ready(2028,'study');
+    report.navigation={from:2028,next:2029,undo:2028,status:'PASS'};
+    await page.screenshot({path:path.join(outputRoot,'batch-navigation-undo.png'),fullPage:true});
+    assert(report.errors.length===0,'batch_no_page_errors',report.errors.join('\n'));
+    report.status='PASS';save();
+  } catch(error) {
+    report.status='FAIL';report.failure=String(error);save();
+    await page.screenshot({path:path.join(outputRoot,'batch-failure.png'),fullPage:true}).catch(()=>{});
+    throw error;
+  } finally { await context.close(); }
+}
+
 let browser;
 try {
   await waitForServer();
   browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
   const reports = [];
+  await auditFirstQualityBatch(browser);
 
   // Architecture-v2 Human Gate evidence.
   const initialVocabularyResponse = await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });

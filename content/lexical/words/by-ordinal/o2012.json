@@ -11,20 +11,22 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "数学公式；方法；准则；惯用语句；化学式；婴儿配方食品；配方奶（可为粉状或液态）",
-          "label_en": "a group of symbols that make a mathematical statement; a standard method or rule for achieving something, or an established form of words; a representation of a substance using symbols for its constituent elements; a specially prepared milk substitute for feeding babies, supplied as powder or liquid",
+          "label_cn": "数学公式；方法；做法；准则；（特定场合的）惯用措辞；固定说法；配方（成分及用量）；化学式；婴儿配方食品；配方奶（可为粉状或液态）",
+          "label_en": "a group of symbols that make a mathematical statement; a particular method or set of rules for doing or achieving something; a set form of words used for a particular purpose or occasion; the ingredients and their amounts used to make a product; a representation of a substance using symbols for its constituent elements; a specially prepared milk substitute for feeding babies, supplied as powder or liquid",
           "pos": "noun",
           "sense_ids": [
             "sense:formula:1708110ae30d5fdc",
-            "sense:formula:2c1e554f211d5c9e",
+            "sense:formula:acea15c1692e0efd",
+            "sense:formula:3d9f5e9b6a8ea1c7",
+            "sense:formula:ded44922e3aa4dac",
             "sense:formula:bc93c30a45c45e0a",
             "sense:formula:8629dacbcbe754b6"
           ]
         }
       ],
-      "core_meaning_cn": "公式、化学式；方法或惯用语句；婴儿配方奶",
-      "core_meaning_en": "a mathematical or chemical expression; a standard method or wording; infant formula",
-      "mental_model_cn": "数学formula为公式，化学语境为化学式；formula for success为方法。婴儿喂养语境指配方奶，也可指粉状产品。",
+      "core_meaning_cn": "公式、化学式、配方；固定方法或说法；婴儿配方奶",
+      "core_meaning_en": "mathematical or chemical notation; product ingredients; a method or fixed wording; infant formula",
+      "mental_model_cn": "计算或化学符号→公式、化学式；产品成分→配方；做事→方法；措辞→固定说法；喂养婴儿→配方奶。",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -72,14 +74,14 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "方法；准则；（礼仪、法律等的）惯用措辞",
-        "definition_en": "a standard method or rule for achieving something, or an established form of words",
-        "governing_pattern": "",
+        "definition_cn": "方法；做法；准则",
+        "definition_en": "a particular method or set of rules for doing or achieving something",
+        "governing_pattern": "formula for sth / for doing sth",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:formula:2c1e554f211d5c9e",
-        "sense_label_en": "a standard method or rule for achieving something, or an established form of words",
+        "sense_id": "sense:formula:acea15c1692e0efd",
+        "sense_label_en": "a particular method or set of rules for doing or achieving something",
         "sort_order": 1,
         "transitivity": "nonverb"
       },
@@ -129,6 +131,34 @@
         "sense_id": "sense:formula:8629dacbcbe754b6",
         "sense_label_en": "a specially prepared milk substitute for feeding babies, supplied as powder or liquid",
         "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "（特定场合的）惯用措辞；固定说法",
+        "definition_en": "a set form of words used for a particular purpose or occasion",
+        "governing_pattern": "legal formulae; a formula of words",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:formula:3d9f5e9b6a8ea1c7",
+        "sense_label_en": "a set form of words used for a particular purpose or occasion",
+        "sort_order": 4,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "配方（成分及用量）",
+        "definition_en": "the ingredients and their amounts used to make a product",
+        "governing_pattern": "the formula for a product",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:formula:ded44922e3aa4dac",
+        "sense_label_en": "the ingredients and their amounts used to make a product",
+        "sort_order": 5,
         "transitivity": "nonverb"
       }
     ],
@@ -263,7 +293,35 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:03a875cfe5f36d7a00eb",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:formula:2c1e554f211d5c9e:collocation:0"
+          ],
+          "meaning_cn": "成功的方法／诀窍",
+          "phrase": "formula for success"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "方法；准则；（礼仪、法律等的）惯用措辞",
+      "definition_en": "a standard method or rule for achieving something, or an established form of words",
+      "governing_pattern": "",
+      "level": "L1",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:formula:2c1e554f211d5c9e",
+      "sense_label_en": "a standard method or rule for achieving something, or an established form of words",
+      "sort_order": 1,
+      "transitivity": "nonverb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -275,7 +333,7 @@
       },
       {
         "sense_id": "sense:formula:2c1e554f211d5c9e",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 5598,
         "source_path": "content/lexical/canonical/senses/shards/o1985-2016.json"
@@ -293,6 +351,30 @@
         "merged_into_sense_id": null,
         "source_row": 5600,
         "source_path": "content/lexical/canonical/senses/shards/o1985-2016.json"
+      },
+      {
+        "sense_id": "sense:formula:acea15c1692e0efd",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2012.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:formula:3d9f5e9b6a8ea1c7",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2012.json",
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:formula:ded44922e3aa4dac",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2012.json",
+        "source_pointer": "/record/senses/5"
       }
     ],
     "active_collocations": [
