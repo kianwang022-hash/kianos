@@ -74,8 +74,8 @@ assert(
   'system-wu-return-repair-only-task-semantics-missing'
 );
 assert(
-  repairBridge.includes('const next = setRepairTasks(memory, [...preserved, ...incoming]);')
-    && repairBridge.includes("if (!writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');"),
+  /const next = \{\s*\.\.\.memory,\s*repairTasks:\s*\[\s*\.\.\.preserved,\s*\.\.\.setRepairTasks\(memory,\s*replacements\)\.repairTasks\s*\]\s*\};/.test(repairBridge)
+    && repairBridge.includes("if (replacements.length && !writeJson(XIZONG_MEMORY_STORAGE_KEY, next)) throw new Error('Repair save failed');"),
   'repair-inbox-bridge-consumption-semantics-missing'
 );
 assert(repairBridge.includes("window.addEventListener('storage'"), 'open-block-tab-cannot-receive-repair');
