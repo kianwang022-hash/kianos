@@ -1,0 +1,1420 @@
+{
+  "schema": "kianos.xizong.learning_cues.v1",
+  "status": "CURRENT",
+  "authority": "CHAT_APPROVED",
+  "system_id": "respiratory",
+  "canonical_id": "A2",
+  "system_owner": "content/xizong/knowledge/systems/a2-respiratory/system.json",
+  "medical_core_owner": "content/xizong/knowledge/systems/a2-respiratory/blocks/",
+  "learning_support": "content/xizong/knowledge/learner/a2-respiratory-learning.json",
+  "role": "SELECTIVE_PRECISION_AND_VISUAL_TRIGGER_INDEX_ONLY",
+  "rules": {
+    "no_second_owner": "Cues may identify what must eventually be recalled exactly and when a source visual is worth opening. They must not copy or replace the canonical medical answer.",
+    "precision_selection": "SELECTIVE_HIGH_VALUE_INDEX_NOT_EXHAUSTIVE",
+    "precision_absence": "A KP or fact not indexed here is not downgraded, omitted or declared unimportant; canonical Block/KP coverage remains lossless and authoritative.",
+    "first_pass": "Precision cues identify exactness worth attending to within the same model; they do not create a mandatory drill queue or withhold prepared answers and conditions during first learning or ordinary review. Any DEFERRED_MEMORY attention_role defers optional independent memorization practice only, not access to its prepared complete answer. Hide an answer only for explicitly requested self-testing. Learning behavior is governed by content/xizong/LEARNING_CONTRACT.md and content/xizong/knowledge/learner/LECTURE_REPLACEMENT_CONTRACT.md.",
+    "visual_behavior": "Show the reviewed original/source visual at the relevant model node when it is needed for understanding, with its task as a reading cue rather than a mandatory quiz or pause. Preserve answer-bearing content during ordinary learning and review; conceal it only within explicit self-testing. If a currently required original visual is unavailable, disclose the specific gap and keep that visual-dependent point on HOLD; a locator or text does not substitute for the original, and unrelated learning may continue. An unused optional or future visual is not a learning prerequisite. No completion ceremony or image rating.",
+    "source_truth": "Exact values, drug names, classifications and visual meaning remain in canonical Block/KP content and the referenced Lecture source."
+  },
+  "precision_index": [
+    {
+      "id": "a2-r01-kp01-precision",
+      "anchor": {
+        "block_id": "respiratory-r01",
+        "kp_id": "respiratory-r01-kp01"
+      },
+      "cue": "肺容积 / 肺容量的常用数值与组合公式最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r01-kp01-precision",
+        "item_sha256": "1f8b5bcfb5e351373dc2fefecbcabfa27937fb535d572e9bfd9b922211966906",
+        "owner_kp_ids": [
+          "respiratory-r01-kp01"
+        ],
+        "owner_sha256": "4fa66fe6d3b42984b0b6f5f592aea8814ab15bbcc41a1cea3d74df86b51f043f",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r01",
+            "kp_id": "respiratory-r01-kp01",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "3db38ec9b92a99ec5b633583843447e336cb97b7e8ae67e26d0814a481ce3ee5"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r01",
+            "kp_id": "respiratory-r01-kp04",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "2d5c5cd91dc40d252aad6dad5ae0d3acd2b493b426b8462f0113fde4fb665d23"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r01-kp02-precision",
+      "anchor": {
+        "block_id": "respiratory-r01",
+        "kp_id": "respiratory-r01-kp02"
+      },
+      "cue": "FEV1–3 的百分比与一秒率相关数字最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r01-kp02-precision",
+        "item_sha256": "00cdeb1358f497868fbdf5e4093d1c8f38f0e36fa60253cc1fa12142c7c0e5b7",
+        "owner_kp_ids": [
+          "respiratory-r01-kp02"
+        ],
+        "owner_sha256": "78a270ec717a33b4e7186f10c2613ecafca95a57eb08ad20bebd2ef292ef6a77",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r01",
+            "kp_id": "respiratory-r01-kp02",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block1_正常通气力学与肺功能_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "22ba9215a27e3b224041afa736546e306bdd8b394893e73a2e641f506f0b3e7c"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp06",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ac46a74a157487bb93231657211dd9dea706cc734a9342b9bdb14d94f80a5c07"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r02-kp03-precision",
+      "anchor": {
+        "block_id": "respiratory-r02",
+        "kp_id": "respiratory-r02-kp03"
+      },
+      "cue": "全肺平均、肺尖与肺底 VA/Q 的数值最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r02-kp03-precision",
+        "item_sha256": "0938011272d7e97c1d31e65cd8859cde553159ae12c2b586a9187855bf915169",
+        "owner_kp_ids": [
+          "respiratory-r02-kp03"
+        ],
+        "owner_sha256": "69c47a5b9e0315cdbfcbae8184d558a97eefa8101ab8f315fbde55d84738d967",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp03",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "d70417a49ad73bbde00a2a6b10337b610fcce912092796030d8e4141d264a759"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp04",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "199f65400767cebf0decc29c50a3a6a753bccebd1624082bb893bbdf23368480"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r02-lg04-precision",
+      "anchor": {
+        "block_id": "respiratory-r02",
+        "logic_group_id": "respiratory-r02-lg04"
+      },
+      "cue": "P50、Hb 氧容量与氧解离曲线的关键数字 / 移动边界最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r02-lg04-precision",
+        "item_sha256": "7e426b7e2fafc28caae4ee7accdb4c7aeb0e58bea3b88fa554ba78f68485754b",
+        "owner_kp_ids": [
+          "respiratory-r02-kp07",
+          "respiratory-r02-kp08",
+          "respiratory-r02-kp09",
+          "respiratory-r02-kp10",
+          "respiratory-r02-kp11"
+        ],
+        "owner_sha256": "228f99ef37dae57e4597e6525fb4492e4d222ef97ba21d4e37be9fa4e19cbb78",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp07",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "b98cf0588d80674b325989b27a0f95a41e4119ae7611ae86052315328c75a0d7"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp08",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ca54357d2671a27925da74b0da5d8b7583a389819c44d70073971f28c95c2c98"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "b840c349ae40664ddd454147741f9b52addc4bf0497c90541a0e14b2d5f64ba4"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "0c65300eece9799f9307a95ba12802fdde89099e5c99efc930a3d2d45d86cfa2"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp11",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "42e6abb8111a07cf4a99e0d89389987b0ef3b8a067a2e6cdd1c85ff3fb8d3fc8"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp05",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "8e8b7e7e3582314394d3a4c5163151d4ddb06858772dcd7e8211d29614161011"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r03-lg03-precision",
+      "anchor": {
+        "block_id": "respiratory-r03",
+        "logic_group_id": "respiratory-r03-lg03"
+      },
+      "cue": "持续气流受限的诊断边界与 GOLD 严重度数字最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r03-lg03-precision",
+        "item_sha256": "b8563e7b12dc567941b733748473eb46857588d501755f687593607c5a56018d",
+        "owner_kp_ids": [
+          "respiratory-r03-kp09",
+          "respiratory-r03-kp10",
+          "respiratory-r03-kp11"
+        ],
+        "owner_sha256": "d8064f025ec47bdded961266419c09eb3793e68e480589884267b7b00f518dec",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "70db5792854425cfa2dab0a5cc8d1129a354ce563af1d18adf427b638d86d49b"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "8157f462e4e17523c2b17d149e7468a62b416b4239540bc515aa2427cb2f642f"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp11",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ff8f6a8edbf368654fedb2fa886e80231d9e8665476516f6ccacdb0a6242e938"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp06",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ac46a74a157487bb93231657211dd9dea706cc734a9342b9bdb14d94f80a5c07"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp12",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "944b2ca59f4f94bd5dca1a42bd14c759b3fa7de086fe256566610536d9be6ab9"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp13",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "37b1d32a1ce5bf7d9f851c5dd7ebcd60b2405062e66769ac78cab748906dab23"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp14",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "f4d2bf7f3ba9efbf5d90998c95ec135345dc5850f4c7a93b936a6864df53d539"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "1565bf194a45d58610889ec97598a0a9c54c9b975c75aa4d4396fd54804524e2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r03-lg05-precision",
+      "anchor": {
+        "block_id": "respiratory-r03",
+        "logic_group_id": "respiratory-r03-lg05"
+      },
+      "cue": "长期家庭氧疗与 AECOPD 的关键阈值 / 用药边界最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r03-lg05-precision",
+        "item_sha256": "84224040d9b3ce33dd094601b80eb62591318335cae05c6627373bf0c2b59040",
+        "owner_kp_ids": [
+          "respiratory-r03-kp16",
+          "respiratory-r03-kp17",
+          "respiratory-r03-kp18",
+          "respiratory-r03-kp19",
+          "respiratory-r03-kp20"
+        ],
+        "owner_sha256": "8f1af0ce922c150149a659819ec0c441ef2f545ee0fd0a365764dfad9edc874f",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "1565bf194a45d58610889ec97598a0a9c54c9b975c75aa4d4396fd54804524e2"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp17",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "072bf4ddc8081038eea29b2c333cd72027b520c8e351813be8b07159351913e6"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp18",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ab6db0f1aad91868a2f9408966954b10341a5f0c0564c1aa607374b5abe21809"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp19",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "158300177d382abdeeb8bccce04cf40c14b3e604778ca738b0b9a4abec975ce1"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r03",
+            "kp_id": "respiratory-r03-kp20",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block3_COPD_持续气流受限_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "9d0871d2716926c6922333d95206170c5cb1b79e5e7816f518cc147041bce225"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r02",
+            "kp_id": "respiratory-r02-kp15",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block2_肺换气_气体运输与呼吸调节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "71ff077f701f16d2de0ee403ee2e989ce36f25dee74adfd33f4804f2c3175e04"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r04-lg03-precision",
+      "anchor": {
+        "block_id": "respiratory-r04",
+        "logic_group_id": "respiratory-r04-lg03"
+      },
+      "cue": "舒张试验、激发试验与 PEF / FeNO 等客观证据的精确阈值最终需要恢复。"
+    },
+    {
+      "id": "a2-r04-lg05-precision",
+      "anchor": {
+        "block_id": "respiratory-r04",
+        "logic_group_id": "respiratory-r04-lg05"
+      },
+      "cue": "急性发作严重度分级中的关键数值边界最终需要精确恢复。"
+    },
+    {
+      "id": "a2-r05-lg01-precision",
+      "anchor": {
+        "block_id": "respiratory-r05",
+        "logic_group_id": "respiratory-r05-lg01"
+      },
+      "cue": "CAP / HAP 时间边界与 CURB-65 五项阈值最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r05-lg01-precision",
+        "item_sha256": "3227344bf488e441651da264e31acc19d56a4a0c67926f77ee7738b862dfdde2",
+        "owner_kp_ids": [
+          "respiratory-r05-kp01",
+          "respiratory-r05-kp02",
+          "respiratory-r05-kp03",
+          "respiratory-r05-kp04"
+        ],
+        "owner_sha256": "36590bb32dfcdf6ad49e7c7a1f1e7193a1ebfe90e90fdfc40943e86e0044c8ab",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp01",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "a375a37bf0e93174415240f200c92e8a24855a705effb903f162af74d8e6dd69"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp02",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "2d3f16c1cb85bb23096b012a3078070cf9038150ccc09dc004afaa569f14380d"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp03",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "0e2cbb1f370bd018a28b2de34f987588b0c416ae334b41024ce310b314c54e79"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp04",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "76e3efd51a9c5b00137fd8e244fffb0d31046e351d25554ba32204ab771c1337"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r05-lg03-precision",
+      "anchor": {
+        "block_id": "respiratory-r05",
+        "logic_group_id": "respiratory-r05-lg03"
+      },
+      "cue": "高频病原—治疗药物的精确配对按当前 Study 口径最终需要稳定。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r05-lg03-precision",
+        "item_sha256": "0873e7c0906f0807b5e31b64c6f596f172e559efc58310598e0fc3a88077647f",
+        "owner_kp_ids": [
+          "respiratory-r05-kp09",
+          "respiratory-r05-kp10",
+          "respiratory-r05-kp11",
+          "respiratory-r05-kp12",
+          "respiratory-r05-kp13",
+          "respiratory-r05-kp14"
+        ],
+        "owner_sha256": "1b56f3d67a346826cf4919b3986028e8a6bc3615f08fd2933afd8efb7db7a4a2",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "5fe0c297bee78f97aa1967564d3c805828ec5fbfeb4336277eaf248a6b5ebb22"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "77a2971d89d35d2cf486d43ff8f2603300768b172f58a0771f55942545467645"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp11",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "321f57704b1e90903bbe453c2ecb7c1aa270557af4c5b6908f0036d53f36a13d"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp12",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "7df59b8720422feede16bf7132f528b6dd9fa0b42a268632915a60a367b60fb2"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp13",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "b36b92e3b3cb659c3807e3e81be2c39859f488cbb0624ef92dd8b0e9dc274e09"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp14",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "d6b29b8b9984035e878c3b59cf7dbde1d88bc7f6ff323d745b3928d66c65c110"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r05",
+            "kp_id": "respiratory-r05-kp04",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block5_肺炎_病变空间病原体与严重度_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "76e3efd51a9c5b00137fd8e244fffb0d31046e351d25554ba32204ab771c1337"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r06-lg02-precision",
+      "anchor": {
+        "block_id": "respiratory-r06",
+        "logic_group_id": "respiratory-r06-lg02"
+      },
+      "cue": "大咯血数值边界与止血药禁忌最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r06-lg02-precision",
+        "item_sha256": "8fa2ae2d8efcea23d3777e0114f79b54d1a39a0e731c986d48a0a159fc791caf",
+        "owner_kp_ids": [
+          "respiratory-r06-kp07",
+          "respiratory-r06-kp08",
+          "respiratory-r06-kp09",
+          "respiratory-r06-kp10"
+        ],
+        "owner_sha256": "38529d1b4be420972fc37fe9829804b5a05c9c41cb5aa5a145a92aae54ce60dc",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp07",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "b8574345d43698eda2f57a77911e1e9d4bebe437f0ad5b943e3c6acaa02a2ca2"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp08",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "fa97021c8566f4c86e89ede7bd55ae4d7241eec26fda8f63339cca91713b2a0d"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "fd6ed0098c3fcde6644189004fca49befa69f27f475643ae0907309b962415d1"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "48ecb54fb0dbdc127cb70f81302596b765cc5dda68c9fb454dcd434d035d45d7"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp05",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "f35d1bdacd066dfff9ffc1d98cd9d45b77c66dbb7ee40fb0b474bed7c3aa5c4b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r06-lg03-precision",
+      "anchor": {
+        "block_id": "respiratory-r06",
+        "logic_group_id": "respiratory-r06-lg03"
+      },
+      "cue": "误吸体位对应肺段与关键抗感染配对最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r06-lg03-precision",
+        "item_sha256": "ba2b0ac748c00625db482c51fa272bb086cfc6e509dc76b6454c7b0d35edcca9",
+        "owner_kp_ids": [
+          "respiratory-r06-kp11",
+          "respiratory-r06-kp12",
+          "respiratory-r06-kp13",
+          "respiratory-r06-kp14",
+          "respiratory-r06-kp15"
+        ],
+        "owner_sha256": "5318e6bfdb0f0329f8e3fa9db914917809562b5f930c6808ffacd44ee66782d7",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp11",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "59768c75d10d05a469930afa5f65b3fdda58f85c9bf7f6c35da94e9fe6dcb45d"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp12",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "2c43e83cb709e4ac9ba43f4a3a1b7132225fa744d1bb4d56f59349f016a0c15a"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp13",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "6a5bd8d9c3d8366dc0dfabc5dc5b54095e1a4319ba8452ba4a8eb82e4464f8dc"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp14",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "330656cfe657475c6dba7df40527ef10b1250a82f416b56233dd060fc057d784"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r06",
+            "kp_id": "respiratory-r06-kp15",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block6_支气管扩张与肺脓肿_结构破坏脓腔与引流_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "c2f28ad6fd1ddc931028f48794bd6db308b72bbe11bbc1884bb91c95fd212aba"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r07-lg05-precision",
+      "anchor": {
+        "block_id": "respiratory-r07",
+        "logic_group_id": "respiratory-r07-lg05"
+      },
+      "cue": "PPD、痰涂片等阈值及活动性 / 传染性证据边界最终需要精确恢复。"
+    },
+    {
+      "id": "a2-r07-lg06-precision",
+      "anchor": {
+        "block_id": "respiratory-r07",
+        "logic_group_id": "respiratory-r07-lg06"
+      },
+      "cue": "初治方案、核心药不良反应与 RR/MDR 组别 / 疗程最终需要精确恢复。"
+    },
+    {
+      "id": "a2-r08-lg03-precision",
+      "anchor": {
+        "block_id": "respiratory-r08",
+        "logic_group_id": "respiratory-r08-lg03"
+      },
+      "cue": "结节病分期的精确影像组合最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r08-lg03-precision",
+        "item_sha256": "6b4ca113d6aea4656c3161667f370e5779644988bc4b5670375cdada055e57ef",
+        "owner_kp_ids": [
+          "respiratory-r08-kp07",
+          "respiratory-r08-kp08",
+          "respiratory-r08-kp09"
+        ],
+        "owner_sha256": "a2fa024c3c7d53603172293fe08e0e2475594f115491b8819e073f12f6cd52ce",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r08",
+            "kp_id": "respiratory-r08-kp07",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "94e4e696e9a8cf46558c8014c07334604656f5a7ca797e6c57f21fcb4931d5ab"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r08",
+            "kp_id": "respiratory-r08-kp08",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "f96c9fa32769888a67fc4f0a18d5373687eca8fd80221bb40c72ce9dfbe48cbf"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r08",
+            "kp_id": "respiratory-r08-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "a4a46b432e2569e5eacd129913f4e6efda5170e6027d4281ae9313e18555372e"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r07",
+            "kp_id": "respiratory-r07-kp18",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block7_肺结核_肉芽肿空洞播散与化疗_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ab8e38b8fbd6ce246fe61e5ea1b6370b1970248128c35cb921c1768b6f0c5fc7"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r08",
+            "kp_id": "respiratory-r08-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block8_间质性肺疾病与硅肺_限制弥散纤维化与硅结节_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "f06664250f5c1a50b7087cd17aaeacfac3f07d2cd6b887e09ac0fe55258c487d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r08-lg05-precision",
+      "anchor": {
+        "block_id": "respiratory-r08",
+        "logic_group_id": "respiratory-r08-lg05"
+      },
+      "cue": "SiO₂ 粒径、硅肺分期与低频影像数字最终需要精确恢复。"
+    },
+    {
+      "id": "a2-r09-kp18-precision",
+      "anchor": {
+        "block_id": "respiratory-r09",
+        "kp_id": "respiratory-r09-kp18"
+      },
+      "cue": "D-dimer 阈值、血气方向与 ECG 右心征中的精确数字最终需要恢复。"
+    },
+    {
+      "id": "a2-r09-lg05-precision",
+      "anchor": {
+        "block_id": "respiratory-r09",
+        "logic_group_id": "respiratory-r09-lg05"
+      },
+      "cue": "PE 危险分层、溶栓时间窗与抗凝疗程边界最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r09-lg05-precision",
+        "item_sha256": "0138499d667549559318733012f07d73fb69bbd8ad342b81e44b9c63fa0aa0f7",
+        "owner_kp_ids": [
+          "respiratory-r09-kp20",
+          "respiratory-r09-kp21",
+          "respiratory-r09-kp22"
+        ],
+        "owner_sha256": "6027efe47b16f236241aca21dd44f143daa0eeb8ccbe544dcb3a2481298e930d",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r09",
+            "kp_id": "respiratory-r09-kp20",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "574945816ff0731d180aa6fb78695b9dcb79ad115a57c8a4d07d23107b06ce02"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r09",
+            "kp_id": "respiratory-r09-kp21",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "dd920fac0eda3d3e73f96b6676cae293ec7a2d6b59918c50e355565ffb73e9a9"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r09",
+            "kp_id": "respiratory-r09-kp22",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "7e8382d87be303a53377eb759241bcfe49aebf7ff0fb4072c689ee33d396bd4a"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r09",
+            "kp_id": "respiratory-r09-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block9_肺动脉高压肺心病与急性肺血栓栓塞_慢性阻力急性阻塞与右心负荷_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "c45e3dcae1daf47a93609ffced2e5e4d9eb61017df64842dad6951c7cc030ae3"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r10-kp02-precision",
+      "anchor": {
+        "block_id": "respiratory-r10",
+        "kp_id": "respiratory-r10-kp02"
+      },
+      "cue": "进行性血胸的持续引流阈值与判定数字最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r10-kp02-precision",
+        "item_sha256": "a5112193056521493dff626723ef3e97a8818104cae24a966abe043af2babaca",
+        "owner_kp_ids": [
+          "respiratory-r10-kp02"
+        ],
+        "owner_sha256": "0ffd48068d61c22c0e8f681ca2d1570d920fd7ada67af2c52e0f15a0cb023e29",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp02",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "71cd0977c673a80216656a587125b462ea0bd42cd8c0c894fc57d9d1011d814a"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp01",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "6f22ab770d604f8db2bb5d1ca411d45f11aae6ca10199b2560799230e4d20d5b"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp23",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "c9d03e81aabddb27f9e2c75774927afe38e30f7269d98b7f589483d58683681b"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r10-kp04-precision",
+      "anchor": {
+        "block_id": "respiratory-r10",
+        "kp_id": "respiratory-r10-kp04"
+      },
+      "cue": "胸水化验比值、梯度与 Light 判定边界最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r10-kp04-precision",
+        "item_sha256": "f89182aff776dfe3359fb50c0cebbec56bcd573d6e2c1dc7418aacbc7b6b636e",
+        "owner_kp_ids": [
+          "respiratory-r10-kp04"
+        ],
+        "owner_sha256": "f1edc5ee8f75cd03c2f54552bf5edf82b20a73c5508b2ae6bd209206e9fe2113",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp04",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "333386bf26537f6388e61936adcc66a50392a99d6502211c8a149a332ca85f23"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp03",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "b7d8063edc38a19908e74fa546b5f717e4ac4aaa7665a7fb02607f7943dceb71"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r10-kp08-precision",
+      "anchor": {
+        "block_id": "respiratory-r10",
+        "kp_id": "respiratory-r10-kp08"
+      },
+      "cue": "胸穿首次 / 后续容量、频率与相关边界最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r10-kp08-precision",
+        "item_sha256": "7e2303549bbe0dc0e5608cc2424e83389d17d9385bf8a56ce57ff8c520dc591b",
+        "owner_kp_ids": [
+          "respiratory-r10-kp08"
+        ],
+        "owner_sha256": "bc7cc1391892f97ee0f947b16e5575a2198c95347552a8a4653f2787cf3c39bd",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp08",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "8ac1d882927e933b10101dbf077d6d6024bdc28d8bd34ab0b1901884455d69cf"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "35e08bcbe19d3311dfafb6b4e53eed317103486d4584d3dede35ed9ee3be72d2"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp10",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "e7c58e98310af78c903bd2c9a8839ef808e0255048c6b5c4c4b005e3d804a1de"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r10-kp16-precision",
+      "anchor": {
+        "block_id": "respiratory-r10",
+        "kp_id": "respiratory-r10-kp16"
+      },
+      "cue": "闭合性气胸压缩比例与观察 / 抽气边界最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r10-kp16-precision",
+        "item_sha256": "e6f1ed63f7776b6b47fc489b3564809b86d3a0f1c42f88b319b5b1ca24e90e5f",
+        "owner_kp_ids": [
+          "respiratory-r10-kp16"
+        ],
+        "owner_sha256": "e0a9de3e9e43a87a4e412c0012e6f61bd744c409c59c736a3b6c32159189736c",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "68db5f5da0c13f51df26070c837fe8ac141afdebe616cab0818befdc6ec95cf1"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp18",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "4438010570890cab25b3d495001feb9cd0996e0b3f816e2a284efd33392a38ea"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r10-kp19-precision",
+      "anchor": {
+        "block_id": "respiratory-r10",
+        "kp_id": "respiratory-r10-kp19"
+      },
+      "cue": "胸管位置、插拔呼吸时相与拔管组合最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r10-kp19-precision",
+        "item_sha256": "f034900b0c9700108d02b4bc07e6a580e23dcb8dfd0b8cedaa4a4bd6a1521a3f",
+        "owner_kp_ids": [
+          "respiratory-r10-kp19"
+        ],
+        "owner_sha256": "96be28568f566f165c447232c5cfea8f6c2c7611d48647480884dbfb81d06311",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp19",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "cc6efb9d0f97a8166afc38d7aea3e7fcfbb2d8c77f650257860bcee07021ed86"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "68db5f5da0c13f51df26070c837fe8ac141afdebe616cab0818befdc6ec95cf1"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp17",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "bb0cacb9d3246702bacb1c8b3b3d49b489ffdecce70c51aea8f9b1b28bbe37ae"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r10",
+            "kp_id": "respiratory-r10-kp18",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block10_胸膜空间与胸部损伤_积液气胸血胸与胸壁失稳_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "4438010570890cab25b3d495001feb9cd0996e0b3f816e2a284efd33392a38ea"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r11-kp21-precision",
+      "anchor": {
+        "block_id": "respiratory-r11",
+        "kp_id": "respiratory-r11-kp21"
+      },
+      "cue": "T 分期的三个直径边界与等号归属最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r11-kp21-precision",
+        "item_sha256": "6ff71e98a3c0e0bc9defa9fe0407376d66a41c49e40ba586b9bb0257c2554eb6",
+        "owner_kp_ids": [
+          "respiratory-r11-kp21"
+        ],
+        "owner_sha256": "66b9b0099aa8b8b3666f565c0feef305f876a2ab64dc53a649961753d5d48c7b",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp21",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "145f128a02450d840d9ec4bcf8c94732f71689b3fb387daf3ad58123237c23b8"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp20",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "09864d23b39ecec5cb0108225c9e747e0dd25bfb62737e42629dbb0f85a0f392"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r11-kp22-precision",
+      "anchor": {
+        "block_id": "respiratory-r11",
+        "kp_id": "respiratory-r11-kp22"
+      },
+      "cue": "N / M 分层的空间边界与 M1 细分最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r11-kp22-precision",
+        "item_sha256": "fccddbb6fb55dffb6e8775762f1d07e609e4bc08ad7b466fe9e2e351f8155364",
+        "owner_kp_ids": [
+          "respiratory-r11-kp22"
+        ],
+        "owner_sha256": "c3441157ed7dca77ccb9f401b0d0fb72737115c0d01ab3e5443afd17116f7737",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp22",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "a5ce8d9e001f70c264e2ad9add71d69d5185bb7d898ebfb7c404b6158dc664b8"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp20",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "09864d23b39ecec5cb0108225c9e747e0dd25bfb62737e42629dbb0f85a0f392"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r11-lg05-precision",
+      "anchor": {
+        "block_id": "respiratory-r11",
+        "logic_group_id": "respiratory-r11-lg05"
+      },
+      "cue": "靶点—药物配对与 SCLC / NSCLC 治疗边界最终需要稳定精确。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r11-lg05-precision",
+        "item_sha256": "956adedc4e4f76f1e9cc8044bdb2a2505daaa56d87f07b316459efbb30688f5d",
+        "owner_kp_ids": [
+          "respiratory-r11-kp19",
+          "respiratory-r11-kp20",
+          "respiratory-r11-kp21",
+          "respiratory-r11-kp22"
+        ],
+        "owner_sha256": "8569ee4e98c31b4205c1f1d8b3864dff1f1e1fd97f8d40164df1c1702346876f",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp19",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "cb291ccfe7fffbdadfd9fb6f5e300799fe059a8625cd9d3bc315203ed84678c4"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp20",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "09864d23b39ecec5cb0108225c9e747e0dd25bfb62737e42629dbb0f85a0f392"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp21",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "145f128a02450d840d9ec4bcf8c94732f71689b3fb387daf3ad58123237c23b8"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp22",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "a5ce8d9e001f70c264e2ad9add71d69d5185bb7d898ebfb7c404b6158dc664b8"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp05",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "cd4a502e6fadd985353b15d72a5665ebf559a4da7d4c709b21fac07038e8cd34"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "3798f9abfccbf8203d44bda4bec288bff3064d6a8e43ae68b08f94177130176a"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r11",
+            "kp_id": "respiratory-r11-kp18",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block11_肺癌与纵隔_位置组织学分期与纵隔定位_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "20c2f3f8bcd2194f8647286ac1b8639bb7523bed4c5fb5d39cff787aa6e788bb"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r12-kp08-precision",
+      "anchor": {
+        "block_id": "respiratory-r12",
+        "kp_id": "respiratory-r12-kp08"
+      },
+      "cue": "P/F 定义与三档分度最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r12-kp08-precision",
+        "item_sha256": "8c201c986ce0d340706c82a85a994f3a7352b742d6eafafc39b1382dbeefe263",
+        "owner_kp_ids": [
+          "respiratory-r12-kp08"
+        ],
+        "owner_sha256": "0d7112dc9cd9ef0a93ee976c96a233936e41a2fdafbfbd6f0998e78b54e0d051",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp08",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "c04fb56decfe3878e4ec5538bc453c3c829b0d6672663bf9cc291272f4b3ae07"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp02",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "df0d99ab5b26a9a72711299888472c25d159c303b0dde245313d27f6b6041ee4"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ca44721427c84a8e5bde27e446b82185cf883ed67a133d8f1734b10226851a53"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r12-kp09-precision",
+      "anchor": {
+        "block_id": "respiratory-r12",
+        "kp_id": "respiratory-r12-kp09"
+      },
+      "cue": "PAWP 鉴别阈值与可并存边界最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r12-kp09-precision",
+        "item_sha256": "33e441680c9849820b35844fd6819d5e8cb546448dc197f70343c8e6875cdebe",
+        "owner_kp_ids": [
+          "respiratory-r12-kp09"
+        ],
+        "owner_sha256": "8cfdf7fe5aa48962d5139418e9565278b0137c433257a5605ff128351196ed28",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp09",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "ca44721427c84a8e5bde27e446b82185cf883ed67a133d8f1734b10226851a53"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r12-kp12-precision",
+      "anchor": {
+        "block_id": "respiratory-r12",
+        "kp_id": "respiratory-r12-kp12"
+      },
+      "cue": "PEEP 起始 / 目标范围与容量门槛最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r12-kp12-precision",
+        "item_sha256": "28eb50bd58e3525699149edc5caf6ee9f669411e753181d395b345b97e9cdb04",
+        "owner_kp_ids": [
+          "respiratory-r12-kp12"
+        ],
+        "owner_sha256": "3169335cfd2319eaf7b9f68adcfff19949db97b934b4cf5ebb946bc790780b8a",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp12",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "4a05a0ef3662454c9185076e3c562747960ea01a68af598cb1281ff40d0d373c"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp15",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "69c504aba0c64dfd8c702941a13fa8efa1d809977414d9d04061da8959c777ba"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r12-kp13-precision",
+      "anchor": {
+        "block_id": "respiratory-r12",
+        "kp_id": "respiratory-r12-kp13"
+      },
+      "cue": "潮气量、平台压、允许性高碳酸血症与 pH 范围最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r12-kp13-precision",
+        "item_sha256": "3f0cb22dffd61b628eb436cb5507ae6db559642a5343d4e7fa94d6e08f16ed20",
+        "owner_kp_ids": [
+          "respiratory-r12-kp13"
+        ],
+        "owner_sha256": "daeb381ef32a85110c660d0249b373ceaa8959843a2960159eb4bdf31526d64b",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp13",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "22163b0a2c8cb9450685fedefd72ccb8239e07a46cf22a52db0b7862175b7dc6"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp11",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "6d746538197c42db709cd64b7f4135e964b851b3baea9c5c02fd0bf0421a5e93"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r12-kp16-precision",
+      "anchor": {
+        "block_id": "respiratory-r12",
+        "kp_id": "respiratory-r12-kp16"
+      },
+      "cue": "Ⅰ / Ⅱ型呼衰的血气边界最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r12-kp16-precision",
+        "item_sha256": "70554b1f1d0369b89482d8a207a6d02141bdc074375c28738fe1132c4dd4e74d",
+        "owner_kp_ids": [
+          "respiratory-r12-kp16"
+        ],
+        "owner_sha256": "53c0cfb706bfbfe3e73bcd35586843ae42c55c2af2ac1b0145c914ceb575bc97",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "c239e207bd1f7e590ec73be5855feb82239ca66d3d07b7563199b380f63d6acc"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a2-r12-kp17-precision",
+      "anchor": {
+        "block_id": "respiratory-r12",
+        "kp_id": "respiratory-r12-kp17"
+      },
+      "cue": "慢性Ⅱ型呼衰氧疗浓度边界与急性哮喘例外最终需要精确恢复。",
+      "prepared_memory_ref": {
+        "collection": "precision_fields",
+        "owner_mode": "NATIVE_CUE",
+        "precision_id": "a2-r12-kp17-precision",
+        "item_sha256": "2101ada30b35b2e22b3999de188b6fd074a693528b5c378af6389d8ebdd709fb",
+        "owner_kp_ids": [
+          "respiratory-r12-kp17"
+        ],
+        "owner_sha256": "d778635831c1f50c3d6af5197db20ac93bb6b99addaa758f8fee6604a4419688",
+        "core_refs": [
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp17",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "be8c860afa2083c0787ddede7c70319706d2069e7e4efa4a42a47bb0c51548e8"
+          },
+          {
+            "system_id": "respiratory",
+            "block_id": "respiratory-r12",
+            "kp_id": "respiratory-r12-kp16",
+            "source_path": "content/xizong/knowledge/systems/a2-respiratory/blocks/Block12_ARDS与呼吸衰竭_屏障损伤氧合失败与通气失败_学习阅读版_v1_最终执行版.md",
+            "kp_core_sha256": "c239e207bd1f7e590ec73be5855feb82239ca66d3d07b7563199b380f63d6acc"
+          }
+        ]
+      }
+    }
+  ],
+  "visual_bindings": [
+    {
+      "id": "a2-r01-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r01",
+        "logic_group_id": "respiratory-r01-lg01"
+      },
+      "source_locator": "生理 Lecture PDF P169–170",
+      "task": "沿肺容积 / 容量拼图走一遍，并指出 FVC / FEV 图里‘量’和‘速度’分别在哪里。"
+    },
+    {
+      "id": "a2-r01-lg04-visual",
+      "anchor": {
+        "block_id": "respiratory-r01",
+        "logic_group_id": "respiratory-r01-lg04"
+      },
+      "source_locator": "生理 Lecture PDF P170–173",
+      "task": "只比较阻塞 vs 限制的流速轴、容量轴和残气方向，不背整张表。"
+    },
+    {
+      "id": "a2-r02-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r02",
+        "logic_group_id": "respiratory-r02-lg01"
+      },
+      "source_locator": "生理 Lecture PDF P186–187",
+      "task": "沿呼吸膜从肺泡侧走到毛细血管侧一次，区分‘变厚’和‘面积减少’两种故障。"
+    },
+    {
+      "id": "a2-r02-lg02-visual",
+      "anchor": {
+        "block_id": "respiratory-r02",
+        "logic_group_id": "respiratory-r02-lg02"
+      },
+      "source_locator": "生理 Lecture PDF P187–188",
+      "task": "看肺尖 / 肺底图，只回答哪里更像死腔、哪里更像分流，以及为什么。"
+    },
+    {
+      "id": "a2-r03-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r03",
+        "logic_group_id": "respiratory-r03-lg01"
+      },
+      "source_locator": "病理 Lecture PDF P54–64",
+      "task": "在气道树 / 肺腺泡和慢支病理图上分清‘管’与‘泡’各自坏在哪里。"
+    },
+    {
+      "id": "a2-r04-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r04",
+        "logic_group_id": "respiratory-r04-lg01"
+      },
+      "source_locator": "内科 Lecture PDF P47",
+      "task": "沿炎症细胞—神经调节—平滑肌反应走一遍，只抓促收缩与促舒张的方向。"
+    },
+    {
+      "id": "a2-r05-lg02-visual",
+      "anchor": {
+        "block_id": "respiratory-r05",
+        "logic_group_id": "respiratory-r05-lg02"
+      },
+      "source_locator": "内科 Lecture PDF P33–35",
+      "task": "对着病变范围和影像，把大叶、小叶、间质三种空间各指认一次。"
+    },
+    {
+      "id": "a2-r06-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r06",
+        "logic_group_id": "respiratory-r06-lg01"
+      },
+      "source_locator": "病理 Lecture PDF P68–69（印刷 P66–67）",
+      "task": "在支气管壁支撑结构图上找到‘为什么能永久扩张’，再与肺气肿的末梢肺组织损伤对照。"
+    },
+    {
+      "id": "a2-r07-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r07",
+        "logic_group_id": "respiratory-r07-lg01"
+      },
+      "source_locator": "病理 Lecture PDF P110–111",
+      "task": "沿结核结节从中心到外周走一遍，确认坏死、上皮样细胞 / 巨细胞和淋巴细胞的位置关系。"
+    },
+    {
+      "id": "a2-r07-lg02-visual",
+      "anchor": {
+        "block_id": "respiratory-r07",
+        "logic_group_id": "respiratory-r07-lg02"
+      },
+      "source_locator": "病理 Lecture PDF P111",
+      "task": "沿原发复合征三部分走一遍，再说出为什么这张图能解释淋巴 / 血道播散倾向。"
+    },
+    {
+      "id": "a2-r08-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r08",
+        "logic_group_id": "respiratory-r08-lg01"
+      },
+      "source_locator": "内科印刷P22｜PDF物理P27",
+      "task": "在原阻塞／限制肺功能表上核对容量与比值；DLCO另合读同页低氧机制文字与KP03，不称原表含有DLCO一行。"
+    },
+    {
+      "id": "a2-r08-lg02-visual",
+      "anchor": {
+        "block_id": "respiratory-r08",
+        "logic_group_id": "respiratory-r08-lg02"
+      },
+      "source_locator": "内科印刷P22｜PDF物理P27；印刷P25–26病例文字不作已看图证明",
+      "task": "先辨原裁图左侧IPF，再按分布与网格—蜂窝、牵拉关系合读KP04/KP06；中间支扩和右侧原标肺泡细胞癌是比较对象，不能当作IPF三连图。"
+    },
+    {
+      "id": "a2-r09-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r09",
+        "logic_group_id": "respiratory-r09-lg01"
+      },
+      "source_locator": "病理 Lecture PDF P65–66",
+      "task": "先看肺小动脉重构，再看右室形态；沿 PVR↑ 把血管变化和右室适应接起来。"
+    },
+    {
+      "id": "a2-r10-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r10",
+        "logic_group_id": "respiratory-r10-lg01"
+      },
+      "source_locator": "内科 PDF 物理 P82–83｜印刷 P67–68",
+      "task": "沿胸水形成机制和 Light 表走一次：先判动力学来源，再判渗出 / 漏出。"
+    },
+    {
+      "id": "a2-r10-lg02-visual",
+      "anchor": {
+        "block_id": "respiratory-r10",
+        "logic_group_id": "respiratory-r10-lg02"
+      },
+      "source_locator": "内科 PDF 物理 P83–84｜印刷 P68–69",
+      "task": "在胸水体征和影像上同时找‘液体占位’与‘纵隔方向’两件事。"
+    },
+    {
+      "id": "a2-r11-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r11",
+        "logic_group_id": "respiratory-r11-lg01"
+      },
+      "source_locator": "病理 Lecture PDF P77–78（印刷 P75–76）",
+      "task": "先按中央／周围／弥漫分清位置，再合读腺癌／鳞癌文字形态与小细胞原镜像；中央和周围具名标本可对照，未标名标本不指认为弥漫型，不把位置与组织类型混成一个坐标，也不把文字特征当作已看的专门显微图。"
+    },
+    {
+      "id": "a2-r12-lg01-visual",
+      "anchor": {
+        "block_id": "respiratory-r12",
+        "logic_group_id": "respiratory-r12-lg01"
+      },
+      "source_locator": "内科印刷P54｜PDF物理P65",
+      "task": "沿内皮损伤和Ⅱ型肺泡上皮损伤两条支路各走一遍，找到它们最后在哪里汇合成顽固低氧。"
+    }
+  ]
+}
