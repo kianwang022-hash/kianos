@@ -2492,7 +2492,7 @@
     "ordinal": 2128,
     "word": "germ",
     "source_owner_path": "content/lexical/words/by-ordinal/o2128.json",
-    "source_fingerprint": "cfd1c5c7426deb33b7e6ed6da4e3e7bf6c292dd1bd27996eb665752ecb94cc76",
+    "source_fingerprint": "03062560ae2cc780ea85a0b55efabed460c422f284ce8ff13428b95de941d890",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2501,50 +2501,19 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "胚芽、病菌或思想的萌芽",
-      "decision_cn": "germ可为谷物的胚芽或早期生命结构，日常germs为病菌而不只指细菌；the germ of an idea为想法的萌芽。",
+      "summary_cn": "病菌；胚芽；（思想等的）萌芽",
+      "decision_cn": "日常 germs 指病菌（不限于细菌）；wheat germ 是小麦胚芽；the germ of an idea 指想法的萌芽。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "胚芽、病菌或思想的萌芽"
+        "target_label": "病菌；胚芽；（思想等的）萌芽"
       }
     },
     "senses": [
       {
-        "id": "sense:germ:4fa106be7cca5c52",
-        "source_locator": "record.senses[0]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "胚芽；能发育成生物或其部分的原始结构",
-        "definition_en": "an early living structure that can develop into an organism or part of one",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [
-          {
-            "id": "collocation:717f6aff274a8bbd7666",
-            "source_locator": "record.senses[0].collocations[0]",
-            "phrase": "wheat germ",
-            "meaning_cn": "小麦胚芽",
-            "kind": "fixed_pattern",
-            "repair": {
-              "target_kind": "collocation",
-              "target_id": "collocation:717f6aff274a8bbd7666",
-              "target_locator": "record.senses[0].collocations[0]",
-              "target_label": "wheat germ"
-            }
-          }
-        ],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:germ:4fa106be7cca5c52",
-          "target_locator": "record.senses[0]",
-          "target_label": "胚芽；能发育成生物或其部分的原始结构"
-        }
-      },
-      {
         "id": "sense:germ:3a831f8860b0587d",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "病菌；微生物（尤指致病者）",
@@ -2554,20 +2523,20 @@
         "usage": [
           {
             "id": "collocation:ca524d3139ee7db954fc",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[0].collocations[0]",
             "phrase": "germ warfare",
             "meaning_cn": "细菌战",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:ca524d3139ee7db954fc",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[0].collocations[0]",
               "target_label": "germ warfare"
             }
           },
           {
             "id": "collocation:e825dffa59e6b261a45d",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[0].collocations[1]",
             "phrase": "spread germs",
             "meaning_cn": "传播病菌",
             "kind": "usage_example",
@@ -2577,17 +2546,48 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:germ:3a831f8860b0587d",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[0]",
           "target_label": "病菌；微生物（尤指致病者）"
+        }
+      },
+      {
+        "id": "sense:germ:4fa106be7cca5c52",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "胚芽；能发育成生物或其部分的原始结构",
+        "definition_en": "an early living structure that can develop into an organism or part of one",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:717f6aff274a8bbd7666",
+            "source_locator": "record.senses[1].collocations[0]",
+            "phrase": "wheat germ",
+            "meaning_cn": "小麦胚芽",
+            "kind": "fixed_pattern",
+            "repair": {
+              "target_kind": "collocation",
+              "target_id": "collocation:717f6aff274a8bbd7666",
+              "target_locator": "record.senses[1].collocations[0]",
+              "target_label": "wheat germ"
+            }
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:germ:4fa106be7cca5c52",
+          "target_locator": "record.senses[1]",
+          "target_label": "胚芽；能发育成生物或其部分的原始结构"
         }
       },
       {
         "id": "sense:germ:a046a362ac3c559a",
         "source_locator": "record.senses[2]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "根源，起源",
-        "definition_en": "a source or origin",
+        "governing_pattern": "the germ of an idea/plan",
+        "definition_cn": "（思想等的）萌芽；最初的雏形",
+        "definition_en": "an early beginning from which something can develop",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2609,7 +2609,7 @@
           "target_kind": "sense",
           "target_id": "sense:germ:a046a362ac3c559a",
           "target_locator": "record.senses[2]",
-          "target_label": "根源，起源"
+          "target_label": "（思想等的）萌芽；最初的雏形"
         }
       }
     ],
@@ -7715,7 +7715,7 @@
     "ordinal": 2153,
     "word": "glow",
     "source_owner_path": "content/lexical/words/by-ordinal/o2153.json",
-    "source_fingerprint": "c250437bb5c4a5aaa9359ab499c4e453184e201fb15030e719ff21a47107d070",
+    "source_fingerprint": "a1d4f9c0a4679cf10320e84e9b9d71706ea253ce21b8d452b0455581b7f7366d",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7774,14 +7774,14 @@
           {
             "id": "collocation:84ced8937658d7e7e20f",
             "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "glow with + sth",
-            "meaning_cn": "因某物而发光",
+            "phrase": "glow with + light",
+            "meaning_cn": "发出某种光",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:84ced8937658d7e7e20f",
               "target_locator": "record.senses[1].collocations[0]",
-              "target_label": "glow with + sth"
+              "target_label": "glow with + light"
             }
           },
           {
@@ -11315,7 +11315,7 @@
     "ordinal": 2166,
     "word": "goose",
     "source_owner_path": "content/lexical/words/by-ordinal/o2166.json",
-    "source_fingerprint": "997e20e86a93049ba25158843596f11d1c0f2553cfc3f19f84ad936682b02f46",
+    "source_fingerprint": "8fa3d50c702bb13f696d864cdbef7833b7e25f3ff13e00f2f6b9f761739adf5c",
     "sense_lineage": [
       {
         "word_id": "word:goose",
@@ -11351,8 +11351,25 @@
     },
     "senses": [
       {
-        "id": "sense:goose:a22119d6c7d45f77",
+        "id": "sense:goose:1437a359e4a153b0",
         "source_locator": "record.senses[0]",
+        "pos": "noun",
+        "governing_pattern": "",
+        "definition_cn": "鹅",
+        "definition_en": "a large bird with a long neck that lives on or near water",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:goose:1437a359e4a153b0",
+          "target_locator": "record.senses[0]",
+          "target_label": "鹅"
+        }
+      },
+      {
+        "id": "sense:goose:a22119d6c7d45f77",
+        "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "鹅肉",
@@ -11362,7 +11379,7 @@
         "usage": [
           {
             "id": "collocation:fd09ae7fce3e795be780",
-            "source_locator": "record.senses[0].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "roast goose",
             "meaning_cn": "烤鹅",
             "kind": "usage_example",
@@ -11372,30 +11389,30 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:goose:a22119d6c7d45f77",
-          "target_locator": "record.senses[0]",
+          "target_locator": "record.senses[1]",
           "target_label": "鹅肉"
         }
       },
       {
         "id": "sense:goose:f98c6ed8042c56ca",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[2]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "催促；激励",
-        "definition_en": "prod into action",
-        "note": "",
+        "definition_cn": "催促；刺激、促进（使更活跃）",
+        "definition_en": "to encourage someone to act, or make something more active",
+        "note": "主要美式、非正式用法。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:5b872846c57e1a756381",
-            "source_locator": "record.senses[1].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "goose sb into doing sth",
             "meaning_cn": "催促某人做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:5b872846c57e1a756381",
-              "target_locator": "record.senses[1].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "goose sb into doing sth"
             }
           }
@@ -11403,25 +11420,8 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:goose:f98c6ed8042c56ca",
-          "target_locator": "record.senses[1]",
-          "target_label": "催促；激励"
-        }
-      },
-      {
-        "id": "sense:goose:1437a359e4a153b0",
-        "source_locator": "record.senses[2]",
-        "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "鹅",
-        "definition_en": "web-footed long-necked typically gregarious migratory aquatic birds usually larger and less aquatic than ducks",
-        "note": "",
-        "identity_overlay": null,
-        "usage": [],
-        "repair": {
-          "target_kind": "sense",
-          "target_id": "sense:goose:1437a359e4a153b0",
           "target_locator": "record.senses[2]",
-          "target_label": "鹅"
+          "target_label": "催促；刺激、促进（使更活跃）"
         }
       }
     ],

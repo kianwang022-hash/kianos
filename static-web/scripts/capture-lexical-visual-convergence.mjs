@@ -40,6 +40,18 @@ function assert(condition, label, detail = '') {
   if (!condition) throw new Error(`LEXICAL_VISUAL_FAIL:${label}${detail ? `:${detail}` : ''}`);
 }
 
+// Isolated, synthetic checkpoint transport. No private endpoint is ever contacted.
+async function isolatePrivateCheckpoint(context) {
+  const requests = [];
+  await context.route('**/__kianos-private/**', async route => {
+    const request = route.request();
+    requests.push({ method:request.method(), path:new URL(request.url()).pathname });
+    await route.fulfill({ status:request.method()==='GET'?404:200, contentType:'application/json',
+      body:JSON.stringify(request.method()==='GET'?{status:'missing',checkpoint:null}:{status:'saved',synthetic:true}) });
+  });
+  return requests;
+}
+
 async function reveal(page, ordinal) {
   await page.goto(wordUrl(ordinal), { waitUntil: 'networkidle' });
   const revealButton = page.locator('[data-vocab-reveal]');
@@ -149,8 +161,9 @@ async function audit(page, { ordinal, expectedWord, sparse }) {
   return result;
 }
 
-async function auditBoundedReadableRows(page, ordinal, stem, outputRoot) {
+async function auditBoundedReadableRows(page, ordinal, stem, outputRoot, suppliedTargets = null) {
   const exact = {
+    2024: ['sense:foul:766c01bb73185d64'],
     2052: ['sense:friendly:800bdfcfc6e039d0'],
     2056: ['sense:fringe:aeea9ad07372b227'],
   };
@@ -159,9 +172,11 @@ async function auditBoundedReadableRows(page, ordinal, stem, outputRoot) {
       .filter(row => row.querySelector(':scope > header > small')?.textContent.trim())
       .map(row => row.getAttribute('data-vocab-sense-id')))
     : []);
+  const targets = suppliedTargets || ids.map(id => ({id,selector:`.portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id="${id}"]`}));
   const results = [];
-  for (const [index, id] of ids.entries()) {
-    const row = page.locator(`.portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id="${id}"]`);
+  for (const [index, {id,selector}] of targets.entries()) {
+    const row = page.locator(selector);
+    assert(await row.count()===1, 'batch_readable_exact_target_present', `${stem}:${id}`);
     // Normal scrolling only: no hidden overlays, viewport resize, forced clicks or state mutation.
     await row.evaluate(el => el.scrollIntoView({block:'center', inline:'nearest', behavior:'instant'}));
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
@@ -202,130 +217,303 @@ async function auditBoundedReadableRows(page, ordinal, stem, outputRoot) {
     // Page screenshot does not auto-scroll the target again, unlike locator.screenshot().
     const screenshot=`${stem}-readable-${index+1}.png`;
     await page.screenshot({path:path.join(outputRoot,screenshot),fullPage:false});
-    results.push({...evidence,screenshot});
+    results.push({...evidence,id,screenshot});
   }
   return results;
 }
 
 
+// Public current Final -> actual DOM: no semantic decisions, no repaired-text inference.
+// Compare ordered stable targets and their learner fields, not just row counts.
+function expectedBatchProjection(current, mode) {
+  const text = value => String(value ?? '').replace(/\s+/g,' ').trim();
+  const target = (repair,kind,id,locator) => ({kind:repair?.target_kind||kind,id:repair?.target_id||id||'',locator:repair?.target_locator||locator||''});
+  const admitted = sense => mode==='lookup'||sense.disposition!=='EXPLORE_ONLY';
+  return {
+    word:current.word, wordId:current.word_id, ordinal:String(current.ordinal), fingerprint:current.source_fingerprint,
+    core:current.word_feel?{summary:text(current.word_feel.summary_cn),decision:text(current.word_feel.decision_cn)}:null,
+    senses:(current.senses||[]).filter(admitted).map(s=>({
+      id:s.id,cn:text(s.definition_cn||'—'),en:text(s.definition_en||'—'),pattern:text(s.governing_pattern),note:text(s.note),
+      repair:target(s.repair,'sense',s.id,s.source_locator),
+      usage:(s.usage||[]).map(u=>({phrase:text(u.phrase),meaning:text(u.meaning_cn),fixed:u.kind==='fixed_pattern',
+        repair:u.repair?target(u.repair,'collocation',u.id,u.source_locator):null}))
+    })),
+    secondary:(current.secondary_senses||[]).filter(admitted).map(s=>({
+      cn:text(s.definition_cn||'—'),en:text(s.definition_en||'—'),pattern:text(s.pattern),note:text(s.note),
+      repair:target(s.repair,'secondary_sense',s.id,s.source_locator)
+    })),
+    constructions:(current.constructions||[]).map(c=>({id:c.id,senseId:c.sense_id||'',pattern:text(c.pattern),
+      lines:(c.lines||[]).map(l=>text(l.text)),repair:target(c.repair,'construction',c.id,c.source_locator)})),
+    reference:(current.reference?.senses||[]).map(s=>({
+      id:s.sense_id||s.stable_sense_id||s.id,visible:mode==='lookup',cn:text(s.definition_cn),en:text(s.definition_en),
+      pattern:text(s.governing_pattern),note:text(s.usage_note),
+      usage:(s.collocations||[]).map(u=>({id:u.collocation_id,phrase:text(u.phrase),meaning:text(u.meaning_cn)}))
+    }))
+  };
+}
+
+async function auditBatchProjection(page, current, mode) {
+  const expected = expectedBatchProjection(current,mode);
+  const actual = await page.evaluate(() => {
+    const text = value => String(value ?? '').replace(/\s+/g,' ').trim();
+    const visible = node => node instanceof HTMLElement && !node.closest('[hidden]') && node.getClientRects().length>0 && getComputedStyle(node).visibility!=='hidden';
+    const read = (node,selector) => text(node.querySelector(selector)?.textContent);
+    const readVisible = (node,selector) => {const field=node.querySelector(selector);return visible(field)?text(field.textContent):'';};
+    const repair = button => button?{kind:button.getAttribute('data-target-kind')||'',id:button.getAttribute('data-target-id')||'',locator:button.getAttribute('data-target-locator')||''}:null;
+    const root = document.querySelector('[data-local-port="vocabulary"]');
+    const core = root.querySelector('.lexicalCoreHeadline');
+    return {
+      word:root.getAttribute('data-vocab-word'),wordId:root.getAttribute('data-vocab-object'),ordinal:root.getAttribute('data-vocab-ordinal'),fingerprint:root.getAttribute('data-vocab-source-hash'),
+      core:core?{summary:readVisible(core,':scope > p'),decision:readVisible(core,'.lexicalCoreDecision > b')}:null,
+      senses:[...root.querySelectorAll('.portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id]')].filter(visible).map(row=>({
+        id:row.getAttribute('data-vocab-sense-id'),cn:readVisible(row,'.lexicalSenseMeaning > p'),en:readVisible(row,'.lexicalSenseMeaning > strong'),
+        pattern:readVisible(row,':scope > header > small'),note:readVisible(row,'.lexicalSenseNote'),repair:repair(row.querySelector(':scope > header > [data-vocab-repair]')),
+        usage:[...row.querySelectorAll(':scope > .lexicalSenseUsage > li')].filter(visible).map(li=>({phrase:readVisible(li,':scope > b'),meaning:readVisible(li,':scope > span'),
+          fixed:li.classList.contains('isFixedPattern'),repair:repair(li.querySelector(':scope > [data-vocab-repair]'))}))
+      })),
+      secondary:[...root.querySelectorAll('.portedVocabSenseList > .lexicalSecondarySenseRow')].filter(visible).map(row=>({
+        cn:readVisible(row,'.lexicalSenseMeaning > p'),en:readVisible(row,'.lexicalSenseMeaning > strong'),pattern:readVisible(row,'.lexicalSecondaryUsage > code'),
+        note:readVisible(row,'.lexicalSenseNote'),repair:repair(row.querySelector(':scope > header > [data-vocab-repair]'))
+      })),
+      constructions:[...root.querySelectorAll('.lexicalPatternList > article')].filter(visible).map(row=>({
+        id:row.getAttribute('data-vocab-construction-id'),senseId:row.getAttribute('data-vocab-construction-sense-id')||'',pattern:readVisible(row,':scope > b'),
+        lines:[...row.querySelectorAll('.lexicalPatternText > span')].map(l=>visible(l)?text(l.textContent):''),repair:repair(row.querySelector(':scope > [data-vocab-repair]'))
+      })),
+      reference:[...root.querySelectorAll('[data-vocab-reference-sense-id]')].map(row=>({
+        id:row.getAttribute('data-vocab-reference-sense-id'),visible:visible(row),cn:read(row,'.lexicalSenseMeaning > p'),en:read(row,'.lexicalSenseMeaning > strong'),
+        pattern:read(row,':scope > header > small'),note:read(row,'.lexicalSenseMeaning > small'),
+        usage:[...row.querySelectorAll('[data-vocab-reference-collocation-id]')].map(li=>({id:li.getAttribute('data-vocab-reference-collocation-id'),phrase:read(li,'code'),meaning:read(li,'span')}))
+      }))
+    };
+  });
+  return {expected,actual,pass:JSON.stringify(actual)===JSON.stringify(expected)};
+}
+
 // #1302: bounded rendered regression evidence, not a second content authority.
-async function auditFirstQualityBatch(browser) {
+async function auditSecondQualityBatch(browser) {
   const fixtures = [
     {
-      "ordinal": 2009,
-      "word": "formation"
+      "ordinal": 2102,
+      "word": "gas",
+      "coverage": "batch-2100-2199-target",
+      "readableSenseIds": [
+        "sense:gas:36b28236da195a52",
+        "sense:gas:4fd7517bf48e5ba5"
+      ],
+      "readabilityModes": [
+        "study"
+      ]
     },
     {
-      "ordinal": 2012,
-      "word": "formula"
+      "ordinal": 2103,
+      "word": "gasp",
+      "coverage": "batch-2100-2199-target",
+      "readableSenseIds": [
+        "sense:gasp:b8e36889a93a51b1"
+      ],
+      "readabilityModes": [
+        "study"
+      ]
     },
     {
-      "ordinal": 2023,
-      "word": "foster"
+      "ordinal": 2117,
+      "word": "generous",
+      "coverage": "batch-2100-2199-target"
+    },
+    {
+      "ordinal": 2126,
+      "word": "geology",
+      "coverage": "batch-2100-2199-target"
+    },
+    {
+      "ordinal": 2128,
+      "word": "germ",
+      "coverage": "batch-2100-2199-target",
+      "readableSenseIds": [
+        "sense:germ:3a831f8860b0587d",
+        "sense:germ:4fa106be7cca5c52",
+        "sense:germ:a046a362ac3c559a"
+      ],
+      "readabilityModes": [
+        "study"
+      ]
+    },
+    {
+      "ordinal": 2130,
+      "word": "get",
+      "coverage": "batch-2100-2199-target"
+    },
+    {
+      "ordinal": 2137,
+      "word": "give",
+      "coverage": "batch-2100-2199-target"
+    },
+    {
+      "ordinal": 2153,
+      "word": "glow",
+      "coverage": "batch-2100-2199-target",
+      "readableSenseIds": [
+        "sense:glow:bd64725d201c5f12"
+      ],
+      "readabilityModes": [
+        "study"
+      ]
+    },
+    {
+      "ordinal": 2155,
+      "word": "go",
+      "coverage": "batch-2100-2199-target"
+    },
+    {
+      "ordinal": 2162,
+      "word": "good",
+      "coverage": "batch-2100-2199-target"
+    },
+    {
+      "ordinal": 2166,
+      "word": "goose",
+      "coverage": "batch-2100-2199-target",
+      "readableSenseIds": [
+        "sense:goose:1437a359e4a153b0",
+        "sense:goose:a22119d6c7d45f77",
+        "sense:goose:f98c6ed8042c56ca"
+      ],
+      "readabilityModes": [
+        "study"
+      ]
+    },
+    {
+      "ordinal": 2174,
+      "word": "grace",
+      "coverage": "batch-2100-2199-target"
+    },
+    {
+      "ordinal": 2183,
+      "word": "grand",
+      "coverage": "batch-2100-2199-target",
+      "readableSenseIds": [],
+      "readabilityModes": [
+        "study"
+      ]
+    },
+    {
+      "ordinal": 2185,
+      "word": "grant",
+      "coverage": "batch-2100-2199-target",
+      "readableSenseIds": [
+        "sense:grant:0760535df454506b"
+      ],
+      "readabilityModes": [
+        "study"
+      ]
+    },
+    {
+      "ordinal": 2189,
+      "word": "grasp",
+      "coverage": "batch-2100-2199-target",
+      "readableSenseIds": [
+        "sense:grasp:f6ce3aa41a91c8e2",
+        "sense:grasp:a8908b5e37a50144"
+      ],
+      "readabilityModes": [
+        "study",
+        "lookup"
+      ]
+    },
+    {
+      "ordinal": 2190,
+      "word": "grass",
+      "coverage": "batch-2100-2199-target"
+    },
+    {
+      "ordinal": 2195,
+      "word": "graze",
+      "coverage": "batch-2100-2199-target"
+    },
+    {
+      "ordinal": 2197,
+      "word": "great",
+      "coverage": "batch-2100-2199-target",
+      "readableSenseIds": [
+        "sense:great:104b8cdffce85522",
+        "sense:great:3517b8ecab987ada",
+        "sense:great:8a31c1b578c333dc",
+        "sense:great:55138ca92b323fbe"
+      ],
+      "readabilityModes": [
+        "study",
+        "lookup"
+      ],
+      "lookupReadableSenseIds": [
+        "sense:great:3517b8ecab987ada",
+        "sense:great:8a31c1b578c333dc",
+        "sense:great:55138ca92b323fbe"
+      ]
+    },
+    {
+      "ordinal": 2199,
+      "word": "green",
+      "coverage": "batch-2100-2199-target"
     },
     {
       "ordinal": 2024,
       "word": "foul",
+      "coverage": "first-batch-long-header",
+      "readabilityModes": [
+        "study"
+      ],
+      "readableSenseIds": [
+        "sense:foul:766c01bb73185d64"
+      ],
       "text": "非正式；foul something up 表示把事情搞砸。"
     },
     {
-      "ordinal": 2028,
-      "word": "four",
-      "text": "the number 4"
-    },
-    {
-      "ordinal": 2029,
-      "word": "fourteen",
-      "text": "the number 14"
-    },
-    {
-      "ordinal": 2034,
-      "word": "fragment"
-    },
-    {
-      "ordinal": 2038,
-      "word": "franchise"
-    },
-    {
-      "ordinal": 2044,
-      "word": "freeze"
-    },
-    {
-      "ordinal": 2048,
-      "word": "fresh"
-    },
-    {
-      "ordinal": 2051,
-      "word": "friend"
-    },
-    {
       "ordinal": 2052,
-      "word": "friendly"
+      "word": "friendly",
+      "coverage": "first-batch-note",
+      "readabilityModes": [
+        "study"
+      ],
+      "readableSenseIds": [
+        "sense:friendly:800bdfcfc6e039d0"
+      ],
+      "text": "常见于复合词，也可由副词修饰，或单独使用。"
     },
     {
       "ordinal": 2056,
       "word": "fringe",
+      "coverage": "first-batch-bottom-row",
       "text": "with 后接沿边缘分布的事物。"
     },
     {
-      "ordinal": 2057,
-      "word": "frog",
-      "text": "a small animal with no tail and long back legs for jumping, which lives on land and in water"
-    },
-    {
-      "ordinal": 2069,
-      "word": "full"
-    },
-    {
-      "ordinal": 2072,
-      "word": "function"
-    },
-    {
-      "ordinal": 2078,
-      "word": "furious"
-    },
-    {
-      "ordinal": 2079,
-      "word": "furnace"
-    },
-    {
-      "ordinal": 2081,
-      "word": "furniture"
-    },
-    {
-      "ordinal": 2089,
-      "word": "galaxy"
-    },
-    {
-      "ordinal": 2095,
-      "word": "gaol"
-    },
-    {
       "ordinal": 3185,
-      "word": "natural"
+      "word": "natural",
+      "coverage": "fixed-collision-regression",
+      "readabilityModes": [
+        "study"
+      ],
+      "readableSenseIds": [
+        "sense:natural:d6b11c3d7a05cb31"
+      ]
     },
     {
       "ordinal": 856,
-      "word": "close"
-    },
-    {
-      "ordinal": 2041,
-      "word": "free"
-    },
-    {
-      "ordinal": 2082,
-      "word": "further"
-    },
-    {
-      "ordinal": 2093,
-      "word": "game"
+      "word": "close",
+      "coverage": "fixed-collision-regression",
+      "readabilityModes": [
+        "study"
+      ],
+      "readableSenseIds": [
+        "sense:close:341282390f479362"
+      ]
     }
   ];
   const context = await browser.newContext({ deviceScaleFactor: 1 });
+  const privateRequests = await isolatePrivateCheckpoint(context);
   const page = await context.newPage();
-  const report = { status: 'RUNNING', cases: [], navigation: null, errors: [] };
+  const report = { status: 'RUNNING', scope:'batch-2100-2199', synthetic:true, cases: [], navigation: [], errors: [], privateRequests };
   page.on('pageerror', error => report.errors.push(String(error)));
-  const save = () => fs.writeFileSync(path.join(outputRoot, 'batch-2000-2099-rendered.json'), `${JSON.stringify(report, null, 2)}\n`);
+  const save = () => fs.writeFileSync(path.join(outputRoot, 'batch-2100-2199-rendered.json'), `${JSON.stringify(report, null, 2)}\n`);
   const ready = async (ordinal, mode) => {
     await page.locator(`[data-local-port="vocabulary"][data-vocab-ordinal="${ordinal}"][data-vocab-initialized="true"][data-vocab-mode="${mode}"]`).waitFor({ state: 'attached' });
     await page.evaluate(() => document.fonts.ready);
@@ -388,40 +576,51 @@ async function auditFirstQualityBatch(browser) {
           const actualText = await page.locator('[data-vocab-details]').innerText();
           const expectedIds = (current.reference?.senses || []).map(s => s.sense_id || s.stable_sense_id || s.id).sort();
           const expectedActive = (current.senses || []).filter(s => mode === 'lookup' || s.disposition !== 'EXPLORE_ONLY').length;
-          const result = { ordinal:fixture.ordinal,word:fixture.word,mode,viewport,screenshot:`${stem}.png`,geometry,expectedActive,pinnedText:fixture.text || null,pinnedTextVisible:!fixture.text || actualText.includes(fixture.text) };
+          const projection = await auditBatchProjection(page,current,mode);
+          const result = { ordinal:fixture.ordinal,word:fixture.word,coverage:fixture.coverage,mode,viewport,projection,screenshot:`${stem}.png`,geometry,expectedActive,pinnedText:fixture.text || null,pinnedTextVisible:!fixture.text || actualText.includes(fixture.text) };
           report.cases.push(result); save();
-          // Capture each known collision-regression row, including below-fold content.
-          if (fixture.word === 'natural' || fixture.word === 'close') {
-            const rows = page.locator('.portedVocabSenseList > .lexicalSenseRow:visible');
-            for (let i=0;i<await rows.count();i++) { await rows.nth(i).scrollIntoViewIfNeeded(); await rows.nth(i).screenshot({ path:path.join(outputRoot,`${stem}-row-${i+1}.png`) }); }
-          }
           if(mode==='lookup') assert(JSON.stringify(await stateSnapshot())===JSON.stringify(beforeLookup),'batch_lookup_keeps_coverage_and_word_state',stem);
           assert(result.pinnedTextVisible, 'batch_pinned_text', stem);
+          assert(projection.pass, 'batch_current_final_matches_actual_dom', stem);
           assert(geometry.rows.filter(r=>r.id).length === expectedActive, 'batch_active_sense_projection', stem);
           assert(JSON.stringify(geometry.referenceIds.map(r=>r.id).sort()) === JSON.stringify(expectedIds), 'batch_reference_retained', stem);
           assert(geometry.referenceIds.every(r=>r.visible === (mode==='lookup') && r.repair===0), 'batch_reference_visibility_and_no_repair', stem);
           if(mode==='study') assert(geometry.visibleLookupOnly===0, 'batch_lookup_hidden_in_study', stem);
           assert(geometry.overflow<=2, 'batch_no_horizontal_overflow', `${stem}:${geometry.overflow}`);
           assert(geometry.collisions.length===0, 'batch_no_row_collocation_collision', `${stem}:${geometry.collisions.join(',')}`);
-          if(mode==='study' && [2052,2056,3185,856].includes(fixture.ordinal)) {
-            const rows=await auditBoundedReadableRows(page,fixture.ordinal,stem,outputRoot);
+          // Bounded normal-scroll evidence: changed Chinese/pattern targets and fixed regressions.
+          // Full actual-DOM and collision checks above still cover every rendered row in all96 cases.
+          if (fixture.readabilityModes?.includes(mode)) {
+            const ids = mode==='lookup' ? (fixture.lookupReadableSenseIds || fixture.readableSenseIds) : fixture.readableSenseIds;
+            const targets = ids
+              ? ids.map(id=>({id,selector:`.portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id="${id}"]`}))
+              : null;
+            if(fixture.ordinal===2183) targets.push({id:'core:grand',selector:'.lexicalCoreHeadline'});
+            const rows=await auditBoundedReadableRows(page,fixture.ordinal,stem,outputRoot,targets);
             report.readability ||= [];
-            report.readability.push({ordinal:fixture.ordinal,viewport,rows});save();
+            report.readability.push({ordinal:fixture.ordinal,mode,viewport,rows});save();
             assert(rows.length>0 && rows.every(r=>r.pass),'batch_target_text_reachable_above_dock',stem);
           }
         }
       }
     }
-    await page.evaluate(() => localStorage.removeItem('kianos-vocabulary-astro-v2:word:fourteen'));
-    await page.goto(wordUrl(2028), { waitUntil:'networkidle' }); await ready(2028,'study');
-    if(await page.locator('[data-vocab-front]').isVisible()) await page.locator('[data-vocab-reveal]').click();
-    await page.locator('[data-vocab-details]').waitFor({state:'visible'});
-    await page.locator('[data-vocab-route="known"]').click();
-    await page.waitForURL('**/vocabulary/2029/'); await ready(2029,'study');
-    assert((await page.locator('[data-vocab-front] h2').innerText()).trim()==='fourteen','batch_next_word_identity');
-    await page.keyboard.press('Backspace'); await page.waitForURL('**/vocabulary/2028/'); await ready(2028,'study');
-    report.navigation={from:2028,next:2029,undo:2028,status:'PASS'};
-    await page.screenshot({path:path.join(outputRoot,'batch-navigation-undo.png'),fullPage:true});
+    for (const viewport of [{ width:1440,height:900 }, { width:1280,height:800 }]) {
+      await page.setViewportSize(viewport);
+      await page.evaluate(() => localStorage.removeItem('kianos-vocabulary-astro-v2:word:gasp'));
+      await page.goto(wordUrl(2102), { waitUntil:'networkidle' }); await ready(2102,'study');
+      if(await page.locator('[data-vocab-front]').isVisible()) await page.locator('[data-vocab-reveal]').click();
+      await page.locator('[data-vocab-details]').waitFor({state:'visible'});
+      await page.locator('[data-vocab-route="known"]').click();
+      await page.waitForURL('**/vocabulary/2103/'); await ready(2103,'study');
+      assert((await page.locator('[data-vocab-front] h2').innerText()).trim()==='gasp','batch_next_word_identity');
+      await page.keyboard.press('Backspace'); await page.waitForURL('**/vocabulary/2102/'); await ready(2102,'study');
+      assert(await page.locator('[data-local-port="vocabulary"]').getAttribute('data-vocab-word')==='gas','batch_undo_word_identity');
+      report.navigation.push({from:2102,next:2103,undo:2102,viewport,status:'PASS'});save();
+      await page.screenshot({path:path.join(outputRoot,`batch-navigation-undo-${viewport.width}x${viewport.height}.png`),fullPage:true});
+    }
+    report.coverage = { words:fixtures.length,expectedCases:fixtures.length*4,actualCases:report.cases.length,
+      readabilityGroups:report.readability?.length||0,readabilityTargets:(report.readability||[]).reduce((n,g)=>n+g.rows.length,0),navigationJourneys:report.navigation.length };
+    assert(report.cases.length===fixtures.length*4 && report.navigation.length===2,'batch_complete_matrix',JSON.stringify(report.coverage));
     assert(report.errors.length===0,'batch_no_page_errors',report.errors.join('\n'));
     report.status='PASS';save();
   } catch(error) {
@@ -436,8 +635,9 @@ try {
   await waitForServer();
   browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
+  await isolatePrivateCheckpoint(page.context());
   const reports = [];
-  await auditFirstQualityBatch(browser);
+  await auditSecondQualityBatch(browser);
 
   // Architecture-v2 Human Gate evidence.
   const initialVocabularyResponse = await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });

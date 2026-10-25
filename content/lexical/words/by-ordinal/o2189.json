@@ -31,19 +31,20 @@
           ]
         },
         {
-          "label_cn": "紧握，把握；理解，控制；（手或能力）可及的范围",
-          "label_en": "a firm hold or grip; understanding or control; the range of physical reach or ability to attain something",
+          "label_cn": "紧握，把握；理解；领会（对知识、问题等）；控制；掌控（对人或事物的支配）；（手或能力）可及的范围",
+          "label_en": "a firm hold or grip; an understanding of a subject or situation; control or power over someone or something; the range of physical reach or ability to attain something",
           "pos": "noun",
           "sense_ids": [
             "sense:grasp:cd5787114a105577",
-            "sense:grasp:a6eae64907ce5d0f",
+            "sense:grasp:f6ce3aa41a91c8e2",
+            "sense:grasp:a8908b5e37a50144",
             "sense:grasp:97a95cb82f2d84bf"
           ]
         }
       ],
       "core_meaning_cn": "抓牢或抓住机会、理解；抓握、理解与控制或可及范围；绝望尝试",
       "core_meaning_en": "seize or understand; a hold, understanding or control, or attainable reach; desperate attempts",
-      "mental_model_cn": "grasp物体为抓牢，grasp an idea为理解，grasp an opportunity为抓住机会。名词a grasp of为理解，beyond one’s grasp可指够不到或能力不及；grasp at straws表示绝望中尝试任何办法。",
+      "mental_model_cn": "grasp物体为抓牢，grasp an idea为理解，grasp an opportunity为抓住机会。名词 a grasp of 为理解，in sb’s grasp 可比喻受某人掌控；beyond one’s grasp 可指够不到或能力不及；grasp at straws表示绝望中尝试任何办法。",
       "mental_model_en": "seize or understand; a hold, understanding or control, or attainable reach; desperate attempts."
     },
     "exam_paraphrases": [],
@@ -145,15 +146,29 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "理解，控制",
-        "definition_en": "understanding or control",
-        "governing_pattern": "",
+        "definition_cn": "理解；领会（对知识、问题等）",
+        "definition_en": "an understanding of a subject or situation",
+        "governing_pattern": "a grasp of sth",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:grasp:a6eae64907ce5d0f",
-        "sense_label_en": "understanding or control",
+        "sense_id": "sense:grasp:f6ce3aa41a91c8e2",
+        "sense_label_en": "an understanding of a subject or situation",
         "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "控制；掌控（对人或事物的支配）",
+        "definition_en": "control or power over someone or something",
+        "governing_pattern": "in sb’s grasp",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:grasp:a8908b5e37a50144",
+        "sense_label_en": "control or power over someone or something",
+        "sort_order": 4,
         "transitivity": "nonverb"
       },
       {
@@ -168,7 +183,7 @@
         "direction": "R+P",
         "confidence": "high",
         "needs_human_review": 0,
-        "sort_order": 4,
+        "sort_order": 5,
         "collocations": [
           {
             "collocation_id": "collocation:05c32b54f4a005c4424f",
@@ -239,7 +254,7 @@
                 "sense:grasp:97a95cb82f2d84bf"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2189.json",
-              "source_pointer": "/record/senses/4",
+              "source_pointer": "/record/senses/5",
               "conditions": {
                 "current_owner_usage": "within/beyond one’s grasp"
               }
@@ -461,7 +476,35 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:3703b57560e1d9e03e77",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:grasp:a6eae64907ce5d0f:collocation:0"
+          ],
+          "meaning_cn": "掌握某事物",
+          "phrase": "have a grasp of + sth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "理解，控制",
+      "definition_en": "understanding or control",
+      "governing_pattern": "",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:grasp:a6eae64907ce5d0f",
+      "sense_label_en": "understanding or control",
+      "sort_order": 3,
+      "transitivity": "nonverb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -473,7 +516,7 @@
       },
       {
         "sense_id": "sense:grasp:a6eae64907ce5d0f",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6103,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
@@ -494,6 +537,22 @@
       },
       {
         "sense_id": "sense:grasp:97a95cb82f2d84bf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2189.json",
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:grasp:f6ce3aa41a91c8e2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2189.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:grasp:a8908b5e37a50144",
         "status": "active",
         "merged_into_sense_id": null,
         "source_row": null,
@@ -542,7 +601,7 @@
         "status": "active",
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2189.json",
-        "source_pointer": "/record/senses/4/collocations/0"
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

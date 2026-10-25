@@ -11,13 +11,15 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "大的；数量多的；规模大的；重大的；重要的；非常的；极好的；伟大的",
-          "label_en": "relatively large in size or number or extent; larger than others of its kind; of major significance or importance; very large in degree, excellent, or distinguished",
+          "label_cn": "大的；数量多的；规模大的；重大的；重要的；（程度）很大的；极大的（不一定是褒义）；极好的；很棒的；杰出的；伟大的",
+          "label_en": "relatively large in size or number or extent; larger than others of its kind; of major significance or importance; very high in degree; very good or enjoyable; exceptionally able, successful or admired",
           "pos": "adjective",
           "sense_ids": [
             "sense:great:104b8cdffce85522",
             "sense:great:8f5e43c1e32e53ca",
-            "sense:great:4cb6227db0c85c81"
+            "sense:great:3517b8ecab987ada",
+            "sense:great:8a31c1b578c333dc",
+            "sense:great:55138ca92b323fbe"
           ]
         },
         {
@@ -39,7 +41,7 @@
       ],
       "core_meaning_cn": "规模或数量大、重要、程度高、极好或伟大；大人物；很好地（非正式）",
       "core_meaning_en": "large, important, high in degree, excellent or distinguished; a great person; successfully in informal use",
-      "mental_model_cn": "great可评价规模、重要性、程度或质量；名词the greats为领域中的大师，非正式副词great为很好地或顺利地。",
+      "mental_model_cn": "great number 表示数量大，great event 表示重大；great mistake 表示程度严重，不是很好。a great meal 表示很棒，a great scientist 表示杰出。the greats 指领域中的大师；副词 great 表示很好地（非正式）。",
       "mental_model_en": "large, important, high in degree, excellent or distinguished; a great person; successfully in informal use."
     },
     "exam_paraphrases": [],
@@ -69,15 +71,6 @@
             ],
             "meaning_cn": "大量的……（接不可数名词）",
             "phrase": "a great deal of + uncountable noun"
-          },
-          {
-            "collocation_id": "collocation:d2391335dd6fd4f1a9ab",
-            "exam_value": "usage_example",
-            "legacy_source_object_ids": [
-              "sense:great:104b8cdffce85522:collocation:2"
-            ],
-            "meaning_cn": "重要性大",
-            "phrase": "great importance"
           }
         ],
         "confidence": "medium",
@@ -137,6 +130,44 @@
             "phrase": "a great success"
           },
           {
+            "collocation_id": "collocation:d2391335dd6fd4f1a9ab",
+            "exam_value": "usage_example",
+            "legacy_source_object_ids": [
+              "sense:great:104b8cdffce85522:collocation:2"
+            ],
+            "meaning_cn": "重要性大",
+            "phrase": "great importance"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "（程度）很大的；极大的（不一定是褒义）",
+        "definition_en": "very high in degree",
+        "governing_pattern": "great difficulty/mistake",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:great:3517b8ecab987ada",
+        "sense_label_en": "very high in degree",
+        "sort_order": 2,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "极好的；很棒的",
+        "definition_en": "very good or enjoyable",
+        "governing_pattern": "a great meal/time",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:great:8a31c1b578c333dc",
+        "sense_label_en": "very good or enjoyable",
+        "sort_order": 3,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [
+          {
             "collocation_id": "collocation:78a6321f8d64a00f8c37",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -147,15 +178,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "非常的；极好的；伟大的",
-        "definition_en": "very large in degree, excellent, or distinguished",
-        "governing_pattern": "",
+        "definition_cn": "杰出的；伟大的",
+        "definition_en": "exceptionally able, successful or admired",
+        "governing_pattern": "a great scientist/artist",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
-        "sense_id": "sense:great:4cb6227db0c85c81",
-        "sense_label_en": "very large in degree, excellent, or distinguished",
-        "sort_order": 2,
+        "sense_id": "sense:great:55138ca92b323fbe",
+        "sense_label_en": "exceptionally able, successful or admired",
+        "sort_order": 4,
         "transitivity": "nonverb"
       },
       {
@@ -179,7 +210,7 @@
         "pos": "noun",
         "sense_id": "sense:great:bb9bc65132295ba8",
         "sense_label_en": "a person who has achieved distinction and honor in some field",
-        "sort_order": 3,
+        "sort_order": 5,
         "transitivity": "nonverb"
       },
       {
@@ -203,7 +234,7 @@
         "pos": "adverb",
         "sense_id": "sense:great:a7a9ad9301d7561c",
         "sense_label_en": "in a successful or satisfactory way",
-        "sort_order": 4,
+        "sort_order": 6,
         "transitivity": "nonverb"
       }
     ],
@@ -395,7 +426,44 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:6b2862b742511817a03d",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:great:4cb6227db0c85c81:collocation:0"
+          ],
+          "meaning_cn": "巨大的成功",
+          "phrase": "a great success"
+        },
+        {
+          "collocation_id": "collocation:78a6321f8d64a00f8c37",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:great:4cb6227db0c85c81:collocation:1"
+          ],
+          "meaning_cn": "伟人",
+          "phrase": "a great man"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "非常的；极好的；伟大的",
+      "definition_en": "very large in degree, excellent, or distinguished",
+      "governing_pattern": "",
+      "level": "L1",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:great:4cb6227db0c85c81",
+      "sense_label_en": "very large in degree, excellent, or distinguished",
+      "sort_order": 2,
+      "transitivity": "nonverb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -407,7 +475,7 @@
       },
       {
         "sense_id": "sense:great:4cb6227db0c85c81",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6128,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
@@ -432,6 +500,30 @@
         "merged_into_sense_id": null,
         "source_row": 6131,
         "source_path": "content/lexical/canonical/senses/shards/o2177-2208.json"
+      },
+      {
+        "sense_id": "sense:great:3517b8ecab987ada",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2197.json",
+        "source_pointer": "/record/senses/2"
+      },
+      {
+        "sense_id": "sense:great:8a31c1b578c333dc",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2197.json",
+        "source_pointer": "/record/senses/3"
+      },
+      {
+        "sense_id": "sense:great:55138ca92b323fbe",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2197.json",
+        "source_pointer": "/record/senses/4"
       }
     ],
     "active_collocations": [
