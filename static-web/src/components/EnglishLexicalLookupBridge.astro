@@ -19,7 +19,8 @@ const base = import.meta.env.BASE_URL;
 </div>
 
 <script>
-  import {markEnglishAssistance, recordEnglishReadingLookup, taskMetadata, updateEnglishReadingDiscussion, englishReadingDiscussionSpans} from "../lib/englishLearnerEvidence.mjs";
+  import {markEnglishAssistance, recordEnglishReadingLookup, taskMetadata, updateEnglishObjectiveSourceSpan, englishObjectiveSourceSpans} from "../lib/englishLearnerEvidence.mjs";
+  import {englishSourceModel, englishSourceSelection, englishSourceRanges, clearEnglishSourceMarks, markEnglishSourceFallback} from "../lib/englishSourceSelection.mjs";
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
@@ -32,10 +33,13 @@ const base = import.meta.env.BASE_URL;
     const sourceSelectors = [
       '[data-local-port="reading"] [data-reading-passage]',
       '[data-objective-root][data-objective-task="cloze"] [data-objective-material]',
+      '[data-objective-root][data-objective-task="reading_b"] [data-objective-material]',
+      '[data-objective-root][data-objective-task="reading_b"] [data-objective-candidate] > span',
       '[data-translation-runtime] [data-translation-source-text]',
       '[data-external-reading-runtime] [data-external-passage]'
     ];
     let activeSelection = null;
+    let editing = null;
 
     const readContext = () => {
       try { return JSON.parse(sessionStorage.getItem(CONTEXT_KEY) || 'null'); }
@@ -51,20 +55,32 @@ const base = import.meta.env.BASE_URL;
     const compact = (value, max = 1200) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, max);
     const exactToken = (value) => /^[A-Za-z]+(?:[-'’][A-Za-z]+)*$/.test(String(value || '').trim());
     const currentHref = () => `${location.pathname}${location.search}${location.hash}`;
+    const annotationError = error => {
+      const message=String(error?.message||'标记保存失败');
+      if(message==='ENGLISH_READING_DISCUSSION_SPAN_INVALID')return '选区与原文不一致，或超过16000字符，请重新选择。';
+      if(message.startsWith('ENGLISH_'))return '当前标记无法安全保存，原记录已保留。请刷新后重新选择。';
+      return message;
+    };
 
     const routeContext = (sourceRoot) => {
       const reading = sourceRoot.closest('[data-local-port="reading"]');
       if (reading instanceof HTMLElement) return {
-        task: 'Reading A',
+        task: 'Reading A', taskId: 'reading_a',
         objectId: reading.getAttribute('data-reading-object') || '',
         sourceRoot,
         taskRoot: reading
       };
       const cloze = sourceRoot.closest('[data-objective-root][data-objective-task="cloze"]');
       if (cloze instanceof HTMLElement) return {
-        task: 'Cloze',
+        task: 'Cloze', taskId: 'cloze',
         objectId: cloze.getAttribute('data-objective-object') || '',
-        sourceRoot
+        sourceRoot, taskRoot: cloze
+      };
+      const readingB = sourceRoot.closest('[data-objective-root][data-objective-task="reading_b"]');
+      if (readingB instanceof HTMLElement) return {
+        task: 'Reading B', taskId: 'reading_b',
+        objectId: readingB.getAttribute('data-objective-object') || '',
+        sourceRoot, taskRoot: readingB
       };
       const translation = sourceRoot.closest('[data-translation-runtime]');
       if (translation instanceof HTMLElement) return {
@@ -85,13 +101,17 @@ const base = import.meta.env.BASE_URL;
       if (!(start instanceof Element)) return null;
       const source = start.closest(sourceSelectors.join(','));
       if (!(source instanceof HTMLElement)) return null;
-      if (!source.contains(range.endContainer)) return null;
+      const end = range.endContainer instanceof Element ? range.endContainer : range.endContainer.parentElement;
+      const endSource = end?.closest(sourceSelectors.join(','));
+      if (!endSource) return null;
+      if (source !== endSource && (!routeContext(source)?.taskRoot || routeContext(source)?.taskRoot !== routeContext(endSource)?.taskRoot)) return null;
       return source;
     };
 
     const hideMenu = () => {
       menu.hidden = true;
       activeSelection = null;
+      document.querySelectorAll('[data-reading-highlight]').forEach(button=>button.disabled=true);
     };
 
     const placeMenu = (rect) => {
@@ -102,122 +122,104 @@ const base = import.meta.env.BASE_URL;
       menu.style.top = `${top}px`;
     };
 
-    // Offsets refer only to passage paragraphs, excluding changing timer/selection chrome.
-    const readingModel = (source) => {
-      const paragraphs = [...source.querySelectorAll('p')];
-      let text = '';
-      const segments = paragraphs.map((paragraph,index) => {
-        if(index) text += '\n\n';
-        const start = text.length;
-        text += paragraph.textContent || '';
-        return {paragraph,start,end:text.length};
-      });
-      return {text,segments};
-    };
-    const discussionSelection = (source,range) => {
-      const model = readingModel(source);
-      const offset = (node,position) => {
-        const segment = model.segments.find(row=>row.paragraph.contains(node));
-        if(!segment) return null;
-        const prefix = document.createRange();
-        prefix.selectNodeContents(segment.paragraph);
-        prefix.setEnd(node,position);
-        return segment.start + prefix.toString().length;
-      };
-      const start = offset(range.startContainer,range.startOffset);
-      const end = offset(range.endContainer,range.endOffset);
-      if(start==null || end==null || end<=start) return null;
-      return {start,end,text:model.text.slice(start,end)};
-    };
-    const discussionRange = (model,span) => {
-      if(model.text.slice(span.start,span.end)!==span.text) return null;
-      const point = (offset) => {
-        const segment = model.segments.find(row=>offset>=row.start && offset<=row.end);
-        if(!segment) return null;
-        const walker = document.createTreeWalker(segment.paragraph,NodeFilter.SHOW_TEXT);
-        let remaining = offset-segment.start, node;
-        while((node=walker.nextNode())) {
-          if(remaining<=node.textContent.length) return [node,remaining];
-          remaining-=node.textContent.length;
-        }
-        return null;
-      };
-      const start = point(span.start), end = point(span.end);
-      if(!start || !end) return null;
-      const range = document.createRange();
-      range.setStart(...start);range.setEnd(...end);
-      return range;
-    };
+    const objectiveRoots = [...document.querySelectorAll('[data-local-port="reading"], [data-objective-root][data-objective-task="cloze"], [data-objective-root][data-objective-task="reading_b"]')];
+    const rootMeta = root => taskMetadata(root,root.dataset.objectiveTask || 'reading_a',root.dataset.objectiveObject || root.dataset.readingObject);
+    const sameSource = (a,b) => ['task','object_id','source_hash'].every(key=>a?.[key]===b?.[key]);
+    const attemptKey = meta => ({reading_a:'kianos-reading-attempt-v1:',cloze:'kianos-cloze-attempt-v1:',reading_b:'kianos-reading-b-attempt-v1:'}[meta.task])+meta.object_id;
     let discussionObserver = null;
     const observeDiscussion = () => {
-      const root=document.querySelector('[data-local-port="reading"]');
-      if(root)discussionObserver?.observe(root,{childList:true,subtree:true,attributes:true,attributeFilter:['data-english-source-hash']});
+      for(const root of objectiveRoots)discussionObserver?.observe(root,{childList:true,subtree:true,attributes:true,attributeFilter:['data-english-source-hash','data-objective-object','data-reading-object']});
     };
     const renderDiscussion = () => {
-      // Re-anchoring marks/panel must not trigger our own mutation observer.
       discussionObserver?.disconnect();
       try {
-      const root = document.querySelector('[data-local-port="reading"]');
-      const source = root?.querySelector('[data-reading-passage]');
-      if(!(root instanceof HTMLElement) || !(source instanceof HTMLElement)) return;
-      // Fallback marks alter nodes only, never passage text or offsets.
-      source.querySelectorAll('mark[data-reading-discussion-mark]').forEach(mark=>mark.replaceWith(...mark.childNodes));
-      CSS.highlights?.delete('kianos-reading-discussion');
-      let panel = root.querySelector('[data-reading-discussion-panel]');
-      if(!panel) {
-        panel = document.createElement('details');
-        panel.setAttribute('data-reading-discussion-panel','');
-        panel.className = 'englishReadingDiscussion';
-        root.querySelector('.portedReadingQuestionNav')?.after(panel);
-      }
-      panel.replaceChildren();panel.hidden=true;
-      if(new URLSearchParams(location.search).has('exam_session')) return;
-      let meta,attempt;
-      try {
-        meta=taskMetadata(root,'reading_a',root.dataset.readingObject);
-        attempt=JSON.parse(localStorage.getItem('kianos-reading-attempt-v1:'+meta.object_id)||'null');
-      } catch { return; }
-      const spans=englishReadingDiscussionSpans(attempt,meta.source_hash);
-      if(!spans.length) return;
-      const model=readingModel(source), ranges=[];
-      const summary=document.createElement('summary');
-      summary.textContent=`Chat 上下文 · ${spans.length} 段`;
-      panel.append(summary);panel.hidden=false;
-      for(const span of spans) {
-        const range=discussionRange(model,span);
-        if(range)ranges.push(range);
-        const row=document.createElement('div');
-        row.setAttribute('data-reading-discussion-span',span.span_id);
-        const text=document.createElement('span');text.textContent=span.text+(range?'':'（原文定位已变化，保留记录）');
-        const remove=document.createElement('button');remove.type='button';remove.textContent='移除';
-        remove.setAttribute('data-reading-discussion-remove',span.span_id);
-        remove.addEventListener('click',()=>{
-          updateEnglishReadingDiscussion(localStorage,meta,{removeId:span.span_id});renderDiscussion();
-        });
-        row.append(text,remove);panel.append(row);
-      }
-      const clear=document.createElement('button');clear.type='button';clear.textContent='清空上下文';
-      clear.setAttribute('data-reading-discussion-clear','');
-      clear.addEventListener('click',()=>{updateEnglishReadingDiscussion(localStorage,meta,{clear:true});renderDiscussion();});
-      panel.append(clear);
-      if('highlights' in CSS && typeof Highlight!=='undefined')CSS.highlights.set('kianos-reading-discussion',new Highlight(...ranges));
-      else {
-        // Apply text-node marks from the end so earlier offsets remain intact.
-        for(const range of ranges.reverse()) {
-          const walker=document.createTreeWalker(source,NodeFilter.SHOW_TEXT), nodes=[];
-          let node;
-          while((node=walker.nextNode()))if(range.intersectsNode(node))nodes.push(node);
-          for(const node of nodes.reverse()) {
-            const start=node===range.startContainer?range.startOffset:0;
-            const end=node===range.endContainer?range.endOffset:node.textContent.length;
-            if(end<=start)continue;
-            const part=document.createRange();part.setStart(node,start);part.setEnd(node,end);
-            const mark=document.createElement('mark');mark.setAttribute('data-reading-discussion-mark','');
-            part.surroundContents(mark);
+        const highlights=[],discussions=[];
+        for(const root of objectiveRoots){
+          clearEnglishSourceMarks(root);
+          let panel=root.querySelector('[data-reading-discussion-panel]');
+          if(!panel){
+            panel=document.createElement('details');panel.setAttribute('data-reading-discussion-panel','');
+            panel.className='englishReadingDiscussion';
+            const anchor=root.querySelector('.portedReadingQuestionNav') || root.querySelector(':scope > header');
+            if(anchor)anchor.after(panel);else root.append(panel);
+          }
+          panel.replaceChildren();panel.hidden=true;
+          if(new URLSearchParams(location.search).has('exam_session'))continue;
+          let meta,attempt;
+          try{meta=rootMeta(root);attempt=JSON.parse(localStorage.getItem(attemptKey(meta))||'null');}catch{continue;}
+          const attemptId=attempt?.binding?.attempt_id||'';
+          root.dataset.englishAnnotationAttempt=attemptId;
+          if(activeSelection?.taskRoot===root&&(!sameSource(meta,activeSelection.annotationMeta)||attemptId!==activeSelection.attemptId))hideMenu();
+          if(editing?.taskRoot===root&&(!sameSource(meta,editing.meta)||attemptId!==editing.attemptId))editing=null;
+          const spans=englishObjectiveSourceSpans(attempt,meta.source_hash);
+          const clearHighlight=root.querySelector('[data-reading-clear-highlight]');
+          if(clearHighlight)clearHighlight.disabled=!spans.some(span=>span.intent==='HIGHLIGHT');
+          if(!spans.length)continue;
+          const model=englishSourceModel(root,meta),anchored=[];
+          const summary=document.createElement('summary');summary.textContent=`原文标记 · ${spans.length} 段`;
+          panel.append(summary);panel.hidden=false;
+          const status=document.createElement('small');status.setAttribute('data-reading-discussion-status','');
+          const mutate=change=>{
+            try{
+              if(!sameSource(meta,rootMeta(root)))throw new Error('ENGLISH_SOURCE_SPAN_CHANGED_RESELECT');
+              updateEnglishObjectiveSourceSpan(localStorage,meta,{...change,expectedAttemptId:attemptId});renderDiscussion();
+            }
+            catch(error){status.textContent=annotationError(error);}
+          };
+          for(const span of spans){
+            const ranges=englishSourceRanges(model,span);
+            if(ranges.length){anchored.push(span);(span.intent==='HIGHLIGHT'?highlights:discussions).push(...ranges);}
+            const row=document.createElement('div');row.setAttribute('data-reading-discussion-span',span.span_id);
+            const text=document.createElement('span');
+            text.textContent=`${span.intent==='HIGHLIGHT'?'高亮':'Chat 上下文'} · ${span.text}`+(ranges.length?'':'（原文定位已变化，保留记录）');
+            const edit=document.createElement('button');edit.type='button';edit.textContent='修改选段';
+            edit.setAttribute('data-reading-discussion-edit',span.span_id);
+            edit.addEventListener('click',()=>{
+              editing={spanId:span.span_id,task:meta.task,objectId:meta.object_id,taskRoot:root,meta,attemptId};
+              status.textContent='重新选择原文，再点“高亮”或“Chat 上下文”替换此标记。';
+              cancel.hidden=false;
+            });
+            const remove=document.createElement('button');remove.type='button';remove.textContent='移除';
+            remove.setAttribute('data-reading-discussion-remove',span.span_id);
+            remove.addEventListener('click',()=>{
+              if(editing?.spanId===span.span_id)editing=null;
+              mutate({removeId:span.span_id});
+            });
+            row.append(text,edit,remove);panel.append(row);
+          }
+          const clear=document.createElement('button');clear.type='button';clear.textContent='清空标记';
+          clear.setAttribute('data-reading-discussion-clear','');
+          clear.addEventListener('click',()=>{editing=null;mutate({clear:true});});
+          const cancel=document.createElement('button');cancel.type='button';cancel.textContent='取消修改';
+          cancel.hidden=!(editing?.task===meta.task&&editing?.objectId===meta.object_id);
+          cancel.addEventListener('click',()=>{editing=null;renderDiscussion();});
+          if(!cancel.hidden)status.textContent='重新选择原文，再点“高亮”或“Chat 上下文”替换此标记。';
+          panel.append(clear,cancel,status);
+          if(!('highlights' in CSS && typeof Highlight!=='undefined'))markEnglishSourceFallback(model,anchored);
+        }
+        if('highlights' in CSS && typeof Highlight!=='undefined'){
+          for(const [name,ranges] of [[HIGHLIGHT_NAME,highlights],['kianos-reading-discussion',discussions]]){
+            if(ranges.length)CSS.highlights.set(name,new Highlight(...ranges));else CSS.highlights.delete(name);
           }
         }
-      }
-      } finally { observeDiscussion(); }
+      } finally {observeDiscussion();}
+    };
+
+    const persistSelection = (intent) => {
+      const status=menu.querySelector('[data-selection-status]');
+      try{
+        if(new URLSearchParams(location.search).has('exam_session'))return;
+        if(!activeSelection?.discussion)throw new Error('请选择完整原文中的文字。');
+        const root=activeSelection.taskRoot,meta=rootMeta(root);
+        if(!sameSource(meta,activeSelection.annotationMeta))throw new Error('ENGLISH_SOURCE_SPAN_CHANGED_RESELECT');
+        if(root.dataset.englishReadonly==='true')throw new Error('当前记录只读，标记未保存。');
+        const replaceId=editing?.task===meta.task&&editing?.objectId===meta.object_id?editing.spanId:null;
+        if(replaceId&&editing.attemptId!==activeSelection.attemptId)throw new Error('ENGLISH_SOURCE_SPAN_CHANGED_RESELECT');
+        updateEnglishObjectiveSourceSpan(localStorage,activeSelection.annotationMeta,{intent,replaceId,expectedAttemptId:activeSelection.attemptId,span:{...activeSelection.discussion,
+          source_context:activeSelection.nearby,focused_question_id:activeSelection.focusedQuestionId}});
+        editing=null;renderDiscussion();
+        if(status)status.textContent=intent==='HIGHLIGHT'?'已保存高亮':'已保存 Chat 上下文';
+      }catch(error){if(status)status.textContent=annotationError(error);}
     };
 
     const captureSelection = () => {
@@ -237,21 +239,33 @@ const base = import.meta.env.BASE_URL;
       const focusedQuestionId = route.task === 'Reading A' && route.taskRoot instanceof HTMLElement
         ? route.taskRoot.querySelector('[data-question].is-current')?.getAttribute('data-question') || ''
         : '';
+      let annotationMeta=null,attemptId='';
+      if(route.taskId){
+        try{
+          annotationMeta=rootMeta(route.taskRoot);
+          attemptId=JSON.parse(localStorage.getItem(attemptKey(annotationMeta))||'null')?.binding?.attempt_id||'';
+        }catch{hideMenu();return;}
+      }
       activeSelection = {
         text,
         word: exactToken(text) ? text : '',
         range: range.cloneRange(),
         sourceRoot,
-        task: route.task,
+        task: route.task, taskId: route.taskId, taskRoot: route.taskRoot,
+        annotationMeta,attemptId,
         objectId: route.objectId,
         nearby: compact(localContext?.textContent || sourceRoot.textContent, 1200),
         sourceLocator: localContext instanceof HTMLElement && localContext.id
           ? `#${localContext.id}`
           : blockIndex >= 0 ? `block:${blockIndex + 1}` : '',
         focusedQuestionId,
-        discussion: route.task === 'Reading A' ? discussionSelection(sourceRoot,range) : null,
+        discussion: route.taskId ? englishSourceSelection(englishSourceModel(route.taskRoot,annotationMeta),range) : null,
         rect
       };
+      const toolbarHighlight=route.taskRoot?.querySelector('[data-reading-highlight]');
+      if(toolbarHighlight)toolbarHighlight.disabled=!activeSelection.discussion;
+      const selectionLabel=route.taskRoot?.querySelector('[data-reading-selection]');
+      if(selectionLabel)selectionLabel.textContent=`已选 ${text.slice(0,28)}${text.length>28?'…':''}`;
       const lexical = menu.querySelector('[data-selection-lexical]');
       if (lexical instanceof HTMLButtonElement) lexical.hidden = !activeSelection.word;
       const status = menu.querySelector('[data-selection-status]');
@@ -296,28 +310,30 @@ const base = import.meta.env.BASE_URL;
     };
 
     menu.querySelector('[data-selection-highlight]')?.addEventListener('click', () => {
+      if(activeSelection?.taskId){persistSelection('HIGHLIGHT');return;}
       const status = menu.querySelector('[data-selection-status]');
       if (status) status.textContent = applyHighlight() ? '已高亮' : '这段跨越多个结构，暂不能直接高亮';
     });
 
+    for(const root of objectiveRoots){
+      const add=root.querySelector('[data-reading-highlight]');
+      add?.addEventListener('pointerdown',event=>event.preventDefault());
+      add?.addEventListener('click',()=>{
+        if(activeSelection?.taskRoot!==root)return;
+        persistSelection('HIGHLIGHT');
+        const label=root.querySelector('[data-reading-selection]');
+        if(label)label.textContent=menu.querySelector('[data-selection-status]')?.textContent||'';
+      });
+      root.querySelector('[data-reading-clear-highlight]')?.addEventListener('click',()=>{
+        if(new URLSearchParams(location.search).has('exam_session')||root.dataset.englishReadonly==='true')return;
+        try{updateEnglishObjectiveSourceSpan(localStorage,rootMeta(root),{clearIntent:'HIGHLIGHT',expectedAttemptId:root.dataset.englishAnnotationAttempt||''});renderDiscussion();}
+        catch(error){const label=root.querySelector('[data-reading-selection]');if(label)label.textContent=annotationError(error);}
+      });
+    }
+
     menu.querySelector('[data-selection-chat]')?.addEventListener('click', async () => {
       if (!activeSelection || new URLSearchParams(location.search).has('exam_session')) return;
-      if(activeSelection.task === 'Reading A') {
-        const status=menu.querySelector('[data-selection-status]');
-        try {
-          if(!activeSelection.discussion)throw new Error('请选择文章中的文字。');
-          const root=activeSelection.sourceRoot.closest('[data-local-port="reading"]');
-          const meta=taskMetadata(root,'reading_a',activeSelection.objectId);
-          updateEnglishReadingDiscussion(localStorage,meta,{span:{...activeSelection.discussion,
-            source_locator:activeSelection.sourceLocator,source_context:activeSelection.nearby,
-            focused_question_id:activeSelection.focusedQuestionId}});
-          renderDiscussion();
-          if(status)status.textContent='已保存 Chat 上下文';
-        } catch(error) {
-          if(status)status.textContent=String(error.message||'上下文保存失败');
-        }
-        return;
-      }
+      if(activeSelection.taskId){persistSelection('DISCUSSION_CONTEXT');return;}
       markEnglishAssistance(localStorage,activeSelection.task,activeSelection.objectId);
       const packet = [
         '请结合这段英语阅读上下文回答我接下来的问题。',
@@ -442,19 +458,17 @@ const base = import.meta.env.BASE_URL;
     };
 
     renderDiscussion();
-    const readingRoot=document.querySelector('[data-local-port="reading"]');
-    if(readingRoot) {
+    if(objectiveRoots.length){
       let pending=false;
       discussionObserver=new MutationObserver(records=>{
-        const source=readingRoot.querySelector('[data-reading-passage]');
-        if(pending || !records.some(record=>record.type==='attributes'||source?.contains(record.target)))return;
-        pending=true;
-        queueMicrotask(()=>{pending=false;renderDiscussion();});
+        if(pending || !records.some(record=>record.type==='attributes'||record.target instanceof Element&&record.target.closest(sourceSelectors.join(','))))return;
+        pending=true;queueMicrotask(()=>{pending=false;renderDiscussion();});
       });
       observeDiscussion();
       globalThis.addEventListener('kianos:english-reading-evidence',()=>renderDiscussion());
+      globalThis.addEventListener('kianos:english-attempt-replaced',()=>{hideMenu();editing=null;renderDiscussion();});
       globalThis.addEventListener('storage',event=>{
-        if(event.key==='kianos-reading-attempt-v1:'+readingRoot.getAttribute('data-reading-object'))renderDiscussion();
+        if(event.key===null||objectiveRoots.some(root=>{try{return event.key===attemptKey(rootMeta(root));}catch{return false;}}))renderDiscussion();
       });
     }
     renderReturnBar();
@@ -466,8 +480,10 @@ const base = import.meta.env.BASE_URL;
 </script>
 
 <style is:global>
+  ::highlight(kianos-english-selection) { background-color: rgba(238,205,92,.4); }
   ::highlight(kianos-reading-discussion) { background-color: rgba(218,175,82,.38); text-decoration: underline; }
   mark[data-reading-discussion-mark] { background-color: rgba(218,175,82,.38); color: inherit; }
+  mark[data-english-highlight-intent="HIGHLIGHT"] { background-color: rgba(238,205,92,.4); }
   .englishReadingDiscussion { padding: .4rem .8rem; font-size: .85rem; }
   .englishReadingDiscussion summary { cursor: pointer; font-weight: 600; }
   .englishReadingDiscussion div { display: flex; gap: .7rem; align-items: baseline; margin: .35rem 0; }

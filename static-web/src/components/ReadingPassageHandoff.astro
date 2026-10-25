@@ -2,7 +2,7 @@
 
 <script>
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
-  import { buildEnglishReadingAttributionSlice, englishReadingQuestionOutcomes, englishReadingDiscussionSpans } from '../lib/englishLearnerEvidence.mjs';
+  import { buildEnglishReadingAttributionSlice, englishReadingQuestionOutcomes, englishObjectiveAnnotationSections } from '../lib/englishLearnerEvidence.mjs';
   void learnerWriterReady.then(() => {
 
   const TRANSFER_STORE_KEY = 'kianos-english-objective-transfer-claims-v1';
@@ -107,8 +107,7 @@
       const passageTitle = passage?.querySelector('h2')?.textContent?.trim() || readingKey;
       const passageMeta = passage?.querySelector('header span')?.textContent?.trim() || '';
       const passageText = [...(passage?.querySelectorAll('p') || [])]
-        .map((paragraph) => paragraph.textContent?.trim() || '')
-        .filter(Boolean)
+        .map((paragraph) => paragraph.textContent || '')
         .join('\n\n');
       const uncertain = new Set(attempt.uncertain || []);
       const problems = new Set(problemIds(attempt));
@@ -155,7 +154,7 @@
       }
 
       lines.push('', 'BOUNDED LEARNER OUTCOMES', JSON.stringify(outcomes,null,2));
-      lines.push('', 'SAVED DISCUSSION CONTEXT · explicit learner intent', JSON.stringify(englishReadingDiscussionSpans(attempt,sourceHash),null,2));
+      lines.push(...englishObjectiveAnnotationSections(attempt,sourceHash));
       lines.push('', 'BOUNDED READING ATTRIBUTION · factual only');
       lines.push(JSON.stringify(attribution, null, 2));
 

@@ -119,7 +119,8 @@ try {
   assert.deepEqual((await packet()).inventory[0].question_outcomes,[]);
   assert.equal((await packet()).inventory[0].discussion_spans[0].text,'A pilot');
   await page.locator('[data-reading-discussion-panel] summary').click();
-  assert.equal(await page.locator('[data-reading-discussion-span]').textContent(),'A pilot移除');
+  assert.equal(await page.locator('[data-reading-discussion-span] > span').textContent(),'Chat 上下文 · A pilot');
+  assert.equal(await page.locator('[data-reading-discussion-edit]').textContent(),'修改选段');
   await page.locator('[data-reading-discussion-remove]').click();
   const repeatedStart=drill.passage.paragraphs[0].indexOf('A pilot',1);
   await selectPassage(repeatedStart,repeatedStart+7);

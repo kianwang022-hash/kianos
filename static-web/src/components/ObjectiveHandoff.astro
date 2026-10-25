@@ -1,6 +1,7 @@
 <span data-objective-handoff-root hidden></span>
 
 <script>
+  import {englishObjectiveAnnotationSections} from '../lib/englishLearnerEvidence.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   void learnerWriterReady.then(() => {
 
@@ -95,8 +96,7 @@
       const title = root.querySelector('[data-objective-title]')?.textContent?.trim() || objectId;
       const source = root.querySelector('[data-objective-source-label]')?.textContent?.trim() || '—';
       const material = [...root.querySelectorAll('[data-objective-material-block]')]
-        .map((node) => node.textContent?.trim() || '')
-        .filter(Boolean)
+        .map((node) => node.textContent || '')
         .join('\n\n');
       const wrong = rows.filter((row) => ['wrong', 'unanswered'].includes(attempt.results?.[idOf(row)])).map(displayLabelOf);
       const uncertainRows = rows.filter((row) => uncertain.has(idOf(row))).map(displayLabelOf);
@@ -107,6 +107,8 @@
         'Mode: OPTIONAL_ESCALATION',
         `Object: ${objectId}`,
         `Source: ${source}`,
+        `Source hash: ${attempt.binding?.source_hash || '—'}`,
+        `Attempt: ${attempt.binding?.attempt_id || '—'} · ${attempt.submittedAt || '—'}`,
         `Title: ${title}`,
         `Score: ${score}/${rows.length}`,
         `Time: ${formatDuration(duration)}`,
@@ -132,13 +134,14 @@
         const candidates = [...root.querySelectorAll('[data-objective-candidate]')]
           .map((node) => {
             const label = node.querySelector('b')?.textContent?.trim() || '';
-            const text = node.querySelector('span')?.textContent?.replace(/\s+/g, ' ')?.trim() || '';
+            const text = node.querySelector('span')?.textContent || '';
             return [label, text].filter(Boolean).join('. ');
           })
           .filter(Boolean);
         if (candidates.length) lines.push('', 'CANDIDATE INVENTORY', ...candidates);
       }
 
+      lines.push(...englishObjectiveAnnotationSections(attempt,root.getAttribute('data-english-source-hash')));
       lines.push('', task === 'cloze' ? 'ALL-BLANK OUTCOME MAP' : 'COMPLETE MATCH / PLACEMENT MAP');
       rows.forEach((row) => {
         const id = idOf(row);
