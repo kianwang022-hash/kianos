@@ -22,11 +22,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "藏住；遮住；隐瞒（事实或情绪）；躲藏；躲开视线",
-          "label_en": "to keep someone or something from being seen, found or known; be or go into hiding; keep out of sight, as for protection and safety",
+          "label_cn": "藏住；遮住（使人或物不被看见或发现）；隐瞒（事实、情绪等，不让人知道）；躲藏；躲开视线",
+          "label_en": "to keep a person or thing from being seen or found; to keep facts or feelings from being known; be or go into hiding; keep out of sight, as for protection and safety",
           "pos": "verb",
           "sense_ids": [
-            "sense:hide:93921df921f05251",
+            "sense:hide:afcfc162d951d659",
+            "sense:hide:d72bca4299f1049e",
             "sense:hide:dfbdc2f08afb50dd"
           ]
         },
@@ -56,6 +57,21 @@
     "semantic_neighbors": [],
     "senses": [
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "藏住；遮住（使人或物不被看见或发现）",
+        "definition_en": "to keep a person or thing from being seen or found",
+        "governing_pattern": "hide sb/sth; hide sth from sb",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:hide:afcfc162d951d659",
+        "sense_label_en": "to keep a person or thing from being seen or found",
+        "sort_order": 0,
+        "transitivity": "vt",
+        "usage_note": "hide sth from sb 也可表示把实物藏起来，不让某人看见或找到。"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:bcd7e81f047b42771495",
@@ -77,16 +93,17 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "藏住；遮住；隐瞒（事实或情绪）",
-        "definition_en": "to keep someone or something from being seen, found or known",
-        "governing_pattern": "hide somebody/something; hide facts/feelings; hide something from somebody",
+        "definition_cn": "隐瞒（事实、情绪等，不让人知道）",
+        "definition_en": "to keep facts or feelings from being known",
+        "governing_pattern": "hide facts/feelings; hide sth from sb",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:hide:93921df921f05251",
-        "sense_label_en": "to keep someone or something from being seen, found or known",
-        "sort_order": 0,
-        "transitivity": "vt"
+        "sense_id": "sense:hide:d72bca4299f1049e",
+        "sense_label_en": "to keep facts or feelings from being known",
+        "sort_order": 5,
+        "transitivity": "vt",
+        "usage_note": "本义的 hide sth from sb 指对某人隐瞒事实等；同一框架也可用于藏住实物，须看宾语和语境。"
       },
       {
         "collocations": [],
@@ -202,7 +219,7 @@
                 "sense:hide:14ba8ed605a5a9a2"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2327.json",
-              "source_pointer": "/record/senses/3",
+              "source_pointer": "/record/senses/4",
               "mode": "bounded_current_owner_senses",
               "does_not_apply_to_other_owner_senses": true,
               "current_owner_usage": "a birdwatching hide"
@@ -768,6 +785,42 @@
       "source_row": 6492,
       "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json",
       "reference_only": true
+    },
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:bcd7e81f047b42771495",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:hide:93921df921f05251:collocation:0"
+          ],
+          "meaning_cn": "对某人隐瞒某事",
+          "phrase": "hide + sth from sb"
+        },
+        {
+          "collocation_id": "collocation:618b27f0fd1946be44e0",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:hide:93921df921f05251:collocation:1"
+          ],
+          "meaning_cn": "隐瞒真相",
+          "phrase": "hide the truth"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "藏住；遮住；隐瞒（事实或情绪）",
+      "definition_en": "to keep someone or something from being seen, found or known",
+      "governing_pattern": "hide somebody/something; hide facts/feelings; hide something from somebody",
+      "level": "L1",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:hide:93921df921f05251",
+      "sense_label_en": "to keep someone or something from being seen, found or known",
+      "sort_order": 0,
+      "transitivity": "vt",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
     }
   ],
   "identity_refs": {
@@ -788,7 +841,7 @@
       },
       {
         "sense_id": "sense:hide:93921df921f05251",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6494,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
@@ -806,7 +859,23 @@
         "merged_into_sense_id": null,
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2327.json",
-        "source_pointer": "/record/senses/3"
+        "source_pointer": "/record/senses/4"
+      },
+      {
+        "sense_id": "sense:hide:afcfc162d951d659",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2327.json",
+        "source_pointer": "/record/senses/0"
+      },
+      {
+        "sense_id": "sense:hide:d72bca4299f1049e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2327.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [
@@ -846,7 +915,7 @@
         "status": "active",
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2327.json",
-        "source_pointer": "/record/senses/3/collocations/0"
+        "source_pointer": "/record/senses/4/collocations/0"
       }
     ],
     "exam-mappings": [],

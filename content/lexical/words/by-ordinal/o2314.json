@@ -24,6 +24,21 @@
     "semantic_neighbors": [],
     "senses": [
       {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "她（动词或介词的宾语）",
+        "definition_en": "the object form of she",
+        "governing_pattern": "verb/preposition + her",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "pronoun",
+        "sense_id": "sense:her:6221f5809aa76907",
+        "sense_label_en": "the object form of she",
+        "sort_order": 0,
+        "transitivity": "nonverb",
+        "usage_note": "see her：看见她；to her：向她。"
+      },
+      {
         "collocations": [
           {
             "collocation_id": "collocation:481b195e349e05490c9f",
@@ -36,15 +51,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "她（宾格）；她的",
-        "definition_en": "used as the object of a verb or preposition, or as a possessive determiner",
-        "governing_pattern": "object: see her / to her; possessive determiner before noun: her book",
+        "definition_cn": "她的（后接名词）",
+        "definition_en": "belonging to or associated with a female person previously mentioned",
+        "governing_pattern": "her + noun",
         "level": "L1",
         "needs_human_review": 0,
-        "pos": "pronoun",
-        "sense_id": "sense:her:c0532602bcff533c",
-        "sense_label_en": "used as the object of a verb or preposition, or as a possessive determiner",
-        "sort_order": 0,
+        "pos": "determiner",
+        "sense_id": "sense:her:56172621fee51f93",
+        "sense_label_en": "belonging to or associated with a female person previously mentioned",
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -672,15 +687,59 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:481b195e349e05490c9f",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:her:c0532602bcff533c:collocation:0"
+          ],
+          "meaning_cn": "她的书",
+          "phrase": "her book"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "她（宾格）；她的",
+      "definition_en": "used as the object of a verb or preposition, or as a possessive determiner",
+      "governing_pattern": "object: see her / to her; possessive determiner before noun: her book",
+      "level": "L1",
+      "needs_human_review": 0,
+      "pos": "pronoun",
+      "sense_id": "sense:her:c0532602bcff533c",
+      "sense_label_en": "used as the object of a verb or preposition, or as a possessive determiner",
+      "sort_order": 0,
+      "transitivity": "nonverb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:her:c0532602bcff533c",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6468,
         "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json"
+      },
+      {
+        "sense_id": "sense:her:6221f5809aa76907",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2314.json",
+        "source_pointer": "/record/senses/0"
+      },
+      {
+        "sense_id": "sense:her:56172621fee51f93",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2314.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [

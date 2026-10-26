@@ -5,7 +5,7 @@
     "ordinal": 2369,
     "word": "horizon",
     "source_owner_path": "content/lexical/words/by-ordinal/o2369.json",
-    "source_fingerprint": "0e1a8458af64ff65e0427e7ad96b8f67064fdc8a0f2aed2a9a10afaa60db82a5",
+    "source_fingerprint": "07561daa693bafa759e3fa69933c8f644ec7af10b4d0b72fc1485d618a1e6274",
     "sense_lineage": [
       {
         "word_id": "word:horizon",
@@ -37,7 +37,7 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "天空与地面相接的线",
+        "definition_cn": "地平线（天地仿佛相接的线）",
         "definition_en": "the line where the sky and the earth seem to meet",
         "note": "",
         "identity_overlay": null,
@@ -60,7 +60,7 @@
           "target_kind": "sense",
           "target_id": "sense:horizon:15b7ac5191c0588f",
           "target_locator": "record.senses[0]",
-          "target_label": "天空与地面相接的线"
+          "target_label": "地平线（天地仿佛相接的线）"
         }
       },
       {
@@ -1332,7 +1332,7 @@
     "ordinal": 2377,
     "word": "hose",
     "source_owner_path": "content/lexical/words/by-ordinal/o2377.json",
-    "source_fingerprint": "f20773bdc89ca7a51d85054cb121fcc2624107965e2afe4207a1db9b1cba5605",
+    "source_fingerprint": "177168addc954a71705eae9d35146407a20906b224e3967e9edd78bdd836df2f",
     "sense_lineage": [
       {
         "word_id": "word:hose",
@@ -1399,7 +1399,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "vt. + object",
-        "definition_cn": "用软管浇水",
+        "definition_cn": "用软管浇水或冲洗",
         "definition_en": "to water or spray something with a hose",
         "note": "",
         "identity_overlay": null,
@@ -1417,7 +1417,7 @@
           "target_kind": "sense",
           "target_id": "sense:hose:e6c192314c2c51dc",
           "target_locator": "record.senses[1]",
-          "target_label": "用软管浇水"
+          "target_label": "用软管浇水或冲洗"
         }
       }
     ],
@@ -1733,11 +1733,19 @@
     "ordinal": 2380,
     "word": "host",
     "source_owner_path": "content/lexical/words/by-ordinal/o2380.json",
-    "source_fingerprint": "082d2214a20d8a7c8a42eba1880afa04520d09515677dc66b19d3587095e60d5",
-    "sense_lineage": [],
+    "source_fingerprint": "0009a18abbd6844c5a346b4d83a4c6a152f94616b52660e73717c5babe138a37",
+    "sense_lineage": [
+      {
+        "word_id": "word:host",
+        "target_kind": "sense",
+        "from_target_id": "sense:host:5da60fda97ef5a2c",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "3V",
+        "5V",
         "5N"
       ],
       "density": "rich"
@@ -1806,34 +1814,70 @@
         }
       },
       {
-        "id": "sense:host:5da60fda97ef5a2c",
+        "id": "sense:host:73294b425829e431",
         "source_locator": "record.senses[2]",
         "pos": "verb",
-        "governing_pattern": "host an event/show/dinner; host guests",
-        "definition_cn": "主办；主持；招待",
-        "definition_en": "to organize an event, present a programme or receive guests",
-        "note": "",
+        "governing_pattern": "host an event/meeting",
+        "definition_cn": "主办；承办（活动、会议等）",
+        "definition_en": "to organize or provide the setting for an event or meeting",
+        "note": "host a meeting 指主办或承办会议，不泛指 chair a meeting（主持会议议程）。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:f329ca710195c4222142",
             "source_locator": "record.senses[2].collocations[0]",
             "phrase": "host a meeting",
-            "meaning_cn": "主持会议",
+            "meaning_cn": "主办；承办会议",
             "kind": "usage_example",
             "repair": null
-          },
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:host:73294b425829e431",
+          "target_locator": "record.senses[2]",
+          "target_label": "主办；承办（活动、会议等）"
+        }
+      },
+      {
+        "id": "sense:host:032fafa2e1744bcc",
+        "source_locator": "record.senses[3]",
+        "pos": "verb",
+        "governing_pattern": "host a show/programme",
+        "definition_cn": "主持（节目）",
+        "definition_en": "to present a television or radio programme",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
           {
             "id": "collocation:864643cf086ede966857",
-            "source_locator": "record.senses[2].collocations[1]",
+            "source_locator": "record.senses[3].collocations[0]",
             "phrase": "host a show",
             "meaning_cn": "主持节目",
             "kind": "usage_example",
             "repair": null
-          },
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:host:032fafa2e1744bcc",
+          "target_locator": "record.senses[3]",
+          "target_label": "主持（节目）"
+        }
+      },
+      {
+        "id": "sense:host:d2eb6e3e18c30024",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "host guests/friends",
+        "definition_cn": "接待；招待（客人）",
+        "definition_en": "to receive and look after guests",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
           {
             "id": "collocation:d585caf0cf968ec8f86a",
-            "source_locator": "record.senses[2].collocations[2]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "She hosted friends for the weekend.",
             "meaning_cn": "她周末接待朋友在家住宿。",
             "kind": "usage_example",
@@ -1842,14 +1886,14 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:host:5da60fda97ef5a2c",
-          "target_locator": "record.senses[2]",
-          "target_label": "主办；主持；招待"
+          "target_id": "sense:host:d2eb6e3e18c30024",
+          "target_locator": "record.senses[4]",
+          "target_label": "接待；招待（客人）"
         }
       },
       {
         "id": "sense:host:0d1088f0a1c45113",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[5]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "主机",
@@ -1859,14 +1903,14 @@
         "usage": [
           {
             "id": "collocation:26617f67dad66149b41d",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "host computer",
             "meaning_cn": "主机",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:26617f67dad66149b41d",
-              "target_locator": "record.senses[3].collocations[0]",
+              "target_locator": "record.senses[5].collocations[0]",
               "target_label": "host computer"
             }
           }
@@ -1874,13 +1918,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:host:0d1088f0a1c45113",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[5]",
           "target_label": "主机"
         }
       },
       {
         "id": "sense:host:d76493abc8bba88d",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[6]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "宿主（承载寄生虫、病原体或其他生物的有机体或细胞）",
@@ -1891,13 +1935,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:host:d76493abc8bba88d",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[6]",
           "target_label": "宿主（承载寄生虫、病原体或其他生物的有机体或细胞）"
         }
       },
       {
         "id": "sense:host:ccc77fbea4afffcf",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[7]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "大量；许多",
@@ -1908,13 +1952,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:host:ccc77fbea4afffcf",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[7]",
           "target_label": "大量；许多"
         }
       },
       {
         "id": "sense:host:684767a2c260d796",
-        "source_locator": "record.senses[6]",
+        "source_locator": "record.senses[8]",
         "pos": "verb",
         "governing_pattern": "host a website/site",
         "definition_cn": "（计算机）托管网站",
@@ -1924,7 +1968,7 @@
         "usage": [
           {
             "id": "collocation:a88541dadf265b8b1236",
-            "source_locator": "record.senses[6].collocations[0]",
+            "source_locator": "record.senses[8].collocations[0]",
             "phrase": "The company hosts several websites.",
             "meaning_cn": "这家公司托管数个网站。",
             "kind": "usage_example",
@@ -1934,13 +1978,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:host:684767a2c260d796",
-          "target_locator": "record.senses[6]",
+          "target_locator": "record.senses[8]",
           "target_label": "（计算机）托管网站"
         }
       },
       {
         "id": "sense:host:a220b34c2f76bad3",
-        "source_locator": "record.senses[7]",
+        "source_locator": "record.senses[9]",
         "pos": "verb",
         "governing_pattern": "host; whose turn is it to host?",
         "definition_cn": "做聚会的主人；招待来宾",
@@ -1950,7 +1994,7 @@
         "usage": [
           {
             "id": "collocation:81aa3fdfc52055ecc8fd",
-            "source_locator": "record.senses[7].collocations[0]",
+            "source_locator": "record.senses[9].collocations[0]",
             "phrase": "It is my turn to host.",
             "meaning_cn": "轮到我来做东。",
             "kind": "usage_example",
@@ -1960,7 +2004,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:host:a220b34c2f76bad3",
-          "target_locator": "record.senses[7]",
+          "target_locator": "record.senses[9]",
           "target_label": "做聚会的主人；招待来宾"
         }
       }
@@ -1988,7 +2032,7 @@
                 "sense:host:684767a2c260d796"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2380.json",
-              "source_pointer": "/record/senses/6",
+              "source_pointer": "/record/senses/8",
               "mode": "bounded_current_owner_senses",
               "does_not_apply_to_other_owner_senses": true,
               "current_owner_usage": "host a website/site"
@@ -2005,7 +2049,7 @@
                 "sense:host:a220b34c2f76bad3"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2380.json",
-              "source_pointer": "/record/senses/7",
+              "source_pointer": "/record/senses/9",
               "mode": "bounded_current_owner_senses",
               "does_not_apply_to_other_owner_senses": true,
               "current_owner_usage": "host; whose turn is it to host?"
@@ -2066,7 +2110,51 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:f329ca710195c4222142",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:host:5da60fda97ef5a2c:collocation:0"
+              ],
+              "meaning_cn": "主持会议",
+              "phrase": "host a meeting"
+            },
+            {
+              "collocation_id": "collocation:864643cf086ede966857",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:host:5da60fda97ef5a2c:collocation:1"
+              ],
+              "meaning_cn": "主持节目",
+              "phrase": "host a show"
+            },
+            {
+              "collocation_id": "collocation:d585caf0cf968ec8f86a",
+              "phrase": "She hosted friends for the weekend.",
+              "meaning_cn": "她周末接待朋友在家住宿。",
+              "exam_value": "usage_example"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "主办；主持；招待",
+          "definition_en": "to organize an event, present a programme or receive guests",
+          "governing_pattern": "host an event/show/dinner; host guests",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:host:5da60fda97ef5a2c",
+          "sense_label_en": "to organize an event, present a programme or receive guests",
+          "sort_order": 2,
+          "transitivity": "vt",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -2220,7 +2308,7 @@
     "ordinal": 2382,
     "word": "hostile",
     "source_owner_path": "content/lexical/words/by-ordinal/o2382.json",
-    "source_fingerprint": "3e75c1bddcd8dbd1d87458bbd5fa305aea9edbdb8bcffe216cf81674564fc98e",
+    "source_fingerprint": "2cec66a7a6a2f1dcecdf91b8e8bfe0d686063c451d34a40472b04e1c268a1363",
     "sense_lineage": [
       {
         "word_id": "word:hostile",
@@ -2235,38 +2323,62 @@
         "from_target_id": "sense:hostile:4ccc03040957596c",
         "status": "deprecated",
         "to_target_id": null
+      },
+      {
+        "word_id": "word:hostile",
+        "target_kind": "sense",
+        "from_target_id": "sense:hostile:54da4423448b579d",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "1A"
+        "3A"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "敌意或不友好的；强烈反对的；不利于某事实现的",
-      "decision_cn": "既可人对人不友好，也可条件不利；商业收购中指目标公司反对。",
+      "summary_cn": "有敌意或强烈反对的；条件恶劣的；军事上敌方的",
+      "decision_cn": "人或态度、环境条件与军事敌方分看语境；hostile takeover 仍指目标公司反对的收购。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "敌意或不友好的；强烈反对的；不利于某事实现的"
+        "target_label": "有敌意或强烈反对的；条件恶劣的；军事上敌方的"
       }
     },
     "senses": [
       {
-        "id": "sense:hostile:54da4423448b579d",
+        "id": "sense:hostile:824152f703c7c2cb",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
-        "governing_pattern": "hostile to/towards sb/sth; hostile conditions",
-        "definition_cn": "敌意的；不友好的；反对的；不利于某事实现的",
-        "definition_en": "unfriendly, strongly opposed or adverse to an outcome",
+        "governing_pattern": "hostile to/towards sb/sth",
+        "definition_cn": "怀有敌意的；不友好的；强烈反对的",
+        "definition_en": "unfriendly or strongly opposed to someone or something",
+        "note": "They were hostile to the proposal.＝他们强烈反对这项提议。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:hostile:824152f703c7c2cb",
+          "target_locator": "record.senses[0]",
+          "target_label": "怀有敌意的；不友好的；强烈反对的"
+        }
+      },
+      {
+        "id": "sense:hostile:e8dff74fe884b6c2",
+        "source_locator": "record.senses[1]",
+        "pos": "adjective",
+        "governing_pattern": "hostile conditions; hostile to sth",
+        "definition_cn": "条件恶劣的；不利于生存、发展或某事实现的",
+        "definition_en": "difficult or harmful to survival, development or an intended outcome",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:6167c137a54941ccbb7a",
-            "source_locator": "record.senses[0].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "hostile conditions for plants",
             "meaning_cn": "不利于植物生长的条件",
             "kind": "usage_example",
@@ -2275,9 +2387,26 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:hostile:54da4423448b579d",
-          "target_locator": "record.senses[0]",
-          "target_label": "敌意的；不友好的；反对的；不利于某事实现的"
+          "target_id": "sense:hostile:e8dff74fe884b6c2",
+          "target_locator": "record.senses[1]",
+          "target_label": "条件恶劣的；不利于生存、发展或某事实现的"
+        }
+      },
+      {
+        "id": "sense:hostile:14b86c66bacfde23",
+        "source_locator": "record.senses[2]",
+        "pos": "adjective",
+        "governing_pattern": "hostile territory/forces",
+        "definition_cn": "敌方的；属于军事敌人的",
+        "definition_en": "belonging to an enemy in a military conflict",
+        "note": "hostile territory：敌方领土。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:hostile:14b86c66bacfde23",
+          "target_locator": "record.senses[2]",
+          "target_label": "敌方的；属于军事敌人的"
         }
       }
     ],
@@ -2422,6 +2551,30 @@
           "source_row": 6645,
           "source_path": "content/lexical/canonical/senses/shards/o2369-2400.json",
           "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:6167c137a54941ccbb7a",
+              "phrase": "hostile conditions for plants",
+              "meaning_cn": "不利于植物生长的条件",
+              "exam_value": "usage_example"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "敌意的；不友好的；反对的；不利于某事实现的",
+          "definition_en": "unfriendly, strongly opposed or adverse to an outcome",
+          "governing_pattern": "hostile to/towards sb/sth; hostile conditions",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:hostile:54da4423448b579d",
+          "sense_label_en": "unfriendly, strongly opposed or adverse to an outcome",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
         }
       ]
     }
@@ -2432,7 +2585,7 @@
     "ordinal": 2383,
     "word": "hot",
     "source_owner_path": "content/lexical/words/by-ordinal/o2383.json",
-    "source_fingerprint": "b8eb2e64f0b7ce75ba98eecb637b48125cab192e0cf386820fc3944c008ffbdf",
+    "source_fingerprint": "9cde25844fe6eb63ed72df92f811c91c5e3753d1dcb74453109ed0fbc58a5b42",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -2740,7 +2893,7 @@
         "source_locator": "record.senses[10]",
         "pos": "adjective",
         "governing_pattern": "hot goods; the goods are hot",
-        "definition_cn": "（货物等）偷来的；难以脱手的",
+        "definition_cn": "偷来的；赃物的（尤容易被认出的）",
         "definition_en": "stolen and readily identifiable",
         "note": "非正式语境的赃物义，不是温度或畅销。",
         "identity_overlay": null,
@@ -2758,7 +2911,7 @@
           "target_kind": "sense",
           "target_id": "sense:hot:e1577c8a11e5163d",
           "target_locator": "record.senses[10]",
-          "target_label": "（货物等）偷来的；难以脱手的"
+          "target_label": "偷来的；赃物的（尤容易被认出的）"
         }
       },
       {
@@ -3236,7 +3389,7 @@
     "ordinal": 2385,
     "word": "hound",
     "source_owner_path": "content/lexical/words/by-ordinal/o2385.json",
-    "source_fingerprint": "ec8fc2ccc7ff15c1bc664fadaf063d6199743ebedc3a73ac848fe4065b69e929",
+    "source_fingerprint": "ac5522cee8e03ec7b4f00b04a30528567f1e0c6913bb7a1d61c38e13b453dca6",
     "sense_lineage": [
       {
         "word_id": "word:hound",
@@ -3304,7 +3457,7 @@
             "id": "collocation:aa3597462efe976c3d32",
             "source_locator": "record.senses[1].collocations[0]",
             "phrase": "hound sb/sth",
-            "meaning_cn": "追捕某人/某物",
+            "meaning_cn": "持续追捕；对……穷追不舍",
             "kind": "usage_example",
             "repair": null
           },
@@ -3312,7 +3465,7 @@
             "id": "collocation:fe9cc759561287978a8d",
             "source_locator": "record.senses[1].collocations[1]",
             "phrase": "The police hounded the criminal.",
-            "meaning_cn": "警察追捕罪犯。",
+            "meaning_cn": "警察对罪犯穷追不舍。",
             "kind": "usage_example",
             "repair": null
           }
@@ -3370,7 +3523,7 @@
     "ordinal": 2386,
     "word": "hour",
     "source_owner_path": "content/lexical/words/by-ordinal/o2386.json",
-    "source_fingerprint": "0256b7568a1c3eb2abacd78397886138e1e7a222d729cab9590d4b5e98cd7cfc",
+    "source_fingerprint": "d0c7cf5fa115b1bb446875625a41fb586feeac995441f8265b454a9d85c7a126",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3428,7 +3581,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "钟点；时刻",
+        "definition_cn": "钟点；时刻；特定活动、工作或营业的时段（时段义常用复数 hours）",
         "definition_en": "a particular time of day or a fixed period",
         "note": "",
         "identity_overlay": null,
@@ -3454,7 +3607,7 @@
           "target_kind": "sense",
           "target_id": "sense:hour:961f3cc1be7e55f5",
           "target_locator": "record.senses[1]",
-          "target_label": "钟点；时刻"
+          "target_label": "钟点；时刻；特定活动、工作或营业的时段（时段义常用复数 hours）"
         }
       },
       {
@@ -4664,22 +4817,22 @@
     "ordinal": 2391,
     "word": "hover",
     "source_owner_path": "content/lexical/words/by-ordinal/o2391.json",
-    "source_fingerprint": "d809b52f99a23ce83e89097fc3f23ff3eb12d5d5c8e66d3feb060d697536464d",
+    "source_fingerprint": "542cce27591aa17010e51c4671082d3f3f8f9b5cc9eb7a6691bcc0414656b454",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
-        "4V"
+        "5V"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "悬停；人在附近迟疑等候；在选择间犹豫或在数值附近徘徊",
+      "summary_cn": "悬停；人在附近迟疑等候；在选择间犹豫或在数值附近徘徊；鼠标指针停留而不点击",
       "decision_cn": "停在某处或边界附近；物理悬停、人等候、数值和选择分别看主语。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "悬停；人在附近迟疑等候；在选择间犹豫或在数值附近徘徊"
+        "target_label": "悬停；人在附近迟疑等候；在选择间犹豫或在数值附近徘徊；鼠标指针停留而不点击"
       }
     },
     "senses": [
@@ -4809,6 +4962,23 @@
           "target_locator": "record.senses[3]",
           "target_label": "（人在附近）徘徊、迟疑地等候"
         }
+      },
+      {
+        "id": "sense:hover:77f4f1864ce85fa5",
+        "source_locator": "record.senses[4]",
+        "pos": "verb",
+        "governing_pattern": "hover over sth; hover the pointer over sth",
+        "definition_cn": "（使鼠标指针）停留在屏幕某处而不点击；悬停",
+        "definition_en": "to keep a mouse pointer over a part of the screen without clicking, or cause it to stay there",
+        "note": "计算机用法：hover over the icon（把鼠标指针悬停在图标上）；hover the pointer over the icon（使鼠标指针停留在图标上），均不点击。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:hover:77f4f1864ce85fa5",
+          "target_locator": "record.senses[4]",
+          "target_label": "（使鼠标指针）停留在屏幕某处而不点击；悬停"
+        }
       }
     ],
     "pronunciation_support": {
@@ -4905,7 +5075,7 @@
     "ordinal": 2392,
     "word": "how",
     "source_owner_path": "content/lexical/words/by-ordinal/o2392.json",
-    "source_fingerprint": "74dfc5ccf0c42a0742b76423e0889d95681c4ee0e769886236c0df9be154cc73",
+    "source_fingerprint": "a34ea2028e71cb0a849948a275df3a6b6c7892156148fecd3649fd901299c700",
     "sense_lineage": [
       {
         "word_id": "word:how",
@@ -5042,6 +5212,10 @@
           {
             "text": "informal why-question; followed by normal statement word order",
             "lang": "en"
+          },
+          {
+            "text": "后接陈述语序，如 How come he left?（他怎么走了？），不按普通 why 疑问倒装。",
+            "lang": "cn"
           },
           {
             "text": "used informally to ask why something happened or is true",
@@ -5196,7 +5370,7 @@
     "ordinal": 2393,
     "word": "however",
     "source_owner_path": "content/lexical/words/by-ordinal/o2393.json",
-    "source_fingerprint": "1525fec58e55ed8f7d490395175a21ba755d3dd46b2ed2b0439984aba190be9c",
+    "source_fingerprint": "af1c5ba4b76206b0309b43b2bcbcbe18a9f53c27f13b3788c09a5b38d7179b98",
     "sense_lineage": [
       {
         "word_id": "word:however",
@@ -5230,7 +5404,7 @@
         "governing_pattern": "contrast adverb: sentence boundary or semicolon before independent clause; however, ...",
         "definition_cn": "然而；不过",
         "definition_en": "nevertheless; despite that",
-        "note": "contrastive conjunctive adverb: normally separated by punctuation and not used as a coordinating conjunction; degree/concession uses remain.",
+        "note": "表示转折时，however 是连接副词，通常用标点与句子其他部分隔开。连接两个独立句时用句号或分号等，不能只用“逗号＋however”把两句拼接起来。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5390,6 +5564,10 @@
           "title": "however ↔ however ↔ nevertheless ↔ yet",
           "target_word": "however ↔ nevertheless ↔ yet",
           "lines": [
+            {
+              "text": "转折语境中，however、nevertheless、yet 可作近义改述；however 和 nevertheless 通常是连接副词，yet 也可作并列连词。三者的语法位置、标点和语体不同，不能无条件互换。",
+              "lang": "cn"
+            },
             {
               "text": "however, nevertheless, and contrastive yet can all mark concession/contrast, but differ in syntax, placement, punctuation, and register. Treat as reading paraphrases, not universal substitutions.",
               "lang": "en"

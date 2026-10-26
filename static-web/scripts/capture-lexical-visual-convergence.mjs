@@ -5,6 +5,7 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { loadLexicalWordByOrdinal } from '../src/lib/lexical.mjs';
+import { pronunciationFrontText, pronunciationRows, pronunciationScopeText } from '../src/lib/lexicalPronunciation.mjs';
 import { lexicalWordRuntimeHref } from '../src/lib/lexicalRuntimeRoute.mjs';
 
 const webRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -1149,6 +1150,1637 @@ async function auditThirdQualityBatch(browser) {
   } finally { await context.close(); }
 }
 
+async function auditFourthPronunciation(page,current,mode) {
+  const checks=[];
+  for(const locale of ['en-US','en-GB']) {
+    const container=page.locator('.lexicalDepthPronunciation');
+    await container.locator(`[data-vocab-speak="${locale}"]`).last().click();
+    const label=container.locator(`.lexicalHeadwordIpa[data-vocab-ipa-locale="${locale}"]`);
+    const expected=pronunciationFrontText(current.pronunciation_support,locale,{senses:current.senses,mode,showRestriction:true});
+    const actual=(await label.innerText()).trim();
+    checks.push({locale,expected,actual,visible:await label.isVisible(),pass:actual===expected&&(!expected||await label.isVisible())});
+  }
+  await page.locator('.lexicalDepthPronunciation [data-vocab-speak="en-US"]').last().click();
+  const expectedSenseIpa=(current.senses||[]).filter(s=>mode==='lookup'||s.disposition!=='EXPLORE_ONLY').flatMap(s=>{
+    const rows=pronunciationRows(current.pronunciation_support,s.id);
+    const unique=rows.filter((r,i)=>rows.findIndex(other=>other.locale===r.locale&&other.ipa===r.ipa&&pronunciationScopeText(other)===pronunciationScopeText(r))===i);
+    return unique.length?[{id:s.id,rows:unique.map(r=>({locale:r.locale,ipa:r.ipa}))}]:[];
+  });
+  const actualSenseIpa=await page.locator('.portedVocabSenseList > .lexicalSenseRow:visible .lexicalSensePronunciation').evaluateAll(nodes=>nodes.map(n=>({id:n.getAttribute('data-vocab-sense-ipa'),rows:[...n.querySelectorAll('small[data-vocab-ipa-locale]')].map(row=>({locale:row.getAttribute('data-vocab-ipa-locale'),ipa:row.querySelector('b')?.textContent.trim()||''}))})));
+  checks.push({kind:'all current sense IPA bindings',expected:expectedSenseIpa,actual:actualSenseIpa,pass:batchStableJson(expectedSenseIpa)===batchStableJson(actualSenseIpa)});
+  if(current.word==='honor') {
+    const form=page.locator('.lexicalFormSection');
+    assert(await form.count()===1,'fourth_honor_form_exists');
+    assert(await page.locator('.portedVocabIdentityOverlay').count()===0,'fourth_honor_no_overlay_leak');
+    assert(await form.isVisible()===(mode==='lookup'),'fourth_honor_background_form_scope');
+    assert(await form.locator('[data-vocab-repair],[data-vocab-target-row]').count()===0,'fourth_honor_no_background_repair_leak');
+  }
+  return {checks,pass:checks.every(c=>c.pass)};
+}
+async function fourthNegativeProbes(page,ready) {
+  const results=[];
+  const reload=async n=>{await page.goto(wordUrl(n,'lookup'),{waitUntil:'networkidle'});await ready(n,'lookup');};
+  await reload(2392);
+  const current=loadLexicalWordByOrdinal(2392).record;
+  await page.locator('.lexicalSenseMeaning > p').first().evaluate(n=>n.textContent='NEGATIVE PROBE');
+  results.push({probe:'changed Chinese gloss',expected:'projection FAIL',rejected:!(await auditBatchProjection(page,current,'lookup')).pass});
+  await reload(2392);
+  const row=page.locator('.portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id]').first();
+  const id=await row.getAttribute('data-vocab-sense-id');
+  await row.evaluate(n=>{n.style.height='1px';n.style.overflow='hidden';});
+  const geometry=await auditBoundedReadableRows(page,2392,'fourth-negative-clipping',outputRoot,[{id,selector:`[data-vocab-sense-id="${id}"]`}]);
+  results.push({probe:'clipped Chinese row',expected:'readability FAIL',rejected:geometry.every(r=>!r.pass),evidence:geometry});
+  await reload(2350);
+  const retired={kind:'construction',id:'construction:hobby:hobby-horse',representation:'source-archive-only'};
+  await page.locator('[data-local-port="vocabulary"]').evaluate((root,id)=>{const n=document.createElement('article');n.setAttribute('data-vocab-construction-id',id);root.append(n);},retired.id);
+  results.push({probe:'resurrect archived hobby Construction',expected:'retirement FAIL',rejected:!(await auditBatchRetirements(page,[retired])).pass});
+  await reload(2363);
+  const honor=loadLexicalWordByOrdinal(2363).record;
+  await page.locator('.portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id]').first().evaluate(row=>{const overlay=document.createElement('article');overlay.className='portedVocabIdentityOverlay';overlay.innerHTML='<b>NEGATIVE: leaked spelling overlay</b>';row.append(overlay);});
+  results.push({probe:'leaked honor identity overlay',expected:'scope FAIL',rejected:!(await auditBatchScope(page,honor,'lookup')).pass});
+  fs.writeFileSync(path.join(outputRoot,'batch-2300-2399-negative-probes.json'),JSON.stringify(results,null,2)+'\n');
+  assert(results.length===4&&results.every(r=>r.rejected),'fourth_negative_probes_fail_closed',JSON.stringify(results));
+  return results;
+}
+
+// Real production strict resolver + real served Current shard, isolated synthetic storage.
+// The module bytes below are loaded unchanged from this checkout, not reimplemented.
+async function auditFourthHonorStrictResolver(browser) {
+  const context=await browser.newContext({viewport:{width:1280,height:800}});
+  const privateRequests=await isolatePrivateCheckpoint(context);
+  const page=await context.newPage();
+  const runtimeFiles=['lexicalEnglishEvidence.mjs','lexicalEvidence.mjs'];
+  const moduleBytes=runtimeFiles.map(name=>fs.readFileSync(path.join(webRoot,'src/lib',name)));
+  const moduleUrls=moduleBytes.map(bytes=>`data:text/javascript;base64,${bytes.toString('base64')}`);
+  const moduleHashes=Object.fromEntries(runtimeFiles.map((name,i)=>[name,createHash('sha256').update(moduleBytes[i]).digest('hex')]));
+  const current=loadLexicalWordByOrdinal(2363).record;
+  const oldEvent={event_id:'synthetic-fourth-honor-old-overlay',word_id:'word:honor',ordinal:2363,word:'honor',target_kind:'form_identity',target_id:null,target_locator:'record.senses[0].lexical_identity_overlay',target_revision:'f9a97a8fa481e062bff8d50b1358b8a3839edac7000d38c08bc5c44b202a0162',source:'depth_plus',outcome:'ADDED',observed_at:'2026-10-25T07:00:00Z'};
+  const report={status:'RUNNING',synthetic:true,productionResolver:'resolveCurrentLexicalTarget',moduleHashes,privateRequests,oldEvent};
+  const save=()=>fs.writeFileSync(path.join(outputRoot,'batch-2300-2399-honor-strict-resolver.json'),JSON.stringify(report,null,2)+'\n');
+  try {
+    await page.goto(wordUrl(2363,'lookup'),{waitUntil:'networkidle'});
+    const seeded=await page.evaluate(async ({moduleUrls,oldEvent})=>{
+      const evidence=await import(moduleUrls[1]);
+      localStorage.clear();
+      const ledger=evidence.appendEvidenceEvent(evidence.emptyLexicalLedger(),oldEvent).ledger;
+      localStorage.setItem(evidence.LEXICAL_LEDGER_STORAGE_KEY,JSON.stringify(ledger));
+      return ledger.events;
+    },{moduleUrls,oldEvent});
+    await page.goto(wordUrl(2363,'repair'),{waitUntil:'networkidle'});
+    await page.locator('[data-local-port="vocabulary"][data-vocab-initialized="true"][data-vocab-mode="repair"]').waitFor({state:'attached'});
+    const result=await page.evaluate(async ({moduleUrls,current,oldEvent,seeded})=>{
+      const resolver=await import(moduleUrls[0]),evidence=await import(moduleUrls[1]);
+      const ledger=JSON.parse(localStorage.getItem(evidence.LEXICAL_LEDGER_STORAGE_KEY));
+      const noun={...oldEvent,...current.senses[0].repair,target_revision:null,event_id:'synthetic-unused-positive-descriptor'};
+      const cases=[
+        ['old null overlay original revision',oldEvent,'LEXICAL_CURRENT_TARGET_NOT_FOUND'],
+        ['old overlay cannot rebind current revision',{...oldEvent,target_revision:current.source_fingerprint},'LEXICAL_CURRENT_TARGET_NOT_FOUND'],
+        ['current noun stable ID resolves',noun,null],
+        ['same-index noun old locator revision rejected',{...noun,target_id:null,target_revision:oldEvent.target_revision},'LEXICAL_CURRENT_LOCATOR_REVISION_MISMATCH'],
+        ['same-index noun current locator revision resolves',{...noun,target_id:null,target_revision:current.source_fingerprint},null],
+        ['old overlay kind cannot rebind same-index noun',{...noun,target_kind:'form_identity',target_id:null,target_revision:current.source_fingerprint},'LEXICAL_CURRENT_TARGET_NOT_FOUND'],
+        ['retired mixed honor sense cannot revive',{...noun,target_id:'sense:honor:04cb33e3e3f6588f'},'LEXICAL_CURRENT_TARGET_NOT_FOUND']
+      ];
+      const outcomes=[];
+      for(const [name,event,expectedError] of cases) {
+        let actual=null,descriptor=null;
+        try {descriptor=await resolver.resolveCurrentLexicalTarget(event,{base:`${location.origin}/`});} catch(error){actual=error.message;}
+        outcomes.push({name,event,expectedError,actualError:actual,descriptor,pass:actual===expectedError});
+      }
+      return {outcomes,oldEventUnchanged:JSON.stringify(ledger.events.find(e=>e.event_id===oldEvent.event_id))===JSON.stringify(seeded.find(e=>e.event_id===oldEvent.event_id)),active:evidence.compileRepairTargets(ledger),ledgerEvents:ledger.events};
+    },{moduleUrls,current,oldEvent,seeded});
+    report.beforeFresh=result;save();
+    assert(result.outcomes.length===7&&result.outcomes.every(c=>c.pass),'fourth_honor_actual_strict_resolver',JSON.stringify(result.outcomes));
+    assert(result.oldEventUnchanged,'fourth_honor_old_event_immutable');
+    assert(result.active.some(t=>t.target_kind==='form_identity'&&!t.target_id&&t.target_locator===oldEvent.target_locator&&t.target_revision===oldEvent.target_revision),'fourth_honor_old_debt_retains_exact_revision');
+    assert(!result.active.some(t=>(current.senses||[]).some(s=>s.id===t.target_id)),'fourth_honor_no_current_noun_credit_fanout');
+    const freshButton=page.locator(`[data-vocab-repair][data-target-kind="sense"][data-target-id="${current.senses[0].id}"]`);
+    assert(await freshButton.getAttribute('aria-pressed')==='false','fourth_honor_fresh_noun_initially_unselected');
+    await freshButton.click();
+    const after=await page.evaluate(async ({moduleUrl,oldEvent})=>{
+      const e=await import(moduleUrl),ledger=JSON.parse(localStorage.getItem(e.LEXICAL_LEDGER_STORAGE_KEY));
+      return {active:e.compileRepairTargets(ledger),oldEvent:ledger.events.find(x=>x.event_id===oldEvent.event_id),events:ledger.events};
+    },{moduleUrl:moduleUrls[1],oldEvent});
+    report.afterFresh=after;
+    assert(after.active.some(t=>t.target_id===current.senses[0].id),'fourth_honor_only_fresh_explicit_click_adds_noun');
+    assert(after.active.some(t=>t.target_kind==='form_identity'&&!t.target_id&&t.target_revision===oldEvent.target_revision),'fourth_honor_fresh_click_does_not_consume_old_overlay');
+    assert(JSON.stringify(after.oldEvent)===JSON.stringify(seeded.find(e=>e.event_id===oldEvent.event_id)),'fourth_honor_fresh_click_preserves_old_event');
+    report.status='PASS_ACTUAL_RUNTIME_SYNTHETIC_STORAGE';save();
+  } catch(error){report.status='FAIL';report.failure=String(error);save();throw error;}
+  finally {await context.close();}
+  return report;
+}
+
+async function auditFourthQualityBatch(browser) {
+  const bindingStatus = "FROZEN_FOR_BROWSER";
+  assert(bindingStatus==='FROZEN_FOR_BROWSER','fourth_root_freeze_required',bindingStatus);
+  const fixtures = [
+  {
+    "ordinal": 2308,
+    "word": "help",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "542b6e1a0778e1bbc99b57b87435fa1e530065224b3d007a206fb94001c6334b",
+    "expectedFinalSha256": "03e4b0ad818d2ea257f3dff8903d45376cf0b4a65e600890c911b745c4960153",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "construction",
+          "id": "construction:help:help-yourself",
+          "selector": "[data-vocab-construction-id=\"construction:help:help-yourself\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "construction",
+          "id": "construction:help:help-yourself",
+          "selector": "[data-vocab-construction-id=\"construction:help:help-yourself\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2311,
+    "word": "hen",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "3edd978eb449e96981d2dbfb9a171603275444183bd8e70ee9aef37c49a7cde1",
+    "expectedFinalSha256": "63df8c9fec1b38ff2db935c1595a4d558627692315111560f7c11a9236b79f19",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hen:e3ab91a6116b55ea",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hen:e3ab91a6116b55ea\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hen:e3ab91a6116b55ea",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hen:e3ab91a6116b55ea\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2314,
+    "word": "her",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "92f658b5cad1364d33e50549a934c7e6e5c64dc9ad427be6d961db332debfe7a",
+    "expectedFinalSha256": "e3449e9fb5da21284d191945393402bb8193899694ec8f82b6589ca8c51ee441",
+    "pinnedTexts": [],
+    "retiredIdentities": [
+      {
+        "kind": "sense",
+        "id": "sense:her:c0532602bcff533c",
+        "representation": "reference-sense"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:her:6221f5809aa76907",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:her:6221f5809aa76907\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:her:56172621fee51f93",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:her:56172621fee51f93\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:her:6221f5809aa76907",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:her:6221f5809aa76907\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:her:56172621fee51f93",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:her:56172621fee51f93\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:her:c0532602bcff533c",
+          "selector": "[data-vocab-reference-sense-id=\"sense:her:c0532602bcff533c\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2315,
+    "word": "herald",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "61455f372ec6d3eb3a0741453d7fcc1c9503757dc73698cd7bfe073592a5fb3c",
+    "expectedFinalSha256": "4f635cfb5b198b6906b2acd2fa6bdc9f378053ab514e0da03224cf5f9f89dff7",
+    "pinnedTexts": [],
+    "retiredIdentities": [
+      {
+        "kind": "sense",
+        "id": "sense:herald:3b30170de6eb555f",
+        "representation": "reference-sense"
+      },
+      {
+        "kind": "sense",
+        "id": "sense:herald:4b91aacc99185101",
+        "representation": "reference-sense"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:herald:fa3fe5a612ebddc7",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:herald:fa3fe5a612ebddc7\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:herald:87510ce86727bd64",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:herald:87510ce86727bd64\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:herald:96b8dc4803123d06",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:herald:96b8dc4803123d06\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:herald:fa3fe5a612ebddc7",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:herald:fa3fe5a612ebddc7\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:herald:87510ce86727bd64",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:herald:87510ce86727bd64\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:herald:96b8dc4803123d06",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:herald:96b8dc4803123d06\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:herald:3b30170de6eb555f",
+          "selector": "[data-vocab-reference-sense-id=\"sense:herald:3b30170de6eb555f\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:herald:4b91aacc99185101",
+          "selector": "[data-vocab-reference-sense-id=\"sense:herald:4b91aacc99185101\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:herald:021f34169f86a8db",
+          "selector": "[data-vocab-reference-sense-id=\"sense:herald:021f34169f86a8db\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2322,
+    "word": "heroin",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "5efa1245a9916fbd7f0a2373f7036b9dad0d0fef5bce34b99bdd691a33521fe2",
+    "expectedFinalSha256": "8d647bfaff45824575b211a38bd4dfe17860ea2eb4fd7467e2510ff53d3dcd5c",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "relation",
+          "id": "confusable:horizontal:b3862c46b471caf91f96",
+          "selector": ".lexicalRelationSection article:has(> [data-vocab-repair][data-target-id=\"confusable:horizontal:b3862c46b471caf91f96\"])",
+          "reason": "changed visible relation including Chinese boundaries"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "relation",
+          "id": "confusable:horizontal:b3862c46b471caf91f96",
+          "selector": ".lexicalRelationSection article:has(> [data-vocab-repair][data-target-id=\"confusable:horizontal:b3862c46b471caf91f96\"])",
+          "reason": "changed visible relation including Chinese boundaries"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2323,
+    "word": "hers",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "c744008698dba4f444b1f6638309b7833b0dc12acfdc536ad0abf27162d379e4",
+    "expectedFinalSha256": "c1c02b0c2296e3288f84b4064a49b52ef88ca2d42690026d34a027534d68c43e",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hers:dbda5d4097c1562c",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hers:dbda5d4097c1562c\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hers:dbda5d4097c1562c",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hers:dbda5d4097c1562c\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2327,
+    "word": "hide",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "4ffd08e0bf2530d5102f4c3db6940496ac51e20bfda6048a44f7215f958b82dd",
+    "expectedFinalSha256": "b5bacd2a5847616c7f3817bc011ad6a49bef3537bcca427c5037a526336b2a54",
+    "pinnedTexts": [],
+    "retiredIdentities": [
+      {
+        "kind": "sense",
+        "id": "sense:hide:93921df921f05251",
+        "representation": "reference-sense"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hide:afcfc162d951d659",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hide:afcfc162d951d659\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:hide:d72bca4299f1049e",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hide:d72bca4299f1049e\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hide:afcfc162d951d659",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hide:afcfc162d951d659\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:hide:d72bca4299f1049e",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hide:d72bca4299f1049e\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:hide:93921df921f05251",
+          "selector": "[data-vocab-reference-sense-id=\"sense:hide:93921df921f05251\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2331,
+    "word": "highly",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "2e9189b93f6ba7fa594677d55d69adac65df2448fa90328a19cb93e9411d26bc",
+    "expectedFinalSha256": "b05a8b06cf5a52e23a807cc9ed8cf616a3362c542c66f192e0942ab6213f2c78",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:highly:dab047fc93635fed",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:highly:dab047fc93635fed\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:highly:dab047fc93635fed",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:highly:dab047fc93635fed\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2333,
+    "word": "hijack",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "aa2f2b85eeedd7d63e4f006edec85173bcc567984d72f6f1e743895cf7adc1de",
+    "expectedFinalSha256": "981c3f9d6d674aaea27412b27697a600e5bd6471bc91044eeced46fd926222da",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hijack:cfbe08465f2651ad",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hijack:cfbe08465f2651ad\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hijack:cfbe08465f2651ad",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hijack:cfbe08465f2651ad\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2343,
+    "word": "his",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "c5d8e24486c84df792f7961aaed07a5304f43d74219e7cf5ead4355c0dfaf486",
+    "expectedFinalSha256": "cefd8c7999d77ae96a22e2aa488811e4800d262bada76a480c674d01f5888897",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:his:e473dec8add7571f",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:his:e473dec8add7571f\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:his:e473dec8add7571f",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:his:e473dec8add7571f\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2348,
+    "word": "hit",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "6e702da6fa75879e6b0be1a57a967eea1199df09f434948a69e35f7282d5b226",
+    "expectedFinalSha256": "0b298c2068e627f3da9705f70e11812b789c31976630ce5652d87086032e546e",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hit:eff8c74e5e11cdba",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hit:eff8c74e5e11cdba\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hit:eff8c74e5e11cdba",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hit:eff8c74e5e11cdba\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2350,
+    "word": "hobby",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "3735185509518d22d262e276dbbe1e70e2696837f0ae9f7f9c1a369f70c6f525",
+    "expectedFinalSha256": "466908d2de08ea9ff03e687ce36912462fa7d2b5d9759ec73cdb50f86ac44ef4",
+    "pinnedTexts": [],
+    "retiredIdentities": [
+      {
+        "kind": "construction",
+        "id": "construction:hobby:hobby-horse",
+        "representation": "source-archive-only"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "construction",
+          "id": "construction:027cff29b6e97ee39780",
+          "selector": "[data-vocab-construction-id=\"construction:027cff29b6e97ee39780\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:27f74202798b97cd4bc2",
+          "selector": "[data-vocab-construction-id=\"construction:27f74202798b97cd4bc2\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "construction",
+          "id": "construction:027cff29b6e97ee39780",
+          "selector": "[data-vocab-construction-id=\"construction:027cff29b6e97ee39780\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:27f74202798b97cd4bc2",
+          "selector": "[data-vocab-construction-id=\"construction:27f74202798b97cd4bc2\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2352,
+    "word": "hold",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "b3fe2453e855e4cafda375fd449ffaec309b7682079478c08b3692596cc6af47",
+    "expectedFinalSha256": "fd8d9656c22fcad8f80e45adc8cf6d80876bc1c07c201eff2c99293135f71af5",
+    "pinnedTexts": [
+      "I was on hold.",
+      "我在电话中等候。",
+      "Please do not put me on hold.",
+      "请别让我在线等候。",
+      "（通话中）等候；让来电者等候而不挂断"
+    ],
+    "retiredIdentities": [
+      {
+        "kind": "construction",
+        "id": "construction:hold:get-hold-of",
+        "representation": "source-archive-only"
+      },
+      {
+        "kind": "construction",
+        "id": "construction:0352a11abea351eb5590",
+        "representation": "source-archive-only"
+      },
+      {
+        "kind": "construction",
+        "id": "construction:9f2b467822fc3063ad64",
+        "representation": "source-archive-only"
+      },
+      {
+        "kind": "construction",
+        "id": "construction:e4b3ca314511d618c51f",
+        "representation": "source-archive-only"
+      },
+      {
+        "kind": "construction",
+        "id": "construction:cb4cd9d073a200951b86",
+        "representation": "source-archive-only"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "construction",
+          "id": "construction:b84a5152dac3d740ae2e",
+          "selector": "[data-vocab-construction-id=\"construction:b84a5152dac3d740ae2e\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:75281a4c4e237f0da7e5",
+          "selector": "[data-vocab-construction-id=\"construction:75281a4c4e237f0da7e5\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:5f4e0a8d3057d2c05fe9",
+          "selector": "[data-vocab-construction-id=\"construction:5f4e0a8d3057d2c05fe9\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:83c1283fb794b1291b58",
+          "selector": "[data-vocab-construction-id=\"construction:83c1283fb794b1291b58\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:2ddcb176d26ff922e5dc",
+          "selector": "[data-vocab-construction-id=\"construction:2ddcb176d26ff922e5dc\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:0d887f7d4b94529dae9b",
+          "selector": "[data-vocab-construction-id=\"construction:0d887f7d4b94529dae9b\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:ae74ab301ead4c31d0d3",
+          "selector": "[data-vocab-construction-id=\"construction:ae74ab301ead4c31d0d3\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:9c84e60b90eda8170e6c",
+          "selector": "[data-vocab-construction-id=\"construction:9c84e60b90eda8170e6c\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:f87ca8a20aae0963f547",
+          "selector": "[data-vocab-construction-id=\"construction:f87ca8a20aae0963f547\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:5745e39316ed4581e8cb",
+          "selector": "[data-vocab-construction-id=\"construction:5745e39316ed4581e8cb\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "construction",
+          "id": "construction:b84a5152dac3d740ae2e",
+          "selector": "[data-vocab-construction-id=\"construction:b84a5152dac3d740ae2e\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:75281a4c4e237f0da7e5",
+          "selector": "[data-vocab-construction-id=\"construction:75281a4c4e237f0da7e5\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:5f4e0a8d3057d2c05fe9",
+          "selector": "[data-vocab-construction-id=\"construction:5f4e0a8d3057d2c05fe9\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:83c1283fb794b1291b58",
+          "selector": "[data-vocab-construction-id=\"construction:83c1283fb794b1291b58\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:2ddcb176d26ff922e5dc",
+          "selector": "[data-vocab-construction-id=\"construction:2ddcb176d26ff922e5dc\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:0d887f7d4b94529dae9b",
+          "selector": "[data-vocab-construction-id=\"construction:0d887f7d4b94529dae9b\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:ae74ab301ead4c31d0d3",
+          "selector": "[data-vocab-construction-id=\"construction:ae74ab301ead4c31d0d3\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:9c84e60b90eda8170e6c",
+          "selector": "[data-vocab-construction-id=\"construction:9c84e60b90eda8170e6c\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:f87ca8a20aae0963f547",
+          "selector": "[data-vocab-construction-id=\"construction:f87ca8a20aae0963f547\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:5745e39316ed4581e8cb",
+          "selector": "[data-vocab-construction-id=\"construction:5745e39316ed4581e8cb\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2355,
+    "word": "holiday",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "b0e5a1bef9a8fd3cb8f070da3595ffc711e18af64867f8e4bb1554eece4b60c3",
+    "expectedFinalSha256": "13f0534f0cfeaa1b84760f1847ff95886a881bd1d993f96d65ebbc6cd0022993",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:holiday:d1e115a7101351af",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:holiday:d1e115a7101351af\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:holiday:07ca3419d6625045",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:holiday:07ca3419d6625045\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:holiday:d1e115a7101351af",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:holiday:d1e115a7101351af\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:holiday:07ca3419d6625045",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:holiday:07ca3419d6625045\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2356,
+    "word": "hollow",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "92c4811d30cf30b1c5ae91e35f69160ae6b9385a591bc712bae7fb05933f27bc",
+    "expectedFinalSha256": "5ca88c523052fa7bb2567117e1d0d2ce5561999c7c5dbaef923959fdd2fdbbee",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hollow:843f71debada506b",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hollow:843f71debada506b\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hollow:843f71debada506b",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hollow:843f71debada506b\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2358,
+    "word": "home",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "4f91d0e9dc87790a15c8fed0d7e7d853e5403f3f279fd4bd9f88d4c03a647764",
+    "expectedFinalSha256": "0e5e0ac20919209ffa1ae3808fd9ae07ab8dbb9a7db7880c2ac99a688fbc7aa5",
+    "pinnedTexts": [],
+    "retiredIdentities": [
+      {
+        "kind": "sense",
+        "id": "sense:home:7a09484d74255086",
+        "representation": "reference-sense"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:home:495997bcbf0e023a",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:home:495997bcbf0e023a\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:home:68938220001912da",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:home:68938220001912da\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:home:495997bcbf0e023a",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:home:495997bcbf0e023a\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:home:68938220001912da",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:home:68938220001912da\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:home:7a09484d74255086",
+          "selector": "[data-vocab-reference-sense-id=\"sense:home:7a09484d74255086\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2361,
+    "word": "honest",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "ecd61f30732a230b2104033b782fe7632c51482d01c5d2aeb1989d95129c22d7",
+    "expectedFinalSha256": "c68d7960aed6d6c828ecc419c5f708f4926000ee301d40fc202cc79c8b8a0449",
+    "pinnedTexts": [],
+    "retiredIdentities": [
+      {
+        "kind": "sense",
+        "id": "sense:honest:877fa38dc63d5884",
+        "representation": "reference-sense"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:honest:aa9a4424c267ae34",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honest:aa9a4424c267ae34\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:honest:aa9a4424c267ae34",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honest:aa9a4424c267ae34\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:honest:877fa38dc63d5884",
+          "selector": "[data-vocab-reference-sense-id=\"sense:honest:877fa38dc63d5884\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:honest:6dccca796281b8f2",
+          "selector": "[data-vocab-reference-sense-id=\"sense:honest:6dccca796281b8f2\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2363,
+    "word": "honor",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "78beb2b99af6d5e9656ab20e8fc8f67c51cafcf36a7c4fe58044086e686f587d",
+    "expectedFinalSha256": "1338305e287388f33eafe9054acdc955345161f414e0af163aada53df901c354",
+    "pinnedTexts": [],
+    "retiredIdentities": [
+      {
+        "kind": "sense",
+        "id": "sense:honor:04cb33e3e3f6588f",
+        "representation": "reference-sense"
+      },
+      {
+        "kind": "sense",
+        "id": "sense:honor:8b2d0c698f775fe1",
+        "representation": "reference-sense"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:honor:334b0e16417aa981",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:334b0e16417aa981\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:05d90aff7cc604ed",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:05d90aff7cc604ed\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:4d7fe234edf27e69",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:4d7fe234edf27e69\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:acdfbb7e2601a9a1",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:acdfbb7e2601a9a1\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:817fe5f371644edd",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:817fe5f371644edd\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:fd03b1afdb085857",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:fd03b1afdb085857\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:e59792ccb5d54821",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:e59792ccb5d54821\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:43f600c9574e27b3",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:43f600c9574e27b3\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:honor:334b0e16417aa981",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:334b0e16417aa981\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:05d90aff7cc604ed",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:05d90aff7cc604ed\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:4d7fe234edf27e69",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:4d7fe234edf27e69\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:acdfbb7e2601a9a1",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:acdfbb7e2601a9a1\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:817fe5f371644edd",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:817fe5f371644edd\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:fd03b1afdb085857",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:fd03b1afdb085857\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:e59792ccb5d54821",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:e59792ccb5d54821\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:honor:43f600c9574e27b3",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:honor:43f600c9574e27b3\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:honor:04cb33e3e3f6588f",
+          "selector": "[data-vocab-reference-sense-id=\"sense:honor:04cb33e3e3f6588f\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:honor:8b2d0c698f775fe1",
+          "selector": "[data-vocab-reference-sense-id=\"sense:honor:8b2d0c698f775fe1\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:honor:4a74d802e09d6bb6",
+          "selector": "[data-vocab-reference-sense-id=\"sense:honor:4a74d802e09d6bb6\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2369,
+    "word": "horizon",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "07561daa693bafa759e3fa69933c8f644ec7af10b4d0b72fc1485d618a1e6274",
+    "expectedFinalSha256": "fd25194b83ce1f2fe5096c5a7c376866322185e11bdf5b9a104be94f8f868e25",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:horizon:15b7ac5191c0588f",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:horizon:15b7ac5191c0588f\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:horizon:15b7ac5191c0588f",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:horizon:15b7ac5191c0588f\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2377,
+    "word": "hose",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "177168addc954a71705eae9d35146407a20906b224e3967e9edd78bdd836df2f",
+    "expectedFinalSha256": "f4929a55c0c4b490d3ebe45f71ceff5177524bd1c39237c1e94ef3d70ca96726",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hose:e6c192314c2c51dc",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hose:e6c192314c2c51dc\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hose:e6c192314c2c51dc",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hose:e6c192314c2c51dc\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2380,
+    "word": "host",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "0009a18abbd6844c5a346b4d83a4c6a152f94616b52660e73717c5babe138a37",
+    "expectedFinalSha256": "078533d0c0bfb7964422d94d9827c689be6fc90440ca46e5d06cf15b111e9179",
+    "pinnedTexts": [],
+    "retiredIdentities": [
+      {
+        "kind": "sense",
+        "id": "sense:host:5da60fda97ef5a2c",
+        "representation": "reference-sense"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:host:73294b425829e431",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:host:73294b425829e431\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:host:032fafa2e1744bcc",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:host:032fafa2e1744bcc\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:host:d2eb6e3e18c30024",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:host:d2eb6e3e18c30024\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:host:73294b425829e431",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:host:73294b425829e431\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:host:032fafa2e1744bcc",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:host:032fafa2e1744bcc\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:host:d2eb6e3e18c30024",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:host:d2eb6e3e18c30024\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:host:5da60fda97ef5a2c",
+          "selector": "[data-vocab-reference-sense-id=\"sense:host:5da60fda97ef5a2c\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2382,
+    "word": "hostile",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "2cec66a7a6a2f1dcecdf91b8e8bfe0d686063c451d34a40472b04e1c268a1363",
+    "expectedFinalSha256": "ef62342330d192cb76cfa322506c01e5199242a8c8c802ebea009bcc445695d6",
+    "pinnedTexts": [],
+    "retiredIdentities": [
+      {
+        "kind": "sense",
+        "id": "sense:hostile:54da4423448b579d",
+        "representation": "reference-sense"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hostile:824152f703c7c2cb",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hostile:824152f703c7c2cb\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:hostile:e8dff74fe884b6c2",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hostile:e8dff74fe884b6c2\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:hostile:14b86c66bacfde23",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hostile:14b86c66bacfde23\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hostile:824152f703c7c2cb",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hostile:824152f703c7c2cb\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:hostile:e8dff74fe884b6c2",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hostile:e8dff74fe884b6c2\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:hostile:14b86c66bacfde23",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hostile:14b86c66bacfde23\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "reference-sense",
+          "id": "sense:hostile:54da4423448b579d",
+          "selector": "[data-vocab-reference-sense-id=\"sense:hostile:54da4423448b579d\"]",
+          "reason": "new/moved/changed Lookup Reference payload"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2383,
+    "word": "hot",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "9cde25844fe6eb63ed72df92f811c91c5e3753d1dcb74453109ed0fbc58a5b42",
+    "expectedFinalSha256": "411292683b6a7ceb4786d6c2eadb28fcec2dc1582b1ab2ff526e2b2132f5a498",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hot:e1577c8a11e5163d",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hot:e1577c8a11e5163d\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hot:e1577c8a11e5163d",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hot:e1577c8a11e5163d\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2385,
+    "word": "hound",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "ac5522cee8e03ec7b4f00b04a30528567f1e0c6913bb7a1d61c38e13b453dca6",
+    "expectedFinalSha256": "1b921dc636cea5c222def9a889a4e5b5b3c258a57e0f88dec97de7c4517aa168",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hound:e67195c2f9f05552",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hound:e67195c2f9f05552\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hound:e67195c2f9f05552",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hound:e67195c2f9f05552\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2386,
+    "word": "hour",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "d0c7cf5fa115b1bb446875625a41fb586feeac995441f8265b454a9d85c7a126",
+    "expectedFinalSha256": "2e6d8dad547649dfec46ee7603a1df421da71bb9731f9db1776eaac5c32f3b9a",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hour:961f3cc1be7e55f5",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hour:961f3cc1be7e55f5\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hour:961f3cc1be7e55f5",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hour:961f3cc1be7e55f5\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2391,
+    "word": "hover",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "542cce27591aa17010e51c4671082d3f3f8f9b5cc9eb7a6691bcc0414656b454",
+    "expectedFinalSha256": "e1ce6216b60c4a9e978a46e76560f7c623b64eebcb454355aaf92176385b6593",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:hover:77f4f1864ce85fa5",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hover:77f4f1864ce85fa5\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:hover:77f4f1864ce85fa5",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hover:77f4f1864ce85fa5\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2392,
+    "word": "how",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "a34ea2028e71cb0a849948a275df3a6b6c7892156148fecd3649fd901299c700",
+    "expectedFinalSha256": "c182c37adcfa56d2a1108617e4158e1cabbe79b3a78186eda60fffddb1ea821c",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "construction",
+          "id": "construction:how:how-come",
+          "selector": "[data-vocab-construction-id=\"construction:how:how-come\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "construction",
+          "id": "construction:how:how-come",
+          "selector": "[data-vocab-construction-id=\"construction:how:how-come\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2393,
+    "word": "however",
+    "coverage": "batch-2300-2399-target",
+    "expectedSourceFingerprint": "af1c5ba4b76206b0309b43b2bcbcbe18a9f53c27f13b3788c09a5b38d7179b98",
+    "expectedFinalSha256": "7dafc9e8cf3c356274e246aaf0baebb3486681ca1301c6c5ab82b29efb432854",
+    "pinnedTexts": [],
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:however:c7e3588020b658b8",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:however:c7e3588020b658b8\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "relation",
+          "id": "relation:horizontal:a0dedce0ddae1ca43ce5",
+          "selector": ".lexicalRelationSection article:has(> [data-vocab-repair][data-target-id=\"relation:horizontal:a0dedce0ddae1ca43ce5\"])",
+          "reason": "changed visible relation including Chinese boundaries"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "sense",
+          "id": "sense:however:c7e3588020b658b8",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:however:c7e3588020b658b8\"]",
+          "reason": "new or learner-visible payload changed versus baseline"
+        },
+        {
+          "kind": "relation",
+          "id": "relation:horizontal:a0dedce0ddae1ca43ce5",
+          "selector": ".lexicalRelationSection article:has(> [data-vocab-repair][data-target-id=\"relation:horizontal:a0dedce0ddae1ca43ce5\"])",
+          "reason": "changed visible relation including Chinese boundaries"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2209,
+    "word": "grip",
+    "coverage": "batch-2200-2299-target",
+    "expectedSourceFingerprint": "41697d4f78ff6a7bd6ec98187e215a1bee93119f338c2ebf9bd9f8a4728d966d",
+    "expectedFinalSha256": "18142069707063e5fdea9aa4ce119ad238b65503abf7af95bdf4a7f2da2a1088",
+    "input_path": "frozen-inputs/o2209.json",
+    "input_file_sha256": "a645690b1315c962fdada26e64fbee4bfd38f015455b4e8d63e0e90dbe6a58ee",
+    "retiredIdentities": [
+      {
+        "kind": "sense",
+        "id": "sense:grip:a4e6998d28c058e2",
+        "representation": "reference-sense"
+      },
+      {
+        "kind": "collocation",
+        "id": "collocation:96b725d6c0029e3e2988",
+        "representation": "reference-collocation"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:grip:d2305fcb77939e27",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:grip:d2305fcb77939e27\"]",
+          "reason": "new split contrast or fixed longest-row regression"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:grip:3a7720987827c013",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:grip:3a7720987827c013\"]",
+          "reason": "new split contrast or fixed longest-row regression"
+        },
+        {
+          "kind": "sense",
+          "id": "sense:grip:a66d2228352e8e09",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:grip:a66d2228352e8e09\"]",
+          "reason": "new split contrast or fixed longest-row regression"
+        }
+      ],
+      "lookup": [
+        {
+          "kind": "reference-sense",
+          "id": "sense:grip:a4e6998d28c058e2",
+          "selector": "[data-vocab-reference-sense-id=\"sense:grip:a4e6998d28c058e2\"]",
+          "reason": "retired merged Chinese meaning stays reference-only; no Repair"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2277,
+    "word": "haul",
+    "coverage": "batch-2200-2299-target",
+    "expectedSourceFingerprint": "aea901d9675e9996ae66496f8afaf67760e27ac1f9cdab5a0b4f669747bb5a97",
+    "expectedFinalSha256": "2a7647366c29b53fd96db704f5f477c93a97031689956f4f136bbdcc66179394",
+    "input_path": "frozen-inputs/o2277.json",
+    "input_file_sha256": "25f1b8c5c61f0105bc5bf5c246ba667cd0b70cf3beb5be8676cf84984614e459",
+    "retiredIdentities": [],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "sense",
+          "id": "sense:haul:d8dd94aac5a552f6",
+          "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:haul:d8dd94aac5a552f6\"]",
+          "reason": "final new Chinese contrast or long condition; both widths"
+        }
+      ]
+    }
+  },
+  {
+    "ordinal": 2278,
+    "word": "have",
+    "coverage": "batch-2200-2299-target",
+    "expectedSourceFingerprint": "c15f2dea070e5413acbec31f56af6e52e1f8ae9c6ad80295419097f4267d94da",
+    "expectedFinalSha256": "031e054075161af3966d6d207fb8489f96b037d9c0f8a9dd791639417c626466",
+    "input_path": "frozen-inputs/o2278.json",
+    "input_file_sha256": "f15d1ea8004c73bd5ececa5bb12b1bcd96f590959d8797ee557379bbfb6b75ff",
+    "retiredIdentities": [
+      {
+        "kind": "construction",
+        "id": "construction:ee7f7b218eabd0154442",
+        "representation": "source-archive-only"
+      }
+    ],
+    "readableTargets": {
+      "study": [
+        {
+          "kind": "construction",
+          "id": "construction:2dab5f5eb6e8c6446998",
+          "selector": ".lexicalPatternList > article[data-vocab-construction-id=\"construction:2dab5f5eb6e8c6446998\"]",
+          "reason": "long Chinese condition; have title separately identifies arrangement vs unwanted experience"
+        },
+        {
+          "kind": "construction",
+          "id": "construction:4cf5e01e464577e922df",
+          "selector": ".lexicalPatternList > article[data-vocab-construction-id=\"construction:4cf5e01e464577e922df\"]",
+          "reason": "long Chinese condition; have title separately identifies arrangement vs unwanted experience"
+        },
+        {
+          "kind": "relation",
+          "id": "deep:semantic_contrast:own:65f0bc2efd9295ef",
+          "selector": ".lexicalRelationSection .portedVocabEvidenceList > article:has(> [data-vocab-repair][data-target-kind=\"relation\"][data-target-id=\"deep:semantic_contrast:own:65f0bc2efd9295ef\"])",
+          "reason": "same authorized Chinese boundary visible in both actual consumers; own is not a word review"
+        }
+      ]
+    }
+  }
+];
+  const context = await browser.newContext({ deviceScaleFactor: 1 });
+  const privateRequests = await isolatePrivateCheckpoint(context);
+  const page = await context.newPage();
+  const report = { status: 'RUNNING', scope:'batch-2300-2399', bindingStatus, synthetic:true, cases: [], navigation: [], errors: [], privateRequests };
+  page.on('pageerror', error => report.errors.push(String(error)));
+  const save = () => fs.writeFileSync(path.join(outputRoot, 'batch-2300-2399-rendered.json'), `${JSON.stringify(report, null, 2)}\n`);
+  const ready = async (ordinal, mode) => {
+    await page.locator(`[data-local-port="vocabulary"][data-vocab-ordinal="${ordinal}"][data-vocab-initialized="true"][data-vocab-mode="${mode}"]`).waitFor({ state: 'attached' });
+    await page.evaluate(() => document.fonts.ready);
+  };
+  try {
+    for (const viewport of [{ width: 1440, height: 900 }, { width: 1280, height: 800 }]) {
+      await page.setViewportSize(viewport);
+      for (const fixture of fixtures) {
+        const current = loadLexicalWordByOrdinal(fixture.ordinal).record;
+        assert(current.word === fixture.word, 'batch_current_identity', `${fixture.ordinal}:${current.word}`);
+        assert(current.source_fingerprint===fixture.expectedSourceFingerprint,'batch_frozen_source_fingerprint',String(fixture.ordinal));
+        assert(batchFinalSha256(current)===fixture.expectedFinalSha256,'batch_frozen_final_digest',String(fixture.ordinal));
+        for (const mode of ['study', 'lookup']) {
+          const stateSnapshot = () => page.evaluate(word => ({ cursor:localStorage.getItem('kianos-vocabulary-last-ordinal'), word:localStorage.getItem(`kianos-vocabulary-astro-v2:word:${word}`) }), fixture.word);
+          const beforeLookup = mode === 'lookup' ? await stateSnapshot() : null;
+          await page.goto(wordUrl(fixture.ordinal, mode), { waitUntil: 'networkidle' });
+          await ready(fixture.ordinal, mode);
+          if (mode === 'study' && await page.locator('[data-vocab-front]').isVisible()) {
+            await page.locator('[data-vocab-reveal]').click(); // Real enabled/visible action; never force.
+          }
+          await page.locator('[data-vocab-details]').waitFor({ state: 'visible' });
+          const stem = `batch-${fixture.ordinal}-${fixture.word}-${mode}-${viewport.width}x${viewport.height}`;
+          await page.screenshot({ path: path.join(outputRoot, `${stem}.png`), fullPage: true });
+          const geometry = await page.evaluate(() => {
+            const visible = node => node instanceof HTMLElement && !node.closest('[hidden]') && node.getClientRects().length > 0 && getComputedStyle(node).visibility !== 'hidden';
+            const box = node => { const r = node.getBoundingClientRect(); return { left:r.left, right:r.right, top:r.top, bottom:r.bottom, width:r.width, height:r.height }; };
+            const overlaps = (a,b) => Math.min(a.right,b.right)-Math.max(a.left,b.left)>1 && Math.min(a.bottom,b.bottom)-Math.max(a.top,b.top)>1;
+            // Text fragments, not just grid boxes: catches long collocations escaping their column.
+            const fragments = node => {
+              const out=[]; const walker=document.createTreeWalker(node,NodeFilter.SHOW_TEXT);
+              while(walker.nextNode()) { const text=walker.currentNode; if(!text.textContent.trim() || !visible(text.parentElement)) continue;
+                const range=document.createRange();range.selectNodeContents(text);out.push(...[...range.getClientRects()].map(r=>({left:r.left,right:r.right,top:r.top,bottom:r.bottom}))); }
+              return out;
+            };
+            const collisions=[];
+            const rows=[...document.querySelectorAll('.portedVocabSenseList > .lexicalSenseRow')].filter(visible);
+            const rowInfo=rows.map((row,index)=>{
+              const columns=[...row.children].filter(node=>visible(node)&&node.matches('header,.lexicalSenseMeaning,.lexicalSenseUsage'));
+              for(let i=0;i<columns.length;i++) for(let j=i+1;j<columns.length;j++) {
+                if(fragments(columns[i]).some(a=>fragments(columns[j]).some(b=>overlaps(a,b)))) collisions.push(`row:${index}:columns:${i}/${j}`);
+              }
+              const usages=[...row.querySelectorAll('.lexicalSenseUsage > li')].filter(visible);
+              for(let i=1;i<usages.length;i++) if(overlaps(box(usages[i-1]),box(usages[i]))) collisions.push(`row:${index}:collocations:${i-1}/${i}`);
+              for(const [i,li] of usages.entries()) {
+                const phrase=li.querySelector('b'), gloss=li.querySelector('span');
+                if(phrase&&gloss&&fragments(phrase).some(a=>fragments(gloss).some(b=>overlaps(a,b)))) collisions.push(`row:${index}:collocation:${i}:phrase/gloss`);
+                const button=li.querySelector('[data-vocab-repair]');
+                if(button&&visible(button)) for(const text of [...li.children].filter(n=>n!==button&&visible(n))) {
+                  if(fragments(text).some(r=>overlaps(r,box(button)))) collisions.push(`row:${index}:collocation:${i}:repair`);
+                }
+              }
+              return { index,id:row.getAttribute('data-vocab-sense-id'),box:box(row),collocations:usages.length };
+            });
+            for(let i=1;i<rowInfo.length;i++) {
+              if(overlaps(rowInfo[i-1].box,rowInfo[i].box)) collisions.push(`rows:${i-1}/${i}`);
+              if(fragments(rows[i-1]).some(a=>fragments(rows[i]).some(b=>overlaps(a,b)))) collisions.push(`row-text:${i-1}/${i}`);
+            }
+            return { rows:rowInfo,collisions,overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth,
+              referenceIds:[...document.querySelectorAll('[data-vocab-reference-sense-id]')].map(n=>({id:n.getAttribute('data-vocab-reference-sense-id'),visible:visible(n),repair:n.querySelectorAll('[data-vocab-repair]').length})),
+              visibleLookupOnly:[...document.querySelectorAll('[data-vocab-lookup-only]')].filter(visible).length };
+          });
+          const actualText = await page.locator('[data-vocab-details]').innerText();
+          const expectedIds = (current.reference?.senses || []).map(s => s.sense_id || s.stable_sense_id || s.id).sort();
+          const expectedActive = (current.senses || []).filter(s => mode === 'lookup' || s.disposition !== 'EXPLORE_ONLY').length;
+          const projection = await auditBatchProjection(page,current,mode);
+          const pronunciation = await auditFourthPronunciation(page,current,mode);
+          assert(pronunciation.pass,'fourth_current_ipa_exact',JSON.stringify(pronunciation));
+          const scope = await auditBatchScope(page,current,mode);
+          const referenceVisibility = await auditBatchReferenceVisibility(page,current,mode);
+          const retirements = await auditBatchRetirements(page,fixture.retiredIdentities);
+          const result = { ordinal:fixture.ordinal,word:fixture.word,coverage:fixture.coverage,mode,viewport,projection,pronunciation,scope,referenceVisibility,retirements,screenshot:`${stem}.png`,geometry,expectedActive,pinnedText:fixture.text || null,pinnedTextVisible:!fixture.text || actualText.includes(fixture.text) };
+          report.cases.push(result); save();
+          if(mode==='lookup') assert(JSON.stringify(await stateSnapshot())===JSON.stringify(beforeLookup),'batch_lookup_keeps_coverage_and_word_state',stem);
+          assert(result.pinnedTextVisible, 'batch_pinned_text', stem);
+          for(const required of fixture.pinnedTexts||[]) assert(actualText.includes(required),'fourth_hold_phone_bidirectional_text',required);
+          assert(projection.pass, 'batch_current_final_matches_actual_dom', stem);
+          assert(scope.pass,'batch_visible_scope_relations_and_typed_lineage',stem);
+          assert(referenceVisibility.pass,'batch_lookup_reference_fields_visible',stem);
+          assert(retirements.pass,'batch_retired_identity_kind_and_representation',stem);
+          assert(geometry.rows.filter(r=>r.id).length === expectedActive, 'batch_active_sense_projection', stem);
+          assert(JSON.stringify(geometry.referenceIds.map(r=>r.id).sort()) === JSON.stringify(expectedIds), 'batch_reference_retained', stem);
+          assert(geometry.referenceIds.every(r=>r.visible === (mode==='lookup') && r.repair===0), 'batch_reference_visibility_and_no_repair', stem);
+          if(mode==='study') assert(geometry.visibleLookupOnly===0, 'batch_lookup_hidden_in_study', stem);
+          assert(geometry.overflow<=2, 'batch_no_horizontal_overflow', `${stem}:${geometry.overflow}`);
+          assert(geometry.collisions.length===0, 'batch_no_row_collocation_collision', `${stem}:${geometry.collisions.join(',')}`);
+          // Every row retains full DOM/collision checks; scroll only bounded high-value targets.
+          if (fixture.readableTargets[mode]?.length) {
+            const targets = fixture.readableTargets[mode];
+            const rows=await auditBoundedReadableRows(page,fixture.ordinal,stem,outputRoot,targets);
+            report.readability ||= [];
+            report.readability.push({ordinal:fixture.ordinal,mode,viewport,rows});save();
+            assert(rows.length>0 && rows.every(r=>r.pass),'batch_target_text_reachable_above_dock',stem);
+          }
+        }
+      }
+    }
+    for (const viewport of [{ width:1440,height:900 }, { width:1280,height:800 }]) {
+      await page.setViewportSize(viewport);
+      await page.evaluate(() => localStorage.removeItem('kianos-vocabulary-astro-v2:word:grin'));
+      await page.goto(wordUrl(2206), { waitUntil:'networkidle' }); await ready(2206,'study');
+      if(await page.locator('[data-vocab-front]').isVisible()) await page.locator('[data-vocab-reveal]').click();
+      await page.locator('[data-vocab-details]').waitFor({state:'visible'});
+      await page.locator('[data-vocab-route="known"]').click();
+      await page.waitForURL('**/vocabulary/2207/'); await ready(2207,'study');
+      assert((await page.locator('[data-vocab-front] h2').innerText()).trim()==='grin','batch_next_word_identity');
+      await page.keyboard.press('Backspace'); await page.waitForURL('**/vocabulary/2206/'); await ready(2206,'study');
+      assert(await page.locator('[data-local-port="vocabulary"]').getAttribute('data-vocab-word')==='grim','batch_undo_word_identity');
+      report.navigation.push({from:2206,next:2207,undo:2206,viewport,status:'PASS'});save();
+      await page.screenshot({path:path.join(outputRoot,`fourth-batch-navigation-undo-${viewport.width}x${viewport.height}.png`),fullPage:true});
+    }
+    report.coverage = { words:fixtures.length,expectedCases:fixtures.length*4,actualCases:report.cases.length,
+      readabilityGroups:report.readability?.length||0,readabilityTargets:(report.readability||[]).reduce((n,g)=>n+g.rows.length,0),navigationJourneys:report.navigation.length };
+    assert(report.cases.length===fixtures.length*4 && report.navigation.length===2 && report.coverage.readabilityTargets===266 && report.coverage.readabilityGroups===120,'batch_complete_matrix',JSON.stringify(report.coverage));
+    assert(report.errors.length===0,'batch_no_page_errors',report.errors.join('\n'));
+    report.negativeProbes=await fourthNegativeProbes(page,ready);
+    report.sourcegaps=[{ordinal:2300,word:'heel',status:'REFERENCE_SOURCE_GAP_NOT_CONTENT_PASS'},{ordinal:2305,word:'hell',status:'REFERENCE_SOURCE_GAP_NOT_CONTENT_PASS'}];
+    report.status='PASS_RENDERING_ONLY_SOURCE_GAPS_REMAIN';save();
+  } catch(error) {
+    report.status='FAIL';report.failure=String(error);save();
+    await page.screenshot({path:path.join(outputRoot,'fourth-batch-failure.png'),fullPage:true}).catch(()=>{});
+    throw error;
+  } finally { await context.close(); }
+}
+
 let browser;
 try {
   await waitForServer();
@@ -1157,6 +2789,8 @@ try {
   await isolatePrivateCheckpoint(page.context());
   const reports = [];
   await auditThirdQualityBatch(browser);
+  await auditFourthQualityBatch(browser);
+  await auditFourthHonorStrictResolver(browser);
 
   // Architecture-v2 Human Gate evidence.
   const initialVocabularyResponse = await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });

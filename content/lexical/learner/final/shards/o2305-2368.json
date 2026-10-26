@@ -850,7 +850,7 @@
     "ordinal": 2308,
     "word": "help",
     "source_owner_path": "content/lexical/words/by-ordinal/o2308.json",
-    "source_fingerprint": "09b5409879f9760fb873c073e1dfdeba5c1e546f173bb5dc907995bf9449dc6f",
+    "source_fingerprint": "542b6e1a0778e1bbc99b57b87435fa1e530065224b3d007a206fb94001c6334b",
     "sense_lineage": [
       {
         "word_id": "word:help",
@@ -1100,7 +1100,7 @@
         "pattern": "help yourself (to sth)",
         "lines": [
           {
-            "text": "请自便；请自己取用（食物等）",
+            "text": "自行取用（食物等）；请自便（邀请时）",
             "lang": "cn"
           },
           {
@@ -1565,7 +1565,7 @@
     "ordinal": 2311,
     "word": "hen",
     "source_owner_path": "content/lexical/words/by-ordinal/o2311.json",
-    "source_fingerprint": "dc2bf03794ffa3b48aad18163d7444fe8a164fc3c5ab2807bc22502a264b1b03",
+    "source_fingerprint": "3edd978eb449e96981d2dbfb9a171603275444183bd8e70ee9aef37c49a7cde1",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -1615,7 +1615,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "雌禽；雌性水生动物",
+        "definition_cn": "（某些鸟类或水生动物的）雌性个体",
         "definition_en": "an adult female of certain birds or aquatic animals",
         "note": "",
         "identity_overlay": null,
@@ -1633,7 +1633,7 @@
           "target_kind": "sense",
           "target_id": "sense:hen:e3ab91a6116b55ea",
           "target_locator": "record.senses[1]",
-          "target_label": "雌禽；雌性水生动物"
+          "target_label": "（某些鸟类或水生动物的）雌性个体"
         }
       }
     ],
@@ -1926,10 +1926,19 @@
     "ordinal": 2314,
     "word": "her",
     "source_owner_path": "content/lexical/words/by-ordinal/o2314.json",
-    "source_fingerprint": "5f637ff5bf27af4f202819f47a41a6daec6fcc639e01ce99f93c108dd3770a7d",
-    "sense_lineage": [],
+    "source_fingerprint": "92f658b5cad1364d33e50549a934c7e6e5c64dc9ad427be6d961db332debfe7a",
+    "sense_lineage": [
+      {
+        "word_id": "word:her",
+        "target_kind": "sense",
+        "from_target_id": "sense:her:c0532602bcff533c",
+        "status": "deprecated",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
+        "1DET",
         "1PRON"
       ],
       "density": "rich"
@@ -1946,18 +1955,35 @@
     },
     "senses": [
       {
-        "id": "sense:her:c0532602bcff533c",
+        "id": "sense:her:6221f5809aa76907",
         "source_locator": "record.senses[0]",
         "pos": "pronoun",
-        "governing_pattern": "object: see her / to her; possessive determiner before noun: her book",
-        "definition_cn": "她（宾格）；她的",
-        "definition_en": "used as the object of a verb or preposition, or as a possessive determiner",
+        "governing_pattern": "verb/preposition + her",
+        "definition_cn": "她（动词或介词的宾语）",
+        "definition_en": "the object form of she",
+        "note": "see her：看见她；to her：向她。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:her:6221f5809aa76907",
+          "target_locator": "record.senses[0]",
+          "target_label": "她（动词或介词的宾语）"
+        }
+      },
+      {
+        "id": "sense:her:56172621fee51f93",
+        "source_locator": "record.senses[1]",
+        "pos": "determiner",
+        "governing_pattern": "her + noun",
+        "definition_cn": "她的（后接名词）",
+        "definition_en": "belonging to or associated with a female person previously mentioned",
         "note": "",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:481b195e349e05490c9f",
-            "source_locator": "record.senses[0].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "her book",
             "meaning_cn": "她的书",
             "kind": "usage_example",
@@ -1966,9 +1992,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:her:c0532602bcff533c",
-          "target_locator": "record.senses[0]",
-          "target_label": "她（宾格）；她的"
+          "target_id": "sense:her:56172621fee51f93",
+          "target_locator": "record.senses[1]",
+          "target_label": "她的（后接名词）"
         }
       }
     ],
@@ -2049,7 +2075,36 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:481b195e349e05490c9f",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:her:c0532602bcff533c:collocation:0"
+              ],
+              "meaning_cn": "她的书",
+              "phrase": "her book"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "她（宾格）；她的",
+          "definition_en": "used as the object of a verb or preposition, or as a possessive determiner",
+          "governing_pattern": "object: see her / to her; possessive determiner before noun: her book",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "pronoun",
+          "sense_id": "sense:her:c0532602bcff533c",
+          "sense_label_en": "used as the object of a verb or preposition, or as a possessive determiner",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -2058,33 +2113,55 @@
     "ordinal": 2315,
     "word": "herald",
     "source_owner_path": "content/lexical/words/by-ordinal/o2315.json",
-    "source_fingerprint": "04aca4c75d0677a58159278ba86d480c3e21adb40f14799096577bae7f18a70f",
-    "sense_lineage": [],
+    "source_fingerprint": "61455f372ec6d3eb3a0741453d7fcc1c9503757dc73698cd7bfe073592a5fb3c",
+    "sense_lineage": [
+      {
+        "word_id": "word:herald",
+        "target_kind": "sense",
+        "from_target_id": "sense:herald:3b30170de6eb555f",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:herald",
+        "target_kind": "sense",
+        "from_target_id": "sense:herald:4b91aacc99185101",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:herald",
+        "target_kind": "sense",
+        "from_target_id": "sense:herald:021f34169f86a8db",
+        "status": "reference",
+        "to_target_id": null
+      }
+    ],
     "recall_map": {
       "parts": [
-        "1V",
+        "2V",
         "1N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "宣布、预示；使者、先驱或预兆",
-      "decision_cn": "noun → 先驱/预兆；verb → 宣布某事到来或预示变化，be heralded as 常表示“被誉为/被宣称为”。",
+      "summary_cn": "预兆；先声；预示或公开宣布、赞誉",
+      "decision_cn": "名词指预示某事来临的人或事物；动词区分预示与公开宣布、赞誉。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "宣布、预示；使者、先驱或预兆"
+        "target_label": "预兆；先声；预示或公开宣布、赞誉"
       }
     },
     "senses": [
       {
-        "id": "sense:herald:3b30170de6eb555f",
+        "id": "sense:herald:fa3fe5a612ebddc7",
         "source_locator": "record.senses[0]",
         "pos": "noun",
-        "governing_pattern": "",
-        "definition_cn": "使者；先驱；预兆",
-        "definition_en": "a person, sign, or event that announces or indicates that something is coming",
+        "governing_pattern": "a herald of sth",
+        "definition_cn": "预兆；先声（预示某事将来临的人或事物）",
+        "definition_en": "a person or thing that signals the arrival of something",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2099,18 +2176,18 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:herald:3b30170de6eb555f",
+          "target_id": "sense:herald:fa3fe5a612ebddc7",
           "target_locator": "record.senses[0]",
-          "target_label": "使者；先驱；预兆"
+          "target_label": "预兆；先声（预示某事将来临的人或事物）"
         }
       },
       {
-        "id": "sense:herald:4b91aacc99185101",
+        "id": "sense:herald:87510ce86727bd64",
         "source_locator": "record.senses[1]",
         "pos": "verb",
-        "governing_pattern": "herald sth; herald sb/sth as sth; be heralded as sth",
-        "definition_cn": "预示；宣布；（as）赞誉／宣称为",
-        "definition_en": "to signal that something is coming, or publicly announce or praise someone or something as a particular kind",
+        "governing_pattern": "herald sth",
+        "definition_cn": "预示（某事将发生）",
+        "definition_en": "to signal that something is about to happen",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -2121,26 +2198,44 @@
             "meaning_cn": "预示新时代",
             "kind": "usage_example",
             "repair": null
-          },
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:herald:87510ce86727bd64",
+          "target_locator": "record.senses[1]",
+          "target_label": "预示（某事将发生）"
+        }
+      },
+      {
+        "id": "sense:herald:96b8dc4803123d06",
+        "source_locator": "record.senses[2]",
+        "pos": "verb",
+        "governing_pattern": "herald sth; herald sb/sth as sth; be heralded as sth",
+        "definition_cn": "公开宣布；（as）宣称／赞誉为",
+        "definition_en": "to announce something publicly or acclaim someone or something as a particular kind",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
           {
             "id": "collocation:898a409713254615666c",
-            "source_locator": "record.senses[1].collocations[1]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "be heralded as",
             "meaning_cn": "被誉为；被称赞为",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:898a409713254615666c",
-              "target_locator": "record.senses[1].collocations[1]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "be heralded as"
             }
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:herald:4b91aacc99185101",
-          "target_locator": "record.senses[1]",
-          "target_label": "预示；宣布；（as）赞誉／宣称为"
+          "target_id": "sense:herald:96b8dc4803123d06",
+          "target_locator": "record.senses[2]",
+          "target_label": "公开宣布；（as）宣称／赞誉为"
         }
       }
     ],
@@ -2170,7 +2265,90 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:ff3c890491c046647adf",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:herald:3b30170de6eb555f:collocation:0"
+              ],
+              "meaning_cn": "春天的预兆",
+              "phrase": "a herald of spring"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "使者；先驱；预兆",
+          "definition_en": "a person, sign, or event that announces or indicates that something is coming",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:herald:3b30170de6eb555f",
+          "sense_label_en": "a person, sign, or event that announces or indicates that something is coming",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:e4a6d53204bfad2b2557",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:herald:4b91aacc99185101:collocation:0"
+              ],
+              "meaning_cn": "预示新时代",
+              "phrase": "herald a new era"
+            },
+            {
+              "collocation_id": "collocation:898a409713254615666c",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:herald:4b91aacc99185101:collocation:1"
+              ],
+              "meaning_cn": "被誉为；被称赞为",
+              "phrase": "be heralded as"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "预示；宣布；（as）赞誉／宣称为",
+          "definition_en": "to signal that something is coming, or publicly announce or praise someone or something as a particular kind",
+          "governing_pattern": "herald sth; herald sb/sth as sth; be heralded as sth",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:herald:4b91aacc99185101",
+          "sense_label_en": "to signal that something is coming, or publicly announce or praise someone or something as a particular kind",
+          "sort_order": 1,
+          "transitivity": "vt",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "（历史）传令官；使者（旧时负责宣告消息）",
+          "definition_en": "an official messenger in former times who made public announcements",
+          "governing_pattern": "a herald",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:herald:021f34169f86a8db",
+          "sense_label_en": "an official messenger in former times who made public announcements",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "usage_note": "历史用法，不把所有普通使者都称为 herald。",
+          "status": "reference",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -3251,7 +3429,7 @@
     "ordinal": 2322,
     "word": "heroin",
     "source_owner_path": "content/lexical/words/by-ordinal/o2322.json",
-    "source_fingerprint": "fec25d524178790405befb954aa3ebc24b9153bdd29572f0ab50defa1eafc47b",
+    "source_fingerprint": "5efa1245a9916fbd7f0a2373f7036b9dad0d0fef5bce34b99bdd691a33521fe2",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3355,6 +3533,10 @@
           "target_word": "heroine",
           "lines": [
             {
+              "text": "heroin＝海洛因；heroine＝女英雄或女主角。",
+              "lang": "cn"
+            },
+            {
               "text": "heroin = opioid drug; heroine = female hero/main admirable woman.",
               "lang": "en"
             }
@@ -3379,7 +3561,7 @@
     "ordinal": 2323,
     "word": "hers",
     "source_owner_path": "content/lexical/words/by-ordinal/o2323.json",
-    "source_fingerprint": "30b2cda293384566e15b26f0dd174a0b4f769d6b1ea185aa2ea918a9ff83caca",
+    "source_fingerprint": "c744008698dba4f444b1f6638309b7833b0dc12acfdc536ad0abf27162d379e4",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -3403,8 +3585,8 @@
         "source_locator": "record.senses[0]",
         "pos": "pronoun",
         "governing_pattern": "",
-        "definition_cn": "她的（东西）",
-        "definition_en": "used to refer to a thing or things belonging to or associated with a female person or animal previously mentioned",
+        "definition_cn": "她的（独立使用，指人或物）",
+        "definition_en": "used independently to refer to people or things belonging to or associated with a female person or animal previously mentioned",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -3426,7 +3608,7 @@
           "target_kind": "sense",
           "target_id": "sense:hers:dbda5d4097c1562c",
           "target_locator": "record.senses[0]",
-          "target_label": "她的（东西）"
+          "target_label": "她的（独立使用，指人或物）"
         }
       }
     ],
@@ -4059,7 +4241,7 @@
     "ordinal": 2327,
     "word": "hide",
     "source_owner_path": "content/lexical/words/by-ordinal/o2327.json",
-    "source_fingerprint": "b609ba256c46b5d0aed46cd7dee522b3ee9c91ad2f9fd227f24603616c9ea2b9",
+    "source_fingerprint": "4ffd08e0bf2530d5102f4c3db6940496ac51e20bfda6048a44f7215f958b82dd",
     "sense_lineage": [
       {
         "word_id": "word:hide",
@@ -4067,11 +4249,18 @@
         "from_target_id": "sense:hide:7900ef5d68bb5508",
         "status": "merged",
         "to_target_id": "sense:hide:92e1af38d1fe545e"
+      },
+      {
+        "word_id": "word:hide",
+        "target_kind": "sense",
+        "from_target_id": "sense:hide:93921df921f05251",
+        "status": "deprecated",
+        "to_target_id": null
       }
     ],
     "recall_map": {
       "parts": [
-        "2V",
+        "3V",
         "2N"
       ],
       "density": "rich"
@@ -4088,31 +4277,48 @@
     },
     "senses": [
       {
-        "id": "sense:hide:93921df921f05251",
+        "id": "sense:hide:afcfc162d951d659",
         "source_locator": "record.senses[0]",
         "pos": "verb",
-        "governing_pattern": "hide somebody/something; hide facts/feelings; hide something from somebody",
-        "definition_cn": "藏住；遮住；隐瞒（事实或情绪）",
-        "definition_en": "to keep someone or something from being seen, found or known",
-        "note": "",
+        "governing_pattern": "hide sb/sth; hide sth from sb",
+        "definition_cn": "藏住；遮住（使人或物不被看见或发现）",
+        "definition_en": "to keep a person or thing from being seen or found",
+        "note": "hide sth from sb 也可表示把实物藏起来，不让某人看见或找到。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:hide:afcfc162d951d659",
+          "target_locator": "record.senses[0]",
+          "target_label": "藏住；遮住（使人或物不被看见或发现）"
+        }
+      },
+      {
+        "id": "sense:hide:d72bca4299f1049e",
+        "source_locator": "record.senses[1]",
+        "pos": "verb",
+        "governing_pattern": "hide facts/feelings; hide sth from sb",
+        "definition_cn": "隐瞒（事实、情绪等，不让人知道）",
+        "definition_en": "to keep facts or feelings from being known",
+        "note": "本义的 hide sth from sb 指对某人隐瞒事实等；同一框架也可用于藏住实物，须看宾语和语境。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:bcd7e81f047b42771495",
-            "source_locator": "record.senses[0].collocations[0]",
+            "source_locator": "record.senses[1].collocations[0]",
             "phrase": "hide + sth from sb",
             "meaning_cn": "对某人隐瞒某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:bcd7e81f047b42771495",
-              "target_locator": "record.senses[0].collocations[0]",
+              "target_locator": "record.senses[1].collocations[0]",
               "target_label": "hide + sth from sb"
             }
           },
           {
             "id": "collocation:618b27f0fd1946be44e0",
-            "source_locator": "record.senses[0].collocations[1]",
+            "source_locator": "record.senses[1].collocations[1]",
             "phrase": "hide the truth",
             "meaning_cn": "隐瞒真相",
             "kind": "usage_example",
@@ -4121,14 +4327,14 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:hide:93921df921f05251",
-          "target_locator": "record.senses[0]",
-          "target_label": "藏住；遮住；隐瞒（事实或情绪）"
+          "target_id": "sense:hide:d72bca4299f1049e",
+          "target_locator": "record.senses[1]",
+          "target_label": "隐瞒（事实、情绪等，不让人知道）"
         }
       },
       {
         "id": "sense:hide:92e1af38d1fe545e",
-        "source_locator": "record.senses[1]",
+        "source_locator": "record.senses[2]",
         "pos": "noun",
         "governing_pattern": "",
         "definition_cn": "兽皮；动物皮",
@@ -4139,13 +4345,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hide:92e1af38d1fe545e",
-          "target_locator": "record.senses[1]",
+          "target_locator": "record.senses[2]",
           "target_label": "兽皮；动物皮"
         }
       },
       {
         "id": "sense:hide:dfbdc2f08afb50dd",
-        "source_locator": "record.senses[2]",
+        "source_locator": "record.senses[3]",
         "pos": "verb",
         "governing_pattern": "vi.",
         "definition_cn": "躲藏；躲开视线",
@@ -4156,13 +4362,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hide:dfbdc2f08afb50dd",
-          "target_locator": "record.senses[2]",
+          "target_locator": "record.senses[3]",
           "target_label": "躲藏；躲开视线"
         }
       },
       {
         "id": "sense:hide:14ba8ed605a5a9a2",
-        "source_locator": "record.senses[3]",
+        "source_locator": "record.senses[4]",
         "pos": "noun",
         "governing_pattern": "a birdwatching hide",
         "definition_cn": "观察野生动物或鸟类而不被发现的隐蔽处（英式）",
@@ -4172,7 +4378,7 @@
         "usage": [
           {
             "id": "collocation:7d1d6321a4d866b95065",
-            "source_locator": "record.senses[3].collocations[0]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "We waited in the hide to watch the birds.",
             "meaning_cn": "我们在隐蔽观察处等着看鸟。",
             "kind": "usage_example",
@@ -4182,7 +4388,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:hide:14ba8ed605a5a9a2",
-          "target_locator": "record.senses[3]",
+          "target_locator": "record.senses[4]",
           "target_label": "观察野生动物或鸟类而不被发现的隐蔽处（英式）"
         }
       }
@@ -4208,7 +4414,7 @@
                 "sense:hide:14ba8ed605a5a9a2"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2327.json",
-              "source_pointer": "/record/senses/3",
+              "source_pointer": "/record/senses/4",
               "mode": "bounded_current_owner_senses",
               "does_not_apply_to_other_owner_senses": true,
               "current_owner_usage": "a birdwatching hide"
@@ -4321,6 +4527,42 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 6492,
           "source_path": "content/lexical/canonical/senses/shards/o2305-2336.json",
+          "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:bcd7e81f047b42771495",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:hide:93921df921f05251:collocation:0"
+              ],
+              "meaning_cn": "对某人隐瞒某事",
+              "phrase": "hide + sth from sb"
+            },
+            {
+              "collocation_id": "collocation:618b27f0fd1946be44e0",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:hide:93921df921f05251:collocation:1"
+              ],
+              "meaning_cn": "隐瞒真相",
+              "phrase": "hide the truth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "藏住；遮住；隐瞒（事实或情绪）",
+          "definition_en": "to keep someone or something from being seen, found or known",
+          "governing_pattern": "hide somebody/something; hide facts/feelings; hide something from somebody",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:hide:93921df921f05251",
+          "sense_label_en": "to keep someone or something from being seen, found or known",
+          "sort_order": 0,
+          "transitivity": "vt",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
           "reference_only": true
         }
       ]
@@ -5524,7 +5766,7 @@
     "ordinal": 2331,
     "word": "highly",
     "source_owner_path": "content/lexical/words/by-ordinal/o2331.json",
-    "source_fingerprint": "df335ab8eda851d32119a9b9837d83e63e0e653ae2ebeca45b07a3d881d18f88",
+    "source_fingerprint": "2e9189b93f6ba7fa594677d55d69adac65df2448fa90328a19cb93e9411d26bc",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5550,7 +5792,7 @@
         "governing_pattern": "highly likely/qualified/recommended; not a free replacement for very before every adjective",
         "definition_cn": "非常，高度地",
         "definition_en": "to a high degree; very",
-        "note": "",
+        "note": "highly 与某些形容词搭配表示非常／高度，如 highly likely；不能任意替换 very。",
         "identity_overlay": null,
         "usage": [
           {
@@ -5780,7 +6022,7 @@
     "ordinal": 2333,
     "word": "hijack",
     "source_owner_path": "content/lexical/words/by-ordinal/o2333.json",
-    "source_fingerprint": "c121ecd32b62fb0e4c269d3fcac4305611a0ee00ccfc51a5137b05d008d09420",
+    "source_fingerprint": "aa2f2b85eeedd7d63e4f006edec85173bcc567984d72f6f1e743895cf7adc1de",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -5839,7 +6081,7 @@
         "source_locator": "record.senses[1]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "劫持；抢劫",
+        "definition_cn": "劫持（飞机、车辆等）；劫掠（尤指运输中的货物）",
         "definition_en": "the act of hijacking",
         "note": "",
         "identity_overlay": null,
@@ -5857,7 +6099,7 @@
           "target_kind": "sense",
           "target_id": "sense:hijack:cfbe08465f2651ad",
           "target_locator": "record.senses[1]",
-          "target_label": "劫持；抢劫"
+          "target_label": "劫持（飞机、车辆等）；劫掠（尤指运输中的货物）"
         }
       },
       {
@@ -7852,7 +8094,7 @@
     "ordinal": 2343,
     "word": "his",
     "source_owner_path": "content/lexical/words/by-ordinal/o2343.json",
-    "source_fingerprint": "96d587a8f42626fde15d9cd49e28d94b553b7e2647f98a5abc7ee9d52c6874dc",
+    "source_fingerprint": "c5d8e24486c84df792f7961aaed07a5304f43d74219e7cf5ead4355c0dfaf486",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -7876,9 +8118,9 @@
         "source_locator": "record.senses[0]",
         "pos": "pronoun",
         "governing_pattern": "determiner before noun: his book; possessive pronoun alone: the book is his",
-        "definition_cn": "他的",
+        "definition_cn": "他的……（名词前）；他的（人或物，单独用）",
         "definition_en": "belonging to or associated with a male previously mentioned",
-        "note": "",
+        "note": "名词前用 his book（他的书）；单独用：The book is his.（这本书是他的。）",
         "identity_overlay": null,
         "usage": [
           {
@@ -7907,7 +8149,7 @@
           "target_kind": "sense",
           "target_id": "sense:his:e473dec8add7571f",
           "target_locator": "record.senses[0]",
-          "target_label": "他的"
+          "target_label": "他的……（名词前）；他的（人或物，单独用）"
         }
       }
     ],
@@ -8800,7 +9042,7 @@
     "ordinal": 2348,
     "word": "hit",
     "source_owner_path": "content/lexical/words/by-ordinal/o2348.json",
-    "source_fingerprint": "185939449a4a3c79ac00f231a4bbd254fed9a177c39e9bc14e79f6778f91060c",
+    "source_fingerprint": "6e702da6fa75879e6b0be1a57a967eea1199df09f434948a69e35f7282d5b226",
     "sense_lineage": [
       {
         "word_id": "word:hit",
@@ -9058,8 +9300,8 @@
         "source_locator": "record.senses[8]",
         "pos": "verb",
         "governing_pattern": "hit a button/key/the brakes",
-        "definition_cn": "按下（按钮或键）",
-        "definition_en": "to press a control on a device",
+        "definition_cn": "按下（按钮、键）；踩下（刹车）",
+        "definition_en": "to press a button or key, or apply the brakes",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -9076,7 +9318,7 @@
           "target_kind": "sense",
           "target_id": "sense:hit:eff8c74e5e11cdba",
           "target_locator": "record.senses[8]",
-          "target_label": "按下（按钮或键）"
+          "target_label": "按下（按钮、键）；踩下（刹车）"
         }
       },
       {
@@ -9710,13 +9952,20 @@
     "ordinal": 2350,
     "word": "hobby",
     "source_owner_path": "content/lexical/words/by-ordinal/o2350.json",
-    "source_fingerprint": "e4eb100005bb80e137fa6cf49acc7c59624e088d2b66b0be16621dae25b7a5a2",
+    "source_fingerprint": "3735185509518d22d262e276dbbe1e70e2696837f0ae9f7f9c1a369f70c6f525",
     "sense_lineage": [
       {
         "word_id": "word:hobby",
         "target_kind": "collocation",
         "from_target_id": "collocation:311891a3ad12ca76e7d2",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hobby",
+        "target_kind": "construction",
+        "from_target_id": "construction:hobby:hobby-horse",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -9804,28 +10053,53 @@
     "secondary_senses": [],
     "constructions": [
       {
-        "id": "construction:hobby:hobby-horse",
+        "id": "construction:027cff29b6e97ee39780",
         "source_locator": "record.constructions[0]",
-        "pattern": "hobby horse / hobbyhorse",
+        "pattern": "hobby horse / hobbyhorse（玩具）",
         "lines": [
           {
-            "text": "玩具马头杆／竹马；反复谈论的得意话题",
+            "text": "玩具马头杆；竹马",
             "lang": "cn"
           },
           {
-            "text": "lexicalized compound; not an ordinary leisure activity",
-            "lang": "en"
+            "text": "指儿童骑着玩的马头杆，不是一般业余爱好。",
+            "lang": "cn"
           },
           {
-            "text": "a toy stick with a horse's head; figuratively, a subject someone repeatedly talks about",
+            "text": "a toy stick with a horse’s head that a child pretends to ride",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:hobby:hobby-horse",
+          "target_id": "construction:027cff29b6e97ee39780",
           "target_locator": "record.constructions[0]",
-          "target_label": "hobby horse / hobbyhorse"
+          "target_label": "hobby horse / hobbyhorse（玩具）"
+        }
+      },
+      {
+        "id": "construction:27f74202798b97cd4bc2",
+        "source_locator": "record.constructions[1]",
+        "pattern": "hobby horse / hobbyhorse（话题）",
+        "lines": [
+          {
+            "text": "反复爱谈的话题；老挂在嘴边的事",
+            "lang": "cn"
+          },
+          {
+            "text": "比喻反复谈论的话题，不是玩具马头杆。",
+            "lang": "cn"
+          },
+          {
+            "text": "a subject that someone repeatedly likes to talk about",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:27f74202798b97cd4bc2",
+          "target_locator": "record.constructions[1]",
+          "target_label": "hobby horse / hobbyhorse（话题）"
         }
       }
     ],
@@ -9968,13 +10242,48 @@
     "ordinal": 2352,
     "word": "hold",
     "source_owner_path": "content/lexical/words/by-ordinal/o2352.json",
-    "source_fingerprint": "70cee51928de1315e35b2166502f51ea68d66740c7be8e39d7995e5175907738",
+    "source_fingerprint": "b3fe2453e855e4cafda375fd449ffaec309b7682079478c08b3692596cc6af47",
     "sense_lineage": [
       {
         "word_id": "word:hold",
         "target_kind": "collocation",
         "from_target_id": "collocation:8e440b1dcdadb0f4c8bf",
         "status": "reference",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hold",
+        "target_kind": "construction",
+        "from_target_id": "construction:hold:get-hold-of",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hold",
+        "target_kind": "construction",
+        "from_target_id": "construction:0352a11abea351eb5590",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hold",
+        "target_kind": "construction",
+        "from_target_id": "construction:9f2b467822fc3063ad64",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hold",
+        "target_kind": "construction",
+        "from_target_id": "construction:e4b3ca314511d618c51f",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:hold",
+        "target_kind": "construction",
+        "from_target_id": "construction:cb4cd9d073a200951b86",
+        "status": "deprecated",
         "to_target_id": null
       }
     ],
@@ -10787,58 +11096,108 @@
         }
       },
       {
-        "id": "construction:hold:get-hold-of",
+        "id": "construction:b84a5152dac3d740ae2e",
         "source_locator": "record.constructions[2]",
-        "pattern": "get hold of sb/sth",
+        "pattern": "get hold of sb",
         "lines": [
           {
-            "text": "联系到；找到；得到",
+            "text": "联系到；找到某人",
             "lang": "cn"
           },
           {
-            "text": "fixed get-hold-of pattern; not simply physical control",
-            "lang": "en"
+            "text": "I could not get hold of her.＝我联系不上她。",
+            "lang": "cn"
           },
           {
-            "text": "to contact, find, or obtain someone or something",
+            "text": "to contact or find a person",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:hold:get-hold-of",
+          "target_id": "construction:b84a5152dac3d740ae2e",
           "target_locator": "record.constructions[2]",
-          "target_label": "get hold of sb/sth"
+          "target_label": "get hold of sb"
         }
       },
       {
-        "id": "construction:0352a11abea351eb5590",
+        "id": "construction:75281a4c4e237f0da7e5",
         "source_locator": "record.constructions[3]",
-        "pattern": "be on hold; put sth/sb on hold",
+        "pattern": "get hold of sth",
         "lines": [
           {
-            "text": "暂缓事项；让电话中的人等候",
+            "text": "找到；弄到所需东西",
             "lang": "cn"
           },
           {
-            "text": "事项延期与电话等待分看语境，不等于切断通话。",
+            "text": "Can you get hold of a copy?＝你能弄到一份吗？",
             "lang": "cn"
           },
           {
-            "text": "to postpone something or keep a caller waiting",
+            "text": "to find or obtain something needed",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:0352a11abea351eb5590",
+          "target_id": "construction:75281a4c4e237f0da7e5",
           "target_locator": "record.constructions[3]",
-          "target_label": "be on hold; put sth/sb on hold"
+          "target_label": "get hold of sth"
+        }
+      },
+      {
+        "id": "construction:5f4e0a8d3057d2c05fe9",
+        "source_locator": "record.constructions[4]",
+        "pattern": "sth be on hold; put sth on hold",
+        "lines": [
+          {
+            "text": "事项暂缓；搁置",
+            "lang": "cn"
+          },
+          {
+            "text": "The project is on hold.＝项目暂时搁置了。",
+            "lang": "cn"
+          },
+          {
+            "text": "for an activity or plan to be postponed",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5f4e0a8d3057d2c05fe9",
+          "target_locator": "record.constructions[4]",
+          "target_label": "sth be on hold; put sth on hold"
+        }
+      },
+      {
+        "id": "construction:83c1283fb794b1291b58",
+        "source_locator": "record.constructions[5]",
+        "pattern": "be on hold; put sb on hold",
+        "lines": [
+          {
+            "text": "（通话中）等候；让来电者等候而不挂断",
+            "lang": "cn"
+          },
+          {
+            "text": "Please do not put me on hold.＝请别让我在线等候。 I was on hold.＝我在电话中等候。",
+            "lang": "cn"
+          },
+          {
+            "text": "to wait during a telephone call without hanging up, or keep a caller waiting without ending the call",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:83c1283fb794b1291b58",
+          "target_locator": "record.constructions[5]",
+          "target_label": "be on hold; put sb on hold"
         }
       },
       {
         "id": "construction:991ca741f92bd3b7a8bd",
-        "source_locator": "record.constructions[4]",
+        "source_locator": "record.constructions[6]",
         "pattern": "hold sb/sth back",
         "lines": [
           {
@@ -10857,38 +11216,63 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:991ca741f92bd3b7a8bd",
-          "target_locator": "record.constructions[4]",
+          "target_locator": "record.constructions[6]",
           "target_label": "hold sb/sth back"
         }
       },
       {
-        "id": "construction:9f2b467822fc3063ad64",
-        "source_locator": "record.constructions[5]",
-        "pattern": "hold sth back",
+        "id": "construction:2ddcb176d26ff922e5dc",
+        "source_locator": "record.constructions[7]",
+        "pattern": "hold information/sth back",
         "lines": [
           {
-            "text": "隐瞒信息；抑制情感流露",
+            "text": "隐瞒；不透露信息",
             "lang": "cn"
           },
           {
-            "text": "hold back information/tears；不是所有 back 都表示退后。",
+            "text": "She held back the details.＝她没有透露细节。",
             "lang": "cn"
           },
           {
-            "text": "to withhold information or suppress emotion",
+            "text": "to withhold information",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:9f2b467822fc3063ad64",
-          "target_locator": "record.constructions[5]",
-          "target_label": "hold sth back"
+          "target_id": "construction:2ddcb176d26ff922e5dc",
+          "target_locator": "record.constructions[7]",
+          "target_label": "hold information/sth back"
+        }
+      },
+      {
+        "id": "construction:0d887f7d4b94529dae9b",
+        "source_locator": "record.constructions[8]",
+        "pattern": "hold back tears/anger",
+        "lines": [
+          {
+            "text": "抑制情绪流露；忍住眼泪",
+            "lang": "cn"
+          },
+          {
+            "text": "He held back his tears.＝他忍住了眼泪。",
+            "lang": "cn"
+          },
+          {
+            "text": "to suppress the expression of emotion",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:0d887f7d4b94529dae9b",
+          "target_locator": "record.constructions[8]",
+          "target_label": "hold back tears/anger"
         }
       },
       {
         "id": "construction:26faa53d5910d8df2ec5",
-        "source_locator": "record.constructions[6]",
+        "source_locator": "record.constructions[9]",
         "pattern": "hold back (from doing sth)",
         "lines": [
           {
@@ -10907,13 +11291,13 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:26faa53d5910d8df2ec5",
-          "target_locator": "record.constructions[6]",
+          "target_locator": "record.constructions[9]",
           "target_label": "hold back (from doing sth)"
         }
       },
       {
         "id": "construction:2c25cec3cdede69eecdc",
-        "source_locator": "record.constructions[7]",
+        "source_locator": "record.constructions[10]",
         "pattern": "hold sb/sth up",
         "lines": [
           {
@@ -10932,13 +11316,13 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:2c25cec3cdede69eecdc",
-          "target_locator": "record.constructions[7]",
+          "target_locator": "record.constructions[10]",
           "target_label": "hold sb/sth up"
         }
       },
       {
         "id": "construction:2b6308bbb4567bdb4923",
-        "source_locator": "record.constructions[8]",
+        "source_locator": "record.constructions[11]",
         "pattern": "hold up a bank/shop/vehicle",
         "lines": [
           {
@@ -10957,13 +11341,13 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:2b6308bbb4567bdb4923",
-          "target_locator": "record.constructions[8]",
+          "target_locator": "record.constructions[11]",
           "target_label": "hold up a bank/shop/vehicle"
         }
       },
       {
         "id": "construction:6193306e4d91e366bb8b",
-        "source_locator": "record.constructions[9]",
+        "source_locator": "record.constructions[12]",
         "pattern": "hold up",
         "lines": [
           {
@@ -10982,63 +11366,113 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:6193306e4d91e366bb8b",
-          "target_locator": "record.constructions[9]",
+          "target_locator": "record.constructions[12]",
           "target_label": "hold up"
         }
       },
       {
-        "id": "construction:e4b3ca314511d618c51f",
-        "source_locator": "record.constructions[10]",
-        "pattern": "hold out",
+        "id": "construction:ae74ab301ead4c31d0d3",
+        "source_locator": "record.constructions[13]",
+        "pattern": "supplies/money hold out",
         "lines": [
           {
-            "text": "（物资）维持够用；坚持抵抗",
+            "text": "（物资、钱等）维持够用",
             "lang": "cn"
           },
           {
-            "text": "Our supplies held out. / They held out for days.",
-            "lang": "en"
+            "text": "Our supplies held out.＝我们的物资一直够用。",
+            "lang": "cn"
           },
           {
-            "text": "to last or resist in difficulty",
+            "text": "for supplies or money to last",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:e4b3ca314511d618c51f",
-          "target_locator": "record.constructions[10]",
+          "target_id": "construction:ae74ab301ead4c31d0d3",
+          "target_locator": "record.constructions[13]",
+          "target_label": "supplies/money hold out"
+        }
+      },
+      {
+        "id": "construction:9c84e60b90eda8170e6c",
+        "source_locator": "record.constructions[14]",
+        "pattern": "hold out",
+        "lines": [
+          {
+            "text": "坚持住；抵抗到底",
+            "lang": "cn"
+          },
+          {
+            "text": "They held out for days.＝他们坚持抵抗了好几天。",
+            "lang": "cn"
+          },
+          {
+            "text": "to continue resisting or enduring difficulty",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:9c84e60b90eda8170e6c",
+          "target_locator": "record.constructions[14]",
           "target_label": "hold out"
         }
       },
       {
-        "id": "construction:cb4cd9d073a200951b86",
-        "source_locator": "record.constructions[11]",
-        "pattern": "hold sth out; hold out hope/a prospect",
+        "id": "construction:f87ca8a20aae0963f547",
+        "source_locator": "record.constructions[15]",
+        "pattern": "hold sth out",
         "lines": [
           {
-            "text": "伸出或递出；提供希望或可能",
+            "text": "伸出手臂；递出物品",
             "lang": "cn"
           },
           {
-            "text": "具体物品可 hold it out；抽象希望常 hold out hope。",
+            "text": "She held out her hand.＝她伸出了手。",
             "lang": "cn"
           },
           {
-            "text": "to extend something or offer a possibility",
+            "text": "to extend an arm or offer an object by holding it forward",
             "lang": "en"
           }
         ],
         "repair": {
           "target_kind": "construction",
-          "target_id": "construction:cb4cd9d073a200951b86",
-          "target_locator": "record.constructions[11]",
-          "target_label": "hold sth out; hold out hope/a prospect"
+          "target_id": "construction:f87ca8a20aae0963f547",
+          "target_locator": "record.constructions[15]",
+          "target_label": "hold sth out"
+        }
+      },
+      {
+        "id": "construction:5745e39316ed4581e8cb",
+        "source_locator": "record.constructions[16]",
+        "pattern": "hold out hope/a prospect",
+        "lines": [
+          {
+            "text": "带来；提供希望或可能",
+            "lang": "cn"
+          },
+          {
+            "text": "The plan holds out hope of recovery.＝这个计划带来了复苏的希望。",
+            "lang": "cn"
+          },
+          {
+            "text": "to offer hope or a possibility",
+            "lang": "en"
+          }
+        ],
+        "repair": {
+          "target_kind": "construction",
+          "target_id": "construction:5745e39316ed4581e8cb",
+          "target_locator": "record.constructions[16]",
+          "target_label": "hold out hope/a prospect"
         }
       },
       {
         "id": "construction:8545df7c40f1337425b3",
-        "source_locator": "record.constructions[12]",
+        "source_locator": "record.constructions[17]",
         "pattern": "hold sb responsible/accountable for sth",
         "lines": [
           {
@@ -11057,7 +11491,7 @@
         "repair": {
           "target_kind": "construction",
           "target_id": "construction:8545df7c40f1337425b3",
-          "target_locator": "record.constructions[12]",
+          "target_locator": "record.constructions[17]",
           "target_label": "hold sb responsible/accountable for sth"
         }
       }
@@ -11559,7 +11993,7 @@
     "ordinal": 2355,
     "word": "holiday",
     "source_owner_path": "content/lexical/words/by-ordinal/o2355.json",
-    "source_fingerprint": "fb421619a0f4520e3601f58912d48f4b4891111235058241abfe7cee1f0860b2",
+    "source_fingerprint": "b0e5a1bef9a8fd3cb8f070da3595ffc711e18af64867f8e4bb1554eece4b60c3",
     "sense_lineage": [],
     "recall_map": {
       "parts": [
@@ -11584,16 +12018,16 @@
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "假日；假期；度假期",
+        "definition_cn": "公共假日；（尤英式）休假或度假期间",
         "definition_en": "a day when work or school is suspended, or a period away from work or home for rest or travel, especially in British English",
-        "note": "",
+        "note": "public holiday：公共假日。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:aa53c3b63f05c46c68db",
             "source_locator": "record.senses[0].collocations[0]",
             "phrase": "on holiday",
-            "meaning_cn": "在度假",
+            "meaning_cn": "在休假／度假（美式通常说 on vacation）",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
@@ -11607,7 +12041,7 @@
           "target_kind": "sense",
           "target_id": "sense:holiday:d1e115a7101351af",
           "target_locator": "record.senses[0]",
-          "target_label": "假日；假期；度假期"
+          "target_label": "公共假日；（尤英式）休假或度假期间"
         }
       },
       {
@@ -11615,7 +12049,7 @@
         "source_locator": "record.senses[1]",
         "pos": "verb",
         "governing_pattern": "",
-        "definition_cn": "度假",
+        "definition_cn": "（尤英式）度假",
         "definition_en": "spend a holiday",
         "note": "",
         "identity_overlay": null,
@@ -11633,7 +12067,7 @@
           "target_kind": "sense",
           "target_id": "sense:holiday:07ca3419d6625045",
           "target_locator": "record.senses[1]",
-          "target_label": "度假"
+          "target_label": "（尤英式）度假"
         }
       }
     ],
@@ -11710,7 +12144,7 @@
     "ordinal": 2356,
     "word": "hollow",
     "source_owner_path": "content/lexical/words/by-ordinal/o2356.json",
-    "source_fingerprint": "965dc0e7a49db75313abece3de8d0e7b2fda460f3745e378a5abdefb901b5b57",
+    "source_fingerprint": "92c4811d30cf30b1c5ae91e35f69160ae6b9385a591bc712bae7fb05933f27bc",
     "sense_lineage": [
       {
         "word_id": "word:hollow",
@@ -11834,9 +12268,9 @@
         "source_locator": "record.senses[3]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "虚伪的，空洞的",
+        "definition_cn": "不真诚的；空洞而无实质意义或价值的",
         "definition_en": "not sincere; without real meaning or value",
-        "note": "",
+        "note": "a hollow victory：无实质意义的胜利。",
         "identity_overlay": null,
         "usage": [
           {
@@ -11852,7 +12286,7 @@
           "target_kind": "sense",
           "target_id": "sense:hollow:843f71debada506b",
           "target_locator": "record.senses[3]",
-          "target_label": "虚伪的，空洞的"
+          "target_label": "不真诚的；空洞而无实质意义或价值的"
         }
       },
       {
@@ -12171,8 +12605,15 @@
     "ordinal": 2358,
     "word": "home",
     "source_owner_path": "content/lexical/words/by-ordinal/o2358.json",
-    "source_fingerprint": "d44ad3f7cad022077c47fc8f3cc7b4003d1bc7a68b540978d05a233cff6fc0c1",
+    "source_fingerprint": "4f91d0e9dc87790a15c8fed0d7e7d853e5403f3f279fd4bd9f88d4c03a647764",
     "sense_lineage": [
+      {
+        "word_id": "word:home",
+        "target_kind": "sense",
+        "from_target_id": "sense:home:7a09484d74255086",
+        "status": "deprecated",
+        "to_target_id": null
+      },
       {
         "word_id": "word:home",
         "target_kind": "collocation",
@@ -12184,7 +12625,7 @@
     "recall_map": {
       "parts": [
         "1V",
-        "2A",
+        "3A",
         "4N",
         "1ADV"
       ],
@@ -12290,12 +12731,12 @@
         }
       },
       {
-        "id": "sense:home:7a09484d74255086",
+        "id": "sense:home:495997bcbf0e023a",
         "source_locator": "record.senses[3]",
         "pos": "adjective",
-        "governing_pattern": "",
-        "definition_cn": "家庭的，国内的",
-        "definition_en": "relating to one's own country or family",
+        "governing_pattern": "home + noun",
+        "definition_cn": "家庭的；家用的",
+        "definition_en": "relating to the place where someone lives or to family life",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -12306,10 +12747,28 @@
             "meaning_cn": "家庭地址",
             "kind": "usage_example",
             "repair": null
-          },
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:home:495997bcbf0e023a",
+          "target_locator": "record.senses[3]",
+          "target_label": "家庭的；家用的"
+        }
+      },
+      {
+        "id": "sense:home:68938220001912da",
+        "source_locator": "record.senses[4]",
+        "pos": "adjective",
+        "governing_pattern": "home + noun",
+        "definition_cn": "国内的；本国的",
+        "definition_en": "relating to your own country rather than a foreign country",
+        "note": "",
+        "identity_overlay": null,
+        "usage": [
           {
             "id": "collocation:a65e56fcba72bbb1bf8d",
-            "source_locator": "record.senses[3].collocations[1]",
+            "source_locator": "record.senses[4].collocations[0]",
             "phrase": "home market",
             "meaning_cn": "国内市场",
             "kind": "usage_example",
@@ -12318,14 +12777,14 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:home:7a09484d74255086",
-          "target_locator": "record.senses[3]",
-          "target_label": "家庭的，国内的"
+          "target_id": "sense:home:68938220001912da",
+          "target_locator": "record.senses[4]",
+          "target_label": "国内的；本国的"
         }
       },
       {
         "id": "sense:home:ad0985b20d525920",
-        "source_locator": "record.senses[4]",
+        "source_locator": "record.senses[5]",
         "pos": "adverb",
         "governing_pattern": "go/come home (no to); at home uses the noun",
         "definition_cn": "在家，回家，在本国",
@@ -12335,7 +12794,7 @@
         "usage": [
           {
             "id": "collocation:9d22cf3602d9064f456c",
-            "source_locator": "record.senses[4].collocations[0]",
+            "source_locator": "record.senses[5].collocations[0]",
             "phrase": "go home",
             "meaning_cn": "回家",
             "kind": "usage_example",
@@ -12343,7 +12802,7 @@
           },
           {
             "id": "collocation:3d91feecf9113ef5070f",
-            "source_locator": "record.senses[4].collocations[1]",
+            "source_locator": "record.senses[5].collocations[1]",
             "phrase": "come home",
             "meaning_cn": "回家来",
             "kind": "usage_example",
@@ -12353,13 +12812,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:home:ad0985b20d525920",
-          "target_locator": "record.senses[4]",
+          "target_locator": "record.senses[5]",
           "target_label": "在家，回家，在本国"
         }
       },
       {
         "id": "sense:home:394b67853eec0420",
-        "source_locator": "record.senses[5]",
+        "source_locator": "record.senses[6]",
         "pos": "verb",
         "governing_pattern": "home in on sth",
         "definition_cn": "朝目标直接移动、瞄准或聚焦",
@@ -12370,13 +12829,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:home:394b67853eec0420",
-          "target_locator": "record.senses[5]",
+          "target_locator": "record.senses[6]",
           "target_label": "朝目标直接移动、瞄准或聚焦"
         }
       },
       {
         "id": "sense:home:8127d6dd4e633a15",
-        "source_locator": "record.senses[6]",
+        "source_locator": "record.senses[7]",
         "pos": "noun",
         "governing_pattern": "a home for sb; live in a home",
         "definition_cn": "（为不能自理者提供照料的）院、所",
@@ -12386,7 +12845,7 @@
         "usage": [
           {
             "id": "collocation:13ff25dafb70161c5f00",
-            "source_locator": "record.senses[6].collocations[0]",
+            "source_locator": "record.senses[7].collocations[0]",
             "phrase": "She works in a home for older people.",
             "meaning_cn": "她在一家养老机构工作。",
             "kind": "usage_example",
@@ -12396,13 +12855,13 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:home:8127d6dd4e633a15",
-          "target_locator": "record.senses[6]",
+          "target_locator": "record.senses[7]",
           "target_label": "（为不能自理者提供照料的）院、所"
         }
       },
       {
         "id": "sense:home:a7773581a99d038c",
-        "source_locator": "record.senses[7]",
+        "source_locator": "record.senses[8]",
         "pos": "adjective",
         "governing_pattern": "a home game/team/win",
         "definition_cn": "（体育）主场的；主队的",
@@ -12412,7 +12871,7 @@
         "usage": [
           {
             "id": "collocation:a8f69658b3b07bc1a3bb",
-            "source_locator": "record.senses[7].collocations[0]",
+            "source_locator": "record.senses[8].collocations[0]",
             "phrase": "The home team won again.",
             "meaning_cn": "主队再次获胜。",
             "kind": "usage_example",
@@ -12422,7 +12881,7 @@
         "repair": {
           "target_kind": "sense",
           "target_id": "sense:home:a7773581a99d038c",
-          "target_locator": "record.senses[7]",
+          "target_locator": "record.senses[8]",
           "target_label": "（体育）主场的；主队的"
         }
       }
@@ -12450,7 +12909,7 @@
                 "sense:home:8127d6dd4e633a15"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2358.json",
-              "source_pointer": "/record/senses/6",
+              "source_pointer": "/record/senses/7",
               "mode": "bounded_current_owner_senses",
               "does_not_apply_to_other_owner_senses": true,
               "current_owner_usage": "a home for sb; live in a home"
@@ -12467,7 +12926,7 @@
                 "sense:home:a7773581a99d038c"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2358.json",
-              "source_pointer": "/record/senses/7",
+              "source_pointer": "/record/senses/8",
               "mode": "bounded_current_owner_senses",
               "does_not_apply_to_other_owner_senses": true,
               "current_owner_usage": "a home game/team/win"
@@ -12590,7 +13049,45 @@
       "confusables": [],
       "relations": [],
       "form": null,
-      "family": []
+      "family": [],
+      "senses": [
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:662485ee68efb77ec5ac",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:home:7a09484d74255086:collocation:0"
+              ],
+              "meaning_cn": "家庭地址",
+              "phrase": "home address"
+            },
+            {
+              "collocation_id": "collocation:a65e56fcba72bbb1bf8d",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:home:7a09484d74255086:collocation:1"
+              ],
+              "meaning_cn": "国内市场",
+              "phrase": "home market"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "家庭的，国内的",
+          "definition_en": "relating to one's own country or family",
+          "governing_pattern": "",
+          "level": "L2",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:home:7a09484d74255086",
+          "sense_label_en": "relating to one's own country or family",
+          "sort_order": 3,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        }
+      ]
     }
   },
   {
@@ -12866,7 +13363,7 @@
     "ordinal": 2361,
     "word": "honest",
     "source_owner_path": "content/lexical/words/by-ordinal/o2361.json",
-    "source_fingerprint": "b1a2b14ad0f090531c530d0862b611375cc52505c0f9ee60a48f68b2d2d6aefc",
+    "source_fingerprint": "ecd61f30732a230b2104033b782fe7632c51482d01c5d2aeb1989d95129c22d7",
     "sense_lineage": [
       {
         "word_id": "word:honest",
@@ -12874,6 +13371,13 @@
         "from_target_id": "sense:honest:0c6ffa77ed135355",
         "status": "merged",
         "to_target_id": "sense:honest:877fa38dc63d5884"
+      },
+      {
+        "word_id": "word:honest",
+        "target_kind": "sense",
+        "from_target_id": "sense:honest:877fa38dc63d5884",
+        "status": "deprecated",
+        "to_target_id": null
       },
       {
         "word_id": "word:honest",
@@ -12888,6 +13392,13 @@
         "from_target_id": "sense:honest:f7d31065dc8e5443",
         "status": "merged",
         "to_target_id": "sense:honest:877fa38dc63d5884"
+      },
+      {
+        "word_id": "word:honest",
+        "target_kind": "sense",
+        "from_target_id": "sense:honest:6dccca796281b8f2",
+        "status": "reference",
+        "to_target_id": null
       }
     ],
     "recall_map": {
@@ -12897,23 +13408,23 @@
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "诚实；真实坦率；不虚饰",
+      "summary_cn": "诚实；真诚坦率",
       "decision_cn": "",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "诚实；真实坦率；不虚饰"
+        "target_label": "诚实；真诚坦率"
       }
     },
     "senses": [
       {
-        "id": "sense:honest:877fa38dc63d5884",
+        "id": "sense:honest:aa9a4424c267ae34",
         "source_locator": "record.senses[0]",
         "pos": "adjective",
         "governing_pattern": "",
-        "definition_cn": "诚实的；真实坦率的；不虚饰的",
-        "definition_en": "truthful and not deceptive; frank or sincere; plain rather than pretentious",
+        "definition_cn": "诚实的；真诚坦率的（不欺骗、不隐瞒真实想法）",
+        "definition_en": "truthful and sincere; not deceptive or concealing one’s real thoughts",
         "note": "",
         "identity_overlay": null,
         "usage": [
@@ -12928,9 +13439,9 @@
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:honest:877fa38dc63d5884",
+          "target_id": "sense:honest:aa9a4424c267ae34",
           "target_locator": "record.senses[0]",
-          "target_label": "诚实的；真实坦率的；不虚饰的"
+          "target_label": "诚实的；真诚坦率的（不欺骗、不隐瞒真实想法）"
         }
       }
     ],
@@ -13052,6 +13563,51 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 6592,
           "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json",
+          "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:5a8e441dd9f3c19e1eec",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:honest:877fa38dc63d5884:collocation:0"
+              ],
+              "meaning_cn": "一个诚实的人",
+              "phrase": "an honest person"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "诚实的；真实坦率的；不虚饰的",
+          "definition_en": "truthful and not deceptive; frank or sincere; plain rather than pretentious",
+          "governing_pattern": "",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:honest:877fa38dc63d5884",
+          "sense_label_en": "truthful and not deceptive; frank or sincere; plain rather than pretentious",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "朴实的；不虚饰的",
+          "definition_en": "plain and unpretentious rather than showy",
+          "governing_pattern": "",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "adjective",
+          "sense_id": "sense:honest:6dccca796281b8f2",
+          "sense_label_en": "plain and unpretentious rather than showy",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "usage_note": "较少见、文学性的评价，如 honest food：朴实、不讲排场的食物。",
+          "status": "reference",
+          "merged_into_sense_id": null,
           "reference_only": true
         }
       ]
@@ -13270,13 +13826,34 @@
     "ordinal": 2363,
     "word": "honor",
     "source_owner_path": "content/lexical/words/by-ordinal/o2363.json",
-    "source_fingerprint": "f9a97a8fa481e062bff8d50b1358b8a3839edac7000d38c08bc5c44b202a0162",
+    "source_fingerprint": "78beb2b99af6d5e9656ab20e8fc8f67c51cafcf36a7c4fe58044086e686f587d",
     "sense_lineage": [
+      {
+        "word_id": "word:honor",
+        "target_kind": "sense",
+        "from_target_id": "sense:honor:04cb33e3e3f6588f",
+        "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:honor",
+        "target_kind": "sense",
+        "from_target_id": "sense:honor:8b2d0c698f775fe1",
+        "status": "deprecated",
+        "to_target_id": null
+      },
       {
         "word_id": "word:honor",
         "target_kind": "sense",
         "from_target_id": "sense:honor:f7eed8f1b47f5bdc",
         "status": "deprecated",
+        "to_target_id": null
+      },
+      {
+        "word_id": "word:honor",
+        "target_kind": "sense",
+        "from_target_id": "sense:honor:4a74d802e09d6bb6",
+        "status": "reference",
         "to_target_id": null
       },
       {
@@ -13289,90 +13866,193 @@
     ],
     "recall_map": {
       "parts": [
-        "1V",
-        "1N"
+        "3V",
+        "5N"
       ],
       "density": "rich"
     },
     "word_feel": {
-      "summary_cn": "尊敬；荣誉；履行",
-      "decision_cn": "noun → 荣誉/尊敬；verb → 尊敬或履行承诺；in honor of → 为纪念/向…致敬。",
+      "summary_cn": "尊敬；荣誉；荣幸；名誉；操守；致敬、表彰或履约",
+      "decision_cn": "名词区分敬意、表彰、机会、名誉与操守；动词区分致敬、授奖和履约。in honor of 表示纪念或致敬。",
       "repair": {
         "target_kind": "core",
         "target_id": null,
         "target_locator": "record.core_concept",
-        "target_label": "尊敬；荣誉；履行"
+        "target_label": "尊敬；荣誉；荣幸；名誉；操守；致敬、表彰或履约"
       }
     },
     "senses": [
       {
-        "id": "sense:honor:04cb33e3e3f6588f",
+        "id": "sense:honor:334b0e16417aa981",
         "source_locator": "record.senses[0]",
         "pos": "noun",
         "governing_pattern": "",
-        "definition_cn": "荣誉；尊敬；名誉；荣幸",
-        "definition_en": "respect or esteem, recognition of merit, or a privilege that makes one feel proud",
-        "note": "",
+        "definition_cn": "尊敬；敬意",
+        "definition_en": "high respect or esteem",
+        "note": "in honor of her：为向她表示敬意；该完整表达另有原构式。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:honor:334b0e16417aa981",
+          "target_locator": "record.senses[0]",
+          "target_label": "尊敬；敬意"
+        }
+      },
+      {
+        "id": "sense:honor:05d90aff7cc604ed",
+        "source_locator": "record.senses[1]",
+        "pos": "noun",
+        "governing_pattern": "receive/win an honor",
+        "definition_cn": "荣誉；表彰性的奖项或称号",
+        "definition_en": "recognition of achievement, especially an award or title",
+        "note": "She received the highest honor.＝她获得了最高荣誉。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:honor:05d90aff7cc604ed",
+          "target_locator": "record.senses[1]",
+          "target_label": "荣誉；表彰性的奖项或称号"
+        }
+      },
+      {
+        "id": "sense:honor:4d7fe234edf27e69",
+        "source_locator": "record.senses[2]",
+        "pos": "noun",
+        "governing_pattern": "have the honor of doing sth",
+        "definition_cn": "荣幸；令人自豪的机会",
+        "definition_en": "a privilege or opportunity that makes someone feel proud",
+        "note": "It is an honor to meet you.＝见到您很荣幸。",
         "identity_overlay": null,
         "usage": [
           {
             "id": "collocation:56fcd24ccb30f857a8b6",
-            "source_locator": "record.senses[0].collocations[0]",
+            "source_locator": "record.senses[2].collocations[0]",
             "phrase": "have the honor of + doing sth",
             "meaning_cn": "有幸做某事",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:56fcd24ccb30f857a8b6",
-              "target_locator": "record.senses[0].collocations[0]",
+              "target_locator": "record.senses[2].collocations[0]",
               "target_label": "have the honor of + doing sth"
             }
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:honor:04cb33e3e3f6588f",
-          "target_locator": "record.senses[0]",
-          "target_label": "荣誉；尊敬；名誉；荣幸"
+          "target_id": "sense:honor:4d7fe234edf27e69",
+          "target_locator": "record.senses[2]",
+          "target_label": "荣幸；令人自豪的机会"
         }
       },
       {
-        "id": "sense:honor:8b2d0c698f775fe1",
-        "source_locator": "record.senses[1]",
+        "id": "sense:honor:acdfbb7e2601a9a1",
+        "source_locator": "record.senses[3]",
+        "pos": "noun",
+        "governing_pattern": "defend sb’s honor",
+        "definition_cn": "名誉；受他人尊重的声誉",
+        "definition_en": "a good reputation that earns the respect of others",
+        "note": "She defended her family’s honor.＝她捍卫了家族的名誉。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:honor:acdfbb7e2601a9a1",
+          "target_locator": "record.senses[3]",
+          "target_label": "名誉；受他人尊重的声誉"
+        }
+      },
+      {
+        "id": "sense:honor:817fe5f371644edd",
+        "source_locator": "record.senses[4]",
+        "pos": "noun",
+        "governing_pattern": "a person of honor",
+        "definition_cn": "正直；恪守道义的操守",
+        "definition_en": "moral integrity and commitment to doing what is right",
+        "note": "He is a man of honor.＝他是个恪守道义的人。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:honor:817fe5f371644edd",
+          "target_locator": "record.senses[4]",
+          "target_label": "正直；恪守道义的操守"
+        }
+      },
+      {
+        "id": "sense:honor:fd03b1afdb085857",
+        "source_locator": "record.senses[5]",
         "pos": "verb",
-        "governing_pattern": "vt. + object",
-        "definition_cn": "尊敬；授予荣誉；履行（承诺等）；承兑",
-        "definition_en": "to show respect for; to fulfill or keep (an agreement, promise, etc.)",
-        "note": "",
+        "governing_pattern": "honor sb",
+        "definition_cn": "尊敬；向……致敬",
+        "definition_en": "to show respect for someone",
+        "note": "We honor those who served.＝我们向曾经服役的人致敬。",
+        "identity_overlay": null,
+        "usage": [],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:honor:fd03b1afdb085857",
+          "target_locator": "record.senses[5]",
+          "target_label": "尊敬；向……致敬"
+        }
+      },
+      {
+        "id": "sense:honor:e59792ccb5d54821",
+        "source_locator": "record.senses[6]",
+        "pos": "verb",
+        "governing_pattern": "honor sb with an award/title",
+        "definition_cn": "表彰；授予荣誉或奖励",
+        "definition_en": "to publicly recognize someone with an honor or award",
+        "note": "honor sb with an award/title 指授奖或授予称号；honor us with your presence 表示赏光，不等同授奖。",
         "identity_overlay": null,
         "usage": [
           {
-            "id": "collocation:7179120eb1e40c6d0df1",
-            "source_locator": "record.senses[1].collocations[0]",
-            "phrase": "honor a promise/contract",
-            "meaning_cn": "履行承诺/合同",
-            "kind": "usage_example",
-            "repair": null
-          },
-          {
             "id": "collocation:3a3be505fabd373ef64c",
-            "source_locator": "record.senses[1].collocations[1]",
-            "phrase": "honor sb with + sth",
+            "source_locator": "record.senses[6].collocations[0]",
+            "phrase": "honor sb with an award/title",
             "meaning_cn": "以…授予某人荣誉",
             "kind": "fixed_pattern",
             "repair": {
               "target_kind": "collocation",
               "target_id": "collocation:3a3be505fabd373ef64c",
-              "target_locator": "record.senses[1].collocations[1]",
-              "target_label": "honor sb with + sth"
+              "target_locator": "record.senses[6].collocations[0]",
+              "target_label": "honor sb with an award/title"
             }
           }
         ],
         "repair": {
           "target_kind": "sense",
-          "target_id": "sense:honor:8b2d0c698f775fe1",
-          "target_locator": "record.senses[1]",
-          "target_label": "尊敬；授予荣誉；履行（承诺等）；承兑"
+          "target_id": "sense:honor:e59792ccb5d54821",
+          "target_locator": "record.senses[6]",
+          "target_label": "表彰；授予荣誉或奖励"
+        }
+      },
+      {
+        "id": "sense:honor:43f600c9574e27b3",
+        "source_locator": "record.senses[7]",
+        "pos": "verb",
+        "governing_pattern": "honor a promise/contract",
+        "definition_cn": "履行（承诺、协议等）",
+        "definition_en": "to keep a promise or fulfil an agreement",
+        "note": "They honored the agreement.＝他们履行了协议。",
+        "identity_overlay": null,
+        "usage": [
+          {
+            "id": "collocation:7179120eb1e40c6d0df1",
+            "source_locator": "record.senses[7].collocations[0]",
+            "phrase": "honor a promise/contract",
+            "meaning_cn": "履行承诺/合同",
+            "kind": "usage_example",
+            "repair": null
+          }
+        ],
+        "repair": {
+          "target_kind": "sense",
+          "target_id": "sense:honor:43f600c9574e27b3",
+          "target_locator": "record.senses[7]",
+          "target_label": "履行（承诺、协议等）"
         }
       }
     ],
@@ -13493,6 +14173,94 @@
           "updated_at": "2026-09-09T00:00:00Z",
           "source_row": 6600,
           "source_path": "content/lexical/canonical/senses/shards/o2337-2368.json",
+          "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:56fcd24ccb30f857a8b6",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:honor:04cb33e3e3f6588f:collocation:1"
+              ],
+              "meaning_cn": "有幸做某事",
+              "phrase": "have the honor of + doing sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "荣誉；尊敬；名誉；荣幸",
+          "definition_en": "respect or esteem, recognition of merit, or a privilege that makes one feel proud",
+          "governing_pattern": "",
+          "level": "L1",
+          "lexical_identity_overlay": {
+            "case_sensitive": false,
+            "identity_type": "form_boundary",
+            "note": "honor/honour AmE/BrE spelling boundary",
+            "paired_form": "honour",
+            "surface_lemma": "honor"
+          },
+          "needs_human_review": 0,
+          "pos": "noun",
+          "sense_id": "sense:honor:04cb33e3e3f6588f",
+          "sense_label_en": "respect or esteem, recognition of merit, or a privilege that makes one feel proud",
+          "sort_order": 0,
+          "transitivity": "nonverb",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        },
+        {
+          "collocations": [
+            {
+              "collocation_id": "collocation:7179120eb1e40c6d0df1",
+              "exam_value": "usage_example",
+              "legacy_source_object_ids": [
+                "sense:honor:8b2d0c698f775fe1:collocation:0"
+              ],
+              "meaning_cn": "履行承诺/合同",
+              "phrase": "honor a promise/contract"
+            },
+            {
+              "collocation_id": "collocation:3a3be505fabd373ef64c",
+              "exam_value": "fixed_pattern",
+              "legacy_source_object_ids": [
+                "sense:honor:8b2d0c698f775fe1:collocation:1"
+              ],
+              "meaning_cn": "以…授予某人荣誉",
+              "phrase": "honor sb with + sth"
+            }
+          ],
+          "confidence": "medium",
+          "definition_cn": "尊敬；授予荣誉；履行（承诺等）；承兑",
+          "definition_en": "to show respect for; to fulfill or keep (an agreement, promise, etc.)",
+          "governing_pattern": "vt. + object",
+          "level": "L1",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:honor:8b2d0c698f775fe1",
+          "sense_label_en": "to show respect for; to fulfill or keep (an agreement, promise, etc.)",
+          "sort_order": 1,
+          "transitivity": "vt",
+          "status": "deprecated",
+          "merged_into_sense_id": null,
+          "reference_only": true
+        },
+        {
+          "collocations": [],
+          "confidence": "medium",
+          "definition_cn": "兑现／兑付支票等票据；按票据付款",
+          "definition_en": "to accept a cheque or similar financial instrument and pay the amount due",
+          "governing_pattern": "honor a cheque/check",
+          "level": "L3",
+          "needs_human_review": 0,
+          "pos": "verb",
+          "sense_id": "sense:honor:4a74d802e09d6bb6",
+          "sense_label_en": "to accept a cheque or similar financial instrument and pay the amount due",
+          "sort_order": 8,
+          "transitivity": "vt",
+          "usage_note": "The bank honored the cheque.＝银行兑付了这张支票。",
+          "status": "reference",
+          "merged_into_sense_id": null,
           "reference_only": true
         }
       ]
