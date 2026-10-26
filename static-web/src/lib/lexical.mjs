@@ -1,3 +1,4 @@
+import { isDefaultLexicalObject } from './lexicalAttention.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -179,10 +180,10 @@ export function listLexicalOrdinals() {
 export function listLexicalWordSummaries() {
   return listLexicalOrdinals().map((ordinal) => {
     const { object } = finalLearnerObjectByOrdinal(ordinal);
-    const senses = (Array.isArray(object.senses) ? object.senses : []).filter((sense) => sense.disposition !== 'EXPLORE_ONLY');
+    const senses = (Array.isArray(object.senses) ? object.senses : []).filter(isDefaultLexicalObject);
     const secondary = (Array.isArray(object.secondary_senses) ? object.secondary_senses : [])
-      .filter((sense) => sense.disposition !== 'EXPLORE_ONLY');
-    const constructions = Array.isArray(object.constructions) ? object.constructions : [];
+      .filter(isDefaultLexicalObject);
+    const constructions = (Array.isArray(object.constructions) ? object.constructions : []).filter(isDefaultLexicalObject);
     const fixedPatternCount = senses.reduce(
       (count, sense) => count + (Array.isArray(sense?.usage)
         ? sense.usage.filter((item) => item?.kind === 'fixed_pattern').length

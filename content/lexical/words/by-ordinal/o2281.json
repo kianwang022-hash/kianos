@@ -19,17 +19,18 @@
           ]
         },
         {
-          "label_cn": "冒险猜测；使遭受危险",
-          "label_en": "to risk or expose to danger; to venture (a guess)",
+          "label_cn": "冒昧提出（猜测、建议等）；使……遭受风险；拿……冒险",
+          "label_en": "to risk making a guess or suggestion that may be wrong or unwelcome; to put something at risk of loss or harm",
           "pos": "verb",
           "sense_ids": [
-            "sense:hazard:7edeff450521505c"
+            "sense:hazard:a77247c6f310bde2",
+            "sense:hazard:10e6a85e14c913af"
           ]
         }
       ],
-      "core_meaning_cn": "危险／隐患；冒险提出猜测；使遭风险",
+      "core_meaning_cn": "危险；隐患；冒险提出（猜测等）",
       "core_meaning_en": "a danger or source of risk; venture a guess; put at risk",
-      "mental_model_cn": "危险／隐患；冒险提出猜测；使遭风险",
+      "mental_model_cn": "危险；隐患；冒险提出（猜测等）",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -88,15 +89,29 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "冒险猜测；使遭受危险",
-        "definition_en": "to risk or expose to danger; to venture (a guess)",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "冒昧提出（猜测、建议等）",
+        "definition_en": "to risk making a guess or suggestion that may be wrong or unwelcome",
+        "governing_pattern": "hazard a guess/suggestion",
         "level": "L2",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:hazard:7edeff450521505c",
-        "sense_label_en": "to risk or expose to danger; to venture (a guess)",
+        "sense_id": "sense:hazard:a77247c6f310bde2",
+        "sense_label_en": "to risk making a guess or suggestion that may be wrong or unwelcome",
         "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "使……遭受风险；拿……冒险",
+        "definition_en": "to put something at risk of loss or harm",
+        "governing_pattern": "hazard sth",
+        "level": "L2",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:hazard:10e6a85e14c913af",
+        "sense_label_en": "to put something at risk of loss or harm",
+        "sort_order": 2,
         "transitivity": "vt"
       }
     ],
@@ -303,12 +318,40 @@
       "index": 0
     }
   ],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:0f310b8246a1eb6b3ef0",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:hazard:7edeff450521505c:collocation:0"
+          ],
+          "meaning_cn": "冒险猜测",
+          "phrase": "hazard a guess"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "冒险猜测；使遭受危险",
+      "definition_en": "to risk or expose to danger; to venture (a guess)",
+      "governing_pattern": "vt. + object",
+      "level": "L2",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:hazard:7edeff450521505c",
+      "sense_label_en": "to risk or expose to danger; to venture (a guess)",
+      "sort_order": 1,
+      "transitivity": "vt",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
         "sense_id": "sense:hazard:7edeff450521505c",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6367,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
@@ -319,6 +362,22 @@
         "merged_into_sense_id": null,
         "source_row": 6368,
         "source_path": "content/lexical/canonical/senses/shards/o2273-2304.json"
+      },
+      {
+        "sense_id": "sense:hazard:a77247c6f310bde2",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2281.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:hazard:10e6a85e14c913af",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2281.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [

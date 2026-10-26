@@ -26,12 +26,12 @@ export function pronunciationReadingVisibleInStudy(reading, senses, support, ind
     if (scope.excluded_sense_ids != null && !Array.isArray(scope.excluded_sense_ids)) return true;
     const excluded = new Set(scope.excluded_sense_ids || []);
     const ids = scope.sense_ids.filter(id => !excluded.has(id));
-    if (!ids.length || ids.some(id => !byId.has(id) || byId.get(id).disposition !== 'EXPLORE_ONLY')) return true;
+    if (!ids.length || ids.some(id => !byId.has(id) || !['EXPLORE_ONLY', 'RECOGNITION_EXPANSION'].includes(byId.get(id).disposition))) return true;
   }
   // Conflicting or unknown explicit reverse bindings must not be silently discarded.
   for (const [id, indices] of Object.entries(support?.sense_readings || {})) {
     if (Array.isArray(indices) && indices.includes(index)
-        && (!byId.has(id) || byId.get(id).disposition !== 'EXPLORE_ONLY')) return true;
+        && (!byId.has(id) || !['EXPLORE_ONLY', 'RECOGNITION_EXPANSION'].includes(byId.get(id).disposition))) return true;
   }
   return false;
 }

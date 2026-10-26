@@ -49,15 +49,29 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "便利的，手边的",
-        "definition_en": "easy to reach or use",
-        "governing_pattern": "",
+        "definition_cn": "实用的；方便好用的",
+        "definition_en": "useful or easy to use",
+        "governing_pattern": "a handy tool",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "adjective",
-        "sense_id": "sense:handy:cf81091d4fb15020",
-        "sense_label_en": "easy to reach or use",
+        "sense_id": "sense:handy:adec52728bba2148",
+        "sense_label_en": "useful or easy to use",
         "sort_order": 0,
+        "transitivity": "nonverb"
+      },
+      {
+        "collocations": [],
+        "confidence": "medium",
+        "definition_cn": "手边的；近便可取的",
+        "definition_en": "nearby and easy to reach or obtain",
+        "governing_pattern": "keep/have sth handy",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "adjective",
+        "sense_id": "sense:handy:28b581bf9b1fc02e",
+        "sense_label_en": "nearby and easy to reach or obtain",
+        "sort_order": 1,
         "transitivity": "nonverb"
       },
       {
@@ -81,7 +95,7 @@
         "pos": "adjective",
         "sense_id": "sense:handy:c85e820c139a543d",
         "sense_label_en": "skillful with the hands",
-        "sort_order": 1,
+        "sort_order": 2,
         "transitivity": "nonverb"
       }
     ],
@@ -114,7 +128,8 @@
             {
               "surface": "handy",
               "sense_ids": [
-                "sense:handy:cf81091d4fb15020",
+                "sense:handy:adec52728bba2148",
+                "sense:handy:28b581bf9b1fc02e",
                 "sense:handy:c85e820c139a543d"
               ],
               "binding_basis": "Independently reviewed exact owner/source semantic scope; original raw scope and conditions retained."
@@ -169,7 +184,35 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:8a8bc55f80d808b65c89",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:handy:cf81091d4fb15020:collocation:0"
+          ],
+          "meaning_cn": "便利的工具",
+          "phrase": "a handy tool"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "便利的，手边的",
+      "definition_en": "easy to reach or use",
+      "governing_pattern": "",
+      "level": "L1",
+      "needs_human_review": 0,
+      "pos": "adjective",
+      "sense_id": "sense:handy:cf81091d4fb15020",
+      "sense_label_en": "easy to reach or use",
+      "sort_order": 0,
+      "transitivity": "nonverb",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -181,10 +224,26 @@
       },
       {
         "sense_id": "sense:handy:cf81091d4fb15020",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6299,
         "source_path": "content/lexical/canonical/senses/shards/o2241-2272.json"
+      },
+      {
+        "sense_id": "sense:handy:adec52728bba2148",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2255.json",
+        "source_pointer": "/record/senses/0"
+      },
+      {
+        "sense_id": "sense:handy:28b581bf9b1fc02e",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2255.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [

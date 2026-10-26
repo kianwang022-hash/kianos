@@ -20,19 +20,20 @@
           ]
         },
         {
-          "label_cn": "向……欢呼、致敬；招呼、叫停；来自；下冰雹",
-          "label_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop; to come from or originate from; for hailstones to fall from the sky",
+          "label_cn": "赞颂；欢呼欢迎；把……誉为……；招呼；喊住；招手叫停（车辆等）；来自；下冰雹",
+          "label_en": "to welcome or praise someone or something enthusiastically; to call or signal to someone to get attention or stop a vehicle; to come from or originate from; for hailstones to fall from the sky",
           "pos": "verb",
           "sense_ids": [
-            "sense:hail:ce1775e9726d54d1",
+            "sense:hail:d33c2c1e4cf2588c",
+            "sense:hail:38fd14036c38bc34",
             "sense:hail:acccdbbafeef55f3",
             "sense:hail:b857c718739a1de6"
           ]
         }
       ],
-      "core_meaning_cn": "冰雹或密集袭来的一阵；下冰雹、招呼称赞或来自",
+      "core_meaning_cn": "冰雹；称赞；招呼；来自",
       "core_meaning_en": "hail or a barrage; hail as weather, call or acclaim, or come from",
-      "mental_model_cn": "天气动词用it is hailing；hail a taxi与hail somebody as a hero均为及物用法；hail from为来自。",
+      "mental_model_cn": "hail a taxi 是招手叫出租车；hail somebody as a hero 是誉为英雄；hail from 是来自。",
       "mental_model_en": "hail or a barrage; hail as weather, call or acclaim, or come from."
     },
     "exam_paraphrases": [],
@@ -67,7 +68,22 @@
             ],
             "meaning_cn": "把...誉为...",
             "phrase": "hail + sb/sth as + n"
-          },
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "赞颂；欢呼欢迎；把……誉为……",
+        "definition_en": "to welcome or praise someone or something enthusiastically",
+        "governing_pattern": "hail sb/sth (as …)",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "verb",
+        "sense_id": "sense:hail:d33c2c1e4cf2588c",
+        "sense_label_en": "to welcome or praise someone or something enthusiastically",
+        "sort_order": 1,
+        "transitivity": "vt"
+      },
+      {
+        "collocations": [
           {
             "collocation_id": "collocation:9557ac6d516a9b4ab873",
             "exam_value": "usage_example",
@@ -79,15 +95,15 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "向……欢呼、致敬；招呼、叫停",
-        "definition_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop",
-        "governing_pattern": "vt. + object",
+        "definition_cn": "招呼；喊住；招手叫停（车辆等）",
+        "definition_en": "to call or signal to someone to get attention or stop a vehicle",
+        "governing_pattern": "hail sb/a taxi",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "verb",
-        "sense_id": "sense:hail:ce1775e9726d54d1",
-        "sense_label_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop",
-        "sort_order": 1,
+        "sense_id": "sense:hail:38fd14036c38bc34",
+        "sense_label_en": "to call or signal to someone to get attention or stop a vehicle",
+        "sort_order": 5,
         "transitivity": "vt"
       },
       {
@@ -210,7 +226,7 @@
                 "sense:hail:b857c718739a1de6"
               ],
               "source_path": "content/lexical/words/by-ordinal/o2238.json",
-              "source_pointer": "/record/senses/4",
+              "source_pointer": "/record/senses/5",
               "conditions": {
                 "current_owner_usage": "it hails; it is hailing"
               }
@@ -671,7 +687,44 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:ef45ac45a86766441c10",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:hail:ce1775e9726d54d1:collocation:0"
+          ],
+          "meaning_cn": "把...誉为...",
+          "phrase": "hail + sb/sth as + n"
+        },
+        {
+          "collocation_id": "collocation:9557ac6d516a9b4ab873",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:hail:ce1775e9726d54d1:collocation:1"
+          ],
+          "meaning_cn": "叫出租车",
+          "phrase": "hail a taxi"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "向……欢呼、致敬；招呼、叫停",
+      "definition_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop",
+      "governing_pattern": "vt. + object",
+      "level": "L1",
+      "needs_human_review": 0,
+      "pos": "verb",
+      "sense_id": "sense:hail:ce1775e9726d54d1",
+      "sense_label_en": "to greet or acclaim enthusiastically, or to call out to attract attention or make a vehicle stop",
+      "sort_order": 1,
+      "transitivity": "vt",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -697,7 +750,7 @@
       },
       {
         "sense_id": "sense:hail:ce1775e9726d54d1",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6249,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
@@ -708,7 +761,23 @@
         "merged_into_sense_id": null,
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2238.json",
-        "source_pointer": "/record/senses/4"
+        "source_pointer": "/record/senses/5"
+      },
+      {
+        "sense_id": "sense:hail:d33c2c1e4cf2588c",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2238.json",
+        "source_pointer": "/record/senses/1"
+      },
+      {
+        "sense_id": "sense:hail:38fd14036c38bc34",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2238.json",
+        "source_pointer": "/record/senses/2"
       }
     ],
     "active_collocations": [
@@ -752,7 +821,7 @@
         "status": "active",
         "source_row": null,
         "source_path": "content/lexical/words/by-ordinal/o2238.json",
-        "source_pointer": "/record/senses/4/collocations/0"
+        "source_pointer": "/record/senses/5/collocations/0"
       }
     ],
     "exam-mappings": [],

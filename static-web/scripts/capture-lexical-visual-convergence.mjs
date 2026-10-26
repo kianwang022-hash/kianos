@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -289,231 +290,746 @@ async function auditBatchProjection(page, current, mode) {
   return {expected,actual,pass:JSON.stringify(actual)===JSON.stringify(expected)};
 }
 
+// Frozen Final identity, Scope overlay and typed retirement checks; test-only.
+function batchStableJson(value) {
+  if (Array.isArray(value)) return `[${value.map(batchStableJson).join(',')}]`;
+  if (value && typeof value === 'object') return `{${Object.keys(value).sort().map(key=>`${JSON.stringify(key)}:${batchStableJson(value[key])}`).join(',')}}`;
+  return JSON.stringify(value);
+}
+
+function batchFinalSha256(current) {
+  return createHash('sha256').update(batchStableJson(current)).digest('hex');
+}
+
+function expectedBatchScope(current, mode) {
+  const text = value => String(value ?? '').replace(/\s+/g,' ').trim();
+  const target = repair => ({kind:repair?.target_kind||'form_identity',id:repair?.target_id||'',locator:repair?.target_locator||''});
+  return {
+    lineage:current.sense_lineage||[],
+    relations:[...(current.reference?.confusables||[]),...(current.reference?.relations||[])].map(r=>({title:text(r.title),lines:(r.lines||[]).map(l=>({text:text(l.text),lang:l.lang==='cn'?'cn':'en'})),differences:(r.differences||[]).map(d=>({key:text(d.key),value:text(d.value)})),repair:{kind:r.repair?.target_kind||'relation',id:r.repair?.target_id||r.id||'',locator:r.repair?.target_locator||''}})),
+    overlays:(current.senses||[]).filter(s=>mode==='lookup'||s.disposition!=='EXPLORE_ONLY')
+      .flatMap(s=>s.identity_overlay?.text?[{senseId:s.id,text:text(s.identity_overlay.text),repair:target(s.identity_overlay.repair)}]:[])
+  };
+}
+
+async function auditBatchScope(page, current, mode) {
+  const expected=expectedBatchScope(current,mode);
+  const actual=await page.evaluate(()=>{
+    const visible=node=>node instanceof HTMLElement&&!node.closest('[hidden]')&&node.getClientRects().length>0&&getComputedStyle(node).visibility!=='hidden';
+    const root=document.querySelector('[data-local-port="vocabulary"]');
+    const text=node=>visible(node)?String(node.textContent??'').replace(/\s+/g,' ').trim():'';
+    const repair=button=>button?{kind:button.getAttribute('data-target-kind')||'',id:button.getAttribute('data-target-id')||'',locator:button.getAttribute('data-target-locator')||''}:null;
+    return {
+      lineage:JSON.parse(root.querySelector('[data-vocab-identity-lineage]')?.textContent||'null'),
+      relations:[...root.querySelectorAll('.lexicalRelationSection .portedVocabEvidenceList > article')].filter(visible).map(row=>({title:text(row.querySelector(':scope > b')),lines:[...row.querySelectorAll('.lexicalRelationText > p')].map(line=>({text:text(line),lang:line.classList.contains('is-cn')?'cn':'en'})),differences:[...row.querySelectorAll('.lexicalRelationDecision > div')].map(d=>({key:text(d.querySelector('dt')),value:text(d.querySelector('dd'))})),repair:repair(row.querySelector(':scope > [data-vocab-repair]'))})),
+      overlays:[...root.querySelectorAll('.portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id]')].filter(visible)
+        .flatMap(row=>[...row.querySelectorAll('.portedVocabIdentityOverlay')].filter(visible).map(overlay=>({senseId:row.getAttribute('data-vocab-sense-id'),text:text(overlay.querySelector(':scope > b')),repair:repair(overlay.querySelector(':scope > [data-vocab-repair]'))})))
+    };
+  });
+  return {expected,actual,pass:batchStableJson(expected)===batchStableJson(actual)};
+}
+
+// Reference content must be actually visible in Lookup, not merely present as textContent.
+// Study hidden-reference assertions remain in the unchanged original geometry guard.
+async function auditBatchReferenceVisibility(page, current, mode) {
+  if(mode!=='lookup') return {mode,checkedBy:'original Study hidden-reference guard',pass:true};
+  const text=value=>String(value??'').replace(/\s+/g,' ').trim();
+  const expected=(current.reference?.senses||[]).map(s=>({id:s.sense_id||s.stable_sense_id||s.id,cn:text(s.definition_cn),en:text(s.definition_en),pattern:text(s.governing_pattern),note:text(s.usage_note),usage:(s.collocations||[]).map(c=>({id:c.collocation_id,phrase:text(c.phrase),meaning:text(c.meaning_cn)}))}));
+  const actual=await page.evaluate(()=>{
+    const visible=node=>node instanceof HTMLElement&&!node.closest('[hidden]')&&node.getClientRects().length>0&&getComputedStyle(node).visibility!=='hidden';
+    const read=(row,selector)=>{const field=row.querySelector(selector);return visible(field)?String(field.textContent??'').replace(/\s+/g,' ').trim():'';};
+    return [...document.querySelectorAll('[data-vocab-reference-sense-id]')].map(row=>({id:row.getAttribute('data-vocab-reference-sense-id'),cn:read(row,'.lexicalSenseMeaning > p'),en:read(row,'.lexicalSenseMeaning > strong'),pattern:read(row,':scope > header > small'),note:read(row,'.lexicalSenseMeaning > small'),usage:[...row.querySelectorAll('[data-vocab-reference-collocation-id]')].map(child=>({id:child.getAttribute('data-vocab-reference-collocation-id'),phrase:read(child,'code'),meaning:read(child,'span')}))}));
+  });
+  return {mode,expected,actual,pass:batchStableJson(expected)===batchStableJson(actual)};
+}
+
+function batchRetirementDeclarations(current, baseline) {
+  const prior=baseline?.sense_lineage||[];
+  const reference=current.reference?.senses||[];
+  const changed=(current.sense_lineage||[]).filter(line=>line.status==='deprecated'&&line.to_target_id===null&&!prior.some(old=>batchStableJson(old)===batchStableJson(line)));
+  return changed.map(line=>({kind:line.target_kind,id:line.from_target_id,
+    representation:line.target_kind==='sense'&&reference.some(s=>(s.sense_id||s.stable_sense_id||s.id)===line.from_target_id)?'reference-sense'
+      :line.target_kind==='collocation'&&reference.some(s=>(s.collocations||[]).some(c=>c.collocation_id===line.from_target_id))?'reference-collocation':'source-archive-only'}));
+}
+
+function batchRetirementPass(declaration, actual) {
+  const valid=['sense','secondary_sense','collocation','construction','form_identity'];
+  if(!valid.includes(declaration.kind)||!declaration.id||actual.activeCount!==0||actual.repairCount!==0) return false;
+  if(declaration.representation==='reference-sense') return declaration.kind==='sense'&&actual.referenceSenseCount===1&&actual.referenceChildCount===0;
+  if(declaration.representation==='reference-collocation') return declaration.kind==='collocation'&&actual.referenceChildCount>=1&&actual.referenceSenseCount===0;
+  return declaration.representation==='source-archive-only'&&actual.referenceSenseCount===0&&actual.referenceChildCount===0;
+}
+
+async function auditBatchRetirements(page, declarations) {
+  const results=[];
+  for(const declaration of declarations) {
+    const actual=await page.evaluate(({kind,id})=>{
+      const root=document.querySelector('[data-local-port="vocabulary"]');
+      const matching=(selector,attribute)=>[...root.querySelectorAll(selector)].filter(node=>node.getAttribute(attribute)===id).length;
+      const activeSelector={sense:['.portedVocabSenseList > [data-vocab-sense-id]','data-vocab-sense-id'],construction:['[data-vocab-construction-id]','data-vocab-construction-id']}[kind];
+      const repairCount=[...root.querySelectorAll('[data-vocab-repair]')].filter(node=>node.getAttribute('data-target-kind')===kind&&node.getAttribute('data-target-id')===id).length;
+      return {activeCount:activeSelector?matching(...activeSelector):repairCount,repairCount,
+        referenceSenseCount:matching('[data-vocab-reference-sense-id]','data-vocab-reference-sense-id'),
+        referenceChildCount:matching('[data-vocab-reference-collocation-id]','data-vocab-reference-collocation-id')};
+    },declaration);
+    results.push({...declaration,actual,pass:batchRetirementPass(declaration,actual)});
+  }
+  return {declarations:results,pass:results.every(row=>row.pass)};
+}
+
 // #1302: bounded rendered regression evidence, not a second content authority.
-async function auditSecondQualityBatch(browser) {
+async function auditThirdQualityBatch(browser) {
+  const bindingStatus = "FROZEN_FOR_BROWSER";
+  assert(bindingStatus==='FROZEN_FOR_BROWSER','batch_final_freeze_required',bindingStatus);
   const fixtures = [
     {
-      "ordinal": 2102,
-      "word": "gas",
-      "coverage": "batch-2100-2199-target",
-      "readableSenseIds": [
-        "sense:gas:36b28236da195a52",
-        "sense:gas:4fd7517bf48e5ba5"
+      "ordinal": 2206,
+      "word": "grim",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "37c8db91d9694b203ff047259ccfd19d9b54973283962cfeb11f19baec711e2f",
+      "expectedFinalSha256": "f72bf8e09a217d69f72fd6e2633cecff7279033a71f3dbf9d613897a84407f70",
+      "input_path": "frozen-inputs/o2206.json",
+      "input_file_sha256": "09c19a79969d25d48dbd9d7fee8e1795fc87c25ef37e5d68a05231f28424fccf",
+      "retiredIdentities": [],
+      "readableTargets": {}
+    },
+    {
+      "ordinal": 2209,
+      "word": "grip",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "41697d4f78ff6a7bd6ec98187e215a1bee93119f338c2ebf9bd9f8a4728d966d",
+      "expectedFinalSha256": "18142069707063e5fdea9aa4ce119ad238b65503abf7af95bdf4a7f2da2a1088",
+      "input_path": "frozen-inputs/o2209.json",
+      "input_file_sha256": "a645690b1315c962fdada26e64fbee4bfd38f015455b4e8d63e0e90dbe6a58ee",
+      "retiredIdentities": [
+        {
+          "kind": "sense",
+          "id": "sense:grip:a4e6998d28c058e2",
+          "representation": "reference-sense"
+        },
+        {
+          "kind": "collocation",
+          "id": "collocation:96b725d6c0029e3e2988",
+          "representation": "reference-collocation"
+        }
       ],
-      "readabilityModes": [
-        "study"
-      ]
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:grip:d2305fcb77939e27",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:grip:d2305fcb77939e27\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          },
+          {
+            "kind": "sense",
+            "id": "sense:grip:3a7720987827c013",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:grip:3a7720987827c013\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          },
+          {
+            "kind": "sense",
+            "id": "sense:grip:a66d2228352e8e09",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:grip:a66d2228352e8e09\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          }
+        ],
+        "lookup": [
+          {
+            "kind": "reference-sense",
+            "id": "sense:grip:a4e6998d28c058e2",
+            "selector": "[data-vocab-reference-sense-id=\"sense:grip:a4e6998d28c058e2\"]",
+            "reason": "retired merged Chinese meaning stays reference-only; no Repair"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2103,
-      "word": "gasp",
-      "coverage": "batch-2100-2199-target",
-      "readableSenseIds": [
-        "sense:gasp:b8e36889a93a51b1"
+      "ordinal": 2212,
+      "word": "grope",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "18058cb17861db762a3dc9f6e683c8e546e2dbd4157245b87f34024fa49f5315",
+      "expectedFinalSha256": "692e76b234044f5bb275fc46afcc0095a3c30d7978a6256d28cf4586d52e2846",
+      "input_path": "frozen-inputs/o2212.json",
+      "input_file_sha256": "9d3f661a3a8db1864a4ad2faf25db28d44bc456796d5e51fe51f052a29bb8885",
+      "retiredIdentities": [],
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "construction",
+            "id": "construction:bc976c09c2ec8a7e464e",
+            "selector": ".lexicalPatternList > article[data-vocab-construction-id=\"construction:bc976c09c2ec8a7e464e\"]",
+            "reason": "long Chinese condition; have title separately identifies arrangement vs unwanted experience"
+          }
+        ]
+      }
+    },
+    {
+      "ordinal": 2223,
+      "word": "guidance",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "8f2c8f9e5380d03fc710153f37b6a5e42ba686ad7588b5219753f8eec39b73fc",
+      "expectedFinalSha256": "5e934e900a95b8739f3596786b068e17fafe35c2541c78cd1141dd3d5a25c0d1",
+      "input_path": "frozen-inputs/o2223.json",
+      "input_file_sha256": "8b73895da802fc144a5ba5471764d54158510ba8a2f8ca51e72cb2175d06b397",
+      "retiredIdentities": [],
+      "readableTargets": {}
+    },
+    {
+      "ordinal": 2231,
+      "word": "gum",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "bc86f69a532185f7e51a53405957dfe8d158d8e047c20c602021c488b9fb1321",
+      "expectedFinalSha256": "7fb2f1c850c3a614674c8735bbe3468039e9d392d962fe83367ac3dd5e7a1e73",
+      "input_path": "frozen-inputs/o2231.json",
+      "input_file_sha256": "bdc4976424b454a1f6ba4683d352559242864cd2f453ef28c05bfee195b8d386",
+      "retiredIdentities": [
+        {
+          "kind": "sense",
+          "id": "sense:gum:ac62661705355ea1",
+          "representation": "reference-sense"
+        }
       ],
-      "readabilityModes": [
-        "study"
-      ]
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:gum:8995595443016393",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:gum:8995595443016393\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          },
+          {
+            "kind": "sense",
+            "id": "sense:gum:ea43fa1dfe115faf",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:gum:ea43fa1dfe115faf\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          }
+        ],
+        "lookup": [
+          {
+            "kind": "reference-sense",
+            "id": "sense:gum:ac62661705355ea1",
+            "selector": "[data-vocab-reference-sense-id=\"sense:gum:ac62661705355ea1\"]",
+            "reason": "retired merged Chinese meaning stays reference-only; no Repair"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2117,
-      "word": "generous",
-      "coverage": "batch-2100-2199-target"
+      "ordinal": 2232,
+      "word": "gun",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "5f72a8af92afb92570be62fad0879e9a47f015bfb843014d9fbe86bf91378f31",
+      "expectedFinalSha256": "0d3af0e73797219b017cdbacbbfe80fbaa6804a4ae20202d234356b60c7fe8ff",
+      "input_path": "frozen-inputs/o2232.json",
+      "input_file_sha256": "1e710cdbe854cc65275f0b919f5a58f7a12c97d3c1efbf34bff1bcd1cd4663fd",
+      "retiredIdentities": [],
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:gun:753d83db9a9e9043",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:gun:753d83db9a9e9043\"]",
+            "reason": "final new Chinese contrast or long condition; both widths"
+          },
+          {
+            "kind": "sense",
+            "id": "sense:gun:d9f0e40bf586d0d5",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:gun:d9f0e40bf586d0d5\"]",
+            "reason": "final new Chinese contrast or long condition; both widths"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2126,
-      "word": "geology",
-      "coverage": "batch-2100-2199-target"
+      "ordinal": 2236,
+      "word": "habit",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "a56b7648493a840ed93e99495d42d497a2295bdf2b6be5872a490e8d9733def6",
+      "expectedFinalSha256": "816e832450d65baeefaf6d6d77498d8b38ac63cddc5360146c88db1bbdf219e9",
+      "input_path": "frozen-inputs/o2236.json",
+      "input_file_sha256": "c758b7a0abd29b7bd6f8c3ab824469976455db31a14de5bb2b0d550f6d8a5081",
+      "retiredIdentities": [],
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:habit:85f29d59fcf2af89",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:habit:85f29d59fcf2af89\"]",
+            "reason": "final new Chinese contrast or long condition; both widths"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2128,
-      "word": "germ",
-      "coverage": "batch-2100-2199-target",
-      "readableSenseIds": [
-        "sense:germ:3a831f8860b0587d",
-        "sense:germ:4fa106be7cca5c52",
-        "sense:germ:a046a362ac3c559a"
+      "ordinal": 2238,
+      "word": "hail",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "7c9b585bd4452027612cef7e438b103b7afb88c3027fa3250002fee200abf3c9",
+      "expectedFinalSha256": "25f61f269ff7f183716234271af4cadeff94edefd7d947927bb0ad7f8250d4cc",
+      "input_path": "frozen-inputs/o2238.json",
+      "input_file_sha256": "d3e7b777cadf10a6a3d6de105264febf5bc09ef68e16bcc43f202c383f316f0f",
+      "retiredIdentities": [
+        {
+          "kind": "sense",
+          "id": "sense:hail:ce1775e9726d54d1",
+          "representation": "reference-sense"
+        }
       ],
-      "readabilityModes": [
-        "study"
-      ]
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:hail:d33c2c1e4cf2588c",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hail:d33c2c1e4cf2588c\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          },
+          {
+            "kind": "sense",
+            "id": "sense:hail:38fd14036c38bc34",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hail:38fd14036c38bc34\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          }
+        ],
+        "lookup": [
+          {
+            "kind": "reference-sense",
+            "id": "sense:hail:ce1775e9726d54d1",
+            "selector": "[data-vocab-reference-sense-id=\"sense:hail:ce1775e9726d54d1\"]",
+            "reason": "retired merged Chinese meaning stays reference-only; no Repair"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2130,
-      "word": "get",
-      "coverage": "batch-2100-2199-target"
+      "ordinal": 2245,
+      "word": "hammer",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "520f8db1cac1961470066942388d6f75f9fe076c725777a1389ad3ddbc4a3e77",
+      "expectedFinalSha256": "8f932f5909df7c396df1edd6d5ecb02224ddd663073ab4fd5b4ddf78d1030e84",
+      "input_path": "frozen-inputs/o2245.json",
+      "input_file_sha256": "3ef20058345b35a4686c5d40acb30f8e2fd20faa4169ffed745194334aebd4c1",
+      "retiredIdentities": [],
+      "readableTargets": {}
     },
     {
-      "ordinal": 2137,
-      "word": "give",
-      "coverage": "batch-2100-2199-target"
+      "ordinal": 2253,
+      "word": "handsome",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "b0869d8c7e8a07e9572659f449d6d13ede54fc644ffc0d0532bc5fe60c5f538c",
+      "expectedFinalSha256": "f0408d0b8bd2b2457770abe3601f8872283056346ff209ba865061583d77dd2a",
+      "input_path": "frozen-inputs/o2253.json",
+      "input_file_sha256": "7e8d67ed761c19c31872f55059551184268007493da723e897e7bb34502ada69",
+      "retiredIdentities": [],
+      "readableTargets": {}
     },
     {
-      "ordinal": 2153,
-      "word": "glow",
-      "coverage": "batch-2100-2199-target",
-      "readableSenseIds": [
-        "sense:glow:bd64725d201c5f12"
+      "ordinal": 2255,
+      "word": "handy",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "c1286fdeb8ff5171e69894b7be8e3200a94d512df07c5f272bbb83625352f9f5",
+      "expectedFinalSha256": "3319030853bc50971629b4e25676069ea119c50f792d33c023240f24f46c1722",
+      "input_path": "frozen-inputs/o2255.json",
+      "input_file_sha256": "ffa0fc9fc48ee90c94a8fe5f721d83f480da6f7938367d684e6d8c8b28e664c1",
+      "retiredIdentities": [
+        {
+          "kind": "sense",
+          "id": "sense:handy:cf81091d4fb15020",
+          "representation": "reference-sense"
+        }
       ],
-      "readabilityModes": [
-        "study"
-      ]
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:handy:adec52728bba2148",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:handy:adec52728bba2148\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          },
+          {
+            "kind": "sense",
+            "id": "sense:handy:28b581bf9b1fc02e",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:handy:28b581bf9b1fc02e\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          }
+        ],
+        "lookup": [
+          {
+            "kind": "reference-sense",
+            "id": "sense:handy:cf81091d4fb15020",
+            "selector": "[data-vocab-reference-sense-id=\"sense:handy:cf81091d4fb15020\"]",
+            "reason": "retired merged Chinese meaning stays reference-only; no Repair"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2155,
-      "word": "go",
-      "coverage": "batch-2100-2199-target"
+      "ordinal": 2256,
+      "word": "hang",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "f89feeb53f7f785b31133d7afe784ecbe27c87a5ad1ad77dd20ba9b60bef8459",
+      "expectedFinalSha256": "2239939eccba167b16a834cdce98f110478237d4ad82116cce1d733037c7efd2",
+      "input_path": "frozen-inputs/o2256.json",
+      "input_file_sha256": "e59763bbf4b0cc2e58fa394c17247362a70c8e5fc4d41d8f80ab35cc62f6b979",
+      "retiredIdentities": [],
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:hang:7a28d8f0f4c25076",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hang:7a28d8f0f4c25076\"]",
+            "reason": "final new Chinese contrast or long condition; both widths"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2162,
-      "word": "good",
-      "coverage": "batch-2100-2199-target"
-    },
-    {
-      "ordinal": 2166,
-      "word": "goose",
-      "coverage": "batch-2100-2199-target",
-      "readableSenseIds": [
-        "sense:goose:1437a359e4a153b0",
-        "sense:goose:a22119d6c7d45f77",
-        "sense:goose:f98c6ed8042c56ca"
+      "ordinal": 2258,
+      "word": "happy",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "79742ce7d0e67e83d90cda2968e501a53d2dec21c9849df3206bbd245e2a408a",
+      "expectedFinalSha256": "bd63c22786594fb37c22be36c7d59747c68f450dc02b0bde56435e45394ea404",
+      "input_path": "frozen-inputs/o2258.json",
+      "input_file_sha256": "93ac356a4b0bd24440b4b48e32bc59331c5b4288402241cb56a4564d61a9a360",
+      "retiredIdentities": [
+        {
+          "kind": "sense",
+          "id": "sense:happy:18def78bf68755ea",
+          "representation": "reference-sense"
+        }
       ],
-      "readabilityModes": [
-        "study"
-      ]
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:happy:63f503ac544466ca",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:happy:63f503ac544466ca\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          },
+          {
+            "kind": "sense",
+            "id": "sense:happy:d4acfd45e6f3ee81",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:happy:d4acfd45e6f3ee81\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          }
+        ],
+        "lookup": [
+          {
+            "kind": "reference-sense",
+            "id": "sense:happy:18def78bf68755ea",
+            "selector": "[data-vocab-reference-sense-id=\"sense:happy:18def78bf68755ea\"]",
+            "reason": "retired merged Chinese meaning stays reference-only; no Repair"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2174,
-      "word": "grace",
-      "coverage": "batch-2100-2199-target"
-    },
-    {
-      "ordinal": 2183,
-      "word": "grand",
-      "coverage": "batch-2100-2199-target",
-      "readableSenseIds": [],
-      "readabilityModes": [
-        "study"
-      ]
-    },
-    {
-      "ordinal": 2185,
-      "word": "grant",
-      "coverage": "batch-2100-2199-target",
-      "readableSenseIds": [
-        "sense:grant:0760535df454506b"
+      "ordinal": 2270,
+      "word": "harvest",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "666920b2d3518e677cb230fbb03650cfecbf4097cf49e629358d0b1cb32580f1",
+      "expectedFinalSha256": "2a60274e6f4f99d3c2839121f604d85c2621b76422cb9b679c394969ec7df44c",
+      "input_path": "frozen-inputs/o2270.json",
+      "input_file_sha256": "8e2d05eb9fb05a1fe0b5ed17537f0a73762647ad7faeff58ba4950ce6b65a4ac",
+      "retiredIdentities": [
+        {
+          "kind": "sense",
+          "id": "sense:harvest:d7a5dce656fd529e",
+          "representation": "reference-sense"
+        }
       ],
-      "readabilityModes": [
-        "study"
-      ]
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:harvest:f784027a60a8cea6",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:harvest:f784027a60a8cea6\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          },
+          {
+            "kind": "sense",
+            "id": "sense:harvest:e0fb2a8f1a77c476",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:harvest:e0fb2a8f1a77c476\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          }
+        ],
+        "lookup": [
+          {
+            "kind": "reference-sense",
+            "id": "sense:harvest:d7a5dce656fd529e",
+            "selector": "[data-vocab-reference-sense-id=\"sense:harvest:d7a5dce656fd529e\"]",
+            "reason": "retired merged Chinese meaning stays reference-only; no Repair"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2189,
-      "word": "grasp",
-      "coverage": "batch-2100-2199-target",
-      "readableSenseIds": [
-        "sense:grasp:f6ce3aa41a91c8e2",
-        "sense:grasp:a8908b5e37a50144"
+      "ordinal": 2277,
+      "word": "haul",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "aea901d9675e9996ae66496f8afaf67760e27ac1f9cdab5a0b4f669747bb5a97",
+      "expectedFinalSha256": "2a7647366c29b53fd96db704f5f477c93a97031689956f4f136bbdcc66179394",
+      "input_path": "frozen-inputs/o2277.json",
+      "input_file_sha256": "25f1b8c5c61f0105bc5bf5c246ba667cd0b70cf3beb5be8676cf84984614e459",
+      "retiredIdentities": [],
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:haul:d8dd94aac5a552f6",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:haul:d8dd94aac5a552f6\"]",
+            "reason": "final new Chinese contrast or long condition; both widths"
+          }
+        ]
+      }
+    },
+    {
+      "ordinal": 2278,
+      "word": "have",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "c15f2dea070e5413acbec31f56af6e52e1f8ae9c6ad80295419097f4267d94da",
+      "expectedFinalSha256": "031e054075161af3966d6d207fb8489f96b037d9c0f8a9dd791639417c626466",
+      "input_path": "frozen-inputs/o2278.json",
+      "input_file_sha256": "f15d1ea8004c73bd5ececa5bb12b1bcd96f590959d8797ee557379bbfb6b75ff",
+      "retiredIdentities": [
+        {
+          "kind": "construction",
+          "id": "construction:ee7f7b218eabd0154442",
+          "representation": "source-archive-only"
+        }
       ],
-      "readabilityModes": [
-        "study",
-        "lookup"
-      ]
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "construction",
+            "id": "construction:2dab5f5eb6e8c6446998",
+            "selector": ".lexicalPatternList > article[data-vocab-construction-id=\"construction:2dab5f5eb6e8c6446998\"]",
+            "reason": "long Chinese condition; have title separately identifies arrangement vs unwanted experience"
+          },
+          {
+            "kind": "construction",
+            "id": "construction:4cf5e01e464577e922df",
+            "selector": ".lexicalPatternList > article[data-vocab-construction-id=\"construction:4cf5e01e464577e922df\"]",
+            "reason": "long Chinese condition; have title separately identifies arrangement vs unwanted experience"
+          },
+          {
+            "kind": "relation",
+            "id": "deep:semantic_contrast:own:65f0bc2efd9295ef",
+            "selector": ".lexicalRelationSection .portedVocabEvidenceList > article:has(> [data-vocab-repair][data-target-kind=\"relation\"][data-target-id=\"deep:semantic_contrast:own:65f0bc2efd9295ef\"])",
+            "reason": "same authorized Chinese boundary visible in both actual consumers; own is not a word review"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2190,
-      "word": "grass",
-      "coverage": "batch-2100-2199-target"
-    },
-    {
-      "ordinal": 2195,
-      "word": "graze",
-      "coverage": "batch-2100-2199-target"
-    },
-    {
-      "ordinal": 2197,
-      "word": "great",
-      "coverage": "batch-2100-2199-target",
-      "readableSenseIds": [
-        "sense:great:104b8cdffce85522",
-        "sense:great:3517b8ecab987ada",
-        "sense:great:8a31c1b578c333dc",
-        "sense:great:55138ca92b323fbe"
+      "ordinal": 2281,
+      "word": "hazard",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "a5ab1738b258c5715e3b108af81daa20386686064d02b689a736728e1624cc94",
+      "expectedFinalSha256": "d315311b0f7a47ddaaa997b2721aea69b796e3f60b31e877b04a391f7deacfa6",
+      "input_path": "frozen-inputs/o2281.json",
+      "input_file_sha256": "e9fee21f5b87483cbf3f396ad6beb7fd2284704c573304eb5ea903511faedbb7",
+      "retiredIdentities": [
+        {
+          "kind": "sense",
+          "id": "sense:hazard:7edeff450521505c",
+          "representation": "reference-sense"
+        }
       ],
-      "readabilityModes": [
-        "study",
-        "lookup"
-      ],
-      "lookupReadableSenseIds": [
-        "sense:great:3517b8ecab987ada",
-        "sense:great:8a31c1b578c333dc",
-        "sense:great:55138ca92b323fbe"
-      ]
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:hazard:a77247c6f310bde2",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hazard:a77247c6f310bde2\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          },
+          {
+            "kind": "sense",
+            "id": "sense:hazard:10e6a85e14c913af",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:hazard:10e6a85e14c913af\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          }
+        ],
+        "lookup": [
+          {
+            "kind": "reference-sense",
+            "id": "sense:hazard:7edeff450521505c",
+            "selector": "[data-vocab-reference-sense-id=\"sense:hazard:7edeff450521505c\"]",
+            "reason": "retired merged Chinese meaning stays reference-only; no Repair"
+          }
+        ]
+      }
     },
     {
-      "ordinal": 2199,
-      "word": "green",
-      "coverage": "batch-2100-2199-target"
+      "ordinal": 2282,
+      "word": "he",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "4ebf3cb444a4d1fb94b29589641d4ff3a18c71c83e56ed2a24d783974a71a3bb",
+      "expectedFinalSha256": "838d0745e59a1a05bafdd1b7d74c9b7843e32c622965604c8e3347b55412a6f3",
+      "input_path": "frozen-inputs/o2282.json",
+      "input_file_sha256": "610111b8984559865d50e88e4785c25f7075e582f18faec2aa7b17504ec9f033",
+      "retiredIdentities": [],
+      "readableTargets": {}
     },
     {
-      "ordinal": 2024,
-      "word": "foul",
-      "coverage": "first-batch-long-header",
-      "readabilityModes": [
-        "study"
-      ],
-      "readableSenseIds": [
-        "sense:foul:766c01bb73185d64"
-      ],
-      "text": "非正式；foul something up 表示把事情搞砸。"
+      "ordinal": 2283,
+      "word": "head",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "19d139986ebfb800984bc90ab77fd6a09bce5b748ea2a9973519d65d6b5df5c9",
+      "expectedFinalSha256": "8f3db8f5833bd6fee8880a3a2301aec4c1536e35bf6d9ccbe2c45c11c7b6087a",
+      "input_path": "frozen-inputs/o2283.json",
+      "input_file_sha256": "891d62b8a88cc19e99bb4743760b42352795e2e60d4c34b83ea08478e1efcd1d",
+      "retiredIdentities": [],
+      "readableTargets": {}
     },
     {
-      "ordinal": 2052,
-      "word": "friendly",
-      "coverage": "first-batch-note",
-      "readabilityModes": [
-        "study"
-      ],
-      "readableSenseIds": [
-        "sense:friendly:800bdfcfc6e039d0"
-      ],
-      "text": "常见于复合词，也可由副词修饰，或单独使用。"
+      "ordinal": 2287,
+      "word": "headquarters",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "da4818d1baacb9bbca12eaf5e8c4a9bcbab0b8cecc7422afab6026bef26b912b",
+      "expectedFinalSha256": "c26fcdeb0f68079e8db010c8ff1490d95f66e8480fecfe4df0b4afba5d893bb6",
+      "input_path": "frozen-inputs/o2287.json",
+      "input_file_sha256": "df8ed1595d914c77b40a5cb66dd9f0ebe3c2c01593259838ce437fe938ecfc00",
+      "retiredIdentities": [],
+      "readableTargets": {}
     },
     {
-      "ordinal": 2056,
-      "word": "fringe",
-      "coverage": "first-batch-bottom-row",
-      "text": "with 后接沿边缘分布的事物。"
+      "ordinal": 2294,
+      "word": "heart",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "a6b2d9c037c2c47de7cddb7f50f02913822cab4fee0ac8f9f8b6e13d66da63a4",
+      "expectedFinalSha256": "3459e6b5d699cc9bd44fd1a9f5a52d4c05deb258c5e8cd2eb54e01ef959112cd",
+      "input_path": "frozen-inputs/o2294.json",
+      "input_file_sha256": "5d141c4ef8809b4f24a965b6717e1be223f3dc72b0ba1852ef2f246a9fcb86ab",
+      "retiredIdentities": [],
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:heart:f6a126f0968181f2",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:heart:f6a126f0968181f2\"]",
+            "reason": "final new Chinese contrast or long condition; both widths"
+          }
+        ]
+      }
+    },
+    {
+      "ordinal": 2295,
+      "word": "heat",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "ed399ba4b7b24e2794d9c7354a10b8c103ccea1ebc4be0475ed3a7bf91efdcc7",
+      "expectedFinalSha256": "722bcbbb35092acdd9b56f5766f3e651959b9aeb18e63166ae8a3d4b7d333cd5",
+      "input_path": "frozen-inputs/o2295.json",
+      "input_file_sha256": "8a5d9f4bd530637945f1bd9cc379085e22c026fa184f24cb4cf9ad04994fab01",
+      "retiredIdentities": [],
+      "readableTargets": {}
+    },
+    {
+      "ordinal": 2299,
+      "word": "hedge",
+      "coverage": "batch-2200-2299-target",
+      "expectedSourceFingerprint": "990d2e5bb4b5e2bb6c7faaafce805485a3dd8fe6e1434624bd77ca79c3a04276",
+      "expectedFinalSha256": "8fe743d1216139732406c949e7eaadce1bc0e76cd6229676f1422a960a1f1c50",
+      "input_path": "frozen-inputs/o2299.json",
+      "input_file_sha256": "6baeb9c658af2524bf871ee8fba48c337a7be6a8ac05d21171ca6315186adc05",
+      "retiredIdentities": [],
+      "readableTargets": {}
+    },
+    {
+      "ordinal": 2214,
+      "word": "ground",
+      "coverage": "unchanged-rich-control",
+      "expectedSourceFingerprint": "122fc3076006db7c21866d2bbedcc167f3395597e1025cd03d875d35ee6d6879",
+      "expectedFinalSha256": "802e9d5c9cb8f878960f9c1c91e1f44cb1bdf08c9897dd0ed903196d6ea8ccd0",
+      "input_path": "frozen-inputs/o2214.json",
+      "input_file_sha256": "dbd7ba2921226d54aa81afaaa997d0d9c19c7ae19285933fa8e3d2736fc380f9",
+      "retiredIdentities": [],
+      "readableTargets": {}
+    },
+    {
+      "ordinal": 2247,
+      "word": "hand",
+      "coverage": "unchanged-rich-control",
+      "expectedSourceFingerprint": "7a5edc7ffd75410f75c720e17fd8aa7077e0e4915cf081eca2bbe3a578ce6d62",
+      "expectedFinalSha256": "c32f9eee1cdb4d4375f0e5a37836f1068082bc772fee313c684a4597c3204a11",
+      "input_path": "frozen-inputs/o2247.json",
+      "input_file_sha256": "c482c0126d154ff938f33c5d54819c57faa938d51961f012d1daf8a310c99fac",
+      "retiredIdentities": [],
+      "readableTargets": {}
     },
     {
       "ordinal": 3185,
       "word": "natural",
       "coverage": "fixed-collision-regression",
-      "readabilityModes": [
-        "study"
-      ],
-      "readableSenseIds": [
-        "sense:natural:d6b11c3d7a05cb31"
-      ]
+      "expectedSourceFingerprint": "731648794e6108382ce3d2c117f02ae9ac60bd3b1110c4d76bef31266d0d05c3",
+      "expectedFinalSha256": "c291c343e347b5c8c2da808b3ee222b2a8aa04309a658c5bb6897d3eb7b6c445",
+      "input_path": "frozen-inputs/o3185.json",
+      "input_file_sha256": "d8e05470114d8711e06023d100203d99b33e72dcfd540eecf5978b1341f8cf6a",
+      "retiredIdentities": [],
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:natural:d6b11c3d7a05cb31",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:natural:d6b11c3d7a05cb31\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          }
+        ]
+      }
     },
     {
       "ordinal": 856,
       "word": "close",
       "coverage": "fixed-collision-regression",
-      "readabilityModes": [
-        "study"
-      ],
-      "readableSenseIds": [
-        "sense:close:341282390f479362"
-      ]
+      "expectedSourceFingerprint": "da2b969ad555eac242f09a1e927069561edc3c84d6c1ac6f2f7f2b45efafde8f",
+      "expectedFinalSha256": "8ed9d6960563e20b878e6bc1945884ac749f273fca775b5440940a68a4f04338",
+      "input_path": "frozen-inputs/o856.json",
+      "input_file_sha256": "6a940014720aa3cf79c7647e82142723ee2e69909ac6654d5dbe2d956773c9f8",
+      "retiredIdentities": [],
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "sense",
+            "id": "sense:close:341282390f479362",
+            "selector": ".portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id=\"sense:close:341282390f479362\"]",
+            "reason": "new split contrast or fixed longest-row regression"
+          }
+        ]
+      }
+    },
+    {
+      "ordinal": 3431,
+      "word": "own",
+      "coverage": "shared-relation-dependent-only",
+      "expectedSourceFingerprint": "a6a670d90dc94f64de7481a9e33cdda95ae30d5462b08bcac59971e12fb788bd",
+      "expectedFinalSha256": "f15fa320b9b160d64709c52f732c53d47556f88dd57720043ce1fa29b8baa75e",
+      "input_path": "frozen-inputs/o3431.json",
+      "input_file_sha256": "4737100f4e3936917e07cbb0f494032422f32d7f03750cfdfc47564b9924f3a0",
+      "retiredIdentities": [],
+      "readableTargets": {
+        "study": [
+          {
+            "kind": "relation",
+            "id": "deep:semantic_contrast:own:65f0bc2efd9295ef",
+            "selector": ".lexicalRelationSection .portedVocabEvidenceList > article:has(> [data-vocab-repair][data-target-kind=\"relation\"][data-target-id=\"deep:semantic_contrast:own:65f0bc2efd9295ef\"])",
+            "reason": "same authorized Chinese boundary visible in both actual consumers; own is not a word review"
+          }
+        ]
+      }
     }
   ];
+  const relationId='deep:semantic_contrast:own:65f0bc2efd9295ef';
+  const relationCn=ordinal=>(loadLexicalWordByOrdinal(ordinal).record.reference?.relations||[])
+    .filter(r=>r.repair?.target_id===relationId).map(r=>(r.lines||[]).filter(l=>l.lang==='cn').map(l=>l.text));
+  const haveRelation=relationCn(2278),ownRelation=relationCn(3431);
+  assert(haveRelation.length===1&&ownRelation.length===1&&batchStableJson(haveRelation)===batchStableJson(ownRelation),'batch_have_own_relation_chinese_bidirectional');
   const context = await browser.newContext({ deviceScaleFactor: 1 });
   const privateRequests = await isolatePrivateCheckpoint(context);
   const page = await context.newPage();
-  const report = { status: 'RUNNING', scope:'batch-2100-2199', synthetic:true, cases: [], navigation: [], errors: [], privateRequests };
+  const report = { status: 'RUNNING', scope:'batch-2200-2299', bindingStatus, synthetic:true, cases: [], navigation: [], errors: [], privateRequests };
   page.on('pageerror', error => report.errors.push(String(error)));
-  const save = () => fs.writeFileSync(path.join(outputRoot, 'batch-2100-2199-rendered.json'), `${JSON.stringify(report, null, 2)}\n`);
+  const save = () => fs.writeFileSync(path.join(outputRoot, 'batch-2200-2299-rendered.json'), `${JSON.stringify(report, null, 2)}\n`);
   const ready = async (ordinal, mode) => {
     await page.locator(`[data-local-port="vocabulary"][data-vocab-ordinal="${ordinal}"][data-vocab-initialized="true"][data-vocab-mode="${mode}"]`).waitFor({ state: 'attached' });
     await page.evaluate(() => document.fonts.ready);
@@ -524,6 +1040,8 @@ async function auditSecondQualityBatch(browser) {
       for (const fixture of fixtures) {
         const current = loadLexicalWordByOrdinal(fixture.ordinal).record;
         assert(current.word === fixture.word, 'batch_current_identity', `${fixture.ordinal}:${current.word}`);
+        assert(current.source_fingerprint===fixture.expectedSourceFingerprint,'batch_frozen_source_fingerprint',String(fixture.ordinal));
+        assert(batchFinalSha256(current)===fixture.expectedFinalSha256,'batch_frozen_final_digest',String(fixture.ordinal));
         for (const mode of ['study', 'lookup']) {
           const stateSnapshot = () => page.evaluate(word => ({ cursor:localStorage.getItem('kianos-vocabulary-last-ordinal'), word:localStorage.getItem(`kianos-vocabulary-astro-v2:word:${word}`) }), fixture.word);
           const beforeLookup = mode === 'lookup' ? await stateSnapshot() : null;
@@ -577,25 +1095,26 @@ async function auditSecondQualityBatch(browser) {
           const expectedIds = (current.reference?.senses || []).map(s => s.sense_id || s.stable_sense_id || s.id).sort();
           const expectedActive = (current.senses || []).filter(s => mode === 'lookup' || s.disposition !== 'EXPLORE_ONLY').length;
           const projection = await auditBatchProjection(page,current,mode);
-          const result = { ordinal:fixture.ordinal,word:fixture.word,coverage:fixture.coverage,mode,viewport,projection,screenshot:`${stem}.png`,geometry,expectedActive,pinnedText:fixture.text || null,pinnedTextVisible:!fixture.text || actualText.includes(fixture.text) };
+          const scope = await auditBatchScope(page,current,mode);
+          const referenceVisibility = await auditBatchReferenceVisibility(page,current,mode);
+          const retirements = await auditBatchRetirements(page,fixture.retiredIdentities);
+          const result = { ordinal:fixture.ordinal,word:fixture.word,coverage:fixture.coverage,mode,viewport,projection,scope,referenceVisibility,retirements,screenshot:`${stem}.png`,geometry,expectedActive,pinnedText:fixture.text || null,pinnedTextVisible:!fixture.text || actualText.includes(fixture.text) };
           report.cases.push(result); save();
           if(mode==='lookup') assert(JSON.stringify(await stateSnapshot())===JSON.stringify(beforeLookup),'batch_lookup_keeps_coverage_and_word_state',stem);
           assert(result.pinnedTextVisible, 'batch_pinned_text', stem);
           assert(projection.pass, 'batch_current_final_matches_actual_dom', stem);
+          assert(scope.pass,'batch_visible_scope_relations_and_typed_lineage',stem);
+          assert(referenceVisibility.pass,'batch_lookup_reference_fields_visible',stem);
+          assert(retirements.pass,'batch_retired_identity_kind_and_representation',stem);
           assert(geometry.rows.filter(r=>r.id).length === expectedActive, 'batch_active_sense_projection', stem);
           assert(JSON.stringify(geometry.referenceIds.map(r=>r.id).sort()) === JSON.stringify(expectedIds), 'batch_reference_retained', stem);
           assert(geometry.referenceIds.every(r=>r.visible === (mode==='lookup') && r.repair===0), 'batch_reference_visibility_and_no_repair', stem);
           if(mode==='study') assert(geometry.visibleLookupOnly===0, 'batch_lookup_hidden_in_study', stem);
           assert(geometry.overflow<=2, 'batch_no_horizontal_overflow', `${stem}:${geometry.overflow}`);
           assert(geometry.collisions.length===0, 'batch_no_row_collocation_collision', `${stem}:${geometry.collisions.join(',')}`);
-          // Bounded normal-scroll evidence: changed Chinese/pattern targets and fixed regressions.
-          // Full actual-DOM and collision checks above still cover every rendered row in all96 cases.
-          if (fixture.readabilityModes?.includes(mode)) {
-            const ids = mode==='lookup' ? (fixture.lookupReadableSenseIds || fixture.readableSenseIds) : fixture.readableSenseIds;
-            const targets = ids
-              ? ids.map(id=>({id,selector:`.portedVocabSenseList > .lexicalSenseRow[data-vocab-sense-id="${id}"]`}))
-              : null;
-            if(fixture.ordinal===2183) targets.push({id:'core:grand',selector:'.lexicalCoreHeadline'});
+          // Every row retains full DOM/collision checks; scroll only bounded high-value targets.
+          if (fixture.readableTargets[mode]?.length) {
+            const targets = fixture.readableTargets[mode];
             const rows=await auditBoundedReadableRows(page,fixture.ordinal,stem,outputRoot,targets);
             report.readability ||= [];
             report.readability.push({ordinal:fixture.ordinal,mode,viewport,rows});save();
@@ -606,21 +1125,21 @@ async function auditSecondQualityBatch(browser) {
     }
     for (const viewport of [{ width:1440,height:900 }, { width:1280,height:800 }]) {
       await page.setViewportSize(viewport);
-      await page.evaluate(() => localStorage.removeItem('kianos-vocabulary-astro-v2:word:gasp'));
-      await page.goto(wordUrl(2102), { waitUntil:'networkidle' }); await ready(2102,'study');
+      await page.evaluate(() => localStorage.removeItem('kianos-vocabulary-astro-v2:word:grin'));
+      await page.goto(wordUrl(2206), { waitUntil:'networkidle' }); await ready(2206,'study');
       if(await page.locator('[data-vocab-front]').isVisible()) await page.locator('[data-vocab-reveal]').click();
       await page.locator('[data-vocab-details]').waitFor({state:'visible'});
       await page.locator('[data-vocab-route="known"]').click();
-      await page.waitForURL('**/vocabulary/2103/'); await ready(2103,'study');
-      assert((await page.locator('[data-vocab-front] h2').innerText()).trim()==='gasp','batch_next_word_identity');
-      await page.keyboard.press('Backspace'); await page.waitForURL('**/vocabulary/2102/'); await ready(2102,'study');
-      assert(await page.locator('[data-local-port="vocabulary"]').getAttribute('data-vocab-word')==='gas','batch_undo_word_identity');
-      report.navigation.push({from:2102,next:2103,undo:2102,viewport,status:'PASS'});save();
+      await page.waitForURL('**/vocabulary/2207/'); await ready(2207,'study');
+      assert((await page.locator('[data-vocab-front] h2').innerText()).trim()==='grin','batch_next_word_identity');
+      await page.keyboard.press('Backspace'); await page.waitForURL('**/vocabulary/2206/'); await ready(2206,'study');
+      assert(await page.locator('[data-local-port="vocabulary"]').getAttribute('data-vocab-word')==='grim','batch_undo_word_identity');
+      report.navigation.push({from:2206,next:2207,undo:2206,viewport,status:'PASS'});save();
       await page.screenshot({path:path.join(outputRoot,`batch-navigation-undo-${viewport.width}x${viewport.height}.png`),fullPage:true});
     }
     report.coverage = { words:fixtures.length,expectedCases:fixtures.length*4,actualCases:report.cases.length,
       readabilityGroups:report.readability?.length||0,readabilityTargets:(report.readability||[]).reduce((n,g)=>n+g.rows.length,0),navigationJourneys:report.navigation.length };
-    assert(report.cases.length===fixtures.length*4 && report.navigation.length===2,'batch_complete_matrix',JSON.stringify(report.coverage));
+    assert(report.cases.length===fixtures.length*4 && report.navigation.length===2 && report.coverage.readabilityTargets===70 && report.coverage.readabilityGroups===48,'batch_complete_matrix',JSON.stringify(report.coverage));
     assert(report.errors.length===0,'batch_no_page_errors',report.errors.join('\n'));
     report.status='PASS';save();
   } catch(error) {
@@ -637,7 +1156,7 @@ try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1 });
   await isolatePrivateCheckpoint(page.context());
   const reports = [];
-  await auditSecondQualityBatch(browser);
+  await auditThirdQualityBatch(browser);
 
   // Architecture-v2 Human Gate evidence.
   const initialVocabularyResponse = await page.goto(`${origin}/vocabulary/`, { waitUntil: 'networkidle' });

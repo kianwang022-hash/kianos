@@ -43,11 +43,12 @@
     "core_concept": {
       "core_clusters": [
         {
-          "label_cn": "树胶；口香糖；牙床；牙龈",
-          "label_en": "a sticky gum substance or chewing gum; flesh around the teeth",
+          "label_cn": "树胶；胶黏物；口香糖；牙床；牙龈",
+          "label_en": "a sticky substance from certain plants or used as adhesive; a substance made for chewing but not swallowing; flesh around the teeth",
           "pos": "noun",
           "sense_ids": [
-            "sense:gum:ac62661705355ea1",
+            "sense:gum:8995595443016393",
+            "sense:gum:ea43fa1dfe115faf",
             "sense:gum:cf89264aa61a5d2f"
           ]
         },
@@ -61,9 +62,9 @@
           ]
         }
       ],
-      "core_meaning_cn": "树胶／口香糖；牙龈；胶粘或堵塞",
+      "core_meaning_cn": "树胶；口香糖；牙龈",
       "core_meaning_en": "gum or chewing gum; gums around teeth; stick or clog",
-      "mental_model_cn": "树胶／口香糖；牙龈；胶粘或堵塞",
+      "mental_model_cn": "树胶；口香糖；牙龈",
       "mental_model_en": ""
     },
     "exam_paraphrases": [],
@@ -77,15 +78,6 @@
       {
         "collocations": [
           {
-            "collocation_id": "collocation:8cef031f49d7aa5f4595",
-            "exam_value": "fixed_pattern",
-            "legacy_source_object_ids": [
-              "sense:gum:ac62661705355ea1:collocation:0"
-            ],
-            "meaning_cn": "口香糖",
-            "phrase": "chewing gum"
-          },
-          {
             "collocation_id": "collocation:ef919a30d34b0bec43a3",
             "exam_value": "usage_example",
             "legacy_source_object_ids": [
@@ -96,17 +88,41 @@
           }
         ],
         "confidence": "medium",
-        "definition_cn": "树胶；胶黏物；口香糖",
-        "definition_en": "a sticky substance from certain plants or used as adhesive; also chewing gum",
+        "definition_cn": "树胶；胶黏物",
+        "definition_en": "a sticky substance from certain plants or used as adhesive",
         "governing_pattern": "",
         "level": "L1",
         "needs_human_review": 0,
         "pos": "noun",
-        "sense_id": "sense:gum:ac62661705355ea1",
-        "sense_label_en": "a sticky substance from certain plants or used as adhesive; also chewing gum",
+        "sense_id": "sense:gum:8995595443016393",
+        "sense_label_en": "a sticky substance from certain plants or used as adhesive",
         "sort_order": 0,
         "transitivity": "nonverb",
         "usage_note": "gum tree常指桉树，是具体树名，不能泛指所有产树胶的树。"
+      },
+      {
+        "collocations": [
+          {
+            "collocation_id": "collocation:8cef031f49d7aa5f4595",
+            "exam_value": "fixed_pattern",
+            "legacy_source_object_ids": [
+              "sense:gum:ac62661705355ea1:collocation:0"
+            ],
+            "meaning_cn": "口香糖",
+            "phrase": "chewing gum"
+          }
+        ],
+        "confidence": "medium",
+        "definition_cn": "口香糖",
+        "definition_en": "a substance made for chewing but not swallowing",
+        "governing_pattern": "chewing gum",
+        "level": "L1",
+        "needs_human_review": 0,
+        "pos": "noun",
+        "sense_id": "sense:gum:ea43fa1dfe115faf",
+        "sense_label_en": "a substance made for chewing but not swallowing",
+        "sort_order": 4,
+        "transitivity": "nonverb"
       },
       {
         "collocations": [
@@ -866,7 +882,45 @@
     }
   },
   "relation_refs": [],
-  "reference_senses": [],
+  "reference_senses": [
+    {
+      "collocations": [
+        {
+          "collocation_id": "collocation:8cef031f49d7aa5f4595",
+          "exam_value": "fixed_pattern",
+          "legacy_source_object_ids": [
+            "sense:gum:ac62661705355ea1:collocation:0"
+          ],
+          "meaning_cn": "口香糖",
+          "phrase": "chewing gum"
+        },
+        {
+          "collocation_id": "collocation:ef919a30d34b0bec43a3",
+          "exam_value": "usage_example",
+          "legacy_source_object_ids": [
+            "sense:gum:ac62661705355ea1:collocation:1"
+          ],
+          "meaning_cn": "桉树（常见用法）",
+          "phrase": "gum tree"
+        }
+      ],
+      "confidence": "medium",
+      "definition_cn": "树胶；胶黏物；口香糖",
+      "definition_en": "a sticky substance from certain plants or used as adhesive; also chewing gum",
+      "governing_pattern": "",
+      "level": "L1",
+      "needs_human_review": 0,
+      "pos": "noun",
+      "sense_id": "sense:gum:ac62661705355ea1",
+      "sense_label_en": "a sticky substance from certain plants or used as adhesive; also chewing gum",
+      "sort_order": 0,
+      "transitivity": "nonverb",
+      "usage_note": "gum tree常指桉树，是具体树名，不能泛指所有产树胶的树。",
+      "status": "deprecated",
+      "merged_into_sense_id": null,
+      "reference_only": true
+    }
+  ],
   "identity_refs": {
     "senses": [
       {
@@ -885,7 +939,7 @@
       },
       {
         "sense_id": "sense:gum:ac62661705355ea1",
-        "status": "active",
+        "status": "deprecated",
         "merged_into_sense_id": null,
         "source_row": 6228,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
@@ -896,6 +950,22 @@
         "merged_into_sense_id": null,
         "source_row": 6229,
         "source_path": "content/lexical/canonical/senses/shards/o2209-2240.json"
+      },
+      {
+        "sense_id": "sense:gum:8995595443016393",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2231.json",
+        "source_pointer": "/record/senses/0"
+      },
+      {
+        "sense_id": "sense:gum:ea43fa1dfe115faf",
+        "status": "active",
+        "merged_into_sense_id": null,
+        "source_row": null,
+        "source_path": "content/lexical/words/by-ordinal/o2231.json",
+        "source_pointer": "/record/senses/1"
       }
     ],
     "active_collocations": [

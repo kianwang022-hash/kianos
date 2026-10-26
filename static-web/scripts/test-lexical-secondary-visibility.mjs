@@ -8,6 +8,7 @@ import {pathToFileURL} from 'node:url';
 import {transform} from '@astrojs/compiler';
 import {experimental_AstroContainer} from 'astro/container';
 import {loadLexicalWordByOrdinal,lexicalRuntimeManifest,listLexicalWordSummaries} from '../src/lib/lexical.mjs';
+import * as attention from '../src/lib/lexicalAttention.mjs';
 import * as evidence from '../src/lib/lexicalEvidence.mjs';
 import * as settings from '../src/lib/lexicalSettings.mjs';
 import * as routes from '../src/lib/lexicalRuntimeRoute.mjs';
@@ -24,7 +25,7 @@ const url=code=>'data:text/javascript;base64,'+Buffer.from(code.replace(/,\n\s*c
 const runtime=import.meta.resolve('astro/compiler-runtime');
 async function compile(file,replacements={}){let {code}=await transform(fs.readFileSync(file,'utf8'),{filename:file,internalURL:runtime,resultScopedSlot:true,renderScript:true});code=code.replaceAll('astro/runtime/server/index.js',runtime);for(const [a,b] of Object.entries(replacements))code=code.replaceAll(a,b);return url(code);}
 const pronunciation=await compile('src/components/LexicalPronunciation.astro',{'../lib/lexicalPronunciation.mjs':pathToFileURL(process.cwd()+'/src/lib/lexicalPronunciation.mjs').href});
-const markupURL=await compile('src/components/VocabularyWordMarkup.astro',{'./LexicalPronunciation.astro':pronunciation});
+const markupURL=await compile('src/components/VocabularyWordMarkup.astro',{'./LexicalPronunciation.astro':pronunciation,'../lib/lexicalAttention.mjs':pathToFileURL(process.cwd()+'/src/lib/lexicalAttention.mjs').href});
 const markup=(await import(markupURL)).default;
 const shard=(await import(await compile('src/pages/vocabulary-data/[key].astro',{'../../components/VocabularyWordMarkup.astro':markupURL,'../../lib/lexical.mjs':pathToFileURL(process.cwd()+'/src/lib/lexical.mjs').href}))).default;
 const container=await experimental_AstroContainer.create();
@@ -63,7 +64,7 @@ async function adapters(w,mode,seed=evidence.emptyLexicalLedger(),legacy=null){
  if(legacy)store.setItem(key,JSON.stringify({revealed:true,repairTargets:legacy}));
  let ledger=structuredClone(seed),writes=0;
  const loc={search:'?mode='+mode,origin:'https://synthetic.invalid',pathname:'/vocabulary/word/',replace(){throw Error('unexpected navigation')}};
- const context=vm.createContext({...evidence,...settings,...routes,HTMLElement:window.HTMLElement,HTMLTextAreaElement:window.HTMLTextAreaElement,HTMLButtonElement:window.HTMLButtonElement,CustomEvent:window.CustomEvent,URLSearchParams,URL,location:loc,document,window,localStorage:store,learnerWriterReady:Promise.resolve(),lexicalBrowserStateReadable:()=>true,readBrowserLexicalLedger:()=>ledger,writeBrowserLexicalLedger:x=>{ledger=x;writes++;},requestAnimationFrame:fn=>fn()});
+ const context=vm.createContext({...evidence,...settings,...routes,...attention,HTMLElement:window.HTMLElement,HTMLTextAreaElement:window.HTMLTextAreaElement,HTMLButtonElement:window.HTMLButtonElement,CustomEvent:window.CustomEvent,URLSearchParams,URL,location:loc,document,window,localStorage:store,learnerWriterReady:Promise.resolve(),lexicalBrowserStateReadable:()=>true,readBrowserLexicalLedger:()=>ledger,writeBrowserLexicalLedger:x=>{ledger=x;writes++;},requestAnimationFrame:fn=>fn()});
  for(const name of ['VocabularyIdentityLineageBridge.astro','VocabularyWordRuntime.astro','VocabularyEvidenceBridge.astro']){
   const code=fs.readFileSync('src/components/'+name,'utf8').match(/<script>([\s\S]*?)<\/script>/)[1].replace(/^\s*import[\s\S]*?;/gm,'');vm.runInContext(code,context);await new Promise(r=>setImmediate(r));
  }
@@ -88,7 +89,7 @@ for(const ordinal of [2185,2214]){
   const hidden=a.root.querySelector('[data-vocab-secondary-explore-only]');assert.equal(hidden.hidden,mode==='study');
   assert.equal(JSON.stringify(a.ledger.events),eventBytes);assert.ok(evidence.compileRepairTargets(a.ledger).some(t=>t.target_id===id&&t.target_kind==='secondary_sense'));
   if(mode==='lookup')assert.equal(a.writes,0);
-  const buttons=[...a.root.querySelectorAll('[data-vocab-repair]')].filter(b=>!b.closest('[hidden]'));
+  const buttons=[...a.root.querySelectorAll('[data-vocab-repair]')].filter(attention.lexicalTargetIsVisible);
   const seen=new Set();for(let i=0;i<buttons.length;i++){a.keypress('j');const selected=a.root.querySelector('.keyboard-target [data-vocab-repair]');assert.ok(selected&&!selected.closest('[hidden]'));seen.add(selected.dataset.targetId||selected.dataset.targetLocator);}
   assert.equal(seen.has(id),mode!=='study');assert.equal(seen.size,buttons.length);
   a.keypress('k');assert.ok(!a.root.querySelector('.keyboard-target [data-vocab-repair]').closest('[hidden]'));
@@ -118,11 +119,11 @@ check(true,'original Form old-revision freezing and Lookup zero-write boundary p
 for(const w of cases.filter(w=>w.secondary_senses.some(s=>s.disposition==='EXPLORE_ONLY'))){
  const a=await adapters(w,'study');a.keypress(' ');
  const summary=all.find(x=>x.objectId===w.word_id);
- assert.equal(summary.secondarySenseCount,w.secondary_senses.filter(s=>s.disposition!=='EXPLORE_ONLY').length);
+ assert.equal(summary.secondarySenseCount,w.secondary_senses.filter(attention.isDefaultLexicalObject).length);
  for(const mode of ['study','lookup','repair','study']){
   if(mode!==a.root.dataset.vocabMode){await a.switchMode(mode);if(mode==='study')a.keypress(' ');assert.equal(a.root.querySelector('.keyboard-target'),null);}
   for(const row of a.root.querySelectorAll('[data-vocab-secondary-explore-only]'))assert.equal(row.hidden,mode==='study');
-  const visible=[...a.root.querySelectorAll('[data-vocab-repair]')].filter(b=>!b.closest('[hidden]'));
+  const visible=[...a.root.querySelectorAll('[data-vocab-repair]')].filter(attention.lexicalTargetIsVisible);
   for(let i=0;i<visible.length;i++){a.keypress('j');assert.ok(!a.root.querySelector('.keyboard-target [data-vocab-repair]').closest('[hidden]'));}
  }
 }
@@ -130,7 +131,7 @@ check(true,'all restored words: mode-switch initialization resets selection, cur
 // Optional exact default DOM comparison against the saved pre-repair builder/markup evidence.
 if(process.env.SECONDARY_BEFORE_DIR){
  const before=process.env.SECONDARY_BEFORE_DIR;
- const oldMarkup=(await import(await compile(before+'/before-source/static-web/src/components/VocabularyWordMarkup.astro',{'./LexicalPronunciation.astro':pronunciation}))).default;
+ const oldMarkup=(await import(await compile(before+'/before-source/static-web/src/components/VocabularyWordMarkup.astro',{'./LexicalPronunciation.astro':pronunciation,'../lib/lexicalAttention.mjs':pathToFileURL(process.cwd()+'/src/lib/lexicalAttention.mjs').href}))).default;
  const oldWords=new Map(fs.readdirSync(before+'/before-final/shards').flatMap(p=>JSON.parse(fs.readFileSync(before+'/before-final/shards/'+p))).map(w=>[w.ordinal,w]));
  for(const w of cases.filter(w=>![2185,2214].includes(w.ordinal))){
   const prior=oldWords.get(w.ordinal),answer={...loadLexicalWordByOrdinal(w.ordinal),record:prior,sourceHash:prior.source_fingerprint};
@@ -153,5 +154,5 @@ if(process.env.SECONDARY_EVIDENCE_DIR){
 // Degenerate synthetic layout: hidden-only Secondary group leaves no visible empty container.
 const fixture=structuredClone(loadLexicalWordByOrdinal(2185).record);fixture.senses=[];
 const fixtureHtml=await container.renderToString(markup,{props:{answer:{...loadLexicalWordByOrdinal(2185),record:fixture}}});
-const fixtureGroup=parse(fixtureHtml).document.querySelector('[data-vocab-repair-list]');assert.ok(fixtureGroup.hidden&&fixtureGroup.hasAttribute('data-vocab-secondary-explore-only'));
+const fixtureGroup=parse(fixtureHtml).document.querySelector('[data-vocab-repair-list]');assert.ok(fixtureGroup.closest('[data-vocab-attention-layer="reference"][hidden]'));
 check(true,'hidden-only Secondary group is initially hidden, without an orphan group/title');

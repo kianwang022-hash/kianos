@@ -18,6 +18,8 @@ WORDS = LEX / "words" / "by-ordinal"
 OUT = LEX / "learner" / "final"
 DECISIONS = LEX / "final-learner-object-decisions.json"
 SHARD_SIZE = 64
+LEARNER_OBJECT_DISPOSITIONS = (None, "DEFAULT_DEPTH", "RECOGNITION_EXPANSION", "EXPLORE_ONLY")
+DEFAULT_LEARNER_DISPOSITIONS = (None, "DEFAULT_DEPTH")
 
 def load(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
@@ -314,6 +316,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
     governing_pattern_decisions = word_decision.get("sense_governing_patterns") or {}
     sense_decisions = word_decision.get("senses") or {}
     secondary_decisions = word_decision.get("secondary_senses") or {}
+    construction_decisions = word_decision.get("constructions") or {}
     overlay_decisions = word_decision.get("sense_identity_overlays") or {}
     family_decisions = word_decision.get("word_family") or {}
     word_feel_decision = word_decision.get("word_feel") or {}
@@ -338,7 +341,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             continue
         sense_id = str(sense.get("sense_id") or "")
         sense_disposition = (sense_decisions.get(sense_id) or {}).get("disposition") if sense_id else None
-        if sense_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+        if sense_disposition not in LEARNER_OBJECT_DISPOSITIONS:
             raise RuntimeError(f"FINAL_LEARNER_SENSE_DISPOSITION_INVALID:{word_id}:{sense_id}:{sense_disposition}")
         if sense_disposition is not None:
             consumed_sense_decisions[sense_id] = clone(sense_decisions[sense_id])
@@ -410,7 +413,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             continue
         branch_id = str(branch.get("fact_id") or branch.get("source_sense_id") or "")
         secondary_disposition = (secondary_decisions.get(branch_id) or {}).get("disposition")
-        if secondary_disposition not in (None, "DEFAULT_DEPTH", "EXPLORE_ONLY"):
+        if secondary_disposition not in LEARNER_OBJECT_DISPOSITIONS:
             raise RuntimeError(f"FINAL_LEARNER_SECONDARY_DISPOSITION_INVALID:{word_id}:{branch_id}:{secondary_disposition}")
         if secondary_disposition is not None:
             consumed_secondary_decisions[branch_id] = clone(secondary_decisions[branch_id])
@@ -431,6 +434,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         })
 
     constructions = []
+    consumed_construction_decisions = {}
     for i, item in enumerate(record.get("constructions") or []):
         if not isinstance(item, dict):
             continue
@@ -438,6 +442,11 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         if survivor and survivor in materialized_collocation_ids:
             continue
         item_id = str(item.get("fact_id") or item.get("construction_id") or "")
+        construction_disposition = (construction_decisions.get(item_id) or {}).get("disposition") if item_id else None
+        if construction_disposition not in LEARNER_OBJECT_DISPOSITIONS:
+            raise RuntimeError(f"FINAL_LEARNER_CONSTRUCTION_DISPOSITION_INVALID:{word_id}:{item_id}:{construction_disposition}")
+        if construction_disposition is not None:
+            consumed_construction_decisions[item_id] = clone(construction_decisions[item_id])
         title = str(item.get("pattern") or item.get("label_en") or item.get("boundary") or "")
         lines = uniq_lines([
             item.get("meaning_cn"),
@@ -449,6 +458,7 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         lines = [line for line in lines if line["text"] != title]
         constructions.append({
             "id": item_id or None,
+            **({"disposition": construction_disposition} if construction_disposition is not None else {}),
             **({"sense_id": str(item["sense_id"])} if item.get("sense_id") else {}),
             "source_locator": f"record.constructions[{i}]",
             "pattern": title,
@@ -515,11 +525,11 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
 
     primary_counts: dict[str, int] = {}
     secondary_counts: dict[str, int] = {}
-    default_senses = [sense for sense in senses if sense.get("disposition") != "EXPLORE_ONLY"]
+    default_senses = [sense for sense in senses if sense.get("disposition") in DEFAULT_LEARNER_DISPOSITIONS]
     for sense in default_senses:
         code = pos_label(sense.get("pos"))
         primary_counts[code] = primary_counts.get(code, 0) + 1
-    default_secondary = [sense for sense in secondary if sense.get("disposition") != "EXPLORE_ONLY"]
+    default_secondary = [sense for sense in secondary if sense.get("disposition") in DEFAULT_LEARNER_DISPOSITIONS]
     for sense in default_secondary:
         code = pos_label(sense.get("pos"))
         secondary_counts[code] = secondary_counts.get(code, 0) + 1
@@ -538,9 +548,10 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
             recall_parts.append(f"{secondary_count}{code}+")
         else:
             recall_parts.append(f"{primary}{code}")
+    default_constructions = [item for item in constructions if item.get("disposition") in DEFAULT_LEARNER_DISPOSITIONS]
     recall_density = "rich" if (
         len(default_senses) + len(default_secondary) > 1
-        or bool(constructions)
+        or bool(default_constructions)
         or any(bool(sense.get("usage")) for sense in default_senses)
     ) else "light"
 
@@ -552,6 +563,8 @@ def compile_word(owner: dict[str, Any], decisions: dict[str, Any]) -> dict[str, 
         fingerprint_inputs["sense_decisions"] = consumed_sense_decisions
     if consumed_secondary_decisions:
         fingerprint_inputs["secondary_sense_decisions"] = consumed_secondary_decisions
+    if consumed_construction_decisions:
+        fingerprint_inputs["construction_decisions"] = consumed_construction_decisions
     if reference_senses:
         fingerprint_inputs["reference_senses"] = reference_senses
     sense_lineage = []
