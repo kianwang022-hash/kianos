@@ -2091,3 +2091,18 @@ body#kianos-workspace.uiWordStudy .lexicalNoteDrawer>div button.primary{
 }
 
 /* Lexical v2 L3 marker: English-family neutral shell + restrained lexical semantic accent. */
+
+/* Explicit content attention layers; collapsing never changes learning evidence. */
+body#kianos-workspace.uiWordStudy .lexicalAttentionLayer[hidden],
+body#kianos-workspace.uiWordStudy [data-vocab-learning-unit][hidden],
+body#kianos-workspace.uiWordStudy .lexicalRepairFocus [hidden]{display:none!important;}
+body#kianos-workspace.uiWordStudy .lexicalAttentionLayer>summary,
+body#kianos-workspace.uiWordStudy .lexicalAttentionHeading,
+body#kianos-workspace.uiWordStudy .lexicalRepairFocus>header{
+  padding:12px 16px;border-top:1px solid var(--lexical-line);font-weight:700;color:var(--lexical-ink,#243242);
+}
+body#kianos-workspace.uiWordStudy .lexicalAttentionLayer>summary{cursor:pointer;}
+body#kianos-workspace.uiWordStudy .lexicalAttentionLayer>summary>small{display:block;margin-top:4px;font-size:13px;font-weight:400;color:#667789;}
+body#kianos-workspace.uiWordStudy .lexicalRepairFocus>p{margin:12px 16px;line-height:1.65;}
+body#kianos-workspace.uiWordStudy [data-vocab-repair-focus-unit]{display:block;}
+body#kianos-workspace.uiWordStudy [data-vocab-repair-focused-objects] .lexicalCoreHeadline{margin:12px 16px;}

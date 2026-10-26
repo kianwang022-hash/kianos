@@ -26,7 +26,7 @@ class SecondaryVisibilityTest(unittest.TestCase):
                     self.assertTrue(obj['definition_cn'] or obj['definition_en'])
             # A physically absent branch produces the same Recall/density as presentation hiding.
             stripped=copy.deepcopy(owner)
-            stripped['record']['secondary_senses']=[x for x in owner['record'].get('secondary_senses',[]) if configured.get(x.get('fact_id') or x.get('source_sense_id'),{}).get('disposition')!='EXPLORE_ONLY']
+            stripped['record']['secondary_senses']=[x for x in owner['record'].get('secondary_senses',[]) if configured.get(x.get('fact_id') or x.get('source_sense_id'),{}).get('disposition') in b.DEFAULT_LEARNER_DISPOSITIONS]
             self.assertEqual(projected['recall_map'],b.compile_word(stripped,unhidden)['recall_map'])
         self.assertGreater(count,0)
 

@@ -3,9 +3,11 @@ import fs from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { pathToFileURL } from 'node:url';
 import vm from 'node:vm';
+import {parseHTML} from 'linkedom';
+import * as attention from '../src/lib/lexicalAttention.mjs';
 import { transform } from '@astrojs/compiler';
 import { experimental_AstroContainer } from 'astro/container';
-import { appendEvidenceEvent, emptyLexicalLedger, compileRepairTargets, reconcileEvidenceIdentity, legacyEventId } from '../src/lib/lexicalEvidence.mjs';
+import { appendEvidenceEvent, emptyLexicalLedger, compileRepairTargets, lexicalTargetKey, reconcileEvidenceIdentity, legacyEventId } from '../src/lib/lexicalEvidence.mjs';
 import { listLexicalWordSummaries } from '../src/lib/lexical.mjs';
 import { buildLexicalChatStatePacket } from '../src/lib/lexicalChatState.mjs';
 
@@ -38,7 +40,7 @@ const runtimeUrl = import.meta.resolve('astro/compiler-runtime');
 const pronunciation = await transform(fs.readFileSync('src/components/LexicalPronunciation.astro','utf8'), {filename:'LexicalPronunciation.astro',internalURL:runtimeUrl,resultScopedSlot:true,renderScript:true});
 let pronunciationCode = pronunciation.code.replaceAll('astro/runtime/server/index.js', runtimeUrl).replaceAll('../lib/lexicalPronunciation.mjs', pathToFileURL(process.cwd()+'/src/lib/lexicalPronunciation.mjs').href);
 const markup = await transform(fs.readFileSync('src/components/VocabularyWordMarkup.astro','utf8'), {filename:'VocabularyWordMarkup.astro',internalURL:runtimeUrl,resultScopedSlot:true,renderScript:true});
-let markupCode = markup.code.replaceAll('astro/runtime/server/index.js', runtimeUrl).replaceAll('./LexicalPronunciation.astro', moduleUrl(pronunciationCode));
+let markupCode = markup.code.replaceAll('astro/runtime/server/index.js', runtimeUrl).replaceAll('./LexicalPronunciation.astro', moduleUrl(pronunciationCode)).replaceAll('../lib/lexicalAttention.mjs', pathToFileURL(process.cwd()+'/src/lib/lexicalAttention.mjs').href);
 const component = (await import(moduleUrl(markupCode))).default;
 const container = await experimental_AstroContainer.create();
 const trialWords = JSON.parse(execFileSync('python3', ['-c', `import sys,json;sys.path.insert(0,'../tools');import lexical_build_final_learner_objects as b;print(json.dumps([b.compile_word(b.load(b.WORDS/f'o{n:04}.json'),b.load(b.DECISIONS)) for n in [2405,2473,1367,1368,2976,2847,1500,1438,7826]]))`], { encoding: 'utf8' }));
@@ -87,21 +89,16 @@ for (const word of words) {
 async function runAdapters(mode, selectedWord = words[0], seedLedger = ledger, legacyTargets = null) {
   let currentLedger = seedLedger, writes = 0;
   const store = new Map([['kianos-vocabulary-last-ordinal','7000']]);
-  class Element {
-    constructor() {this.dataset={};this.hidden=false;}
-    addEventListener() {}
-    setAttribute() {}
-  }
-  const root = new Element(), lookup = new Element(), front = new Element(), details = new Element();
   const word = selectedWord;
   if (legacyTargets) store.set('kianos-vocabulary-astro-v2:'+word.word_id,JSON.stringify({revealed:true,repairTargets:legacyTargets}));
-  root.getAttribute = key => ({'data-vocab-object':word.word_id,'data-vocab-word':word.word,'data-vocab-ordinal':word.ordinal,'data-vocab-source-hash':word.source_fingerprint}[key] || '');
   const rendered = await container.renderToString(component, {props:{answer:{objectId:word.word_id,ordinal:word.ordinal,record:word,sourceHash:word.source_fingerprint,senseLineage:word.sense_lineage}}});
   const formTransport = rendered.match(/<script[^>]*data-vocab-current-form[^>]*>([\s\S]*?)<\/script>/)?.[1];
   check(formTransport !== undefined, word.word+'_actual_markup_carries_current_form_qualification');
-  root.querySelector = key => key === '[data-vocab-identity-lineage]' ? {textContent:JSON.stringify(word.sense_lineage)} : key === '[data-vocab-current-form]' ? {textContent:formTransport} : key === '[data-vocab-front]' ? front : key === '[data-vocab-details]' ? details : null;
-  root.querySelectorAll = key => key === '[data-vocab-lookup-only]' ? [lookup] : [];
-  const context = vm.createContext({HTMLElement:Element,HTMLTextAreaElement:Element,URLSearchParams,location:{search:'?mode='+mode},document:{querySelectorAll:()=>[root],addEventListener(){},removeEventListener(){}},window:{addEventListener(){},removeEventListener(){}},localStorage:{getItem:key=>store.get(key)||null,setItem:(key,value)=>store.set(key,value)},learnerWriterReady:Promise.resolve(),lexicalBrowserStateReadable:()=>true,readBrowserLexicalLedger:()=>currentLedger,writeBrowserLexicalLedger:value=>{currentLedger=value;writes++;},compileRepairTargets,appendEvidenceEvent,reconcileEvidenceIdentity,legacyEventId,DEFAULT_PRONUNCIATION:'en-US',LEXICAL_SETTINGS_STORAGE_KEY:'settings',normalizeLexicalSettings:value=>({default_pronunciation:'en-US',...value}),requestAnimationFrame:fn=>fn()});
+  const {document,window}=parseHTML('<html><body>'+rendered+'</body></html>');
+  const root=document.querySelector('[data-local-port="vocabulary"]');
+  const lookup=root.querySelector('[data-vocab-lookup-only]')||{hidden:true};
+  window.HTMLElement.prototype.scrollIntoView=function(){};
+  const context = vm.createContext({...attention,HTMLElement:window.HTMLElement,HTMLTextAreaElement:window.HTMLTextAreaElement,HTMLButtonElement:window.HTMLButtonElement,CustomEvent:window.CustomEvent,URLSearchParams,location:{search:'?mode='+mode},document,window,localStorage:{getItem:key=>store.get(key)||null,setItem:(key,value)=>store.set(key,value)},learnerWriterReady:Promise.resolve(),lexicalBrowserStateReadable:()=>true,readBrowserLexicalLedger:()=>currentLedger,writeBrowserLexicalLedger:value=>{currentLedger=value;writes++;},compileRepairTargets,lexicalTargetKey,appendEvidenceEvent,reconcileEvidenceIdentity,legacyEventId,DEFAULT_PRONUNCIATION:'en-US',LEXICAL_SETTINGS_STORAGE_KEY:'settings',normalizeLexicalSettings:value=>({default_pronunciation:'en-US',...value}),requestAnimationFrame:fn=>fn()});
   for (const file of ['VocabularyIdentityLineageBridge.astro','VocabularyWordRuntime.astro']) {
     const source = fs.readFileSync('src/components/'+file,'utf8').match(/<script>([\s\S]*?)<\/script>/)[1].replace(/^\s*import[\s\S]*?;/gm,'');
     vm.runInContext(source,context);await new Promise(resolve=>setImmediate(resolve));

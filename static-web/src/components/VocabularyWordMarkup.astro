@@ -1,12 +1,11 @@
 ---
 import LexicalPronunciation from './LexicalPronunciation.astro';
+import { lexicalAttentionLayer, isDefaultLexicalObject } from '../lib/lexicalAttention.mjs';
 const { answer } = Astro.props;
 const card = answer.record || {};
 const wordFeel = card.word_feel && typeof card.word_feel === 'object' ? card.word_feel : null;
 const senses = Array.isArray(card.senses) ? card.senses : [];
 const secondarySenses = Array.isArray(card.secondary_senses) ? card.secondary_senses : [];
-const onlyExploreSenses = senses.length + secondarySenses.length > 0
-  && [...senses, ...secondarySenses].every((sense) => sense.disposition === 'EXPLORE_ONLY');
 const constructions = Array.isArray(card.constructions) ? card.constructions : [];
 const reference = card.reference && typeof card.reference === 'object' ? card.reference : {};
 const referenceSenses = Array.isArray(reference.senses) ? reference.senses : [];
@@ -80,7 +79,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
       <LexicalPronunciation support={card.pronunciation_support} senses={senses} front />
       <div class="portedVocabRecallMap">
         <strong>{recallParts.length ? recallParts.join(' · ') : 'Core'}</strong>
-        <small>当前 active 词义</small>
+        <small>主学习词义</small>
       </div>
       <p>点击任意空白处，或按 ← / ↑ / Space 查看完整词义</p>
     </section>
@@ -118,12 +117,20 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
 
       <div class="portedVocabBody" data-vocab-body data-has-reference={referenceModuleCount > 0 ? 'true' : 'false'} data-reference-weight={referenceWeight}>
         <main class="portedVocabMeaningColumn">
-          <div class="portedVocabSenseList" data-vocab-repair-list data-vocab-secondary-explore-only={onlyExploreSenses ? true : undefined} data-vocab-sense-explore-only={onlyExploreSenses ? true : undefined} hidden={onlyExploreSenses}>
+          {['main', 'recognition', 'reference'].map((layer) => {
+            const LayerTag = layer === 'main' ? 'section' : 'details';
+            const senses = card.senses.filter(item => lexicalAttentionLayer(item) === layer);
+            const secondarySenses = (card.secondary_senses || []).filter(item => lexicalAttentionLayer(item) === layer);
+            const constructions = (card.constructions || []).filter(item => lexicalAttentionLayer(item) === layer);
+            if (!senses.length && !secondarySenses.length && !constructions.length) return null;
+            return <LayerTag class="lexicalAttentionLayer" data-vocab-attention-layer={layer} hidden={layer === 'reference'}>
+              {layer === 'main' ? <header class="lexicalAttentionHeading">主学习</header> : <summary>{layer === 'recognition' ? '可选识别扩展' : '查阅词义'}<small>{layer === 'recognition' ? '按需展开，不要求一并记忆' : '完整保留，不占默认学习'}</small></summary>}
+          {(senses.length > 0 || secondarySenses.length > 0) && <div class="portedVocabSenseList" data-vocab-repair-list>
             {senses.map((sense) => {
               const target = repair(sense.repair);
               const overlay = identityOverlay(sense);
               return (
-                <section class="lexicalSenseRow" data-vocab-target-row data-vocab-sense-id={sense.id} data-vocab-sense-explore-only={sense.disposition === 'EXPLORE_ONLY' ? true : undefined} hidden={sense.disposition === 'EXPLORE_ONLY'}>
+                <section class="lexicalSenseRow" data-vocab-target-row data-vocab-learning-unit data-vocab-sense-id={sense.id} data-vocab-sense-explore-only={sense.disposition === 'EXPLORE_ONLY' ? true : undefined} hidden={!isDefaultLexicalObject(sense)}>
                   <header>
                     <span>{posCode(sense.pos)}</span>
                     {sense.governing_pattern && <small>{sense.governing_pattern}</small>}
@@ -191,7 +198,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
             {secondarySenses.map((sense) => {
               const target = repair(sense.repair);
               return (
-                <section class="lexicalSenseRow lexicalSecondarySenseRow" data-vocab-target-row data-vocab-secondary-explore-only={sense.disposition === 'EXPLORE_ONLY' ? true : undefined} hidden={sense.disposition === 'EXPLORE_ONLY'}>
+                <section class="lexicalSenseRow lexicalSecondarySenseRow" data-vocab-target-row data-vocab-learning-unit data-vocab-secondary-explore-only={sense.disposition === 'EXPLORE_ONLY' ? true : undefined} hidden={!isDefaultLexicalObject(sense)}>
                   <header>
                     <span>{posCode(sense.pos)}+</span>
                     <button
@@ -213,7 +220,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
                 </section>
               );
             })}
-          </div>
+          </div>}
 
           {constructions.length > 0 && (
             <section class="lexicalWordPatterns" aria-label="Word-level patterns and constructions">
@@ -225,7 +232,7 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
                 {constructions.map((item) => {
                   const target = repair(item.repair);
                   return (
-                    <article data-vocab-target-row data-vocab-construction-id={item.id} data-vocab-construction-sense-id={item.sense_id || undefined}>
+                    <article data-vocab-target-row data-vocab-learning-unit hidden={!isDefaultLexicalObject(item)} data-vocab-construction-id={item.id} data-vocab-construction-sense-id={item.sense_id || undefined}>
                       <b>{item.pattern}</b>
                       <div class="lexicalPatternText">
                         {(Array.isArray(item.lines) ? item.lines : []).map((line) => (
@@ -247,6 +254,8 @@ const identityOverlay = (sense) => sense?.identity_overlay && typeof sense.ident
               </div>
             </section>
           )}
+            </LayerTag>;
+          })}
           {referenceSenses.length > 0 && (
             <section class="lexicalExpansionSection" data-vocab-lookup-only hidden aria-label="Reference-only senses">
               <header><span>参考词义</span><small>Reference · Lookup</small></header>

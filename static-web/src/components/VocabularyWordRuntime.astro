@@ -4,7 +4,8 @@ const { answer = null } = Astro.props;
 ---
 {answer && <VocabularyWordMarkup answer={answer} />}
 <script>
-  import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, legacyEventId, reconcileEvidenceIdentity } from '../lib/lexicalEvidence.mjs';
+  import { initializeLexicalAttention, lexicalTargetIsVisible, resolveLexicalAttentionTargets } from '../lib/lexicalAttention.mjs';
+  import { LEXICAL_LEDGER_STORAGE_KEY, appendEvidenceEvent, compileRepairTargets, lexicalTargetKey, legacyEventId, reconcileEvidenceIdentity } from '../lib/lexicalEvidence.mjs';
   import { DEFAULT_PRONUNCIATION, LEXICAL_SETTINGS_STORAGE_KEY, normalizeLexicalSettings } from '../lib/lexicalSettings.mjs';
   import { learnerWriterReady } from '../lib/browserLearnerWriter.mjs';
   import { readBrowserLexicalLedger, writeBrowserLexicalLedger, lexicalBrowserStateReadable } from '../lib/lexicalBrowserState.mjs';
@@ -35,7 +36,9 @@ const { answer = null } = Astro.props;
     const repairButtons = [...root.querySelectorAll('[data-vocab-repair]')];
     // Keep every button in the DOM for strict historical-target resolution.
     // Navigation/admission operates only on targets visible in this mode.
-    const visibleRepairButtons = () => repairButtons.filter((button) => !button.closest('[hidden]'));
+    const visibleRepairButtons = () => repairButtons.filter(lexicalTargetIsVisible);
+    const attention = initializeLexicalAttention(root, mode);
+    const descriptor = { word_id: objectId, ordinal, source_hash: sourceHash, targets: repairButtons.map(button => ({ target_kind: button.getAttribute('data-target-kind'), target_id: button.getAttribute('data-target-id') || null, target_locator: button.getAttribute('data-target-locator') || null })) };
     const noteKey = `kianos-lexical-note-v1:${objectId}`;
     const noteDrawer = root.querySelector('[data-vocab-note-drawer]');
     const noteInput = root.querySelector('[data-vocab-note-input]');
@@ -72,6 +75,7 @@ const { answer = null } = Astro.props;
 
     state = { ...state, ...(readJson(storageKey, null) || {}) };
     if (!state.repairTargets || typeof state.repairTargets !== 'object') state.repairTargets = {};
+    const previousMeta = { ...state.meta };
     state.meta = { word_id: objectId, ordinal, word, source_hash: sourceHash };
 
     const previousTargets = { ...state.repairTargets };
@@ -85,9 +89,9 @@ const { answer = null } = Astro.props;
       for (const target of Object.values(previousTargets)) {
         if (!target || typeof target !== 'object' || target.source === 'evidence_reducer') continue;
         const migration = {
-          word_id: objectId,
-          ordinal,
-          word,
+          word_id: target.word_id || previousMeta.word_id || objectId,
+          ordinal: target.ordinal ?? previousMeta.ordinal ?? ordinal,
+          word: target.word || previousMeta.word || word,
           target_kind: target.target_kind || 'lexical',
           target_id: target.target_id || null,
           target_locator: target.target_locator || null,
@@ -109,9 +113,12 @@ const { answer = null } = Astro.props;
     }
     const activeTargets = compileRepairTargets(ledger).filter((target) => target.word_id === objectId);
     state.repairTargets = Object.fromEntries(activeTargets.map((target) => {
-      const key = target.target_id || `${target.target_kind}:${target.target_locator || ''}`;
+      const key = lexicalTargetKey(target);
       const previous = previousTargets[key] || {};
       return [key, {
+        word_id: target.word_id,
+        ordinal: target.ordinal,
+        word: target.word,
         target_kind: target.target_kind,
         target_id: target.target_id || null,
         target_locator: target.target_locator || null,
@@ -130,15 +137,34 @@ const { answer = null } = Astro.props;
       const id = button.getAttribute('data-target-id') || '';
       const locator = button.getAttribute('data-target-locator') || '';
       const label = button.getAttribute('data-target-label') || '';
-      const key = id || `${kind}:${locator}`;
+      const key = lexicalTargetKey({word_id:objectId,target_kind:kind,target_id:id,target_locator:locator,target_revision:id?null:sourceHash});
       return { key, kind, id, locator, label };
+    };
+
+    const targetMatchesButton = (target, button) => target.target_kind === button.getAttribute('data-target-kind') &&
+      (target.target_id ? target.target_id === button.getAttribute('data-target-id') : target.target_locator === button.getAttribute('data-target-locator'));
+    const selectionForButton = (button) => {
+      const result = resolveLexicalAttentionTargets(Object.values(state.repairTargets), descriptor);
+      return result.resolved.filter(target => targetMatchesButton(target, button))
+        .sort((a, b) => lexicalTargetKey(a).localeCompare(lexicalTargetKey(b)));
+    };
+    const identityBlocked = (button) => {
+      if (selectionForButton(button).length) return false;
+      const result = resolveLexicalAttentionTargets(Object.values(state.repairTargets), descriptor);
+      return result.unresolved.some(({target}) => targetMatchesButton(target, button) &&
+        (target.target_id || target.target_revision === sourceHash));
     };
 
     const save = (explicitMutation = false) => {
       if (readOnlyLookup && !explicitMutation) return;
       state.lastSeenAt = new Date().toISOString();
       state.meta = { word_id: objectId, ordinal, word, source_hash: sourceHash };
-      saveJson(storageKey, state);
+      // Keep the legacy cache key contract for existing English/Challenge writers.
+      // Only strictly resolved targets enter this actionable compatibility projection.
+      // Unresolved originals remain in the full identity map and immutable ledger.
+      const repairTargets = Object.fromEntries(resolveLexicalAttentionTargets(Object.values(state.repairTargets), descriptor).resolved.map(target =>
+        [target.target_id || `${target.target_kind}:${target.target_locator || ''}`, target]));
+      saveJson(storageKey, { ...state, repairTargets });
     };
 
     const render = () => {
@@ -146,18 +172,27 @@ const { answer = null } = Astro.props;
       if (front) front.hidden = Boolean(state.revealed);
       if (details) details.hidden = !state.revealed;
       root.querySelectorAll('[data-vocab-lookup-only]').forEach((node) => { node.hidden = mode !== 'lookup'; });
-      root.querySelectorAll('[data-vocab-secondary-explore-only], [data-vocab-sense-explore-only]').forEach((node) => { node.hidden = mode === 'study'; });
+      attention.render(Object.values(state.repairTargets), descriptor);
       const visibleButtons = visibleRepairButtons();
       selectedIndex = visibleButtons.length ? Math.min(selectedIndex, visibleButtons.length - 1) : -1;
       repairButtons.forEach((button) => {
         const target = targetFromButton(button);
-        const active = Boolean(state.repairTargets[target.key]);
-        const selectedRevision = active && !target.id ? state.repairTargets[target.key]?.target_revision : '';
-        if (selectedRevision) button.setAttribute('data-vocab-selected-target-revision', selectedRevision);
-        else button.removeAttribute('data-vocab-selected-target-revision');
+        const selected = selectionForButton(button);
+        const active = selected.length > 0;
+        const selectedTarget = selected[0];
+        const blocked = identityBlocked(button);
+        button.disabled = blocked;
+        if (blocked) button.setAttribute('data-vocab-identity-unresolved', '');
+        else button.removeAttribute('data-vocab-identity-unresolved');
+        for (const field of ['kind', 'id', 'locator', 'revision']) {
+          const attribute = `data-vocab-selected-target-${field}`;
+          if (selectedTarget) button.setAttribute(attribute, selectedTarget[`target_${field}`] || '');
+          else button.removeAttribute(attribute);
+        }
         button.classList.toggle('selected', active);
         button.setAttribute('aria-pressed', String(active));
-        button.textContent = active ? '✓' : '+';
+        button.setAttribute('aria-label', blocked ? '历史身份不一致；保留记录，暂不能操作此目标' : active ? `移出一个精确 Repair 记录；当前 ${selected.length} 个` : '加入 Repair');
+        button.textContent = active ? (selected.length > 1 ? `✓${selected.length}` : '✓') : '+';
         const row = button.closest('[data-vocab-target-row]');
         row?.classList.toggle('keyboard-target', selectedIndex >= 0 && visibleButtons[selectedIndex] === button);
         row?.classList.toggle('repair-selected', active);
@@ -170,6 +205,8 @@ const { answer = null } = Astro.props;
           : state.revealed ? (count ? `${count} Repair` : 'Scanned') : 'Ready';
       if (repairSummary) repairSummary.textContent = count ? `${count} 个具体分支处于 Repair 状态；已记录到当前学习状态。` : '当前没有加入 Repair 的分支。';
     };
+
+    root.querySelectorAll('[data-vocab-attention-layer], [data-vocab-repair-other]').forEach(node => node.addEventListener('toggle', () => { selectedIndex = -1; render(); }));
 
     const openCard = () => { state.revealed = true; save(false); render(); };
     reveal?.addEventListener('click', openCard);
@@ -211,10 +248,13 @@ const { answer = null } = Astro.props;
     }));
 
     const setRepair = (button, active) => {
-      if (!lexicalBrowserStateReadable() || !visibleRepairButtons().includes(button)) return;
+      if (!lexicalBrowserStateReadable() || !visibleRepairButtons().includes(button) || identityBlocked(button)) return;
       const target = targetFromButton(button);
+      const selected = selectionForButton(button)[0];
+      let evidenceTarget = selected;
       if (active) {
         state.repairTargets[target.key] = {
+          word_id: objectId, ordinal, word,
           target_kind: target.kind,
           target_id: target.id || null,
           target_locator: target.locator || null,
@@ -225,23 +265,25 @@ const { answer = null } = Astro.props;
           study_day: localStudyDay(),
           observed_at: new Date().toISOString()
         };
+        evidenceTarget = state.repairTargets[target.key];
       } else {
-        delete state.repairTargets[target.key];
+        if (selected) delete state.repairTargets[lexicalTargetKey(selected)];
       }
       save(true);
       render();
+      if (evidenceTarget) root.dispatchEvent(new CustomEvent('kianos:vocabulary-repair-toggle', { detail: { button, action: active ? 'ADDED' : 'CLEAR', target: { word_id: evidenceTarget.word_id, ordinal: evidenceTarget.ordinal, target_kind: evidenceTarget.target_kind, target_id: evidenceTarget.target_id || null, target_locator: evidenceTarget.target_locator || null, target_revision: evidenceTarget.target_revision || null } } }));
     };
 
     repairButtons.forEach((button) => button.addEventListener('click', (event) => {
       const index = visibleRepairButtons().indexOf(button);
-      if (index < 0) {
+      if (index < 0 || identityBlocked(button)) {
         event.preventDefault();
         event.stopImmediatePropagation();
         return;
       }
       selectedIndex = index;
       const target = targetFromButton(button);
-      setRepair(button, !state.repairTargets[target.key]);
+      setRepair(button, selectionForButton(button).length === 0);
     }));
 
     const selectByDelta = (delta) => {
