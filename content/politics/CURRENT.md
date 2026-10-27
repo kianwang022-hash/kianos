@@ -2,15 +2,15 @@
 
 Role: Politics engineering Work Cursor + BUILD / CONTROL router only. This file does not own learner progress or private learner state. 学习含义由 Learning 拥有；普通阅读/讨论走 Interaction §0 和 manifest，不用工程游标选课。
 
-## 当前状态：政治暂停（2026-10-19）
+## 当前状态：规则候选完善与只读主题研究（2026-10-27）
 
-本次只交付政治规则与入口修正：掌握要求、固定阅读稿/GPT/网页分工及旧游标冲突；正式采纳和准确远端保存以本次PR/版本核验记录为据，本文不独立证明交付。manifest沿用现有路径、角色和母规则引用，不改机器元数据。
+活动任务仍为 [PR #1298](https://github.com/kianwang022-hash/kianos/pull/1298)，准确 `rules_ref` / `content_ref` 见其说明；候选规则不冒充已在 main 生效。当前仅规则完善与只读主题研究，manifest 只窄修肖1000关系权威读取指针，不改路由算法。正式采纳和准确远端保存以原 PR 的版本核验记录为据，本文不独立证明交付。
 
-按用户最新指令，政治内容生产暂停。C03 v2仍是冻结、未通过的候选，既有源审、初稿和67道客观题/3道材料参考题诊断证据保留；它们不是用户成绩或内容采纳。C03样板、题检、网页修复均不自动恢复。只有用户后续明确恢复政治时才从真实缺口继续，不自动展开53章，不从旧STOP/Next接任务。
+史纲 C03 整稿、Prompt 与 HTML 暂缓；马原 C00 仅独立预览，不据此自动批量53章。旧马原 C03 v2 仍冻结、未通过，不复活；既有源审、初稿和67道客观题/3道材料参考题诊断证据保留，它们不是用户成绩或内容采纳。正式内容生产、题检和网页修复均不自动恢复；只有用户后续明确恢复相应范围时才从真实缺口继续，不从旧 STOP/Next 接任务。
 
 质量仍由母合同验收要求约束：未讲通、必要漏项未闭或复审未过就待修，不为推进降低标准。原模型/身份、有效知识/答案、Source及未决范围、原卡和学习记录、其他Chat并发成果保持。旧筛选/无residual结论只证明旧输入范围，不预定新证据结论。
 
-本次不改C03正式内容、卡、题键、学习记录或网页代码；不合并本次设定交付范围外的内容，不部署。暂停期间来源变化或新发现只记录影响，不能自行重开执行。
+本次不改政治教学正文、Prompt 内容、题面题键、精记/卡准入、学习记录或网页代码；不合并、不部署、不推 main。只读研究中的来源变化或新发现仅记录影响，不能自行重开内容生产。
 
 ### 已核但未修的网页记录边界
 
@@ -37,13 +37,19 @@ Visual → [Presentation](../../static-web/PRESENTATION_CONTRACT.md) + exact sur
 Runtime/evidence → [SYSTEM_CONTRACT.md](../../SYSTEM_CONTRACT.md) + exact native owner.
 
 
-## 后续获准恢复时的最短读取
+## 本任务版本选择与最短读取
 
-- 学习、材料与掌握要求：Learning §2 / §6.1；承载分工：§0.7。
-- 阅读、讨论与测试边界：Interaction §0。
-- typed内容及准入/历史兼容：Content Semantics §3.2。
-- 章/科目owner：learning/manifest.json → 精确subject/chapter。
-- 详细源审与验收仅按具体缺口读取，原报告不作为第二套规则。
+先读原活动任务 [PR #1298](https://github.com/kianwang022-hash/kianos/pull/1298) 说明中的准确 `rules_ref` / `content_ref`：规则沿同一候选版本读取，内容沿任务指定基线读取。不得从 main 旧 Current 或章节附录恢复已被本任务新规则覆盖的 Leg-only 限制；未指定候选的普通学习仍按 Interaction §0 选版本。
+
+按实际阶段只读所需规则，不复制全部标准：
+
+- 材料：[Learning §2](LEARNING_CONTRACT.md#2-active-first-round-learning-chain)。
+- 源核与主题：[Learning §3.1](LEARNING_CONTRACT.md#31-teaching-preparation-quality-and-admission) / [§3.1.2](LEARNING_CONTRACT.md#312-content-production-execution-loop--bounded-batches-chapter-closure-forward-progress)。
+- 掌握与承载：[Learning §6.1](LEARNING_CONTRACT.md#61-memory-admission-proactive-precision-with-source-bounded-scope) / [§0.7](LEARNING_CONTRACT.md#07-three-layer-learner-compression--build-it-while-learning)。
+- 连续阅读与复习：[Learning §3.1.1](LEARNING_CONTRACT.md#311-canonical-prepared-chapter-package--chat-consumes-not-regenerates) 及 [Interaction](INTERACTION_CONTRACT.md) 相应科目。
+- 内容验收：[Learning §3.1](LEARNING_CONTRACT.md#31-teaching-preparation-quality-and-admission) / [§3.2](LEARNING_CONTRACT.md#32-model-to-memory-preparation-completion)。
+- typed 准入/历史兼容：仅实际涉及才读 [Content Semantics §3.2](CONTENT_SEMANTICS_CONTRACT.md#32-model-to-memory-content-realization)。
+- 精确科目/章节 owner：[learning/manifest.json](learning/manifest.json)；原报告只作证据，不作第二套规则。
 
 ## 历史边界
 
